@@ -1,10 +1,12 @@
 ---
-name: Custom issue template
-about: Describe this issue template's purpose here.
+name: New Recipe
+about: A new recipe to add to the collection!
 title: ''
-labels: ''
+labels: 'new recipe'
 assignees: ''
 
 ---
 
+## Source
 
+<!--Where can this recipe be found? -->
