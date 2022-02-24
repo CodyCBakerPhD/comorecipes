@@ -1,6 +1,5 @@
 # Macaroni and Cheese
 
-
 ## Ingredients
 
 8 oz. elbow pasta
