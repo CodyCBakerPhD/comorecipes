@@ -1,38 +1,24 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "Schema of a recipe.",
-  "version": "0.0.1",
+  "$id": "https://example.com/arrays.schema.json",
   "type": "object",
+  "required": ["name", "ingredients"],
   "properties": {
-    "name": {
-      "type": "string"
-    },
+    "name": {"type": "string"},
     "ingredients": {
       "type": "array",
-      "items": {
-        "type": "object",
-        "allOf": [{"$ref": "#/$defs/ingredient"}],
-        "instructions": {
-          "name": {
-            "type": "string"
-          }
-        }
-      }
+      "items": {"$ref": "#/$defs/ingredient"}
+    },
+    "instructions": {"type": "string"}
   },
   "$defs": {
     "ingredient": {
       "type": "object",
       "required": ["amount", "unit", "name"],
       "properties": {
-        "amount": {
-          "type": "number",
-        },
-        "unit": {
-          "type": "string",
-        },
-        "name": {
-          "type": "string"
-        }
+        "amount": {"type": "number"},
+        "unit": {"type": "string"},
+        "name": {"type": "string"}
       }
     }
   }

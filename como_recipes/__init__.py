@@ -1,1 +1,1 @@
-from .register_recipes import available_recipes
+from .utils import load_recipe
