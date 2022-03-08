@@ -35,20 +35,27 @@ def rational_string_to_float(string: str):
 
 def load_recipe(file_path: FilePathType, include_instructions: bool = False):
     """Load recipe from markdown (.md) format."""
-    with open(file=file_path, mode="r") as file:
-        lines = file.readlines()
-    recipe_name = lines[0][2:-1]
-    instruction_line = lines.index("## Instructions\n")
+    lines = list()
+    with open(file=file_path) as file:
+        for line in file:
+            parsed_line = line.rstrip()
+            if parsed_line != "":
+                lines.append(parsed_line)
+
+    assert lines[0][:2] == "# ", "Markdown recipe does not begin with '# '."
+    assert lines[1] == "## Ingredients", "Markdown recipe does not have a section titled '## Ingredients'."
+    recipe_name = lines[0][2:]
+    instruction_line = lines.index("## Instructions")
+
     ingredients = []
-    for line in lines[5 : instruction_line - 2]:
-        if line != "\n":
-            ingredient_line = line.split(" ")
-            amount = rational_string_to_float(ingredient_line[0])
-            unit = ingredient_line[1]
-            name = ingredient_line[2:][-1][:-1]
-            ingredients.append(Ingredient(amount=amount, unit=unit, name=name))
+    for line in lines[2:instruction_line]:
+        ingredient_line = line.split(" ")
+        amount = rational_string_to_float(ingredient_line[0])
+        unit = ingredient_line[1]
+        name = " ".join(ingredient_line[2:])
+        ingredients.append(Ingredient(amount=amount, unit=unit, name=name))
 
     # Not necessary for planning tools
-    instructions = "".join(lines[instruction_line + 2 :]) if include_instructions else None
+    instructions = "".join(lines[instruction_line + 1 :]) if include_instructions else None
 
     return Recipe(name=recipe_name, ingredients=ingredients, instructions=instructions)
