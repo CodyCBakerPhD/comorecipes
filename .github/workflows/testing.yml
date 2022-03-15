@@ -7,14 +7,12 @@ jobs:
     steps:
       - name: Get current year-month
         id: date
-        run: echo "MY_DATE=$(date + %Y%m)" >> $GITHUB_ENV
+        run: echo "MY_DATE=$(date +%Y%m)" >> $GITHUB_ENV
       - uses: actions/cache@v2
         id: cache-venv
         with:
           path: ~/test_env
           key: ${{ runner.os }}-venv-${{ steps.date.outputs.date }}
-          restore-keys: |
-            ${{ runner.os }}-venv-
     
       - uses: actions/checkout@v2
         if: steps.cache-venv.outputs.cache-hit == false
