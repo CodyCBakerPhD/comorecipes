@@ -11,5 +11,5 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     url="https://github.com/CodyCBakerPhD/como-recipes",
-    install_requires=["natsort"],
+    install_requires=["natsort", "jsonschema"],
 )
