@@ -2,37 +2,34 @@ name: Installation
 on: pull_request
 jobs:
   run:
-    name: Install and run tests if non-markdown file changes
+    name: Install
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-
     steps:
-      - uses: actions/checkout@v2
+      - name: Get current year-month
+        id: date
+        run: echo "::set-output name=date::$(date+'%Y-%m')"
+      - uses: actions/cache@v2
+        id: cache-venv
         with:
-          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
-
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v17
-
-      - name: List all changed files
+          path: ~/test_env
+          key: ${{ runner.os }}-venv-${{ steps.date.outputs.date }}
+          restore-keys: |
+            ${{ runner.os }}-venv-
+    
+      - uses: actions/checkout@v2
+        if: steps.cache-venv.outputs.cache-hit == false
+      - if: steps.cache-venv.outputs.cache-hit == false
+        run: git fetch --prune --unshallow --tags
+      - name: Setup Python
+        if: steps.cache-venv.outputs.cache-hit == false
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install pytest
+        if: steps.cache-venv.outputs.cache-hit == false
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
-  
-#    name: Install
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: s-weigand/setup-conda@v1
-#      - uses: actions/checkout@v2
-#      - run: git fetch --prune --unshallow --tags
-#      - name: Setup Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.9
-#      - name: Install pytest
-#        run: |
-#          pip install --upgrade pip
-#          pip install .
+          pip install --upgrade pip
+          pip install .
+          pip install pytest
+      - name: Run Tests
+        run: pytest
