@@ -1,5 +1,9 @@
 """Package setup."""
 from setuptools import setup, find_packages
+from pathlib import Path
+
+with open(Path(path) / "requirements-minimal.txt") as file:
+    install_requires = file.readlines()
 
 setup(
     name="como_recipes",
@@ -11,5 +15,5 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     url="https://github.com/CodyCBakerPhD/como-recipes",
-    install_requires=["natsort"],
+    install_requires=install_requires,
 )
