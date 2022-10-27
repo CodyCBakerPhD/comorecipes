@@ -10,9 +10,9 @@ FilePathType = Union[str, Path]
 class Ingredient:
     """Machine-readable format for a single ingredient in a recipe."""
 
+    name: str
     amount: float
     unit: float
-    name: str
 
 
 @dataclass
