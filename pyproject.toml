@@ -18,3 +18,8 @@ extend-exclude = '''
   | dist
 )/
 '''
+
+[tool.isort]
+profile = "black"
+reverse_relative = true
+known_first_party = ["como_recipes"]
