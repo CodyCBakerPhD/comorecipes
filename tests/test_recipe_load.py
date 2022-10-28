@@ -1,7 +1,8 @@
-import jsonschema
 import json
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
+
+import jsonschema
 from jsonschema import ValidationError
 
 from como_recipes import load_recipe

@@ -1,6 +1,6 @@
 """Test recipe loading."""
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
 
 
 class TestRecipeLoad(TestCase):

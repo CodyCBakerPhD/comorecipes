@@ -1,7 +1,7 @@
 """Collection of help functions."""
-from pathlib import Path
-from typing import Union, Optional, List
 from dataclasses import dataclass
+from pathlib import Path
+from typing import List, Optional, Union
 
 FilePathType = Union[str, Path]
 
