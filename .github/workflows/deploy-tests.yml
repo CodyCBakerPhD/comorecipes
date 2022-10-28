@@ -11,6 +11,8 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
 
   pre-commit:
+    strategy:
+      fail-fast: false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -28,7 +30,7 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git commit -m "pre-commit" -a
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: ad-m/github-push-action@v0.6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
