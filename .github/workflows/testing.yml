@@ -14,10 +14,10 @@ jobs:
         id: cache-virtualenv
         with:
           custom_cache_key_element: 1
-      - if: steps.cache-virtualenv.outputs.cache-hit == false
+      - if: steps.cache-virtualenv.outputs.cache-hit == 'true'
         uses: syphar/restore-pip-download-cache@v1
 
-      - if: steps.cache-virtualenv.outputs.cache-hit == false
+      - if: steps.cache-virtualenv.outputs.cache-hit != 'true'
         name: Install package and pytest
         run: |
           pip install --upgrade pip
