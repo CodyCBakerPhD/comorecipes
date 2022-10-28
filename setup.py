@@ -6,7 +6,7 @@ root = Path(__file__).parent
 with open(root / "README.md") as f:
     long_description = f.read()
     
-with open(root / "requirements-minimal.txt") as file:
+with open(root / "requirements.txt") as file:
     install_requires = file.readlines()
 
 setup(
