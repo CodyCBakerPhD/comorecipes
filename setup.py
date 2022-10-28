@@ -10,7 +10,7 @@ with open(root / "requirements.txt") as file:
     install_requires = file.readlines()
 
 setup(
-    name="como_recipes",
+    name="como-recipes",
     version="0.1.0",
     description="Collection of recipes and meal planning software for our household.",
     long_description=long_description,
