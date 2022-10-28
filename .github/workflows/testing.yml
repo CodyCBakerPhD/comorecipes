@@ -12,11 +12,13 @@ jobs:
 
       - uses: syphar/restore-virtualenv@v1
         id: cache-virtualenv
-      - uses: syphar/restore-pip-download-cache@v1
-        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
+        with:
+          custom_cache_key_element: 1
+      - if: steps.cache-virtualenv.outputs.cache-hit == false
+        uses: syphar/restore-pip-download-cache@v1
 
-      - name: Install package and pytest
-        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
+      - if: steps.cache-virtualenv.outputs.cache-hit == false
+        name: Install package and pytest
         run: |
           pip install --upgrade pip
           pip install -e .
