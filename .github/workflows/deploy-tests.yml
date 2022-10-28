@@ -32,12 +32,12 @@ jobs:
         pip install pre-commit
         pre-commit install
     - name: Run pre-commit
-      run: pre-commit run --all-files || true
+      run: pre-commit run --all-files || true # `|| true` to not fail when something requires changing
     - name: Commit files
-      run: |
+      run: | # `|| true` below to skip if nothing changed from pre-commit
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git commit -m "pre-commit" -a
+        git commit -m "pre-commit" -a || true
 
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
