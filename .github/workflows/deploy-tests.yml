@@ -1,0 +1,47 @@
+name: Deploy tests
+
+on:
+  pull_request:
+
+jobs:
+  cancel-previous-runs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.head_ref }}
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+        fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+    - name: Set cache hash
+      run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
+    - name: Cache pre-commit
+      id: cache-pre-commit
+      uses: actions/cache@v1
+      with:
+        path: ~/.cache/pre-commit
+        key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+    - if: steps.cache-pre-commit.outputs.cache-hit == false
+      name: Install pre-commit
+      run: |
+        pip install pre-commit
+        pre-commit install
+    - name: Run pre-commit
+      run: pre-commit run --all-files || true # `|| true` to not fail when something requires changing
+    - name: Commit files
+      run: | # `|| true` below to skip if nothing changed from pre-commit
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "pre-commit" -a || true
+
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.API_TOKEN_GITHUB }}
+        branch: ${{ github.head_ref }}
+        force: true
