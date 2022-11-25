@@ -1,5 +1,4 @@
-# Macaroni and Cheese
-
+# Macaroni and Cheese (American)
 
 ## Ingredients
 
