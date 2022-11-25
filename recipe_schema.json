@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/arrays.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "ingredients"],
+  "properties": {
+    "name": {"type": "string"},
+    "ingredients": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/ingredient"}
+    },
+    "instructions": {"type": "string"},
+    "cuisine": {"type": "string"}
+  },
+  "$defs": {
+    "ingredient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["amount", "unit", "name"],
+      "properties": {
+        "amount": {"type": "number"},
+        "unit": {"type": "string"},
+        "name": {"type": "string"}
+      }
+    }
+  }
+}
