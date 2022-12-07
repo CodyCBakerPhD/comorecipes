@@ -10,7 +10,7 @@ on:
 
 env:
   planned: Planned
-  in_progress: In Progress ✏️
+  in_progress: "In Progress :pencil2:"
 
 jobs:
   issue_opened:
