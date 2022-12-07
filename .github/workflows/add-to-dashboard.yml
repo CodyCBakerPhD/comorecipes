@@ -22,7 +22,7 @@ jobs:
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         with:
           gh_token: ${{ secrets.API_TOKEN_GITHUB }}
-          organization: CodyCBakerPhD
+          user: CodyCBakerPhD
           project_id: 1
           resource_node_id: ${{ github.event.issue.node_id }}
           status_value: ${{ env.planned }}
@@ -35,7 +35,7 @@ jobs:
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         with:
           gh_token: ${{ secrets.API_TOKEN_GITHUB }}
-          organization: CodyCBakerPhD
+          user: CodyCBakerPhD
           project_id: 1
           resource_node_id: ${{ github.event.pull_request.node_id }}
           status_value: ${{ env.in_progress }}
