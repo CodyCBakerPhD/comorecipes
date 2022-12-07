@@ -10,7 +10,7 @@ on:
 
 env:
   planned: Planned
-  in_progress: Done ✏️
+  in_progress: In Progress ✏️
 
 jobs:
   issue_opened:
