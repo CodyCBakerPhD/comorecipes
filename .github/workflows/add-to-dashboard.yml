@@ -21,7 +21,7 @@ jobs:
       - name: Add Issue to Dashboard
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         with:
-          gh_token: ${{ secrets.MY_GITHUB_TOKEN }}
+          gh_token: ${{ secrets.API_TOKEN_GITHUB }}
           organization: CodyCBakerPhD
           project_id: 1
           resource_node_id: ${{ github.event.issue.node_id }}
@@ -34,7 +34,7 @@ jobs:
       - name: Add PR to Dashboard
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         with:
-          gh_token: ${{ secrets.MY_GITHUB_TOKEN }}
+          gh_token: ${{ secrets.API_TOKEN_GITHUB }}
           organization: CodyCBakerPhD
           project_id: 1
           resource_node_id: ${{ github.event.pull_request.node_id }}
