@@ -14,7 +14,7 @@
 
 ## Instructions
 
-Combine cocoa, butter, and condensed milk in a medium saucepain over medium heat.
+Combine cocoa, butter, and condensed milk in a medium saucepan over medium heat.
 
 Cook and stir until thickened, about 10 minutes.
 
