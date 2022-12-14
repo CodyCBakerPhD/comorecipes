@@ -1,4 +1,4 @@
-# Macaroni and Cheese (American)
+# Strawberry Jam (American)
 
 ## Ingredients
 
