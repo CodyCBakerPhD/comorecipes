@@ -2,17 +2,17 @@
 
 ## Ingredients
 
-187.5 g. butter, room temperature 
+187.5 g. butter, room temperature
 
-187.5 g. sugar 
+187.5 g. sugar
 
-3  beaten eggs, room temperature 
+3  beaten eggs, room temperature
 
-187.5 g. cake flour 
+187.5 g. cake flour
 
-1  tsp. baking powder 
+1  tsp. baking powder
 
-25 ml. milk 
+25 ml. milk
 
 1  tsp. vanilla extract
 
