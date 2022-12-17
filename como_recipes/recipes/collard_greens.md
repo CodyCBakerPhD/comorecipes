@@ -27,4 +27,4 @@ Heat oil in very large pot over medium heat.
 
 Add onion, cook until tender. Add garlic. Add collard greens, fry until they wilt.
 
-Pour in broth, season with spices. Reduce heat to low, cover, and simmer for 45 minutes or until tender. 
+Pour in broth, season with spices. Reduce heat to low, cover, and simmer for 45 minutes or until tender.
