@@ -2,19 +2,19 @@
 
 ## Ingredients
 
-3/2  cups oats 
+3/2  cups oats
 
-2/3  cup Nutella 
+2/3  cup Nutella
 
-1/2  cu. shredded coconut 
+1/2  cu. shredded coconut
 
-1/2  cup honey 
+1/2  cup honey
 
-1/2  cup roasted hazelnuts 
+1/2  cup roasted hazelnuts
 
-2  tsp. vanilla extract 
+2  tsp. vanilla extract
 
-1/4  tsp. salt 
+1/4  tsp. salt
 
 
 
