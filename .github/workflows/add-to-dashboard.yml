@@ -9,7 +9,7 @@ on:
       - opened
 
 env:
-  planned: Planned
+  planned: Planned 💬
   in_progress: In Progress ✏
 
 jobs:
