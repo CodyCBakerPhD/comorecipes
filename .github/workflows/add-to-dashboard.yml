@@ -1,0 +1,41 @@
+name: Add Issue or PR to Dashboard
+
+on:
+  issues:
+    types: opened
+
+  pull_request:
+    types:
+      - opened
+
+env:
+  planned: Planned 💬
+  in_progress: In Progress ✏
+
+jobs:
+  issue_opened:
+    name: Add Issue to Dashboard
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues'
+    steps:
+      - name: Add Issue to Dashboard
+        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
+        with:
+          gh_token: ${{ secrets.API_TOKEN_GITHUB }}
+          user: CodyCBakerPhD
+          project_id: 1
+          resource_node_id: ${{ github.event.issue.node_id }}
+          status_value: ${{ env.planned }}
+  pr_opened:
+    name: Add PR to Dashboard
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    steps:
+      - name: Add PR to Dashboard
+        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
+        with:
+          gh_token: ${{ secrets.API_TOKEN_GITHUB }}
+          user: CodyCBakerPhD
+          project_id: 1
+          resource_node_id: ${{ github.event.pull_request.node_id }}
+          status_value: ${{ env.in_progress }}
