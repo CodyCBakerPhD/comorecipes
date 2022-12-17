@@ -16,7 +16,7 @@
 
 1/2 cup flour
 
-1/2 tsp. salt
+1/4 tsp. salt
 
 
 
