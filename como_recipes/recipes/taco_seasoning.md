@@ -2,7 +2,6 @@
 
 ## Ingredients
 
-1  cup flour
 
 1/4  tsp. garlic powder
 
@@ -14,7 +13,7 @@
 
 1/2  tsp. paprika
 
-1.2  tsp. cumin
+3/2 tsp. cumin
 
 1/2  tsp. salt
 
