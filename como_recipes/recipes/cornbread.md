@@ -4,7 +4,7 @@
 
 1/4 cup butter
 
-1/3 cup sugar
+1/6 cup sugar
 
 1 egg
 
