@@ -4,7 +4,7 @@
 
 1 tsp. sesame oil
 
-1 tbsp. ginger, minced
+1/2 tbsp. ginger, minced
 
 2 cloves garlic, minced
 
