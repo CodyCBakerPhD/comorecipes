@@ -8,7 +8,7 @@
 
 1 tsp. sugar or honey
 
-~10 oz. flour
+9 oz. flour
 
 1 tsp. salt
 
