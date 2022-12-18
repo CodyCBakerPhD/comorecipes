@@ -16,9 +16,9 @@
 
 ## Instructions
 
-Pulse flour, sugar and salt in food processor to combine. Add cold shortening and pulse until pea-size pieces remain. 
+Pulse flour, sugar and salt in food processor to combine. Add cold shortening and pulse until pea-size pieces remain.
 
-Transfer to bowl and cover, refrigerate for at least 30 minutes. Drizzle ice water over mixture and mix thoroughly with hands. 
+Transfer to bowl and cover, refrigerate for at least 30 minutes. Drizzle ice water over mixture and mix thoroughly with hands.
 
 Divide in half, press into discs and store back in the refrigerator for at least 1 hour.
 
