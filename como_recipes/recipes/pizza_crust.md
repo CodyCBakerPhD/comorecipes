@@ -1,0 +1,20 @@
+# Pizza Crust (American)
+
+## Ingredients
+
+1 cup water
+
+1 tbsp. yeast
+
+Handful of sugar or honey
+
+~10 oz. flour
+
+1 tsp. salt
+
+
+## Instructions
+
+Activate yeast. Mix in flour and salt until good consistency. Knead for 3 minutes. Place in oiled rising container. Set timer for 40 minutes and let rise in warm spot. 
+
+Preheat oven to 400 F. Press into shape and top. Brush sides with truffle oil and seasoning. Bake for around 13 minutes.
