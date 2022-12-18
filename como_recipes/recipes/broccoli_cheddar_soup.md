@@ -24,6 +24,6 @@
 
 In pot, melt butter over medium heat. Cook onion until softened. Stir in broccoli and cover with not-chicken broth. Simmer until tender, 10-15 minutes.
 
-Reduce heat and stir in cheese cubes until melted. Mix in milk and garlic powder. In a small bowl, stir cornstarch into water until dissolved. 
+Reduce heat and stir in cheese cubes until melted. Mix in milk and garlic powder. In a small bowl, stir cornstarch into water until dissolved.
 
 Stir mixture into soup, cook, stirring frequently, until thick.
