@@ -42,4 +42,3 @@ Icing:
 Batter: Preheat to 350 F, spray pan. Mix oil and sugar well. Add eggs and vanilla, just barely blend in. Mix all dry ingredients separately, stir into oil mixture. Bake around 25 minutes.
 
 Icinig: Do not forget to sift dry ingredients. Melt butter in saucepan. Add sifted cocoa and remove pan from heat. Stir in sifted powdered sugar and other ingredients, saving vanilla for last to keep it smooth.
-
