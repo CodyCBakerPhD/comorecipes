@@ -6,7 +6,7 @@
 
 1 tbsp. yeast
 
-Handful of sugar or honey
+1 tsp. sugar or honey
 
 ~10 oz. flour
 
