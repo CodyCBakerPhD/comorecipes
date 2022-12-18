@@ -16,7 +16,7 @@ Handful of sugar or honey
 
 ## Instructions
 
-Preheat oven to 400 F. Activate yeast.
+Preheat oven to 400 °F. Activate yeast.
 
 Mix in oil and flour and salt until good consistency. Roll out into shape (make sure the rolls are appropriately sized for rising) and let rise for 40 minutes.
 
