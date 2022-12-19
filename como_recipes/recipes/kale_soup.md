@@ -29,6 +29,6 @@ Salt and pepper to taste
 
 Heat olive oil in a large soup pot. Cook the onion and garlic until soft. Stir in the kale and cook until wilted (about 2 minutes).
 
-Stir in the water, bouillon, tomatoes, potatoes, beans, Italian seasoning, parsley. 
+Stir in the water, bouillon, tomatoes, potatoes, beans, Italian seasoning, parsley.
 
 Simmer soup on medium heat for 25 minutes, or until potatoes are cooked through. Season with salt and pepper to taste.
