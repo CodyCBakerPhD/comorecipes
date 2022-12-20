@@ -4,7 +4,7 @@
 
 2.5 lb sugar pumpkin
 
-Coconut oil
+1 tbsp. coconut oil
 
 ## Instructions
 
