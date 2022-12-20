@@ -12,7 +12,7 @@
 
 1/2 tsp. salt
 
-1-3 cups flour
+2 cups flour
 
 ## Instructions
 
