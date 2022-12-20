@@ -22,7 +22,7 @@
 
 2 tbsp. dried parsley
 
-Salt and pepper to taste
+1 tsp. Salt and pepper
 
 
 ## Instructions
