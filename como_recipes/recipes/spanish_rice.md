@@ -10,13 +10,13 @@
 
 1 cup long grain brown rice
 
-Salt and pepper
+1 tsp. salt and pepper
 
 5/2 cups not-chicken broth
 
-Fresh thyme
+2 sprigs of thyme
 
-Fresh parsely
+1 tbsp. parsley
 
 
 ## Instructions
