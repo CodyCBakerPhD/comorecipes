@@ -2,7 +2,7 @@
 
 ## Ingredients
 
-2-3 lb sugar pumpkin
+2.5 lb sugar pumpkin
 
 Coconut oil
 
