@@ -10,7 +10,7 @@
 
 1 ripe banana
 
-Dash of salt
+1/8 tsp. of salt
 
 1/2 tsp. baking soda
 
