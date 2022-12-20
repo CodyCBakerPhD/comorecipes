@@ -2,7 +2,7 @@
 
 ## Ingredients
 
-Kaiser rolls
+1 batch of Kaiser Rolls
 
 1 lb ground beef or Boca crumbles
 
