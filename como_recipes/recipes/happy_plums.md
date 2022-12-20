@@ -21,7 +21,7 @@
 
 ## Instructions
 
-Preheat oven to 350° F. Cut plums in half and remove the pits. Coat baking pan with oil. Brush plums with oile, then sprinkle a thin layer of sugar on each. Bake for 20 minutes.
+Preheat oven to 350° F. Cut plums in half and remove the pits. Coat baking pan with oil. Brush plums with oil, then sprinkle a thin layer of sugar on each. Bake for 20 minutes.
 
 In a pot, combine basalmic vinegar and rosemary (Note: basalmic syrup is very stinky, ventilate well). Bring the mixture to a boil and lower to a simmer, reducing for about 8 minutes.
 
