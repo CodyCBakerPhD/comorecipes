@@ -14,6 +14,8 @@
 
 6 cubes of vegetable bouillon
 
+15 oz. stewed tomatoes
+
 6 white potatoes, cubed
 
 30 oz cannellini beans (two 15 oz. cans), drained
