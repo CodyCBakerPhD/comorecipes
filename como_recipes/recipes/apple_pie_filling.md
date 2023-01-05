@@ -34,4 +34,4 @@ Drain and reserve liquid in a small saucepan; bring liquid to simmer and reduce 
 
 Pour over apples and toss to combine. Pour into pie crust and seal. Sprinkle with raw sugar.
 
-Bake to pie crust instructions. 
+Bake to pie crust instructions.
