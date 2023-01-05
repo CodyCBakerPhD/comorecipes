@@ -2,7 +2,7 @@
 
 ## Ingredients
 
-~1 lb pork shoulder
+1 lb. pork shoulder
 
 1 tbsp. oregano
 
