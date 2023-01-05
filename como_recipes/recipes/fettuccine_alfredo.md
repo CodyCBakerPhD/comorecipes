@@ -2,7 +2,6 @@
 
 ## Ingredients
 
-8 oz. elbow pasta
 
 3 eggs worth of fettuccine noodles
 
