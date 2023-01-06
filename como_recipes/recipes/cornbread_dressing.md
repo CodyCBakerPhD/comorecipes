@@ -21,7 +21,7 @@
 
 ## Instructions
 
-Make cornbread 1-2 days in advance, crumble and leave to dry. Melt butter and saute celery and onion until soft. 
+Make cornbread 1-2 days in advance, crumble and leave to dry. Melt butter and saute celery and onion until soft.
 
 Combine with cornbread. If not stuffing into turkey, then incorporate stock and spices. If stuffing, only incorporate the spices.
 
