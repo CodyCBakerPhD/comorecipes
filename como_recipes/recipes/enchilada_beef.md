@@ -4,7 +4,7 @@
 
 24 oz. chuck roast
 
-2-3 heaping spoonfuls of flour
+3 tbsp. flour
 
 2 tbsp. extra virgin olive oil
 
