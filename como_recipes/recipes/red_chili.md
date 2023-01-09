@@ -20,7 +20,7 @@
 
 1 can black beans
 
-1 tbsp olive oil
+1 tbsp peanut oil
 
 
 ## Instructions
