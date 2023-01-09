@@ -1,6 +1,6 @@
 # Enchilada Beef (Mexican)
 
-### Ingredients
+## Ingredients
 
 24 oz. chuck roast
 
@@ -16,7 +16,7 @@
 
 
 
-### Instructions
+## Instructions
 
 Dredge meat in flour and pepper. Brown in skillet.
 
