@@ -1,6 +1,6 @@
 # Stir Fry (Asian)
 
-### Ingredients
+## Ingredients
 
 1 serving rice
 
@@ -32,7 +32,7 @@
 
 
 
-### Instructions
+## Instructions
 
 Meat: cut into thin strips and fry in separate pan without onions/garlic
 Tofu: get extra-firm and deep fry covered in cornstarch
