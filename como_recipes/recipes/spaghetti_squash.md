@@ -18,4 +18,4 @@ Coat with oil and season.
 
 Place face down on baking sheet lined with aluminum foil.
 
-Bake for 40 minutes at 325 °F.
+Bake for 40 minutes at 375 °F.
