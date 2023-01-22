@@ -18,7 +18,7 @@
 
 1/2 cup flour
 
-Handful of chocolate chips
+3 tbsp. chocolate chips
 
 
 
