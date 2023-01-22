@@ -16,6 +16,6 @@ Cut and clean inside of squash.
 
 Coat with oil and season.
 
-Place face down on baking sheet ligned with aluminum foil.
+Place face down on baking sheet lined with aluminum foil.
 
 Bake for 40 minutes at 325 °F.
