@@ -8,7 +8,7 @@
 
 1/2 cup dark chili powder
 
-15 oz. can tomoato sauce
+15 oz. can tomato sauce
 
 3 cups water
 
