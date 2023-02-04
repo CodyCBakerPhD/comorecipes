@@ -4,6 +4,8 @@
 
 1 full pie crust
 
+1 serving of firm tofu
+
 2 tbsp. butter
 
 1/2 medium yellow onions, finely chopped
@@ -37,6 +39,8 @@
 Make pie crust well ahead of time, make sure it's cold in the fridge.
 
 Preheat oven to 400 °F.
+
+Firm up tofu even more by halving and baking for 10 minutes on parchment paper.
 
 Melt butter in heavy bottomed saucepan. When it foams, add onions and carrots and cook for 1-2 minutes.
 
