@@ -14,6 +14,8 @@
 
 1 small russet potato, peeled and diced
 
+2 tsp. salt and pepper
+
 1/4 cup flour
 
 1 cup not-chicken broth
@@ -26,7 +28,7 @@
 
 1/8 cup parsley
 
-1 tbsp. white vinegar
+2 tbsp. white vinegar
 
 2 tsp. water
 
