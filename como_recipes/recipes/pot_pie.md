@@ -56,4 +56,4 @@ Remove from heat, add peas, herbs, and vinegar. Stir to coat. Season well with s
 
 Place bottom half of pie crust in dish, fill with mixture. Cover with other half and seal tightly. Whisk water and egg yolk, then wash the top. Cut slits in top to vent.
 
-Bake for 25-30 minutes. Let sit at least 5 minutes before serving.
+Bake for 30 minutes. Let sit at least 5 minutes before serving.
