@@ -6,6 +6,8 @@
 
 4 individual not-chicken tenders
 
+2 cups buttermilk
+
 
 
 ## Instructions
