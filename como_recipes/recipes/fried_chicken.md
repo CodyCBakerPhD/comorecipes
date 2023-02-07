@@ -6,6 +6,8 @@
 
 2 large chicken breasts
 
+2 cups buttermilk
+
 
 
 ## Instructions
