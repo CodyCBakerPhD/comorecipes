@@ -14,8 +14,8 @@
 
 Thoroughly rinse and pre-soak rice for 15 minutes.
 
-Add everything to a covered pot, bring to boil.
+Add everything to a covered pot, bring to boil over medium-high heat (takes around 3 minutes).
 
-Immediately reduce to simmer.
+Immediately reduce to second lowest heat level for around 20 minutes.
 
 When water is evaporated, check rice to ensure it's not crunchy or soggy.
