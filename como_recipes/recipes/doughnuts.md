@@ -2,7 +2,7 @@
 
 ## Ingredients
 
-1/2 o.z activate dry yeast
+1/4 o.z activate dry yeast
 
 1/4 cup warm water
 
