@@ -6,7 +6,7 @@
 
 1 tbsp. olive oil
 
-4 gloves garlic
+4 cloves garlic
 
 1/3 white onion
 
