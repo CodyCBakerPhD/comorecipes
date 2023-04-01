@@ -1,0 +1,30 @@
+# Sourdough (American)
+
+## Ingredients
+
+260 g. bread flour
+
+1 tsp. salt
+
+45-60 g. yeast start
+
+200 g. water
+
+
+## Instructions
+
+Begin process the morning of the day before intended dinner.
+
+Mix flour and salt.
+
+Mix yeast into water until cloudy.
+
+Combine wet and dry mixtures with a fork to start, then wooden spoon.
+
+Gently fold 2-3 times every 15 minutes.
+
+Let rise at room temperature all day.
+
+Refridgerate overnight. Score the dough before baking.
+
+Bake in dutch oven covered for 20 minutes 500° F, then uncover for another 10-15 minutes.
