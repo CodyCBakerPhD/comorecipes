@@ -1,4 +1,4 @@
-# Red Chili (American)
+# Black Bean Chili (American)
 
 ## Ingredients
 
