@@ -6,7 +6,7 @@
 
 1 tsp. salt
 
-45-60 g. yeast start
+60 g. yeast start
 
 200 g. water
 
