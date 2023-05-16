@@ -1,8 +1,8 @@
-name: Installation
+name: Test Installation and Check Recipes
 on: pull_request
 jobs:
   run:
-    name: Install
+    name: Test Install and Check Recipes
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
