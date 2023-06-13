@@ -16,7 +16,7 @@
 
 1/4 cup parsley
 
-6/5 cups fresh Parmesan
+1 cup fresh Parmesan
 
 
 
