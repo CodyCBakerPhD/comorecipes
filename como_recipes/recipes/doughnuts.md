@@ -16,11 +16,11 @@
 
 1/6 cup shortening
 
-3/2 cups all-purpose flour
+5/2 cups all-purpose flour
 
 1 qt. vegetable oil
 
-1/12 cup butter
+1/6 cup butter
 
 1 cups powdered sugar
 
