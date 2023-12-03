@@ -25,6 +25,6 @@ Gently fold 2-3 times every 15 minutes.
 
 Let rise at room temperature all day.
 
-Refridgerate overnight. Score the dough before baking.
+Refridgerate overnight. Slash scores into the top of dough before baking.
 
 Bake in dutch oven covered for 20 minutes 500° F, then uncover for another 10-15 minutes.
