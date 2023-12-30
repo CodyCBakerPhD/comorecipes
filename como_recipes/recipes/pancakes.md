@@ -2,21 +2,21 @@
 
 ## Ingredients
 
-1/2  cup flour
+1  cup flour
 
-1  tbsp. sugar
+2  tbsp. sugar
 
-1/2  tsp. baking powder
+1  tsp. baking powder
 
-1/4  tsp. baking soda
+1/2  tsp. baking soda
 
-1/4  tsp. salt
+1/2  tsp. salt
 
-1/2  egg
+1  egg
 
-1  tbsp. butter
+2  tbsp. butter
 
-1/2  cup buttermilk
+1  cup buttermilk
 
 
 
