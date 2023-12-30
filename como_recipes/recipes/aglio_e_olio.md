@@ -30,7 +30,7 @@ Add garlic and cook for 1-2 minutes, stirring frequently until it just turns gol
 
 Add red pepper and cook 30 seconds more.
 
-Carefully add resered pasta water and bring to boil.
+Carefully add reserved pasta water and bring to boil.
 
 Lower heat and simmer for 5 minutes, until liquid is reduced by about a third.
 
