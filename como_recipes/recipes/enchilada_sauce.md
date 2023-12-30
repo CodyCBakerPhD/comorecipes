@@ -2,23 +2,23 @@
 
 ## Ingredients
 
-1/2 cup vegetable oil
+1/4 cup vegetable oil
 
-1/4 cup flour
+1/8 cup flour
 
-1/2 cup dark chili powder
+1/4 cup dark chili powder
 
-15 oz. can tomato sauce
+8 oz. can tomato sauce
 
-3 cups water
+3/2 cups water
 
-1/2 tsp. cumin
+1/4 tsp. cumin
 
-1/2 tsp. garlic powder
+1/4 tsp. garlic powder
 
-1/2 tsp. onion powder
+1/4 tsp. onion powder
 
-1/4 tsp. salt
+1/8 tsp. salt
 
 
 
@@ -32,4 +32,4 @@ Reduce heat to medium-low and gradually incorporate other spices.
 
 Cook about 10-20 minutes until desired consistency.
 
-Makes enough sauce for 4 personal pans (two tortillas each) or 2 large pans (about 4-6 tortillas each).
+Makes enough sauce for 2 personal pans (two tortillas each) or 1 large pans (about 4-6 tortillas each).
