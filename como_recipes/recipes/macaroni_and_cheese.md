@@ -10,9 +10,7 @@
 
 2 cups of any combination between 2% milk (for thin consistency) and heavy cream (very thick texture)
 
-4 oz. English aged cheddar
-
-2 oz. Swiss grueyere
+7 oz. English aged cheddar
 
 3/4 tsp. salt
 
