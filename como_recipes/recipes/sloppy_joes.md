@@ -12,7 +12,7 @@
 
 2 tsp. yellow mustard
 
-3/4 cup ketchup
+1/2 cup ketchup
 
 3 tsp. brown sugar
 
