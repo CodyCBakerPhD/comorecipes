@@ -1,4 +1,4 @@
-# Chocolate Fudge #1 (American)
+# Chocolate Fudge (American)
 
 ## Ingredients
 
