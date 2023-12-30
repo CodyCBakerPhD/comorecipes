@@ -10,7 +10,7 @@ on:
 
 jobs:
   add-to-project:
-    name: Add issue or pull request to project
+    name: Add to project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@v0.5.0
