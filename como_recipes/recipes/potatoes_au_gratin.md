@@ -12,8 +12,6 @@
 
 3 tbsp. flour
 
-1/2 tsp. salt
-
 2 cups whole milk
 
 3/2 cup cheddar
