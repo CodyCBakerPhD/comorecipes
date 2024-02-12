@@ -46,9 +46,14 @@ def load_recipe(file_path: FilePathType, include_instructions: bool = False) -> 
     assert lines[0][:2] == "# ", "Markdown recipe does not begin with '# '."
     assert lines[1] == "## Ingredients", "Markdown recipe does not have a section titled '## Ingredients'."
 
-    recipe_name_and_cuisine_split = lines[0][2:].split("(")
-    recipe_name = recipe_name_and_cuisine_split[0].rstrip(" ")
-    recipe_cuisine = recipe_name_and_cuisine_split[1].rstrip(")") if len(recipe_name_and_cuisine_split) == 2 else None
+    recipe_name_and_cuisine_line = lines[0][2:]
+    if "(" in recipe_name_and_cuisine_line:
+        recipe_name, cuisine = recipe_name_and_cuisine_line.split("(")
+        cuisine = cuisine.rstrip(")")
+    else:
+        recipe_name = recipe_name_and_cuisine_line
+        cuisine = None
+    recipe_name = recipe_name.rstrip(" ")
 
     instruction_line = lines.index("## Instructions")
 
@@ -63,4 +68,4 @@ def load_recipe(file_path: FilePathType, include_instructions: bool = False) -> 
     # Not necessary for planning tools
     instructions = "".join(lines[instruction_line + 1 :]) if include_instructions else None
 
-    return Recipe(name=recipe_name, cuisine=recipe_cuisine, ingredients=ingredients, instructions=instructions)
+    return Recipe(name=recipe_name, cuisine=cuisine, ingredients=ingredients, instructions=instructions)

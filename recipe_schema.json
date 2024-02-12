@@ -11,7 +11,7 @@
       "items": {"$ref": "#/$defs/ingredient"}
     },
     "instructions": {"type": "string"},
-    "cuisine": {"type": "string"}
+    "cuisine": {"type": ["string", "null"]}
   },
   "$defs": {
     "ingredient": {
