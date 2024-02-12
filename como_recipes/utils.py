@@ -46,7 +46,7 @@ def load_recipe(file_path: FilePathType, include_instructions: bool = False) -> 
     assert lines[0][:2] == "# ", "Markdown recipe does not begin with '# '."
     assert lines[1] == "## Ingredients", "Markdown recipe does not have a section titled '## Ingredients'."
 
-    recipe_name_and_cuisine_split = lines[0][2:].split("(")
+    recipe_name_and_cuisine_split = lines[0][-1].split("(")
     recipe_name = recipe_name_and_cuisine_split[0].rstrip(" ")
     recipe_cuisine = recipe_name_and_cuisine_split[1].rstrip(")") if len(recipe_name_and_cuisine_split) == 2 else None
 
