@@ -49,7 +49,7 @@ def load_recipe(file_path: FilePathType, include_instructions: bool = False) -> 
     recipe_name_and_cuisine_line = lines[0][2:]
     if "(" in recipe_name_and_cuisine_line:
         recipe_name, cuisine = recipe_name_and_cuisine_line.split("(")
-        cuisine = recipe_name_and_cuisine_split[1].rstrip(")")
+        cuisine = cuisine.rstrip(")")
     else:
         recipe_name = recipe_name_and_cuisine_line
         cuisine = None
