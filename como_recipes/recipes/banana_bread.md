@@ -19,4 +19,12 @@
 
 ## Instructions
 
-Preheat oven to 300 °F. Cream butter and sugar. Mix remaining ingredients. Bake for 35 minutes.
+Preheat oven to 300 °F.
+
+Cream butter and sugar.
+
+Combine all dry ingredients and mix well.
+
+Combine all remaining ingredients and mix well.
+
+Bake for 35 minutes.
