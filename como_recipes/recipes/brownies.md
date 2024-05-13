@@ -32,4 +32,4 @@ Add eggs and vanilla, just barely blend in.
 
 Mix all dry ingredients separately, stir into oil mixture.
 
-Bake around 25 minutes.
+Bake around 20 minutes.
