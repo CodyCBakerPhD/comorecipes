@@ -2,7 +2,7 @@
 
 ## Ingredients
 
-1 Russet potato
+4 Big potatoes
 
 1 tsp. olive oil
 
@@ -11,6 +11,12 @@
 
 ## Instructions
 
-Thoroughly scrub a Russet potato in good condition. Poke a number of holes over the exterior with a fork. Rub some olive oil on and coat with a bit of salt.
+Use aluminum foil for easy cleanup.
+
+Thoroughly scrub a potato in good condition.
+
+Poke a number of holes over the exterior with a fork.
+
+Rub some olive oil on and coat with a bit of salt.
 
 Bake for 45 min at 425° F.
