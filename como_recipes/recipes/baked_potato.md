@@ -2,21 +2,21 @@
 
 ## Ingredients
 
-4 Big potatoes
+4 Good big potatoes
 
 1 tsp. olive oil
 
-1/4 tsp. salt
+1/4 tsp. large-grain salt
 
 
 ## Instructions
 
 Use aluminum foil for easy cleanup.
 
-Thoroughly scrub a potato in good condition.
+Thoroughly scrub potatoes.
 
-Poke a number of holes over the exterior with a fork.
+Cut into quarters lengthwise.
 
-Rub some olive oil on and coat with a bit of salt.
+Rub all over with peanut oil and coat with a bit of large-grain salt.
 
 Bake for 45 min at 425° F.
