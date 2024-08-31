@@ -33,3 +33,5 @@ Reduce heat to medium-low and gradually incorporate other spices.
 Cook about 10-20 minutes until desired consistency.
 
 Makes enough sauce for 2 personal pans (two tortillas each) or 1 large pans (about 4-6 tortillas each).
+
+DO NOT USE COTIJA CHEESE IN THE ENCHILADAS.
