@@ -1,6 +1,39 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project]
+name = "como_recipes"
+version="0.1.0"
+authors = [
+  { name="Cody Baker", email="cody.c.baker.phd@gmail.com" },
+]
+description = "Collection of recipes and meal planning software for our household."
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+license = {file = "license.txt"}
+
+keywords = ["recipes", "cooking"]
+
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+]
+
+dependencies = [
+    "pydantic",
+    "click",
+    "natsort",
+]
+
 [tool.black]
 line-length = 120
-target-version = ['py39']
+target-version = ['py313']
 include = '\.pyi?$'
 extend-exclude = '''
 /(
