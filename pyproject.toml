@@ -52,7 +52,23 @@ extend-exclude = '''
 )/
 '''
 
-[tool.isort]
-profile = "black"
-reverse_relative = true
-known_first_party = ["como_recipes"]
+[project.urls]
+"Homepage" = "https://github.com/CodyCBakerPhD/como_recipes"
+"Bug Tracker" = "https://github.com/CodyCBakerPhD/como_recipes/issues"
+
+
+
+[tool.ruff]
+exclude = [
+  "*/__init__.py"
+]
+
+[tool.ruff.lint.isort]
+relative-imports-order = "closest-to-furthest"
+known-first-party = ["como_recipes"]
+
+
+
+[tool.codespell]
+skip = '.git*,*.pdf,*.css'
+check-hidden = true

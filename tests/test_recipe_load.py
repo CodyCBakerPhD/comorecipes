@@ -5,7 +5,7 @@ from unittest import TestCase
 import jsonschema
 from jsonschema import ValidationError
 
-from como_recipes import load_recipe
+from src import load_recipe
 
 
 class TestRecipeLoad(TestCase):
