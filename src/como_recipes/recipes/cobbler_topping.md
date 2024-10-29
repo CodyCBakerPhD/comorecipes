@@ -26,7 +26,7 @@ Cream butter and sugar until light and fluffy.
 
 Mix flour, baking powder, and salt in separate bowl.
 
-Slowly incoroporate flour mixture into butter mixture, until just combined.
+Slowly incorporate flour mixture into butter mixture, until just combined.
 
 Drop spoonfuls onto wet mixture.
 

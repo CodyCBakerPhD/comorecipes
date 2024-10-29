@@ -4,15 +4,18 @@ import pydantic
 
 from .utils import rational_string_to_float
 
+
 class Ingredient(pydantic.BaseModel):
     name: str
 
     def default_package_size(self) -> str:
         raise NotImplementedError("The default size of packages containing this ingredient is not specified.")
 
+
 class MeasuredIngredient(Ingredient):
     amount: int | float
     unit: Literal["cup", "tbsp", "tsp", "oz", "lb", "g", "kg"]  # TODO: limit to grams-base only
+
 
 class Recipe(pydantic.BaseModel):
     """
@@ -29,6 +32,7 @@ class Recipe(pydantic.BaseModel):
     notes : list[str] or None, optional
         List of notes.
     """
+
     name: str
     ingredients: list[MeasuredIngredient]
     instructions: list[str]
@@ -75,6 +79,6 @@ class Recipe(pydantic.BaseModel):
             ingredients.append(MeasuredIngredient(amount=amount, unit=unit, name=name))
 
         # Not necessary for planning tools
-        instructions = "".join(lines[instruction_line + 1:]) if include_instructions is True else None
+        instructions = "".join(lines[instruction_line + 1 :]) if include_instructions is True else None
 
         return Recipe(name=recipe_name, cuisine=cuisine, ingredients=ingredients, instructions=instructions)
