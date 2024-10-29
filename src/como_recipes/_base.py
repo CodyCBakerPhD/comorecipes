@@ -7,14 +7,28 @@ from .utils import rational_string_to_float
 
 class Ingredient(pydantic.BaseModel):
     name: str
+    grams_to_default_package_conversion: int | float | None = None
+    default_package_unit: str | None = None
 
-    def default_package_size(self) -> str:
-        raise NotImplementedError("The default size of packages containing this ingredient is not specified.")
+    def convert_amount_to_package_size(self, amount: int | float, unit: str) -> int | float:
+        """Convert the amount of this ingredient to the default package size."""
+        if self.grams_to_default_package_conversion is None or self.default_package_size is None:
+            raise NotImplementedError(
+                "The default size or conversion of packages containing this ingredient is not specified."
+            )
+        if unit != "g":
+            raise NotImplementedError(
+                "The conversion rule for an ingredient amount to the default size of a package is not specified."
+            )
+
+        return amount / self.default_package_size
 
 
 class MeasuredIngredient(Ingredient):
     amount: int | float
-    unit: Literal["cup", "tbsp", "tsp", "oz", "lb", "g", "kg"]  # TODO: limit to grams-base only
+    unit: Literal[
+        "cup", "cups", "tbsp", "tsp", "oz", "lb", "g", "kg", "large", "tsp.", "tbsp."
+    ]  # TODO: limit to grams-base only
 
 
 class Recipe(pydantic.BaseModel):
@@ -79,6 +93,6 @@ class Recipe(pydantic.BaseModel):
             ingredients.append(MeasuredIngredient(amount=amount, unit=unit, name=name))
 
         # Not necessary for planning tools
-        instructions = "".join(lines[instruction_line + 1 :]) if include_instructions is True else None
+        instructions = list(lines[instruction_line + 1 :]) if include_instructions is True else None
 
         return Recipe(name=recipe_name, cuisine=cuisine, ingredients=ingredients, instructions=instructions)
