@@ -54,21 +54,54 @@ class Recipe(pydantic.BaseModel):
 
     def to_pydantic_file(self, file_path: pydantic.FilePath) -> None:
         """Save recipe to a .py file in Pydantic format."""
-        raise NotImplementedError("Saving recipes to files is not yet implemented.")
+        indent = " " * 4
+
+        camel_case_name = "".join(word.capitalize() for word in self.name.split(" "))
+        python_text = "from .._base import Recipe, MeasuredIngredient\n\n"
+        python_text += f"class {camel_case_name}(Recipe):\n"
+        python_text += f'{indent}name = "{self.name}"\n'
+
+        python_text += f"{indent}ingredients = [\n"
+        for ingredient in self.ingredients:
+            ingredient_text = f'{indent}{indent}MeasuredIngredient(name="{ingredient.name}",'
+            ingredient_text += f'amount={ingredient.amount}, unit="{ingredient.unit}"),'
+            ingredient_text = f'unit="{ingredient.unit}"),\n'
+            python_text += ingredient_text
+        python_text += f"{indent}]\n"
+
+        python_text += f"{indent}instructions = [\n"
+        for instruction in self.instructions:
+            python_text += f'{indent}{indent}"{instruction}",\n'
+        python_text += f"{indent}]\n"
+
+        with open(file=file_path, mode="w") as io:
+            io.write(python_text)
+
+        return None
 
     def to_markdown_file(self, file_path: pydantic.FilePath) -> None:
         """Save recipe to a .md file in Markdown format."""
-        raise NotImplementedError("Saving recipes to files is not yet implemented.")
+        markdown_text = f"# {self.name}\n\n"
+
+        markdown_text += "## Ingredients\n\n"
+        for ingredient in self.ingredients:
+            markdown_text += f"{ingredient.amount} {ingredient.unit} {ingredient.name}\n"
+        markdown_text += "\n\n"
+
+        markdown_text += "## Instructions\n\n"
+        for instruction in self.instructions:
+            markdown_text += f"{instruction}\n"
+
+        with open(file=file_path, mode="w") as io:
+            io.write(markdown_text)
+
+        return None
 
     @classmethod
     def from_markdown_file(cls, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
         """Load recipe from a .md file in Markdown format."""
-        lines = list()
-        with open(file=file_path) as file:
-            for line in file:
-                parsed_line = line.rstrip()
-                if parsed_line != "":
-                    lines.append(parsed_line)
+        with open(file=file_path) as io:
+            lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
 
         assert lines[0][:2] == "# ", "Markdown recipe does not begin with '# '."
         assert lines[1] == "## Ingredients", "Markdown recipe does not have a section titled '## Ingredients'."
