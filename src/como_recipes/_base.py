@@ -11,7 +11,8 @@ class Ingredient(pydantic.BaseModel):
     grams_to_default_package_conversion: int | float | None = None
     default_package_unit: str | None = None
 
-    def convert_amount_to_package_size(self, amount: int | float, unit: str) -> int | float:
+    @pydantic.validate_call
+    def convert_amount_to_package_size(self, *, amount: int | float, unit: str) -> int | float:
         """Convert the amount of this ingredient to the default package size."""
         if self.grams_to_default_package_conversion is None or self.default_package_size is None:
             raise NotImplementedError(
@@ -64,13 +65,14 @@ class Recipe(pydantic.BaseModel):
     instructions: list[str]
     notes: list[str] | None = None
 
-    def to_pydantic_file(self, file_path: pydantic.FilePath) -> None:
+    @pydantic.validate_call
+    def to_pydantic_file(self, file_path: pydantic.NewPath) -> None:
         """
         Save recipe to a .py file in Pydantic format.
 
         Parameters
         ----------
-        file_path : pydantic.FilePath
+        file_path : pydantic.NewPath
             Path to the Pydantic (.py) file.
         """
         indent = " " * 4
@@ -83,8 +85,8 @@ class Recipe(pydantic.BaseModel):
         python_text += f"{indent}ingredients = [\n"
         for ingredient in self.ingredients:
             ingredient_text = f'{indent}{indent}MeasuredIngredient(name="{ingredient.name}",'
-            ingredient_text += f'amount={ingredient.amount}, unit="{ingredient.unit}"),'
-            ingredient_text = f'unit="{ingredient.unit}"),\n'
+            ingredient_text += f"amount={ingredient.amount},"
+            ingredient_text += f'unit="{ingredient.unit}"),\n'
             python_text += ingredient_text
         python_text += f"{indent}]\n"
 
@@ -93,32 +95,42 @@ class Recipe(pydantic.BaseModel):
             python_text += f'{indent}{indent}"{instruction}",\n'
         python_text += f"{indent}]\n"
 
-        with open(file=file_path, mode="w") as io:
-            io.write(python_text)
-
-        # Expose the new recipe class in the __init__.py file so it can be imported by the module
-        init_file_path = pathlib.Path(file_path).parent / "__init__.py"
+        # Expose the new recipe class in the 'recipes' submodule __init__.py file so that it can be imported
+        init_file_path = pathlib.Path(file_path).parent.parent / "__init__.py"
         with open(file=init_file_path, mode="r") as io:
             current_init_file_lines = io.readlines()
+        original_init_file_lines = current_init_file_lines.copy()
 
-        current_init_file_lines.insert(0, f"from .{file_path.stem} import {camel_case_name}\n")
-        all_index = current_init_file_lines.index("__all__ = [")
-        current_init_file_lines.insert(all_index + 1, f'    "{camel_case_name}",\n')
+        # But do it safely so as not to corrupt the files in the event of an error
+        try:
+            with open(file=file_path, mode="w") as io:
+                io.write(python_text)
 
-        # Let pre-commit deal with proper ordering after insertion
+            current_init_file_lines.insert(0, f"from ._pydantic.{file_path.stem} import {camel_case_name}\n")
+            all_index = current_init_file_lines.index("__all__ = [\n")
+            current_init_file_lines.insert(all_index + 1, f'    "{camel_case_name}",\n')
 
-        with open(file=init_file_path, mode="w") as io:
-            io.writelines(current_init_file_lines)
+            # Let pre-commit deal with proper ordering after insertion
+
+            with open(file=init_file_path, mode="w") as io:
+                io.writelines(current_init_file_lines)
+        except Exception as exception:
+            file_path.unlink()
+            with open(file=init_file_path, mode="w") as io:
+                io.writelines(original_init_file_lines)
+
+            raise exception
 
         return None
 
-    def to_markdown_file(self, file_path: pydantic.FilePath) -> None:
+    @pydantic.validate_call
+    def to_markdown_file(self, file_path: pydantic.NewPath) -> None:
         """
         Save recipe to a .md file in Markdown format.
 
         Parameters
         ----------
-        file_path : pydantic.FilePath
+        file_path : pydantic.NewPath
             Path to the Markdown (.md) file
         """
         markdown_text = f"# {self.name}\n\n"
@@ -138,6 +150,7 @@ class Recipe(pydantic.BaseModel):
         return None
 
     @classmethod
+    @pydantic.validate_call
     def from_markdown_file(cls, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
         """
         Load recipe from a .md file in Markdown format.
