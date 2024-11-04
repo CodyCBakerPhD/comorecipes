@@ -1,14 +1,22 @@
 name: Test Installation and Check Recipes
-on: pull_request
+on: workflow_call
+
 jobs:
+
   run:
-    name: Test Install and Check Recipes
+    # Will read on PR dashboard as 'Deploy / Tests / ubuntu'
+    # Action dashboard identified by 'Test Installation and Check Recipes'
+    # Requirement settings identified as 'Tests / ubuntu'
+    name: ubuntu
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: 3.13
 
       - uses: syphar/restore-virtualenv@v1
         id: cache-virtualenv
@@ -16,14 +24,15 @@ jobs:
           custom_cache_key_element: 1
       - if: steps.cache-virtualenv.outputs.cache-hit == 'true'
         uses: syphar/restore-pip-download-cache@v1
-
       - if: steps.cache-virtualenv.outputs.cache-hit != 'true'
         name: Update pip
         run: python -m pip install --upgrade pip
       - if: steps.cache-virtualenv.outputs.cache-hit != 'true'
-        name: Install package and pytest
-        run: |
-          pip install -e .
-          pip install pytest
+        name: Install pytest
+        run: pip install pytest
+
+      - name: Install package
+        run: pip install -e .
+
       - name: Run Tests
         run: python -m pytest
