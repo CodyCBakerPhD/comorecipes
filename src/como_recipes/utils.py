@@ -1,4 +1,4 @@
-"""Collection of help functions."""
+"""Collection of minor help functions."""
 
 
 def rational_string_to_float(string: str) -> float:

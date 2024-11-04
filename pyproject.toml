@@ -56,6 +56,10 @@ extend-exclude = '''
 "Homepage" = "https://github.com/CodyCBakerPhD/como_recipes"
 "Bug Tracker" = "https://github.com/CodyCBakerPhD/como_recipes/issues"
 
+[project.scripts]
+write_missing_markdown_recipes = "como_recipes._command_line_interface:_write_missing_markdown_recipes"
+write_missing_pydantic_recipes = "como_recipes._command_line_interface:_write_missing_pydantic_recipes"
+
 
 
 [tool.ruff]

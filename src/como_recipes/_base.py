@@ -1,4 +1,5 @@
 from typing import Literal, Self
+import pathlib
 
 import pydantic
 
@@ -27,7 +28,18 @@ class Ingredient(pydantic.BaseModel):
 class MeasuredIngredient(Ingredient):
     amount: int | float
     unit: Literal[
-        "cup", "cups", "tbsp", "tsp", "oz", "lb", "g", "kg", "large", "tsp.", "tbsp."
+        "cup",
+        "cups",
+        "tbsp",
+        "tsp",
+        "oz",
+        "lb",
+        "g",
+        "kg",
+        "large",
+        "tsp.",
+        "tbsp.",
+        "apples",
     ]  # TODO: limit to grams-base only
 
 
@@ -53,11 +65,18 @@ class Recipe(pydantic.BaseModel):
     notes: list[str] | None = None
 
     def to_pydantic_file(self, file_path: pydantic.FilePath) -> None:
-        """Save recipe to a .py file in Pydantic format."""
+        """
+        Save recipe to a .py file in Pydantic format.
+
+        Parameters
+        ----------
+        file_path : pydantic.FilePath
+            Path to the Pydantic (.py) file.
+        """
         indent = " " * 4
 
         camel_case_name = "".join(word.capitalize() for word in self.name.split(" "))
-        python_text = "from .._base import Recipe, MeasuredIngredient\n\n"
+        python_text = "from ..._base import Recipe, MeasuredIngredient\n\n"
         python_text += f"class {camel_case_name}(Recipe):\n"
         python_text += f'{indent}name = "{self.name}"\n'
 
@@ -77,10 +96,31 @@ class Recipe(pydantic.BaseModel):
         with open(file=file_path, mode="w") as io:
             io.write(python_text)
 
+        # Expose the new recipe class in the __init__.py file so it can be imported by the module
+        init_file_path = pathlib.Path(file_path).parent / "__init__.py"
+        with open(file=init_file_path, mode="r") as io:
+            current_init_file_lines = io.readlines()
+
+        current_init_file_lines.insert(0, f"from .{file_path.stem} import {camel_case_name}\n")
+        all_index = current_init_file_lines.index("__all__ = [")
+        current_init_file_lines.insert(all_index + 1, f'    "{camel_case_name}",\n')
+
+        # Let pre-commit deal with proper ordering after insertion
+
+        with open(file=init_file_path, mode="w") as io:
+            io.writelines(current_init_file_lines)
+
         return None
 
     def to_markdown_file(self, file_path: pydantic.FilePath) -> None:
-        """Save recipe to a .md file in Markdown format."""
+        """
+        Save recipe to a .md file in Markdown format.
+
+        Parameters
+        ----------
+        file_path : pydantic.FilePath
+            Path to the Markdown (.md) file
+        """
         markdown_text = f"# {self.name}\n\n"
 
         markdown_text += "## Ingredients\n\n"
@@ -99,7 +139,16 @@ class Recipe(pydantic.BaseModel):
 
     @classmethod
     def from_markdown_file(cls, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
-        """Load recipe from a .md file in Markdown format."""
+        """
+        Load recipe from a .md file in Markdown format.
+
+        Parameters
+        ----------
+        file_path : pydantic.FilePath
+            Path to the Markdown (.md) file.
+        include_instructions : bool, optional
+            Whether to include the instructions in the recipe.
+        """
         with open(file=file_path) as io:
             lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
 
