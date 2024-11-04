@@ -1,0 +1,19 @@
+name: Deploy
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  Pre-commit:
+    uses: ./.github/workflows/pre_commit.yml
+    secrets:
+      API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+
+  Tests:
+    needs: pre-commit
+    uses: ./.github/workflows/testing.yml

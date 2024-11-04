@@ -1,4 +1,4 @@
-# Applie Pie Filling (American)
+# Apple Pie Filling (American)
 
 ## Ingredients
 

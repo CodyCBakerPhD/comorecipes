@@ -6,7 +6,7 @@
 
 2/3 cup sugar
 
-2 eggs
+2 large eggs
 
 1 tsp. vanilla
 
