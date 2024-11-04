@@ -11,7 +11,7 @@ jobs:
 
   Pre-commit:
     uses: ./.github/workflows/pre_commit.yml
-    with:
+    secrets:
       API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
 
   Tests:
