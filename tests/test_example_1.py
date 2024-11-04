@@ -29,11 +29,11 @@ def test_example_1_to_pydantic(tmpdir: py.path.local):
     test_pydantic_model_file_path = pathlib.Path(tmpdir) / "_example_recipe_1.py"
     recipe.to_pydantic_file(file_path=test_pydantic_model_file_path)
     with open(file=test_pydantic_model_file_path, mode="r") as io:
-        test_pydantic_model_file_content = io.read()
+        test_pydantic_model_file_lines = io.readlines()
 
     expected_pydantic_model_file_path = example_folder_path / "_example_recipe_1.py"
     with open(file=expected_pydantic_model_file_path, mode="r") as io:
-        expected_pydantic_model_file_content = io.read()
+        expected_pydantic_model_file_lines = io.readlines()
 
     # Skip the import styles since expected must be absolute
-    assert test_pydantic_model_file_content[2:] == expected_pydantic_model_file_content[1:]
+    assert test_pydantic_model_file_lines[2:] == expected_pydantic_model_file_lines[1:]

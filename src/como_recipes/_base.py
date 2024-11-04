@@ -105,8 +105,8 @@ class Recipe(pydantic.BaseModel):
 
         python_text += f"{indent}ingredients: list[MeasuredIngredient] = [\n"
         for ingredient in self.ingredients:
-            ingredient_text = f'{indent}{indent}MeasuredIngredient(name="{ingredient.name}",'
-            ingredient_text += f"amount={ingredient.amount},"
+            ingredient_text = f'{indent}{indent}MeasuredIngredient(name="{ingredient.name}", '
+            ingredient_text += f"amount={ingredient.amount}, "
             ingredient_text += f'unit="{ingredient.unit}"),\n'
             python_text += ingredient_text
         python_text += f"{indent}]\n"
