@@ -26,14 +26,14 @@ def test_example_1_to_pydantic(tmpdir: py.path.local):
     example_1_markdown_file_path = example_folder_path / "example_recipe_1.md"
     recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
 
-    test_pydantic_model_file_path = tmpdir / "test_example_1_pydantic_model.py"
+    test_pydantic_model_file_path = pathlib.Path(tmpdir) / "_example_recipe_1.py"
     recipe.to_pydantic_file(file_path=test_pydantic_model_file_path)
     with open(file=test_pydantic_model_file_path, mode="r") as io:
         test_pydantic_model_file_content = io.read()
 
-    expected_pydantic_model_file_path = example_folder_path / "_example_recipe_1_pydantic_model.py"
+    expected_pydantic_model_file_path = example_folder_path / "_example_recipe_1.py"
     with open(file=expected_pydantic_model_file_path, mode="r") as io:
         expected_pydantic_model_file_content = io.read()
 
     # Skip the import styles since expected must be absolute
-    assert test_pydantic_model_file_content[1:] == expected_pydantic_model_file_content[1:]
+    assert test_pydantic_model_file_content[2:] == expected_pydantic_model_file_content[1:]

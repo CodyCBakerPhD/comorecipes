@@ -65,6 +65,26 @@ class Recipe(pydantic.BaseModel):
     instructions: list[str]
     notes: list[str] | None = None
 
+    def __repr__(self) -> str:
+        printout = f"{self.name}\n"
+        printout += f"{'=' * len(self.name)}\n\n"
+
+        printout += "Ingredients\n"
+        printout += "-----------\n"
+        for ingredient in self.ingredients:
+            printout += f"{ingredient.amount} {ingredient.unit} {ingredient.name}\n"
+        printout += "\n\n"
+
+        printout += "Instructions\n"
+        printout += "------------\n"
+        for instruction in self.instructions:
+            printout += f"{instruction}\n"
+
+        return printout
+
+    def __str__(self) -> str:
+        return self.__repr__()
+
     @pydantic.validate_call
     def to_pydantic_file(self, file_path: pydantic.NewPath) -> None:
         """
@@ -78,7 +98,8 @@ class Recipe(pydantic.BaseModel):
         indent = " " * 4
 
         camel_case_name = "".join(word.capitalize() for word in self.name.split(" "))
-        python_text = "from ..._base import Recipe, MeasuredIngredient\n\n"
+        python_text = "from ..._base import Recipe, MeasuredIngredient\n"
+        python_text += "from ..._registration import default_recipe_registry\n\n\n"
         python_text += f"class {camel_case_name}(Recipe):\n"
         python_text += f'{indent}name: str = "{self.name}"\n'
 
@@ -95,22 +116,24 @@ class Recipe(pydantic.BaseModel):
             python_text += f'{indent}{indent}"{instruction}",\n'
         python_text += f"{indent}]\n"
 
+        python_text += f"\n\ndefault_recipe_registry.update_registry(recipe={camel_case_name}())\n"
+
+        with open(file=file_path, mode="w") as io:
+            io.write(python_text)
+
         # Expose the new recipe class in the 'recipes' submodule __init__.py file so that it can be imported
-        init_file_path = pathlib.Path(file_path).parent.parent / "__init__.py"
+        init_file_path = pathlib.Path(file_path).parent / "__init__.py"
+        if not init_file_path.exists():  # For friendly compatibility with tests and non-default recipes
+            return None
+
         with open(file=init_file_path, mode="r") as io:
             current_init_file_lines = io.readlines()
         original_init_file_lines = current_init_file_lines.copy()
 
         # But do it safely so as not to corrupt the files in the event of an error
         try:
-            with open(file=file_path, mode="w") as io:
-                io.write(python_text)
-
-            current_init_file_lines.insert(0, f"from ._pydantic.{file_path.stem} import {camel_case_name}\n")
-            all_index = current_init_file_lines.index("__all__ = [\n")
-            current_init_file_lines.insert(all_index + 1, f'    "{camel_case_name}",\n')
-
-            # Let pre-commit deal with proper ordering after insertion
+            # Insert to the top and let pre-commit deal with proper ordering
+            current_init_file_lines.insert(0, f"from .{file_path.stem} import {camel_case_name}\n")
 
             with open(file=init_file_path, mode="w") as io:
                 io.writelines(current_init_file_lines)

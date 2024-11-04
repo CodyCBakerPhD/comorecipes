@@ -1,7 +1,7 @@
-from como_recipes import Recipe, MeasuredIngredient
+from como_recipes import Recipe, MeasuredIngredient, default_recipe_registry
 
 
-class ExampleRecipe1PydanticModel(Recipe):
+class ExampleRecipe1(Recipe):
     name = "Example Recipe 1"
     ingredients = [
         MeasuredIngredient(name="ingredient 1", amount=3, unit="tbsp."),
@@ -10,3 +10,6 @@ class ExampleRecipe1PydanticModel(Recipe):
     instructions = [
         "This is an example of a recipe.",
     ]
+
+
+default_recipe_registry.update_registry(recipe=ExampleRecipe1())

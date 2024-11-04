@@ -1,4 +1,5 @@
 from ..._base import Recipe, MeasuredIngredient
+from ..._registration import default_recipe_registry
 
 
 class AglioEOlio(Recipe):
@@ -31,3 +32,6 @@ class AglioEOlio(Recipe):
         "Lower heat and simmer for 5 minutes, until liquid is reduced by about a third.",
         "Incorporate pasta, parsley, and Parmesan.",
     ]
+
+
+default_recipe_registry.update_registry(recipe=AglioEOlio())

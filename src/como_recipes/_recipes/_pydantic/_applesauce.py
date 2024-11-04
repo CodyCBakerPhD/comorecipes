@@ -1,4 +1,5 @@
 from ..._base import Recipe, MeasuredIngredient
+from ..._registration import default_recipe_registry
 
 
 class Applesauce(Recipe):
@@ -15,3 +16,6 @@ class Applesauce(Recipe):
         "Combine everything and cook over medium heat for 15-20 minutes (until apples are soft).",
         "Allow to cool, then mash with fork or potato masher.",
     ]
+
+
+default_recipe_registry.update_registry(recipe=Applesauce())

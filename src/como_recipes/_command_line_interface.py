@@ -17,7 +17,7 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:
         raise ImportError("The 'como_recipes' module is not installed.")
     como_recipes_module = importlib.import_module(name="como_recipes")
 
-    pydantic_recipes_folder_path = pathlib.Path(__file__).parent / "recipes" / "_pydantic"
+    pydantic_recipes_folder_path = pathlib.Path(__file__).parent / "_recipes" / "_pydantic"
     current_pydantic_recipe_file_paths = tuple(
         file_path for file_path in pydantic_recipes_folder_path.glob("*.py") if file_path.stem != "__init__"
     )
@@ -55,7 +55,7 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:
 @pydantic.validate_call
 def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:
     """Write missing Pydantic (.py) recipes from Markdown (.md) recipe files."""
-    markdown_recipes_folder_path = pathlib.Path(__file__).parent / "recipes" / "_markdown"
+    markdown_recipes_folder_path = pathlib.Path(__file__).parent / "_recipes" / "_markdown"
     current_markdown_recipe_file_paths = tuple(markdown_recipes_folder_path.glob("*.md"))
 
     count = 0
