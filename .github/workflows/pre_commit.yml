@@ -2,10 +2,9 @@ name: Pre-commit
 on:
   workflow_call:
     secrets:
-      GITHUB_TOKEN:
+      API_TOKEN_GITHUB:
         description: 'GitHub Token for pushing back automatic changes'
         required: true
-        default: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
 
