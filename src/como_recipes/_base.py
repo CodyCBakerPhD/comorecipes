@@ -80,9 +80,9 @@ class Recipe(pydantic.BaseModel):
         camel_case_name = "".join(word.capitalize() for word in self.name.split(" "))
         python_text = "from ..._base import Recipe, MeasuredIngredient\n\n"
         python_text += f"class {camel_case_name}(Recipe):\n"
-        python_text += f'{indent}name = "{self.name}"\n'
+        python_text += f'{indent}name: str = "{self.name}"\n'
 
-        python_text += f"{indent}ingredients = [\n"
+        python_text += f"{indent}ingredients: list[MeasuredIngredient] = [\n"
         for ingredient in self.ingredients:
             ingredient_text = f'{indent}{indent}MeasuredIngredient(name="{ingredient.name}",'
             ingredient_text += f"amount={ingredient.amount},"
@@ -90,7 +90,7 @@ class Recipe(pydantic.BaseModel):
             python_text += ingredient_text
         python_text += f"{indent}]\n"
 
-        python_text += f"{indent}instructions = [\n"
+        python_text += f"{indent}instructions: list[str] = [\n"
         for instruction in self.instructions:
             python_text += f'{indent}{indent}"{instruction}",\n'
         python_text += f"{indent}]\n"
@@ -170,11 +170,9 @@ class Recipe(pydantic.BaseModel):
 
         recipe_name_and_cuisine_line = lines[0][2:]
         if "(" in recipe_name_and_cuisine_line:
-            recipe_name, cuisine = recipe_name_and_cuisine_line.split("(")
-            cuisine = cuisine.rstrip(")")
+            recipe_name, _ = recipe_name_and_cuisine_line.split("(")
         else:
             recipe_name = recipe_name_and_cuisine_line
-            cuisine = None
         recipe_name = recipe_name.rstrip(" ")
 
         instruction_line = lines.index("## Instructions")
@@ -184,10 +182,10 @@ class Recipe(pydantic.BaseModel):
             ingredient_line = line.split(" ")
             amount = rational_string_to_float(ingredient_line[0])
             unit = ingredient_line[1]
-            name = " ".join(ingredient_line[2:])
-            ingredients.append(MeasuredIngredient(amount=amount, unit=unit, name=name))
+            ingredient_name = " ".join(ingredient_line[2:])
+            ingredients.append(MeasuredIngredient(name=ingredient_name, amount=amount, unit=unit))
 
         # Not necessary for planning tools
         instructions = list(lines[instruction_line + 1 :]) if include_instructions is True else None
 
-        return Recipe(name=recipe_name, cuisine=cuisine, ingredients=ingredients, instructions=instructions)
+        return Recipe(name=recipe_name, ingredients=ingredients, instructions=instructions)
