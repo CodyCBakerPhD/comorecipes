@@ -41,6 +41,8 @@ class MeasuredIngredient(Ingredient):
         "tsp.",
         "tbsp.",
         "apples",
+        "qt.",
+        "lb.",
     ]  # TODO: limit to grams-base only
 
 
@@ -132,8 +134,8 @@ class Recipe(pydantic.BaseModel):
 
         # But do it safely so as not to corrupt the files in the event of an error
         try:
-            # Insert to the top and let pre-commit deal with proper ordering
-            current_init_file_lines.insert(0, f"from .{file_path.stem} import {camel_case_name}\n")
+            # Insert to the top (after comment) and let pre-commit deal with proper ordering
+            current_init_file_lines.insert(1, f"from .{file_path.stem} import {camel_case_name}\n")
 
             with open(file=init_file_path, mode="w") as io:
                 io.writelines(current_init_file_lines)

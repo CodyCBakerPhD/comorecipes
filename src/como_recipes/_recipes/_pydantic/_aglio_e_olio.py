@@ -5,23 +5,14 @@ from ..._registration import default_recipe_registry
 class AglioEOlio(Recipe):
     name: str = "Aglio E Olio"
     ingredients: list[MeasuredIngredient] = [
-        # MeasuredIngredient(name="", amount=1, unit=""),
-        #
-        # 2 qt.water
-        #
-        # 1 tbsp.salt
-        #
-        # 1 lb.thin spaghetti
-        #
-        # 1 / 3 cup olive oil
-        #
-        # 8 large cloves of garlic
-        #
-        # 2 tsp.crushed red pepper
-        #
-        # 1 / 4 cup parsley
-        #
-        # 1 cup fresh Parmesan
+        MeasuredIngredient(name="water", amount=2.0, unit="qt."),
+        MeasuredIngredient(name="salt", amount=1.0, unit="tbsp."),
+        MeasuredIngredient(name="thin spaghetti", amount=1.0, unit="lb."),
+        MeasuredIngredient(name="olive oil", amount=0.3333333333333333, unit="cup"),
+        MeasuredIngredient(name="cloves of garlic", amount=8.0, unit="large"),
+        MeasuredIngredient(name="crushed red pepper", amount=2.0, unit="tsp."),
+        MeasuredIngredient(name="parsley", amount=0.25, unit="cup"),
+        MeasuredIngredient(name="fresh Parmesan", amount=1.0, unit="cup"),
     ]
     instructions: list[str] = [
         "Bring water and salt to boil. Cook pasta. Set aside 3/2 cup of pasta water before draining.",
@@ -30,7 +21,7 @@ class AglioEOlio(Recipe):
         "Add red pepper and cook 30 seconds more.",
         "Carefully add reserved pasta water and bring to boil.",
         "Lower heat and simmer for 5 minutes, until liquid is reduced by about a third.",
-        "Incorporate pasta, parsley, and Parmesan.",
+        "Incorporate pasta, parsley, and Permesan.",
     ]
 
 
