@@ -25,7 +25,7 @@ jobs:
       run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
     - name: Cache pre-commit
       id: cache-pre-commit
-      uses: actions/cache@v1
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pre-commit
         key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
@@ -45,7 +45,7 @@ jobs:
         git commit -m "pre-commit" -a || true
 
     - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
+      uses: ad-m/github-push-action@v0.8.0
       with:
         github_token: ${{ secrets.API_TOKEN_GITHUB }}
         branch: ${{ github.head_ref }}
