@@ -1,5 +1,11 @@
 name: Pre-commit
-on: workflow_call
+on:
+  workflow_call:
+    secrets:
+      GITHUB_TOKEN:
+        description: 'GitHub Token for pushing back automatic changes'
+        required: true
+        default: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
 
