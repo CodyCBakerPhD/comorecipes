@@ -18,8 +18,12 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.13
 
@@ -61,6 +65,7 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          slug: CodyCBakerPhD/como_recipes
           file: ./coverage.xml
           flags: unittests
           name: codecov-umbrella
