@@ -21,7 +21,8 @@ class RecipeRegistry(pydantic.BaseModel):
         return printout
 
     def __str__(self) -> str:
-        return self.__repr__()
+        """Used by calls to `print(...)`."""
+        return repr(self)
 
     @pydantic.validate_call
     def add_recipe(self, *, recipe: Recipe) -> None:

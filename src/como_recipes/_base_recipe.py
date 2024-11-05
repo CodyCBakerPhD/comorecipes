@@ -29,7 +29,7 @@ class Recipe(pydantic.BaseModel):
     notes: list[str] | None = None
 
     def __repr__(self) -> str:
-        printout = f"{self.name}\n"
+        printout = f"\n{self.name}\n"
         printout += f"{'=' * len(self.name)}\n\n"
 
         printout += "Ingredients\n"
@@ -46,7 +46,8 @@ class Recipe(pydantic.BaseModel):
         return printout
 
     def __str__(self) -> str:
-        return self.__repr__()
+        """Used by calls to `print(...)`."""
+        return repr(self)
 
     @pydantic.validate_call
     def to_pydantic_file(self, file_path: pydantic.NewPath) -> None:
@@ -124,8 +125,8 @@ class Recipe(pydantic.BaseModel):
         markdown_text = f"# {self.name}\n\n"
 
         markdown_text += "## Ingredients\n\n"
-        for ingredient in self.measurements:
-            markdown_text += f"{ingredient.amount} {ingredient.unit} {ingredient.name}\n"
+        for measurement in self.measurements:
+            markdown_text += f"{measurement.amount} {measurement.unit} {measurement.ingredient.name}\n\n"
         markdown_text += "\n\n"
 
         markdown_text += "## Instructions\n\n"
