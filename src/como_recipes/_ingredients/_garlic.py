@@ -1,5 +1,5 @@
 from .._base_ingredient import Ingredient
-from .._registration import default_ingredient_registry
+from .._ingredient_registration import default_ingredient_registry
 
 
 class Garlic(Ingredient):

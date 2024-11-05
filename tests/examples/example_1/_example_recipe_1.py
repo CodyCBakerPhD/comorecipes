@@ -1,6 +1,7 @@
 from ..._base_recipe import Recipe
 from ..._base_measurement import Measurement
-from ..._registration import default_recipe_registry, MeasurementRegistry
+from ..._recipe_registration import default_recipe_registry
+from ..._measurement_registration import MeasurementRegistry
 
 
 class ExampleRecipe1(Recipe):

@@ -63,7 +63,8 @@ class Recipe(pydantic.BaseModel):
         camel_case_name = "".join(word.capitalize() for word in self.name.split(" "))
         python_text = "from ..._base_recipe import Recipe\n"
         python_text += "from ..._base_measurement import Measurement\n"
-        python_text += "from ..._registration import default_recipe_registry, MeasurementRegistry\n\n\n"
+        python_text += "from ..._recipe_registration import default_recipe_registry\n"
+        python_text += "from ..._measurement_registration import MeasurementRegistry\n\n\n"
         python_text += f"class {camel_case_name}(Recipe):\n"
         python_text += f'{indent}name: str = "{self.name}"\n'
 
@@ -149,7 +150,7 @@ class Recipe(pydantic.BaseModel):
         include_instructions : bool, optional
             Whether to include the instructions in the recipe.
         """
-        from ._registration import MeasurementRegistry
+        from ._measurement_registration import MeasurementRegistry
 
         with open(file=file_path) as io:
             lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
