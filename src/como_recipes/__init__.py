@@ -1,13 +1,19 @@
-from ._base_recipe import Ingredient, MeasuredIngredient, Recipe
-from ._registration import default_recipe_registry
+from ._base_recipe import Recipe
+from ._base_ingredient import Ingredient
+from ._base_measurement import Measurement
+from ._registration import default_recipe_registry, default_ingredient_registry
 
 __all__ = [
     "Ingredient",
     "MeasuredIngredient",
     "Recipe",
-    "default_recipe_registry",  # Global variable
-    "utils",  # Public submodule
+    # Global variables
+    "default_recipe_registry",
+    "default_ingredient_registry",
+    # Public submodule
+    "utils",
 ]
 
 # Trigger import of built-in recipes (only need to import one item to trigger the rest)
 from ._recipes._pydantic import Applesauce
+from ._ingredients import Garlic

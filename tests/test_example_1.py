@@ -12,7 +12,7 @@ def test_example_1_markdown_recipe_load():
     recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
 
     assert recipe.name == "Example Recipe 1"
-    assert recipe.ingredients == [
+    assert recipe.measurements == [
         MeasuredIngredient(name="ingredient 1", amount=3, unit="tbsp."),
         MeasuredIngredient(name="ingredient 2", amount=4, unit="g"),
     ]

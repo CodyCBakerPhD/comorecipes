@@ -5,6 +5,7 @@ import pydantic
 
 from .utils import rational_string_to_float
 from ._base_measurement import Measurement
+from ._registration import MeasurementRegistry
 
 
 class Recipe(pydantic.BaseModel):
@@ -15,7 +16,7 @@ class Recipe(pydantic.BaseModel):
     ----------
     name : str
         Name of the recipe.
-    ingredients : list[Measurement]
+    measurements : list[Measurement]
         List of ingredients.
     instructions : list[str]
         List of instructions.
@@ -24,7 +25,7 @@ class Recipe(pydantic.BaseModel):
     """
 
     name: str
-    ingredients: list[Measurement]
+    measurements: list[Measurement]
     instructions: list[str]
     notes: list[str] | None = None
 
@@ -34,8 +35,8 @@ class Recipe(pydantic.BaseModel):
 
         printout += "Ingredients\n"
         printout += "-----------\n"
-        for ingredient in self.ingredients:
-            printout += f"{ingredient.amount} {ingredient.unit} {ingredient.name}\n"
+        for measurement in self.measurements:
+            printout += f"{measurement.amount} {measurement.unit} {measurement.ingredient.name}\n"
         printout += "\n\n"
 
         printout += "Instructions\n"
@@ -63,16 +64,16 @@ class Recipe(pydantic.BaseModel):
         camel_case_name = "".join(word.capitalize() for word in self.name.split(" "))
         python_text = "from ..._base_recipe import Recipe\n"
         python_text += "from ..._base_measurement import Measurement\n"
-        python_text += "from ..._registration import default_recipe_registry\n\n\n"
+        python_text += "from ..._registration import default_recipe_registry, MeasurementRegistry\n\n\n"
         python_text += f"class {camel_case_name}(Recipe):\n"
         python_text += f'{indent}name: str = "{self.name}"\n'
 
-        python_text += f"{indent}ingredients: list[Measurement] = [\n"
-        for ingredient in self.ingredients:
-            ingredient_text = f'{indent}{indent}Measurement(name="{ingredient.name}", '
-            ingredient_text += f"amount={ingredient.amount}, "
-            ingredient_text += f'unit="{ingredient.unit}"),\n'
-            python_text += ingredient_text
+        python_text += f"{indent}measurements: list[Measurement] = [\n"
+        for measurement in self.measurements:
+            measurement_text = f"{indent}{indent}MeasurementRegistry.get_measurement(amount={measurement.amount}, "
+            measurement_text += f'unit="{measurement.unit}", '
+            measurement_text += f'name="{measurement.ingredient.name}"),\n'
+            python_text += measurement_text
         python_text += f"{indent}]\n"
 
         python_text += f"{indent}instructions: list[str] = [\n"
@@ -80,7 +81,7 @@ class Recipe(pydantic.BaseModel):
             python_text += f'{indent}{indent}"{instruction}",\n'
         python_text += f"{indent}]\n"
 
-        python_text += f"\n\ndefault_recipe_registry.update_registry(recipe={camel_case_name}())\n"
+        python_text += f"\n\ndefault_recipe_registry.add_recipe(recipe={camel_case_name}())\n"
 
         with open(file=file_path, mode="w") as io:
             io.write(python_text)
@@ -123,7 +124,7 @@ class Recipe(pydantic.BaseModel):
         markdown_text = f"# {self.name}\n\n"
 
         markdown_text += "## Ingredients\n\n"
-        for ingredient in self.ingredients:
+        for ingredient in self.measurements:
             markdown_text += f"{ingredient.amount} {ingredient.unit} {ingredient.name}\n"
         markdown_text += "\n\n"
 
@@ -164,15 +165,15 @@ class Recipe(pydantic.BaseModel):
 
         instruction_line = lines.index("## Instructions")
 
-        ingredients = []
+        measurements = []
         for line in lines[2:instruction_line]:
             ingredient_line = line.split(" ")
             amount = rational_string_to_float(ingredient_line[0])
             unit = ingredient_line[1]
             ingredient_name = " ".join(ingredient_line[2:])
-            ingredients.append(Measurement(name=ingredient_name, amount=amount, unit=unit))
+            measurements.append(MeasurementRegistry.get_measurement(amount=amount, unit=unit, name=ingredient_name))
 
         # Not necessary for planning tools
         instructions = list(lines[instruction_line + 1 :]) if include_instructions is True else None
 
-        return Recipe(name=recipe_name, ingredients=ingredients, instructions=instructions)
+        return Recipe(name=recipe_name, measurements=measurements, instructions=instructions)
