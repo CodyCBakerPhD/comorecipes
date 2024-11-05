@@ -15,4 +15,4 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
     uses: ./.github/workflows/coverage.yml
     secrets:
-      CODECOV_CREDENTIALS: ${{ secrets.CODECOV_CREDENTIALS }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

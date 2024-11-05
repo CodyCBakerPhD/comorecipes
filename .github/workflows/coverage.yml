@@ -2,7 +2,7 @@ name: Run tests and upload coverage report
 on:
   workflow_call:
     secrets:
-      CODECOV_CREDENTIALS:
+      CODECOV_TOKEN:
         description: 'CodeCov Token for uploading coverage reports'
         required: true
 
@@ -60,7 +60,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.CODECOV_CREDENTIALS }}
+          token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
           flags: unittests
           name: codecov-umbrella
