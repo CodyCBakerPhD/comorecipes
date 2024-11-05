@@ -24,7 +24,7 @@ class IngredientRegistry(pydantic.BaseModel):
         return self.__repr__()
 
     @pydantic.validate_call
-    def get(self, *, name: str) -> Ingredient:
+    def get_ingredient(self, *, name: str) -> Ingredient:
         """
         Get an ingredient from the registry by name; returns a default base Ingredient if unregistered.
 

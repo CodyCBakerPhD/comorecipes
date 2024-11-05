@@ -71,5 +71,5 @@ class MeasurementRegistry(pydantic.BaseModel):
         """
         global default_ingredient_registry
 
-        ingredient = default_ingredient_registry.get(name=name)
+        ingredient = default_ingredient_registry.get_ingredient(name=name)
         return Measurement(amount=amount, unit=unit, ingredient=ingredient)
