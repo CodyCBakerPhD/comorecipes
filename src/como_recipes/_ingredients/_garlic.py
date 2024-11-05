@@ -8,4 +8,4 @@ class Garlic(Ingredient):
     default_package_unit: str = "head"
 
 
-default_ingredient_registry.add_ingredient(ingredient=Garlic)
+default_ingredient_registry.add_ingredient(ingredient=Garlic())

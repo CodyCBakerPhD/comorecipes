@@ -3,7 +3,7 @@ import pathlib
 import py
 
 
-from como_recipes import Recipe, MeasuredIngredient
+from como_recipes import Recipe, MeasurementRegistry
 
 
 def test_example_1_markdown_recipe_load():
@@ -13,8 +13,8 @@ def test_example_1_markdown_recipe_load():
 
     assert recipe.name == "Example Recipe 1"
     assert recipe.measurements == [
-        MeasuredIngredient(name="ingredient 1", amount=3, unit="tbsp."),
-        MeasuredIngredient(name="ingredient 2", amount=4, unit="g"),
+        MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="ingredient 1"),
+        MeasurementRegistry.get_measurement(amount=4, unit="g", name="ingredient 2"),
     ]
     assert recipe.instructions == [
         "This is an example of a recipe.",
@@ -36,4 +36,4 @@ def test_example_1_to_pydantic(tmpdir: py.path.local):
         expected_pydantic_model_file_lines = io.readlines()
 
     # Skip the import styles since expected must be absolute
-    assert test_pydantic_model_file_lines[2:] == expected_pydantic_model_file_lines[1:]
+    assert test_pydantic_model_file_lines == expected_pydantic_model_file_lines

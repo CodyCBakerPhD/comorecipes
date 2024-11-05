@@ -6,7 +6,7 @@ from ..._registration import default_recipe_registry, MeasurementRegistry
 class Applesauce(Recipe):
     name: str = "Applesauce"
     measurements: list[Measurement] = [
-        MeasurementRegistry.get_measurement(amount=4.0, unit="", ingredient="apples"),
+        MeasurementRegistry.get_measurement(amount=4.0, unit="large", name="apples"),
         MeasurementRegistry.get_measurement(amount=0.75, unit="cup", name="water"),
         MeasurementRegistry.get_measurement(amount=0.0625, unit="cup", name="white sugar"),
         MeasurementRegistry.get_measurement(amount=0.0625, unit="cup", name="brown sugar"),

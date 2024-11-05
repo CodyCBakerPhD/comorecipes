@@ -5,7 +5,6 @@ import pydantic
 
 from .utils import rational_string_to_float
 from ._base_measurement import Measurement
-from ._registration import MeasurementRegistry
 
 
 class Recipe(pydantic.BaseModel):
@@ -150,6 +149,8 @@ class Recipe(pydantic.BaseModel):
         include_instructions : bool, optional
             Whether to include the instructions in the recipe.
         """
+        from ._registration import MeasurementRegistry
+
         with open(file=file_path) as io:
             lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
 
