@@ -1,11 +1,11 @@
 name: Run tests and upload coverage report
 on:
-  workflow_dispatch:
   workflow_call:
     secrets:
       CODECOV_CREDENTIALS:
         description: 'CodeCov Token for uploading coverage reports'
         required: true
+        default:
 
 jobs:
 

@@ -1,6 +1,7 @@
 name: Review
 
 on:
+  workflow_dispatch:
   pull_request_review:
     types: [submitted]
 
@@ -11,7 +12,7 @@ concurrency:
 jobs:
 
   Coverage:
-    if: github.event.review.state == 'approved'
+    if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
     uses: ./.github/workflows/coverage.yml
     secrets:
       CODECOV_CREDENTIALS: ${{ secrets.CODECOV_CREDENTIALS }}
