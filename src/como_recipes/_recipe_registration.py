@@ -1,21 +1,21 @@
 import pydantic
 import natsort
 
-from ._base import Recipe
+from ._base_recipe import Recipe
 
 
 class RecipeRegistry(pydantic.BaseModel):
-    recipes: list[Recipe] = []
+    _recipes: list[Recipe] = []
 
     def __len__(self) -> int:
-        return len(self.recipes)
+        return len(self._recipes)
 
     def __repr__(self) -> str:
         number_of_registered_recipes = len(self)
 
         printout = f"{number_of_registered_recipes} registered recipes\n"
         printout += f"{'-' * (len(printout)-1)}\n\n"
-        for recipe in natsort.natsorted(seq=self.recipes):
+        for recipe in natsort.natsorted(seq=self._recipes):
             printout += f"{recipe.name}\n"
 
         return printout
@@ -24,8 +24,17 @@ class RecipeRegistry(pydantic.BaseModel):
         return self.__repr__()
 
     @pydantic.validate_call
-    def update_registry(self, *, recipe: Recipe):
-        self.recipes.append(recipe)
+    def add_recipe(self, *, recipe: Recipe) -> None:
+        """
+        Add a recipe to the registry.
+
+        Parameters
+        ----------
+        recipe : Recipe
+            Recipe to add to the registry.
+        """
+        self._recipes.append(recipe)
+        return None
 
 
 # Initialize the global default recipe registry

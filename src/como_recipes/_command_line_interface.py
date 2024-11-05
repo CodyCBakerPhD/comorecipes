@@ -5,7 +5,7 @@ import click
 import pydantic
 import importlib
 
-from ._base import Recipe
+from ._base_recipe import Recipe
 
 
 @click.command(name="write_missing_markdown_recipes")
@@ -54,7 +54,11 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:
 @click.option("--limit", type=int, default=None, help="Limit the number of recipes to write.")
 @pydantic.validate_call
 def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:
-    """Write missing Pydantic (.py) recipes from Markdown (.md) recipe files."""
+    """
+    Write missing Pydantic (.py) recipes from Markdown (.md) recipe files.
+
+    Please note that custom ingredient model files will not be generated; consider adding this manually over time.
+    """
     markdown_recipes_folder_path = pathlib.Path(__file__).parent / "_recipes" / "_markdown"
     current_markdown_recipe_file_paths = tuple(markdown_recipes_folder_path.glob("*.md"))
 
