@@ -5,7 +5,7 @@ import click
 import pydantic
 import importlib
 
-from ._base import Recipe
+from ._base_recipe import Recipe
 
 
 @click.command(name="write_missing_markdown_recipes")

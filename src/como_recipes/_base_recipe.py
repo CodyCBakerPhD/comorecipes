@@ -1,49 +1,10 @@
-from typing import Literal, Self
+from typing import Self
 import pathlib
 
 import pydantic
 
 from .utils import rational_string_to_float
-
-
-class Ingredient(pydantic.BaseModel):
-    name: str
-    grams_to_default_package_conversion: int | float | None = None
-    default_package_unit: str | None = None
-
-    @pydantic.validate_call
-    def convert_amount_to_package_size(self, *, amount: int | float, unit: str) -> int | float:
-        """Convert the amount of this ingredient to the default package size."""
-        if self.grams_to_default_package_conversion is None or self.default_package_size is None:
-            raise NotImplementedError(
-                "The default size or conversion of packages containing this ingredient is not specified."
-            )
-        if unit != "g":
-            raise NotImplementedError(
-                "The conversion rule for an ingredient amount to the default size of a package is not specified."
-            )
-
-        return amount / self.default_package_size
-
-
-class MeasuredIngredient(Ingredient):
-    amount: int | float
-    unit: Literal[
-        "cup",
-        "cups",
-        "tbsp",
-        "tsp",
-        "oz",
-        "lb",
-        "g",
-        "kg",
-        "large",
-        "tsp.",
-        "tbsp.",
-        "apples",
-        "qt.",
-        "lb.",
-    ]  # TODO: limit to grams-base only
+from ._base_measurement import Measurement
 
 
 class Recipe(pydantic.BaseModel):
@@ -54,7 +15,7 @@ class Recipe(pydantic.BaseModel):
     ----------
     name : str
         Name of the recipe.
-    ingredients : list[MeasuredIngredient]
+    ingredients : list[Measurement]
         List of ingredients.
     instructions : list[str]
         List of instructions.
@@ -63,7 +24,7 @@ class Recipe(pydantic.BaseModel):
     """
 
     name: str
-    ingredients: list[MeasuredIngredient]
+    ingredients: list[Measurement]
     instructions: list[str]
     notes: list[str] | None = None
 
@@ -100,14 +61,15 @@ class Recipe(pydantic.BaseModel):
         indent = " " * 4
 
         camel_case_name = "".join(word.capitalize() for word in self.name.split(" "))
-        python_text = "from ..._base import Recipe, MeasuredIngredient\n"
+        python_text = "from ..._base_recipe import Recipe\n"
+        python_text += "from ..._base_measurement import Measurement\n"
         python_text += "from ..._registration import default_recipe_registry\n\n\n"
         python_text += f"class {camel_case_name}(Recipe):\n"
         python_text += f'{indent}name: str = "{self.name}"\n'
 
-        python_text += f"{indent}ingredients: list[MeasuredIngredient] = [\n"
+        python_text += f"{indent}ingredients: list[Measurement] = [\n"
         for ingredient in self.ingredients:
-            ingredient_text = f'{indent}{indent}MeasuredIngredient(name="{ingredient.name}", '
+            ingredient_text = f'{indent}{indent}Measurement(name="{ingredient.name}", '
             ingredient_text += f"amount={ingredient.amount}, "
             ingredient_text += f'unit="{ingredient.unit}"),\n'
             python_text += ingredient_text
@@ -208,7 +170,7 @@ class Recipe(pydantic.BaseModel):
             amount = rational_string_to_float(ingredient_line[0])
             unit = ingredient_line[1]
             ingredient_name = " ".join(ingredient_line[2:])
-            ingredients.append(MeasuredIngredient(name=ingredient_name, amount=amount, unit=unit))
+            ingredients.append(Measurement(name=ingredient_name, amount=amount, unit=unit))
 
         # Not necessary for planning tools
         instructions = list(lines[instruction_line + 1 :]) if include_instructions is True else None

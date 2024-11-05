@@ -1,7 +1,7 @@
 import pydantic
 import natsort
 
-from ._base import Recipe
+from ._base_recipe import Recipe
 
 
 class RecipeRegistry(pydantic.BaseModel):

@@ -1,15 +1,16 @@
-from ..._base import Recipe, MeasuredIngredient
+from ..._base_recipe import Recipe
+from ..._base_measurement import Measurement
 from ..._registration import default_recipe_registry
 
 
 class Applesauce(Recipe):
     name: str = "Applesauce"
-    ingredients: list[MeasuredIngredient] = [
-        MeasuredIngredient(name="", amount=4.0, unit="apples"),
-        MeasuredIngredient(name="water", amount=0.75, unit="cup"),
-        MeasuredIngredient(name="white sugar", amount=0.0625, unit="cup"),
-        MeasuredIngredient(name="brown sugar", amount=0.0625, unit="cup"),
-        MeasuredIngredient(name="ground cinnamon", amount=0.5, unit="tsp."),
+    ingredients: list[Measurement] = [
+        Measurement(name="", amount=4.0, unit="apples"),
+        Measurement(name="water", amount=0.75, unit="cup"),
+        Measurement(name="white sugar", amount=0.0625, unit="cup"),
+        Measurement(name="brown sugar", amount=0.0625, unit="cup"),
+        Measurement(name="ground cinnamon", amount=0.5, unit="tsp."),
     ]
     instructions: list[str] = [
         "Peel and core apples.",

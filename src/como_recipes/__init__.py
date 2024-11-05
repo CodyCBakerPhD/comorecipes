@@ -1,4 +1,4 @@
-from ._base import Ingredient, MeasuredIngredient, Recipe
+from ._base_recipe import Ingredient, MeasuredIngredient, Recipe
 from ._registration import default_recipe_registry
 
 __all__ = [
