@@ -1,5 +1,7 @@
 """Command line interface for como_recipes."""
 
+# pragma: no cover
+
 import pathlib
 import click
 import pydantic

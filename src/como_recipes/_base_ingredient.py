@@ -1,4 +1,5 @@
 import pydantic
+import math
 
 
 class Ingredient(pydantic.BaseModel):
@@ -9,26 +10,22 @@ class Ingredient(pydantic.BaseModel):
     ----------
     name : str
         Name of the ingredient.
-    grams_to_default_package_conversion : int | float | None, optional
-        Conversion factor to the default package size as commonly found in stores.
+    default_package_size_in_grams : int | float | None, optional
+        Size of the default package (in grams) as commonly found in stores.
     default_package_unit : str | None, optional
         Unit of the default package size as commonly found in stores.
     """
 
     name: str
-    grams_to_default_package_conversion: int | float | None = None
+    default_grams_per_package: int | float | None = None
     default_package_unit: str | None = None
 
     @pydantic.validate_call
-    def convert_amount_to_package_size(self, *, amount: int | float, unit: str) -> int | float:
+    def get_number_of_packages(self, *, amount_in_grams: int | float) -> int:
         """Convert the amount of this ingredient to the default package size."""
-        if self.grams_to_default_package_conversion is None or self.default_package_size is None:
+        if self.default_grams_per_package is None or self.default_package_unit is None:
             raise NotImplementedError(
-                "The default size or conversion of packages containing this ingredient is not specified."
-            )
-        if unit != "g":
-            raise NotImplementedError(
-                "The conversion rule for an ingredient amount to the default size of a package is not specified."
+                "The default size or unit of packages containing this ingredient is not specified."
             )
 
-        return amount / self.default_package_size
+        return int(math.ceil(amount_in_grams / self.default_grams_per_package))
