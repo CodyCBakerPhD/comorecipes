@@ -1,5 +1,6 @@
 from io import StringIO
 from unittest.mock import patch
+import pytest
 from como_recipes import Ingredient, IngredientRegistry
 
 
@@ -22,3 +23,11 @@ def test_add_ingredient(example_ingredient: Ingredient):
         captured_output.getvalue() == "1 registered ingredients\n------------------------\n\nExample Ingredient 1\n\n"
     )
     assert new_registry.get_ingredient(name="Example Ingredient 1") == example_ingredient
+
+
+def test_get_ingredient_error():
+    new_registry = IngredientRegistry()
+
+    with pytest.raises(ValueError) as error_info:
+        new_registry.get_ingredient(name="Unregistered")
+    assert str(error_info.value) == "Ingredient 'Unregistered' not found in the registry."
