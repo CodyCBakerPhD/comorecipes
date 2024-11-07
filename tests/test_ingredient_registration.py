@@ -3,7 +3,7 @@ from unittest.mock import patch
 from como_recipes import Ingredient, IngredientRegistry
 
 
-def test_example_measurement_add_to_registry(example_ingredient: Ingredient):
+def test_add_ingredient(example_ingredient: Ingredient):
     new_registry = IngredientRegistry()
 
     assert len(new_registry) == 0
