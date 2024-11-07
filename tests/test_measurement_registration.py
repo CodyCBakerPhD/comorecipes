@@ -21,9 +21,7 @@ def test_measurement_registry(example_measurement: Measurement):
 
     new_registry.add_measurement(measurement=example_measurement)
 
-    expected_repr = (
-        "1 registered measurements\n" "-------------------------\n" "\n" "Example Ingredient 1\n" "  5.6 grams\n"
-    )
+    expected_repr = "1 registered measurements\n-------------------------\n\nExample Ingredient 1\n  5.6 grams\n"
     assert len(new_registry) == 1
     assert repr(new_registry) == expected_repr
     with patch("sys.stdout", new=StringIO()) as captured_output:
