@@ -2,6 +2,9 @@ import pathlib
 
 from io import StringIO
 from unittest.mock import patch
+
+import pytest
+
 from como_recipes import Recipe, RecipeRegistry
 
 
@@ -26,3 +29,12 @@ def test_example_recipe_1_add_to_registry():
     with patch("sys.stdout", new=StringIO()) as captured_output:
         print(new_registry)
     assert captured_output.getvalue() == "1 registered recipes\n--------------------\n\nExample Recipe 1\n\n"
+    assert new_registry.get_recipe(recipe_name="Example Recipe 1") == recipe
+
+
+def test_get_recipe_error():
+    new_registry = RecipeRegistry()
+
+    with pytest.raises(ValueError) as error_info:
+        new_registry.get_recipe(recipe_name="Unregistered")
+    assert str(error_info.value) == "Recipe 'Unregistered' not found in the registry."
