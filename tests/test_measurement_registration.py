@@ -21,13 +21,14 @@ def test_measurement_registry(example_measurement: Measurement):
 
     new_registry.add_measurement(measurement=example_measurement)
 
+    expected_repr = (
+        "1 registered measurements\n" "-------------------------\n" "\n" "Example Ingredient 1\n" "  5.6 grams\n"
+    )
     assert len(new_registry) == 1
-    assert repr(new_registry) == "1 registered measurements\n-------------------------\n\nExample Ingredient 1\n"
+    assert repr(new_registry) == expected_repr
     with patch("sys.stdout", new=StringIO()) as captured_output:
         print(new_registry)
-    assert captured_output.getvalue() == (
-        "1 registered measurements\n-------------------------\n\nExample Ingredient 1\n\n"
-    )
+    assert captured_output.getvalue() == expected_repr + "\n"
 
     new_registry.add_recipe(recipe=recipe)
 
@@ -36,8 +37,11 @@ def test_measurement_registry(example_measurement: Measurement):
         "-------------------------\n"
         "\n"
         "Example Ingredient 1\n"
+        "  5.6 grams\n"
         "ingredient 1\n"
+        "  3.0 tbsp.\n"
         "ingredient 2\n"
+        "  4.0 g\n"
     )
     assert len(new_registry) == 3
     assert repr(new_registry) == expected_repr

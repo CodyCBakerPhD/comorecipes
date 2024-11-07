@@ -24,11 +24,12 @@ class MeasurementRegistry(pydantic.BaseModel):
             return printout
 
         printout += f"{'-' * (len(printout)-1)}\n\n"
-        for name, measurement in natsort.natsorted(
+        for name, all_measurements in natsort.natsorted(
             seq=self._measurements.items(), key=lambda item_tuple: item_tuple[0]
         ):
-            # TODO
-            printout += f"{measurement[0].ingredient.name}\n"
+            printout += f"{all_measurements[0].ingredient.name}\n"
+            for measurement in all_measurements:
+                printout += f"  {measurement.amount} {measurement.unit}\n"
 
         return printout
 

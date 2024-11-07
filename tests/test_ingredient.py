@@ -2,7 +2,7 @@ from como_recipes import Ingredient
 import pytest
 
 
-def test_example_ingredient_1_get_number_of_packages(example_ingredient: Ingredient):
+def test_get_number_of_packages(example_ingredient: Ingredient):
     test_number_of_containers = example_ingredient.get_number_of_packages(amount_in_grams=56.78)
     assert test_number_of_containers == 5
 

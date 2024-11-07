@@ -15,13 +15,12 @@ def test_add_ingredient(example_ingredient: Ingredient):
 
     new_registry.add_ingredient(ingredient=example_ingredient)
 
+    expected_repr = "1 registered ingredients\n------------------------\n\nExample Ingredient 1\n"
     assert len(new_registry) == 1
-    assert repr(new_registry) == "1 registered ingredients\n------------------------\n\nExample Ingredient 1\n"
+    assert repr(new_registry) == expected_repr
     with patch("sys.stdout", new=StringIO()) as captured_output:
         print(new_registry)
-    assert (
-        captured_output.getvalue() == "1 registered ingredients\n------------------------\n\nExample Ingredient 1\n\n"
-    )
+    assert captured_output.getvalue() == expected_repr + "\n"
     assert new_registry.get_ingredient(name="Example Ingredient 1") == example_ingredient
 
 
