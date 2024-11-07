@@ -2,6 +2,9 @@ import pathlib
 
 from io import StringIO
 from unittest.mock import patch
+
+import pytest
+
 from como_recipes import Measurement, MeasurementRegistry, Recipe
 
 
@@ -57,12 +60,27 @@ def test_measurement_registry(example_measurement: Measurement):
 
 
 def test_get_measurement_default():
-    measurement = MeasurementRegistry.get_measurement(amount=3.0, unit="grams", name="Garlic")
+    measurement = MeasurementRegistry.get_measurement(amount=1.0, unit="grams", name="Garlic")
     assert str(type(measurement.ingredient)) == "<class 'como_recipes._ingredients._garlic.Garlic'>"
     assert measurement.ingredient.name == "Garlic"
 
 
 def test_get_measurement_non_default():
-    measurement = MeasurementRegistry.get_measurement(amount=3.0, unit="grams", name="Unregistered")
+    measurement = MeasurementRegistry.get_measurement(amount=1.0, unit="grams", name="Unregistered")
     assert str(type(measurement.ingredient)) == "<class 'como_recipes._base_ingredient.Ingredient'>"
     assert measurement.ingredient.name == "Unregistered"
+
+
+def test_form_shopping_list_error():
+    new_registry = MeasurementRegistry()
+
+    measurement_1 = MeasurementRegistry.get_measurement(amount=1.0, unit="g", name="test_ingredient")
+    new_registry.add_measurement(measurement=measurement_1)
+    measurement_2 = MeasurementRegistry.get_measurement(amount=1.0, unit="tsp", name="test_ingredient")
+    new_registry.add_measurement(measurement=measurement_2)
+
+    with pytest.raises(ValueError) as error_info:
+        new_registry.get_shopping_list()
+    assert str(error_info.value) == (
+        "\n" "Multiple units found for ingredient test_ingredient:\n" "\n" "[  1.0 g\n" "  1.0 tsp\n" "]"
+    )
