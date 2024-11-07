@@ -4,6 +4,7 @@ import pydantic
 import natsort
 
 from ._base_recipe import Recipe
+from ._base_ingredient import Ingredient
 from ._ingredient_registration import default_ingredient_registry
 from ._base_measurement import Measurement
 
@@ -18,9 +19,16 @@ class MeasurementRegistry(pydantic.BaseModel):
         number_of_registered_measurements = len(self)
 
         printout = f"{number_of_registered_measurements} registered measurements\n"
+
+        if number_of_registered_measurements == 0:
+            return printout
+
         printout += f"{'-' * (len(printout)-1)}\n\n"
-        for measurement in natsort.natsorted(seq=self._measurements):
-            printout += f"{measurement.name}\n"
+        for name, measurement in natsort.natsorted(
+            seq=self._measurements.items(), key=lambda item_tuple: item_tuple[0]
+        ):
+            # TODO
+            printout += f"{measurement[0].ingredient.name}\n"
 
         return printout
 
@@ -70,7 +78,11 @@ class MeasurementRegistry(pydantic.BaseModel):
         name : str
             Name of the ingredient.
         """
-        global default_ingredient_registry
+        # global default_ingredient_registry
 
-        ingredient = default_ingredient_registry.get_ingredient(name=name)
+        if name in default_ingredient_registry:
+            ingredient = default_ingredient_registry.get_ingredient(name=name)
+        else:
+            ingredient = Ingredient(name=name)
+
         return Measurement(amount=amount, unit=unit, ingredient=ingredient)

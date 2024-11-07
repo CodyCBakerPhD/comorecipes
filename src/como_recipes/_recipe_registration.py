@@ -5,7 +5,7 @@ from ._base_recipe import Recipe
 
 
 class RecipeRegistry(pydantic.BaseModel):
-    _recipes: list[Recipe] = []
+    _recipes: dict[str, Recipe] = {}
 
     def __len__(self) -> int:
         return len(self._recipes)
@@ -19,8 +19,8 @@ class RecipeRegistry(pydantic.BaseModel):
             return printout
 
         printout += f"{'-' * (len(printout)-1)}\n\n"
-        for recipe in natsort.natsorted(seq=self._recipes):
-            printout += f"{recipe.name}\n"
+        for recipe_name in natsort.natsorted(seq=self._recipes.keys()):
+            printout += f"{recipe_name}\n"
 
         return printout
 
@@ -38,8 +38,23 @@ class RecipeRegistry(pydantic.BaseModel):
         recipe : Recipe
             Recipe to add to the registry.
         """
-        self._recipes.append(recipe)
+        self._recipes[recipe.name] = recipe
         return None
+
+    @pydantic.validate_call
+    def get_recipe(self, *, recipe_name: str) -> Recipe:
+        """
+        Get a recipe from the registry.
+
+        Parameters
+        ----------
+        recipe_name : str
+            Name of the recipe to get from the registry.
+        """
+        recipe = self._recipes.get(recipe_name, None)
+        if recipe is None:
+            raise ValueError(f"Recipe '{recipe_name}' not found in the registry.")
+        return recipe
 
 
 # Initialize the global default recipe registry

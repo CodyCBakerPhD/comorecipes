@@ -10,10 +10,17 @@ class IngredientRegistry(pydantic.BaseModel):
     def __len__(self) -> int:
         return len(self._ingredients)
 
+    def __contains__(self, item: str) -> bool:
+        return self._ingredients.get(item, None) is not None
+
     def __repr__(self) -> str:
         number_of_registered_ingredients = len(self)
 
         printout = f"{number_of_registered_ingredients} registered ingredients\n"
+
+        if number_of_registered_ingredients == 0:
+            return printout
+
         printout += f"{'-' * (len(printout)-1)}\n\n"
         for name, ingredient in natsort.natsorted(seq=self._ingredients.items(), key=lambda item_tuple: item_tuple[0]):
             printout += f"{ingredient.name}\n"
@@ -34,7 +41,10 @@ class IngredientRegistry(pydantic.BaseModel):
         name : str
             Name of the ingredient.
         """
-        return self._ingredients.get(name, Ingredient(name=name))
+        ingredient = self._ingredients.get(name, None)
+        if ingredient is None:
+            raise ValueError(f"Ingredient '{name}' not found in the registry.")
+        return ingredient
 
     @pydantic.validate_call
     def add_ingredient(self, *, ingredient: Ingredient) -> None:

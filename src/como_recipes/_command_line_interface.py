@@ -1,7 +1,5 @@
 """Command line interface for como_recipes."""
 
-# pragma: no cover
-
 import pathlib
 import click
 import pydantic
@@ -13,7 +11,7 @@ from ._base_recipe import Recipe
 @click.command(name="write_missing_markdown_recipes")
 @click.option("--limit", type=int, default=None, help="Limit the number of recipes to write.")
 @pydantic.validate_call
-def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:
+def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pragma: no cover
     """Write missing Markdown (.md) recipes from Pydantic (.py) recipe files."""
     if importlib.util.find_spec(name="como_recipes") is None:
         raise ImportError("The 'como_recipes' module is not installed.")
@@ -55,7 +53,7 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:
 @click.command(name="write_missing_pydantic_recipes")
 @click.option("--limit", type=int, default=None, help="Limit the number of recipes to write.")
 @pydantic.validate_call
-def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:
+def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:  # pragma: no cover
     """
     Write missing Pydantic (.py) recipes from Markdown (.md) recipe files.
 

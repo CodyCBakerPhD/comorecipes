@@ -44,6 +44,7 @@ class Measurement(pydantic.BaseModel):
         "oz",
         "lb",
         "g",
+        "grams",
         "kg",
         "large",
         "tsp.",
