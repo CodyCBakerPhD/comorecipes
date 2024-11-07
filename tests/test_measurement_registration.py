@@ -81,6 +81,4 @@ def test_form_shopping_list_error():
 
     with pytest.raises(ValueError) as error_info:
         new_registry.get_shopping_list()
-    assert str(error_info.value) == (
-        "\n" "Multiple units found for ingredient test_ingredient:\n" "\n" "[  1.0 g\n" "  1.0 tsp\n" "]"
-    )
+    assert str(error_info.value) == ("\nMultiple units found for ingredient test_ingredient:\n\n[  1.0 g\n  1.0 tsp\n]")
