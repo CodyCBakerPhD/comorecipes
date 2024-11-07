@@ -52,9 +52,7 @@ def test_measurement_registry(example_measurement: Measurement):
 
     new_registry.add_measurement(measurement=example_measurement)
 
-    expected_shopping_list = (
-        "Example Ingredient 1\n" "  11.2 grams\n" "ingredient 1\n" "  3.0 tbsp.\n" "ingredient 2\n" "  4.0 g\n"
-    )
+    expected_shopping_list = "Example Ingredient 1\n  11.2 grams\ningredient 1\n  3.0 tbsp.\ningredient 2\n  4.0 g\n"
     assert new_registry.get_shopping_list() == expected_shopping_list
 
 
