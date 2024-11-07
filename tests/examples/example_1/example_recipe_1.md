@@ -2,9 +2,9 @@
 
 ## Ingredients
 
-3 tbsp. ingredient 1
+3.0 tbsp. ingredient 1
 
-4 g ingredient 2
+4.0 g ingredient 2
 
 
 

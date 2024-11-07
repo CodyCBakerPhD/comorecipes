@@ -14,6 +14,10 @@ class RecipeRegistry(pydantic.BaseModel):
         number_of_registered_recipes = len(self)
 
         printout = f"{number_of_registered_recipes} registered recipes\n"
+
+        if number_of_registered_recipes == 0:
+            return printout
+
         printout += f"{'-' * (len(printout)-1)}\n\n"
         for recipe in natsort.natsorted(seq=self._recipes):
             printout += f"{recipe.name}\n"
@@ -21,7 +25,8 @@ class RecipeRegistry(pydantic.BaseModel):
         return printout
 
     def __str__(self) -> str:
-        return self.__repr__()
+        """Used by calls to `print(...)`."""
+        return repr(self)
 
     @pydantic.validate_call
     def add_recipe(self, *, recipe: Recipe) -> None:
