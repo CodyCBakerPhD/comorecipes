@@ -24,11 +24,11 @@ class MeasurementRegistry(pydantic.BaseModel):
             return printout
 
         printout += f"{'-' * (len(printout)-1)}\n\n"
-        for name, all_measurements in natsort.natsorted(
+        for ingredient_name, measurements_by_ingredient in natsort.natsorted(
             seq=self._measurements.items(), key=lambda item_tuple: item_tuple[0]
         ):
-            printout += f"{all_measurements[0].ingredient.name}\n"
-            for measurement in all_measurements:
+            printout += f"{ingredient_name}\n"
+            for measurement in measurements_by_ingredient:
                 printout += f"  {measurement.amount} {measurement.unit}\n"
 
         return printout
@@ -63,6 +63,31 @@ class MeasurementRegistry(pydantic.BaseModel):
         for measurement in recipe.measurements:
             self.add_measurement(measurement=measurement)
         return None
+
+    @pydantic.validate_call
+    def get_shopping_list(self) -> str:
+        """Get a shopping list by aggregating all contained recipes and measurements."""
+        shopping_list = ""
+
+        for ingredient_name, measurements_by_ingredient in natsort.natsorted(
+            seq=self._measurements.items(), key=lambda item_tuple: item_tuple[0]
+        ):
+            shopping_list += f"{ingredient_name}\n"
+
+            # TODO: shouldn't be needed once grams are standardized
+            measurement_units_per_ingredient = {measurement.unit for measurement in measurements_by_ingredient}
+            if len(measurement_units_per_ingredient) > 1:
+                message = (
+                    f"\nMultiple units found for ingredient {measurements_by_ingredient[0].ingredient.name}:\n\n"
+                    f"{measurements_by_ingredient}"
+                )
+                raise ValueError(message)
+            measurement_unit = list(measurement_units_per_ingredient)[0]
+
+            total_per_ingredient = sum(measurement.amount for measurement in measurements_by_ingredient)
+            shopping_list += f"  {total_per_ingredient} {measurement_unit}\n"
+
+        return shopping_list
 
     @staticmethod
     @pydantic.validate_call

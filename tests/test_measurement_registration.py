@@ -28,6 +28,9 @@ def test_measurement_registry(example_measurement: Measurement):
         print(new_registry)
     assert captured_output.getvalue() == expected_repr + "\n"
 
+    expected_shopping_list = "Example Ingredient 1\n  5.6 grams\n"
+    assert new_registry.get_shopping_list() == expected_shopping_list
+
     new_registry.add_recipe(recipe=recipe)
 
     expected_repr = (
@@ -46,6 +49,13 @@ def test_measurement_registry(example_measurement: Measurement):
     with patch("sys.stdout", new=StringIO()) as captured_output:
         print(new_registry)
     assert captured_output.getvalue() == expected_repr + "\n"
+
+    new_registry.add_measurement(measurement=example_measurement)
+
+    expected_shopping_list = (
+        "Example Ingredient 1\n" "  11.2 grams\n" "ingredient 1\n" "  3.0 tbsp.\n" "ingredient 2\n" "  4.0 g\n"
+    )
+    assert new_registry.get_shopping_list() == expected_shopping_list
 
 
 def test_get_measurement_default():
