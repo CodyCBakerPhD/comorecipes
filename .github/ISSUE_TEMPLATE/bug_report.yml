@@ -35,7 +35,6 @@ body:
         - macOS (Silicon)
         - macOS (Intel)
         - Linux
-        - N/A
       default: 0
   - type: dropdown
     id: terms
