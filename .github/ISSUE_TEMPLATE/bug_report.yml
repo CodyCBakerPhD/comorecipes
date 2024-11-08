@@ -32,8 +32,8 @@ body:
       options:
         - N/A
         - Windows
-        - macOS - Silicon
-        - macOS - Intel
+        - macOS (Silicon)
+        - macOS (Intel)
         - Linux
         - N/A
       default: 0
