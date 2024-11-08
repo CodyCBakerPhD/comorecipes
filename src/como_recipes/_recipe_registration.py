@@ -42,6 +42,19 @@ class RecipeRegistry(pydantic.BaseModel):
         return None
 
     @pydantic.validate_call
+    def remove_recipe(self, *, recipe_name: str) -> None:
+        """
+        Remove a recipe from the registry.
+
+        Parameters
+        ----------
+        recipe_name : str
+            Name of the recipe to remove from the registry.
+        """
+        self._recipes.pop(recipe_name)
+        return None
+
+    @pydantic.validate_call
     def get_recipe(self, *, recipe_name: str) -> Recipe:
         """
         Get a recipe from the registry.

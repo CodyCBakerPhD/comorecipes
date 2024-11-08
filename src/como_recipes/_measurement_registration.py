@@ -14,20 +14,23 @@ class MeasurementRegistry(pydantic.BaseModel):
     """
     Registry for storing measurements and recipes.
 
-    Initialize an empty registry with `MeasurementRegistry()` then add measurements with `add_measurement`
-    and recipes with `add_recipe`.
+    Initialize an empty registry with `MeasurementRegistry()` then add:
+        - measurements with `add_measurement`
+        - recipes with `add_recipe`
     """
 
-    _measurements: dict[str, list[Measurement]] | None = None
+    _individual_measurements: dict[str, list[Measurement]] | None = None
+    _combined_measurements: dict[str, list[Measurement]] | None = None
     _recipe_registry: RecipeRegistry | None = None
 
     def __init__(self, *args, **kwargs) -> None:
         if len(args) > 0:
             raise ValueError("No positional arguments are allowed.")
 
-        super().__init__(*args, **kwargs)
+        super().__init__(**kwargs)
 
-        self._measurements = collections.defaultdict(list, self._measurements or {})
+        self._individual_measurements = collections.defaultdict(list, self._individual_measurements or {})
+        self._combined_measurements = collections.defaultdict(list, self._individual_measurements or {})
         self._recipe_registry = RecipeRegistry()
 
     def _printout_nested_ingredients(self, measurements_by_ingredient: list[Measurement]) -> str:
@@ -40,7 +43,7 @@ class MeasurementRegistry(pydantic.BaseModel):
     def _printout_nested_measurements(self) -> str:
         printout = ""
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=self._measurements.items(), key=lambda item_tuple: item_tuple[0]
+            seq=self._combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
         ):
             printout += f"{ingredient_name}\n"
             printout += self._printout_nested_ingredients(measurements_by_ingredient=measurements_by_ingredient)
@@ -48,7 +51,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         return printout
 
     def __len__(self) -> int:
-        return len(self._measurements)
+        return len(self._combined_measurements)
 
     def __repr__(self) -> str:
         number_of_registered_measurements = len(self)
@@ -77,7 +80,22 @@ class MeasurementRegistry(pydantic.BaseModel):
         measurement : Measurement
             Measurement to add to the registry.
         """
-        self._measurements[measurement.ingredient.name].append(measurement)
+        self._individual_measurements[measurement.ingredient.name].append(measurement)
+        self._combined_measurements[measurement.ingredient.name].append(measurement)
+        return None
+
+    @pydantic.validate_call
+    def remove_measurement(self, *, measurement: Measurement) -> None:
+        """
+        Remove a measurement from the registry.
+
+        Parameters
+        ----------
+        measurement : Measurement
+            Measurement to remove from the registry.
+        """
+        self._individual_measurements[measurement.ingredient.name].remove(measurement)
+        self._combined_measurements[measurement.ingredient.name].remove(measurement)
         return None
 
     @pydantic.validate_call
@@ -91,6 +109,32 @@ class MeasurementRegistry(pydantic.BaseModel):
             Recipe to add to the registry.
         """
         self._recipe_registry.add_recipe(recipe=recipe)
+
+        for measurement in recipe.measurements:
+            self._combined_measurements[measurement.ingredient.name].append(measurement)
+
+        return None
+
+    @pydantic.validate_call
+    def remove_recipe(self, *, recipe_name: str) -> None:
+        """
+        Remove a recipe from the registry.
+
+        Parameters
+        ----------
+        recipe_name : str
+            Name of the recipe to remove from the registry.
+        """
+        self._recipe_registry.remove_recipe(recipe_name=recipe_name)
+
+        self._combined_measurements = collections.defaultdict(list)
+        for measurement in self._individual_measurements.values():
+            self._combined_measurements[measurement.ingredient.name].extend(measurement)
+        for recipe_name in self._recipe_registry.get_all_recipe_names():
+            recipe = self._recipe_registry.get_recipe(recipe_name=recipe_name)
+            for measurement in recipe.measurements:
+                self._combined_measurements[measurement.ingredient.name].append(measurement)
+
         return None
 
     @pydantic.validate_call
@@ -103,14 +147,8 @@ class MeasurementRegistry(pydantic.BaseModel):
         """Get a shopping list by aggregating all contained recipes and measurements."""
         shopping_list = ""
 
-        all_measurements = self._measurements.copy()
-        for recipe in self._recipe_registry._recipes.values():
-            for measurement in recipe.measurements:
-                all_measurements[measurement.ingredient.name].append(measurement)
-        # TODO: could probably do dict comprehension here, with an itertools chain to combine manual measure w/ recipes
-
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=all_measurements.items(), key=lambda item_tuple: item_tuple[0]
+            seq=self._combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
         ):
             shopping_list += f"{ingredient_name}\n"
 
@@ -134,7 +172,9 @@ class MeasurementRegistry(pydantic.BaseModel):
     @pydantic.validate_call
     def get_measurement(*, amount: int | float, unit: str, name: str) -> Measurement:
         """
-        Generate a measurement of an ingredient from the ingredient registry; uses a base Ingredient if unregistered.
+        Generate a measurement of an ingredient from the default global ingredient registry.
+
+        Uses a base Ingredient if it is unregistered.
 
         Parameters
         ----------
