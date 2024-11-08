@@ -10,13 +10,13 @@ body:
         # Thank you for taking the time to fill out this bug report!
         ### The following information will help us resolve your issue.
   - type: textarea
-    id: what-happened
+    id: what_happened
     attributes:
       label: What happened?
       description: |
         What were you trying to do?
 
-        Please describe the 
+        Please describe the sequence of operations that led to this issue.
     validations:
       required: true
   - type: textarea
@@ -24,19 +24,19 @@ body:
     attributes:
       label: Traceback or log file
       description: When using the interactive command line tool, a log file should have automatically opened when the error occured.
-      value: "Copy & paste or directly upload the log file of the error traceback here"
+      placeholder: "Copy & paste or directly upload the log file of the error traceback here"
   - type: dropdown
     id: os
     attributes:
       label: Operating System
       options:
+        - N/A
         - Windows
         - macOS - Silicon
         - macOS - Intel
         - Linux
         - N/A
-      default:
-        - N/A
+      default: 0
   - type: dropdown
     id: terms
     attributes:
