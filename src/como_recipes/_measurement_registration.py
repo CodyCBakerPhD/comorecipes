@@ -1,4 +1,5 @@
 import collections
+import warnings
 
 import pydantic
 import natsort
@@ -19,8 +20,8 @@ class MeasurementRegistry(pydantic.BaseModel):
         - recipes with `add_recipe`
     """
 
-    _individual_measurements: dict[str, list[Measurement]] | None = None
-    _combined_measurements: dict[str, list[Measurement]] | None = None
+    _individual_measurements_to_add: dict[str, list[Measurement]] | None = None
+    _individual_measurements_to_remove: dict[str, list[Measurement]] | None = None
     _recipe_registry: RecipeRegistry | None = None
 
     def __init__(self, *args, **kwargs) -> None:
@@ -29,9 +30,23 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         super().__init__(**kwargs)
 
-        self._individual_measurements = collections.defaultdict(list, self._individual_measurements or {})
-        self._combined_measurements = collections.defaultdict(list, self._individual_measurements or {})
+        self._individual_measurements_to_add = collections.defaultdict(list, self._individual_measurements_to_add or {})
+        self._individual_measurements_to_remove = collections.defaultdict(
+            list, self._individual_measurements_to_remove or {}
+        )
         self._recipe_registry = RecipeRegistry()
+
+    def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
+        combined_measurements = collections.defaultdict(list)
+        for measurements in self._individual_measurements_to_add.values():
+            for measurement in measurements:
+                combined_measurements[measurement.ingredient.name].append(measurement)
+        for recipe_name in self._recipe_registry.get_all_recipe_names():
+            recipe = self._recipe_registry.get_recipe(recipe_name=recipe_name)
+            for measurement in recipe.measurements:
+                combined_measurements[measurement.ingredient.name].append(measurement)
+
+        return combined_measurements
 
     def _printout_nested_ingredients(self, measurements_by_ingredient: list[Measurement]) -> str:
         printout = ""
@@ -41,17 +56,25 @@ class MeasurementRegistry(pydantic.BaseModel):
         return printout
 
     def _printout_nested_measurements(self) -> str:
+        combined_measurements = self._calculate_combined_measurements()
+
         printout = ""
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=self._combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
+            seq=combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
         ):
             printout += f"{ingredient_name}\n"
             printout += self._printout_nested_ingredients(measurements_by_ingredient=measurements_by_ingredient)
 
+            measurements_to_remove = self._individual_measurements_to_remove.get(ingredient_name, [])
+            if len(measurements_to_remove) > 0:
+                for measurement in measurements_to_remove:
+                    printout += f"  -{measurement.amount} {measurement.unit}\n"
+
         return printout
 
     def __len__(self) -> int:
-        return len(self._combined_measurements)
+        combined_measurements = self._calculate_combined_measurements()
+        return len(combined_measurements)
 
     def __repr__(self) -> str:
         number_of_registered_measurements = len(self)
@@ -80,8 +103,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         measurement : Measurement
             Measurement to add to the registry.
         """
-        self._individual_measurements[measurement.ingredient.name].append(measurement)
-        self._combined_measurements[measurement.ingredient.name].append(measurement)
+        self._individual_measurements_to_add[measurement.ingredient.name].append(measurement)
         return None
 
     @pydantic.validate_call
@@ -94,8 +116,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         measurement : Measurement
             Measurement to remove from the registry.
         """
-        self._individual_measurements[measurement.ingredient.name].remove(measurement)
-        self._combined_measurements[measurement.ingredient.name].remove(measurement)
+        self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
         return None
 
     @pydantic.validate_call
@@ -109,10 +130,6 @@ class MeasurementRegistry(pydantic.BaseModel):
             Recipe to add to the registry.
         """
         self._recipe_registry.add_recipe(recipe=recipe)
-
-        for measurement in recipe.measurements:
-            self._combined_measurements[measurement.ingredient.name].append(measurement)
-
         return None
 
     @pydantic.validate_call
@@ -126,32 +143,22 @@ class MeasurementRegistry(pydantic.BaseModel):
             Name of the recipe to remove from the registry.
         """
         self._recipe_registry.remove_recipe(recipe_name=recipe_name)
-
-        self._combined_measurements = collections.defaultdict(list)
-        for measurement in self._individual_measurements.values():
-            self._combined_measurements[measurement.ingredient.name].extend(measurement)
-        for recipe_name in self._recipe_registry.get_all_recipe_names():
-            recipe = self._recipe_registry.get_recipe(recipe_name=recipe_name)
-            for measurement in recipe.measurements:
-                self._combined_measurements[measurement.ingredient.name].append(measurement)
-
         return None
 
     @pydantic.validate_call
     def get_all_recipe_names(self) -> list[str]:
         """Get all recipe names from the currently attached registry."""
-        return list(self._recipe_registry._recipes.keys())
+        return self._recipe_registry.get_all_recipe_names()
 
     @pydantic.validate_call
     def get_shopping_list(self) -> str:
         """Get a shopping list by aggregating all contained recipes and measurements."""
+        combined_measurements = self._calculate_combined_measurements()
+
         shopping_list = ""
-
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=self._combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
+            seq=combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
         ):
-            shopping_list += f"{ingredient_name}\n"
-
             # TODO: shouldn't be needed once grams are standardized
             measurement_units_per_ingredient = {measurement.unit for measurement in measurements_by_ingredient}
             if len(measurement_units_per_ingredient) > 1:
@@ -163,7 +170,21 @@ class MeasurementRegistry(pydantic.BaseModel):
                 raise ValueError(message)
             measurement_unit = list(measurement_units_per_ingredient)[0]
 
-            total_per_ingredient = sum(measurement.amount for measurement in measurements_by_ingredient)
+            total_per_ingredient_to_add = sum(measurement.amount for measurement in measurements_by_ingredient)
+            total_per_ingredient_to_remove = sum(
+                measurement.amount for measurement in self._individual_measurements_to_remove.get(ingredient_name, [])
+            )
+            total_per_ingredient = total_per_ingredient_to_add - total_per_ingredient_to_remove
+
+            if total_per_ingredient < 0:
+                warnings.warn(
+                    message=f"Negative amount of '{ingredient_name}' found in shopping list; ignoring.", stacklevel=2
+                )
+
+            if total_per_ingredient == 0:
+                continue
+
+            shopping_list += f"{ingredient_name}\n"
             shopping_list += f"  {total_per_ingredient} {measurement_unit}\n"
 
         return shopping_list
@@ -185,8 +206,6 @@ class MeasurementRegistry(pydantic.BaseModel):
         name : str
             Name of the ingredient.
         """
-        # global default_ingredient_registry
-
         if name in default_ingredient_registry:
             ingredient = default_ingredient_registry.get_ingredient(name=name)
         else:
