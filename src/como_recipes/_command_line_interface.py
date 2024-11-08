@@ -4,6 +4,7 @@ import pathlib
 import click
 import importlib
 import datetime
+import traceback
 
 from ._base_recipe import Recipe
 from ._recipe_registration import default_recipe_registry
@@ -81,15 +82,62 @@ def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:  # pra
     return None
 
 
-@click.command(name="select_recipes")
-def _select_recipes() -> None:
+def _unrecognized_input_message(input_value: str) -> str:
+    """Return a standard unrecognized input message."""
+    return (
+        f"Input for '{input_value}' is not recognized. Please try again.\n"
+        "To see the command-line options menu, enter 'sm' or 'start menu'.\n"
+    )
+
+
+@click.command(name="como_recipes")
+def _como_recipes_command_line_interface_main_entrypoint() -> None:
+    """Entry point for the interactive CoMo Recipes command-line interface."""
+    click.clear()
+
+    start_message = (
+        "\n\nWelcome to CoMo Recipes!\n\n"
+        "To exit, enter 'q' or 'quit'.\n"
+        "To start a new meal selection session, enter 'ms' or 'meal selector'.\n"
+    )
+    click.echo(message=start_message)
+
+    max_iterations = 1_000_000
+    iteration = 0
+    while iteration < max_iterations:
+        input_value = click.prompt(text="What would you like to do?: ", prompt_suffix="", type=str)
+
+        match input_value:
+            case "q" | "quit":
+                break
+            case "ms" | "meal selector":
+                _meal_selector()
+                click.clear()
+                click.echo(message=start_message)
+            case "sm" | "start menu":
+                click.echo(message=start_message)
+            case _:
+                click.echo(message=_unrecognized_input_message(input_value=input_value))
+
+        iteration += 1
+
+    if iteration >= max_iterations:
+        click.echo(message="Exiting CoMo Recipes: maximum allowed operations reached.\n")
+
+    return None
+
+
+def _meal_selector() -> None:
     """Interactively select available recipes and generate a shopping list for them."""
+    click.clear()
+
     home_folder = pathlib.Path.home() / ".como_recipes"
     home_folder.mkdir(exist_ok=True)
-    session_file_path = home_folder / f"session_{datetime.datetime.now().strftime('%Y%m%d')}.txt"
+    date = datetime.datetime.now().strftime("%Y%m%d")
+    shopping_list_file_path = home_folder / f"shopping_list_{date}.txt"
     counter = 0
-    while session_file_path.exists():
-        session_file_path = home_folder / f"session_{datetime.datetime.now().strftime('%Y%m%d')}_{counter}.txt"
+    while shopping_list_file_path.exists():
+        shopping_list_file_path = home_folder / f"shopping_list_{date}_{counter}.txt"
         counter += 1
 
     recipe_selection = MeasurementRegistry()
@@ -101,7 +149,7 @@ def _select_recipes() -> None:
     default_recipe_name_to_id_map: dict[str, int] = {value: key for key, value in id_to_default_recipe_name_map.items()}
 
     start_message = (
-        "\n\nWelcome to the CoMo Recipes Meal Selection Interface!\n\n"
+        "\n\nWelcome to the CoMo Recipes Meal Selector!\n\n"
         "To exit, enter 'q' or 'quit'.\n"
         "To see all available recipes and their identifiers (IDs), enter 'lav' or 'list available'.\n"
         "To see the list of current recipe selections, enter 'lcs' or 'list current selection'.\n"
@@ -112,69 +160,85 @@ def _select_recipes() -> None:
     )
     click.echo(message=start_message)
 
-    input_value = ""
-    unrecognized_input_message = (
-        f"Input for '{input_value}' is not recognized. Please try again.\n"
-        "To see the command-line options menu, enter 'sm' or 'start menu'.\n"
-    )
-
     max_iterations = 1_000_000
     iteration = 0
     while iteration < max_iterations:
         input_value = click.prompt(text="What would you like to do?: ", prompt_suffix="", type=str)
 
-        match input_value:
-            case "q" | "quit":
-                break
-            case "m" | "menu":
-                click.echo(message=start_message)
-            case "lav" | "list available":
-                click.echo(message="\nAvailable recipes:\n")
-                message = ""
-                for input_value, recipe_name in id_to_default_recipe_name_map.items():
-                    message += f"{input_value}) {recipe_name}\n"
-                message += "\n\n"
-                click.echo(message=message)
-            case "lsc" | "list current selection":
-                recipe_names_with_ids = ""
-                for recipe_name in recipe_selection.get_all_recipe_names():
-                    recipe_names_with_ids += f"{recipe_name} ({default_recipe_name_to_id_map[recipe_name]})\n"
-                click.echo(message=f"\nCurrently selected recipes: \n{recipe_names_with_ids}\n\n")
-            case "a" | "add":
-                input_value = click.prompt(text="Recipe ID or name to add: ", prompt_suffix="", type=str)
-                if input_value.isdigit():
-                    recipe_name = id_to_default_recipe_name_map[int(input_value)]
-                elif default_recipe_name_to_id_map.get(input_value, False) is not False:
-                    recipe_name = input_value
-                else:
-                    click.echo(message=unrecognized_input_message)
-                    continue
+        try:
+            match input_value:
+                case "q" | "quit":
+                    break
+                case "lav" | "list available":
+                    click.echo(message="\nAvailable recipes:\n")
+                    message = ""
+                    for input_value, recipe_name in id_to_default_recipe_name_map.items():
+                        message += f"{input_value}) {recipe_name}\n"
+                    message += "\n\n"
+                    click.echo(message=message)
+                case "lsc" | "list current selection":
+                    recipe_names_with_ids = ""
+                    for recipe_name in recipe_selection.get_all_recipe_names():
+                        recipe_names_with_ids += f"{recipe_name} ({default_recipe_name_to_id_map[recipe_name]})\n"
+                    click.echo(message=f"\nCurrently selected recipes: \n{recipe_names_with_ids}\n\n")
+                case "a" | "add":
+                    input_value = click.prompt(text="Recipe ID or name to add: ", prompt_suffix="", type=str)
+                    if input_value.isdigit():
+                        recipe_name = id_to_default_recipe_name_map[int(input_value)]
+                    elif default_recipe_name_to_id_map.get(input_value, False) is not False:
+                        recipe_name = input_value
+                    else:
+                        click.echo(message=_unrecognized_input_message(input_value=input_value))
+                        continue
 
-                recipe_selection.add_recipe(recipe=default_recipe_registry.get_recipe(recipe_name=recipe_name))
-                click.echo(message=f"\nRecipe '{recipe_name}' added to the list.\n")
-            case "r" | "remove":
-                input_value = click.prompt(text="Recipe ID or name to remove: ", prompt_suffix="", type=str)
-                if input_value.isdigit():
-                    recipe_name = id_to_default_recipe_name_map[int(input_value)]
-                elif default_recipe_name_to_id_map.get(input_value, False) is not False:
-                    recipe_name = input_value
-                else:
-                    click.echo(message=unrecognized_input_message)
-                    continue
+                    recipe_selection.add_recipe(recipe=default_recipe_registry.get_recipe(recipe_name=recipe_name))
+                    click.echo(message=f"\nRecipe '{recipe_name}' added to the list.\n")
+                case "r" | "remove":
+                    input_value = click.prompt(text="Recipe ID or name to remove: ", prompt_suffix="", type=str)
+                    if input_value.isdigit():
+                        recipe_name = id_to_default_recipe_name_map[int(input_value)]
+                    elif default_recipe_name_to_id_map.get(input_value, False) is not False:
+                        recipe_name = input_value
+                    else:
+                        click.echo(message=_unrecognized_input_message(input_value=input_value))
+                        continue
 
-                pass  # TODO: Implement recipe removal
-            case "gsl" | "get shopping list":
-                shopping_list = recipe_selection.get_shopping_list()
-                click.echo(message=shopping_list)
+                    recipe_selection.remove_recipe(recipe_name=recipe_name)
+                case "gsl" | "get shopping list":
+                    shopping_list = recipe_selection.get_shopping_list()
+                    click.echo(message=shopping_list)
 
-                if click.prompt(text="Would you like to save this shopping list to a file? (y/n): ", type=str) != "y":
-                    continue
+                    if (
+                        click.prompt(text="Would you like to save this shopping list to a file? (y/n): ", type=str)
+                        != "y"
+                    ):
+                        continue
 
-                with open(file_path=session_file_path, mode="w") as io:
-                    io.write(shopping_list)
-                click.launch(url=session_file_path, locate=True)
-            case _:
-                click.echo(message=unrecognized_input_message)
+                    with open(file=shopping_list_file_path, mode="w") as io:
+                        io.write(shopping_list)
+                    click.edit(filename=str(shopping_list_file_path.absolute()), require_save=False)
+                case "sm" | "menu":
+                    click.echo(message=start_message)
+                case _:
+                    click.echo(message=_unrecognized_input_message(input_value=input_value))
+        except Exception as exception:
+            error_file_path = home_folder / f"error_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+            with open(file=error_file_path, mode="w") as io:
+                io.write(f"{type(exception)}: {str(exception)}\n\n{traceback.format_exc()}")
+
+            message = click.style(text=f"\n\nAn error occurred: {exception}\n\n", fg="red")
+            message += click.style(text="Log file has been dumped to:\n", fg="bright_red")
+            message += click.style(text=f"    {error_file_path}\n\n", fg="yellow")
+
+            issue_url = "https://github.com/CodyCBakerPhD/como_recipes/issues/new/choose"
+            message += click.style(
+                text="Please copy and paste the file contents to the issue tracker on GitHub:\n", fg="bright_red"
+            )
+            message += click.style(text=f"    {issue_url}\n", fg="yellow")
+
+            click.echo(message=message)
+            click.edit(filename=str(error_file_path.absolute()), require_save=False)
+            click.launch(url=issue_url)
 
         iteration += 1
 

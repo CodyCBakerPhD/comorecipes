@@ -163,7 +163,7 @@ class MeasurementRegistry(pydantic.BaseModel):
             measurement_units_per_ingredient = {measurement.unit for measurement in measurements_by_ingredient}
             if len(measurement_units_per_ingredient) > 1:
                 message = (
-                    f"\nMultiple units found for ingredient {measurements_by_ingredient[0].ingredient.name}:\n\n["
+                    f"\nMultiple units found for ingredient '{measurements_by_ingredient[0].ingredient.name}':\n\n[\n"
                     f"{self._printout_nested_ingredients(measurements_by_ingredient=measurements_by_ingredient)}"
                     "]"
                 )
