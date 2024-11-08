@@ -56,6 +56,11 @@ class RecipeRegistry(pydantic.BaseModel):
             raise ValueError(f"Recipe '{recipe_name}' not found in the registry.")
         return recipe
 
+    @pydantic.validate_call
+    def get_all_recipe_names(self) -> list[str]:
+        """Get all recipes from the registry."""
+        return list(self._recipes.keys())
+
 
 # Initialize the global default recipe registry
 # Items are explicitly added in their respective recipe files

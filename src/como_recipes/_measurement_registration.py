@@ -7,10 +7,28 @@ from ._base_recipe import Recipe
 from ._base_ingredient import Ingredient
 from ._ingredient_registration import default_ingredient_registry
 from ._base_measurement import Measurement
+from ._recipe_registration import RecipeRegistry
 
 
 class MeasurementRegistry(pydantic.BaseModel):
-    _measurements: dict[str, list[Measurement]] = collections.defaultdict(list)
+    """
+    Registry for storing measurements and recipes.
+
+    Initialize an empty registry with `MeasurementRegistry()` then add measurements with `add_measurement`
+    and recipes with `add_recipe`.
+    """
+
+    _measurements: dict[str, list[Measurement]] | None = None
+    _recipe_registry: RecipeRegistry | None = None
+
+    def __init__(self, *args, **kwargs) -> None:
+        if len(args) > 0:
+            raise ValueError("No positional arguments are allowed.")
+
+        super().__init__(*args, **kwargs)
+
+        self._measurements = collections.defaultdict(list, self._measurements or {})
+        self._recipe_registry = RecipeRegistry()
 
     def _printout_nested_ingredients(self, measurements_by_ingredient: list[Measurement]) -> str:
         printout = ""
@@ -72,17 +90,27 @@ class MeasurementRegistry(pydantic.BaseModel):
         recipe : Recipe
             Recipe to add to the registry.
         """
-        for measurement in recipe.measurements:
-            self.add_measurement(measurement=measurement)
+        self._recipe_registry.add_recipe(recipe=recipe)
         return None
+
+    @pydantic.validate_call
+    def get_all_recipe_names(self) -> list[str]:
+        """Get all recipe names from the currently attached registry."""
+        return list(self._recipe_registry._recipes.keys())
 
     @pydantic.validate_call
     def get_shopping_list(self) -> str:
         """Get a shopping list by aggregating all contained recipes and measurements."""
         shopping_list = ""
 
+        all_measurements = self._measurements.copy()
+        for recipe in self._recipe_registry._recipes.values():
+            for measurement in recipe.measurements:
+                all_measurements[measurement.ingredient.name].append(measurement)
+        # TODO: could probably do dict comprehension here, with an itertools chain to combine manual measure w/ recipes
+
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=self._measurements.items(), key=lambda item_tuple: item_tuple[0]
+            seq=all_measurements.items(), key=lambda item_tuple: item_tuple[0]
         ):
             shopping_list += f"{ingredient_name}\n"
 
