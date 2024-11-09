@@ -151,8 +151,8 @@ def _meal_selector() -> None:
     start_message = (
         "\n\nWelcome to the CoMo Recipes Meal Selector!\n\n"
         "To exit, enter 'q' or 'quit'.\n"
-        "To see all available recipes and their identifiers (IDs), enter 'lav' or 'list available'.\n"
-        "To see the list of current recipe selections, enter 'lcs' or 'list current selection'.\n"
+        "To see all available recipes and their identifiers (IDs), enter 'lsa' or 'list available'.\n"
+        "To see the list of current recipe selections, enter 'lsc' or 'list current selection'.\n"
         "To add a recipe to the current selection, enter 'a' or 'add'.\n"
         "To remove a recipe from the current selection, enter 'r' or 'remove'.\n"
         "To get the shopping list for the current recipe selection, enter 'gsl' or 'get shopping list'.\n"
@@ -169,18 +169,20 @@ def _meal_selector() -> None:
             match input_value:
                 case "q" | "quit":
                     break
-                case "lav" | "list available":
-                    click.echo(message="\nAvailable recipes:\n")
-                    message = ""
+                case "lsa" | "list available":
+                    message = "\nAvailable Recipes\n"
+                    message += f"{'-' * (len(message)-2)}\n\n"
                     for input_value, recipe_name in id_to_default_recipe_name_map.items():
-                        message += f"{input_value}) {recipe_name}\n"
+                        message += f"{recipe_name} ({input_value})\n"
                     message += "\n\n"
                     click.echo(message=message)
                 case "lsc" | "list current selection":
-                    recipe_names_with_ids = ""
+                    message = "\nCurrently Selected Recipes\n"
+                    message += f"{'-' * (len(message) - 2)}\n\n"
                     for recipe_name in recipe_selection.get_all_recipe_names():
-                        recipe_names_with_ids += f"{recipe_name} ({default_recipe_name_to_id_map[recipe_name]})\n"
-                    click.echo(message=f"\nCurrently selected recipes: \n{recipe_names_with_ids}\n\n")
+                        message += f"{recipe_name} ({default_recipe_name_to_id_map[recipe_name]})\n"
+                    message += "\n\n"
+                    click.echo(message=message)
                 case "a" | "add":
                     input_value = click.prompt(text="Recipe ID or name to add: ", prompt_suffix="", type=str)
                     if input_value.isdigit():
@@ -205,8 +207,10 @@ def _meal_selector() -> None:
 
                     recipe_selection.remove_recipe(recipe_name=recipe_name)
                 case "gsl" | "get shopping list":
-                    shopping_list = recipe_selection.get_shopping_list()
-                    click.echo(message=shopping_list)
+                    message = "\nShopping List\n"
+                    message += f"{'-' * (len(message) - 2)}\n\n"
+                    message += recipe_selection.get_shopping_list()
+                    click.echo(message=message)
 
                     if (
                         click.prompt(text="Would you like to save this shopping list to a file? (y/n): ", type=str)
@@ -215,7 +219,7 @@ def _meal_selector() -> None:
                         continue
 
                     with open(file=shopping_list_file_path, mode="w") as io:
-                        io.write(shopping_list)
+                        io.write(message)
                     click.edit(filename=str(shopping_list_file_path.absolute()), require_save=False)
                 case "sm" | "menu":
                     click.echo(message=start_message)
@@ -236,7 +240,7 @@ def _meal_selector() -> None:
             )
             message += click.style(text=f"    {issue_url}\n", fg="yellow")
 
-            click.echo(message=message)
+            click.echo(message=message, err=True)
             click.edit(filename=str(error_file_path.absolute()), require_save=False)
             click.launch(url=issue_url)
 
