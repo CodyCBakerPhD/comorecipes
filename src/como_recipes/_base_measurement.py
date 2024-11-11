@@ -52,5 +52,10 @@ class Measurement(pydantic.BaseModel):
         "apples",
         "qt.",
         "lb.",
+        "Pie",
+        "lbs.",
+        "Good",
+        "egg",
+        "ripe",
     ]
     ingredient: Ingredient

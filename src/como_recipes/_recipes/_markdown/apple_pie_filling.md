@@ -4,7 +4,7 @@
 
 1 Pie crust
 
-3 (about 5) lbs. Granny Smith apples
+3 lbs. (about 5) Granny Smith apples
 
 2 tbsp. butter
 
