@@ -59,6 +59,7 @@ extend-exclude = '''
 [project.scripts]
 write_missing_markdown_recipes = "como_recipes._command_line_interface:_write_missing_markdown_recipes"
 write_missing_pydantic_recipes = "como_recipes._command_line_interface:_write_missing_pydantic_recipes"
+como_recipes = "como_recipes._command_line_interface:_como_recipes_command_line_interface_main_entrypoint"
 
 
 

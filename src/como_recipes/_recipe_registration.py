@@ -42,6 +42,19 @@ class RecipeRegistry(pydantic.BaseModel):
         return None
 
     @pydantic.validate_call
+    def remove_recipe(self, *, recipe_name: str) -> None:
+        """
+        Remove a recipe from the registry.
+
+        Parameters
+        ----------
+        recipe_name : str
+            Name of the recipe to remove from the registry.
+        """
+        self._recipes.pop(recipe_name)
+        return None
+
+    @pydantic.validate_call
     def get_recipe(self, *, recipe_name: str) -> Recipe:
         """
         Get a recipe from the registry.
@@ -55,6 +68,11 @@ class RecipeRegistry(pydantic.BaseModel):
         if recipe is None:
             raise ValueError(f"Recipe '{recipe_name}' not found in the registry.")
         return recipe
+
+    @pydantic.validate_call
+    def get_all_recipe_names(self) -> list[str]:
+        """Get all recipes from the registry."""
+        return list(self._recipes.keys())
 
 
 # Initialize the global default recipe registry

@@ -58,6 +58,29 @@ def test_measurement_registry(example_measurement: Measurement):
     expected_shopping_list = "Example Ingredient 1\n  11.2 grams\ningredient 1\n  3.0 tbsp.\ningredient 2\n  4.0 g\n"
     assert new_registry.get_shopping_list() == expected_shopping_list
 
+    new_registry.remove_measurement(
+        measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2")
+    )
+
+    expected_shopping_list = "Example Ingredient 1\n  11.2 grams\ningredient 1\n  3.0 tbsp.\ningredient 2\n  2.0 g\n"
+    assert new_registry.get_shopping_list() == expected_shopping_list
+
+    # Recipe should now be removed entirely from printout
+    new_registry.remove_measurement(
+        measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2")
+    )
+
+    expected_shopping_list = "Example Ingredient 1\n  11.2 grams\ningredient 1\n  3.0 tbsp.\n"
+    assert new_registry.get_shopping_list() == expected_shopping_list
+
+    expected_recipe_names = ["Example Recipe 1"]
+    assert expected_recipe_names == new_registry.get_all_recipe_names()
+
+    new_registry.remove_recipe(recipe_name="Example Recipe 1")
+
+    expected_shopping_list = "Example Ingredient 1\n  11.2 grams\n"
+    assert new_registry.get_shopping_list() == expected_shopping_list
+
 
 def test_get_measurement_default():
     measurement = MeasurementRegistry.get_measurement(amount=1.0, unit="grams", name="Garlic")
@@ -71,7 +94,7 @@ def test_get_measurement_non_default():
     assert measurement.ingredient.name == "Unregistered"
 
 
-def test_form_shopping_list_error():
+def test_get_shopping_list_error():
     new_registry = MeasurementRegistry()
 
     measurement_1 = MeasurementRegistry.get_measurement(amount=1.0, unit="g", name="test_ingredient")
@@ -81,4 +104,20 @@ def test_form_shopping_list_error():
 
     with pytest.raises(ValueError) as error_info:
         new_registry.get_shopping_list()
-    assert str(error_info.value) == ("\nMultiple units found for ingredient test_ingredient:\n\n[  1.0 g\n  1.0 tsp\n]")
+    assert str(error_info.value) == (
+        "\nMultiple units found for ingredient 'test_ingredient':\n\n[\n  1.0 g\n  1.0 tsp\n]"
+    )
+
+
+def test_get_shopping_list_warning():
+    new_registry = MeasurementRegistry()
+
+    measurement_1 = MeasurementRegistry.get_measurement(amount=1.0, unit="g", name="test_ingredient")
+    new_registry.add_measurement(measurement=measurement_1)
+
+    measurement_2 = MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="test_ingredient")
+    new_registry.remove_measurement(measurement=measurement_2)
+
+    with pytest.warns(UserWarning) as warning_info:
+        new_registry.get_shopping_list()
+    assert str(warning_info[0].message) == "Negative amount of 'test_ingredient' found in shopping list; ignoring."
