@@ -153,6 +153,7 @@ def _meal_selector() -> None:
         "To exit, enter 'q' or 'quit'.\n"
         "To see all available recipes and their identifiers (IDs), enter 'lsa' or 'list available'.\n"
         "To see the list of current recipe selections, enter 'lsc' or 'list current selection'.\n"
+        "To see the raw list of combined ingredients, enter 'lsi' or 'list all ingredients'.\n"
         "To add a recipe to the current selection, enter 'a' or 'add'.\n"
         "To remove a recipe from the current selection, enter 'r' or 'remove'.\n"
         "To get the shopping list for the current recipe selection, enter 'gsl' or 'get shopping list'.\n"
@@ -206,7 +207,31 @@ def _meal_selector() -> None:
                         continue
 
                     recipe_selection.remove_recipe(recipe_name=recipe_name)
+                case "lsi" | "list all ingredients":
+                    message = str(recipe_selection)
+                    click.echo(message=message)
+
+                    if (
+                        click.prompt(text="Would you like to save this shopping list to a file? (y/n): ", type=str)
+                        != "y"
+                    ):
+                        continue
+
+                    with open(file=shopping_list_file_path, mode="w") as io:
+                        io.write(message)
+                    click.edit(filename=str(shopping_list_file_path.absolute()), require_save=False)
                 case "gsl" | "get shopping list":
+                    # TODO
+                    message = click.style(
+                        text=(
+                            "\n\nMy apologies, shopping list generation is error-prone until all units are "
+                            "standardized to grams.\n\n"
+                            "Please print all ingredients using 'lsi' or 'list all ingredients' instead\n\n."
+                        ),
+                        fg="red",
+                    )
+                    click.echo(message=message)
+
                     message = "\nShopping List\n"
                     message += f"{'-' * (len(message) - 2)}\n\n"
                     message += recipe_selection.get_shopping_list()
