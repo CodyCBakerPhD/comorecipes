@@ -30,4 +30,4 @@ On top of sauce, assemble sliced vegetables in artistic fashion. Drizzle with ol
 
 Bake for ~45 minutes.
 
-Remember, anyone can cook! 🐭
+Remember, anyone can cook!

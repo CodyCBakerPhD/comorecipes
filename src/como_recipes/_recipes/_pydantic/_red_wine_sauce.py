@@ -1,0 +1,25 @@
+from ..._base_recipe import Recipe
+from ..._base_measurement import Measurement
+from ..._recipe_registration import default_recipe_registry
+from ..._measurement_registration import MeasurementRegistry
+
+
+class RedWineSauce(Recipe):
+    name: str = "Red Wine Sauce"
+    measurements: list[Measurement] = [
+        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="olive oil"),
+        MeasurementRegistry.get_measurement(amount=2.0, unit="cloves", name="garlic"),
+        MeasurementRegistry.get_measurement(amount=0.75, unit="cup", name="red wine"),
+        MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="water"),
+        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="soy sauce"),
+        MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="butter"),
+        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="parsley"),
+    ]
+    instructions: list[str] = [
+        "Heat oil over medium-high heat. Cook garlic for ~30 seconds. Add wine and reach a simmer.",
+        "Reduce to half, about 2-3 minutes. Add water and soy sauce. Reduce to half again.",
+        "Reduce heat to medium-low and whisk in butter, 1 tbsp. at a time. Stir in parsley and serve.",
+    ]
+
+
+default_recipe_registry.add_recipe(recipe=RedWineSauce())
