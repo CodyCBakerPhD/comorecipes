@@ -1,5 +1,3 @@
-from typing import Literal
-
 import pydantic
 
 from ._base_ingredient import Ingredient
@@ -36,26 +34,27 @@ class Measurement(pydantic.BaseModel):
 
     amount: int | float
     # TODO: limit to grams-base only
-    unit: Literal[
-        "cup",
-        "cups",
-        "tbsp",
-        "tsp",
-        "oz",
-        "lb",
-        "g",
-        "grams",
-        "kg",
-        "large",
-        "tsp.",
-        "tbsp.",
-        "apples",
-        "qt.",
-        "lb.",
-        "Pie",
-        "lbs.",
-        "Good",
-        "egg",
-        "ripe",
-    ]
+    unit: str
+    # unit: Literal[
+    #     "cup",
+    #     "cups",
+    #     "tbsp",
+    #     "tsp",
+    #     "oz",
+    #     "lb",
+    #     "g",
+    #     "grams",
+    #     "kg",
+    #     "large",
+    #     "tsp.",
+    #     "tbsp.",
+    #     "apples",
+    #     "qt.",
+    #     "lb.",
+    #     "Pie",
+    #     "lbs.",
+    #     "Good",
+    #     "egg",
+    #     "ripe",
+    # ]
     ingredient: Ingredient
