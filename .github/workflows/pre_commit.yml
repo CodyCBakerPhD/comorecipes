@@ -42,7 +42,7 @@ jobs:
       id: check_changes
       run: |
         if [[ -n $(git status --porcelain) ]]; then
-            echo "changes=true" >> $GITHUB_ENV;
+            echo "CHANGES=true" >> $GITHUB_ENV;
         fi
 
     - name: Commit files
@@ -58,6 +58,6 @@ jobs:
         branch: ${{ github.head_ref }}
         force: true
 
-    - name: Decide status
-      if: env.changes == 'true'
+    - name: Send fail signal if changes were detected
+      if: env.CHANGES == 'true'
       run: exit 1
