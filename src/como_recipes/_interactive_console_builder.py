@@ -8,3 +8,6 @@ from como_recipes._command_line_interface import _como_recipes_command_line_inte
 
 if __name__ == "__main__":
     _como_recipes_command_line_interface_main_entrypoint()
+
+    test = "adfsdfsf"
+    print(test+"abcaedfsdfdsfsfsfdsfsfdsfsfdsfsdf"+"143563546435635634563456436346534636534653423"+"35453553345345353453454535345")
