@@ -52,11 +52,12 @@ jobs:
         git commit -m "pre-commit" -a || true
 
     - name: Push changes
-      uses: ad-m/github-push-action@v0.8.0
-      with:
-        github_token: ${{ secrets.API_TOKEN_GITHUB }}
-        branch: ${{ github.head_ref }}
-        force: true
+      run: git push origin ${{ github.head_ref }}
+#      uses: ad-m/github-push-action@v0.8.0
+#      with:
+#        github_token: ${{ secrets.API_TOKEN_GITHUB }}
+#        branch: ${{ github.head_ref }}
+#        force: true
 
     - name: Send fail signal if changes were detected
       if: env.CHANGES == 'true'
