@@ -17,6 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
+        token: ${{ secrets.API_TOKEN_GITHUB }}
         ref: ${{ github.head_ref }}
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository
@@ -52,15 +53,15 @@ jobs:
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "pre-commit" -a || true
-        git push origin ${{ github.head_ref }} || true
+#        git push origin ${{ github.head_ref }} || true
 
-#    - name: Push changes
-#      run: git push origin ${{ github.head_ref }}
-#      uses: ad-m/github-push-action@v0.8.0
-#      with:
-#        github_token: ${{ secrets.API_TOKEN_GITHUB }}
-#        branch: ${{ github.head_ref }}
-#        force: true
+    - name: Push changes
+      #run: git push origin ${{ github.head_ref }}
+      uses: ad-m/github-push-action@v0.8.0
+      with:
+        github_token: ${{ secrets.API_TOKEN_GITHUB }}
+        branch: ${{ github.head_ref }}
+        force: true
 
     - name: Send fail signal if changes were detected
       if: env.CHANGES == 'true'
