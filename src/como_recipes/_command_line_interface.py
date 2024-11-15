@@ -5,6 +5,8 @@ import click
 import importlib
 import datetime
 import traceback
+import math
+import collections
 
 from ._base_recipe import Recipe
 from ._recipe_registration import default_recipe_registry
@@ -173,9 +175,31 @@ def _meal_selector() -> None:
                 case "lsa" | "list available":
                     message = "\nAvailable Recipes\n"
                     message += f"{'-' * (len(message)-2)}\n\n"
-                    for input_value, recipe_name in id_to_default_recipe_name_map.items():
-                        message += f"{recipe_name} ({input_value})\n"
+
+                    number_of_recipes = len(id_to_default_recipe_name_map)
+                    number_of_columns = 3
+                    number_of_rows = math.ceil(number_of_recipes / number_of_columns)
+
+                    recipe_table = collections.defaultdict(dict)
+                    for recipe_id, recipe in id_to_default_recipe_name_map.items():
+                        item = f"{id_to_default_recipe_name_map[recipe_id]} ({recipe_id})"
+                        recipe_table[recipe_id % number_of_columns][recipe_id // number_of_columns] = item
+
+                    buffer = max(
+                        len(recipe_name)
+                        for column_index in (0, 1)
+                        for recipe_name in recipe_table[column_index].values()
+                    )
+
+                    message += "\n".join(
+                        " | ".join(
+                            recipe_table.get(column_index, {}).get(row_index, " " * buffer).ljust(buffer)
+                            for column_index in range(number_of_columns)
+                        )
+                        for row_index in range(number_of_rows)
+                    )
                     message += "\n\n"
+
                     click.echo(message=message)
                 case "lsc" | "list current selection":
                     message = "\nCurrently Selected Recipes\n"
