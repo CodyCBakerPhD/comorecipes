@@ -1,5 +1,7 @@
 name: Bug Report
-description: Report a bug from the interactive command line tool.
+description: |
+  Report a bug from the interactive command line tool.
+  By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/CodyCBakerPhD/como_recipes/blob/main/.github/CODE_OF_CONDUCT.rst)
 title: "[Bug]: "
 labels: ["category: bug"]
 
@@ -34,13 +36,3 @@ body:
         - macOS (Intel)
         - Linux
       default: 0
-  - type: dropdown
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/CodyCBakerPhD/como_recipes/blob/main/.github/CODE_OF_CONDUCT.rst)
-      options:
-        - "Yes"
-      default: 0
-    validations:
-      required: true
