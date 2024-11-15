@@ -1,3 +1,9 @@
+"""
+The basic Python script used by PyInstaller to build a single file executable for the main CLI entrypoint.
+
+The full CLI should still be used via `pip` installation, which defines more entrypoints related to DevOps.
+"""
+
 from como_recipes._command_line_interface import _como_recipes_command_line_interface_main_entrypoint
 
 if __name__ == "__main__":
