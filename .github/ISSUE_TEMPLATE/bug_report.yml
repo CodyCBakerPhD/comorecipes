@@ -9,9 +9,9 @@ body:
       value: |
         # Thank you for taking the time to fill out this bug report!
         The following information will help us resolve your issue.
-        
+
         By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/CodyCBakerPhD/como_recipes/blob/main/.github/CODE_OF_CONDUCT.md)
-        
+
   - type: textarea
     id: what_happened
     attributes:
