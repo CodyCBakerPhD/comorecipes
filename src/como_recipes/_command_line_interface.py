@@ -11,6 +11,7 @@ import collections
 from ._base_recipe import Recipe
 from ._recipe_registration import default_recipe_registry
 from ._measurement_registration import MeasurementRegistry
+from .utils import get_terminal_size
 
 
 @click.command(name="write_missing_markdown_recipes")
@@ -176,8 +177,9 @@ def _meal_selector() -> None:
                     message = "\nAvailable Recipes\n"
                     message += f"{'-' * (len(message)-2)}\n\n"
 
+                    console_width, _ = get_terminal_size()
                     number_of_recipes = len(id_to_default_recipe_name_map)
-                    number_of_columns = 3
+                    number_of_columns = console_width // 30
                     number_of_rows = math.ceil(number_of_recipes / number_of_columns)
 
                     recipe_table = collections.defaultdict(dict)
