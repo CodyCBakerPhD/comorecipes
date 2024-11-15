@@ -27,7 +27,7 @@ jobs:
         run: python -m pip install pyinstaller
 
       - name: Build Executable with PyInstaller
-        run: pyinstaller --onefile _exe_launch.py --name como_recipes
+        run: pyinstaller --onefile _interactive_console_builder.py --name como_recipes
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2

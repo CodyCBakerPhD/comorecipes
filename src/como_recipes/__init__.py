@@ -4,7 +4,6 @@ from ._base_measurement import Measurement
 from ._recipe_registration import RecipeRegistry, default_recipe_registry
 from ._ingredient_registration import IngredientRegistry, default_ingredient_registry
 from ._measurement_registration import MeasurementRegistry
-from .cli import _launch
 
 __all__ = [
     "Recipe",
@@ -18,7 +17,6 @@ __all__ = [
     "default_ingredient_registry",
     # Public submodule
     "utils",
-    "cli",
 ]
 
 # Trigger import of built-in recipes (only need to import one item to trigger the rest)
