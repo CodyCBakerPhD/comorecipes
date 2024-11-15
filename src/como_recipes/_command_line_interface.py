@@ -130,6 +130,52 @@ def _como_recipes_command_line_interface_main_entrypoint() -> None:
     return None
 
 
+def _format_available_recipes(id_to_default_recipe_name_map: dict[int, str]) -> str:
+    message = "\nAvailable Recipes\n"
+    message += f"{'-' * (len(message) - 2)}\n\n"
+
+    max_recipe_name_length = max(len(recipe_name) for recipe_name in default_recipe_registry.get_all_recipe_names())
+
+    console_width, _ = get_terminal_size()
+    number_of_recipes = len(id_to_default_recipe_name_map)
+    number_of_columns = console_width // max_recipe_name_length
+    number_of_rows = math.ceil(number_of_recipes / number_of_columns)
+
+    recipe_table = collections.defaultdict(dict)
+    for recipe_id, recipe in id_to_default_recipe_name_map.items():
+        item = f"{recipe_id}: {id_to_default_recipe_name_map[recipe_id]} ({recipe_id})"
+        recipe_table[recipe_id % number_of_columns][recipe_id // number_of_columns] = item
+
+    buffers = tuple(
+        max(len(recipe_name) for recipe_name in recipe_table[column_index].values())
+        for column_index in range(number_of_columns - 1)
+    )
+
+    message += "\n".join(
+        " | ".join(
+            recipe_table.get(column_index, {}).get(row_index, "").ljust(buffer)
+            for column_index, buffer in enumerate(buffers)
+        )
+        for row_index in range(number_of_rows)
+    )
+    message += "\n\n"
+
+    return message
+
+
+def _format_recipe_selection(
+    recipe_selection: MeasurementRegistry, default_recipe_name_to_id_map: dict[str, int]
+) -> str:
+    message = "\nCurrently Selected Recipes\n"
+    message += f"{'-' * (len(message) - 2)}\n\n"
+
+    for recipe_name in recipe_selection.get_all_recipe_names():
+        recipe_id = default_recipe_name_to_id_map[recipe_name]
+        message += f"{recipe_id}: {recipe_name} ({recipe_id})\n"
+
+    return message
+
+
 def _meal_selector() -> None:
     """Interactively select available recipes and generate a shopping list for them."""
     click.clear()
@@ -164,50 +210,35 @@ def _meal_selector() -> None:
     )
     click.echo(message=start_message)
 
+    menu_message = click.style(text="'q' or 'quit'", fg="black", bg="bright_red")
+    menu_message += click.style(text="'rf' or 'refresh'", fg="black", bg="white")
+    menu_message += click.style(text="'lsi' or 'list all ingredients'", fg="black", bg="bright_yellow")
+    menu_message += click.style(text="'gsl' or 'get shopping list'\n", fg="black", bg="bright_green")
+    menu_message += click.style(text="What would you like to do?: ", fg="bright_blue", bg="black")
+
     max_iterations = 1_000_000
     iteration = 0
     while iteration < max_iterations:
-        input_value = click.prompt(text="What would you like to do?: ", prompt_suffix="", type=str)
-
         try:
+            click.clear()
+            formatted_available_recipes = _format_available_recipes(
+                id_to_default_recipe_name_map=id_to_default_recipe_name_map
+            )
+            prompt_message = click.style(text=formatted_available_recipes, fg="black", bg="bright_cyan")
+            formatted_current_recipes = _format_recipe_selection(
+                recipe_selection=recipe_selection, default_recipe_name_to_id_map=default_recipe_name_to_id_map
+            )
+            prompt_message += "\n\n" + click.style(text=formatted_current_recipes, fg="black", bg="bright_magenta")
+            prompt_message += "\n\n" + menu_message
+            input_value = click.prompt(text=prompt_message, prompt_suffix="", type=str)
+
             match input_value:
                 case "q" | "quit":
                     break
-                case "clc" | "clear":
+                case "rf" | "refresh":
                     click.clear()
-                case "lsa" | "list available":
-                    message = "\nAvailable Recipes\n"
-                    message += f"{'-' * (len(message)-2)}\n\n"
-
-                    max_recipe_name_length = max(
-                        len(recipe_name) for recipe_name in default_recipe_registry.get_all_recipe_names()
-                    )
-
-                    console_width, _ = get_terminal_size()
-                    number_of_recipes = len(id_to_default_recipe_name_map)
-                    number_of_columns = console_width // max_recipe_name_length
-                    number_of_rows = math.ceil(number_of_recipes / number_of_columns)
-
-                    recipe_table = collections.defaultdict(dict)
-                    for recipe_id, recipe in id_to_default_recipe_name_map.items():
-                        item = f"{id_to_default_recipe_name_map[recipe_id]} ({recipe_id})"
-                        recipe_table[recipe_id % number_of_columns][recipe_id // number_of_columns] = item
-
-                    buffers = tuple(
-                        max(len(recipe_name) for recipe_name in recipe_table[column_index].values())
-                        for column_index in range(number_of_columns - 1)
-                    )
-
-                    message += "\n".join(
-                        " | ".join(
-                            recipe_table.get(column_index, {}).get(row_index, "").ljust(buffer)
-                            for column_index, buffer in enumerate(buffers)
-                        )
-                        for row_index in range(number_of_rows)
-                    )
-                    message += "\n\n"
-
-                    click.echo(message=message)
+                # case "lsa" | "list available":
+                #     click.echo(message=_format_available_recipes())
                 case "lsc" | "list current selection":
                     message = "\nCurrently Selected Recipes\n"
                     message += f"{'-' * (len(message) - 2)}\n\n"
@@ -299,6 +330,8 @@ def _meal_selector() -> None:
             click.echo(message=message, err=True)
             click.edit(filename=str(error_file_path.absolute()), require_save=False)
             click.launch(url=issue_url)
+
+            break
 
         iteration += 1
 
