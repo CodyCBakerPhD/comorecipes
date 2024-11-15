@@ -173,13 +173,19 @@ def _meal_selector() -> None:
             match input_value:
                 case "q" | "quit":
                     break
+                case "clc" | "clear":
+                    click.clear()
                 case "lsa" | "list available":
                     message = "\nAvailable Recipes\n"
                     message += f"{'-' * (len(message)-2)}\n\n"
 
+                    max_recipe_name_length = max(
+                        len(recipe_name) for recipe_name in default_recipe_registry.get_all_recipe_names()
+                    )
+
                     console_width, _ = get_terminal_size()
                     number_of_recipes = len(id_to_default_recipe_name_map)
-                    number_of_columns = console_width // 30
+                    number_of_columns = console_width // max_recipe_name_length
                     number_of_rows = math.ceil(number_of_recipes / number_of_columns)
 
                     recipe_table = collections.defaultdict(dict)
@@ -187,16 +193,15 @@ def _meal_selector() -> None:
                         item = f"{id_to_default_recipe_name_map[recipe_id]} ({recipe_id})"
                         recipe_table[recipe_id % number_of_columns][recipe_id // number_of_columns] = item
 
-                    buffer = max(
-                        len(recipe_name)
-                        for column_index in (0, 1)
-                        for recipe_name in recipe_table[column_index].values()
+                    buffers = tuple(
+                        max(len(recipe_name) for recipe_name in recipe_table[column_index].values())
+                        for column_index in range(number_of_columns - 1)
                     )
 
                     message += "\n".join(
                         " | ".join(
-                            recipe_table.get(column_index, {}).get(row_index, " " * buffer).ljust(buffer)
-                            for column_index in range(number_of_columns)
+                            recipe_table.get(column_index, {}).get(row_index, "").ljust(buffer)
+                            for column_index, buffer in enumerate(buffers)
                         )
                         for row_index in range(number_of_rows)
                     )

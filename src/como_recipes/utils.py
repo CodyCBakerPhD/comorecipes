@@ -1,7 +1,6 @@
 """Collection of minor help functions."""
 
 import ctypes
-import csbi
 import struct
 
 
@@ -21,7 +20,9 @@ def get_terminal_size() -> tuple[int, int]:
     string_buffer = ctypes.create_string_buffer(22)
     info = ctypes.windll.kernel32.GetConsoleScreenBufferInfo(standard_handle, string_buffer)
     if info:
-        (bufx, bufy, curx, cury, wattr, left, top, right, bottom, maxx, maxy) = struct.unpack("hhhhHhhhhhh", csbi.raw)
+        (bufx, bufy, curx, cury, wattr, left, top, right, bottom, maxx, maxy) = struct.unpack(
+            "hhhhHhhhhhh", string_buffer.raw
+        )
         sizex = right - left + 1
         sizey = bottom - top + 1
 
