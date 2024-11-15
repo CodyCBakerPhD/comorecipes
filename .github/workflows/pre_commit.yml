@@ -38,6 +38,13 @@ jobs:
     - name: Run pre-commit
       run: pre-commit run --all-files || true # `|| true` to not fail when something requires changing
 
+    - name: Determine if changes were made
+      id: check_changes
+      run: |
+        if [[ -n $(git status --porcelain) ]]; then
+            echo "changes=true" >> $GITHUB_ENV;
+        fi
+
     - name: Commit files
       run: | # `|| true` below to skip if nothing changed from pre-commit
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -50,3 +57,7 @@ jobs:
         github_token: ${{ secrets.API_TOKEN_GITHUB }}
         branch: ${{ github.head_ref }}
         force: true
+
+    - name: Decide status
+      if: env.changes == 'true'
+      run: exit 1
