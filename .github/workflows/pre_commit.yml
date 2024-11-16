@@ -1,4 +1,4 @@
-name: Pre-commit
+name: pre-commit
 on:
   workflow_call:
     secrets:
@@ -9,18 +9,18 @@ on:
 jobs:
 
   run:
-    # Will read on PR dashboard as 'Deploy / Pre-commit / run'
-    # Action dashboard identified by 'Pre-commit'
-    # Requirement settings identified as 'Pre-commit / run'
+    # Will read on PR dashboard as 'Deploy / pre-commit / run'
+    # Action dashboard identified by 'pre-commit'
+    # Requirement settings identified as 'pre-commit / run'
     name: run
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
       with:
-        token: ${{ secrets.API_TOKEN_GITHUB }}
+        token: ${{ secrets.API_TOKEN_GITHUB }}  # Requires a custom token to re-trigger from pre-commit
         ref: ${{ github.head_ref }}
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN
-        fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository
+        persist-credentials: false  # otherwise, the token used is the GITHUB_TOKEN
+        fetch-depth: 0  # otherwise, there would be errors pushing refs to the destination repository
 
     - name: Set cache hash
       run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
@@ -28,16 +28,23 @@ jobs:
       id: cache-pre-commit
       uses: actions/cache@v4
       with:
-        path: ~/.cache/pre-commit
+        path: |
+          ~/pre_commit_environment
+          ~/.cache/pre-commit/
         key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
     - if: steps.cache-pre-commit.outputs.cache-hit == false
-      name: Install pre-commit
+      name: Install a virtual environment with pre-commit
       run: |
-        pip install pre-commit
+        python -m venv ~/pre_commit_environment
+        source ~/pre_commit_environment/bin/activate
+        python -m pip install -U pip
+        python -m pip install pre-commit
         pre-commit install
 
     - name: Run pre-commit
-      run: pre-commit run --all-files || true # `|| true` to not fail when something requires changing
+      run: |
+        source ~/pre_commit_environment/bin/activate
+        pre-commit run --all-files || pre-commit run --all-files  # Run twice for error when pre-commit is missing
 
     - name: Determine if changes were made
       id: check_changes
@@ -47,28 +54,16 @@ jobs:
         fi
 
     - name: Commit files
-      env:
-        GH_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
-      run: | # `|| true` below to skip if nothing changed from pre-commit
+      run: |  # `|| true` below to skip if nothing changed from pre-commit
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "pre-commit" -a || true
-        git push origin ${{ github.head_ref }} || true
-
-#    - name: Push changes
-#      #run: git push origin ${{ github.head_ref }}
-#      uses: stefanzweifel/git-auto-commit-action@v5
-#      with:
-#        commit_user_name: Custom pre-commit bot
-#        commit_message: pre-commit
-##        github_token: ${{ secrets.API_TOKEN_GITHUB }}
 
     - name: Push changes
       uses: ad-m/github-push-action@v0.8.0
       with:
         github_token: ${{ secrets.API_TOKEN_GITHUB }}
-        branch: ${{ github.head_ref }}
-#        force: true
+        branch: ${{ github.ref }}
 
     - name: Send fail signal if changes were detected
       if: env.CHANGES == 'true'

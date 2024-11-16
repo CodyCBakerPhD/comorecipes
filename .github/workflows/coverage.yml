@@ -9,9 +9,9 @@ on:
 jobs:
 
   run:
-    # Will read on PR dashboard as 'Review / Coverage / ubuntu'
+    # Will read on PR dashboard as 'Review / coverage / ubuntu'
     # Action dashboard identified by 'Run tests and upload coverage report'
-    # Requirement settings identified as 'Coverage / ubuntu'
+    # Requirement settings identified as 'coverage / ubuntu'
     name: ubuntu
     runs-on: ubuntu-latest
     strategy:
