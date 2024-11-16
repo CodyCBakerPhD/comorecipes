@@ -48,6 +48,7 @@ runs:
         file: ./dist/como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}.exe
         asset_name: como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}.exe
         tag: latest
-        overwrite: false
-        body: "An automated release of the CoMo Recipes interactive console."
+        overwrite: true  # Per-asset not per-release
+        release_name: ${{ steps.package_version.outputs.value }}
+        body: ${{ steps.package_version.outputs.value }} release of the CoMo Recipes interactive console.
         draft: true
