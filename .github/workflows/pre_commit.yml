@@ -62,7 +62,6 @@ jobs:
         commit_user_name: Custom pre-commit bot
         commit_message: pre-commit
 #        github_token: ${{ secrets.API_TOKEN_GITHUB }}
-        #force: true
 
     - name: Send fail signal if changes were detected
       if: env.CHANGES == 'true'
