@@ -37,7 +37,7 @@ jobs:
         pre-commit install
 
     - name: Run pre-commit
-      run: pre-commit run --all-files # `|| true` to not fail when something requires changing
+      run: pre-commit run --all-files
 
     - name: Determine if changes were made
       id: check_changes
