@@ -10,6 +10,9 @@ jobs:
     runs-on: windows-2022
 
     steps:
+      - name: Checkout repo so local actions can be used
+        uses: actions/checkout@v4
+
       - name: Checkout repository
         uses: ./.github/actions/deploy_executable
         with:
@@ -21,6 +24,9 @@ jobs:
     runs-on: windows-2019
 
     steps:
+      - name: Checkout repo so local actions can be used
+        uses: actions/checkout@v4
+
       - name: Checkout repository
         uses: ./.github/actions/deploy_executable
         with:
