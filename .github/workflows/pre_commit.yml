@@ -63,7 +63,7 @@ jobs:
       uses: ad-m/github-push-action@v0.8.0
       with:
         github_token: ${{ secrets.API_TOKEN_GITHUB }}
-        branch: ${{ github.head_ref }}
+        branch: ${{ github.ref }}
 
     - name: Send fail signal if changes were detected
       if: env.CHANGES == 'true'

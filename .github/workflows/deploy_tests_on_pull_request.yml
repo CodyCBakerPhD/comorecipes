@@ -1,7 +1,7 @@
 name: Deploy
 
 on:
-  pull_request:
+  push:  # Would prefer on `pull_request`, but custom pre-commit bot has trouble with refs
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
