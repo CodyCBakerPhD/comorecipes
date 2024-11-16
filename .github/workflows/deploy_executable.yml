@@ -26,18 +26,22 @@ jobs:
       - name: Fresh install of package
         run: python -m pip install -e .
 
+      - name: Get package version
+        id: package_version
+        run: python -c "import importlib.metadata; print('value=v'+ importlib.metadata.version(distribution_name='como_recipes'))"
+
       - name: Install PyInstaller
         run: python -m pip install pyinstaller
 
       - name: Build Executable with PyInstaller
-        run: pyinstaller --onefile src/como_recipes/_interactive_console_builder.py --name como_recipes-${{ matrix.os }}
+        run: pyinstaller --onefile src/como_recipes/_interactive_console_builder.py --name como_recipes-${{ matrix.os }}-${{ steps.package_version.outputs.value }}
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./dist/como_recipes-${{ matrix.os }}.exe
-          asset_name: como_recipes-${{ matrix.os }}.exe
+          file: ./dist/como_recipes-${{ matrix.os }}-${{ steps.package_version.outputs.value }}.exe
+          asset_name: como_recipes-${{ matrix.os }}-${{ steps.package_version.outputs.value }}.exe
           tag: ${{ github.head_ref }}
           overwrite: true
           body: "Official release of CoMo Recipes interactive console"
