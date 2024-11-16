@@ -37,7 +37,7 @@ jobs:
         pre-commit install
 
     - name: Run pre-commit
-      run: pre-commit run --all-files
+      run: pre-commit run --all-files || pre-commit run --all-files  # Run twice for error when pre-commit is missing
 
     - name: Determine if changes were made
       id: check_changes
