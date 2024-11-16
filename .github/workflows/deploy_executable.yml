@@ -27,7 +27,7 @@ jobs:
         run: python -m pip install -e .
 
       - name: Get package version
-        run: python -c "import importlib.metadata; print('package_version=v'+ importlib.metadata.version(distribution_name='como_recipes'))" >> $GITHUB_ENV
+        run: python -c "import importlib.metadata; import os; v='package_version=v'+importlib.metadata.version(distribution_name='como_recipes'); io = open(file=os.environ['GITHUB_OUTPUT'], mode='a'); print(v, file=io); io.close()"
 
       - name: Print package version to confirm
         run: echo "${{ env.package_version }}"
