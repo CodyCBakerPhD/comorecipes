@@ -11,8 +11,5 @@ if __name__ == "__main__":
 
     test = "adfsdfsf"
     print(
-        test
-        + "abcaedfsdfdsfsfsfdsfsfdsfsfdsfsdf"
-        + "143563546435635634563456436346534636534653423"
-        + "354535533453453534b53454535345"
+        test + "abcaedfsdfdsfsfsfdsfsfdsfsfdsfsdf" + "143563546435635634563456436346534636534653423"+ "354535533453453534b53454535345"
     )
