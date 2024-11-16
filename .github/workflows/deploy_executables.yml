@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is deploying a release for ${{ github.event.inputs
 on:
   workflow_dispatch:
     inputs:
-      name:
+      os:
         type: choice
         description: Operating system, including version
         options:
