@@ -1,4 +1,4 @@
-name: Pre-commit
+name: pre-commit
 on:
   workflow_call:
     secrets:
@@ -9,9 +9,9 @@ on:
 jobs:
 
   run:
-    # Will read on PR dashboard as 'Deploy / Pre-commit / run'
-    # Action dashboard identified by 'Pre-commit'
-    # Requirement settings identified as 'Pre-commit / run'
+    # Will read on PR dashboard as 'Deploy / pre-commit / run'
+    # Action dashboard identified by 'pre-commit'
+    # Requirement settings identified as 'pre-commit / run'
     name: run
     runs-on: ubuntu-latest
     steps:

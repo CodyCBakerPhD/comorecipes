@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
 
-  Coverage:
+  coverage:
     if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
     uses: ./.github/workflows/coverage.yml
     secrets:

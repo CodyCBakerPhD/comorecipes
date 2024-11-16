@@ -5,9 +5,9 @@ on:
 jobs:
 
   run:
-    # Will read on PR dashboard as 'Deploy / Tests / ubuntu'
+    # Will read on PR dashboard as 'Deploy / tests / ubuntu'
     # Action dashboard identified by 'Test installation and run tests'
-    # Requirement settings identified as 'Tests / ubuntu'
+    # Requirement settings identified as 'tests / ubuntu'
     name: ubuntu
     runs-on: ubuntu-latest
     strategy:
