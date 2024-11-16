@@ -1,0 +1,27 @@
+name: Deploy Executables
+run-name: ${{ github.actor }} is deploying a release for CoMo Recipes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy_windows_2022:
+    name: Build and deploy with Windows 2022
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout repository
+        uses: ./.github/actions/deploy_executable
+        with:
+          os: windows-2022
+
+  build_and_deploy_windows_2019:
+    name: Build and deploy with Windows 2019
+    needs: [build_and_deploy_windows_2022]
+    runs-on: windows-2019
+
+    steps:
+      - name: Checkout repository
+        uses: ./.github/actions/deploy_executable
+        with:
+          os: windows-2019
