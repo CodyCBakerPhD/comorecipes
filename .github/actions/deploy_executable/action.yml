@@ -4,6 +4,12 @@ inputs:
   os:
     description: Operating system (versioned)
     required: true
+  GITHUB_TOKEN:
+    description: The secret GitHub token with admin privileges
+    required: true
+
+env:
+  GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
 
 runs:
   using: 'composite'
