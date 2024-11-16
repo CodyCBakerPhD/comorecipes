@@ -46,29 +46,29 @@ jobs:
             echo "CHANGES=true" >> $GITHUB_ENV;
         fi
 
-#    - name: Commit files
+    - name: Commit files
 #      env:
 #        GH_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
-#      run: | # `|| true` below to skip if nothing changed from pre-commit
-#        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-#        git config --local user.name "github-actions[bot]"
-#        git commit -m "pre-commit" -a || true
+      run: | # `|| true` below to skip if nothing changed from pre-commit
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "pre-commit" -a || true
 #        git push origin ${{ github.ref }}
 
-    - name: Push changes
-      #run: git push origin ${{ github.head_ref }}
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-#        commit_user_name: Custom pre-commit bot
-        commit_message: pre-commit
+#    - name: Push changes
+#      #run: git push origin ${{ github.head_ref }}
+#      uses: stefanzweifel/git-auto-commit-action@v5
+#      with:
+#        commit_user_name: custom.pre_commit.bot
+#        commit_message: pre-commit
 #        github_token: ${{ secrets.API_TOKEN_GITHUB }}
 
-#    - name: Push changes
-#      uses: ad-m/github-push-action@v0.8.0
-#      with:
-#        github_token: ${{ secrets.API_TOKEN_GITHUB }}
-#        branch: ${{ github.ref }}
-#        force: true
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.8.0
+      with:
+        github_token: ${{ secrets.API_TOKEN_GITHUB }}
+        branch: ${{ github.ref }}
+        force: true
 
     - name: Send fail signal if changes were detected
       if: env.CHANGES == 'true'
