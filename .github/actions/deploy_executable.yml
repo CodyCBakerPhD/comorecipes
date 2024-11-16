@@ -1,0 +1,40 @@
+name: Deploy Executable
+description: Deploy a single executable for a platform/architecture/version combination.
+inputs:
+  os:
+    description: Operating system (versioned)
+    required: true
+  version:
+    description: Version of the package being built
+    required: true
+
+runs:
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.13
+
+    - name: Fresh install of package
+      run: python -m pip install -e .
+
+    - name: Install PyInstaller
+      run: python -m pip install pyinstaller
+
+    - name: Build Executable with PyInstaller
+      run: pyinstaller --onefile src/como_recipes/_interactive_console_builder.py --name como_recipes-${{ inputs.os }}-${{ inputs.value }}
+
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ./dist/como_recipes-${{ inputs.os }}-${{ inputs.value }}.exe
+        asset_name: como_recipes-${{ inputs.os }}-${{ inputs.value }}.exe
+        tag: ${{ inputs.value }}
+        overwrite: true
+          body: "${{ env.package_version }} release of the CoMo Recipes interactive console."
+          draft: true
