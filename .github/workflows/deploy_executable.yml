@@ -36,8 +36,8 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./dist/como_recipes.exe
-          asset_name: como_recipes.exe
+          file: ./dist/como_recipes-${{ matrix.os }}.exe
+          asset_name: como_recipes-${{ matrix.os }}.exe
           tag: ${{ github.ref }}
           overwrite: true
           body: "Official release of CoMo Recipes interactive console"
