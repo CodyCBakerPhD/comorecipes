@@ -17,10 +17,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        token: ${{ secrets.API_TOKEN_GITHUB }}
+        token: ${{ secrets.API_TOKEN_GITHUB }}  # Requires a custom token to re-trigger from pre-commit
         ref: ${{ github.head_ref }}
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN
-        fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository
+        persist-credentials: false  # otherwise, the token used is the GITHUB_TOKEN
+        fetch-depth: 0  # otherwise, there would be errors pushing refs to the destination repository
 
     - name: Set cache hash
       run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
@@ -47,7 +47,7 @@ jobs:
         fi
 
     - name: Commit files
-      run: | # `|| true` below to skip if nothing changed from pre-commit
+      run: |  # `|| true` below to skip if nothing changed from pre-commit
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "pre-commit" -a || true
@@ -57,7 +57,6 @@ jobs:
       with:
         github_token: ${{ secrets.API_TOKEN_GITHUB }}
         branch: ${{ github.ref }}
-#        force: true
 
     - name: Send fail signal if changes were detected
       if: env.CHANGES == 'true'
