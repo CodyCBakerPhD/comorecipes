@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        type: os
+        type: choice
         description: Operating system, including version
         options:
         - windows-2022
