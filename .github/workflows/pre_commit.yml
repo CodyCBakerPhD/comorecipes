@@ -59,7 +59,7 @@ jobs:
       #run: git push origin ${{ github.head_ref }}
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        commit_user_name: Custom pre-commit bot
+#        commit_user_name: Custom pre-commit bot
         commit_message: pre-commit
 #        github_token: ${{ secrets.API_TOKEN_GITHUB }}
 
