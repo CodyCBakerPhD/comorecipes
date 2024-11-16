@@ -1,5 +1,5 @@
 name: Deploy Executable
-run-name: ${{ github.actor }} is deploying a release
+run-name: ${{ github.actor }} is deploying a release for ${{ github.event.inputs.os }}
 
 on:
   workflow_dispatch:
