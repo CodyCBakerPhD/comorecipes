@@ -38,3 +38,4 @@ jobs:
           tag: ${{ github.ref }}
           overwrite: true
           body: "Official release of CoMo Recipes interactive console"
+          draft: true
