@@ -47,7 +47,7 @@ runs:
         repo_token: ${{ inputs.GITHUB_TOKEN }}
         file: ./dist/como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}.exe
         asset_name: como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}.exe
-        tag: ${{ steps.package_version.outputs.value }}
-        overwrite: true
+        tag: latest
+        overwrite: false
         body: "An automated release of the CoMo Recipes interactive console."
         draft: true
