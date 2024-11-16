@@ -8,9 +8,6 @@ inputs:
     description: The secret GitHub token with admin privileges
     required: true
 
-env:
-  GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-
 runs:
   using: 'composite'
   steps:
@@ -47,7 +44,7 @@ runs:
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        repo_token: ${{ inputs.GITHUB_TOKEN }}
         file: ./dist/como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}.exe
         asset_name: como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}.exe
         tag: ${{ steps.package_version.outputs.value }}
