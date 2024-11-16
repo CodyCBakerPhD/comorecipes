@@ -41,5 +41,5 @@ runs:
         asset_name: como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}.exe
         tag: ${{ steps.package_version.outputs.value }}
         overwrite: true
-          body: "${{ env.package_version }} release of the CoMo Recipes interactive console."
+          body: "$An automated release of the CoMo Recipes interactive console."
           draft: true
