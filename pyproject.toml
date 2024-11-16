@@ -68,6 +68,9 @@ exclude = [
   "*/__init__.py"
 ]
 
+[tool.ruff.lint]
+select = ["E", "F"]
+
 [tool.ruff.lint.per-file-ignores]
 "src/como_recipes/__init__.py" = ["I"]  # Must maintain explicit order for imports for registration
 
