@@ -1,13 +1,20 @@
-name: Deploy Executables
-run-name: ${{ github.actor }} is deploying a release for CoMo Recipes
+name: Deploy Executable
+run-name: ${{ github.actor }} is deploying a release
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        type: os
+        description: Operating system, including version
+        options: 
+        - windows-2022
+        - windows-2019
 
 jobs:
-  build_and_deploy_windows_2022:
-    name: Build and deploy with Windows 2022
-    runs-on: windows-2022
+  build_and_deploy:
+    name: Build and deploy interactive console
+    runs-on: ${{ github.event.inputs.os }}
 
     steps:
       - name: Checkout repo so local actions can be used
@@ -16,20 +23,5 @@ jobs:
       - name: Deploy executable
         uses: ./.github/actions/deploy_executable
         with:
-          os: windows-2022
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  build_and_deploy_windows_2019:
-    name: Build and deploy with Windows 2019
-    needs: [build_and_deploy_windows_2022]
-    runs-on: windows-2019
-
-    steps:
-      - name: Checkout repo so local actions can be used
-        uses: actions/checkout@v4
-
-      - name: Deploy executable
-        uses: ./.github/actions/deploy_executable
-        with:
-          os: windows-2019
+          os: ${{ github.event.inputs.os }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
