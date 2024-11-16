@@ -1,7 +1,7 @@
 name: Deploy
 
 on:
-  push:  # Would prefer on `pull_request`, but custom pre-commit bot has trouble with refs
+  push:  # Would prefer `pull_request`, but custom pre-commit has trouble with refs; for private repo not a huge diff
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
