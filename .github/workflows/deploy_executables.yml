@@ -17,6 +17,7 @@ jobs:
         uses: ./.github/actions/deploy_executable
         with:
           os: windows-2022
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build_and_deploy_windows_2019:
     name: Build and deploy with Windows 2019
@@ -31,3 +32,4 @@ jobs:
         uses: ./.github/actions/deploy_executable
         with:
           os: windows-2019
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
