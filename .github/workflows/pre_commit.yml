@@ -68,7 +68,7 @@ jobs:
       with:
         github_token: ${{ secrets.API_TOKEN_GITHUB }}
         branch: ${{ github.head_ref }}
-        force: true
+#        force: true
 
     - name: Send fail signal if changes were detected
       if: env.CHANGES == 'true'
