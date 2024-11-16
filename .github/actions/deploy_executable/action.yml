@@ -52,4 +52,3 @@ runs:
         body: ${{ steps.package_version.outputs.value }} release of the CoMo Recipes interactive console.
         overwrite: true  # Per-asset not per-release
         draft: true
-        
