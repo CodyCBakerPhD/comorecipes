@@ -53,7 +53,7 @@ jobs:
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "pre-commit" -a || true
-        git push origin ${{ github.head_ref }} || true
+        git push origin ${{ github.head_ref }}
 
 #    - name: Push changes
 #      #run: git push origin ${{ github.head_ref }}
