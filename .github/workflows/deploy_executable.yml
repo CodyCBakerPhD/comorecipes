@@ -42,7 +42,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./dist/como_recipes-${{ matrix.os }}-${{ env.package_version }}.exe
           asset_name: como_recipes-${{ matrix.os }}-${{ env.package_version }}.exe
-          tag: ${{ github.head_ref }}
+          tag: ${{ env.package_version }}
           overwrite: true
-          body: "Official release of CoMo Recipes interactive console"
+          body: "${{ env.package_version }} release of the CoMo Recipes interactive console."
           draft: true
