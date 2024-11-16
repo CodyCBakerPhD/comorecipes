@@ -28,12 +28,17 @@ jobs:
       id: cache-pre-commit
       uses: actions/cache@v4
       with:
-        path: ~/.cache/pre-commit/
+        path: |
+          ~/pre_commit_environment
+          ~/.cache/pre-commit/
         key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
     - if: steps.cache-pre-commit.outputs.cache-hit == false
-      name: Install pre-commit
+      name: Install a virtual environment with pre-commit
       run: |
-        pip install pre-commit
+        python -m venv ~/pre_commit_environment
+        source ~/pre_commit_environment/bin/activate
+        python -m pip install -U pip
+        python -m pip install pre-commit
         pre-commit install
 
     - name: Run pre-commit
