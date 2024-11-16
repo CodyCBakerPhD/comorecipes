@@ -42,9 +42,9 @@ jobs:
         pre-commit install
 
     - name: Run pre-commit
-      run: |
+      run: | # Run thrice for error when pre-commit is missing; also because situations have been seen requiring three runs
         source ~/pre_commit_environment/bin/activate
-        pre-commit run --all-files || pre-commit run --all-files  # Run twice for error when pre-commit is missing
+        pre-commit run --all-files || pre-commit run --all-files || pre-commit run --all-files
 
     - name: Determine if changes were made
       id: check_changes
