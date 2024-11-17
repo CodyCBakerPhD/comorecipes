@@ -74,6 +74,7 @@ select = ["E", "F"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/como_recipes/__init__.py" = ["I"]  # Must maintain explicit order for imports for registration
+"src/como_recipes/_recipes/_pydantic/*" = ["E501"]  # Automated Pydantic conversion occasionally exceeds line length
 
 [tool.ruff.lint.isort]
 relative-imports-order = "closest-to-furthest"
