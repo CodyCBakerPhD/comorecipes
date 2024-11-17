@@ -71,7 +71,10 @@ line-length = 120
 
 [tool.ruff.lint]
 select = ["F", "E", "W", "I", "N", "D"]
-ignore = ["D401"]  # Ignore the imperative mood convention for docstrings
+ignore = [
+    "D401",  # Ignore the imperative mood convention for docstrings
+    "D211",  # Ignore no blank lines after class docstring in favor of #203 (one blank line) as convention
+]
 
 [tool.ruff.lint.per-file-ignores]
 "src/como_recipes/__init__.py" = ["I"]  # Must maintain explicit order for imports for registration
