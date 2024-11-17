@@ -80,6 +80,8 @@ select = [
     # Skipping UP due to a lot of unsafe or opinionated/not rigorously proven rules
     "YTT",
     "ANN",
+    "ASYNC",
+    "S",
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
@@ -93,7 +95,8 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 "src/como_recipes/__init__.py" = ["I"]  # Must maintain explicit order for imports for registration
 "src/como_recipes/_recipes/_pydantic/*" = ["E501"]  # Automated Pydantic conversion occasionally exceeds line length
-"tests/*" = ["D100", "D103", "ANN201"]  # Neither docstrings nor annotations are required for tests
+"src/como_recipes/_command_line_interface.py" = ["S605"]  # Console injections are manually OK'd
+"tests/*" = ["D100", "D103", "ANN201", "S101"]  # Neither docstrings nor annotations are required for tests
 
 [tool.ruff.lint.isort]
 relative-imports-order = "closest-to-furthest"

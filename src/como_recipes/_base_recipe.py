@@ -151,8 +151,10 @@ class Recipe(pydantic.BaseModel):
         with open(file=file_path) as io:
             lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
 
-        assert lines[0][:2] == "# ", "Markdown recipe does not begin with '# '."
-        assert lines[1] == "## Ingredients", "Markdown recipe does not have a section titled '## Ingredients'."
+        if lines[0][:2] != "# ":
+            raise ValueError("Markdown recipe does not begin with '# '.")
+        if lines[1] != "## Ingredients":
+            raise ValueError("Markdown recipe does not have a section titled '## Ingredients'.")
 
         recipe_name_and_cuisine_line = lines[0][2:]
         if "(" in recipe_name_and_cuisine_line:
