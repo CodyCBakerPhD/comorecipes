@@ -67,6 +67,7 @@ como_recipes = "como_recipes._command_line_interface:_como_recipes_command_line_
 exclude = [
   "*/__init__.py"
 ]
+line-length = 120
 
 [tool.ruff.lint]
 select = ["E", "F"]

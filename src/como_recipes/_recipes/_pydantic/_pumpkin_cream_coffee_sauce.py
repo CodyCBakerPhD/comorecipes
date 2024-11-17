@@ -14,8 +14,14 @@ class PumpkinCreamCoffeeSauce(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="vanilla extract"),
     ]
     instructions: list[str] = [
-        "Combine heavy cream, sugar, pumpkin puree and pumpkin spice in a saucepan. Whisk over medium heat until sugar is dissolved and cream mixture begins to steam.",
-        "DO NOT BOIL. Remove from heat and whisk in vanilla extract. Strain through a fine mesh strainer or cheesecloth, transfer to mason jar or pitcher.",
+        (
+            "Combine heavy cream, sugar, pumpkin puree and pumpkin spice in a saucepan. "
+            "Whisk over medium heat until sugar is dissolved and cream mixture begins to steam."
+        ),
+        (
+            "DO NOT BOIL. Remove from heat and whisk in vanilla extract. "
+            "Strain through a fine mesh strainer or cheesecloth, transfer to mason jar or pitcher."
+        ),
         "Refrigerate until cool.",
     ]
 
