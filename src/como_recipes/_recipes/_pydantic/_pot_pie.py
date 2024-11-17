@@ -1,7 +1,7 @@
-from ..._base_recipe import Recipe
 from ..._base_measurement import Measurement
-from ..._recipe_registration import default_recipe_registry
+from ..._base_recipe import Recipe
 from ..._measurement_registration import MeasurementRegistry
+from ..._recipe_registration import default_recipe_registry
 
 
 class PotPie(Recipe):
@@ -31,9 +31,15 @@ class PotPie(Recipe):
         "Melt butter in heavy bottomed saucepan. When it foams, add onions and carrots and cook for 1-2 minutes.",
         "Add potato, season well with salt and black pepper. Stir to coat. Cook, stirring rarely, for about 6 minutes.",
         "Sprinkle flour over vegetables, stir to coat, and cook another 1-2 minutes.",
-        "Carefully add broth and milk, stirring constantly until mixture is smooth. Bring to a simmer over medium heat and cook another 5 minutes.",
+        (
+            "Carefully add broth and milk, stirring constantly until mixture is smooth. "
+            "Bring to a simmer over medium heat and cook another 5 minutes."
+        ),
         "Remove from heat, add peas, herbs, and vinegar. Stir to coat. Season well with salt and pepper.",
-        "Place bottom half of pie crust in dish, fill with mixture. Cover with other half and seal tightly. Whisk water and egg yolk, then wash the top. Cut slits in top to vent.",
+        (
+            "Place bottom half of pie crust in dish, fill with mixture. Cover with other half and seal tightly. "
+            "Whisk water and egg yolk, then wash the top. Cut slits in top to vent."
+        ),
         "Bake for 30 minutes. Let sit at least 5 minutes before serving.",
     ]
 

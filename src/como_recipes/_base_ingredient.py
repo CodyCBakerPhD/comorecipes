@@ -1,5 +1,6 @@
-import pydantic
 import math
+
+import pydantic
 
 
 class Ingredient(pydantic.BaseModel):

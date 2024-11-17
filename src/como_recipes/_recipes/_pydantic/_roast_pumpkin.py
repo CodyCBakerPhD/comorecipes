@@ -1,7 +1,7 @@
-from ..._base_recipe import Recipe
 from ..._base_measurement import Measurement
-from ..._recipe_registration import default_recipe_registry
+from ..._base_recipe import Recipe
 from ..._measurement_registration import MeasurementRegistry
+from ..._recipe_registration import default_recipe_registry
 
 
 class RoastPumpkin(Recipe):
@@ -12,7 +12,10 @@ class RoastPumpkin(Recipe):
     ]
     instructions: list[str] = [
         "Cut pumpkin in half length-wise. Scrape out seeds and string.",
-        "Brush with oil and pierce outer skin a few times for steam to escape. Bake for 45-50 minutes at 350° F. Let cool and then scoop out meat.",
+        (
+            "Brush with oil and pierce outer skin a few times for steam to escape. "
+            "Bake for 45-50 minutes at 350° F. Let cool and then scoop out meat."
+        ),
     ]
 
 
