@@ -1,9 +1,10 @@
 import pathlib
-
-import py
 from io import StringIO
 from unittest.mock import patch
-from como_recipes import Recipe, MeasurementRegistry
+
+import py
+
+from como_recipes import MeasurementRegistry, Recipe
 
 
 def test_example_1_markdown_recipe_load():
