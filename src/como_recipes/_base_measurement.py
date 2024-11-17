@@ -30,6 +30,7 @@ class Measurement(pydantic.BaseModel):
         Unit of the ingredient amount.
     ingredient : Ingredient
         Ingredient being measured.
+
     """
 
     amount: int | float

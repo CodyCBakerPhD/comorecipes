@@ -40,6 +40,7 @@ class IngredientRegistry(pydantic.BaseModel):
         ----------
         name : str
             Name of the ingredient.
+
         """
         ingredient = self._ingredients.get(name, None)
         if ingredient is None:
@@ -55,6 +56,7 @@ class IngredientRegistry(pydantic.BaseModel):
         ----------
         ingredient : Ingredient
             Custom ingredient to add to the registry
+
         """
         self._ingredients[ingredient.name] = ingredient
         return None

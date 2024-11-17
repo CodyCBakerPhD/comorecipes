@@ -102,6 +102,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         ----------
         measurement : Measurement
             Measurement to add to the registry.
+
         """
         self._individual_measurements_to_add[measurement.ingredient.name].append(measurement)
         return None
@@ -115,6 +116,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         ----------
         measurement : Measurement
             Measurement to remove from the registry.
+
         """
         self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
         return None
@@ -128,6 +130,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         ----------
         recipe : Recipe
             Recipe to add to the registry.
+
         """
         self._recipe_registry.add_recipe(recipe=recipe)
         return None
@@ -141,6 +144,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         ----------
         recipe_name : str
             Name of the recipe to remove from the registry.
+
         """
         self._recipe_registry.remove_recipe(recipe_name=recipe_name)
         return None
@@ -205,6 +209,7 @@ class MeasurementRegistry(pydantic.BaseModel):
             Unit of the ingredient amount.
         name : str
             Name of the ingredient.
+
         """
         if name in default_ingredient_registry:
             ingredient = default_ingredient_registry.get_ingredient(name=name)

@@ -15,6 +15,7 @@ class Ingredient(pydantic.BaseModel):
         Size of the default package (in grams) as commonly found in stores.
     default_package_unit : str | None, optional
         Unit of the default package size as commonly found in stores.
+
     """
 
     name: str

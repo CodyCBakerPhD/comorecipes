@@ -21,6 +21,7 @@ class Recipe(pydantic.BaseModel):
         List of instructions.
     notes : list[str] or None, optional
         List of notes.
+
     """
 
     name: str
@@ -58,6 +59,7 @@ class Recipe(pydantic.BaseModel):
         ----------
         file_path : pydantic.NewPath
             Path to the Pydantic (.py) file.
+
         """
         indent = " " * 4
 
@@ -112,6 +114,7 @@ class Recipe(pydantic.BaseModel):
         ----------
         file_path : pydantic.NewPath
             Path to the Markdown (.md) file
+
         """
         markdown_text = f"# {self.name}\n\n"
 
@@ -141,6 +144,7 @@ class Recipe(pydantic.BaseModel):
             Path to the Markdown (.md) file.
         include_instructions : bool, optional
             Whether to include the instructions in the recipe.
+
         """
         from ._measurement_registration import MeasurementRegistry
 

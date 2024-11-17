@@ -65,16 +65,31 @@ como_recipes = "como_recipes._command_line_interface:_como_recipes_command_line_
 
 [tool.ruff]
 exclude = [
-  "*/__init__.py"
+    "*/__init__.py"
 ]
 line-length = 120
 
 [tool.ruff.lint]
-select = ["F", "E", "W", "I"]
+select = [
+    "F",
+    "E",
+    "W",
+    "I",
+    "N",
+    "D",
+    # Skipping UP due to a lot of unsafe or opinionated/not rigorously proven rules
+]
+ignore = [
+    "D401",  # Ignore the imperative mood convention for docstrings
+    "D203",  # Ignore no blank lines after class docstring in favor of D203 (one blank line) as convention
+    "D212",  # Ignore multi-line summary on first line in favor of D213 (second line) as convention
+    "D402",  # False positives with this one
+]
 
 [tool.ruff.lint.per-file-ignores]
 "src/como_recipes/__init__.py" = ["I"]  # Must maintain explicit order for imports for registration
 "src/como_recipes/_recipes/_pydantic/*" = ["E501"]  # Automated Pydantic conversion occasionally exceeds line length
+"tests/*" = ["D100", "D103"]  # Docstrings not required for tests
 
 [tool.ruff.lint.isort]
 relative-imports-order = "closest-to-furthest"
