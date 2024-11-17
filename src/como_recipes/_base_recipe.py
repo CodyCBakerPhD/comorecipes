@@ -8,7 +8,8 @@ from .utils import rational_string_to_float
 
 
 class Recipe(pydantic.BaseModel):
-    """Automatically validated base data class for all recipes.
+    """
+    Automatically validated base data class for all recipes.
 
     Parameters
     ----------
@@ -51,7 +52,8 @@ class Recipe(pydantic.BaseModel):
 
     @pydantic.validate_call
     def to_pydantic_file(self, file_path: pydantic.NewPath) -> None:
-        """Save recipe to a .py file in Pydantic format.
+        """
+        Save recipe to a .py file in Pydantic format.
 
         Parameters
         ----------
@@ -105,7 +107,8 @@ class Recipe(pydantic.BaseModel):
 
     @pydantic.validate_call
     def to_markdown_file(self, file_path: pydantic.NewPath) -> None:
-        """Save recipe to a .md file in Markdown format.
+        """
+        Save recipe to a .md file in Markdown format.
 
         Parameters
         ----------
@@ -132,7 +135,8 @@ class Recipe(pydantic.BaseModel):
     @classmethod
     @pydantic.validate_call
     def from_markdown_file(cls, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
-        """Load recipe from a .md file in Markdown format.
+        """
+        Load recipe from a .md file in Markdown format.
 
         Parameters
         ----------

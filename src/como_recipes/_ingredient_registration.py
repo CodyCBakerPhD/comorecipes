@@ -33,7 +33,8 @@ class IngredientRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def get_ingredient(self, *, name: str) -> Ingredient:
-        """Get an ingredient from the registry by name; returns a default base Ingredient if unregistered.
+        """
+        Get an ingredient from the registry by name; returns a default base Ingredient if unregistered.
 
         Parameters
         ----------
@@ -48,7 +49,8 @@ class IngredientRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def add_ingredient(self, *, ingredient: Ingredient) -> None:
-        """Add a custom ingredient to the registry.
+        """
+        Add a custom ingredient to the registry.
 
         Parameters
         ----------

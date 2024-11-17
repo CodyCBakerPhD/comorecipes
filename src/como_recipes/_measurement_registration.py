@@ -12,7 +12,8 @@ from ._recipe_registration import RecipeRegistry
 
 
 class MeasurementRegistry(pydantic.BaseModel):
-    """Registry for storing measurements and recipes.
+    """
+    Registry for storing measurements and recipes.
 
     Initialize an empty registry with `MeasurementRegistry()` then add:
         - measurements with `add_measurement`
@@ -94,7 +95,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def add_measurement(self, *, measurement: Measurement) -> None:
-        """Add a measurement to the registry.
+        """
+        Add a measurement to the registry.
 
         Parameters
         ----------
@@ -107,7 +109,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def remove_measurement(self, *, measurement: Measurement) -> None:
-        """Remove a measurement from the registry.
+        """
+        Remove a measurement from the registry.
 
         Parameters
         ----------
@@ -120,7 +123,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def add_recipe(self, *, recipe: Recipe) -> None:
-        """Add a recipe to the registry.
+        """
+        Add a recipe to the registry.
 
         Parameters
         ----------
@@ -133,7 +137,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def remove_recipe(self, *, recipe_name: str) -> None:
-        """Remove a recipe from the registry.
+        """
+        Remove a recipe from the registry.
 
         Parameters
         ----------
@@ -191,7 +196,8 @@ class MeasurementRegistry(pydantic.BaseModel):
     @staticmethod
     @pydantic.validate_call
     def get_measurement(*, amount: int | float, unit: str, name: str) -> Measurement:
-        """Generate a measurement of an ingredient from the default global ingredient registry.
+        """
+        Generate a measurement of an ingredient from the default global ingredient registry.
 
         Uses a base Ingredient if it is unregistered.
 

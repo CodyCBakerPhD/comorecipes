@@ -4,7 +4,8 @@ import pydantic
 
 
 class Ingredient(pydantic.BaseModel):
-    """Automatically validated base data class for all ingredients.
+    """
+    Automatically validated base data class for all ingredients.
 
     Parameters
     ----------

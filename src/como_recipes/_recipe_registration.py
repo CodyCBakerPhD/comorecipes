@@ -30,7 +30,8 @@ class RecipeRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def add_recipe(self, *, recipe: Recipe) -> None:
-        """Add a recipe to the registry.
+        """
+        Add a recipe to the registry.
 
         Parameters
         ----------
@@ -43,7 +44,8 @@ class RecipeRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def remove_recipe(self, *, recipe_name: str) -> None:
-        """Remove a recipe from the registry.
+        """
+        Remove a recipe from the registry.
 
         Parameters
         ----------
@@ -56,7 +58,8 @@ class RecipeRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def get_recipe(self, *, recipe_name: str) -> Recipe:
-        """Get a recipe from the registry.
+        """
+        Get a recipe from the registry.
 
         Parameters
         ----------

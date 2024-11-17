@@ -15,7 +15,7 @@ def rational_string_to_float(string: str) -> float:  # pragma: no cover
 
 
 def get_terminal_size() -> tuple[int, int]:
-    """Superior to the shutil.get_terminal_size() function for Windows; responds to dynamic window reshaping."""
+    """Superior to the `shutil.get_terminal_size()` function for Windows; responds to dynamic window reshaping."""
     standard_handle = ctypes.windll.kernel32.GetStdHandle(-12)
     string_buffer = ctypes.create_string_buffer(22)
     info = ctypes.windll.kernel32.GetConsoleScreenBufferInfo(standard_handle, string_buffer)
