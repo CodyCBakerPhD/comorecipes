@@ -94,7 +94,7 @@ class Recipe(pydantic.BaseModel):
         if not init_file_path.exists():  # For friendly compatibility with tests and non-default recipes
             return None
 
-        with open(file=init_file_path, mode="r") as io:
+        with open(file=init_file_path) as io:
             current_init_file_lines = io.readlines()
 
         # Insert to the top (after comment) and let pre-commit deal with proper ordering

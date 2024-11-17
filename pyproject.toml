@@ -70,7 +70,7 @@ exclude = [
 line-length = 120
 
 [tool.ruff.lint]
-select = ["F", "E", "W", "I", "N", "D"]
+select = ["F", "E", "W", "I", "N", "D", "UP"]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
     "D203",  # Ignore no blank lines after class docstring in favor of D203 (one blank line) as convention
