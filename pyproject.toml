@@ -78,6 +78,7 @@ select = [
     "N",
     "D",
     # Skipping UP due to a lot of unsafe or opinionated/not rigorously proven rules
+    "YTT",
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
