@@ -51,7 +51,7 @@ class Recipe(pydantic.BaseModel):
         return repr(self)
 
     @pydantic.validate_call
-    def to_pydantic_file(self, file_path: pydantic.NewPath) -> None:
+    def to_pydantic_file(self, *, file_path: pydantic.NewPath) -> None:
         """
         Save recipe to a .py file in Pydantic format.
 
@@ -106,7 +106,7 @@ class Recipe(pydantic.BaseModel):
         return None
 
     @pydantic.validate_call
-    def to_markdown_file(self, file_path: pydantic.NewPath) -> None:
+    def to_markdown_file(self, *, file_path: pydantic.NewPath) -> None:
         """
         Save recipe to a .md file in Markdown format.
 
@@ -134,7 +134,7 @@ class Recipe(pydantic.BaseModel):
 
     @classmethod
     @pydantic.validate_call
-    def from_markdown_file(cls, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
+    def from_markdown_file(cls, *, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
         """
         Load recipe from a .md file in Markdown format.
 
