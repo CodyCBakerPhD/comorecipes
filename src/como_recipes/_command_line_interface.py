@@ -137,8 +137,8 @@ def _format_available_recipes(id_to_default_recipe_name_map: dict[int, str]) -> 
     number_of_rows = math.ceil(number_of_recipes / number_of_columns)
 
     recipe_table = collections.defaultdict(dict)
-    for recipe_id, recipe in id_to_default_recipe_name_map.items():
-        item = f"{id_to_default_recipe_name_map[recipe_id]} ({recipe_id})"
+    for recipe_id, recipe_name in id_to_default_recipe_name_map.items():
+        item = f"{recipe_name} ({recipe_id})"
         recipe_table[recipe_id % number_of_columns][recipe_id // number_of_columns] = item
 
     buffers = tuple(

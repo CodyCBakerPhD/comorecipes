@@ -22,8 +22,8 @@ class IngredientRegistry(pydantic.BaseModel):
             return printout
 
         printout += f"{'-' * (len(printout)-1)}\n\n"
-        for name, ingredient in natsort.natsorted(seq=self._ingredients.items(), key=lambda item_tuple: item_tuple[0]):
-            printout += f"{ingredient.name}\n"
+        for ingredient_name in natsort.natsorted(seq=self._ingredients.keys()):
+            printout += f"{ingredient_name}\n"
 
         return printout
 
