@@ -85,6 +85,10 @@ select = [
     "BLE",
     "FBT",
     "B",
+    "A",
+    "COM",
+    # Skip CPY
+    "C4",
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings

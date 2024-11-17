@@ -58,7 +58,7 @@ def test_measurement_registry(example_measurement: Measurement):
     assert new_registry.get_shopping_list() == expected_shopping_list
 
     new_registry.remove_measurement(
-        measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2")
+        measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2"),
     )
 
     expected_shopping_list = "Example Ingredient 1\n  11.2 grams\ningredient 1\n  3.0 tbsp.\ningredient 2\n  2.0 g\n"
@@ -66,7 +66,7 @@ def test_measurement_registry(example_measurement: Measurement):
 
     # Recipe should now be removed entirely from printout
     new_registry.remove_measurement(
-        measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2")
+        measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2"),
     )
 
     expected_shopping_list = "Example Ingredient 1\n  11.2 grams\ningredient 1\n  3.0 tbsp.\n"

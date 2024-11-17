@@ -21,7 +21,8 @@ def get_terminal_size() -> tuple[int, int]:
     info = ctypes.windll.kernel32.GetConsoleScreenBufferInfo(standard_handle, string_buffer)
     if info:
         (bufx, bufy, curx, cury, wattr, left, top, right, bottom, maxx, maxy) = struct.unpack(
-            "hhhhHhhhhhh", string_buffer.raw
+            "hhhhHhhhhhh",
+            string_buffer.raw,
         )
         sizex = right - left + 1
         sizey = bottom - top + 1

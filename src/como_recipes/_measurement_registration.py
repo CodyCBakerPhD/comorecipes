@@ -33,7 +33,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         self._individual_measurements_to_add = collections.defaultdict(list, self._individual_measurements_to_add or {})
         self._individual_measurements_to_remove = collections.defaultdict(
-            list, self._individual_measurements_to_remove or {}
+            list,
+            self._individual_measurements_to_remove or {},
         )
         self._recipe_registry = RecipeRegistry()
 
@@ -61,7 +62,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         printout = ""
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
+            seq=combined_measurements.items(),
+            key=lambda item_tuple: item_tuple[0],
         ):
             printout += f"{ingredient_name}\n"
             printout += self._printout_nested_ingredients(measurements_by_ingredient=measurements_by_ingredient)
@@ -162,7 +164,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         shopping_list = ""
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
+            seq=combined_measurements.items(),
+            key=lambda item_tuple: item_tuple[0],
         ):
             # TODO: shouldn't be needed once grams are standardized
             measurement_units_per_ingredient = {measurement.unit for measurement in measurements_by_ingredient}
@@ -183,7 +186,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
             if total_per_ingredient < 0:
                 warnings.warn(
-                    message=f"Negative amount of '{ingredient_name}' found in shopping list; ignoring.", stacklevel=2
+                    message=f"Negative amount of '{ingredient_name}' found in shopping list; ignoring.",
+                    stacklevel=2,
                 )
 
             if total_per_ingredient == 0:
