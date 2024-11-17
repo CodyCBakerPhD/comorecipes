@@ -27,7 +27,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:
-            raise ValueError("No positional arguments are allowed.")
+            message = "No positional arguments are allowed."
+            raise ValueError(message)
 
         super().__init__(**kwargs)
 

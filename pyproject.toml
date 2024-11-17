@@ -89,6 +89,10 @@ select = [
     "COM",
     # Skip CPY
     "C4",
+    "DTZ",
+    "T10",
+    "DJ",
+    "EM",
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
@@ -97,6 +101,7 @@ ignore = [
     "D402",  # False positives with this one
     "ANN101",  # Deprecated and will be removed soon
     "ANN102",  # Deprecated and will be removed soon
+    "DTZ005",  # Timezone can't easily be detected to use for timestamping; we also just don't need it for anything
 ]
 
 [tool.ruff.lint.per-file-ignores]

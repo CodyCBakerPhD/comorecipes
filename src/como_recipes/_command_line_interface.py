@@ -22,7 +22,8 @@ from .utils import get_terminal_size
 def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pragma: no cover
     """Write missing Markdown (.md) recipes from Pydantic (.py) recipe files."""
     if importlib.util.find_spec(name="como_recipes") is None:
-        raise ImportError("The 'como_recipes' module is not installed.")
+        message = "The 'como_recipes' module is not installed."
+        raise ImportError(message)
     como_recipes_module = importlib.import_module(name="como_recipes")
 
     pydantic_recipes_folder_path = pathlib.Path(__file__).parent / "_recipes" / "_pydantic"

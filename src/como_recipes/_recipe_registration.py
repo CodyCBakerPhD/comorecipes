@@ -69,7 +69,8 @@ class RecipeRegistry(pydantic.BaseModel):
         """
         recipe = self._recipes.get(recipe_name, None)
         if recipe is None:
-            raise ValueError(f"Recipe '{recipe_name}' not found in the registry.")
+            message = f"Recipe '{recipe_name}' not found in the registry."
+            raise ValueError(message)
         return recipe
 
     @pydantic.validate_call

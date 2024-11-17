@@ -44,7 +44,8 @@ class IngredientRegistry(pydantic.BaseModel):
         """
         ingredient = self._ingredients.get(name, None)
         if ingredient is None:
-            raise ValueError(f"Ingredient '{name}' not found in the registry.")
+            message = f"Ingredient '{name}' not found in the registry."
+            raise ValueError(message)
         return ingredient
 
     @pydantic.validate_call
