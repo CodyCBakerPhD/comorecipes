@@ -1,7 +1,7 @@
-from ..._base_recipe import Recipe
 from ..._base_measurement import Measurement
-from ..._recipe_registration import default_recipe_registry
+from ..._base_recipe import Recipe
 from ..._measurement_registration import MeasurementRegistry
+from ..._recipe_registration import default_recipe_registry
 
 
 class ButterPieCrust(Recipe):

@@ -1,10 +1,10 @@
-from typing import Self
 import pathlib
+from typing import Self
 
 import pydantic
 
-from .utils import rational_string_to_float
 from ._base_measurement import Measurement
+from .utils import rational_string_to_float
 
 
 class Recipe(pydantic.BaseModel):

@@ -1,5 +1,5 @@
-import pydantic
 import natsort
+import pydantic
 
 from ._base_recipe import Recipe
 
