@@ -1,4 +1,5 @@
 import collections
+import typing
 import warnings
 
 import natsort
@@ -24,7 +25,7 @@ class MeasurementRegistry(pydantic.BaseModel):
     _individual_measurements_to_remove: dict[str, list[Measurement]] | None = None
     _recipe_registry: RecipeRegistry | None = None
 
-    def __init__(self, *args, **kwargs) -> None:
+    def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:
             raise ValueError("No positional arguments are allowed.")
 

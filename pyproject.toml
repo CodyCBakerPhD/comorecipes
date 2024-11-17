@@ -79,18 +79,21 @@ select = [
     "D",
     # Skipping UP due to a lot of unsafe or opinionated/not rigorously proven rules
     "YTT",
+    "ANN",
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
     "D203",  # Ignore no blank lines after class docstring in favor of D203 (one blank line) as convention
     "D212",  # Ignore multi-line summary on first line in favor of D213 (second line) as convention
     "D402",  # False positives with this one
+    "ANN101",  # Deprecated and will be removed soon
+    "ANN102",  # Deprecated and will be removed soon
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "src/como_recipes/__init__.py" = ["I"]  # Must maintain explicit order for imports for registration
 "src/como_recipes/_recipes/_pydantic/*" = ["E501"]  # Automated Pydantic conversion occasionally exceeds line length
-"tests/*" = ["D100", "D103"]  # Docstrings not required for tests
+"tests/*" = ["D100", "D103", "ANN201"]  # Neither docstrings nor annotations are required for tests
 
 [tool.ruff.lint.isort]
 relative-imports-order = "closest-to-furthest"
