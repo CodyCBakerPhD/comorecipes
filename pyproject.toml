@@ -93,6 +93,15 @@ select = [
     "T10",
     "DJ",
     "EM",
+    "EXE",
+    "FA",
+    "ISC",
+    "ICN",
+    "LOG",
+    "G",
+    "INP",
+    "PIE",
+    "T20",
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
@@ -102,13 +111,25 @@ ignore = [
     "ANN101",  # Deprecated and will be removed soon
     "ANN102",  # Deprecated and will be removed soon
     "DTZ005",  # Timezone can't easily be detected to use for timestamping; we also just don't need it for anything
+    "ICN001",  # Controversial opinion: I prefer fully explicit naming to avoid any potential confusion
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "src/como_recipes/__init__.py" = ["I"]  # Must maintain explicit order for imports for registration
 "src/como_recipes/_recipes/_pydantic/*" = ["E501"]  # Automated Pydantic conversion occasionally exceeds line length
-"src/como_recipes/_command_line_interface.py" = ["S605", "BLE001"]  # Console injections and logging are manually OK'd
-"tests/*" = ["D100", "D103", "ANN201", "S101"]  # Neither docstrings nor annotations are required for tests
+"src/como_recipes/_command_line_interface.py" = [
+    "S605",  # Console injections are manually OK'd
+    "BLE001",  # logging is manually OK'd
+    "T20",  # print statements are fine in command line interfaces
+]
+"tests/*" = [  # Neither docstrings nor annotations are required for tests
+    "D100",
+    "D103",
+    "ANN201",
+    "S101",  # Assert statements are the best way to get diffs with pytest
+    "INP001",  # Not really a part of the package
+    "T20",  # print statements are fine in tests since they can help render debugging info in GitHub Actions logs
+]
 
 [tool.ruff.lint.isort]
 relative-imports-order = "closest-to-furthest"
