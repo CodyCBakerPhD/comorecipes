@@ -21,6 +21,7 @@ class Recipe(pydantic.BaseModel):
         List of instructions.
     notes : list[str] or None, optional
         List of notes.
+
     """
 
     name: str
@@ -50,7 +51,7 @@ class Recipe(pydantic.BaseModel):
         return repr(self)
 
     @pydantic.validate_call
-    def to_pydantic_file(self, file_path: pydantic.NewPath) -> None:
+    def to_pydantic_file(self, *, file_path: pydantic.NewPath) -> None:
         """
         Save recipe to a .py file in Pydantic format.
 
@@ -58,6 +59,7 @@ class Recipe(pydantic.BaseModel):
         ----------
         file_path : pydantic.NewPath
             Path to the Pydantic (.py) file.
+
         """
         indent = " " * 4
 
@@ -104,7 +106,7 @@ class Recipe(pydantic.BaseModel):
         return None
 
     @pydantic.validate_call
-    def to_markdown_file(self, file_path: pydantic.NewPath) -> None:
+    def to_markdown_file(self, *, file_path: pydantic.NewPath) -> None:
         """
         Save recipe to a .md file in Markdown format.
 
@@ -112,6 +114,7 @@ class Recipe(pydantic.BaseModel):
         ----------
         file_path : pydantic.NewPath
             Path to the Markdown (.md) file
+
         """
         markdown_text = f"# {self.name}\n\n"
 
@@ -131,7 +134,7 @@ class Recipe(pydantic.BaseModel):
 
     @classmethod
     @pydantic.validate_call
-    def from_markdown_file(cls, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
+    def from_markdown_file(cls, *, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
         """
         Load recipe from a .md file in Markdown format.
 
@@ -141,14 +144,19 @@ class Recipe(pydantic.BaseModel):
             Path to the Markdown (.md) file.
         include_instructions : bool, optional
             Whether to include the instructions in the recipe.
+
         """
         from ._measurement_registration import MeasurementRegistry
 
         with open(file=file_path) as io:
             lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
 
-        assert lines[0][:2] == "# ", "Markdown recipe does not begin with '# '."
-        assert lines[1] == "## Ingredients", "Markdown recipe does not have a section titled '## Ingredients'."
+        if lines[0][:2] != "# ":
+            message = "Markdown recipe does not begin with '# '."
+            raise ValueError(message)
+        if lines[1] != "## Ingredients":
+            message = "Markdown recipe does not have a section titled '## Ingredients'."
+            raise ValueError(message)
 
         recipe_name_and_cuisine_line = lines[0][2:]
         if "(" in recipe_name_and_cuisine_line:

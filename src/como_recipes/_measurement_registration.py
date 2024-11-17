@@ -1,4 +1,5 @@
 import collections
+import typing
 import warnings
 
 import natsort
@@ -24,15 +25,17 @@ class MeasurementRegistry(pydantic.BaseModel):
     _individual_measurements_to_remove: dict[str, list[Measurement]] | None = None
     _recipe_registry: RecipeRegistry | None = None
 
-    def __init__(self, *args, **kwargs) -> None:
+    def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:
-            raise ValueError("No positional arguments are allowed.")
+            message = "No positional arguments are allowed."
+            raise ValueError(message)
 
         super().__init__(**kwargs)
 
         self._individual_measurements_to_add = collections.defaultdict(list, self._individual_measurements_to_add or {})
         self._individual_measurements_to_remove = collections.defaultdict(
-            list, self._individual_measurements_to_remove or {}
+            list,
+            self._individual_measurements_to_remove or {},
         )
         self._recipe_registry = RecipeRegistry()
 
@@ -60,7 +63,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         printout = ""
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
+            seq=combined_measurements.items(),
+            key=lambda item_tuple: item_tuple[0],
         ):
             printout += f"{ingredient_name}\n"
             printout += self._printout_nested_ingredients(measurements_by_ingredient=measurements_by_ingredient)
@@ -102,6 +106,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         ----------
         measurement : Measurement
             Measurement to add to the registry.
+
         """
         self._individual_measurements_to_add[measurement.ingredient.name].append(measurement)
         return None
@@ -115,6 +120,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         ----------
         measurement : Measurement
             Measurement to remove from the registry.
+
         """
         self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
         return None
@@ -128,6 +134,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         ----------
         recipe : Recipe
             Recipe to add to the registry.
+
         """
         self._recipe_registry.add_recipe(recipe=recipe)
         return None
@@ -141,6 +148,7 @@ class MeasurementRegistry(pydantic.BaseModel):
         ----------
         recipe_name : str
             Name of the recipe to remove from the registry.
+
         """
         self._recipe_registry.remove_recipe(recipe_name=recipe_name)
         return None
@@ -157,7 +165,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         shopping_list = ""
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=combined_measurements.items(), key=lambda item_tuple: item_tuple[0]
+            seq=combined_measurements.items(),
+            key=lambda item_tuple: item_tuple[0],
         ):
             # TODO: shouldn't be needed once grams are standardized
             measurement_units_per_ingredient = {measurement.unit for measurement in measurements_by_ingredient}
@@ -178,7 +187,8 @@ class MeasurementRegistry(pydantic.BaseModel):
 
             if total_per_ingredient < 0:
                 warnings.warn(
-                    message=f"Negative amount of '{ingredient_name}' found in shopping list; ignoring.", stacklevel=2
+                    message=f"Negative amount of '{ingredient_name}' found in shopping list; ignoring.",
+                    stacklevel=2,
                 )
 
             if total_per_ingredient == 0:
@@ -205,6 +215,7 @@ class MeasurementRegistry(pydantic.BaseModel):
             Unit of the ingredient amount.
         name : str
             Name of the ingredient.
+
         """
         if name in default_ingredient_registry:
             ingredient = default_ingredient_registry.get_ingredient(name=name)

@@ -22,7 +22,8 @@ from .utils import get_terminal_size
 def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pragma: no cover
     """Write missing Markdown (.md) recipes from Pydantic (.py) recipe files."""
     if importlib.util.find_spec(name="como_recipes") is None:
-        raise ImportError("The 'como_recipes' module is not installed.")
+        message = "The 'como_recipes' module is not installed."
+        raise ImportError(message)
     como_recipes_module = importlib.import_module(name="como_recipes")
 
     pydantic_recipes_folder_path = pathlib.Path(__file__).parent / "_recipes" / "_pydantic"
@@ -137,8 +138,8 @@ def _format_available_recipes(id_to_default_recipe_name_map: dict[int, str]) -> 
     number_of_rows = math.ceil(number_of_recipes / number_of_columns)
 
     recipe_table = collections.defaultdict(dict)
-    for recipe_id, recipe in id_to_default_recipe_name_map.items():
-        item = f"{id_to_default_recipe_name_map[recipe_id]} ({recipe_id})"
+    for recipe_id, recipe_name in id_to_default_recipe_name_map.items():
+        item = f"{recipe_name} ({recipe_id})"
         recipe_table[recipe_id % number_of_columns][recipe_id // number_of_columns] = item
 
     buffers = tuple(
@@ -159,7 +160,8 @@ def _format_available_recipes(id_to_default_recipe_name_map: dict[int, str]) -> 
 
 
 def _format_recipe_selection(
-    recipe_selection: MeasurementRegistry, default_recipe_name_to_id_map: dict[str, int]
+    recipe_selection: MeasurementRegistry,
+    default_recipe_name_to_id_map: dict[str, int],
 ) -> str:
     message = "\nCurrently Selected Recipes\n"
     message += f"{'-' * (len(message) - 2)}\n\n"
@@ -220,7 +222,8 @@ def _write_error(exception: Exception) -> None:
     message += click.style(text=f"    {error_file_path}\n\n", fg="yellow")
 
     message += click.style(
-        text="Please copy and paste the file contents to the issue tracker on GitHub:\n", fg="bright_red"
+        text="Please copy and paste the file contents to the issue tracker on GitHub:\n",
+        fg="bright_red",
     )
     message += click.style(text=f"    {issue_url}\n", fg="yellow")
 
@@ -243,10 +246,7 @@ def _meal_selector() -> None:
 
     recipe_selection = MeasurementRegistry()
 
-    id_to_default_recipe_name_map: dict[int, str] = {
-        selection_value: recipe_name
-        for selection_value, recipe_name in enumerate(default_recipe_registry.get_all_recipe_names())
-    }
+    id_to_default_recipe_name_map: dict[int, str] = dict(enumerate(default_recipe_registry.get_all_recipe_names()))
     default_recipe_name_to_id_map: dict[str, int] = {value: key for key, value in id_to_default_recipe_name_map.items()}
 
     menu_message = click.style(text=" Quit (q) ", fg="black", bg="bright_red")
@@ -269,11 +269,12 @@ def _meal_selector() -> None:
             click.clear()
 
             formatted_available_recipes = _format_available_recipes(
-                id_to_default_recipe_name_map=id_to_default_recipe_name_map
+                id_to_default_recipe_name_map=id_to_default_recipe_name_map,
             )
             prompt_message = click.style(text=formatted_available_recipes, fg="black", bg="bright_cyan")
             formatted_current_recipes = _format_recipe_selection(
-                recipe_selection=recipe_selection, default_recipe_name_to_id_map=default_recipe_name_to_id_map
+                recipe_selection=recipe_selection,
+                default_recipe_name_to_id_map=default_recipe_name_to_id_map,
             )
             prompt_message += "\n\n" + click.style(text=formatted_current_recipes, fg="black", bg="bright_magenta")
             prompt_message += "\n\n" + menu_message
@@ -348,7 +349,7 @@ def _meal_selector() -> None:
                             message=click.style(
                                 text=f"ID '{input_value}' not found in the available recipes. Please enter a valid ID.",
                                 fg="red",
-                            )
+                            ),
                         )
                         continue
 
@@ -363,7 +364,8 @@ def _meal_selector() -> None:
 
     if iteration >= max_iterations:
         error_message = click.style(
-            text="\n\nExiting Interactive Meal Selector: maximum allowed operations reached.\n", fg="red"
+            text="\n\nExiting Interactive Meal Selector: maximum allowed operations reached.\n",
+            fg="red",
         )
         click.echo(message=error_message, err=True)
 

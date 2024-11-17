@@ -37,6 +37,7 @@ class RecipeRegistry(pydantic.BaseModel):
         ----------
         recipe : Recipe
             Recipe to add to the registry.
+
         """
         self._recipes[recipe.name] = recipe
         return None
@@ -50,6 +51,7 @@ class RecipeRegistry(pydantic.BaseModel):
         ----------
         recipe_name : str
             Name of the recipe to remove from the registry.
+
         """
         self._recipes.pop(recipe_name)
         return None
@@ -63,10 +65,12 @@ class RecipeRegistry(pydantic.BaseModel):
         ----------
         recipe_name : str
             Name of the recipe to get from the registry.
+
         """
         recipe = self._recipes.get(recipe_name, None)
         if recipe is None:
-            raise ValueError(f"Recipe '{recipe_name}' not found in the registry.")
+            message = f"Recipe '{recipe_name}' not found in the registry."
+            raise ValueError(message)
         return recipe
 
     @pydantic.validate_call

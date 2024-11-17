@@ -8,7 +8,9 @@ class SlowCookedRibs(Recipe):
     name: str = "Slow-Cooked Ribs"
     measurements: list[Measurement] = [
         MeasurementRegistry.get_measurement(
-            amount=0.3333333333333333, unit="cup", name="premade Sweet Fire Rub (see recipe)"
+            amount=0.3333333333333333,
+            unit="cup",
+            name="premade Sweet Fire Rub (see recipe)",
         ),
         MeasurementRegistry.get_measurement(amount=0.5, unit="rack", name="baby back ribs"),
     ]
