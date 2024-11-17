@@ -1,5 +1,6 @@
-from como_recipes import Ingredient
 import pytest
+
+from como_recipes import Ingredient
 
 
 def test_get_number_of_packages(example_ingredient: Ingredient):
