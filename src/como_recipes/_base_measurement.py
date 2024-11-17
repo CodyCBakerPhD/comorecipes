@@ -4,8 +4,7 @@ from ._base_ingredient import Ingredient
 
 
 class Measurement(pydantic.BaseModel):
-    """
-    Automatically validated base data class for all measured portions of ingredients.
+    """Automatically validated base data class for all measured portions of ingredients.
 
     Parameters
     ----------
@@ -30,6 +29,7 @@ class Measurement(pydantic.BaseModel):
         Unit of the ingredient amount.
     ingredient : Ingredient
         Ingredient being measured.
+
     """
 
     amount: int | float

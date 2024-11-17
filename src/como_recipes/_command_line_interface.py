@@ -61,8 +61,7 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pra
 @click.command(name="write_missing_pydantic_recipes")
 @click.option("--limit", type=int, default=None, help="Limit the number of recipes to write.")
 def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:  # pragma: no cover
-    """
-    Write missing Pydantic (.py) recipes from Markdown (.md) recipe files.
+    """Write missing Pydantic (.py) recipes from Markdown (.md) recipe files.
 
     Please note that custom ingredient model files will not be generated; consider adding this manually over time.
     """

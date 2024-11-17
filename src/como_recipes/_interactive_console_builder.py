@@ -1,5 +1,4 @@
-"""
-The basic Python script used by PyInstaller to build a single file executable for the main CLI entrypoint.
+"""The basic Python script used by PyInstaller to build a single file executable for the main CLI entrypoint.
 
 The full CLI should still be used via `pip` installation, which defines more entrypoints related to DevOps.
 """

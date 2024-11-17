@@ -12,8 +12,7 @@ from ._recipe_registration import RecipeRegistry
 
 
 class MeasurementRegistry(pydantic.BaseModel):
-    """
-    Registry for storing measurements and recipes.
+    """Registry for storing measurements and recipes.
 
     Initialize an empty registry with `MeasurementRegistry()` then add:
         - measurements with `add_measurement`
@@ -95,52 +94,52 @@ class MeasurementRegistry(pydantic.BaseModel):
 
     @pydantic.validate_call
     def add_measurement(self, *, measurement: Measurement) -> None:
-        """
-        Add a measurement to the registry.
+        """Add a measurement to the registry.
 
         Parameters
         ----------
         measurement : Measurement
             Measurement to add to the registry.
+
         """
         self._individual_measurements_to_add[measurement.ingredient.name].append(measurement)
         return None
 
     @pydantic.validate_call
     def remove_measurement(self, *, measurement: Measurement) -> None:
-        """
-        Remove a measurement from the registry.
+        """Remove a measurement from the registry.
 
         Parameters
         ----------
         measurement : Measurement
             Measurement to remove from the registry.
+
         """
         self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
         return None
 
     @pydantic.validate_call
     def add_recipe(self, *, recipe: Recipe) -> None:
-        """
-        Add a recipe to the registry.
+        """Add a recipe to the registry.
 
         Parameters
         ----------
         recipe : Recipe
             Recipe to add to the registry.
+
         """
         self._recipe_registry.add_recipe(recipe=recipe)
         return None
 
     @pydantic.validate_call
     def remove_recipe(self, *, recipe_name: str) -> None:
-        """
-        Remove a recipe from the registry.
+        """Remove a recipe from the registry.
 
         Parameters
         ----------
         recipe_name : str
             Name of the recipe to remove from the registry.
+
         """
         self._recipe_registry.remove_recipe(recipe_name=recipe_name)
         return None
@@ -192,8 +191,7 @@ class MeasurementRegistry(pydantic.BaseModel):
     @staticmethod
     @pydantic.validate_call
     def get_measurement(*, amount: int | float, unit: str, name: str) -> Measurement:
-        """
-        Generate a measurement of an ingredient from the default global ingredient registry.
+        """Generate a measurement of an ingredient from the default global ingredient registry.
 
         Uses a base Ingredient if it is unregistered.
 
@@ -205,6 +203,7 @@ class MeasurementRegistry(pydantic.BaseModel):
             Unit of the ingredient amount.
         name : str
             Name of the ingredient.
+
         """
         if name in default_ingredient_registry:
             ingredient = default_ingredient_registry.get_ingredient(name=name)
