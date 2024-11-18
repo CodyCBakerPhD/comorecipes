@@ -56,7 +56,7 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pra
     if count == 0:
         print("\nNo missing Markdown recipe files were found.\n")
 
-    return None
+    return
 
 
 @click.command(name="write_missing_pydantic_recipes")
@@ -86,7 +86,7 @@ def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:  # pra
     if count == 0:
         print("\nNo missing Pydantic recipe files were found.\n")
 
-    return None
+    return
 
 
 @click.command(name="como_recipes")
@@ -123,7 +123,7 @@ def _como_recipes_command_line_interface_main_entrypoint() -> None:
         error_message = click.style(text="\n\nExiting CoMo Recipes: maximum allowed operations reached.\n", fg="red")
         click.echo(message=error_message, err=True)
 
-    return None
+    return
 
 
 def _format_available_recipes(id_to_default_recipe_name_map: dict[int, str]) -> str:
@@ -236,7 +236,7 @@ def _write_error(exception: Exception) -> None:
     click.launch(url=filename, locate=True)
     click.launch(url=issue_url)
 
-    return None
+    return
 
 
 def _meal_selector() -> None:
@@ -369,4 +369,4 @@ def _meal_selector() -> None:
         )
         click.echo(message=error_message, err=True)
 
-    return None
+    return

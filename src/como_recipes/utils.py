@@ -10,8 +10,7 @@ def rational_string_to_float(string: str) -> float:  # pragma: no cover
     if "/" in string:
         numerator, denominator = string.split("/")
         return int(numerator) / int(denominator)
-    else:
-        return float(string)
+    return float(string)
 
 
 def get_terminal_size() -> tuple[int, int]:
@@ -28,5 +27,4 @@ def get_terminal_size() -> tuple[int, int]:
         sizey = bottom - top + 1
 
         return sizex, sizey
-    else:
-        return 80, 25  # default value
+    return 80, 25  # default value

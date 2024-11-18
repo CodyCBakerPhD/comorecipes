@@ -60,7 +60,7 @@ class IngredientRegistry(pydantic.BaseModel):
 
         """
         self._ingredients[ingredient.name] = ingredient
-        return None
+        return
 
 
 # Initialize the global default recipe registry

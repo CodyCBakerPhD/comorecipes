@@ -134,6 +134,7 @@ ignore = [
     "PYI041",  # Disagree with
     "TID252",  # The PEP says that explicit relative imports are an acceptable alternative, but check doesn't care...
     "TD",  # I like in general, but will add back in later
+    "RET504",  # Strongly disagree with
 ]
 
 [tool.ruff.lint.per-file-ignores]

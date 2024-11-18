@@ -92,7 +92,7 @@ class Recipe(pydantic.BaseModel):
         # Expose the new recipe class in the 'recipes' submodule __init__.py file so that it can be imported
         init_file_path = pathlib.Path(file_path).parent / "__init__.py"
         if not init_file_path.exists():  # For friendly compatibility with tests and non-default recipes
-            return None
+            return
 
         with init_file_path.open(mode="r") as io:
             current_init_file_lines = io.readlines()
@@ -103,7 +103,7 @@ class Recipe(pydantic.BaseModel):
         with init_file_path.open(mode="w") as io:
             io.writelines(current_init_file_lines)
 
-        return None
+        return
 
     @pydantic.validate_call
     def to_markdown_file(self, *, file_path: pydantic.NewPath) -> None:
@@ -130,7 +130,7 @@ class Recipe(pydantic.BaseModel):
         with file_path.open(mode="w") as io:
             io.write(markdown_text)
 
-        return None
+        return
 
     @classmethod
     @pydantic.validate_call
