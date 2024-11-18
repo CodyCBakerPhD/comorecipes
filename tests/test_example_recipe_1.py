@@ -30,11 +30,11 @@ def test_example_1_to_pydantic(tmpdir: py.path.local):
 
     test_pydantic_model_file_path = pathlib.Path(tmpdir) / "_example_recipe_1.py"
     recipe.to_pydantic_file(file_path=test_pydantic_model_file_path)
-    with open(file=test_pydantic_model_file_path, mode="r") as io:
+    with test_pydantic_model_file_path.open(mode="r") as io:
         test_pydantic_model_file_lines = io.readlines()
 
     expected_pydantic_model_file_path = example_folder_path / "_example_recipe_1.py"
-    with open(file=expected_pydantic_model_file_path, mode="r") as io:
+    with expected_pydantic_model_file_path.open(mode="r") as io:
         expected_pydantic_model_file_lines = io.readlines()
 
     # Skip the import styles since expected must be absolute
@@ -53,11 +53,11 @@ def test_example_1_to_pydantic_with_init_file(tmpdir: py.path.local):
     test_init_file_path = test_pydantic_model_file_path.parent / "__init__.py"
     test_init_file_path.touch()
     recipe.to_pydantic_file(file_path=test_pydantic_model_file_path)
-    with open(file=test_pydantic_model_file_path, mode="r") as io:
+    with test_pydantic_model_file_path.open(mode="r") as io:
         test_pydantic_model_file_lines = io.readlines()
 
     expected_pydantic_model_file_path = example_folder_path / "_example_recipe_1.py"
-    with open(file=expected_pydantic_model_file_path, mode="r") as io:
+    with expected_pydantic_model_file_path.open(mode="r") as io:
         expected_pydantic_model_file_lines = io.readlines()
 
     # Skip the import styles since expected must be absolute
@@ -72,10 +72,10 @@ def test_example_1_to_markdown(tmpdir: py.path.local):
 
     test_markdown_file_path = pathlib.Path(tmpdir) / "example_recipe_1.md"
     recipe.to_markdown_file(file_path=test_markdown_file_path)
-    with open(file=test_markdown_file_path, mode="r") as io:
+    with test_markdown_file_path.open(mode="r") as io:
         test_markdown_file_lines = io.readlines()
 
-    with open(file=example_1_markdown_file_path, mode="r") as io:
+    with example_1_markdown_file_path.open(mode="r") as io:
         expected_markdown_file_lines = io.readlines()
 
     assert test_markdown_file_lines == expected_markdown_file_lines

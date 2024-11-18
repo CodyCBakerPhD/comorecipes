@@ -86,7 +86,7 @@ class Recipe(pydantic.BaseModel):
 
         python_text += f"\n\ndefault_recipe_registry.add_recipe(recipe={camel_case_name}())\n"
 
-        with open(file=file_path, mode="w") as io:
+        with file_path.open(mode="w") as io:
             io.write(python_text)
 
         # Expose the new recipe class in the 'recipes' submodule __init__.py file so that it can be imported
@@ -94,13 +94,13 @@ class Recipe(pydantic.BaseModel):
         if not init_file_path.exists():  # For friendly compatibility with tests and non-default recipes
             return None
 
-        with open(file=init_file_path, mode="r") as io:
+        with init_file_path.open(mode="r") as io:
             current_init_file_lines = io.readlines()
 
         # Insert to the top (after comment) and let pre-commit deal with proper ordering
         current_init_file_lines.insert(1, f"from .{file_path.stem} import {camel_case_name}\n")
 
-        with open(file=init_file_path, mode="w") as io:
+        with init_file_path.open(mode="w") as io:
             io.writelines(current_init_file_lines)
 
         return None
@@ -127,7 +127,7 @@ class Recipe(pydantic.BaseModel):
         for instruction in self.instructions:
             markdown_text += f"{instruction}\n"
 
-        with open(file=file_path, mode="w") as io:
+        with file_path.open(mode="w") as io:
             io.write(markdown_text)
 
         return None
@@ -148,7 +148,7 @@ class Recipe(pydantic.BaseModel):
         """
         from ._measurement_registration import MeasurementRegistry
 
-        with open(file=file_path) as io:
+        with file_path.open(mode="r") as io:
             lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
 
         if lines[0][:2] != "# ":
