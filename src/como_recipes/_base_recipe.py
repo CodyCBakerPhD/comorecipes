@@ -71,7 +71,7 @@ class Recipe(pydantic.BaseModel):
         python_text += f"class {camel_case_name}(Recipe):\n"
         python_text += f'{indent}name: str = "{self.name}"\n'
 
-        python_text += f"{indent}measurements: tuple[Measurement] = (\n"
+        python_text += f"{indent}measurements: tuple[Measurement, ...] = (\n"
         for measurement in self.measurements:
             measurement_text = f"{indent}{indent}MeasurementRegistry.get_measurement(amount={measurement.amount}, "
             measurement_text += f'unit="{measurement.unit}", '
@@ -79,7 +79,7 @@ class Recipe(pydantic.BaseModel):
             python_text += measurement_text
         python_text += f"{indent})\n"
 
-        python_text += f"{indent}instructions: tuple[str] = (\n"
+        python_text += f"{indent}instructions: tuple[str, ...] = (\n"
         for instruction in self.instructions:
             python_text += f'{indent}{indent}"{instruction}",\n'
         python_text += f"{indent})\n"
