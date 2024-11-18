@@ -1,6 +1,7 @@
+import io
 import pathlib
-from io import StringIO
-from unittest.mock import patch
+import re
+import unittest.mock
 
 import pytest
 
@@ -17,7 +18,7 @@ def test_measurement_registry(example_measurement: Measurement):
 
     assert len(new_registry) == 0
     assert repr(new_registry) == "0 registered measurements\n"
-    with patch("sys.stdout", new=StringIO()) as captured_output:
+    with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(new_registry)
     assert captured_output.getvalue() == "0 registered measurements\n\n"
 
@@ -26,7 +27,7 @@ def test_measurement_registry(example_measurement: Measurement):
     expected_repr = "1 registered measurements\n-------------------------\n\nExample Ingredient 1\n  5.6 grams\n"
     assert len(new_registry) == 1
     assert repr(new_registry) == expected_repr
-    with patch("sys.stdout", new=StringIO()) as captured_output:
+    with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(new_registry)
     assert captured_output.getvalue() == expected_repr + "\n"
 
@@ -48,7 +49,7 @@ def test_measurement_registry(example_measurement: Measurement):
     )
     assert len(new_registry) == 3
     assert repr(new_registry) == expected_repr
-    with patch("sys.stdout", new=StringIO()) as captured_output:
+    with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(new_registry)
     assert captured_output.getvalue() == expected_repr + "\n"
 
@@ -101,11 +102,9 @@ def test_get_shopping_list_error():
     measurement_2 = MeasurementRegistry.get_measurement(amount=1.0, unit="tsp", name="test_ingredient")
     new_registry.add_measurement(measurement=measurement_2)
 
-    with pytest.raises(ValueError) as error_info:
+    expected_message = "\nMultiple units found for ingredient 'test_ingredient':\n\n[\n  1.0 g\n  1.0 tsp\n]"
+    with pytest.raises(ValueError, match=re.escape(pattern=expected_message)):
         new_registry.get_shopping_list()
-    assert str(error_info.value) == (
-        "\nMultiple units found for ingredient 'test_ingredient':\n\n[\n  1.0 g\n  1.0 tsp\n]"
-    )
 
 
 def test_get_shopping_list_warning():
@@ -117,6 +116,6 @@ def test_get_shopping_list_warning():
     measurement_2 = MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="test_ingredient")
     new_registry.remove_measurement(measurement=measurement_2)
 
-    with pytest.warns(UserWarning) as warning_info:
+    expected_message = "Negative amount of 'test_ingredient' found in shopping list; ignoring."
+    with pytest.warns(UserWarning, match=expected_message):
         new_registry.get_shopping_list()
-    assert str(warning_info[0].message) == "Negative amount of 'test_ingredient' found in shopping list; ignoring."

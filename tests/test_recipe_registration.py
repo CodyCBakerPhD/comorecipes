@@ -35,6 +35,5 @@ def test_example_recipe_1_add_to_registry():
 def test_get_recipe_error():
     new_registry = RecipeRegistry()
 
-    with pytest.raises(ValueError) as error_info:
+    with pytest.raises(ValueError, match="Recipe 'Unregistered' not found in the registry."):
         new_registry.get_recipe(recipe_name="Unregistered")
-    assert str(error_info.value) == "Recipe 'Unregistered' not found in the registry."

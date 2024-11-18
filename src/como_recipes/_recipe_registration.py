@@ -40,7 +40,6 @@ class RecipeRegistry(pydantic.BaseModel):
 
         """
         self._recipes[recipe.name] = recipe
-        return None
 
     @pydantic.validate_call
     def remove_recipe(self, *, recipe_name: str) -> None:
@@ -54,7 +53,6 @@ class RecipeRegistry(pydantic.BaseModel):
 
         """
         self._recipes.pop(recipe_name)
-        return None
 
     @pydantic.validate_call
     def get_recipe(self, *, recipe_name: str) -> Recipe:

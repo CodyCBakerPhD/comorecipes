@@ -56,8 +56,6 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pra
     if count == 0:
         print("\nNo missing Markdown recipe files were found.\n")
 
-    return None
-
 
 @click.command(name="write_missing_pydantic_recipes")
 @click.option("--limit", type=int, default=None, help="Limit the number of recipes to write.")
@@ -85,8 +83,6 @@ def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:  # pra
 
     if count == 0:
         print("\nNo missing Pydantic recipe files were found.\n")
-
-    return None
 
 
 @click.command(name="como_recipes")
@@ -122,8 +118,6 @@ def _como_recipes_command_line_interface_main_entrypoint() -> None:
     if iteration >= max_iterations:
         error_message = click.style(text="\n\nExiting CoMo Recipes: maximum allowed operations reached.\n", fg="red")
         click.echo(message=error_message, err=True)
-
-    return None
 
 
 def _format_available_recipes(id_to_default_recipe_name_map: dict[int, str]) -> str:
@@ -214,8 +208,8 @@ def _write_error(exception: Exception) -> None:
     )
 
     error_file_path = _get_error_file_path()
-    with open(file=error_file_path, mode="a") as io:
-        io.write(f"{type(exception)}: {str(exception)}\n\n{traceback.format_exc()}")
+    with error_file_path.open(mode="a") as io:
+        io.write(f"{type(exception)}: {exception!s}\n\n{traceback.format_exc()}")
 
     message = click.style(text=f"\n\nAn error occurred: {exception}\n\n", fg="red")
     message += click.style(text="Log file has been dumped to:\n", fg="bright_red")
@@ -235,8 +229,6 @@ def _write_error(exception: Exception) -> None:
     click.edit(filename=filename, require_save=False)
     click.launch(url=filename, locate=True)
     click.launch(url=issue_url)
-
-    return None
 
 
 def _meal_selector() -> None:
@@ -311,7 +303,7 @@ def _meal_selector() -> None:
                         ):
                             continue
 
-                        with open(file=shopping_list_file_path, mode="w") as io:
+                        with shopping_list_file_path.open(mode="w") as io:
                             io.write(message)
                         click.edit(filename=str(shopping_list_file_path.absolute()), require_save=False)
                     except Exception as exception:
@@ -340,7 +332,7 @@ def _meal_selector() -> None:
                         ):
                             continue
 
-                        with open(file=shopping_list_file_path, mode="w") as io:
+                        with shopping_list_file_path.open(mode="w") as io:
                             io.write(message)
                         click.edit(filename=str(shopping_list_file_path.absolute()), require_save=False)
                 case input_value if input_value.isdigit():
@@ -368,5 +360,3 @@ def _meal_selector() -> None:
             fg="red",
         )
         click.echo(message=error_message, err=True)
-
-    return None
