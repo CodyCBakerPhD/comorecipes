@@ -215,7 +215,7 @@ def _write_error(exception: Exception) -> None:
 
     error_file_path = _get_error_file_path()
     with error_file_path.open(mode="a") as io:
-        io.write(f"{type(exception)}: {str(exception)}\n\n{traceback.format_exc()}")
+        io.write(f"{type(exception)}: {exception!s}\n\n{traceback.format_exc()}")
 
     message = click.style(text=f"\n\nAn error occurred: {exception}\n\n", fg="red")
     message += click.style(text="Log file has been dumped to:\n", fg="bright_red")

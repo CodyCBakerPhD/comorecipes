@@ -129,6 +129,8 @@ select = [
     "AIR",
     "PERF",
     "FURB",
+    "DOC",
+#    "RUF",  # A lot to go through here
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
