@@ -173,7 +173,7 @@ class MeasurementRegistry(pydantic.BaseModel):
                     "]"
                 )
                 raise ValueError(message)
-            measurement_unit = list(measurement_units_per_ingredient)[0]
+            measurement_unit = next(iter(measurement_units_per_ingredient))
 
             total_per_ingredient_to_add = sum(measurement.amount for measurement in measurements_by_ingredient)
             total_per_ingredient_to_remove = sum(

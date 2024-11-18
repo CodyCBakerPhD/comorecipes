@@ -6,20 +6,20 @@ from ..._recipe_registration import default_recipe_registry
 
 class ButterPieCrust(Recipe):
     name: str = "Butter Pie Crust"
-    measurements: list[Measurement] = [
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="sugar"),
         MeasurementRegistry.get_measurement(amount=2.5, unit="cup", name="flour"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="salt"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="cold butter"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="ice water"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="egg", name="yolk with a little water"),
-    ]
-    instructions: list[str] = [
+    )
+    instructions: tuple[str, ...] = (
         "Pulse flour, sugar and salt in food processor to combine. Add cold butter and pulse until pea-size pieces remain.",
         "Transfer to bowl and cover, refrigerate for at least 30 minutes. Drizzle ice water over mixture and mix thoroughly with hands.",
         "Divide in half, press into discs and store back in the refrigerator for at least 1 hour.",
         "Preheat to 350 °F. Move discs into pie tin. Shape and add filling, then top. Seal joint and add air-holes in the top. Brush top with egg yolk and water mixture, not overdoing it.",
-    ]
+    )
 
 
 default_recipe_registry.add_recipe(recipe=ButterPieCrust())

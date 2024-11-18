@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class PotPie(Recipe):
     name: str = "Pot Pie"
-    measurements: list[Measurement] = [
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="full", name="pie crust"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="serving", name="of firm tofu"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp.", name="butter"),
@@ -23,8 +23,8 @@ class PotPie(Recipe):
         MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp.", name="white vinegar"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="water"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="large", name="egg yolk"),
-    ]
-    instructions: list[str] = [
+    )
+    instructions: tuple[str, ...] = (
         "Make pie crust well ahead of time, make sure it's cold in the fridge.",
         "Preheat oven to 400 °F.",
         "Firm up tofu even more by halving and baking for 10 minutes on parchment paper.",
@@ -41,7 +41,7 @@ class PotPie(Recipe):
             "Whisk water and egg yolk, then wash the top. Cut slits in top to vent."
         ),
         "Bake for 30 minutes. Let sit at least 5 minutes before serving.",
-    ]
+    )
 
 
 default_recipe_registry.add_recipe(recipe=PotPie())

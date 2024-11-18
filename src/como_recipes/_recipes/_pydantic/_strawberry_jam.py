@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class StrawberryJam(Recipe):
     name: str = "Strawberry Jam"
-    measurements: list[Measurement] = [
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.5, unit="", name="cups of thinly sliced strawberries"),
         MeasurementRegistry.get_measurement(amount=40.0, unit="", name="g. sugar"),
         MeasurementRegistry.get_measurement(amount=40.0, unit="", name="g. brown sugar"),
@@ -14,8 +14,8 @@ class StrawberryJam(Recipe):
         MeasurementRegistry.get_measurement(amount=2.25, unit="tbsp.", name="cornstarch"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="", name="tsp. vanilla extract"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="lime juice"),
-    ]
-    instructions: list[str] = [
+    )
+    instructions: tuple[str, ...] = (
         "Carefully weigh the white and brown sugar into a small bowl.",
         "Save adding honey this mixture until just ready to add to strawberries.",
         "Heat strawberries slowly over medium-low heat stirring constantly, until juices begin leaking.",
@@ -26,7 +26,7 @@ class StrawberryJam(Recipe):
             "constantly for one minute and then remove from heat."
         ),
         "Let cool before using.",
-    ]
+    )
 
 
 default_recipe_registry.add_recipe(recipe=StrawberryJam())

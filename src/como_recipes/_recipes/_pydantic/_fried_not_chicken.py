@@ -6,17 +6,17 @@ from ..._recipe_registration import default_recipe_registry
 
 class FriedChicken(Recipe):
     name: str = "Fried Chicken"
-    measurements: list[Measurement] = [
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=0.25, unit="serving", name="of Frying Breading"),
         MeasurementRegistry.get_measurement(amount=4.0, unit="individual", name="not-chicken tenders"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="buttermilk"),
-    ]
-    instructions: list[str] = [
+    )
+    instructions: tuple[str, ...] = (
         "Heat oil to 325 °F. Add some lime juice if feeling fruity.",
         "Soak tenders in buttermilk for a few minutes.",
         "Dredge with breading in a plastic bag for maximum cleanliness and adherence.",
         "Fry for ~13 minutes until golden brown and crispy.",
-    ]
+    )
 
 
 default_recipe_registry.add_recipe(recipe=FriedChicken())

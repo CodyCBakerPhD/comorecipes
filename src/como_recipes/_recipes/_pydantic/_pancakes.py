@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class Pancakes(Recipe):
     name: str = "Pancakes"
-    measurements: list[Measurement] = [
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="", name="cup flour"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="", name="tbsp. sugar"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="", name="tsp. baking powder"),
@@ -15,12 +15,12 @@ class Pancakes(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="", name="egg"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="", name="tbsp. butter"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="", name="cup buttermilk"),
-    ]
-    instructions: list[str] = [
+    )
+    instructions: tuple[str, ...] = (
         "Combine dry ingredients.",
         "Melt butter, mix with egg and buttermilk; whisk well.",
         "Cook on griddle.",
-    ]
+    )
 
 
 default_recipe_registry.add_recipe(recipe=Pancakes())

@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class RedBeans(Recipe):
     name: str = "Red Beans"
-    measurements: list[Measurement] = [
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="recipes", name="worth of rice"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="olive oil"),
         MeasurementRegistry.get_measurement(amount=4.0, unit="cloves", name="garlic"),
@@ -19,14 +19,14 @@ class RedBeans(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="parsley"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="Cajun seasoning"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="water"),
-    ]
-    instructions: list[str] = [
+    )
+    instructions: tuple[str, ...] = (
         "Make rice. Mix spices together.",
         "Carefully caramelize garlic, onion, and celery in oil.",
         "Add water to onions and garlic, then mix in spices.",
         "Add beans and any other add-ins, simmer for at least 15 minutes.",
         "Serve on rice.",
-    ]
+    )
 
 
 default_recipe_registry.add_recipe(recipe=RedBeans())

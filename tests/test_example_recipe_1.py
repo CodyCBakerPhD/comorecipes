@@ -13,13 +13,11 @@ def test_example_1_markdown_recipe_load():
     recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
 
     assert recipe.name == "Example Recipe 1"
-    assert recipe.measurements == [
+    assert recipe.measurements == (
         MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="ingredient 1"),
         MeasurementRegistry.get_measurement(amount=4, unit="g", name="ingredient 2"),
-    ]
-    assert recipe.instructions == [
-        "This is an example of a recipe.",
-    ]
+    )
+    assert recipe.instructions == ("This is an example of a recipe.",)
 
 
 def test_example_1_to_pydantic(tmpdir: py.path.local):
