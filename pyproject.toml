@@ -70,69 +70,10 @@ exclude = [
 line-length = 120
 
 [tool.ruff.lint]
-select = [
-    "F",
-    "E",
-    "W",
-    "C90",
-    "I",
-    "N",
-    "D",
-    # Skipping UP due to a lot of unsafe or opinionated/not rigorously proven rules
-    "YTT",
-    "ANN",
-    "ASYNC",
-    "S",
-    "BLE",
-    "FBT",
-    "B",
-    "A",
-    "COM",
-    # Skip CPY
-    "C4",
-    "DTZ",
-    "T10",
-    "DJ",
-    "EM",
-    "EXE",
-    "FA",
-    "ISC",
-    "ICN",
-    "LOG",
-    "G",
-    "INP",
-    "PIE",
-    "T20",
-    "PYI",
-    "PT",
-    "Q",
-    "RSE",
-    "RET",
-    "SLF",
-    "SLOT",
-    "SIM",
-    "TID",
-    "TCH",
-    "INT",
-    "ARG",
-    "PTH",
-    "TD",
-    # "FIX",  # Fine with TODO comments
-    # "ERA",  # Fine with commented code blocks on occasion
-    "PD",
-    "PGH",
-    "PL",
-    "TRY",
-    "FLY",
-    "NPY",
-    "FAST",
-    "AIR",
-    "PERF",
-    "FURB",
-    "DOC",
-#    "RUF",  # A lot to go through here
-]
+select = ["ALL"]
 ignore = [
+    "UP",  # Skipping due to a lot of unsafe or opinionated/not rigorously proven rules
+    "CPY",  # Not applicable for open-source license
     "D401",  # Ignore the imperative mood convention for docstrings
     "D203",  # Ignore no blank lines after class docstring in favor of D203 (one blank line) as convention
     "D212",  # Ignore multi-line summary on first line in favor of D213 (second line) as convention
@@ -143,11 +84,14 @@ ignore = [
     "ICN001",  # Controversial opinion: I prefer fully explicit naming to avoid any potential confusion
     "PYI041",  # Disagree with
     "TID252",  # The PEP says that explicit relative imports are an acceptable alternative, but check doesn't care...
-    "TD",  # I like in general, but will add back in later
+    "TD",  # TODO: I like in general, but will add back in later
+    "FIX",  # Fine with to-do comments
+    "ERA",  # Fine with commented code blocks on occasion
     "RET504",  # Strongly disagree with
     "PLR1711",  # Strongly disagree with
     "PLR0912",  # Not a proper calculation of complexity; also applies to match/case???
     "PLR0915",  # Not a proper calculation of complexity
+    "RUF",  # TODO: A lot to go through here, will add slowly
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -160,11 +104,11 @@ ignore = [
     "T20",  # print statements are fine in command line interfaces
 ]
 "tests/*" = [  # Neither docstrings nor annotations are required for tests
-    "D100",
-    "D103",
-    "ANN201",
+    "D100",  # Docstrings are not required for tests
+    "D103",  # Docstrings are not required for tests
+    "ANN201",  # Annotations are not required for tests
     "S101",  # Assert statements are the best way to get diffs with pytest
-    "INP001",  # Not really a part of the package
+    "INP001",  # Tests are not a part of the package
     "T20",  # print statements are fine in tests since they can help render debugging info in GitHub Actions logs
     "PLR2004",  # False positive in explicitly written test cases
 ]
