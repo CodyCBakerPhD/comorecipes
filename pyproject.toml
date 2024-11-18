@@ -102,6 +102,8 @@ select = [
     "INP",
     "PIE",
     "T20",
+    "PYI",
+    "PT",
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
@@ -112,6 +114,7 @@ ignore = [
     "ANN102",  # Deprecated and will be removed soon
     "DTZ005",  # Timezone can't easily be detected to use for timestamping; we also just don't need it for anything
     "ICN001",  # Controversial opinion: I prefer fully explicit naming to avoid any potential confusion
+    "PYI041",  # Disagree with
 ]
 
 [tool.ruff.lint.per-file-ignores]

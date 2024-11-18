@@ -29,6 +29,5 @@ def test_add_ingredient(example_ingredient: Ingredient):
 def test_get_ingredient_error():
     new_registry = IngredientRegistry()
 
-    with pytest.raises(ValueError) as error_info:
+    with pytest.raises(ValueError, match="Ingredient 'Unregistered' not found in the registry."):
         new_registry.get_ingredient(name="Unregistered")
-    assert str(error_info.value) == "Ingredient 'Unregistered' not found in the registry."
