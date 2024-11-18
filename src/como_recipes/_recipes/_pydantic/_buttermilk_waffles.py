@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class ButtermilkWaffles(Recipe):
     name: str = "Buttermilk Waffles"
-    measurements: list[Measurement] = [
+    measurements: tuple[Measurement] = (
         MeasurementRegistry.get_measurement(amount=2.5, unit="tbsp.", name="melted and cooled butter"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="large", name="egg"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="buttermilk"),
@@ -17,8 +17,8 @@ class ButtermilkWaffles(Recipe):
         MeasurementRegistry.get_measurement(amount=0.3333333333333333, unit="tsp.", name="sugar"),
         MeasurementRegistry.get_measurement(amount=0.16666666666666666, unit="tsp.", name="salt"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="pearl sugar"),
-    ]
-    instructions: list[str] = [
+    )
+    instructions: tuple[str] = (
         "Waffle will be best if all ingredients are at room temperature",
         "Heat waffle iron.",
         "In a large bowl, combine all dry ingredients. Create a depression for the buttermilk mixture.",
@@ -26,7 +26,7 @@ class ButtermilkWaffles(Recipe):
         "Pour into the depression and stir quickly but gently with a wooden spoon.",
         "[Experimental]: Gently incorporate pearl sugar.",
         "Use about 1/4 of batter per waffle. Cook until steam stops rising from the iron.",
-    ]
+    )
 
 
 default_recipe_registry.add_recipe(recipe=ButtermilkWaffles())

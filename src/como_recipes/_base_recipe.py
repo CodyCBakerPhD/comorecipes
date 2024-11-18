@@ -15,19 +15,19 @@ class Recipe(pydantic.BaseModel):
     ----------
     name : str
         Name of the recipe.
-    measurements : list[Measurement]
+    measurements : tuple[Measurement]
         List of ingredients.
-    instructions : list[str]
+    instructions : tuple[str]
         List of instructions.
-    notes : list[str] or None, optional
+    notes : tuple[str] or None, optional
         List of notes.
 
     """
 
     name: str
-    measurements: list[Measurement]
-    instructions: list[str]
-    notes: list[str] | None = None
+    measurements: tuple[Measurement]
+    instructions: tuple[str]
+    notes: tuple[str] | None = None
 
     def __repr__(self) -> str:
         printout = f"\n{self.name}\n"
@@ -71,18 +71,18 @@ class Recipe(pydantic.BaseModel):
         python_text += f"class {camel_case_name}(Recipe):\n"
         python_text += f'{indent}name: str = "{self.name}"\n'
 
-        python_text += f"{indent}measurements: list[Measurement] = [\n"
+        python_text += f"{indent}measurements: tuple[Measurement] = (\n"
         for measurement in self.measurements:
             measurement_text = f"{indent}{indent}MeasurementRegistry.get_measurement(amount={measurement.amount}, "
             measurement_text += f'unit="{measurement.unit}", '
             measurement_text += f'name="{measurement.ingredient.name}"),\n'
             python_text += measurement_text
-        python_text += f"{indent}]\n"
+        python_text += f"{indent})\n"
 
-        python_text += f"{indent}instructions: list[str] = [\n"
+        python_text += f"{indent}instructions: tuple[str] = (\n"
         for instruction in self.instructions:
             python_text += f'{indent}{indent}"{instruction}",\n'
-        python_text += f"{indent}]\n"
+        python_text += f"{indent})\n"
 
         python_text += f"\n\ndefault_recipe_registry.add_recipe(recipe={camel_case_name}())\n"
 

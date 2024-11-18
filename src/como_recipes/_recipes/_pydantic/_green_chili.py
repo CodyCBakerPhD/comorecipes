@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class GreenChili(Recipe):
     name: str = "Green Chili"
-    measurements: list[Measurement] = [
+    measurements: tuple[Measurement] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbps.", name="butter"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="large", name="white onion"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="qt.", name="of tomatoes"),
@@ -18,8 +18,8 @@ class GreenChili(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="garlic powder"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="butter"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="flour"),
-    ]
-    instructions: list[str] = [
+    )
+    instructions: tuple[str] = (
         "Grill the Anaheim peppers ahead of time; when skin is blackened, place into plastic bag and leave to cool.",
         "Remove skins and set aside.",
         "Dice the onion and Jalapeno peppers.",
@@ -28,7 +28,7 @@ class GreenChili(Recipe):
         "Bring to simmer then lower heat and continue simmering for 15 minutes.",
         "Make a roux with the remaining butter and flour; slowly mix chili into roux while stirring constantly to thicken.",
         "Serve with warm fresh tortillas.",
-    ]
+    )
 
 
 default_recipe_registry.add_recipe(recipe=GreenChili())

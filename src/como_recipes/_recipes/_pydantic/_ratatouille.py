@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class Ratatouille(Recipe):
     name: str = "Ratatouille"
-    measurements: list[Measurement] = [
+    measurements: tuple[Measurement] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="serving", name="of piperade sauce"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="small", name="eggplant, trimmed and thinly sliced"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="zucchini,", name="trimmed and thinly sliced"),
@@ -14,15 +14,15 @@ class Ratatouille(Recipe):
         MeasurementRegistry.get_measurement(amount=2.0, unit="aloha", name="peppers, trimmed and thinly sliced"),
         MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="olive oil"),
         MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="mascarpone cheese"),
-    ]
-    instructions: list[str] = [
+    )
+    instructions: tuple[str] = (
         "Make piperade sauce ahead of time.",
         "Recommend using mandolin for slicing main vegetables. Wear safety gloves!",
         "Preheat to 325 °F.",
         "On top of sauce, assemble sliced vegetables in artistic fashion. Drizzle with olive oil.",
         "Bake for ~45 minutes.",
         "Remember, anyone can cook!",
-    ]
+    )
 
 
 default_recipe_registry.add_recipe(recipe=Ratatouille())
