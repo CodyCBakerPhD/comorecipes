@@ -6,13 +6,13 @@ from ..._recipe_registration import default_recipe_registry
 
 class Sourdough(Recipe):
     name: str = "Sourdough"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=260.0, unit="g.", name="bread flour"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="salt"),
         MeasurementRegistry.get_measurement(amount=60.0, unit="g.", name="yeast start"),
         MeasurementRegistry.get_measurement(amount=200.0, unit="g.", name="water"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Begin process the morning of the day before intended dinner.",
         "Mix flour and salt.",
         "Mix yeast into water until cloudy.",

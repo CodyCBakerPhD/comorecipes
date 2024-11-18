@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class FriedRice(Recipe):
     name: str = "Fried Rice"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="serving", name="of chilled rice"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="serving", name="fried tofu"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="eggs", name=""),
@@ -19,7 +19,7 @@ class FriedRice(Recipe):
         MeasurementRegistry.get_measurement(amount=4.0, unit="tbsp.", name="soy sauce"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="sesame oil"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Make and chill rice a day ahead of time.",
         "Fry tofu at same time.",
         "Scramble eggs and set aside.",

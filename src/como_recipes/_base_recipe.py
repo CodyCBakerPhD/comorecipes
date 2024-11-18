@@ -25,8 +25,8 @@ class Recipe(pydantic.BaseModel):
     """
 
     name: str
-    measurements: tuple[Measurement]
-    instructions: tuple[str]
+    measurements: tuple[Measurement, ...]
+    instructions: tuple[str, ...]
     notes: tuple[str] | None = None
 
     def __repr__(self) -> str:
@@ -172,8 +172,9 @@ class Recipe(pydantic.BaseModel):
             unit = ingredient_line[1]
             ingredient_name = " ".join(ingredient_line[2:])
             measurements.append(MeasurementRegistry.get_measurement(amount=amount, unit=unit, name=ingredient_name))
+        measurements = tuple(measurements)
 
         # Not necessary for planning tools
-        instructions = list(lines[instruction_line + 1 :]) if include_instructions is True else None
+        instructions = tuple(lines[instruction_line + 1 :]) if include_instructions is True else None
 
         return Recipe(name=recipe_name, measurements=measurements, instructions=instructions)

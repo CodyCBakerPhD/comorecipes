@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class TacoSeasoning(Recipe):
     name: str = "Taco Seasoning"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=0.25, unit="", name="tsp. garlic powder"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="", name="tsp. onion powder"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="", name="tsp. red pepper"),
@@ -17,7 +17,7 @@ class TacoSeasoning(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="", name="tsp. pepper"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="", name="lb. ground beef or refried beans or Boca"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Mix spice.",
         "To use spice to make tacos, brown beef or boca.",
         "Add mix and some water for incorporation (beef or Boca).",

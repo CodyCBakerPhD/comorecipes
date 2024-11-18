@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class ChocolateDomeCake(Recipe):
     name: str = "Chocolate Dome Cake"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=4.0, unit="large", name="eggs"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="sugar"),
         MeasurementRegistry.get_measurement(amount=0.75, unit="cup", name="cake flour"),
@@ -17,7 +17,7 @@ class ChocolateDomeCake(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="sugar"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="lime juice"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Preheat to 350 °F. Whip eggs and sugar until thick and frothy. Fold in flour. Bake in round bowl for 1 hour.",
         "Whip cream, fold in melted chocolate.",
         "Slice cake into three layers and fill evenly with mousse. Lay saran wrap large and flat enough to cover the surface of the cake.",

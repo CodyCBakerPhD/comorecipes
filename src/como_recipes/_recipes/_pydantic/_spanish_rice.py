@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class SpanishRice(Recipe):
     name: str = "Spanish Rice"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="butter"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="shallot", name=""),
         MeasurementRegistry.get_measurement(amount=2.0, unit="cloves", name="garlic"),
@@ -16,7 +16,7 @@ class SpanishRice(Recipe):
         MeasurementRegistry.get_measurement(amount=2.0, unit="sprigs", name="of thyme"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="parsley"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Melt butter over medium heat. Add shallot and garlic, saute until tender.",
         "Add rice and stir until glossy. Add stock and herbs, bring to boil.",
         "Reduce to low or simmer and let cook for 30-40 minutes until all liquid is gone.",

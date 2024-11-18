@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class ChocolateFudge(Recipe):
     name: str = "Chocolate Fudge"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="lb.", name="powdered sugar"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="dutch cocoa powder"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="butter"),
@@ -14,7 +14,7 @@ class ChocolateFudge(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="vanilla"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="chopped walnuts or pecans, optional"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "One of several variations on chocolate fudge.",
         "Line a 6 x 8 pan with parchment paper misted very lightly with cooking spray.",
         "Sift powdered sugar and cocoa powder. Cube butter into 1 inch chunks.",

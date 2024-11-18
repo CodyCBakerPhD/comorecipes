@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class CabbageRolls(Recipe):
     name: str = "Cabbage Rolls"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.25, unit="cups", name="white rice"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="large", name="napa cabbage"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="white", name="onion"),
@@ -21,7 +21,7 @@ class CabbageRolls(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="onion powder"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="red pepper flakes"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Soak rice in bowl 60 minutes before cooking. Cook in 5/3 cup water and 1 tbsp. butter; reach boiling before reducing to simmer until all water is gone.",
         "Prep cabbage leaves by chopping off thickest bottom portion then boiling a large pot of water and adding 3-4 leaves at a time for 1 minute until softened. When done, place them into bowl of cold water and set aside.",
         "Heat some peanut oil in a skillet and saute vegetables for 4 minutes; then add tamari and remaining spices. Cook for another 2 minutes.",

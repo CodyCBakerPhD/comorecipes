@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class PotatoesAuGratin(Recipe):
     name: str = "Potatoes Au Gratin"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=4.0, unit="russet", name="potatoes"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="onion", name=""),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="salt and pepper"),
@@ -15,7 +15,7 @@ class PotatoesAuGratin(Recipe):
         MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="whole milk"),
         MeasurementRegistry.get_measurement(amount=1.5, unit="cup", name="cheddar"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Preheat to 400 °F. Butter the casserole dish.",
         (
             "Layer 1/2 of potatoes into bottom of dish. Top with onions and add remaining potatoes. "

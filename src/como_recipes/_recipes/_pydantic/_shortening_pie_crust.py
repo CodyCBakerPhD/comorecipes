@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class ShorteningPieCrust(Recipe):
     name: str = "Shortening Pie Crust"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="sugar"),
         MeasurementRegistry.get_measurement(amount=2.25, unit="cup", name="flour"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="salt"),
@@ -14,7 +14,7 @@ class ShorteningPieCrust(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="ice water"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="egg", name="yolk with a little water"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         (
             "Pulse flour, sugar and salt in food processor to combine. "
             "Add cold shortening and pulse until pea-size pieces remain."

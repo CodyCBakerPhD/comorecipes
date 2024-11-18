@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class MacaroniAndCheese(Recipe):
     name: str = "Macaroni and Cheese"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=187.5, unit="g.", name="butter, room temperature"),
         MeasurementRegistry.get_measurement(amount=187.5, unit="g.", name="sugar"),
         MeasurementRegistry.get_measurement(amount=3.0, unit="", name="beaten eggs, room temperature"),
@@ -15,7 +15,7 @@ class MacaroniAndCheese(Recipe):
         MeasurementRegistry.get_measurement(amount=25.0, unit="ml.", name="milk"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="", name="tsp. vanilla extract"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Preheat to 350 °F.",
         "Cream butter and sugar with wooden spoon, then set in stand mixer on medium-high for about two minutes, constantly scraping the sides.",
         "Then begin adding very small drizzle of the egg into the butter mixture while it remains in the stand mixer on medium-high. Continue until all egg is incorporated.",

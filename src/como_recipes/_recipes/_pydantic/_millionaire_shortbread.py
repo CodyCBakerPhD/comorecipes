@@ -6,12 +6,12 @@ from ..._recipe_registration import default_recipe_registry
 
 class MillionareShortbread(Recipe):
     name: str = "Millionare Shortbread"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="recipes", name="worth of shortbread"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="recipes", name="worth of simple caramel"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="recipes", name="worth of chocolate ganache"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Make shortbread, let cool at least 15 minutes.",
         "Make simple caramel, and spread over shortbread. Let cool for several hours at room temperature or 1 hour in refrigerator.",
         "Make chocolate ganache, spread over caramel. Allow to harden before cutting.",

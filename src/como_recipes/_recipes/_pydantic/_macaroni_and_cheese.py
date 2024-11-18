@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class MacaroniAndCheese(Recipe):
     name: str = "Macaroni and Cheese"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=8.0, unit="oz.", name="elbow pasta"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="butter"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="flour"),
@@ -20,7 +20,7 @@ class MacaroniAndCheese(Recipe):
         MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="pepper"),
         MeasurementRegistry.get_measurement(amount=0.125, unit="tsp.", name="paprika"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Cook pasta ahead of time. Cut 75% of cheese into small cubes or shred. Shred remaining 25%.",
         "Melt butter and slowly whisk in flour. Do not cook too much.",
         "Slowly whisk in milk or cream. When mixture is warm, thoroughly melt 75% of cheese.",

@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class Brownies(Recipe):
     name: str = "Brownies"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="vegetable oil"),
         MeasurementRegistry.get_measurement(amount=0.6666666666666666, unit="cup", name="sugar"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="large", name="eggs"),
@@ -17,7 +17,7 @@ class Brownies(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="flour"),
         MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="chocolate chips"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Preheat to 350 °F, spray pan.",
         "Mix oil and sugar well.",
         "Add eggs and vanilla, just barely blend in.",

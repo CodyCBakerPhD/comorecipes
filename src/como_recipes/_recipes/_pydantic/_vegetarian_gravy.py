@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class VegetarianGravy(Recipe):
     name: str = "Vegetarian Gravy"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="butter"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="flour"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="not-chicken stock"),
@@ -14,7 +14,7 @@ class VegetarianGravy(Recipe):
         MeasurementRegistry.get_measurement(amount=1.25, unit="tsp.", name="salt and pepper"),
         MeasurementRegistry.get_measurement(amount=0.16666666666666666, unit="tsp.", name="paprika"),
     )
-    instructions: tuple[str] = ("Make roux with butter and flour. Thicken with stock. Season.",)
+    instructions: tuple[str, ...] = ("Make roux with butter and flour. Thicken with stock. Season.",)
 
 
 default_recipe_registry.add_recipe(recipe=VegetarianGravy())

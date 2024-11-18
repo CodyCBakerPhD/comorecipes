@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class SweetDough(Recipe):
     name: str = "Sweet Dough"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=0.6666666666666666, unit="cup", name="whole milk"),
         MeasurementRegistry.get_measurement(amount=5.0, unit="tbsp.", name="sugar"),
         MeasurementRegistry.get_measurement(amount=1.75, unit="tsp.", name="yeast"),
@@ -15,7 +15,7 @@ class SweetDough(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="salt"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="butter, room temperature"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Heat milk to 110 °F in small saucepan over medium heat.",
         "Stir in 1 tbsp. sugar and yeast.",
         "Let sit for 5 minutes.",

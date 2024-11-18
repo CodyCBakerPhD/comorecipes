@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class AglioEOlio(Recipe):
     name: str = "Aglio E Olio"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=2.0, unit="qt.", name="water"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="salt"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="lb.", name="thin spaghetti"),
@@ -16,7 +16,7 @@ class AglioEOlio(Recipe):
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="parsley"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="fresh Parmesan"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Bring water and salt to boil. Cook pasta. Set aside 3/2 cup of pasta water before draining.",
         "Heat olive oil over medium heat in a large pot.",
         "Add garlic and cook for 1-2 minutes, stirring frequently until it just turns golden.",

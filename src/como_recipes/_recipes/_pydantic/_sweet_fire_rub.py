@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class SweetFireRub(Recipe):
     name: str = "Sweet Fire Rub"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="brown sugar"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="white sugar"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="paprika"),
@@ -16,7 +16,7 @@ class SweetFireRub(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="cayenne pepper"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp.", name="salt & pepper"),
     )
-    instructions: tuple[str] = ("Mix together and store in pantry.",)
+    instructions: tuple[str, ...] = ("Mix together and store in pantry.",)
 
 
 default_recipe_registry.add_recipe(recipe=SweetFireRub())

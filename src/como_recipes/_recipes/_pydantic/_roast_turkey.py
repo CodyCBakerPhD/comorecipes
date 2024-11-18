@@ -6,14 +6,14 @@ from ..._recipe_registration import default_recipe_registry
 
 class RoastTurkey(Recipe):
     name: str = "Roast Turkey"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="large", name="turkey bag"),
         MeasurementRegistry.get_measurement(amount=8.0, unit="quarts", name="water"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="Kosher salt"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="brown sugar"),
         MeasurementRegistry.get_measurement(amount=20.0, unit="lb.", name="whole turkey"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Two days before roasting, bring water and salt to boil in large pot.",
         "When clear, remove from heat and add sugar.",
         "Refridgerate overnight.",

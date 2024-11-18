@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class ChocolateCake(Recipe):
     name: str = "Chocolate Cake"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="flour"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="sugar"),
         MeasurementRegistry.get_measurement(amount=0.375, unit="cup", name="cocoa powder"),
@@ -20,7 +20,7 @@ class ChocolateCake(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="vanilla"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="boiling water"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Preheat to 350 °F. Spray pan.",
         "Add all dry ingredients and mix. Boil water.",
         "Add non-water wet ingredients and mix until well combined. Reduce speed and carefully add boiling water and mix well.",

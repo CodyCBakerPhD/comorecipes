@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class TamariSauce(Recipe):
     name: str = "Tamari Sauce"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="sesame oil"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="tbsp.", name="ginger, minced"),
         MeasurementRegistry.get_measurement(amount=2.0, unit="cloves", name="garlic, minced"),
@@ -20,7 +20,7 @@ class TamariSauce(Recipe):
         MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="red pepper flakes"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="paprika"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Mix water and cornstarch to make a slurry.",
         "Heat oil in saucepan. Add everything except cornstarch mixture, cook for 2 minutes.",
         "Add cornstarch mixture to thicken.",

@@ -6,13 +6,13 @@ from ..._recipe_registration import default_recipe_registry
 
 class Brigadeiros(Recipe):
     name: str = "Brigadeiros"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="unsweetened cocoa"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="butter"),
         MeasurementRegistry.get_measurement(amount=14.0, unit="oz.", name="condensed milk"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="chocolate sprinkles"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Combine cocoa, butter, and condensed milk in a medium saucepan over medium heat.",
         "Cook and stir until thickened, about 10 minutes.",
         "Remove from heat and let rest until just cool enough to handle.",

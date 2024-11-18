@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class GreenChili(Recipe):
     name: str = "Green Chili"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbps.", name="butter"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="large", name="white onion"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="qt.", name="of tomatoes"),
@@ -19,7 +19,7 @@ class GreenChili(Recipe):
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="butter"),
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="flour"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Grill the Anaheim peppers ahead of time; when skin is blackened, place into plastic bag and leave to cool.",
         "Remove skins and set aside.",
         "Dice the onion and Jalapeno peppers.",

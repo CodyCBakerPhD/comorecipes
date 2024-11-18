@@ -6,12 +6,12 @@ from ..._recipe_registration import default_recipe_registry
 
 class SpaghettiSquash(Recipe):
     name: str = "Spaghetti Squash"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1.0, unit="spaghetti", name="squash"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="olive oil"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="salt and pepper"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Cut and clean inside of squash.",
         "Coat with oil and season.",
         "Place face down on baking sheet lined with aluminum foil.",

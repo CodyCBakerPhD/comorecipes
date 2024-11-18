@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class BananaBread(Recipe):
     name: str = "Banana Bread"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="butter"),
         MeasurementRegistry.get_measurement(amount=0.125, unit="cup", name="sugar"),
         MeasurementRegistry.get_measurement(amount=1.0, unit="egg", name=""),
@@ -15,7 +15,7 @@ class BananaBread(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="baking soda"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="flour"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Preheat oven to 300 °F.",
         "Cream butter and sugar.",
         "Combine all dry ingredients and mix well.",

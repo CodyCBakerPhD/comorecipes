@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class HoneyGarlicSalmon(Recipe):
     name: str = "Honey Garlic Salmon"
-    measurements: tuple[Measurement] = (
+    measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=4.0, unit="salmon", name="fillets, 250 g each"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="tsp", name="salt"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="tsp", name="black pepper"),
@@ -19,7 +19,7 @@ class HoneyGarlicSalmon(Recipe):
         MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp", name="fresh lemon juice"),
         MeasurementRegistry.get_measurement(amount=4.0, unit="lemon", name="wedges to garnish"),
     )
-    instructions: tuple[str] = (
+    instructions: tuple[str, ...] = (
         "Move oven shelf to middle. Preheat to broil/grill settings on medium heat. Season salmon with salt, pepper, paprika. Set aside.",
         "Heat butter in a skillet over medium-high heat until melted. Add garlic and saute for a minute. Pour in honey, water, and soy sauce. Allow flavors to heat through.",
         "Add lemon juice, stir well to combine. Add the salmon to the sauce in the pan, cook each fillet for 3-4 minutes or until golden. Baste the tops with the pan juices.",
