@@ -111,6 +111,11 @@ select = [
     "ARG",
     "PTH",
     "TD",
+    # "FIX",  # Fine with TODO comments
+    # "ERA",  # Fine with commented code blocks on occasion
+    "PD",
+    "PGH",
+    #"PL",
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
