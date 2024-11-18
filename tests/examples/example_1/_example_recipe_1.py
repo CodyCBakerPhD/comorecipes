@@ -10,7 +10,9 @@ class ExampleRecipe1(Recipe):
         MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="ingredient 1"),
         MeasurementRegistry.get_measurement(amount=4.0, unit="g", name="ingredient 2"),
     )
-    instructions: tuple[str, ...] = ("This is an example of a recipe.",)
+    instructions: tuple[str, ...] = (
+        "This is an example of a recipe.",
+    )
 
 
 default_recipe_registry.add_recipe(recipe=ExampleRecipe1())
