@@ -109,7 +109,6 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         """
         self._individual_measurements_to_add[measurement.ingredient.name].append(measurement)
-        return
 
     @pydantic.validate_call
     def remove_measurement(self, *, measurement: Measurement) -> None:
@@ -123,7 +122,6 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         """
         self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
-        return
 
     @pydantic.validate_call
     def add_recipe(self, *, recipe: Recipe) -> None:
@@ -137,7 +135,6 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         """
         self._recipe_registry.add_recipe(recipe=recipe)
-        return
 
     @pydantic.validate_call
     def remove_recipe(self, *, recipe_name: str) -> None:
@@ -151,7 +148,6 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         """
         self._recipe_registry.remove_recipe(recipe_name=recipe_name)
-        return
 
     @pydantic.validate_call
     def get_all_recipe_names(self) -> list[str]:

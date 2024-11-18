@@ -88,7 +88,6 @@ ignore = [
     "FIX",  # Fine with to-do comments
     "ERA",  # Fine with commented code blocks on occasion
     "RET504",  # Strongly disagree with
-    "PLR1711",  # Strongly disagree with
     "PLR0912",  # Not a proper calculation of complexity; also applies to match/case???
     "PLR0915",  # Not a proper calculation of complexity
     "RUF",  # TODO: A lot to go through here, will add slowly

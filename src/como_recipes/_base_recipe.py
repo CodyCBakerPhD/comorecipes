@@ -130,8 +130,6 @@ class Recipe(pydantic.BaseModel):
         with file_path.open(mode="w") as io:
             io.write(markdown_text)
 
-        return
-
     @classmethod
     @pydantic.validate_call
     def from_markdown_file(cls, *, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
