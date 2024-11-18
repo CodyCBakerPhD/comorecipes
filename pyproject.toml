@@ -122,6 +122,13 @@ select = [
     "PD",
     "PGH",
     "PL",
+    "TRY",
+    "FLY",
+    "NPY",
+    "FAST",
+    "AIR",
+    "PERF",
+    "FURB",
 ]
 ignore = [
     "D401",  # Ignore the imperative mood convention for docstrings
