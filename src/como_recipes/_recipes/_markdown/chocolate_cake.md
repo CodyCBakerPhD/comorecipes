@@ -30,7 +30,7 @@
 
 ## Instructions
 
-Preheat to 350 °F. Spray pan.
+Preheat to 350 F. Spray pan.
 
 Add all dry ingredients and mix. Boil water.
 

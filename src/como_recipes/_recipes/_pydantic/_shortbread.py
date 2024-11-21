@@ -16,7 +16,7 @@ class Shortbread(Recipe):
         MeasurementRegistry.get_measurement(amount=2.25, unit="cups", name="flour"),
     )
     instructions: tuple[str, ...] = (
-        "Preheat oven to 350 °F. Line a 13x9 baking pan with parchment paper.",
+        "Preheat oven to 350 F. Line a 13x9 baking pan with parchment paper.",
         "Using a stand mixer, beat butter until well creamed.",
         "Add sugars and beat until light and fluffy.",
         "Add egg yolk and vanilla extract. Combine well, scraping the sides.",

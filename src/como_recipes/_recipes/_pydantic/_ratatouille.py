@@ -18,7 +18,7 @@ class Ratatouille(Recipe):
     instructions: tuple[str, ...] = (
         "Make piperade sauce ahead of time.",
         "Recommend using mandolin for slicing main vegetables. Wear safety gloves!",
-        "Preheat to 325 °F.",
+        "Preheat to 325 F.",
         "On top of sauce, assemble sliced vegetables in artistic fashion. Drizzle with olive oil.",
         "Bake for ~45 minutes.",
         "Remember, anyone can cook!",

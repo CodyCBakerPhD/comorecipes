@@ -22,7 +22,7 @@ class Falafel(Recipe):
     instructions: tuple[str, ...] = (
         "Soak beans overnight.",
         "Grind entire mixture well in a food processor.",
-        "Shape and deep fry at 375 °F until golden brown.",
+        "Shape and deep fry at 375 F until golden brown.",
     )
 
 

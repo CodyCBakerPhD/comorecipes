@@ -16,7 +16,7 @@ class BananaBread(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="flour"),
     )
     instructions: tuple[str, ...] = (
-        "Preheat oven to 300 °F.",
+        "Preheat oven to 300 F.",
         "Cream butter and sugar.",
         "Combine all dry ingredients and mix well.",
         "Combine all remaining ingredients and mix well.",

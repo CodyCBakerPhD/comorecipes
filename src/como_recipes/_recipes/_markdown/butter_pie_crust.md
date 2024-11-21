@@ -26,4 +26,4 @@ Transfer to bowl and cover, refrigerate for at least 30 minutes. Drizzle ice wat
 
 Divide in half, press into discs and store back in the refrigerator for at least 1 hour.
 
-Preheat to 350 °F. Move discs into pie tin. Shape and add filling, then top. Seal joint and add air-holes in the top. Brush top with egg yolk and water mixture, not overdoing it.
+Preheat to 350 F. Move discs into pie tin. Shape and add filling, then top. Seal joint and add air-holes in the top. Brush top with egg yolk and water mixture, not overdoing it.

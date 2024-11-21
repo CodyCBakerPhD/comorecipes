@@ -48,7 +48,7 @@ Gently roll out to 1/2 inch thickness. Shape as desired.
 
 Cover with cloth and prove again until doubled, about 40 minutes.
 
-Heat oil to 350 °F.
+Heat oil to 350 F.
 
 Slide doughnuts into hot oil using a wide spatula.
 

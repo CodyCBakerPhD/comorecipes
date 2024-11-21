@@ -18,7 +18,7 @@ class ChocolateDomeCake(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="lime juice"),
     )
     instructions: tuple[str, ...] = (
-        "Preheat to 350 °F. Whip eggs and sugar until thick and frothy. Fold in flour. Bake in round bowl for 1 hour.",
+        "Preheat to 350 F. Whip eggs and sugar until thick and frothy. Fold in flour. Bake in round bowl for 1 hour.",
         "Whip cream, fold in melted chocolate.",
         "Slice cake into three layers and fill evenly with mousse. Lay saran wrap large and flat enough to cover the surface of the cake.",
         "Melt milk chocolate and delicately spread on saran wrap. Carefully move into the bowl used to bake the cake, and gently place cake back in the bowl.",

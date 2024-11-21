@@ -17,7 +17,7 @@ class YellowCake(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="salt"),
     )
     instructions: tuple[str, ...] = (
-        "Preheat to 350 °F. Grease cake pan or cupcake pan.",
+        "Preheat to 350 F. Grease cake pan or cupcake pan.",
         "Sift together flour, baking powder, and salt.",
         "In separate bowl, cream butter and sugar until light and fluffy.",
         "Beat in egg yolks one at a time, then stir in the vanilla.",
