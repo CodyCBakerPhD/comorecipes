@@ -19,7 +19,7 @@
 
 ## Instructions
 
-Preheat oven to 300 °F.
+Preheat oven to 300 F.
 
 Cream butter and sugar.
 

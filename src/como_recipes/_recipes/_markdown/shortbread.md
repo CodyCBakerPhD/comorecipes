@@ -20,7 +20,7 @@
 
 ## Instructions
 
-Preheat oven to 350 °F. Line a 13x9 baking pan with parchment paper.
+Preheat oven to 350 F. Line a 13x9 baking pan with parchment paper.
 
 Using a stand mixer, beat butter until well creamed.
 

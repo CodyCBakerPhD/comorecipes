@@ -19,7 +19,7 @@
 
 ## Instructions
 
-Heat milk to 110 °F in small saucepan over medium heat.
+Heat milk to 110 F in small saucepan over medium heat.
 
 Stir in 1 tbsp. sugar and yeast.
 

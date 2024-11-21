@@ -25,11 +25,47 @@ class Recipe(pydantic.BaseModel):
     """
 
     name: str
+    tags: tuple[str] | None = None
     measurements: tuple[Measurement, ...]
     instructions: tuple[str, ...]
     notes: tuple[str] | None = None
 
+    def __eq__(self, other: "Recipe") -> bool:
+        """Primary used by consistency assertions in the tests."""
+        if not isinstance(other, type(self).mro()[1]):
+            return False
+
+        fields_to_compare = ["name", "tags", "measurements", "instructions", "notes"]
+        result = all(getattr(self, field) == getattr(other, field) for field in fields_to_compare)
+
+        return result
+
     def __repr__(self) -> str:
+        """Used in programmatic places, such as equality assertions in the tests."""
+        representation = f'Recipe(\n\tname="{self.name}",\n'
+
+        if self.tags is not None:
+            representation += f"\ttags={self.tags},\n"
+
+        representation += "\tmeasurements=(\n"
+        for measurement in self.measurements:
+            representation += f"\t\t{measurement},\n"
+        representation += "\t),\n"
+
+        representation += "\tinstructions=(\n"
+        for instruction in self.instructions:
+            representation += f'\t\t"{instruction}",\n'
+        representation += "\t),\n"
+
+        if self.notes is not None:
+            representation += f'\tnotes="{self.notes}",\n'
+
+        representation += ")"
+
+        return representation
+
+    def __str__(self) -> str:
+        """Used by calls to `print(...)`."""
         printout = f"\n{self.name}\n"
         printout += f"{'=' * len(self.name)}\n\n"
 
@@ -45,10 +81,6 @@ class Recipe(pydantic.BaseModel):
             printout += f"{instruction}\n"
 
         return printout
-
-    def __str__(self) -> str:
-        """Used by calls to `print(...)`."""
-        return repr(self)
 
     @pydantic.validate_call
     def to_pydantic_file(self, *, file_path: pydantic.NewPath) -> None:

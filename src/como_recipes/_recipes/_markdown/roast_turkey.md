@@ -28,8 +28,8 @@ Refridgerate together for 8-12 hours overnight.
 
 Wash turkey. Spatchcock.
 
-Roast for 4.25 - 4.75 hours at 325 °F.
+Roast for 4.25 - 4.75 hours at 325 F.
 
-Bird is fully cooked when thickest part is 180 °F.
+Bird is fully cooked when thickest part is 180 F.
 
 Remove foil for last 30 minutes to allow crisping.

@@ -17,7 +17,7 @@ class Cornbread(Recipe):
         MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="salt"),
     )
     instructions: tuple[str, ...] = (
-        "Preheat to 375 °F. Melt butter. Stir in sugar. Add eggs, beat.",
+        "Preheat to 375 F. Melt butter. Stir in sugar. Add eggs, beat.",
         "Combine buttermilk and soda, stir into mixture.",
         "Add remaining ingredients, stir until blended.",
         "Bake for about 20 minutes, until slightly brown on top.",

@@ -24,7 +24,7 @@
 
 ## Instructions
 
-Preheat to 350 °F. Whip eggs and sugar until thick and frothy. Fold in flour. Bake in round bowl for 1 hour.
+Preheat to 350 F. Whip eggs and sugar until thick and frothy. Fold in flour. Bake in round bowl for 1 hour.
 
 Whip cream, fold in melted chocolate.
 

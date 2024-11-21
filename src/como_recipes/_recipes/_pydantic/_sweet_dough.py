@@ -16,7 +16,7 @@ class SweetDough(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="butter, room temperature"),
     )
     instructions: tuple[str, ...] = (
-        "Heat milk to 110 °F in small saucepan over medium heat.",
+        "Heat milk to 110 F in small saucepan over medium heat.",
         "Stir in 1 tbsp. sugar and yeast.",
         "Let sit for 5 minutes.",
         "Add eggs.",

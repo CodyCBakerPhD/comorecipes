@@ -85,20 +85,18 @@ def test_example_1_repr():
     example_1_markdown_file_path = example_folder_path / "example_recipe_1.md"
     recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
 
-    expected_repr = """
-Example Recipe 1
-================
-
-Ingredients
------------
-3.0 tbsp. ingredient 1
-4.0 g ingredient 2
-
-
-Instructions
-------------
-This is an example of a recipe.
-"""
+    expected_repr = (
+        "Recipe(\n"
+        '\tname="Example Recipe 1",\n'
+        "\tmeasurements=(\n"
+        "\t\tamount=3.0 unit='tbsp.' ingredient=Ingredient(name=\"ingredient 1\"),\n"
+        "\t\tamount=4.0 unit='g' ingredient=Ingredient(name=\"ingredient 2\"),\n"
+        "\t),\n"
+        "\tinstructions=(\n"
+        '\t\t"This is an example of a recipe.",\n'
+        "\t),\n"
+        ")"
+    )
     assert repr(recipe) == expected_repr
 
 

@@ -47,14 +47,14 @@ from ._green_bean_casserole import GreenBeanCasserole
 from ._grape_salad import GrapeSalad
 from ._frying_breading import FryingBreading
 from ._fried_rice import FriedRice
-from ._fried_not_chicken import FriedChicken
+from ._fried_not_chicken import FriedNotChicken
 from ._fried_chicken import FriedChicken
 from ._fettuccine_alfredo import FettuccineAlfredo
 from ._falafel import Falafel
 from ._enchilada_sauce import EnchiladaSauce
 from ._enchilada_beef import EnchiladaBeef
 from ._doughnuts import Doughnuts
-from ._creamed_genoise import MacaroniAndCheese
+from ._creamed_genoise import CreamedGenoise
 from ._cornbread_dressing import CornbreadDressing
 from ._cornbread import Cornbread
 from ._collard_greens import CollardGreens

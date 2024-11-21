@@ -25,4 +25,4 @@ Make cornbread 1-2 days in advance, crumble and leave to dry. Melt butter and sa
 
 Combine with cornbread. If not stuffing into turkey, then incorporate stock and spices. If stuffing, only incorporate the spices.
 
-Bake for 30 minutes at 350° F.
+Bake for 30 minutes at 350 F.

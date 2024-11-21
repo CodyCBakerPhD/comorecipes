@@ -15,7 +15,7 @@ class KaiserRoll(Recipe):
         MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="flour"),
     )
     instructions: tuple[str, ...] = (
-        "Preheat oven to 400 °F. Activate yeast.",
+        "Preheat oven to 400 F. Activate yeast.",
         "Mix in oil and flour and salt until good consistency. Roll out into shape (make sure the rolls are appropriately sized for rising) and let rise for 40 minutes.",
         "Top with egg white and water mixture, bake for 15 minutes.",
     )

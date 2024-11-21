@@ -22,7 +22,7 @@
 
 ## Instructions
 
-Preheat to 350 °F. Grease cake pan or cupcake pan.
+Preheat to 350 F. Grease cake pan or cupcake pan.
 
 Sift together flour, baking powder, and salt.
 

@@ -14,7 +14,7 @@ class BuffaloWings(Recipe):
         MeasurementRegistry.get_measurement(amount=100.0, unit="ml", name="hot sauce of choice"),
     )
     instructions: tuple[str, ...] = (
-        "Heat oil to 375 °F.",
+        "Heat oil to 375 F.",
         "Fry chicken wings for ~10 minutes.",
         "Drain and then toss with salt and pepper.",
         "In a wok, melt butter then add other wet ingredients.",

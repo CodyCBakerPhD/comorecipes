@@ -2,7 +2,7 @@
 
 ## Ingredients
 
-4 apples
+4 large apples
 
 3/4 cup water
 

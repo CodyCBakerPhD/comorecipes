@@ -22,7 +22,7 @@
 
 ## Instructions
 
-Preheat to 375 °F. Melt butter. Stir in sugar. Add eggs, beat.
+Preheat to 375 F. Melt butter. Stir in sugar. Add eggs, beat.
 
 Combine buttermilk and soda, stir into mixture.
 

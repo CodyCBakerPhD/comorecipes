@@ -22,6 +22,17 @@ class Ingredient(pydantic.BaseModel):
     default_grams_per_package: int | float | None = None
     default_package_unit: str | None = None
 
+    def __repr__(self) -> str:
+        """Used in programmatic places, such as equality assertions in the tests."""
+        representation = f'Ingredient(name="{self.name}"'
+        if self.default_grams_per_package is not None:
+            representation += f", default_grams_per_package={self.default_grams_per_package}"
+        if self.default_package_unit is not None:
+            representation += f', default_package_unit="{self.default_package_unit}"'
+        representation += ")"
+
+        return representation
+
     @pydantic.validate_call
     def get_number_of_packages(self, *, amount_in_grams: int | float) -> int:
         """Convert the amount of this ingredient to the default package size."""

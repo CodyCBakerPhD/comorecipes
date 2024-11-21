@@ -15,7 +15,7 @@ class PumpkinPieFilling(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="salt"),
         MeasurementRegistry.get_measurement(amount=0.5, unit="pie", name="crust"),
     )
-    instructions: tuple[str, ...] = ("Mix ingredients well and pour into pie crust. Bake for 15 minutes at 425 °F.",)
+    instructions: tuple[str, ...] = ("Mix ingredients well and pour into pie crust. Bake for 15 minutes at 425 F.",)
 
 
 default_recipe_registry.add_recipe(recipe=PumpkinPieFilling())

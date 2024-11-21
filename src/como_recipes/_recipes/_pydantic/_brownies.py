@@ -18,7 +18,7 @@ class Brownies(Recipe):
         MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="chocolate chips"),
     )
     instructions: tuple[str, ...] = (
-        "Preheat to 350 °F, spray pan.",
+        "Preheat to 350 F, spray pan.",
         "Mix oil and sugar well.",
         "Add eggs and vanilla, just barely blend in.",
         "Mix all dry ingredients separately, stir into oil mixture.",

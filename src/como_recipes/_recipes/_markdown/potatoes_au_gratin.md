@@ -20,7 +20,7 @@
 
 ## Instructions
 
-Preheat to 400 °F. Butter the casserole dish.
+Preheat to 400 F. Butter the casserole dish.
 
 Layer 1/2 of potatoes into bottom of dish. Top with onions and add remaining potatoes. Season with salt and pepper.
 

@@ -40,7 +40,7 @@
 
 Make pie crust well ahead of time, make sure it's cold in the fridge.
 
-Preheat oven to 400 °F.
+Preheat oven to 400 F.
 
 Firm up tofu even more by halving and baking for 10 minutes on parchment paper.
 
