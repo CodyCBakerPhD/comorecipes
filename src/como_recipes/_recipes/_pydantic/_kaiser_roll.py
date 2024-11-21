@@ -7,12 +7,12 @@ from ..._recipe_registration import default_recipe_registry
 class KaiserRoll(Recipe):
     name: str = "Kaiser Roll"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="water"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="yeast"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="sugar or honey"),
-        MeasurementRegistry.get_measurement(amount=0.16666666666666666, unit="cup", name="vegetable oil"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="flour"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="water"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="yeast"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="sugar or honey"),
+        MeasurementRegistry.get_measurement(amount=1 / 6, unit="cup", name="vegetable oil"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
+        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="flour"),
     )
     instructions: tuple[str, ...] = (
         "Preheat oven to 400 F. Activate yeast.",

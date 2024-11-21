@@ -7,12 +7,12 @@ from ..._recipe_registration import default_recipe_registry
 class ButterPieCrust(Recipe):
     name: str = "Butter Pie Crust"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=2.5, unit="cup", name="flour"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="cold butter"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="ice water"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="egg", name="yolk with a little water"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="sugar"),
+        MeasurementRegistry.get_measurement(amount=5 / 2, unit="cup", name="flour"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="salt"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="cold butter"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="ice water"),
+        MeasurementRegistry.get_measurement(amount=1, unit="egg", name="yolk with a little water"),
     )
     instructions: tuple[str, ...] = (
         "Pulse flour, sugar and salt in food processor to combine. Add cold butter and pulse until pea-size pieces remain.",

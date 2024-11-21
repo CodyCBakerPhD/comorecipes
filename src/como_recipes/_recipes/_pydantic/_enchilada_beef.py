@@ -7,12 +7,12 @@ from ..._recipe_registration import default_recipe_registry
 class EnchiladaBeef(Recipe):
     name: str = "Enchilada Beef"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=24.0, unit="oz.", name="chuck roast"),
-        MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="flour"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp.", name="extra virgin olive oil"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="black pepper"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="water"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="beef concentrate"),
+        MeasurementRegistry.get_measurement(amount=24, unit="oz.", name="chuck roast"),
+        MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="flour"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="extra virgin olive oil"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="black pepper"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="water"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="beef concentrate"),
     )
     instructions: tuple[str, ...] = (
         "Dredge meat in flour and pepper. Brown in skillet.",

@@ -7,18 +7,18 @@ from ..._recipe_registration import default_recipe_registry
 class KaleSoup(Recipe):
     name: str = "Kale Soup"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp.", name="olive oil"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="yellow", name="onion, chopped"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp.", name="garlic, chopped"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="bunch", name="of kale, stems removed and leaves chopped"),
-        MeasurementRegistry.get_measurement(amount=8.0, unit="cups", name="water"),
-        MeasurementRegistry.get_measurement(amount=6.0, unit="cubes", name="of vegetable bouillon"),
-        MeasurementRegistry.get_measurement(amount=15.0, unit="oz.", name="stewed tomatoes"),
-        MeasurementRegistry.get_measurement(amount=6.0, unit="white", name="potatoes, cubed"),
-        MeasurementRegistry.get_measurement(amount=30.0, unit="oz", name="cannellini beans (two 15 oz. cans), drained"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="Italian seasoning"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp.", name="dried parsley"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="Salt and pepper"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="olive oil"),
+        MeasurementRegistry.get_measurement(amount=1, unit="yellow", name="onion, chopped"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="garlic, chopped"),
+        MeasurementRegistry.get_measurement(amount=1, unit="bunch", name="of kale, stems removed and leaves chopped"),
+        MeasurementRegistry.get_measurement(amount=8, unit="cups", name="water"),
+        MeasurementRegistry.get_measurement(amount=6, unit="cubes", name="of vegetable bouillon"),
+        MeasurementRegistry.get_measurement(amount=15, unit="oz.", name="stewed tomatoes"),
+        MeasurementRegistry.get_measurement(amount=6, unit="white", name="potatoes, cubed"),
+        MeasurementRegistry.get_measurement(amount=30, unit="oz", name="cannellini beans (two 15 oz. cans), drained"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="Italian seasoning"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="dried parsley"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="Salt and pepper"),
     )
     instructions: tuple[str, ...] = (
         "Heat olive oil in a large soup pot. Cook the onion and garlic until soft. Stir in the kale and cook until wilted (about 2 minutes).",

@@ -20,5 +20,5 @@ __all__ = [
 ]
 
 # Trigger import of built-in recipes (only need to import one item to trigger the rest)
-from ._recipes._pydantic import Applesauce
+from ._recipes._pydantic import AglioEOlio
 from ._ingredients import Garlic

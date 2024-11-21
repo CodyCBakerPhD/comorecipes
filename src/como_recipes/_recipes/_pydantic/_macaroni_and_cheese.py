@@ -7,18 +7,18 @@ from ..._recipe_registration import default_recipe_registry
 class MacaroniAndCheese(Recipe):
     name: str = "Macaroni and Cheese"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=8.0, unit="oz.", name="elbow pasta"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="butter"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="flour"),
+        MeasurementRegistry.get_measurement(amount=8, unit="oz.", name="elbow pasta"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="butter"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="flour"),
         MeasurementRegistry.get_measurement(
-            amount=2.0,
+            amount=2,
             unit="cups",
             name="of any combination between 2% milk (for thin consistency) and heavy cream (very thick texture)",
         ),
-        MeasurementRegistry.get_measurement(amount=7.0, unit="oz.", name="English aged cheddar"),
-        MeasurementRegistry.get_measurement(amount=0.75, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="pepper"),
-        MeasurementRegistry.get_measurement(amount=0.125, unit="tsp.", name="paprika"),
+        MeasurementRegistry.get_measurement(amount=7, unit="oz.", name="English aged cheddar"),
+        MeasurementRegistry.get_measurement(amount=3 / 4, unit="tsp.", name="salt"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="pepper"),
+        MeasurementRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="paprika"),
     )
     instructions: tuple[str, ...] = (
         "Cook pasta ahead of time. Cut 75% of cheese into small cubes or shred. Shred remaining 25%.",

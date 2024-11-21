@@ -7,13 +7,13 @@ from ..._recipe_registration import default_recipe_registry
 class SauteedMushrooms(Recipe):
     name: str = "Sauteed Mushrooms"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="olive oil"),
-        MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="butter"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="lb.", name="button mushrooms"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="clove", name="garlic"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="red wine"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="garlic salt"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="pepper"),
+        MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="olive oil"),
+        MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="butter"),
+        MeasurementRegistry.get_measurement(amount=1, unit="lb.", name="button mushrooms"),
+        MeasurementRegistry.get_measurement(amount=1, unit="clove", name="garlic"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="red wine"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="garlic salt"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="pepper"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil and butter in large saucepan over medium heat.",

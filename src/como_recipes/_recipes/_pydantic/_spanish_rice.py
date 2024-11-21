@@ -7,14 +7,14 @@ from ..._recipe_registration import default_recipe_registry
 class SpanishRice(Recipe):
     name: str = "Spanish Rice"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="butter"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="shallot", name=""),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="cloves", name="garlic"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="long grain brown rice"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="salt and pepper"),
-        MeasurementRegistry.get_measurement(amount=2.5, unit="cups", name="not-chicken broth"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="sprigs", name="of thyme"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="parsley"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="butter"),
+        MeasurementRegistry.get_measurement(amount=1, unit="shallot", name=""),
+        MeasurementRegistry.get_measurement(amount=2, unit="cloves", name="garlic"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="long grain brown rice"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="salt and pepper"),
+        MeasurementRegistry.get_measurement(amount=5 / 2, unit="cups", name="not-chicken broth"),
+        MeasurementRegistry.get_measurement(amount=2, unit="sprigs", name="of thyme"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="parsley"),
     )
     instructions: tuple[str, ...] = (
         "Melt butter over medium heat. Add shallot and garlic, saute until tender.",

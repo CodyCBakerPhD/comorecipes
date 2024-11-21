@@ -1,10 +1,10 @@
+import fractions
 import pathlib
 from typing import Self
 
 import pydantic
 
 from ._base_measurement import Measurement
-from .utils import rational_string_to_float
 
 
 class Recipe(pydantic.BaseModel):
@@ -95,7 +95,7 @@ class Recipe(pydantic.BaseModel):
         """
         indent = " " * 4
 
-        camel_case_name = "".join(word.capitalize() for word in self.name.split(" "))
+        camel_case_name = "".join(word.capitalize() for word in self.name.replace("-", " ").split(" "))
         python_text = "from ..._base_measurement import Measurement\n"
         python_text += "from ..._base_recipe import Recipe\n"
         python_text += "from ..._measurement_registration import MeasurementRegistry\n"
@@ -157,10 +157,10 @@ class Recipe(pydantic.BaseModel):
 
         markdown_text += "## Instructions\n\n"
         for instruction in self.instructions:
-            markdown_text += f"{instruction}\n"
+            markdown_text += f"{instruction}\n\n"
 
         with file_path.open(mode="w") as io:
-            io.write(markdown_text)
+            io.write(markdown_text[:-1])
 
     @classmethod
     @pydantic.validate_call
@@ -200,7 +200,7 @@ class Recipe(pydantic.BaseModel):
         measurements = []
         for line in lines[2:instruction_line]:
             ingredient_line = line.split(" ")
-            amount = rational_string_to_float(ingredient_line[0])
+            amount = fractions.Fraction(ingredient_line[0])
             unit = ingredient_line[1]
             ingredient_name = " ".join(ingredient_line[2:])
             measurements.append(MeasurementRegistry.get_measurement(amount=amount, unit=unit, name=ingredient_name))

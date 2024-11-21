@@ -7,13 +7,13 @@ from ..._recipe_registration import default_recipe_registry
 class CreamedGenoise(Recipe):
     name: str = "Creamed Genoise"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=187.5, unit="g.", name="butter, room temperature"),
-        MeasurementRegistry.get_measurement(amount=187.5, unit="g.", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=3.0, unit="", name="beaten eggs, room temperature"),
-        MeasurementRegistry.get_measurement(amount=187.5, unit="g.", name="cake flour"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="", name="tsp. baking powder"),
-        MeasurementRegistry.get_measurement(amount=25.0, unit="ml.", name="milk"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="", name="tsp. vanilla extract"),
+        MeasurementRegistry.get_measurement(amount=375 / 2, unit="g.", name="butter, room temperature"),
+        MeasurementRegistry.get_measurement(amount=375 / 2, unit="g.", name="sugar"),
+        MeasurementRegistry.get_measurement(amount=3, unit="", name="beaten eggs, room temperature"),
+        MeasurementRegistry.get_measurement(amount=375 / 2, unit="g.", name="cake flour"),
+        MeasurementRegistry.get_measurement(amount=1, unit="", name="tsp. baking powder"),
+        MeasurementRegistry.get_measurement(amount=25, unit="ml.", name="milk"),
+        MeasurementRegistry.get_measurement(amount=1, unit="", name="tsp. vanilla extract"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 350 F.",

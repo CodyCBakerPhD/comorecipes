@@ -16,7 +16,7 @@ def example_ingredient() -> Ingredient:
 @pytest.fixture
 def example_measurement(example_ingredient: Ingredient) -> Measurement:
     class ExampleMeasurement(Measurement):
-        amount: int | float = 5.6
+        amount: int | float = 56
         unit: str = "grams"
         ingredient: Ingredient = example_ingredient
 

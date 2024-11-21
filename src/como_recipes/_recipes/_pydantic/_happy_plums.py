@@ -7,14 +7,14 @@ from ..._recipe_registration import default_recipe_registry
 class HappyPlums(Recipe):
     name: str = "Happy Plums"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=4.0, unit="plums", name=""),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp.", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="coconut oil"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="basalmic vinegar"),
-        MeasurementRegistry.get_measurement(amount=0.125, unit="tsp.", name="vanilla extract"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="chopped fresh rosemary"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="honey"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="sour cream"),
+        MeasurementRegistry.get_measurement(amount=4, unit="plums", name=""),
+        MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="sugar"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="coconut oil"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="basalmic vinegar"),
+        MeasurementRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="vanilla extract"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="chopped fresh rosemary"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="honey"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="sour cream"),
     )
     instructions: tuple[str, ...] = (
         "Preheat oven to 350 F. Cut plums in half and remove the pits. Coat baking pan with oil. Brush plums with oil, then sprinkle a thin layer of sugar on each. Bake for 20 minutes.",

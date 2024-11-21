@@ -7,21 +7,15 @@ from ..._recipe_registration import default_recipe_registry
 class PumpkinCreamCoffeeSauce(Recipe):
     name: str = "Pumpkin Cream Coffee Sauce"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="heavy whipping cream"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="granulated sugar"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="pumpkin puree"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="pumpkin pie spice"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="vanilla extract"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="heavy whipping cream"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="granulated sugar"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="pumpkin puree"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="pumpkin pie spice"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="vanilla extract"),
     )
     instructions: tuple[str, ...] = (
-        (
-            "Combine heavy cream, sugar, pumpkin puree and pumpkin spice in a saucepan. "
-            "Whisk over medium heat until sugar is dissolved and cream mixture begins to steam."
-        ),
-        (
-            "DO NOT BOIL. Remove from heat and whisk in vanilla extract. "
-            "Strain through a fine mesh strainer or cheesecloth, transfer to mason jar or pitcher."
-        ),
+        "Combine heavy cream, sugar, pumpkin puree and pumpkin spice in a saucepan. Whisk over medium heat until sugar is dissolved and cream mixture begins to steam.",
+        "DO NOT BOIL. Remove from heat and whisk in vanilla extract. Strain through a fine mesh strainer or cheesecloth, transfer to mason jar or pitcher.",
         "Refrigerate until cool.",
     )
 

@@ -7,12 +7,12 @@ from ..._recipe_registration import default_recipe_registry
 class MirrorGlaze(Recipe):
     name: str = "Mirror Glaze"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=20.0, unit="g", name="Agar Agar"),
-        MeasurementRegistry.get_measurement(amount=170.0, unit="mL", name="water"),
-        MeasurementRegistry.get_measurement(amount=300.0, unit="mL", name="corn syrup"),
-        MeasurementRegistry.get_measurement(amount=150.0, unit="g", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=200.0, unit="g", name="condensed milk"),
-        MeasurementRegistry.get_measurement(amount=300.0, unit="g", name="white chocolate"),
+        MeasurementRegistry.get_measurement(amount=20, unit="g", name="Agar Agar"),
+        MeasurementRegistry.get_measurement(amount=170, unit="mL", name="water"),
+        MeasurementRegistry.get_measurement(amount=300, unit="mL", name="corn syrup"),
+        MeasurementRegistry.get_measurement(amount=150, unit="g", name="sugar"),
+        MeasurementRegistry.get_measurement(amount=200, unit="g", name="condensed milk"),
+        MeasurementRegistry.get_measurement(amount=300, unit="g", name="white chocolate"),
     )
     instructions: tuple[str, ...] = (
         "Divide water in two.",
