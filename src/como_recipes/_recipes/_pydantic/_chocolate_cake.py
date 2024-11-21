@@ -21,7 +21,7 @@ class ChocolateCake(Recipe):
         MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="boiling water"),
     )
     instructions: tuple[str, ...] = (
-        "Preheat to 350 °F. Spray pan.",
+        "Preheat to 350 F. Spray pan.",
         "Add all dry ingredients and mix. Boil water.",
         "Add non-water wet ingredients and mix until well combined. Reduce speed and carefully add boiling water and mix well.",
         "Immediately transfer mixture to pan and bake for 30-35 minutes.",

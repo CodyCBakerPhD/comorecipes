@@ -19,4 +19,4 @@
 
 ## Instructions
 
-Mix ingredients well and pour into pie crust. Bake for 15 minutes at 425 °F.
+Mix ingredients well and pour into pie crust. Bake for 15 minutes at 425 F.

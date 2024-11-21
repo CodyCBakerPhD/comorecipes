@@ -15,7 +15,7 @@
 
 Combine sugar and water in a small saucepan over high heat, brushing down sides of pot as necessary with a pastry brush dipped in water.
 
-Cook until syrup is 270 °F.
+Cook until syrup is 270 F.
 
 Combine egg whites and cream of tartar (or lemon juice) in a stand mixer with a whisk attachment.
 

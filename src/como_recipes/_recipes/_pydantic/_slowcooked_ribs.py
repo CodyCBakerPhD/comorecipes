@@ -20,7 +20,7 @@ class SlowCookedRibs(Recipe):
             "Drizzle small amount of water into bottom of pan and cover with foil."
         ),
         "Choose a BBQ sauce.",
-        "Bake in oven for 3 hours at 280°F. Finish by grilling briefly at high heat to seal in BBQ sauce.",
+        "Bake in oven for 3 hours at 280F. Finish by grilling briefly at high heat to seal in BBQ sauce.",
     )
 
 

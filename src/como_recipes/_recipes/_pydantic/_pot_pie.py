@@ -26,7 +26,7 @@ class PotPie(Recipe):
     )
     instructions: tuple[str, ...] = (
         "Make pie crust well ahead of time, make sure it's cold in the fridge.",
-        "Preheat oven to 400 °F.",
+        "Preheat oven to 400 F.",
         "Firm up tofu even more by halving and baking for 10 minutes on parchment paper.",
         "Melt butter in heavy bottomed saucepan. When it foams, add onions and carrots and cook for 1-2 minutes.",
         "Add potato, season well with salt and black pepper. Stir to coat. Cook, stirring rarely, for about 6 minutes.",

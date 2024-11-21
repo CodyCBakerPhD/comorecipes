@@ -16,7 +16,7 @@
 
 ## Instructions
 
-Heat oil to 375 °F.
+Heat oil to 375 F.
 
 Fry chicken wings for ~10 minutes.
 

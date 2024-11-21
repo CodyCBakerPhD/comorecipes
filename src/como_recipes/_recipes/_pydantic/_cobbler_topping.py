@@ -21,7 +21,7 @@ class CobblerTopping(Recipe):
         "Mix flour, baking powder, and salt in separate bowl.",
         "Slowly incorporate flour mixture into butter mixture, until just combined.",
         "Drop spoonfuls onto wet mixture.",
-        "Bake for 40 min at 375° F.",
+        "Bake for 40 min at 375 F.",
     )
 
 

@@ -13,7 +13,7 @@ class KeyLimeFilling(Recipe):
     )
     instructions: tuple[str, ...] = (
         "Mix.",
-        "Eat as pudding by dipping Graham crackers in it, or bake in Graham cracker crust for about 10 minutes at 350 °F.",
+        "Eat as pudding by dipping Graham crackers in it, or bake in Graham cracker crust for about 10 minutes at 350 F.",
     )
 
 

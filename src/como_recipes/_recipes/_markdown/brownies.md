@@ -24,7 +24,7 @@
 
 ## Instructions
 
-Preheat to 350 °F, spray pan.
+Preheat to 350 F, spray pan.
 
 Mix oil and sugar well.
 

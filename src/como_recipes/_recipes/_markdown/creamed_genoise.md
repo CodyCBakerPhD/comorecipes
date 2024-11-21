@@ -1,4 +1,4 @@
-# Macaroni and Cheese (American)
+# Creamed Genoise (British)
 
 ## Ingredients
 
@@ -20,7 +20,7 @@
 
 ## Instructions
 
-Preheat to 350 °F.
+Preheat to 350 F.
 
 Cream butter and sugar with wooden spoon, then set in stand mixer on medium-high for about two minutes, constantly scraping the sides.
 

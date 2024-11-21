@@ -14,4 +14,4 @@ Thoroughly rub dry mix onto ribs in a separate bowl. Drizzle small amount of wat
 
 Choose a BBQ sauce.
 
-Bake in oven for 3 hours at 280°F. Finish by grilling briefly at high heat to seal in BBQ sauce.
+Bake in oven for 3 hours at 280F. Finish by grilling briefly at high heat to seal in BBQ sauce.

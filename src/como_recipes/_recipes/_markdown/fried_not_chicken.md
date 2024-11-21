@@ -1,4 +1,4 @@
-# Fried Chicken (American)
+# Fried Not-Chicken (American)
 
 ## Ingredients
 
@@ -12,7 +12,7 @@
 
 ## Instructions
 
-Heat oil to 325 °F. Add some lime juice if feeling fruity.
+Heat oil to 325 F. Add some lime juice if feeling fruity.
 
 Soak tenders in buttermilk for a few minutes.
 

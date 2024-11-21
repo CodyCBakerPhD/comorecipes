@@ -16,7 +16,7 @@ class BeerBatter(Recipe):
     )
     instructions: tuple[str, ...] = (
         "Whisk dry ingredients. Add beer and incorporate. Mixture should feel like pancake batter.",
-        "Cook 2-3 minutes per side in 375 °F oil.",
+        "Cook 2-3 minutes per side in 375 F oil.",
     )
 
 

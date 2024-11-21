@@ -17,4 +17,4 @@
 
 Drain green beans. Mix soup, milk, pepper in a bowl. Add beans and mix together. Add half of the onions, give a quick stir.
 
-Place in casserole dish and bake for 25 minutes at 350° F. Add remaining onions to top and bake another 5 minutes, keeping close watch for burning.
+Place in casserole dish and bake for 25 minutes at 350 F. Add remaining onions to top and bake another 5 minutes, keeping close watch for burning.

@@ -26,7 +26,7 @@
 
 ## Instructions
 
-Oven temperature is 360 °F for caramelization stage.
+Oven temperature is 360 F for caramelization stage.
 
 Cream together butter and sugars. Mix in one egg at a time. Add vanilla at the end.
 

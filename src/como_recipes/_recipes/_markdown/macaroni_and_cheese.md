@@ -30,4 +30,4 @@ Season.
 
 Mix pasta into mixture. Layer into dish, sprinkling remaining 25% of cheese across layers, leaving some for the top.
 
-Bake for 15 minutes at 325 °F; optionally, broil the top for added flavor and texture.
+Bake for 15 minutes at 325 F; optionally, broil the top for added flavor and texture.
