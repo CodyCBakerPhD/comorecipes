@@ -39,6 +39,27 @@ class MeasurementRegistry(pydantic.BaseModel):
         )
         self._recipe_registry = RecipeRegistry()
 
+    def __len__(self) -> int:
+        combined_measurements = self._calculate_combined_measurements()
+        return len(combined_measurements)
+
+    def __repr__(self) -> str:
+        number_of_registered_measurements = len(self)
+
+        printout = f"{number_of_registered_measurements} registered measurements\n"
+
+        if number_of_registered_measurements == 0:
+            return printout
+
+        printout += f"{'-' * (len(printout)-1)}\n\n"
+        printout += self._printout_nested_measurements()
+
+        return printout
+
+    def __str__(self) -> str:
+        """Used by calls to `print(...)`."""
+        return repr(self)
+
     def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
         combined_measurements = collections.defaultdict(list)
         for measurements in self._individual_measurements_to_add.values():
@@ -76,31 +97,10 @@ class MeasurementRegistry(pydantic.BaseModel):
 
         return printout
 
-    def __len__(self) -> int:
-        combined_measurements = self._calculate_combined_measurements()
-        return len(combined_measurements)
-
-    def __repr__(self) -> str:
-        number_of_registered_measurements = len(self)
-
-        printout = f"{number_of_registered_measurements} registered measurements\n"
-
-        if number_of_registered_measurements == 0:
-            return printout
-
-        printout += f"{'-' * (len(printout)-1)}\n\n"
-        printout += self._printout_nested_measurements()
-
-        return printout
-
-    def __str__(self) -> str:
-        """Used by calls to `print(...)`."""
-        return repr(self)
-
     @pydantic.validate_call
     def add_measurement(self, *, measurement: Measurement) -> None:
         """
-        Add a measurement to the registry.
+        Add a single custom measurement to the registry.
 
         Parameters
         ----------
@@ -126,7 +126,7 @@ class MeasurementRegistry(pydantic.BaseModel):
     @pydantic.validate_call
     def add_recipe(self, *, recipe: Recipe) -> None:
         """
-        Add a recipe to the registry.
+        Add a recipe (and by way, all of its constituent measurements) to the registry.
 
         Parameters
         ----------
