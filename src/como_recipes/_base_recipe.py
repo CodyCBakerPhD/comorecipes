@@ -103,6 +103,12 @@ class Recipe(pydantic.BaseModel):
         python_text += f"class {camel_case_name}(Recipe):\n"
         python_text += f'{indent}name: str = "{self.name}"\n'
 
+        if self.tags is not None:
+            python_text += f"{indent}tags: tuple[str, ...] = ("
+            for tag in self.tags:
+                python_text += f'{indent}{indent}"{tag}", '
+            python_text += f"{indent})\n"
+
         python_text += f"{indent}measurements: tuple[Measurement, ...] = (\n"
         for measurement in self.measurements:
             measurement_text = f"{indent}{indent}MeasurementRegistry.get_measurement(amount={measurement.amount}, "
@@ -150,6 +156,9 @@ class Recipe(pydantic.BaseModel):
         """
         markdown_text = f"# {self.name}\n\n"
 
+        if self.tags is not None:
+            markdown_text += f"({', '.join(self.tags)})\n\n\n\n"
+
         markdown_text += "## Ingredients\n\n"
         for measurement in self.measurements:
             markdown_text += f"{measurement.amount} {measurement.unit} {measurement.ingredient.name}\n\n"
@@ -184,7 +193,7 @@ class Recipe(pydantic.BaseModel):
         if lines[0][:2] != "# ":
             message = "Markdown recipe does not begin with '# '."
             raise ValueError(message)
-        if lines[1] != "## Ingredients":
+        if "## Ingredients" not in lines:
             message = "Markdown recipe does not have a section titled '## Ingredients'."
             raise ValueError(message)
 
@@ -195,10 +204,11 @@ class Recipe(pydantic.BaseModel):
             recipe_name = recipe_name_and_cuisine_line
         recipe_name = recipe_name.rstrip(" ")
 
-        instruction_line = lines.index("## Instructions")
+        ingredient_line_index = lines.index("## Ingredients")
+        instruction_line_index = lines.index("## Instructions")
 
         measurements = []
-        for line in lines[2:instruction_line]:
+        for line in lines[(ingredient_line_index + 1) : instruction_line_index]:
             ingredient_line = line.split(" ")
             amount = fractions.Fraction(ingredient_line[0])
             unit = ingredient_line[1]
@@ -207,6 +217,6 @@ class Recipe(pydantic.BaseModel):
         measurements = tuple(measurements)
 
         # Not necessary for planning tools
-        instructions = tuple(lines[instruction_line + 1 :]) if include_instructions is True else None
+        instructions = tuple(lines[instruction_line_index + 1 :]) if include_instructions is True else None
 
         return Recipe(name=recipe_name, measurements=measurements, instructions=instructions)
