@@ -1,5 +1,9 @@
 # Example Recipe 1
 
+Tags: Italian, Pasta, Entree, Vegetarian
+
+
+
 ## Ingredients
 
 3.0 tbsp. ingredient 1
