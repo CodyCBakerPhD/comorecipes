@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class ExampleRecipe1(Recipe):
     name: str = "Example Recipe 1"
+    tags: tuple[str, ...] = ("Italian", "Pasta", "Entree", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="ingredient 1"),
         MeasurementRegistry.get_measurement(amount=4.0, unit="g", name="ingredient 2"),
