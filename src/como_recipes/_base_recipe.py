@@ -15,17 +15,19 @@ class Recipe(pydantic.BaseModel):
     ----------
     name : str
         Name of the recipe.
+    tags : tuple[str], optional
+        List of tags associated with the recipe.
     measurements : tuple[Measurement]
         List of ingredients.
     instructions : tuple[str]
         List of instructions.
-    notes : tuple[str] or None, optional
+    notes : tuple[str], optional
         List of notes.
 
     """
 
     name: str
-    tags: tuple[str] | None = None
+    tags: tuple[str, ...] | None = None
     measurements: tuple[Measurement, ...]
     instructions: tuple[str, ...]
     notes: tuple[str] | None = None
@@ -104,10 +106,7 @@ class Recipe(pydantic.BaseModel):
         python_text += f'{indent}name: str = "{self.name}"\n'
 
         if self.tags is not None:
-            python_text += f"{indent}tags: tuple[str, ...] = ("
-            for tag in self.tags:
-                python_text += f'{indent}{indent}"{tag}", '
-            python_text += f"{indent})\n"
+            python_text += f"{indent}tags: tuple[str, ...] = (" + ", ".join(f'"{tag}"' for tag in self.tags) + ")\n"
 
         python_text += f"{indent}measurements: tuple[Measurement, ...] = (\n"
         for measurement in self.measurements:
@@ -157,7 +156,7 @@ class Recipe(pydantic.BaseModel):
         markdown_text = f"# {self.name}\n\n"
 
         if self.tags is not None:
-            markdown_text += f"({', '.join(self.tags)})\n\n\n\n"
+            markdown_text += f"Tags: {', '.join(self.tags)}\n\n\n\n"
 
         markdown_text += "## Ingredients\n\n"
         for measurement in self.measurements:
@@ -197,12 +196,8 @@ class Recipe(pydantic.BaseModel):
             message = "Markdown recipe does not have a section titled '## Ingredients'."
             raise ValueError(message)
 
-        recipe_name_and_cuisine_line = lines[0][2:]
-        if "(" in recipe_name_and_cuisine_line:
-            recipe_name, _ = recipe_name_and_cuisine_line.split("(")
-        else:
-            recipe_name = recipe_name_and_cuisine_line
-        recipe_name = recipe_name.rstrip(" ")
+        recipe_name = lines[0][2:].rstrip(" ")
+        tags = tuple(lines[1].split(": ")[1].split(", ")) if "Tags" in lines[1] else None
 
         ingredient_line_index = lines.index("## Ingredients")
         instruction_line_index = lines.index("## Instructions")
@@ -219,4 +214,4 @@ class Recipe(pydantic.BaseModel):
         # Not necessary for planning tools
         instructions = tuple(lines[instruction_line_index + 1 :]) if include_instructions is True else None
 
-        return Recipe(name=recipe_name, measurements=measurements, instructions=instructions)
+        return Recipe(name=recipe_name, tags=tags, measurements=measurements, instructions=instructions)
