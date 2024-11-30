@@ -7,11 +7,11 @@ from ..._recipe_registration import default_recipe_registry
 class BrownieIcing(Recipe):
     name: str = "Brownie Icing"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="sifted Dutch cocoa"),
-        MeasurementRegistry.get_measurement(amount=1.5, unit="tbsp.", name="butter"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="cups", name="sifted powdered sugar"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="evaporated milk"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="vanilla"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="sifted Dutch cocoa"),
+        MeasurementRegistry.get_measurement(amount=3 / 2, unit="tbsp.", name="butter"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cups", name="sifted powdered sugar"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="evaporated milk"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="vanilla"),
     )
     instructions: tuple[str, ...] = (
         "Do not forget to sift dry ingredients.",

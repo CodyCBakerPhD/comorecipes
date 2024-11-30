@@ -24,14 +24,14 @@ def test_measurement_registry(example_measurement: Measurement):
 
     new_registry.add_measurement(measurement=example_measurement)
 
-    expected_repr = "1 registered measurements\n-------------------------\n\nExample Ingredient 1\n  5.6 grams\n"
+    expected_repr = "1 registered measurements\n-------------------------\n\nExample Ingredient 1\n  56 grams\n"
     assert len(new_registry) == 1
     assert repr(new_registry) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(new_registry)
     assert captured_output.getvalue() == expected_repr + "\n"
 
-    expected_shopping_list = "Example Ingredient 1\n  5.6 grams\n"
+    expected_shopping_list = "Example Ingredient 1\n  56 grams\n"
     assert new_registry.get_shopping_list() == expected_shopping_list
 
     new_registry.add_recipe(recipe=recipe)
@@ -41,11 +41,11 @@ def test_measurement_registry(example_measurement: Measurement):
         "-------------------------\n"
         "\n"
         "Example Ingredient 1\n"
-        "  5.6 grams\n"
+        "  56 grams\n"
         "ingredient 1\n"
-        "  3.0 tbsp.\n"
+        "  31/10 tbsp.\n"
         "ingredient 2\n"
-        "  4.0 g\n"
+        "  4 g\n"
     )
     assert len(new_registry) == 3
     assert repr(new_registry) == expected_repr
@@ -55,14 +55,14 @@ def test_measurement_registry(example_measurement: Measurement):
 
     new_registry.add_measurement(measurement=example_measurement)
 
-    expected_shopping_list = "Example Ingredient 1\n  11.2 grams\ningredient 1\n  3.0 tbsp.\ningredient 2\n  4.0 g\n"
+    expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\ningredient 2\n  4 g\n"
     assert new_registry.get_shopping_list() == expected_shopping_list
 
     new_registry.remove_measurement(
         measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2"),
     )
 
-    expected_shopping_list = "Example Ingredient 1\n  11.2 grams\ningredient 1\n  3.0 tbsp.\ningredient 2\n  2.0 g\n"
+    expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\ningredient 2\n  2 g\n"
     assert new_registry.get_shopping_list() == expected_shopping_list
 
     # Recipe should now be removed entirely from printout
@@ -70,7 +70,7 @@ def test_measurement_registry(example_measurement: Measurement):
         measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2"),
     )
 
-    expected_shopping_list = "Example Ingredient 1\n  11.2 grams\ningredient 1\n  3.0 tbsp.\n"
+    expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\n"
     assert new_registry.get_shopping_list() == expected_shopping_list
 
     expected_recipe_names = ["Example Recipe 1"]
@@ -78,7 +78,7 @@ def test_measurement_registry(example_measurement: Measurement):
 
     new_registry.remove_recipe(recipe_name="Example Recipe 1")
 
-    expected_shopping_list = "Example Ingredient 1\n  11.2 grams\n"
+    expected_shopping_list = "Example Ingredient 1\n  112 grams\n"
     assert new_registry.get_shopping_list() == expected_shopping_list
 
 
@@ -102,7 +102,7 @@ def test_get_shopping_list_error():
     measurement_2 = MeasurementRegistry.get_measurement(amount=1.0, unit="tsp", name="test_ingredient")
     new_registry.add_measurement(measurement=measurement_2)
 
-    expected_message = "\nMultiple units found for ingredient 'test_ingredient':\n\n[\n  1.0 g\n  1.0 tsp\n]"
+    expected_message = "\nMultiple units found for ingredient 'test_ingredient':\n\n[\n  1 g\n  1 tsp\n]"
     with pytest.raises(ValueError, match=re.escape(pattern=expected_message)):
         new_registry.get_shopping_list()
 

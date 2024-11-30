@@ -14,7 +14,7 @@ def test_example_1_markdown_recipe_load():
 
     assert recipe.name == "Example Recipe 1"
     assert recipe.measurements == (
-        MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="ingredient 1"),
+        MeasurementRegistry.get_measurement(amount=31 / 10, unit="tbsp.", name="ingredient 1"),
         MeasurementRegistry.get_measurement(amount=4, unit="g", name="ingredient 2"),
     )
     assert recipe.instructions == ("This is an example of a recipe.",)
@@ -89,8 +89,8 @@ def test_example_1_repr():
         "Recipe(\n"
         '\tname="Example Recipe 1",\n'
         "\tmeasurements=(\n"
-        "\t\tamount=3.0 unit='tbsp.' ingredient=Ingredient(name=\"ingredient 1\"),\n"
-        "\t\tamount=4.0 unit='g' ingredient=Ingredient(name=\"ingredient 2\"),\n"
+        '\t\tMeasurement(amount=31/10, unit="tbsp.", ingredient=Ingredient(name="ingredient 1")),\n'
+        '\t\tMeasurement(amount=4, unit="g", ingredient=Ingredient(name="ingredient 2")),\n'
         "\t),\n"
         "\tinstructions=(\n"
         '\t\t"This is an example of a recipe.",\n'
@@ -109,19 +109,20 @@ def test_example_1_print():
     with patch("sys.stdout", new=StringIO()) as captured_output:
         print(recipe)
 
-    expected_print = """
-Example Recipe 1
-================
-
-Ingredients
------------
-3.0 tbsp. ingredient 1
-4.0 g ingredient 2
-
-
-Instructions
-------------
-This is an example of a recipe.
-
-"""
+    expected_print = (
+        "\n"
+        "Example Recipe 1\n"
+        "================\n"
+        "\n"
+        "Ingredients\n"
+        "-----------\n"
+        "31/10 tbsp. ingredient 1\n"
+        "4 g ingredient 2\n"
+        "\n"
+        "\n"
+        "Instructions\n"
+        "------------\n"
+        "This is an example of a recipe.\n"
+        "\n"
+    )
     assert captured_output.getvalue() == expected_print

@@ -7,11 +7,11 @@ from ..._recipe_registration import default_recipe_registry
 class BuffaloWings(Recipe):
     name: str = "Buffalo Wings"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=8.0, unit="separated", name="chicken wings"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="salt and pepper"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp.", name="butter"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="white vinegar"),
-        MeasurementRegistry.get_measurement(amount=100.0, unit="ml", name="hot sauce of choice"),
+        MeasurementRegistry.get_measurement(amount=8, unit="separated", name="chicken wings"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="salt and pepper"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="butter"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="white vinegar"),
+        MeasurementRegistry.get_measurement(amount=100, unit="ml", name="hot sauce of choice"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil to 375 F.",

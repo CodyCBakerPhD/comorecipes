@@ -7,9 +7,9 @@ from ..._recipe_registration import default_recipe_registry
 class FriedNotChicken(Recipe):
     name: str = "Fried Not-Chicken"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=0.25, unit="serving", name="of Frying Breading"),
-        MeasurementRegistry.get_measurement(amount=4.0, unit="individual", name="not-chicken tenders"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="buttermilk"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="serving", name="of Frying Breading"),
+        MeasurementRegistry.get_measurement(amount=4, unit="individual", name="not-chicken tenders"),
+        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="buttermilk"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil to 325 F. Add some lime juice if feeling fruity.",

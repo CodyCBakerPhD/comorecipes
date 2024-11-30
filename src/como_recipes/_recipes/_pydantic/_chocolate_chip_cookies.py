@@ -7,16 +7,16 @@ from ..._recipe_registration import default_recipe_registry
 class ChocolateChipCookies(Recipe):
     name: str = "Chocolate Chip Cookies"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="room-temperature butter"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="brown sugar"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="eggs", name=""),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="vanilla"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="baking soda"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="hot water"),
-        MeasurementRegistry.get_measurement(amount=3.0, unit="cup", name="flour"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="high-quality semi-sweet chocolate chips"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="room-temperature butter"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="sugar"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="brown sugar"),
+        MeasurementRegistry.get_measurement(amount=2, unit="eggs", name=""),
+        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="vanilla"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="baking soda"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="hot water"),
+        MeasurementRegistry.get_measurement(amount=3, unit="cup", name="flour"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
+        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="high-quality semi-sweet chocolate chips"),
     )
     instructions: tuple[str, ...] = (
         "Oven temperature is 360 F for caramelization stage.",

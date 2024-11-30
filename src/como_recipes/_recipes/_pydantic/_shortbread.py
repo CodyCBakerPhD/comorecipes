@@ -7,13 +7,13 @@ from ..._recipe_registration import default_recipe_registry
 class Shortbread(Recipe):
     name: str = "Shortbread"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="butter, room temperature"),
-        MeasurementRegistry.get_measurement(amount=0.3333333333333333, unit="cup", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=0.3333333333333333, unit="cup", name="brown sugar"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="large", name="egg yolk"),
-        MeasurementRegistry.get_measurement(amount=0.75, unit="tsp.", name="vanilla extract"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=2.25, unit="cups", name="flour"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="butter, room temperature"),
+        MeasurementRegistry.get_measurement(amount=1 / 3, unit="cup", name="sugar"),
+        MeasurementRegistry.get_measurement(amount=1 / 3, unit="cup", name="brown sugar"),
+        MeasurementRegistry.get_measurement(amount=1, unit="large", name="egg yolk"),
+        MeasurementRegistry.get_measurement(amount=3 / 4, unit="tsp.", name="vanilla extract"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="salt"),
+        MeasurementRegistry.get_measurement(amount=9 / 4, unit="cups", name="flour"),
     )
     instructions: tuple[str, ...] = (
         "Preheat oven to 350 F. Line a 13x9 baking pan with parchment paper.",

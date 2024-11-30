@@ -1,5 +1,4 @@
 # These imports must be listed here explicitly to trigger imports and registration automatically
-from ._slowcooked_ribs import SlowCookedRibs
 from ._yellow_cake import YellowCake
 from ._whipped_cream_cheese_filling import WhippedCreamCheeseFilling
 from ._whipped_chocolate_icing import WhippedChocolateIcing
@@ -13,6 +12,7 @@ from ._stir_fry import StirFry
 from ._spanish_rice import SpanishRice
 from ._spaghetti_squash import SpaghettiSquash
 from ._sourdough import Sourdough
+from ._slowcooked_ribs import SlowCookedRibs
 from ._sloppy_joes import SloppyJoes
 from ._simple_caramel import SimpleCaramel
 from ._shortening_pie_crust import ShorteningPieCrust
@@ -81,5 +81,5 @@ from ._bechamel_sauce import BechamelSauce
 from ._banana_bread import BananaBread
 from ._baked_potato import BakedPotato
 from ._apple_pie_filling import ApplePieFilling
-from ._aglio_e_olio import AglioEOlio
 from ._applesauce import Applesauce
+from ._aglio_e_olio import AglioEOlio

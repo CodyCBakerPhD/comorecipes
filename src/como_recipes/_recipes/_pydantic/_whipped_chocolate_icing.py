@@ -7,11 +7,11 @@ from ..._recipe_registration import default_recipe_registry
 class WhippedChocolateIcing(Recipe):
     name: str = "Whipped Chocolate Icing"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=2.75, unit="cups", name="sifted powdered sugar"),
-        MeasurementRegistry.get_measurement(amount=6.0, unit="tbsp.", name="cocoa powder"),
-        MeasurementRegistry.get_measurement(amount=6.0, unit="tbsp.", name="room-temperature butter"),
-        MeasurementRegistry.get_measurement(amount=5.0, unit="tbsp.", name="evaporated milk"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="vanilla extract"),
+        MeasurementRegistry.get_measurement(amount=11 / 4, unit="cups", name="sifted powdered sugar"),
+        MeasurementRegistry.get_measurement(amount=6, unit="tbsp.", name="cocoa powder"),
+        MeasurementRegistry.get_measurement(amount=6, unit="tbsp.", name="room-temperature butter"),
+        MeasurementRegistry.get_measurement(amount=5, unit="tbsp.", name="evaporated milk"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="vanilla extract"),
     )
     instructions: tuple[str, ...] = (
         "Sift the cocoa powder and powdered sugar together.",

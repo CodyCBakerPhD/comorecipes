@@ -7,12 +7,12 @@ from ..._recipe_registration import default_recipe_registry
 class BeerBatter(Recipe):
     name: str = "Beer Batter"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="flour"),
-        MeasurementRegistry.get_measurement(amount=0.3333333333333333, unit="cup", name="cornstarch"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="paprika"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="baking powder"),
-        MeasurementRegistry.get_measurement(amount=12.0, unit="oz.", name="beer"),
+        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="flour"),
+        MeasurementRegistry.get_measurement(amount=1 / 3, unit="cup", name="cornstarch"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="salt"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="paprika"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="baking powder"),
+        MeasurementRegistry.get_measurement(amount=12, unit="oz.", name="beer"),
     )
     instructions: tuple[str, ...] = (
         "Whisk dry ingredients. Add beer and incorporate. Mixture should feel like pancake batter.",
