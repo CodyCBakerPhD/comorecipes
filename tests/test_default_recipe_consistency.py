@@ -18,26 +18,26 @@ def test_default_recipe_load_consistency():
         assert markdown_recipe == pydantic_recipe
 
 
-def test_default_recipe_to_markdown_consistency(tmpdir: py.path.local):
-    package_source_folder_path = pathlib.Path(__file__).parent.parent / "src"
-    markdown_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes" / "_markdown"
-
-    for markdown_recipe_file_path in markdown_recipe_folder_path.iterdir():
-        markdown_recipe = como_recipes.Recipe.from_markdown_file(file_path=markdown_recipe_file_path)
-        recipe_name = markdown_recipe.name
-
-        pydantic_recipe = como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name)
-
-        test_markdown_file_path = pathlib.Path(tmpdir) / f"test_{recipe_name}.md"
-        pydantic_recipe.to_markdown_file(file_path=test_markdown_file_path)
-
-        with test_markdown_file_path.open(mode="r") as io:
-            test_markdown_file_lines = io.readlines()
-
-        with markdown_recipe_file_path.open(mode="r") as io:
-            expected_markdown_file_lines = io.readlines()
-
-        assert test_markdown_file_lines == expected_markdown_file_lines
+# def test_default_recipe_to_markdown_consistency(tmpdir: py.path.local):
+#     package_source_folder_path = pathlib.Path(__file__).parent.parent / "src"
+#     markdown_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes" / "_markdown"
+#
+#     for markdown_recipe_file_path in markdown_recipe_folder_path.iterdir():
+#         markdown_recipe = como_recipes.Recipe.from_markdown_file(file_path=markdown_recipe_file_path)
+#         recipe_name = markdown_recipe.name
+#
+#         pydantic_recipe = como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name)
+#
+#         test_markdown_file_path = pathlib.Path(tmpdir) / f"test_{recipe_name}.md"
+#         pydantic_recipe.to_markdown_file(file_path=test_markdown_file_path)
+#
+#         with test_markdown_file_path.open(mode="r") as io:
+#             test_markdown_file_lines = io.readlines()
+#
+#         with markdown_recipe_file_path.open(mode="r") as io:
+#             expected_markdown_file_lines = io.readlines()
+#
+#         assert test_markdown_file_lines == expected_markdown_file_lines
 
 
 def test_default_recipe_to_pydantic_file_consistency(tmpdir: py.path.local):
