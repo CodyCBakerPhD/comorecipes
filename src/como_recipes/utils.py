@@ -4,15 +4,6 @@ import ctypes
 import struct
 
 
-# TODO: remove when grams are enforced
-def rational_string_to_float(string: str) -> float:  # pragma: no cover
-    """Small helper function to convert strings into floats ('1/4' becomes 0.25)."""
-    if "/" in string:
-        numerator, denominator = string.split("/")
-        return int(numerator) / int(denominator)
-    return float(string)
-
-
 def get_terminal_size() -> tuple[int, int]:
     """Superior to the shutil.get_terminal_size() function for Windows; responds to dynamic window reshaping."""
     standard_handle = ctypes.windll.kernel32.GetStdHandle(-12)

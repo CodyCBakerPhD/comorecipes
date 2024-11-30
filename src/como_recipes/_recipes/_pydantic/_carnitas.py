@@ -7,14 +7,14 @@ from ..._recipe_registration import default_recipe_registry
 class Carnitas(Recipe):
     name: str = "Carnitas"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.0, unit="lb.", name="pork shoulder"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="oregano"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="cumin"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="chili powder"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="flour"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="salt and pepper"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="oranges,", name="juiced"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="cloves", name="minced garlic"),
+        MeasurementRegistry.get_measurement(amount=1, unit="lb.", name="pork shoulder"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="oregano"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="cumin"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="chili powder"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="flour"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="salt and pepper"),
+        MeasurementRegistry.get_measurement(amount=2, unit="oranges,", name="juiced"),
+        MeasurementRegistry.get_measurement(amount=2, unit="cloves", name="minced garlic"),
     )
     instructions: tuple[str, ...] = (
         "Brown pork with dry spices rubbed in. Slow cook in other ingredients for 6-8 hours on low in a small slow-cooker.",

@@ -7,15 +7,15 @@ from ..._recipe_registration import default_recipe_registry
 class BroccoliCheddarSoup(Recipe):
     name: str = "Broccoli Cheddar Soup"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="butter"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="onion", name=""),
-        MeasurementRegistry.get_measurement(amount=8.0, unit="oz.", name="broccoli"),
-        MeasurementRegistry.get_measurement(amount=7.0, unit="oz.", name="not-chicken broth"),
-        MeasurementRegistry.get_measurement(amount=8.0, unit="oz.", name="cheddar"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="milk"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tbsp.", name="garlic powder"),
-        MeasurementRegistry.get_measurement(amount=0.125, unit="cup", name="cornstarch"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="water"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="butter"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="onion", name=""),
+        MeasurementRegistry.get_measurement(amount=8, unit="oz.", name="broccoli"),
+        MeasurementRegistry.get_measurement(amount=7, unit="oz.", name="not-chicken broth"),
+        MeasurementRegistry.get_measurement(amount=8, unit="oz.", name="cheddar"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="milk"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tbsp.", name="garlic powder"),
+        MeasurementRegistry.get_measurement(amount=1 / 8, unit="cup", name="cornstarch"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="water"),
     )
     instructions: tuple[str, ...] = (
         "In pot, melt butter over medium heat. Cook onion until softened. Stir in broccoli and cover with not-chicken broth. Simmer until tender, 10-15 minutes.",

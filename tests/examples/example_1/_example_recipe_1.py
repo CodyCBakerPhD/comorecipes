@@ -8,8 +8,8 @@ class ExampleRecipe1(Recipe):
     name: str = "Example Recipe 1"
     tags: tuple[str, ...] = ("Italian", "Pasta", "Entree", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=3.0, unit="tbsp.", name="ingredient 1"),
-        MeasurementRegistry.get_measurement(amount=4.0, unit="g", name="ingredient 2"),
+        MeasurementRegistry.get_measurement(amount=31/10, unit="tbsp.", name="ingredient 1"),
+        MeasurementRegistry.get_measurement(amount=4, unit="g", name="ingredient 2"),
     )
     instructions: tuple[str, ...] = (
         "This is an example of a recipe.",

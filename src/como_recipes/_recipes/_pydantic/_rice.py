@@ -7,9 +7,9 @@ from ..._recipe_registration import default_recipe_registry
 class Rice(Recipe):
     name: str = "Rice"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.5, unit="cups", name="rice"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="cups", name="water"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="butter"),
+        MeasurementRegistry.get_measurement(amount=3 / 2, unit="cups", name="rice"),
+        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="water"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="butter"),
     )
     instructions: tuple[str, ...] = (
         "Thoroughly rinse and pre-soak rice for 15 minutes.",

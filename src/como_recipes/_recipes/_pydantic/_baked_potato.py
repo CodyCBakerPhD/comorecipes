@@ -7,9 +7,9 @@ from ..._recipe_registration import default_recipe_registry
 class BakedPotato(Recipe):
     name: str = "Baked Potato"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=4.0, unit="Good", name="big potatoes"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="olive oil"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="tsp.", name="large-grain salt"),
+        MeasurementRegistry.get_measurement(amount=4, unit="Good", name="big potatoes"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="olive oil"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="large-grain salt"),
     )
     instructions: tuple[str, ...] = (
         "Use aluminum foil for easy cleanup.",

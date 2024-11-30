@@ -7,14 +7,14 @@ from ..._recipe_registration import default_recipe_registry
 class AglioEOlio(Recipe):
     name: str = "Aglio E Olio"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=2.0, unit="qt.", name="water"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="lb.", name="thin spaghetti"),
-        MeasurementRegistry.get_measurement(amount=0.3333333333333333, unit="cup", name="olive oil"),
-        MeasurementRegistry.get_measurement(amount=8.0, unit="large", name="cloves of garlic"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tsp.", name="crushed red pepper"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="parsley"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="fresh Parmesan"),
+        MeasurementRegistry.get_measurement(amount=2, unit="qt.", name="water"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="salt"),
+        MeasurementRegistry.get_measurement(amount=1, unit="lb.", name="thin spaghetti"),
+        MeasurementRegistry.get_measurement(amount=1 / 3, unit="cup", name="olive oil"),
+        MeasurementRegistry.get_measurement(amount=8, unit="large", name="cloves of garlic"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="crushed red pepper"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="parsley"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="fresh Parmesan"),
     )
     instructions: tuple[str, ...] = (
         "Bring water and salt to boil. Cook pasta. Set aside 3/2 cup of pasta water before draining.",

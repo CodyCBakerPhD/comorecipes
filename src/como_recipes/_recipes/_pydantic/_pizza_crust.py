@@ -7,11 +7,11 @@ from ..._recipe_registration import default_recipe_registry
 class PizzaCrust(Recipe):
     name: str = "Pizza Crust"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="water"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp.", name="yeast"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="sugar or honey"),
-        MeasurementRegistry.get_measurement(amount=9.0, unit="oz.", name="flour"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="salt"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="water"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="yeast"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="sugar or honey"),
+        MeasurementRegistry.get_measurement(amount=9, unit="oz.", name="flour"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Activate yeast. Mix in flour and salt until good consistency. Knead for 3 minutes. Place in oiled rising container. Set timer for 40 minutes and let rise in warm spot.",

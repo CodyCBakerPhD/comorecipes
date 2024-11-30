@@ -6,9 +6,9 @@ Tags: Italian, Pasta, Entree, Vegetarian
 
 ## Ingredients
 
-3.0 tbsp. ingredient 1
+31/10 tbsp. ingredient 1
 
-4.0 g ingredient 2
+4 g ingredient 2
 
 
 

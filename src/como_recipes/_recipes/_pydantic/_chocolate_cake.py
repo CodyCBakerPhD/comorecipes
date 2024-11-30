@@ -7,18 +7,18 @@ from ..._recipe_registration import default_recipe_registry
 class ChocolateCake(Recipe):
     name: str = "Chocolate Cake"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="flour"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="cup", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=0.375, unit="cup", name="cocoa powder"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="baking powder"),
-        MeasurementRegistry.get_measurement(amount=0.75, unit="tsp.", name="baking soda"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tsp.", name="espresso powder"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="milk"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="cup", name="vegetable oil"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="large", name="egg"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp.", name="vanilla"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="cup", name="boiling water"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="flour"),
+        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="sugar"),
+        MeasurementRegistry.get_measurement(amount=3 / 8, unit="cup", name="cocoa powder"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="baking powder"),
+        MeasurementRegistry.get_measurement(amount=3 / 4, unit="tsp.", name="baking soda"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="espresso powder"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="milk"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="vegetable oil"),
+        MeasurementRegistry.get_measurement(amount=1, unit="large", name="egg"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="vanilla"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="boiling water"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 350 F. Spray pan.",

@@ -7,14 +7,14 @@ from ..._recipe_registration import default_recipe_registry
 class MochiDonuts(Recipe):
     name: str = "Mochi Donuts"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=150.0, unit="grams", name="mochiko"),
-        MeasurementRegistry.get_measurement(amount=50.0, unit="grams", name="brown sugar"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp", name="baking powder"),
-        MeasurementRegistry.get_measurement(amount=0.25, unit="tsp", name="salt"),
-        MeasurementRegistry.get_measurement(amount=50.0, unit="grams", name="melted butter"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="large", name="egg"),
-        MeasurementRegistry.get_measurement(amount=200.0, unit="grams", name="whole milk"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tsp", name="vanilla"),
+        MeasurementRegistry.get_measurement(amount=150, unit="grams", name="mochiko"),
+        MeasurementRegistry.get_measurement(amount=50, unit="grams", name="brown sugar"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp", name="baking powder"),
+        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp", name="salt"),
+        MeasurementRegistry.get_measurement(amount=50, unit="grams", name="melted butter"),
+        MeasurementRegistry.get_measurement(amount=1, unit="large", name="egg"),
+        MeasurementRegistry.get_measurement(amount=200, unit="grams", name="whole milk"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tsp", name="vanilla"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 350. grease pan.",

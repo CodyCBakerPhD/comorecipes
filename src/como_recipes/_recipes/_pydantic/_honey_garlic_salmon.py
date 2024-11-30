@@ -7,17 +7,17 @@ from ..._recipe_registration import default_recipe_registry
 class HoneyGarlicSalmon(Recipe):
     name: str = "Honey Garlic Salmon"
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=4.0, unit="salmon", name="fillets, 250 g each"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tsp", name="salt"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tsp", name="black pepper"),
-        MeasurementRegistry.get_measurement(amount=0.5, unit="tsp", name="paprika"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tbsp", name="butter"),
-        MeasurementRegistry.get_measurement(amount=4.0, unit="cloves", name="garlic, finely chopped"),
-        MeasurementRegistry.get_measurement(amount=4.0, unit="tbsp", name="honey"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp", name="water"),
-        MeasurementRegistry.get_measurement(amount=2.0, unit="tsp", name="soy sauce"),
-        MeasurementRegistry.get_measurement(amount=1.0, unit="tbsp", name="fresh lemon juice"),
-        MeasurementRegistry.get_measurement(amount=4.0, unit="lemon", name="wedges to garnish"),
+        MeasurementRegistry.get_measurement(amount=4, unit="salmon", name="fillets, 250 g each"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp", name="salt"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp", name="black pepper"),
+        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp", name="paprika"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tbsp", name="butter"),
+        MeasurementRegistry.get_measurement(amount=4, unit="cloves", name="garlic, finely chopped"),
+        MeasurementRegistry.get_measurement(amount=4, unit="tbsp", name="honey"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp", name="water"),
+        MeasurementRegistry.get_measurement(amount=2, unit="tsp", name="soy sauce"),
+        MeasurementRegistry.get_measurement(amount=1, unit="tbsp", name="fresh lemon juice"),
+        MeasurementRegistry.get_measurement(amount=4, unit="lemon", name="wedges to garnish"),
     )
     instructions: tuple[str, ...] = (
         "Move oven shelf to middle. Preheat to broil/grill settings on medium heat. Season salmon with salt, pepper, paprika. Set aside.",
