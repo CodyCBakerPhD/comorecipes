@@ -1,4 +1,8 @@
-# Black Bean Chili (American)
+# Black Bean Chili
+
+Tags: American
+
+
 
 ## Ingredients
 

@@ -1,4 +1,8 @@
-# Buttermilk Waffles (American)
+# Buttermilk Waffles
+
+Tags: American
+
+
 
 ## Ingredients
 

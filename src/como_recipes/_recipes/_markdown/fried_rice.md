@@ -1,4 +1,8 @@
-# Fried Rice (Asian)
+# Fried Rice
+
+Tags: Asian
+
+
 
 ## Ingredients
 

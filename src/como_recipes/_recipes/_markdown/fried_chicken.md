@@ -1,4 +1,8 @@
-# Fried Chicken (American)
+# Fried Chicken
+
+Tags: American
+
+
 
 ## Ingredients
 

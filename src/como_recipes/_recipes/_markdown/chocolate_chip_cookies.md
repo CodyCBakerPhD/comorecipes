@@ -1,4 +1,8 @@
-# Chocolate Chip Cookies (American)
+# Chocolate Chip Cookies
+
+Tags: American
+
+
 
 ## Ingredients
 

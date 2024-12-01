@@ -1,4 +1,8 @@
-# Baked Potato (American)
+# Baked Potato
+
+Tags: American
+
+
 
 ## Ingredients
 

@@ -1,4 +1,8 @@
-# Green Chili (Mexican)
+# Green Chili
+
+Tags: Mexican
+
+
 
 ## Ingredients
 

@@ -1,5 +1,9 @@
 # Carnitas (Mexican)
 
+Tags: Mexican
+
+
+
 ## Ingredients
 
 1 lb. pork shoulder

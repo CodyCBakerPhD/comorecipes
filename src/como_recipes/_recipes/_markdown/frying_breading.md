@@ -1,4 +1,8 @@
-# Frying Breading (American)
+# Frying Breading
+
+Tags: American
+
+
 
 ## Ingredients
 

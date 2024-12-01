@@ -1,4 +1,8 @@
-# Doughnuts (American)
+# Doughnuts
+
+Tags: American
+
+
 
 ## Ingredients
 

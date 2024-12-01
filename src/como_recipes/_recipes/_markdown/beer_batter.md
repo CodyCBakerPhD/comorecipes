@@ -1,4 +1,8 @@
-# Beer Batter (American)
+# Beer Batter
+
+Tags: American
+
+
 
 ## Ingredients
 

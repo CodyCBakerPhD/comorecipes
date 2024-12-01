@@ -1,4 +1,8 @@
-# Honey Garlic Salmon (American)
+# Honey Garlic Salmon
+
+Tags: American
+
+
 
 ## Ingredients
 
