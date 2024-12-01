@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class PotatoesAuGratin(Recipe):
     name: str = "Potatoes Au Gratin"
-    tags: tuple[str, ...] = "French"
+    tags: tuple[str, ...] = ("French",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=4, unit="russet", name="potatoes"),
         MeasurementRegistry.get_measurement(amount=1, unit="onion", name=""),

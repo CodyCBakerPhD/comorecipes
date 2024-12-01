@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class ChocolateChipCookies(Recipe):
     name: str = "Chocolate Chip Cookies"
-    tags: tuple[str, ...] = "American"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1, unit="cup", name="room-temperature butter"),
         MeasurementRegistry.get_measurement(amount=1, unit="cup", name="sugar"),

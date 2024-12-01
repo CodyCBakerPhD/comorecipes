@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class BrownieIcing(Recipe):
     name: str = "Brownie Icing"
-    tags: tuple[str, ...] = "American"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="sifted Dutch cocoa"),
         MeasurementRegistry.get_measurement(amount=3 / 2, unit="tbsp.", name="butter"),

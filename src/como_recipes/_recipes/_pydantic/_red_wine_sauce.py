@@ -6,7 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class RedWineSauce(Recipe):
     name: str = "Red Wine Sauce"
-    tags: tuple[str, ...] = "Italian"
+    tags: tuple[str, ...] = ("Italian",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="olive oil"),
         MeasurementRegistry.get_measurement(amount=2, unit="cloves", name="garlic"),

@@ -106,7 +106,8 @@ class Recipe(pydantic.BaseModel):
         python_text += f'{indent}name: str = "{self.name}"\n'
 
         if self.tags is not None:
-            python_text += f"{indent}tags: tuple[str, ...] = (" + ", ".join(f'"{tag}"' for tag in self.tags) + ")\n"
+            python_text += f"{indent}tags: tuple[str, ...] = (" + ", ".join(f'"{tag}"' for tag in self.tags)
+            python_text += ",)\n" if len(self.tags) == 1 else ")\n"
 
         python_text += f"{indent}measurements: tuple[Measurement, ...] = (\n"
         for measurement in self.measurements:
