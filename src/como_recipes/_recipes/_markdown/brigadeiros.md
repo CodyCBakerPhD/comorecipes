@@ -1,4 +1,8 @@
-# Brigadeiros (Brazilian)
+# Brigadeiros
+
+Tags: Brazilian
+
+
 
 ## Ingredients
 

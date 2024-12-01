@@ -1,4 +1,8 @@
-# Fried Not-Chicken (American)
+# Fried Not Chicken
+
+Tags: American
+
+
 
 ## Ingredients
 

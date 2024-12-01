@@ -1,4 +1,8 @@
-# Kale Soup (American)
+# Kale Soup
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -25,6 +29,7 @@
 2 tbsp. dried parsley
 
 1 tsp. Salt and pepper
+
 
 
 ## Instructions

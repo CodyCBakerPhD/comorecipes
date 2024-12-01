@@ -1,7 +1,10 @@
-# Fettuccine Alfredo (Italian)
+# Fettuccine Alfredo
+
+Tags: Italian
+
+
 
 ## Ingredients
-
 
 3 eggs worth of fettuccine noodles
 

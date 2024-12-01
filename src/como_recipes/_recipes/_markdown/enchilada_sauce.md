@@ -1,4 +1,8 @@
-# Enchilada Sauce (Mexican)
+# Enchilada Sauce
+
+Tags: Mexican
+
+
 
 ## Ingredients
 

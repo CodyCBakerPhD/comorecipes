@@ -1,4 +1,6 @@
-# Butter Pie Crust (American)
+# Butter Pie Crust
+
+Tags: American
 
 
 
@@ -6,7 +8,7 @@
 
 2 tsp. sugar
 
-10/4 cup flour
+5/2 cup flour
 
 1/4 tsp. salt
 

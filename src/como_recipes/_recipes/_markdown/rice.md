@@ -1,4 +1,8 @@
-# Rice (American)
+# Rice
+
+Tags: American
+
+
 
 ## Ingredients
 

@@ -1,4 +1,8 @@
-# Tamari Sauce (Asian)
+# Tamari Sauce
+
+Tags: Asian
+
+
 
 ## Ingredients
 
@@ -8,23 +12,23 @@
 
 2 cloves garlic, minced
 
-1.5 tbsp. tamari
+3/2 tbsp. tamari
 
 1 tbsp. rice vinegar
 
-0.75 tbsp. maple syrup
+3/4 tbsp. maple syrup
 
-0.5 cup water
+1/2 cup water
 
-0.5 tbsp. cornstarch
+1/2 tbsp. cornstarch
 
-0.25 tsp. salt
+1/4 tsp. salt
 
-0.25 tsp. pepper
+1/4 tsp. pepper
 
-0.25 tsp. red pepper flakes
+1/4 tsp. red pepper flakes
 
-0.25 tsp. paprika
+1/4 tsp. paprika
 
 
 

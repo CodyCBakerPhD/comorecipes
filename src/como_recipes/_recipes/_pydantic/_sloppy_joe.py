@@ -4,8 +4,9 @@ from ..._measurement_registration import MeasurementRegistry
 from ..._recipe_registration import default_recipe_registry
 
 
-class SloppyJoes(Recipe):
-    name: str = "Sloppy Joes"
+class SloppyJoe(Recipe):
+    name: str = "Sloppy Joe"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1, unit="batch", name="of Kaiser Rolls"),
         MeasurementRegistry.get_measurement(amount=1, unit="lb", name="ground beef or Boca crumbles"),
@@ -20,4 +21,4 @@ class SloppyJoes(Recipe):
     instructions: tuple[str, ...] = ("Brown meat. Mix spices. Simmer until good consistency.",)
 
 
-default_recipe_registry.add_recipe(recipe=SloppyJoes())
+default_recipe_registry.add_recipe(recipe=SloppyJoe())

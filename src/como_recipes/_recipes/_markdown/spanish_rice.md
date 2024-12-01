@@ -1,4 +1,8 @@
-# Spanish Rice (Mexican)
+# Spanish Rice
+
+Tags: Mexican
+
+
 
 ## Ingredients
 
@@ -17,6 +21,7 @@
 2 sprigs of thyme
 
 1 tbsp. parsley
+
 
 
 ## Instructions

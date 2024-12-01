@@ -1,7 +1,10 @@
-# Taco Seasoning (American)
+# Taco Seasoning
+
+Tags: American
+
+
 
 ## Ingredients
-
 
 1/4  tsp. garlic powder
 

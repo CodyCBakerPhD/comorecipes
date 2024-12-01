@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class RoastPumpkin(Recipe):
     name: str = "Roast Pumpkin"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=5 / 2, unit="lb", name="sugar pumpkin"),
         MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="coconut oil"),

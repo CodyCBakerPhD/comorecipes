@@ -1,4 +1,8 @@
-# Macaroni and Cheese (American)
+# Macaroni And Cheese
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -19,6 +23,7 @@
 1/8 tsp. paprika
 
 
+
 ## Instructions
 
 Cook pasta ahead of time. Cut 75% of cheese into small cubes or shred. Shred remaining 25%.
@@ -26,6 +31,7 @@ Cook pasta ahead of time. Cut 75% of cheese into small cubes or shred. Shred rem
 Melt butter and slowly whisk in flour. Do not cook too much.
 
 Slowly whisk in milk or cream. When mixture is warm, thoroughly melt 75% of cheese.
+
 Season.
 
 Mix pasta into mixture. Layer into dish, sprinkling remaining 25% of cheese across layers, leaving some for the top.

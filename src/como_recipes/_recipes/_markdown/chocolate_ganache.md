@@ -1,4 +1,8 @@
-# Chocolate Ganache (American)
+# Chocolate Ganache
+
+Tags: American
+
+
 
 ## Ingredients
 

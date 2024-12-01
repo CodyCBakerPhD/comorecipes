@@ -1,4 +1,8 @@
-# Pizza Crust (American)
+# Pizza Crust
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -11,6 +15,7 @@
 9 oz. flour
 
 1 tsp. salt
+
 
 
 ## Instructions

@@ -1,10 +1,14 @@
-# Broccoli Cheddar Soup (American)
+# Broccoli Cheddar Soup
+
+Tags: American
+
+
 
 ## Ingredients
 
 1/4 cup butter
 
-1/2 onion
+1/2 large onion
 
 8 oz. broccoli
 
@@ -19,6 +23,8 @@
 1/8 cup cornstarch
 
 1/2 cup water
+
+
 
 ## Instructions
 

@@ -1,5 +1,9 @@
 # Mochi Donuts
 
+Tags: Dessert, Breakfast
+
+
+
 ## Ingredients
 
 150 grams mochiko

@@ -1,4 +1,8 @@
-# Stir Fry (Asian)
+# Stir Fry
+
+Tags: Asian
+
+
 
 ## Ingredients
 
@@ -35,6 +39,7 @@
 ## Instructions
 
 Meat: cut into thin strips and fry in separate pan without onions/garlic
+
 Tofu: get extra-firm and deep fry covered in cornstarch
 
 In main woc, fry vegetables in order of cooking time (roughly given in order of ingredients). Add sauce and garnish with meat or tofu.

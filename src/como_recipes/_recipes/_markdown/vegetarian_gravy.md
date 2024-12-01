@@ -1,4 +1,8 @@
-# Vegetarian Gravy (American)
+# Vegetarian Gravy
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -13,6 +17,7 @@
 5/4 tsp. salt and pepper
 
 1/6 tsp. paprika
+
 
 
 ## Instructions

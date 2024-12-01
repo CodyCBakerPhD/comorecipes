@@ -1,4 +1,8 @@
-# Jerk Rub (Jamaican)
+# Jerk Rub
+
+Tags: Jamaican
+
+
 
 ## Ingredients
 
@@ -13,6 +17,7 @@
 1/4 tsp. salt and pepper
 
 1 tbsp. olive oil
+
 
 
 ## Instructions

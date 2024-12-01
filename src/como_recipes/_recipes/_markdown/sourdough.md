@@ -1,4 +1,8 @@
-# Sourdough (American)
+# Sourdough
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -9,6 +13,7 @@
 60 g. yeast start
 
 200 g. water
+
 
 
 ## Instructions

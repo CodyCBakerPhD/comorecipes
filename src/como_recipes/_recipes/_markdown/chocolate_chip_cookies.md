@@ -1,4 +1,8 @@
-# Chocolate Chip Cookies (American)
+# Chocolate Chip Cookies
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -8,7 +12,7 @@
 
 1 cup brown sugar
 
-2 eggs
+2 large egg
 
 2 tsp. vanilla
 

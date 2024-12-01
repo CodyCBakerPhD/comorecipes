@@ -5,7 +5,8 @@ from ..._recipe_registration import default_recipe_registry
 
 
 class FriedNotChicken(Recipe):
-    name: str = "Fried Not-Chicken"
+    name: str = "Fried Not Chicken"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1 / 4, unit="serving", name="of Frying Breading"),
         MeasurementRegistry.get_measurement(amount=4, unit="individual", name="not-chicken tenders"),

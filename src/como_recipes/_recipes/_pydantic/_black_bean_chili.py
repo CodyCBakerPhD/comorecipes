@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class BlackBeanChili(Recipe):
     name: str = "Black Bean Chili"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=4, unit="cloves", name="garlic"),
         MeasurementRegistry.get_measurement(amount=1 / 3, unit="white", name="onion, minced"),

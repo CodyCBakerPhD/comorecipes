@@ -1,4 +1,8 @@
-# Mirror Glaze (Vegetarian)
+# Mirror Glaze
+
+Tags: Vegetarian, Dessert
+
+
 
 ## Ingredients
 
@@ -13,6 +17,7 @@
 200 g condensed milk
 
 300 g white chocolate
+
 
 
 ## Instructions

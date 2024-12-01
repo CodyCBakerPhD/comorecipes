@@ -1,4 +1,8 @@
-# Red Beans (American)
+# Red Beans
+
+Tags: American
+
+
 
 ## Ingredients
 

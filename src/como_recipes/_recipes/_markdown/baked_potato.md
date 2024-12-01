@@ -1,4 +1,8 @@
-# Baked Potato (American)
+# Baked Potato
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -7,6 +11,7 @@
 1 tsp. olive oil
 
 1/4 tsp. large-grain salt
+
 
 
 ## Instructions

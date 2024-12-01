@@ -1,4 +1,8 @@
-# Banana Bread (American)
+# Banana Bread
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -6,7 +10,7 @@
 
 1/8 cup sugar
 
-1 egg
+1 large egg
 
 1 ripe banana
 
@@ -15,6 +19,7 @@
 1/2 tsp. baking soda
 
 1/2 cup flour
+
 
 
 ## Instructions

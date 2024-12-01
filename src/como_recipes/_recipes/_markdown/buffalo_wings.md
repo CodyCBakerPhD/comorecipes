@@ -1,4 +1,8 @@
-# Buffalo Wings (American)
+# Buffalo Wings
+
+Tags: American
+
+
 
 ## Ingredients
 

@@ -88,6 +88,7 @@ def test_example_1_repr():
     expected_repr = (
         "Recipe(\n"
         '\tname="Example Recipe 1",\n'
+        "\ttags=('Italian', 'Pasta', 'Entree', 'Vegetarian'),\n"
         "\tmeasurements=(\n"
         '\t\tMeasurement(amount=31/10, unit="tbsp.", ingredient=Ingredient(name="ingredient 1")),\n'
         '\t\tMeasurement(amount=4, unit="g", ingredient=Ingredient(name="ingredient 2")),\n'

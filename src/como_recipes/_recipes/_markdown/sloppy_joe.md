@@ -1,4 +1,8 @@
-# Sloppy Joes (American)
+# Sloppy Joe
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -19,6 +23,7 @@
 1/2 tbsp. molasses
 
 1/4 tsp. salt and pepper
+
 
 
 ## Instructions

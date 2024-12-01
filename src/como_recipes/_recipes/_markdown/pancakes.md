@@ -1,4 +1,8 @@
-# Pancakes (American)
+# Pancakes
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -17,7 +21,6 @@
 2  tbsp. butter
 
 1  cup buttermilk
-
 
 
 

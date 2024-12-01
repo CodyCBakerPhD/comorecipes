@@ -1,4 +1,8 @@
-# Cobbler Topping (American)
+# Cobbler Topping
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -8,7 +12,7 @@
 
 1/6 cup brown sugar
 
-1 egg
+1 large egg
 
 1/4 tsp. vanilla
 

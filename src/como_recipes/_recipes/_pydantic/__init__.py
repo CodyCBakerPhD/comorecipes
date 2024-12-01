@@ -12,8 +12,8 @@ from ._stir_fry import StirFry
 from ._spanish_rice import SpanishRice
 from ._spaghetti_squash import SpaghettiSquash
 from ._sourdough import Sourdough
-from ._slowcooked_ribs import SlowCookedRibs
-from ._sloppy_joes import SloppyJoes
+from ._slow_cooked_ribs import SlowCookedRibs
+from ._sloppy_joe import SloppyJoe
 from ._simple_caramel import SimpleCaramel
 from ._shortening_pie_crust import ShorteningPieCrust
 from ._shortbread import Shortbread
@@ -33,7 +33,7 @@ from ._pancakes import Pancakes
 from ._nutella_bites import NutellaBites
 from ._mochi_donuts import MochiDonuts
 from ._mirror_glaze import MirrorGlaze
-from ._millionaire_shortbread import MillionareShortbread
+from ._millionaire_shortbread import MillionaireShortbread
 from ._macaroni_and_cheese import MacaroniAndCheese
 from ._key_lime_filling import KeyLimeFilling
 from ._kale_soup import KaleSoup
@@ -61,7 +61,7 @@ from ._collard_greens import CollardGreens
 from ._cobbler_topping import CobblerTopping
 from ._chocolate_ganache import ChocolateGanache
 from ._chocolate_fudge import ChocolateFudge
-from ._chocolate_doughtnut_icing import ChocolateDoughnutIcing
+from ._chocolate_doughnut_icing import ChocolateDoughnutIcing
 from ._chocolate_dome_cake import ChocolateDomeCake
 from ._chocolate_chip_cookies import ChocolateChipCookies
 from ._chocolate_cake import ChocolateCake

@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class BechamelSauce(Recipe):
     name: str = "Bechamel Sauce"
+    tags: tuple[str, ...] = ("European",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="butter"),
         MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="flour"),

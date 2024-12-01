@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class GrapeSalad(Recipe):
     name: str = "Grape Salad"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=8, unit="oz.", name="cream cheese, softened"),
         MeasurementRegistry.get_measurement(amount=8, unit="oz.", name="sour cream"),

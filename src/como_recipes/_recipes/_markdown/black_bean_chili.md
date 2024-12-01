@@ -1,4 +1,8 @@
-# Black Bean Chili (American)
+# Black Bean Chili
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -21,6 +25,7 @@
 1 can black beans
 
 1 tbsp peanut oil
+
 
 
 ## Instructions

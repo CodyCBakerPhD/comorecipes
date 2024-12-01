@@ -1,4 +1,8 @@
-# Cornbread (American)
+# Cornbread
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -6,7 +10,7 @@
 
 1/6 cup sugar
 
-1 egg
+1 large egg
 
 1/2 cup buttermilk
 

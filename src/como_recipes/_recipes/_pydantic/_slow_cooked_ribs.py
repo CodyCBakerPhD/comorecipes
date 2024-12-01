@@ -5,7 +5,8 @@ from ..._recipe_registration import default_recipe_registry
 
 
 class SlowCookedRibs(Recipe):
-    name: str = "Slow-Cooked Ribs"
+    name: str = "Slow Cooked Ribs"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1 / 3, unit="cup", name="premade Sweet Fire Rub (see recipe)"),
         MeasurementRegistry.get_measurement(amount=1 / 2, unit="rack", name="baby back ribs"),

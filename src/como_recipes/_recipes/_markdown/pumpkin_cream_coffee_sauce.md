@@ -1,4 +1,8 @@
-# Pumpkin Cream Coffee Sauce (American)
+# Pumpkin Cream Coffee Sauce
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -11,6 +15,8 @@
 1 tsp. pumpkin pie spice
 
 1 tsp. vanilla extract
+
+
 
 ## Instructions
 

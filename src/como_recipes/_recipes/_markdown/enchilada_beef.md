@@ -1,4 +1,8 @@
-# Enchilada Beef (Mexican)
+# Enchilada Beef
+
+Tags: Mexican
+
+
 
 ## Ingredients
 

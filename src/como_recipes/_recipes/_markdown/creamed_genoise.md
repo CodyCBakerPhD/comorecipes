@@ -1,14 +1,18 @@
-# Creamed Genoise (British)
+# Creamed Genoise
+
+Tags: British
+
+
 
 ## Ingredients
 
-187.5 g. butter, room temperature
+375/2 g. butter, room temperature
 
-187.5 g. sugar
+375/2 g. sugar
 
 3  beaten eggs, room temperature
 
-187.5 g. cake flour
+375/2 g. cake flour
 
 1  tsp. baking powder
 

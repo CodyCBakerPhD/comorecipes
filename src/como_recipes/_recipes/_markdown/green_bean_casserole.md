@@ -1,4 +1,8 @@
-# Green Bean Casserole (American)
+# Green Bean Casserole
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -11,6 +15,7 @@
 1/2 cup milk
 
 1/8 tsp pepper
+
 
 
 ## Instructions

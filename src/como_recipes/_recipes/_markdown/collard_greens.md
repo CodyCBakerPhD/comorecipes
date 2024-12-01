@@ -1,10 +1,14 @@
-# Collard Greens (American)
+# Collard Greens
+
+Tags: American
+
+
 
 ## Ingredients
 
 3 tbsp. olive oil
 
-1 onion
+1 large onion
 
 2 cloves garlic
 
@@ -13,7 +17,6 @@
 1 tsp. pepper
 
 3 cups chicken flavored vegetable broth
-
 
 1 pinch red pepper flakes
 

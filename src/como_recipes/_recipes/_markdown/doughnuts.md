@@ -1,4 +1,8 @@
-# Doughnuts (American)
+# Doughnuts
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -12,7 +16,7 @@
 
 1/2 tsp. salt
 
-1 eggs
+1 large egg
 
 1/6 cup shortening
 

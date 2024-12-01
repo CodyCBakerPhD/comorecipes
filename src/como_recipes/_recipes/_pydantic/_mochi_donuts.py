@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class MochiDonuts(Recipe):
     name: str = "Mochi Donuts"
+    tags: tuple[str, ...] = ("Dessert", "Breakfast")
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=150, unit="grams", name="mochiko"),
         MeasurementRegistry.get_measurement(amount=50, unit="grams", name="brown sugar"),

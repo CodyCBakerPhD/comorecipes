@@ -6,13 +6,14 @@ from ..._recipe_registration import default_recipe_registry
 
 class Doughnuts(Recipe):
     name: str = "Doughnuts"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1 / 8, unit="o.z", name="activate dry yeast"),
         MeasurementRegistry.get_measurement(amount=1 / 8, unit="cup", name="warm water"),
         MeasurementRegistry.get_measurement(amount=3 / 4, unit="cup", name="lukewarm milk"),
         MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="sugar"),
         MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=1, unit="eggs", name=""),
+        MeasurementRegistry.get_measurement(amount=1, unit="large", name="egg"),
         MeasurementRegistry.get_measurement(amount=1 / 6, unit="cup", name="shortening"),
         MeasurementRegistry.get_measurement(amount=5 / 2, unit="cups", name="all-purpose flour"),
         MeasurementRegistry.get_measurement(amount=1, unit="qt.", name="vegetable oil"),

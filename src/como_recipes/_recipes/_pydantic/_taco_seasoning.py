@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class TacoSeasoning(Recipe):
     name: str = "Taco Seasoning"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1 / 4, unit="", name="tsp. garlic powder"),
         MeasurementRegistry.get_measurement(amount=1 / 4, unit="", name="tsp. onion powder"),

@@ -1,8 +1,12 @@
-# Cabbage Rolls (Asian)
+# Cabbage Rolls
+
+Tags: Asian
+
+
 
 ## Ingredients
 
-1.25 cups white rice
+5/4 cups white rice
 
 1 large napa cabbage
 

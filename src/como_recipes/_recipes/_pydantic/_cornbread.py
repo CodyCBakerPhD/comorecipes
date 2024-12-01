@@ -6,10 +6,11 @@ from ..._recipe_registration import default_recipe_registry
 
 class Cornbread(Recipe):
     name: str = "Cornbread"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="butter"),
         MeasurementRegistry.get_measurement(amount=1 / 6, unit="cup", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=1, unit="egg", name=""),
+        MeasurementRegistry.get_measurement(amount=1, unit="large", name="egg"),
         MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="buttermilk"),
         MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="baking soda"),
         MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="cornmeal"),

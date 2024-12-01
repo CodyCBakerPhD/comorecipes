@@ -1,4 +1,8 @@
-# Carnitas (Mexican)
+# Carnitas
+
+Tags: Mexican
+
+
 
 ## Ingredients
 
@@ -17,6 +21,7 @@
 2 oranges, juiced
 
 2 cloves minced garlic
+
 
 
 ## Instructions

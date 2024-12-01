@@ -1,4 +1,8 @@
-# Spaghetti Squash (Italian)
+# Spaghetti Squash
+
+Tags: Italian
+
+
 
 ## Ingredients
 

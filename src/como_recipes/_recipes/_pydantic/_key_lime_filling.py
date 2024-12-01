@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class KeyLimeFilling(Recipe):
     name: str = "Key Lime Filling"
+    tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=28, unit="oz.", name="sweetened condensed milk"),
         MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="sour cream"),

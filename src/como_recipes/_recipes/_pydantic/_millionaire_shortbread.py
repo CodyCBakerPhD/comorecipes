@@ -4,8 +4,9 @@ from ..._measurement_registration import MeasurementRegistry
 from ..._recipe_registration import default_recipe_registry
 
 
-class MillionareShortbread(Recipe):
-    name: str = "Millionare Shortbread"
+class MillionaireShortbread(Recipe):
+    name: str = "Millionaire Shortbread"
+    tags: tuple[str, ...] = ("British", "Dessert")
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1, unit="recipes", name="worth of shortbread"),
         MeasurementRegistry.get_measurement(amount=1, unit="recipes", name="worth of simple caramel"),
@@ -18,4 +19,4 @@ class MillionareShortbread(Recipe):
     )
 
 
-default_recipe_registry.add_recipe(recipe=MillionareShortbread())
+default_recipe_registry.add_recipe(recipe=MillionaireShortbread())

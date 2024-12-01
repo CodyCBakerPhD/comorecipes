@@ -1,4 +1,8 @@
-# Honey Garlic Salmon (American)
+# Honey Garlic Salmon
+
+Tags: American
+
+
 
 ## Ingredients
 
@@ -23,6 +27,7 @@
 1 tbsp fresh lemon juice
 
 4 lemon wedges to garnish
+
 
 
 ## Instructions

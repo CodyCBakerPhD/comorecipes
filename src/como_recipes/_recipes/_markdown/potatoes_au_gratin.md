@@ -1,10 +1,14 @@
-# Potatoes Au Gratin (French)
+# Potatoes Au Gratin
+
+Tags: French
+
+
 
 ## Ingredients
 
 4 russet potatoes
 
-1 onion
+1 large onion
 
 1 tsp. salt and pepper
 
