@@ -6,7 +6,6 @@ Tags: American
 
 ## Ingredients
 
-
 1/4  tsp. garlic powder
 
 1/4  tsp. onion powder

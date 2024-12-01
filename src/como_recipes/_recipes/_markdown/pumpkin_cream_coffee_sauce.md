@@ -16,6 +16,8 @@ Tags: American
 
 1 tsp. vanilla extract
 
+
+
 ## Instructions
 
 Combine heavy cream, sugar, pumpkin puree and pumpkin spice in a saucepan. Whisk over medium heat until sugar is dissolved and cream mixture begins to steam.

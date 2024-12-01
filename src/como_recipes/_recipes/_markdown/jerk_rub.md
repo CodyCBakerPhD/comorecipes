@@ -19,6 +19,7 @@ Tags: Jamaican
 1 tbsp. olive oil
 
 
+
 ## Instructions
 
 Mix dry ingredients and use oil to bind. For cooking with chicken, lather all sides and grill for 4-6 minutes on each side.

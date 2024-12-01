@@ -23,6 +23,7 @@ Tags: American
 1 tbsp. sour cream
 
 
+
 ## Instructions
 
 Preheat oven to 350 F. Cut plums in half and remove the pits. Coat baking pan with oil. Brush plums with oil, then sprinkle a thin layer of sugar on each. Bake for 20 minutes.

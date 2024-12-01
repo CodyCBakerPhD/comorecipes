@@ -1,4 +1,4 @@
-# Fried Not-Chicken
+# Fried Not Chicken
 
 Tags: American
 

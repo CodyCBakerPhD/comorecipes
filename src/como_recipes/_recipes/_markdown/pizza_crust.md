@@ -17,6 +17,7 @@ Tags: American
 1 tsp. salt
 
 
+
 ## Instructions
 
 Activate yeast. Mix in flour and salt until good consistency. Knead for 3 minutes. Place in oiled rising container. Set timer for 40 minutes and let rise in warm spot.

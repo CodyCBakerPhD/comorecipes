@@ -29,6 +29,7 @@ Tags: American
 4 lemon wedges to garnish
 
 
+
 ## Instructions
 
 Move oven shelf to middle. Preheat to broil/grill settings on medium heat. Season salmon with salt, pepper, paprika. Set aside.

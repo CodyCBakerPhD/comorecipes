@@ -15,6 +15,7 @@ Tags: Italian
 1/2 tsp. cream of tartar or lemon juice
 
 
+
 ## Instructions
 
 Combine sugar and water in a small saucepan over high heat, brushing down sides of pot as necessary with a pastry brush dipped in water.

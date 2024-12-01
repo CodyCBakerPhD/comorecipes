@@ -17,6 +17,7 @@ Tags: American
 1/4 cup cornstarch
 
 
+
 ## Instructions
 
 Place cherries into a saucepan over medium heat and cover. Heat cherries until they release their juices and simmer 10 to 15 minutes. Stir often.

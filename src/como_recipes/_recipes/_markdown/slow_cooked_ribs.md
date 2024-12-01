@@ -1,4 +1,4 @@
-# Slow-Cooked Ribs
+# Slow Cooked Ribs
 
 Tags: American
 

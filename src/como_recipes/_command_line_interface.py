@@ -25,6 +25,7 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pra
         message = "The 'como_recipes' module is not installed."
         raise ImportError(message)
     como_recipes_module = importlib.import_module(name="como_recipes")
+    default_recipes = como_recipes_module.default_recipe_registry
 
     pydantic_recipes_folder_path = pathlib.Path(__file__).parent / "_recipes" / "_pydantic"
     current_pydantic_recipe_file_paths = tuple(
@@ -39,8 +40,8 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pra
         markdown_file_name = pydantic_recipe_file_path.name.removeprefix("_").replace(".py", ".md")
         markdown_recipe_file_path = pydantic_recipe_file_path.parent.parent / "_markdown" / markdown_file_name
 
-        camel_case_name = "".join(word.capitalize() for word in markdown_recipe_file_path.stem.split("_"))
-        recipe = getattr(como_recipes_module.recipes, camel_case_name, None)
+        camel_case_name = " ".join(word.capitalize() for word in markdown_recipe_file_path.stem.split("_"))
+        recipe = default_recipes.get_recipe(recipe_name=camel_case_name)
 
         if recipe is None:
             message = (

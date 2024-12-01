@@ -18,7 +18,6 @@ Tags: American
 
 3 cups chicken flavored vegetable broth
 
-
 1 pinch red pepper flakes
 
 1 lb. fresh collard greens

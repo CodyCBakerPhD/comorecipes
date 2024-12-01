@@ -6,7 +6,7 @@ Tags: American
 
 ## Ingredients
 
-2.75 cups sifted powdered sugar
+11/4 cups sifted powdered sugar
 
 6 tbsp. cocoa powder
 

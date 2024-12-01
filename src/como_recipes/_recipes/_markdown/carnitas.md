@@ -23,6 +23,7 @@ Tags: Mexican
 2 cloves minced garlic
 
 
+
 ## Instructions
 
 Brown pork with dry spices rubbed in. Slow cook in other ingredients for 6-8 hours on low in a small slow-cooker.

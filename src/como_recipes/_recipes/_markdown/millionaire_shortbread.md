@@ -1,4 +1,4 @@
-# Millionare Shortbread
+# Millionaire Shortbread
 
 Tags: British, Dessert
 
@@ -11,6 +11,7 @@ Tags: British, Dessert
 1 recipes worth of simple caramel
 
 1 recipes worth of chocolate ganache
+
 
 
 ## Instructions

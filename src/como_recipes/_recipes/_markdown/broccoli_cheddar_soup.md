@@ -24,6 +24,8 @@ Tags: American
 
 1/2 cup water
 
+
+
 ## Instructions
 
 In pot, melt butter over medium heat. Cook onion until softened. Stir in broccoli and cover with not-chicken broth. Simmer until tender, 10-15 minutes.

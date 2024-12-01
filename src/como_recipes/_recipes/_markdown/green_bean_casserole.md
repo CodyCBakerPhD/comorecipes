@@ -17,6 +17,7 @@ Tags: American
 1/8 tsp pepper
 
 
+
 ## Instructions
 
 Drain green beans. Mix soup, milk, pepper in a bowl. Add beans and mix together. Add half of the onions, give a quick stir.

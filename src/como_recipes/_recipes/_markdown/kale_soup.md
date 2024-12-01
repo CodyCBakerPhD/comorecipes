@@ -31,6 +31,7 @@ Tags: American
 1 tsp. Salt and pepper
 
 
+
 ## Instructions
 
 Heat olive oil in a large soup pot. Cook the onion and garlic until soft. Stir in the kale and cook until wilted (about 2 minutes).

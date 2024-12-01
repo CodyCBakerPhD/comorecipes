@@ -13,6 +13,7 @@ Tags: American
 1/4 tsp. large-grain salt
 
 
+
 ## Instructions
 
 Use aluminum foil for easy cleanup.

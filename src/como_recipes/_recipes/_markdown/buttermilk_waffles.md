@@ -6,7 +6,7 @@ Tags: American
 
 ## Ingredients
 
-2.5 tbsp. melted and cooled butter
+5/2 tbsp. melted and cooled butter
 
 1 large egg
 
