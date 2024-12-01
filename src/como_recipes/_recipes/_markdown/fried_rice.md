@@ -6,27 +6,27 @@ Tags: Asian
 
 ## Ingredients
 
-1 serving of chilled rice
+1 servingof chilled rice
 
-1 serving fried tofu
+1 servingfried tofu
 
 2 eggs
 
-3 tbsp. butter
+3 tbsp.butter
 
-3 cloves garlic
+3 clovesgarlic
 
-1 small white onion
+1 smallwhite onion
 
-1 large carrot
+1 largecarrot
 
-1 package Shitake mushrooms
+1 packageShitake mushrooms
 
-1/2 cup frozen or fresh peas
+1/2 cupfrozen or fresh peas
 
-4 tbsp. soy sauce
+4 tbsp.soy sauce
 
-1 tsp. sesame oil
+1 tsp.sesame oil
 
 
 

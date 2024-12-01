@@ -6,17 +6,17 @@ Tags: American
 
 ## Ingredients
 
-2 tsp. sugar
+2 tsp.sugar
 
-5/2 cup flour
+5/2 cupflour
 
-1/4 tsp. salt
+1/4 tsp.salt
 
-1 cup cold butter
+1 cupcold butter
 
-1/2 cup ice water
+1/2 cupice water
 
-1 egg yolk with a little water
+1 eggyolk with a little water
 
 
 

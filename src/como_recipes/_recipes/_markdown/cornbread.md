@@ -6,21 +6,21 @@ Tags: American
 
 ## Ingredients
 
-1/4 cup butter
+1/4 cupbutter
 
-1/6 cup sugar
+1/6 cupsugar
 
-1 egg
+1 largeegg
 
-1/2 cup buttermilk
+1/2 cupbuttermilk
 
-1/4 tsp. baking soda
+1/4 tsp.baking soda
 
-1/2 cup cornmeal
+1/2 cupcornmeal
 
-1/2 cup flour
+1/2 cupflour
 
-1/4 tsp. salt
+1/4 tsp.salt
 
 
 

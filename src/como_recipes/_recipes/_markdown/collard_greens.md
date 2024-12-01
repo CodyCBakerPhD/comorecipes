@@ -6,21 +6,21 @@ Tags: American
 
 ## Ingredients
 
-3 tbsp. olive oil
+3 tbsp.olive oil
 
-1 onion
+1 largeonion
 
-2 cloves garlic
+2 clovesgarlic
 
-1 tsp. salt
+1 tsp.salt
 
-1 tsp. pepper
+1 tsp.pepper
 
-3 cups chicken flavored vegetable broth
+3 cupschicken flavored vegetable broth
 
-1 pinch red pepper flakes
+1 pinchred pepper flakes
 
-1 lb. fresh collard greens
+1 lb.fresh collard greens
 
 
 

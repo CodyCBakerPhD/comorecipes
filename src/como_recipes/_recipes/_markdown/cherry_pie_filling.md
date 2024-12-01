@@ -6,15 +6,15 @@ Tags: American
 
 ## Ingredients
 
-1 pie crust
+1 piecrust
 
-4 cups fresh tart cherries or
+4 cupsfresh tart cherries or
 
-6 cups frozen tart cherries
+6 cupsfrozen tart cherries
 
-1 cup sugar
+1 cupsugar
 
-1/4 cup cornstarch
+1/4 cupcornstarch
 
 
 

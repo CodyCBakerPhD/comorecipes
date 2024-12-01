@@ -6,27 +6,27 @@ Tags: Greek
 
 ## Ingredients
 
-1 lb. dry chickpeas
+1 lb.dry chickpeas
 
-1 small white onion
+1 smallwhite onion
 
-1/4 cup parsley
+1/4 cupparsley
 
-5 gloves garlic
+5 glovesgarlic
 
-3/2 tbsp. flour
+3/2 tbsp.flour
 
-7/4 tsp. salt
+7/4 tsp.salt
 
-2 tsp. cumin
+2 tsp.cumin
 
-1 tsp. coriander
+1 tsp.coriander
 
-1/4 tsp. pepper
+1/4 tsp.pepper
 
-1/4 tsp. cayenne
+1/4 tsp.cayenne
 
-1/8 tsp. cardamom
+1/8 tsp.cardamom
 
 
 

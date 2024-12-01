@@ -6,17 +6,17 @@ Tags: American
 
 ## Ingredients
 
-1 cup water
+1 cupwater
 
-1 tbsp. yeast
+1 tbsp.yeast
 
-1 tsp. sugar or honey
+1 tsp.sugar or honey
 
-1/6 cup vegetable oil
+1/6 cupvegetable oil
 
-1/2 tsp. salt
+1/2 tsp.salt
 
-2 cups flour
+2 cupsflour
 
 
 

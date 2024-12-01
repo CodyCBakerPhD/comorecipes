@@ -6,19 +6,19 @@ Tags: French
 
 ## Ingredients
 
-1 serving of piperade sauce
+1 servingof piperade sauce
 
-1 small eggplant, trimmed and thinly sliced
+1 smalleggplant, trimmed and thinly sliced
 
-1 zucchini, trimmed and thinly sliced
+1 zucchini,trimmed and thinly sliced
 
-1 yellow squash, trimmed and thinly sliced
+1 yellowsquash, trimmed and thinly sliced
 
-2 aloha peppers, trimmed and thinly sliced
+2 alohapeppers, trimmed and thinly sliced
 
-3 tbsp. olive oil
+3 tbsp.olive oil
 
-3 tbsp. mascarpone cheese
+3 tbsp.mascarpone cheese
 
 
 

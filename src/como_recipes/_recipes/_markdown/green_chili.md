@@ -6,27 +6,27 @@ Tags: Mexican
 
 ## Ingredients
 
-1 tbps. butter
+1 tbps.butter
 
-1 large white onion
+1 largewhite onion
 
-1 qt. of tomatoes
+1 qt.of tomatoes
 
-10 Anaheim chilis
+10 Anaheimchilis
 
-2 Jalepeno peppers
+2 Jalepenopeppers
 
-2 tsp. salt & pepper
+2 tsp.salt & pepper
 
-1/2 tbsp. powdered mustard
+1/2 tbsp.powdered mustard
 
-1 tsp. dried oregano
+1 tsp.dried oregano
 
-1 tsp. garlic powder
+1 tsp.garlic powder
 
-1/4 cup butter
+1/4 cupbutter
 
-1/4 cup flour
+1/4 cupflour
 
 
 

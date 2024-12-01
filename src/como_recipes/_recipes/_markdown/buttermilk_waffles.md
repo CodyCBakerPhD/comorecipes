@@ -6,25 +6,25 @@ Tags: American
 
 ## Ingredients
 
-5/2 tbsp. melted and cooled butter
+5/2 tbsp.melted and cooled butter
 
-1 large egg
+1 largeegg
 
-1/2 cup buttermilk
+1/2 cupbuttermilk
 
-1/3 tsp. vanilla extract
+1/3 tsp.vanilla extract
 
-1/2 cup all-purpose flour
+1/2 cupall-purpose flour
 
-2/3 tsp. baking powder
+2/3 tsp.baking powder
 
-1/3 tsp. baking soda
+1/3 tsp.baking soda
 
-1/3 tsp. sugar
+1/3 tsp.sugar
 
-1/6 tsp. salt
+1/6 tsp.salt
 
-1 tbsp. pearl sugar
+1 tbsp.pearl sugar
 
 
 

@@ -6,23 +6,23 @@ Tags: American
 
 ## Ingredients
 
-1/4 cup butter
+1/4 cupbutter
 
-1/2 onion
+1/2 largeonion
 
-8 oz. broccoli
+8 oz.broccoli
 
-7 oz. not-chicken broth
+7 oz.not-chicken broth
 
-8 oz. cheddar
+8 oz.cheddar
 
-1 cup milk
+1 cupmilk
 
-1/2 tbsp. garlic powder
+1/2 tbsp.garlic powder
 
-1/8 cup cornstarch
+1/8 cupcornstarch
 
-1/2 cup water
+1/2 cupwater
 
 
 

@@ -6,31 +6,31 @@ Tags: American
 
 ## Ingredients
 
-1/8 o.z activate dry yeast
+1/8 o.zactivate dry yeast
 
-1/8 cup warm water
+1/8 cupwarm water
 
-3/4 cup lukewarm milk
+3/4 cuplukewarm milk
 
-1/4 cup sugar
+1/4 cupsugar
 
-1/2 tsp. salt
+1/2 tsp.salt
 
-1 eggs
+1 largeegg
 
-1/6 cup shortening
+1/6 cupshortening
 
-5/2 cups all-purpose flour
+5/2 cupsall-purpose flour
 
-1 qt. vegetable oil
+1 qt.vegetable oil
 
-1/6 cup butter
+1/6 cupbutter
 
-1 cups powdered sugar
+1 cupspowdered sugar
 
-3/4 tsp. vanilla
+3/4 tsp.vanilla
 
-2 tbsp. hot water
+2 tbsp.hot water
 
 
 

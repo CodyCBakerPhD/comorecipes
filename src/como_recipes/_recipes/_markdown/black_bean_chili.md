@@ -6,25 +6,25 @@ Tags: American
 
 ## Ingredients
 
-4 cloves garlic
+4 clovesgarlic
 
-1/3 white onion, minced
+1/3 whiteonion, minced
 
-1 qt jar of canned garden tomatoes
+1 qtjar of canned garden tomatoes
 
-4 tbsp chili powder
+4 tbspchili powder
 
-2 tsp cumin
+2 tspcumin
 
-2 tsp oregano
+2 tsporegano
 
-1 tsp salt
+1 tspsalt
 
-1/2 tsp cayenne pepper
+1/2 tspcayenne pepper
 
-1 can black beans
+1 canblack beans
 
-1 tbsp peanut oil
+1 tbsppeanut oil
 
 
 

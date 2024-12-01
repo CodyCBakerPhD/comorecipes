@@ -6,29 +6,29 @@ Tags: American
 
 ## Ingredients
 
-1 cup flour
+1 cupflour
 
-1 cup sugar
+1 cupsugar
 
-3/8 cup cocoa powder
+3/8 cupcocoa powder
 
-1 tsp. baking powder
+1 tsp.baking powder
 
-3/4 tsp. baking soda
+3/4 tsp.baking soda
 
-1/2 tsp. salt
+1/2 tsp.salt
 
-1/2 tsp. espresso powder
+1/2 tsp.espresso powder
 
-1/2 cup milk
+1/2 cupmilk
 
-1/4 cup vegetable oil
+1/4 cupvegetable oil
 
-1 large egg
+1 largeegg
 
-1 tsp. vanilla
+1 tsp.vanilla
 
-1/2 cup boiling water
+1/2 cupboiling water
 
 
 

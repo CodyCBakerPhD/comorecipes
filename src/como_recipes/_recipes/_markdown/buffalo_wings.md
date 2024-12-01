@@ -6,15 +6,15 @@ Tags: American
 
 ## Ingredients
 
-8 separated chicken wings
+8 separatedchicken wings
 
-2 tsp. salt and pepper
+2 tsp.salt and pepper
 
-2 tbsp. butter
+2 tbsp.butter
 
-1 tbsp. white vinegar
+1 tbsp.white vinegar
 
-100 ml hot sauce of choice
+100 mlhot sauce of choice
 
 
 

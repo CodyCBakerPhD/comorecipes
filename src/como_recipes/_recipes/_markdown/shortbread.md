@@ -6,19 +6,19 @@ Tags: American
 
 ## Ingredients
 
-1 cup butter, room temperature
+1 cupbutter, room temperature
 
-1/3 cup sugar
+1/3 cupsugar
 
-1/3 cup brown sugar
+1/3 cupbrown sugar
 
-1 large egg yolk
+1 largeegg yolk
 
-3/4 tsp. vanilla extract
+3/4 tsp.vanilla extract
 
-1/4 tsp. salt
+1/4 tsp.salt
 
-9/4 cups flour
+9/4 cupsflour
 
 
 

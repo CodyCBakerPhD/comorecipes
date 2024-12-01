@@ -6,13 +6,13 @@ Tags: European
 
 ## Ingredients
 
-2 tbsp. butter
+2 tbsp.butter
 
-2 tbsp. flour
+2 tbsp.flour
 
-5/4 cup whole milk
+5/4 cupwhole milk
 
-1/2 tsp. salt and pepper
+1/2 tsp.salt and pepper
 
 
 

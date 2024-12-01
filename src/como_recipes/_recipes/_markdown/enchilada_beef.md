@@ -6,17 +6,17 @@ Tags: Mexican
 
 ## Ingredients
 
-24 oz. chuck roast
+24 oz.chuck roast
 
-3 tbsp. flour
+3 tbsp.flour
 
-2 tbsp. extra virgin olive oil
+2 tbsp.extra virgin olive oil
 
-1/2 tsp. black pepper
+1/2 tsp.black pepper
 
-1 cup water
+1 cupwater
 
-1 tbsp. beef concentrate
+1 tbsp.beef concentrate
 
 
 

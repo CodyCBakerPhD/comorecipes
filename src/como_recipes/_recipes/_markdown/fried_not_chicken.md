@@ -6,11 +6,11 @@ Tags: American
 
 ## Ingredients
 
-1/4 serving of Frying Breading
+1/4 servingof Frying Breading
 
-4 individual not-chicken tenders
+4 individualnot-chicken tenders
 
-2 cups buttermilk
+2 cupsbuttermilk
 
 
 

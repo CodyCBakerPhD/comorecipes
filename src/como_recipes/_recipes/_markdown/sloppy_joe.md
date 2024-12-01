@@ -6,23 +6,23 @@ Tags: American
 
 ## Ingredients
 
-1 batch of Kaiser Rolls
+1 batchof Kaiser Rolls
 
-1 lb ground beef or Boca crumbles
+1 lbground beef or Boca crumbles
 
-1/4 cup red onion
+1/4 cupred onion
 
-1/2 tsp. garlic powder
+1/2 tsp.garlic powder
 
-2 tsp. yellow mustard
+2 tsp.yellow mustard
 
-1/2 cup ketchup
+1/2 cupketchup
 
-3 tsp. brown sugar
+3 tsp.brown sugar
 
-1/2 tbsp. molasses
+1/2 tbsp.molasses
 
-1/4 tsp. salt and pepper
+1/4 tsp.salt and pepper
 
 
 

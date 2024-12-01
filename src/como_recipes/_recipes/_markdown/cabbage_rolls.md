@@ -6,31 +6,31 @@ Tags: Asian
 
 ## Ingredients
 
-5/4 cups white rice
+5/4 cupswhite rice
 
-1 large napa cabbage
+1 largenapa cabbage
 
-1 white onion
+1 whiteonion
 
-3/4 tbsp. ginger, minced
+3/4 tbsp.ginger, minced
 
-3 cloves garlic, minced
+3 clovesgarlic, minced
 
-1 minced carrot
+1 mincedcarrot
 
-2 minced peppers
+2 mincedpeppers
 
-8 minced shittake mushrooms
+8 mincedshittake mushrooms
 
-2 tbsp. tamari
+2 tbsp.tamari
 
-1/2 tsp. salt
+1/2 tsp.salt
 
-1/2 tsp. pepper
+1/2 tsp.pepper
 
-1/2 tsp. onion powder
+1/2 tsp.onion powder
 
-1/4 tsp. red pepper flakes
+1/4 tsp.red pepper flakes
 
 
 

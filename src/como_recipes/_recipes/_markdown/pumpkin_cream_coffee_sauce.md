@@ -6,15 +6,15 @@ Tags: American
 
 ## Ingredients
 
-1 cup heavy whipping cream
+1 cupheavy whipping cream
 
-1/2 cup granulated sugar
+1/2 cupgranulated sugar
 
-1 tbsp. pumpkin puree
+1 tbsp.pumpkin puree
 
-1 tsp. pumpkin pie spice
+1 tsp.pumpkin pie spice
 
-1 tsp. vanilla extract
+1 tsp.vanilla extract
 
 
 

@@ -6,17 +6,17 @@ Tags: Jamaican
 
 ## Ingredients
 
-1/2 tsp. garlic powder
+1/2 tsp.garlic powder
 
-1/2 tsp. cumin
+1/2 tsp.cumin
 
-1/4 tsp. coriander
+1/4 tsp.coriander
 
-1/4 tsp. paprika
+1/4 tsp.paprika
 
-1/4 tsp. salt and pepper
+1/4 tsp.salt and pepper
 
-1 tbsp. olive oil
+1 tbsp.olive oil
 
 
 

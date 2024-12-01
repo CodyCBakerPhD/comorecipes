@@ -6,17 +6,17 @@ Tags: American
 
 ## Ingredients
 
-1 lb. powdered sugar
+1 lb.powdered sugar
 
-1/2 cup dutch cocoa powder
+1/2 cupdutch cocoa powder
 
-1/2 cup butter
+1/2 cupbutter
 
-1/4 cup chocolate milk
+1/4 cupchocolate milk
 
-1 tbsp. vanilla
+1 tbsp.vanilla
 
-1/2 cup chopped walnuts or pecans, optional
+1/2 cupchopped walnuts or pecans, optional
 
 
 

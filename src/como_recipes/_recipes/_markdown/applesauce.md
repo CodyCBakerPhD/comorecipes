@@ -6,15 +6,15 @@ Tags: American
 
 ## Ingredients
 
-4 large apples
+4 largeapples
 
-3/4 cup water
+3/4 cupwater
 
-1/16 cup white sugar
+1/16 cupwhite sugar
 
-1/16 cup brown sugar
+1/16 cupbrown sugar
 
-1/2 tsp. ground cinnamon
+1/2 tsp.ground cinnamon
 
 
 

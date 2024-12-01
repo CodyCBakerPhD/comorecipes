@@ -6,23 +6,23 @@ Tags: American
 
 ## Ingredients
 
-4 large eggs
+4 largeeggs
 
-1 cup sugar
+1 cupsugar
 
-3/4 cup cake flour
+3/4 cupcake flour
 
-1 cup whipping cream
+1 cupwhipping cream
 
-5 oz. semi-sweet chocolate
+5 oz.semi-sweet chocolate
 
-7 oz. high-quality chocolate for coating
+7 oz.high-quality chocolate for coating
 
-1 1/2 cup raspberries
+1 1/2cup raspberries
 
-1/2 cup sugar
+1/2 cupsugar
 
-1/2 tsp. lime juice
+1/2 tsp.lime juice
 
 
 

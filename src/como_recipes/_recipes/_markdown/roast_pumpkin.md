@@ -6,9 +6,9 @@ Tags: American
 
 ## Ingredients
 
-5/2 lb sugar pumpkin
+5/2 lbsugar pumpkin
 
-1 tbsp. coconut oil
+1 tbsp.coconut oil
 
 
 

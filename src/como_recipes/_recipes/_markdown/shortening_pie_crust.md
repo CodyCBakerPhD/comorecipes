@@ -6,17 +6,17 @@ Tags: American
 
 ## Ingredients
 
-2 tsp. sugar
+2 tsp.sugar
 
-9/4 cup flour
+9/4 cupflour
 
-1/2 tsp. salt
+1/2 tsp.salt
 
-1 cup cold shortening
+1 cupcold shortening
 
-1/2 cup ice water
+1/2 cupice water
 
-1 egg yolk with a little water
+1 eggyolk with a little water
 
 
 

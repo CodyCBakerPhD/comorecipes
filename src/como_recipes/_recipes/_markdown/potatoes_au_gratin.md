@@ -6,19 +6,19 @@ Tags: French
 
 ## Ingredients
 
-4 russet potatoes
+4 russetpotatoes
 
-1 onion
+1 largeonion
 
-1 tsp. salt and pepper
+1 tsp.salt and pepper
 
-3 tbsp. butter
+3 tbsp.butter
 
-3 tbsp. flour
+3 tbsp.flour
 
-2 cups whole milk
+2 cupswhole milk
 
-3/2 cup cheddar
+3/2 cupcheddar
 
 
 

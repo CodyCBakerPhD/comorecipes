@@ -6,11 +6,11 @@ Tags: American
 
 ## Ingredients
 
-2 cups semi-sweet chocolate
+2 cupssemi-sweet chocolate
 
-1/2 cup heavy cream
+1/2 cupheavy cream
 
-1/2 tsp. vanilla extract
+1/2 tsp.vanilla extract
 
 
 

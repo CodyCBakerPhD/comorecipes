@@ -6,19 +6,19 @@ Tags: American
 
 ## Ingredients
 
-15 oz. fresh pumpkin puree
+15 oz.fresh pumpkin puree
 
-14 oz. condensed milk
+14 oz.condensed milk
 
 2 eggs
 
-1/2 tsp. ginger
+1/2 tsp.ginger
 
-1/2 tsp. nutmeg
+1/2 tsp.nutmeg
 
-1/2 tsp. salt
+1/2 tsp.salt
 
-1/2 pie crust
+1/2 piecrust
 
 
 

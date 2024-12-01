@@ -6,27 +6,27 @@ Tags: American
 
 ## Ingredients
 
-4 salmon fillets, 250 g each
+4 salmonfillets, 250 g each
 
-1/2 tsp salt
+1/2 tspsalt
 
-1/2 tsp black pepper
+1/2 tspblack pepper
 
-1/2 tsp paprika
+1/2 tsppaprika
 
-2 tbsp butter
+2 tbspbutter
 
-4 cloves garlic, finely chopped
+4 clovesgarlic, finely chopped
 
-4 tbsp honey
+4 tbsphoney
 
-1 tbsp water
+1 tbspwater
 
-2 tsp soy sauce
+2 tspsoy sauce
 
-1 tbsp fresh lemon juice
+1 tbspfresh lemon juice
 
-4 lemon wedges to garnish
+4 lemonwedges to garnish
 
 
 

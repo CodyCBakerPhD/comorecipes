@@ -6,19 +6,19 @@ Tags: British
 
 ## Ingredients
 
-375/2 g. butter, room temperature
+375/2 g.butter, room temperature
 
-375/2 g. sugar
+375/2 g.sugar
 
-3  beaten eggs, room temperature
+3 beaten eggs, room temperature
 
-375/2 g. cake flour
+375/2 g.cake flour
 
-1  tsp. baking powder
+1 tsp. baking powder
 
-25 ml. milk
+25 ml.milk
 
-1  tsp. vanilla extract
+1 tsp. vanilla extract
 
 
 

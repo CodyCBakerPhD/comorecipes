@@ -6,19 +6,19 @@ Tags: Italian
 
 ## Ingredients
 
-1 tbsp. olive oil
+1 tbsp.olive oil
 
-2 cloves garlic
+2 clovesgarlic
 
-3/4 cup red wine
+3/4 cupred wine
 
-1/4 cup water
+1/4 cupwater
 
-1 tsp. soy sauce
+1 tsp.soy sauce
 
-3 tbsp. butter
+3 tbsp.butter
 
-1 tbsp. parsley
+1 tbsp.parsley
 
 
 

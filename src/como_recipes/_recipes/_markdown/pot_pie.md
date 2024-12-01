@@ -6,37 +6,37 @@ Tags: American
 
 ## Ingredients
 
-1 full pie crust
+1 fullpie crust
 
-1 serving of firm tofu
+1 servingof firm tofu
 
-2 tbsp. butter
+2 tbsp.butter
 
-1/2 medium yellow onions, finely chopped
+1/2 mediumyellow onions, finely chopped
 
-2 medium carrots, peeled and finely chopped
+2 mediumcarrots, peeled and finely chopped
 
-1 small russet potato, peeled and diced
+1 smallrusset potato, peeled and diced
 
-2 tsp. salt and pepper
+2 tsp.salt and pepper
 
-1/4 cup flour
+1/4 cupflour
 
-1 cup not-chicken broth
+1 cupnot-chicken broth
 
-1 cup whole milk
+1 cupwhole milk
 
-1 cup green peas
+1 cupgreen peas
 
-1/4 cups thinly sliced chives
+1/4 cupsthinly sliced chives
 
-1/8 cup parsley
+1/8 cupparsley
 
-2 tbsp. white vinegar
+2 tbsp.white vinegar
 
-2 tsp. water
+2 tsp.water
 
-1 large egg yolk
+1 largeegg yolk
 
 
 

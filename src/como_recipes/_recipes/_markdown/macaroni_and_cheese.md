@@ -6,21 +6,21 @@ Tags: American
 
 ## Ingredients
 
-8 oz. elbow pasta
+8 oz.elbow pasta
 
-1/4 cup butter
+1/4 cupbutter
 
-1/4 cup flour
+1/4 cupflour
 
-2 cups of any combination between 2% milk (for thin consistency) and heavy cream (very thick texture)
+2 cupsof any combination between 2% milk (for thin consistency) and heavy cream (very thick texture)
 
-7 oz. English aged cheddar
+7 oz.English aged cheddar
 
-3/4 tsp. salt
+3/4 tsp.salt
 
-1/4 tsp. pepper
+1/4 tsp.pepper
 
-1/8 tsp. paprika
+1/8 tsp.paprika
 
 
 

@@ -6,29 +6,29 @@ Tags: American
 
 ## Ingredients
 
-2 tbsp. olive oil
+2 tbsp.olive oil
 
-1 yellow onion, chopped
+1 yellowonion, chopped
 
-2 tbsp. garlic, chopped
+2 tbsp.garlic, chopped
 
-1 bunch of kale, stems removed and leaves chopped
+1 bunchof kale, stems removed and leaves chopped
 
-8 cups water
+8 cupswater
 
-6 cubes of vegetable bouillon
+6 cubesof vegetable bouillon
 
-15 oz. stewed tomatoes
+15 oz.stewed tomatoes
 
-6 white potatoes, cubed
+6 whitepotatoes, cubed
 
-30 oz cannellini beans (two 15 oz. cans), drained
+30 ozcannellini beans (two 15 oz. cans), drained
 
-1 tbsp. Italian seasoning
+1 tbsp.Italian seasoning
 
-2 tbsp. dried parsley
+2 tbsp.dried parsley
 
-1 tsp. Salt and pepper
+1 tsp.Salt and pepper
 
 
 

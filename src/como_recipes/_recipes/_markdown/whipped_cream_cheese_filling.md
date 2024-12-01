@@ -6,13 +6,13 @@ Tags: American
 
 ## Ingredients
 
-1  cup heavy cream
+1 cup heavy cream
 
-1/2  cup powdered sugar
+1/2 cup powdered sugar
 
-3  oz cream cheese
+3 oz cream cheese
 
-1  tsp vanilla extract
+1 tsp vanilla extract
 
 
 

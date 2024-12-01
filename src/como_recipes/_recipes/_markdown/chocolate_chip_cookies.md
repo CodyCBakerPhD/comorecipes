@@ -6,25 +6,25 @@ Tags: American
 
 ## Ingredients
 
-1 cup room-temperature butter
+1 cuproom-temperature butter
 
-1 cup sugar
+1 cupsugar
 
-1 cup brown sugar
+1 cupbrown sugar
 
-2 eggs
+2 largeegg
 
-2 tsp. vanilla
+2 tsp.vanilla
 
-1 tsp. baking soda
+1 tsp.baking soda
 
-2 tsp. hot water
+2 tsp.hot water
 
-3 cup flour
+3 cupflour
 
-1/2 tsp. salt
+1/2 tsp.salt
 
-2 cups high-quality semi-sweet chocolate chips
+2 cupshigh-quality semi-sweet chocolate chips
 
 
 

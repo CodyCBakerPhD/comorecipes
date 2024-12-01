@@ -11,7 +11,7 @@ class ChocolateChipCookies(Recipe):
         MeasurementRegistry.get_measurement(amount=1, unit="cup", name="room-temperature butter"),
         MeasurementRegistry.get_measurement(amount=1, unit="cup", name="sugar"),
         MeasurementRegistry.get_measurement(amount=1, unit="cup", name="brown sugar"),
-        MeasurementRegistry.get_measurement(amount=2, unit="eggs", name=""),
+        MeasurementRegistry.get_measurement(amount=2, unit="large", name="egg"),
         MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="vanilla"),
         MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="baking soda"),
         MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="hot water"),

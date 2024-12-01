@@ -6,33 +6,33 @@ Tags: Asian
 
 ## Ingredients
 
-1 serving rice
+1 servingrice
 
-3 tbsp peanut oil
+3 tbsppeanut oil
 
-1 serving beef, chicken, pork, or shrimp
+1 servingbeef, chicken, pork, or shrimp
 
-1 serving tofu
+1 servingtofu
 
-1 serving shallots
+1 servingshallots
 
-1 serving garlic
+1 servinggarlic
 
-1 serving carrots
+1 servingcarrots
 
-1 serving broccoli
+1 servingbroccoli
 
-1 serving cauliflower
+1 servingcauliflower
 
-1 serving cabbage
+1 servingcabbage
 
-1 serving green beans
+1 servinggreen beans
 
-1 serving pea pods
+1 servingpea pods
 
-1 serving spinach
+1 servingspinach
 
-1 serving water chestnut
+1 servingwater chestnut
 
 
 

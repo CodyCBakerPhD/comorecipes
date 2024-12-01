@@ -6,17 +6,17 @@ Tags: Vegetarian, Dessert
 
 ## Ingredients
 
-20 g Agar Agar
+20 gAgar Agar
 
-170 mL water
+170 mLwater
 
-300 mL corn syrup
+300 mLcorn syrup
 
-150 g sugar
+150 gsugar
 
-200 g condensed milk
+200 gcondensed milk
 
-300 g white chocolate
+300 gwhite chocolate
 
 
 

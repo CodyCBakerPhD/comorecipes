@@ -6,15 +6,15 @@ Tags: American
 
 ## Ingredients
 
-1 cup water
+1 cupwater
 
-1 tbsp. yeast
+1 tbsp.yeast
 
-1 tsp. sugar or honey
+1 tsp.sugar or honey
 
-9 oz. flour
+9 oz.flour
 
-1 tsp. salt
+1 tsp.salt
 
 
 

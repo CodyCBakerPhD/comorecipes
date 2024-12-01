@@ -6,21 +6,21 @@ Tags: Mexican
 
 ## Ingredients
 
-1 lb. pork shoulder
+1 lb.pork shoulder
 
-1 tbsp. oregano
+1 tbsp.oregano
 
-2 tsp. cumin
+2 tsp.cumin
 
-1 tsp. chili powder
+1 tsp.chili powder
 
-1 tsp. flour
+1 tsp.flour
 
-1 tsp. salt and pepper
+1 tsp.salt and pepper
 
-2 oranges, juiced
+2 oranges,juiced
 
-2 cloves minced garlic
+2 clovesminced garlic
 
 
 

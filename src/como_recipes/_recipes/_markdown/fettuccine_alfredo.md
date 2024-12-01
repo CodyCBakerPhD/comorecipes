@@ -6,17 +6,17 @@ Tags: Italian
 
 ## Ingredients
 
-3 eggs worth of fettuccine noodles
+3 eggsworth of fettuccine noodles
 
-1/4 cup butter
+1/4 cupbutter
 
-1 cup heavy cream
+1 cupheavy cream
 
-3 cloves crushed garlic
+3 clovescrushed garlic
 
-1 1/2 cups freshly grated Parmesan
+1 1/2cups freshly grated Parmesan
 
-1/2 tbsp. fresh parsley
+1/2 tbsp.fresh parsley
 
 
 

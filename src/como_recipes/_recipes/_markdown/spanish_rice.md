@@ -6,21 +6,21 @@ Tags: Mexican
 
 ## Ingredients
 
-1 tbsp. butter
+1 tbsp.butter
 
 1 shallot
 
-2 cloves garlic
+2 clovesgarlic
 
-1 cup long grain brown rice
+1 cuplong grain brown rice
 
-1 tsp. salt and pepper
+1 tsp.salt and pepper
 
-5/2 cups not-chicken broth
+5/2 cupsnot-chicken broth
 
-2 sprigs of thyme
+2 sprigsof thyme
 
-1 tbsp. parsley
+1 tbsp.parsley
 
 
 

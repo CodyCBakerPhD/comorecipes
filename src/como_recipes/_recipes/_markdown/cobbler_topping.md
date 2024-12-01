@@ -6,21 +6,21 @@ Tags: American
 
 ## Ingredients
 
-1/3 cup butter
+1/3 cupbutter
 
-1/6 cup white sugar
+1/6 cupwhite sugar
 
-1/6 cup brown sugar
+1/6 cupbrown sugar
 
-1 egg
+1 largeegg
 
-1/4 tsp. vanilla
+1/4 tsp.vanilla
 
-1/4 cup flour
+1/4 cupflour
 
-1/8 tsp. baking powder
+1/8 tsp.baking powder
 
-1/8 tsp. salt
+1/8 tsp.salt
 
 
 

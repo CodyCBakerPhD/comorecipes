@@ -6,21 +6,21 @@ Tags: American
 
 ## Ingredients
 
-1 cup butter
+1 cupbutter
 
-3/2 cup sugar
+3/2 cupsugar
 
-8 egg yolks
+8 eggyolks
 
-3/4 cup milk
+3/4 cupmilk
 
-3/2 tsp. vanilla
+3/2 tsp.vanilla
 
-2 cups cake flour
+2 cupscake flour
 
-2 tsp. baking powder
+2 tsp.baking powder
 
-1/2 tsp. salt
+1/2 tsp.salt
 
 
 

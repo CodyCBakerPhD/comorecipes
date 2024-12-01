@@ -6,11 +6,11 @@ Tags: Italian
 
 ## Ingredients
 
-1 spaghetti squash
+1 spaghettisquash
 
-1 tbsp. olive oil
+1 tbsp.olive oil
 
-1 tsp. salt and pepper
+1 tsp.salt and pepper
 
 
 

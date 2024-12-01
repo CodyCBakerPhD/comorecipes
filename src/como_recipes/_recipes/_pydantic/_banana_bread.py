@@ -10,7 +10,7 @@ class BananaBread(Recipe):
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="butter"),
         MeasurementRegistry.get_measurement(amount=1 / 8, unit="cup", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=1, unit="egg", name=""),
+        MeasurementRegistry.get_measurement(amount=1, unit="large", name="egg"),
         MeasurementRegistry.get_measurement(amount=1, unit="ripe", name="banana"),
         MeasurementRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="of salt"),
         MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="baking soda"),

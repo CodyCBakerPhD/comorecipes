@@ -6,13 +6,13 @@ Tags: American
 
 ## Ingredients
 
-260 g. bread flour
+260 g.bread flour
 
-1 tsp. salt
+1 tsp.salt
 
-60 g. yeast start
+60 g.yeast start
 
-200 g. water
+200 g.water
 
 
 

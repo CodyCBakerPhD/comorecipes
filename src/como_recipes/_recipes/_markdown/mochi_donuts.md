@@ -6,21 +6,21 @@ Tags: Dessert, Breakfast
 
 ## Ingredients
 
-150 grams mochiko
+150 gramsmochiko
 
-50 grams brown sugar
+50 gramsbrown sugar
 
-1 tsp baking powder
+1 tspbaking powder
 
-1/4 tsp salt
+1/4 tspsalt
 
-50 grams melted butter
+50 gramsmelted butter
 
-1 large egg
+1 largeegg
 
-200 grams whole milk
+200 gramswhole milk
 
-1 tsp vanilla
+1 tspvanilla
 
 
 

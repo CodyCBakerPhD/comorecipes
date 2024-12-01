@@ -6,19 +6,19 @@ Tags: American
 
 ## Ingredients
 
-2/3 cup whole milk
+2/3 cupwhole milk
 
-5 tbsp. sugar
+5 tbsp.sugar
 
-7/4 tsp. yeast
+7/4 tsp.yeast
 
-2 eggs, room temperature
+2 eggs,room temperature
 
-11/4 cups flour
+11/4 cupsflour
 
-1 tsp. salt
+1 tsp.salt
 
-1/2 cup butter, room temperature
+1/2 cupbutter, room temperature
 
 
 

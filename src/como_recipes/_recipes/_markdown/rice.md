@@ -6,11 +6,11 @@ Tags: American
 
 ## Ingredients
 
-3/2 cups rice
+3/2 cupsrice
 
-2 cups water
+2 cupswater
 
-1 tbsp. butter
+1 tbsp.butter
 
 
 

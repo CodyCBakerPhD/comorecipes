@@ -6,23 +6,23 @@ Tags: Mexican
 
 ## Ingredients
 
-1/4 cup vegetable oil
+1/4 cupvegetable oil
 
-1/8 cup flour
+1/8 cupflour
 
-1/4 cup dark chili powder
+1/4 cupdark chili powder
 
-8 oz. can tomato sauce
+8 oz.can tomato sauce
 
-3/2 cups water
+3/2 cupswater
 
-1/4 tsp. cumin
+1/4 tsp.cumin
 
-1/4 tsp. garlic powder
+1/4 tsp.garlic powder
 
-1/4 tsp. onion powder
+1/4 tsp.onion powder
 
-1/8 tsp. salt
+1/8 tsp.salt
 
 
 

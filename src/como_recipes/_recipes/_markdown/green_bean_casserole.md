@@ -6,15 +6,15 @@ Tags: American
 
 ## Ingredients
 
-2 cans French-style green beans
+2 cansFrench-style green beans
 
-1 can cream of mushroom soup
+1 cancream of mushroom soup
 
-1 can French-fried onions
+1 canFrench-fried onions
 
-1/2 cup milk
+1/2 cupmilk
 
-1/8 tsp pepper
+1/8 tsppepper
 
 
 

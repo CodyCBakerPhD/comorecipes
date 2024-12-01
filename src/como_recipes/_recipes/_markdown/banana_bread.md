@@ -6,19 +6,19 @@ Tags: American
 
 ## Ingredients
 
-1/4 cup butter
+1/4 cupbutter
 
-1/8 cup sugar
+1/8 cupsugar
 
-1 egg
+1 largeegg
 
-1 ripe banana
+1 ripebanana
 
-1/8 tsp. of salt
+1/8 tsp.of salt
 
-1/2 tsp. baking soda
+1/2 tsp.baking soda
 
-1/2 cup flour
+1/2 cupflour
 
 
 

@@ -6,23 +6,23 @@ Tags: American
 
 ## Ingredients
 
-1/2 cup vegetable oil
+1/2 cupvegetable oil
 
-2/3 cup sugar
+2/3 cupsugar
 
-2 large eggs
+2 largeeggs
 
-1 tsp. vanilla
+1 tsp.vanilla
 
-1/4 tsp. baking powder
+1/4 tsp.baking powder
 
-1/3 cup cocoa powder
+1/3 cupcocoa powder
 
-1/4 tsp. salt
+1/4 tsp.salt
 
-1/2 cup flour
+1/2 cupflour
 
-3 tbsp. chocolate chips
+3 tbsp.chocolate chips
 
 
 

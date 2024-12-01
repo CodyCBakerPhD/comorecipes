@@ -6,17 +6,17 @@ Tags: American
 
 ## Ingredients
 
-2 cups flour
+2 cupsflour
 
-1/3 cup cornstarch
+1/3 cupcornstarch
 
-2 tsp. salt
+2 tsp.salt
 
-1 tsp. paprika
+1 tsp.paprika
 
-1 tbsp. baking powder
+1 tbsp.baking powder
 
-12 oz. beer
+12 oz.beer
 
 
 

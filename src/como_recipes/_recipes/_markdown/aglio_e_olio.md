@@ -6,21 +6,21 @@ Tags: Italian, Pasta, Vegetarian
 
 ## Ingredients
 
-2 qt. water
+2 qt.water
 
-1 tbsp. salt
+1 tbsp.salt
 
-1 lb. thin spaghetti
+1 lb.thin spaghetti
 
-1/3 cup olive oil
+1/3 cupolive oil
 
-8 large cloves of garlic
+8 largecloves of garlic
 
-2 tsp. crushed red pepper
+2 tsp.crushed red pepper
 
-1/4 cup parsley
+1/4 cupparsley
 
-1 cup fresh Parmesan
+1 cupfresh Parmesan
 
 
 

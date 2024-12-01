@@ -9,7 +9,7 @@ class CollardGreens(Recipe):
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="olive oil"),
-        MeasurementRegistry.get_measurement(amount=1, unit="onion", name=""),
+        MeasurementRegistry.get_measurement(amount=1, unit="large", name="onion"),
         MeasurementRegistry.get_measurement(amount=2, unit="cloves", name="garlic"),
         MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="salt"),
         MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="pepper"),

@@ -6,21 +6,21 @@ Tags: American
 
 ## Ingredients
 
-2 portions of cornbread
+2 portionsof cornbread
 
-2 tbsp butter
+2 tbspbutter
 
-1/2 cup chopped celery
+1/2 cupchopped celery
 
-1 small white onion
+1 smallwhite onion
 
-2 cups not-chicken stock
+2 cupsnot-chicken stock
 
-2 tbsp dried sage
+2 tbspdried sage
 
-1/2 tsp salt
+1/2 tspsalt
 
-1/2 tsp pepper
+1/2 tsppepper
 
 
 

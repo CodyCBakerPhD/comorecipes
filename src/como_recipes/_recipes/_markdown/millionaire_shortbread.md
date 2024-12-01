@@ -6,11 +6,11 @@ Tags: British, Dessert
 
 ## Ingredients
 
-1 recipes worth of shortbread
+1 recipesworth of shortbread
 
-1 recipes worth of simple caramel
+1 recipesworth of simple caramel
 
-1 recipes worth of chocolate ganache
+1 recipesworth of chocolate ganache
 
 
 

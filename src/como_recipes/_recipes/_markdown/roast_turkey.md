@@ -6,15 +6,15 @@ Tags: American
 
 ## Ingredients
 
-1 large turkey bag
+1 largeturkey bag
 
-8 quarts water
+8 quartswater
 
-2 cups Kosher salt
+2 cupsKosher salt
 
-1/2 cup brown sugar
+1/2 cupbrown sugar
 
-20 lb. whole turkey
+20 lb.whole turkey
 
 
 

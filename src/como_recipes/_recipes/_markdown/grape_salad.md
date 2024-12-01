@@ -6,19 +6,19 @@ Tags: American
 
 ## Ingredients
 
-8 oz. cream cheese, softened
+8 oz.cream cheese, softened
 
-8 oz. sour cream
+8 oz.sour cream
 
-2 tsp vanilla extract
+2 tspvanilla extract
 
-2 lb red seedless grapes
+2 lbred seedless grapes
 
-2 lbs green seedless grapes
+2 lbsgreen seedless grapes
 
-3 tbsp brown sugar
+3 tbspbrown sugar
 
-3 tbsp chopped pecans
+3 tbspchopped pecans
 
 
 

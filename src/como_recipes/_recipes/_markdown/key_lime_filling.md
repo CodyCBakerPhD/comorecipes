@@ -6,11 +6,11 @@ Tags: American
 
 ## Ingredients
 
-28 oz. sweetened condensed milk
+28 oz.sweetened condensed milk
 
-1/2 cup sour cream
+1/2 cupsour cream
 
-3/4 cup Key lime juice
+3/4 cupKey lime juice
 
 
 

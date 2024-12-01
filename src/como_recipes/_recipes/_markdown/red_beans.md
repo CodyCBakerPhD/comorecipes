@@ -6,29 +6,29 @@ Tags: American
 
 ## Ingredients
 
-1 recipes worth of rice
+1 recipesworth of rice
 
-1 tbsp. olive oil
+1 tbsp.olive oil
 
-4 cloves garlic
+4 clovesgarlic
 
-1/3 white onion
+1/3 whiteonion
 
-1 stalk celery
+1 stalkcelery
 
-2 bay leaves
+2 bayleaves
 
-1/2 tsp. cayenne pepper
+1/2 tsp.cayenne pepper
 
-1 tsp. thyme
+1 tsp.thyme
 
-1/8 tsp. sage
+1/8 tsp.sage
 
-1 tbsp. parsley
+1 tbsp.parsley
 
-1 tsp. Cajun seasoning
+1 tsp.Cajun seasoning
 
-1 cup water
+1 cupwater
 
 
 

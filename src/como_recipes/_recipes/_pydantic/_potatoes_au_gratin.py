@@ -9,7 +9,7 @@ class PotatoesAuGratin(Recipe):
     tags: tuple[str, ...] = ("French",)
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=4, unit="russet", name="potatoes"),
-        MeasurementRegistry.get_measurement(amount=1, unit="onion", name=""),
+        MeasurementRegistry.get_measurement(amount=1, unit="large", name="onion"),
         MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="salt and pepper"),
         MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="butter"),
         MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="flour"),

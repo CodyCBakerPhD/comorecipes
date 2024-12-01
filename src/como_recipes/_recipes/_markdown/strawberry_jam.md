@@ -6,19 +6,19 @@ Tags: American
 
 ## Ingredients
 
-3/2  cups of thinly sliced strawberries
+3/2 cups of thinly sliced strawberries
 
-40  g. sugar
+40 g. sugar
 
-40  g. brown sugar
+40 g. brown sugar
 
-20  g. honey
+20 g. honey
 
-9/4 tbsp. cornstarch
+9/4 tbsp.cornstarch
 
-1/4  tsp. vanilla extract
+1/4 tsp. vanilla extract
 
-1/4 tsp. lime juice
+1/4 tsp.lime juice
 
 
 

@@ -6,9 +6,9 @@ Tags: American
 
 ## Ingredients
 
-1/3 cup premade Sweet Fire Rub (see recipe)
+1/3 cuppremade Sweet Fire Rub (see recipe)
 
-1/2 rack baby back ribs
+1/2 rackbaby back ribs
 
 
 
