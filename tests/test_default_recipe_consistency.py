@@ -40,6 +40,10 @@ def test_default_recipe_to_markdown_consistency(tmpdir: py.path.local):
         assert test_markdown_file_lines == expected_markdown_file_lines
 
 
+# TODO: could maybe do a to_pydantic consistency without pre commit messing things up
+#  if the source instruction lines are properly broken up
+
+
 def test_recipe_counts_consistency():
     package_source_folder_path = pathlib.Path(__file__).parent.parent / "src"
     markdown_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes" / "_markdown"
