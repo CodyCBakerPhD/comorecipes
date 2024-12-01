@@ -162,7 +162,7 @@ class Recipe(pydantic.BaseModel):
         markdown_text += "## Ingredients\n\n"
         for measurement in self.measurements:
             markdown_text += f"{measurement.amount} {measurement.unit}"
-            markdown_text += f"{measurement.ingredient.name}\n\n" if measurement.ingredient.name != "" else "\n\n"
+            markdown_text += f" {measurement.ingredient.name}\n\n" if measurement.ingredient.name != "" else "\n\n"
         markdown_text += "\n\n"
 
         markdown_text += "## Instructions\n\n"
