@@ -1,4 +1,8 @@
-# Sloppy Joes (American)
+# Sloppy Joe
+
+Tags: American
+
+
 
 ## Ingredients
 

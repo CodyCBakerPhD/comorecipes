@@ -1,4 +1,8 @@
-# Potatoes Au Gratin (French)
+# Potatoes Au Gratin
+
+Tags: French
+
+
 
 ## Ingredients
 

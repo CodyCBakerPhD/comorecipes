@@ -1,4 +1,8 @@
-# Spanish Rice (Mexican)
+# Spanish Rice
+
+Tags: Mexican
+
+
 
 ## Ingredients
 

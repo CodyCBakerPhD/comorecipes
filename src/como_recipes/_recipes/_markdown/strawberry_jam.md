@@ -1,4 +1,8 @@
-# Strawberry Jam (American)
+# Strawberry Jam
+
+Tags: American
+
+
 
 ## Ingredients
 

@@ -1,4 +1,8 @@
-# Tamari Sauce (Asian)
+# Tamari Sauce
+
+Tags: Asian
+
+
 
 ## Ingredients
 

@@ -1,5 +1,9 @@
 # Mirror Glaze (Vegetarian)
 
+Tags: Vegetarian, Dessert
+
+
+
 ## Ingredients
 
 20 g Agar Agar

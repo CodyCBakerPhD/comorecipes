@@ -1,4 +1,8 @@
-# Jerk Rub (Jamaican)
+# Jerk Rub
+
+Tags: Jamaican
+
+
 
 ## Ingredients
 

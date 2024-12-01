@@ -1,5 +1,9 @@
 # Stir Fry (Asian)
 
+Tags: Asian
+
+
+
 ## Ingredients
 
 1 serving rice

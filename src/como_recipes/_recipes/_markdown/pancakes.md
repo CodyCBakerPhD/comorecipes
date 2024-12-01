@@ -1,4 +1,8 @@
-# Pancakes (American)
+# Pancakes
+
+Tags: American
+
+
 
 ## Ingredients
 

@@ -1,4 +1,8 @@
-# Taco Seasoning (American)
+# Taco Seasoning
+
+Tags: American
+
+
 
 ## Ingredients
 

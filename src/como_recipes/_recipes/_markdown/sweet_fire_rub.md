@@ -1,4 +1,8 @@
-# Sweet Fire Rub (American)
+# Sweet Fire Rub
+
+Tags: American
+
+
 
 ## Ingredients
 
