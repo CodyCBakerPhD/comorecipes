@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class TamariSauce(Recipe):
     name: str = "Tamari Sauce"
+    tags: tuple[str, ...] = "Asian"
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="sesame oil"),
         MeasurementRegistry.get_measurement(amount=1 / 2, unit="tbsp.", name="ginger, minced"),

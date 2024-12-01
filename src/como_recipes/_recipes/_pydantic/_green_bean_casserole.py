@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class GreenBeanCasserole(Recipe):
     name: str = "Green Bean Casserole"
+    tags: tuple[str, ...] = "American"
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=2, unit="cans", name="French-style green beans"),
         MeasurementRegistry.get_measurement(amount=1, unit="can", name="cream of mushroom soup"),

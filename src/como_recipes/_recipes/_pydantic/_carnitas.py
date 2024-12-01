@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class Carnitas(Recipe):
     name: str = "Carnitas"
+    tags: tuple[str, ...] = "Mexican"
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1, unit="lb.", name="pork shoulder"),
         MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="oregano"),

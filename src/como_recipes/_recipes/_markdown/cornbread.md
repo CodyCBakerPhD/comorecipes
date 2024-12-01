@@ -1,4 +1,4 @@
-# Cornbread (American)
+# Cornbread
 
 Tags: American
 

@@ -1,4 +1,4 @@
-# Mirror Glaze (Vegetarian)
+# Mirror Glaze
 
 Tags: Vegetarian, Dessert
 

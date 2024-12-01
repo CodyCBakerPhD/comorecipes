@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class CabbageRolls(Recipe):
     name: str = "Cabbage Rolls"
+    tags: tuple[str, ...] = "Asian"
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=5 / 4, unit="cups", name="white rice"),
         MeasurementRegistry.get_measurement(amount=1, unit="large", name="napa cabbage"),

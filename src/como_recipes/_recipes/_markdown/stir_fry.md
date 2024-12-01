@@ -1,4 +1,4 @@
-# Stir Fry (Asian)
+# Stir Fry
 
 Tags: Asian
 

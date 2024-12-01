@@ -1,4 +1,4 @@
-# Carnitas (Mexican)
+# Carnitas
 
 Tags: Mexican
 

@@ -13,7 +13,7 @@ from ._spanish_rice import SpanishRice
 from ._spaghetti_squash import SpaghettiSquash
 from ._sourdough import Sourdough
 from ._slowcooked_ribs import SlowCookedRibs
-from ._sloppy_joes import SloppyJoes
+from ._sloppy_joes import SloppyJoe
 from ._simple_caramel import SimpleCaramel
 from ._shortening_pie_crust import ShorteningPieCrust
 from ._shortbread import Shortbread

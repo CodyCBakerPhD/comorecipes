@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class FryingBreading(Recipe):
     name: str = "Frying Breading"
+    tags: tuple[str, ...] = "American"
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=6, unit="cups", name="all-purpose flour"),
         MeasurementRegistry.get_measurement(amount=10, unit="tbsp.", name="salt and pepper"),

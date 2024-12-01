@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class CreamedGenoise(Recipe):
     name: str = "Creamed Genoise"
+    tags: tuple[str, ...] = "British"
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=375 / 2, unit="g.", name="butter, room temperature"),
         MeasurementRegistry.get_measurement(amount=375 / 2, unit="g.", name="sugar"),

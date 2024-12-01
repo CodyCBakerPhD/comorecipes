@@ -1,4 +1,4 @@
-# Banana Bread (American)
+# Banana Bread
 
 Tags: American
 

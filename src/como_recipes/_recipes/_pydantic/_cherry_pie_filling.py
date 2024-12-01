@@ -6,6 +6,7 @@ from ..._recipe_registration import default_recipe_registry
 
 class CherryPieFilling(Recipe):
     name: str = "Cherry Pie Filling"
+    tags: tuple[str, ...] = "American"
     measurements: tuple[Measurement, ...] = (
         MeasurementRegistry.get_measurement(amount=1, unit="pie", name="crust"),
         MeasurementRegistry.get_measurement(amount=4, unit="cups", name="fresh tart cherries or"),
