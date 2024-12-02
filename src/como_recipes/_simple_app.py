@@ -4,9 +4,6 @@ import natsort
 
 import como_recipes
 
-# TODO: could improve the laziness/performance of add/remove operations w.r.t. current search query instead of
-# regenerating entire search every time
-
 
 class SimpleCoMoApp(tkinter.Tk):
     def __init__(self) -> None:
@@ -29,7 +26,7 @@ class SimpleCoMoApp(tkinter.Tk):
         self.currently_selected_index_to_meals: dict[int, str] = {}
 
         self.currently_available_meals_search = tkinter.Entry(master=self)
-        self.currently_available_meals_search.bind(sequence="<KeyRelease>", func=self.update_smart_meal_search)
+        self.currently_available_meals_search.bind(sequence="<KeyRelease>", func=self.update_available_meal_display)
 
         self.currently_available_meals_box = tkinter.Listbox(self)
         self.currently_available_meals_box.insert(0, *self.currently_available_index_to_meals.values())
@@ -47,20 +44,23 @@ class SimpleCoMoApp(tkinter.Tk):
         self.warnings_labels.grid(row=1, column=1, rowspan=2)
         self.selected_meals_box.grid(row=3, column=0, columnspan=2)
 
-    def update_smart_meal_search(self, event: tkinter.Event) -> None:
+    def update_available_meal_display(self, event: tkinter.Event | None = None) -> None:
         """
         Update the list of displayed meals based on the search query.
 
         Intended to be as 'smart' as possible.
         """
         if self.currently_available_meals_search.get() == "":
-            data = self.currently_available_meals
+            data = self.currently_available_index_to_meals.values()
         else:
             value = self.currently_available_meals_search.get()
-            data = [item for item in self.currently_available_meals if value.lower() in item.lower()]
+            data = [item for item in self.currently_available_index_to_meals.values() if value.lower() in item.lower()]
+        sorted_data = natsort.natsorted(seq=data)
 
+        # TODO: could improve the laziness/performance of add/remove operations w.r.t. current search query instead of
+        # regenerating entire search every time
         self.currently_available_meals_box.delete(first=0, last="end")
-        self.currently_available_meals_box.insert("end", *data)
+        self.currently_available_meals_box.insert("end", *sorted_data)
 
     def add_selected_meal(self, event: tkinter.Event) -> None:
         """Move a meal from the available list to the selected list."""
@@ -72,7 +72,7 @@ class SimpleCoMoApp(tkinter.Tk):
         self.currently_selected_index_to_meals[meal_index] = selected_meal
         self.currently_available_index_to_meals.pop(meal_index)
 
-        self.update_smart_meal_search(event=event)
+        self.update_available_meal_display()
 
     def remove_selected_meal(self, event: tkinter.Event) -> None:
         """Move a meal from the selected list back to the available list."""
@@ -84,7 +84,7 @@ class SimpleCoMoApp(tkinter.Tk):
         self.currently_selected_index_to_meals.pop(meal_index)
         self.currently_available_index_to_meals[meal_index] = selected_meal
 
-        self.update_smart_meal_search(event=event)
+        self.update_available_meal_display()
 
 
 if __name__ == "__main__":
