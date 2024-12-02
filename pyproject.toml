@@ -74,6 +74,7 @@ select = ["ALL"]
 ignore = [
     "UP",  # Skipping due to a lot of unsafe or opinionated/not rigorously proven rules
     "CPY",  # Not applicable for open-source license
+    "C416",  # Too many false positives
     "D401",  # Ignore the imperative mood convention for docstrings
     "D203",  # Ignore no blank lines after class docstring in favor of D203 (one blank line) as convention
     "D212",  # Ignore multi-line summary on first line in favor of D213 (second line) as convention
@@ -100,6 +101,9 @@ ignore = [
     "S605",  # Console injections are manually OK'd
     "BLE001",  # logging is manually OK'd
     "T20",  # print statements are fine in command line interfaces
+]
+"src/como_recipes/_simple_app.py" = [
+    "ARG002",  # Tkinter sometimes requires callbacks to have a specific argument, even if unused
 ]
 "tests/*" = [  # Neither docstrings nor annotations are required for tests
     "D100",  # Docstrings are not required for tests
