@@ -1,3 +1,4 @@
+import importlib.metadata
 import pathlib
 import sys
 import tkinter
@@ -9,7 +10,7 @@ from ._available_recipe_selector import AvailableRecipeSelector
 from ._current_recipe_selection import CurrentRecipeSelection
 from ._shopping_list_box import ShoppingListBox
 from ._utils import _generate_new_default_session_id, _get_home_folder
-from .._recipe_registry import default_recipe_registry
+from .._recipe_registration import default_recipe_registry
 
 
 class CoMoApp(tkinter.Tk):
@@ -27,7 +28,8 @@ class CoMoApp(tkinter.Tk):
         self.home_folder_path = _get_home_folder()
         self.home_folder_path.mkdir(exist_ok=True)
 
-        self.session_folder_path = self.home_folder_path / _generate_new_default_session_id()
+        self.session_id = _generate_new_default_session_id()
+        self.session_folder_path = self.home_folder_path / self.session_id
         self.session_folder_path.mkdir(exist_ok=False)
 
         # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
@@ -44,7 +46,7 @@ class CoMoApp(tkinter.Tk):
 
         self.session_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label="Session", menu=self.session_menu)
-        self.session_menu.add_command(label="Start new")
+        self.session_menu.add_command(label="Start new", command=self._create_new_session)
         self.session_menu.add_command(label="Restore previous")
 
         self.help_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
@@ -55,6 +57,16 @@ class CoMoApp(tkinter.Tk):
         self.resizable(width=False, height=False)
 
         # Initialize all frames or components that comprise the app
+        self.header_frame = tkinter.Frame(master=self)
+
+        version = importlib.metadata.version(distribution_name="como_recipes")
+        self.version_label = tkinter.Label(master=self.header_frame, text=f"App version:  v{version}")
+        self.version_label.grid(row=0, sticky="W")
+
+        self.session_id_label_value = tkinter.StringVar(value=f"Session ID:  {self.session_id}")
+        self.session_id_label = tkinter.Label(master=self.header_frame, textvariable=self.session_id_label_value)
+        self.session_id_label.grid(row=1, sticky="W")
+
         self.current_available_meals_frame = AvailableRecipeSelector(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
@@ -86,19 +98,22 @@ class CoMoApp(tkinter.Tk):
         )
 
         # Organize frames on grid
-        self.current_available_meals_frame.grid(row=0, column=0, padx=5, pady=5)
-        self.current_recipe_selection_frame.grid(row=1, column=0, padx=5, pady=5)
-        self.shopping_list_frame.grid(row=0, column=1, rowspan=2, padx=5, pady=5)
+        self.header_frame.grid(row=0, columnspan=2, padx=5, pady=10, sticky="W")
+        self.current_available_meals_frame.grid(row=1, column=0, padx=5, pady=5)
+        self.current_recipe_selection_frame.grid(row=2, column=0, padx=5, pady=5)
+        self.shopping_list_frame.grid(row=1, column=1, rowspan=2, padx=5, pady=5)
 
     def _create_new_session(self) -> None:
         """Create a new session."""
-        session_id = tkinter.simpledialog.askstring(
+        self.session_id = tkinter.simpledialog.askstring(
             title="New Session",
             prompt="Enter an ID for the new session:",
             initialvalue=_generate_new_default_session_id(),
         )
-        self.session_folder_path = self.home_folder_path / session_id
+        self.session_folder_path = self.home_folder_path / self.session_id
         self.session_folder_path.mkdir(exist_ok=False)
+
+        self.session_id_label_value.set(value=f"Session ID: {self.session_id}")
 
     def _open_github_issue_page(self) -> None:
         """Open the GitHub issue page for the CoMo project."""
