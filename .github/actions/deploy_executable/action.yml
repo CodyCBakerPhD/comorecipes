@@ -40,10 +40,11 @@ runs:
     - name: Build Executable with PyInstaller
       run: |
         pyinstaller \
-          --onefile src/como_recipes/_interactive_console_builder.py \
-          --name como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }} \
-          --icon src/como_recipes/_assets/como_icon.ico \
-          --add-data src/como_recipes/_assets/como_icon.ico
+          --onefile \
+          --name="como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}" \
+          --icon="./src/como_recipes/_assets/como_icon.ico" \
+          --add-data="src/como_recipes/_assets/como_icon.ico:./_assets/como_icon.ico" \
+          src/como_recipes/_interactive_console_builder.py
       shell: bash
 
     - name: Upload binaries to release
