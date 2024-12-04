@@ -10,32 +10,82 @@ import como_recipes
 
 
 class SimpleCoMoApp(tkinter.Tk):
+    minimum_app_window_width_in_pixels: int = 535
+    minimum_app_window_height_in_pixels: int = 635
+    minimum_available_recipe_width_in_characters: int = 30
+    minimum_number_of_displayed_selected_recipes: int = 15
+    minimum_number_of_displayed_measurements: int = 35
+    minimum_number_of_displayed_available_recipes: int = 20
+
     def __init__(self) -> None:
         """A very simple GUI implementation for the CoMo Meal Selection based on Tkinter."""
         super().__init__()
 
-        # Setup initial window details
+        self.setup_application_window()
+        self.setup_attributes()
+
+        self.setup_current_available_meals_frame()
+
+        # self.currently_available_meals_box.bind(sequence="<Double-Button-1>", func=self.add_selected_meal)
+
+        # Initialize components
+        self.selected_meals_label = tkinter.Label(master=self, text="Selected meals")
+        self.shopping_list_label = tkinter.Label(master=self, text="Shopping list")
+
+        self.selected_meals_box = tkinter.Listbox(
+            self,
+            width=self.minimum_available_recipe_width_in_characters,
+            height=self.minimum_number_of_displayed_selected_recipes,
+        )
+        self.selected_meals_box.bind(sequence="<Double-Button-1>", func=self.remove_selected_meal)
+
+        self.warnings_labels = tkinter.Label(master=self, text="")
+
+        self.shopping_list_box = tkinter.Listbox(
+            self,
+            width=self.minimum_available_recipe_width_in_characters,
+            height=self.minimum_number_of_displayed_measurements,
+        )
+
+        self.open_shopping_list_button = tkinter.Button(
+            master=self,
+            text="Open shopping list",
+            command=self.open_shopping_list,
+        )
+
+        # Organize components on grid
+        self.current_available_meals_frame.grid(row=0, column=0)
+        self.currently_available_meals_search.grid(row=1, column=0, sticky="n")
+        self.currently_available_meals_box.grid(row=2, column=0, sticky="n")
+
+        self.warnings_labels.grid(row=0, column=4, rowspan=4, sticky="n")
+
+        self.selected_meals_label.grid(row=3, column=0)
+        self.selected_meals_box.grid(row=4, column=0, rowspan=4, sticky="n")
+
+        self.shopping_list_label.grid(row=0, column=1)
+        self.shopping_list_box.grid(row=1, column=1, rowspan=4, sticky="n")
+
+        self.open_shopping_list_button.grid(row=5, column=1)
+
+    def setup_application_window(self) -> None:
+        """Setup window title, icon, menu, and size."""
         self.title(string="CoMo Meal Selector")
 
         ico_file_path = pathlib.Path(__file__).parent / "_assets" / "como_icon.ico"
         self.iconbitmap(default=ico_file_path)
 
-        self.main_menu = tkinter.Menu(master=self)
+        self.main_menu = tkinter.Menu(master=self, tearoff=False)
         self.config(menu=self.main_menu)
         self.session_menu = tkinter.Menu(master=self.main_menu)
         self.main_menu.add_cascade(label="Session", menu=self.session_menu)
-        self.session_menu.add_command(label="Create")
-        self.session_menu.add_command(label="Restore")
+        self.session_menu.add_command(label="Start new")
+        self.session_menu.add_command(label="Restore previous")
 
-        minimum_app_window_width_in_pixels = 535
-        minimum_app_window_height_in_pixels = 635
-        self.minsize(width=minimum_app_window_width_in_pixels, height=minimum_app_window_height_in_pixels)
+        self.minsize(width=self.minimum_app_window_width_in_pixels, height=self.minimum_app_window_height_in_pixels)
 
-        # Dynamic sizing is not supported; clamp maximum size to minimum size
-        self.maxsize(width=minimum_app_window_width_in_pixels, height=minimum_app_window_height_in_pixels)
-        self.resizable(width=False, height=False)
-
-        # Declare some instance attributes
+    def setup_attributes(self) -> None:
+        """Define all mutable attributes used to control underlying states of the application."""
         self.default_available_index_to_meals: dict[int, str] = {
             index: recipe_name
             for index, recipe_name in enumerate(
@@ -50,64 +100,61 @@ class SimpleCoMoApp(tkinter.Tk):
         self.currently_selected_index_to_meals: dict[int, str] = {}
         self.current_measurement_registry = como_recipes.MeasurementRegistry()
 
-        # Initialize components
-        self.available_meals_label = tkinter.Label(master=self, text="Available meals")
-        self.selected_meals_label = tkinter.Label(master=self, text="Selected meals")
-        self.shopping_list_label = tkinter.Label(master=self, text="Shopping list")
+    def setup_current_available_meals_frame(self) -> None:
+        self.current_available_meals_frame = tkinter.Frame(master=self)
+        self.current_available_meals_frame.pack(side="left")
 
-        minimum_available_recipe_width_in_characters = 30
+        # Left subframe - fancy selector
+        self.current_available_meals_frame_box_subframe = tkinter.Frame(master=self.current_available_meals_frame)
+        self.current_available_meals_frame_box_subframe.pack(side="left")
+
+        self.available_meals_label = tkinter.Label(
+            master=self.current_available_meals_frame_box_subframe,
+            text="Available meals",
+        )
+
         self.currently_available_meals_search = tkinter.Entry(
-            master=self,
-            width=minimum_available_recipe_width_in_characters,
+            master=self.current_available_meals_frame_box_subframe,
+            width=self.minimum_available_recipe_width_in_characters,
         )
         self.currently_available_meals_search.bind(sequence="<KeyRelease>", func=self.update_available_meal_display)
 
-        minimum_number_of_displayed_available_recipes = 20
         self.currently_available_meals_box = tkinter.Listbox(
-            self,
-            width=minimum_available_recipe_width_in_characters,
-            height=minimum_number_of_displayed_available_recipes,
+            master=self.current_available_meals_frame_box_subframe,
+            width=self.minimum_available_recipe_width_in_characters,
+            height=self.minimum_number_of_displayed_available_recipes,
         )
         self.currently_available_meals_box.insert(0, *self.currently_available_index_to_meals.values())
         self.currently_available_meals_box.bind(sequence="<Double-Button-1>", func=self.add_selected_meal)
 
-        minimum_number_of_displayed_selected_recipes = 15
-        self.selected_meals_box = tkinter.Listbox(
-            self,
-            width=minimum_available_recipe_width_in_characters,
-            height=minimum_number_of_displayed_selected_recipes,
-        )
-        self.selected_meals_box.bind(sequence="<Double-Button-1>", func=self.remove_selected_meal)
-
-        self.warnings_labels = tkinter.Label(master=self, text="")
-
-        minimum_number_of_displayed_measurements = 35
-        self.shopping_list_box = tkinter.Listbox(
-            self,
-            width=minimum_available_recipe_width_in_characters,
-            height=minimum_number_of_displayed_measurements,
-        )
-
-        self.open_shopping_list_button = tkinter.Button(
-            master=self,
-            text="Open shopping list",
-            command=self.open_shopping_list,
-        )
-
-        # Organize components on grid
         self.available_meals_label.grid(row=0, column=0)
         self.currently_available_meals_search.grid(row=1, column=0, sticky="n")
         self.currently_available_meals_box.grid(row=2, column=0, sticky="n")
 
-        self.warnings_labels.grid(row=0, column=4, rowspan=4, sticky="n")
+        # Right subframe - tag filters
+        self.current_available_meals_frame_tags_subframe = tkinter.Frame(master=self.current_available_meals_frame)
+        self.current_available_meals_frame_tags_subframe.pack(side="right")
 
-        self.selected_meals_label.grid(row=3, column=0)
-        self.selected_meals_box.grid(row=4, column=0, rowspan=4, sticky="n")
+        all_default_tags = tuple(
+            {
+                tag
+                for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
+                for tag in como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
+            },
+        )
 
-        self.shopping_list_label.grid(row=0, column=1)
-        self.shopping_list_box.grid(row=1, column=1, rowspan=4, sticky="n")
-
-        self.open_shopping_list_button.grid(row=5, column=1)
+        self.tag_checkbox_values = [tkinter.IntVar() for _ in all_default_tags]
+        self.tag_checkboxes = [
+            tkinter.Checkbutton(
+                master=self.current_available_meals_frame_tags_subframe,
+                text=tag,
+                variable=variable,
+                justify="left",
+            )
+            for tag, variable in zip(all_default_tags, self.tag_checkbox_values, strict=False)
+        ]
+        for row, tag_checkbox in enumerate(self.tag_checkboxes):
+            tag_checkbox.grid(row=row, sticky="W")
 
     def update_available_meal_display(self, event: tkinter.Event | None = None) -> None:
         """

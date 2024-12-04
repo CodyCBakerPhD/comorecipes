@@ -11,10 +11,11 @@ import traceback
 
 import click
 
+from como_recipes._app._simple_app import SimpleCoMoApp
+
 from ._base_recipe import Recipe
 from ._measurement_registration import MeasurementRegistry
 from ._recipe_registration import default_recipe_registry
-from ._simple_app import SimpleCoMoApp
 from .utils import get_terminal_size
 
 
