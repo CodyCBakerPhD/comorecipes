@@ -11,11 +11,10 @@ import traceback
 
 import click
 
-from como_recipes.app._simple_app import SimpleCoMoApp
-
 from ._base_recipe import Recipe
 from ._measurement_registration import MeasurementRegistry
 from ._recipe_registration import default_recipe_registry
+from .app import CoMoApp
 from .utils import get_terminal_size
 
 
@@ -118,7 +117,7 @@ def _como_recipes_command_line_interface_main_entrypoint() -> None:
             case "ms":
                 _meal_selector()
             case "app":
-                app = SimpleCoMoApp()
+                app = CoMoApp()
                 app.mainloop()
 
         iteration += 1

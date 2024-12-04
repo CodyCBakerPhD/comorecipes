@@ -5,7 +5,7 @@ import tkinter.messagebox
 import como_recipes
 
 
-class SimpleCoMoApp(tkinter.Tk):
+class CoMoApp(tkinter.Tk):
     def __init__(
         self,
         minimum_available_recipe_width_in_characters: int = 30,
@@ -70,7 +70,7 @@ class SimpleCoMoApp(tkinter.Tk):
 
     def add_selected_meal(self, event: tkinter.Event) -> None:
         """Move a meal from the available list to the selected list."""
-        selected_meal = self.current_available_meals_frame.currently_available_meals_box.get("active")
+        selected_meal = self.current_available_meals_frame.currently_available_meals_box.get(first="active")
         meal_index = self.current_available_meals_frame.default_available_meals_to_index[selected_meal]
 
         self.current_recipe_selection_frame.selected_meals_box.insert("end", selected_meal)
@@ -86,10 +86,10 @@ class SimpleCoMoApp(tkinter.Tk):
 
     def remove_selected_meal(self, event: tkinter.Event) -> None:
         """Move a meal from the selected list back to the available list."""
-        selected_meal = self.current_recipe_selection_frame.selected_meals_box.get("active")
+        selected_meal = self.current_recipe_selection_frame.selected_meals_box.get(first="active")
         meal_index = self.current_available_meals_frame.default_available_meals_to_index[selected_meal]
 
-        self.current_recipe_selection_frame.selected_meals_box.delete("active")
+        self.current_recipe_selection_frame.selected_meals_box.delete(first="active")
 
         self.current_recipe_selection_frame.currently_selected_index_to_meals.pop(meal_index)
         self.current_available_meals_frame.currently_available_index_to_meals[meal_index] = selected_meal
@@ -100,5 +100,5 @@ class SimpleCoMoApp(tkinter.Tk):
 
 
 if __name__ == "__main__":
-    app = SimpleCoMoApp()
+    app = CoMoApp()
     app.mainloop()

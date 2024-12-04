@@ -95,6 +95,7 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "src/como_recipes/__init__.py" = ["I"]  # Must maintain explicit order for imports for registration
+"src/como_recipes/_hidden_top_level_imports.py" = ["F401"]  # Must perform imports here even if not exposed
 "src/como_recipes/_recipes/_pydantic/*" = ["E501"]  # Automated Pydantic conversion occasionally exceeds line length
 "src/como_recipes/_command_line_interface.py" = [
     "C901",  # This is an interactive command line interface; it's supposed to be a bit more complex than the API
