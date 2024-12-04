@@ -3,6 +3,7 @@
 import collections
 import datetime
 import importlib
+import importlib.metadata
 import math
 import os
 import pathlib
@@ -88,6 +89,10 @@ def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:  # pra
 
 
 @click.command(name="como_recipes")
+@click.version_option(
+    version=f"v{importlib.metadata.version(distribution_name='como_recipes')}",
+    message="%(version)s",
+)
 def _como_recipes_command_line_interface_main_entrypoint() -> None:
     """Entry point for the interactive CoMo Recipes command-line interface."""
     click.clear()

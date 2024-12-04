@@ -1,4 +1,5 @@
 import pathlib
+import sys
 import tkinter
 import tkinter.messagebox
 
@@ -16,12 +17,16 @@ class CoMoApp(tkinter.Tk):
         """A relatively simple GUI implementation for the CoMo Meal Selection based on Tkinter."""
         super().__init__()
 
-        # Setup window title, icon, menu, and size
         self.title(string="CoMo Meal Selector")
 
-        ico_file_path = pathlib.Path(__file__).parent.parent / "_assets" / "como_icon.ico"
+        # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
+        base_path = pathlib.Path(getattr(sys, "_MEIPASS", None)) or pathlib.Path(__file__).parent.parent
+
+        # Setup icon
+        ico_file_path = base_path / "_assets" / "como_icon.ico"
         self.iconbitmap(default=ico_file_path)
 
+        # Setup menus
         self.main_menu = tkinter.Menu(master=self, tearoff=False)
         self.config(menu=self.main_menu)
         self.session_menu = tkinter.Menu(master=self.main_menu)
