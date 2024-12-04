@@ -26,7 +26,7 @@ runs:
 
     - name: Get package version
       id: package_version
-      run: python -c "import importlib.metadata; import os; v='value=v'+importlib.metadata.version(distribution_name='como_recipes'); io = open(file=os.environ['GITHUB_OUTPUT'], mode='a'); print(v, file=io); io.close()"
+      run: como_recipes --version >> $GITHUB_OUTPUT
       shell: bash
 
     - name: Fresh install of package
@@ -56,5 +56,5 @@ runs:
         tag: ${{ steps.package_version.outputs.value }}
         release_name: ${{ steps.package_version.outputs.value }}
         body: ${{ steps.package_version.outputs.value }} release of the CoMo Recipes interactive console.
-        overwrite: true  # Per-asset not per-release
+        overwrite: false  # Per-asset not per-release - false to prevent accidental overwrite of previous releases
         draft: true
