@@ -26,7 +26,7 @@ runs:
 
     - name: Get package version
       id: package_version
-      run: como_recipes --version >> $GITHUB_OUTPUT
+      run: echo "value=$(como_recipes --version)" >> $GITHUB_OUTPUT
       shell: bash
 
     - name: Fresh install of package
