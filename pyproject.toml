@@ -102,8 +102,11 @@ ignore = [
     "BLE001",  # logging is manually OK'd
     "T20",  # print statements are fine in command line interfaces
 ]
-"src/como_recipes/_app/*" = [
+"src/como_recipes/app/*" = [
     "ARG002",  # Tkinter sometimes requires callbacks to have a specific argument, even if unused
+]
+"src/como_recipes/_assets/*" = [
+    "INP001",  # Not an official part of the package, just a helper script
 ]
 "tests/*" = [  # Neither docstrings nor annotations are required for tests
     "D100",  # Docstrings are not required for tests

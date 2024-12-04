@@ -11,7 +11,7 @@ import traceback
 
 import click
 
-from como_recipes._app._simple_app import SimpleCoMoApp
+from como_recipes.app._simple_app import SimpleCoMoApp
 
 from ._base_recipe import Recipe
 from ._measurement_registration import MeasurementRegistry

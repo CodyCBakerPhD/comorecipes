@@ -15,7 +15,6 @@ class AvailableRecipeSelector(tkinter.Frame):
     ) -> None:
         """A modular component for searching and filtering the default recipes."""
         super().__init__(master=master)
-        self.pack(side="left")
 
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_available_recipes = minimum_number_of_displayed_available_recipes
@@ -38,6 +37,7 @@ class AvailableRecipeSelector(tkinter.Frame):
         self.currently_available_index_to_meals: dict[int, str] = self.default_available_index_to_meals.copy()
 
     def setup_frame(self) -> None:
+        """Initialize and organize all subcomponents of the frame."""
         # Left subframe - fancy selector
         self.current_available_meals_frame_box_subframe = tkinter.Frame(master=self)
         self.current_available_meals_frame_box_subframe.pack(side="left")
@@ -60,13 +60,19 @@ class AvailableRecipeSelector(tkinter.Frame):
         )
         self.currently_available_meals_box.insert(0, *self.currently_available_index_to_meals.values())
 
-        self.available_meals_label.grid(row=0, column=0)
+        self.available_meals_label.grid(row=0, column=0, pady=5)
         self.currently_available_meals_search.grid(row=1, column=0, sticky="n")
         self.currently_available_meals_box.grid(row=2, column=0, sticky="n")
 
         # Right subframe - tag filters
         self.current_available_meals_frame_tags_subframe = tkinter.Frame(master=self)
         self.current_available_meals_frame_tags_subframe.pack(side="right")
+
+        self.tags_label = tkinter.Label(
+            master=self.current_available_meals_frame_tags_subframe,
+            text="Filter by",
+        )
+        self.tags_label.grid(row=0, pady=5)
 
         all_default_tags = natsort.natsorted(
             seq={
@@ -88,7 +94,7 @@ class AvailableRecipeSelector(tkinter.Frame):
             for tag, variable in self.tags_to_checkbox_values.items()
         }
         for row, tag_checkbox in enumerate(self.tags_to_tag_checkboxes.values()):
-            tag_checkbox.grid(row=row, sticky="W")
+            tag_checkbox.grid(row=1 + row, sticky="W")
 
     def update_available_meal_display(self, event: tkinter.Event | None = None) -> None:
         """
@@ -123,5 +129,6 @@ class AvailableRecipeSelector(tkinter.Frame):
 
 if __name__ == "__main__":
     app = tkinter.Tk()
-    AvailableRecipeSelector(master=app).pack()
+    available_recipe_selector = AvailableRecipeSelector(master=app)
+    available_recipe_selector.pack(padx=5, pady=5)
     app.mainloop()

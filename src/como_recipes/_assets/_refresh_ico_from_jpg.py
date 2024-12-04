@@ -16,10 +16,10 @@ if __name__ == "__main__":
 
     import PIL.Image
 
-    full_image_file_path = pathlib.Path(__file__).parent / "_assets" / "full_como_icon.jpg"
-    ico_image_file_path = pathlib.Path(__file__).parent / "_assets" / "como_icon.ico"
+    full_image_file_path = pathlib.Path(__file__).parent / "full_como_icon.jpg"
+    ico_image_file_path = pathlib.Path(__file__).parent / "como_icon.ico"
 
-    shape_in_pixels = (32, 32)
+    shape_in_pixels = (64, 64)
 
     image = PIL.Image.open(fp=full_image_file_path)
     image = image.resize(size=shape_in_pixels, resample=PIL.Image.Resampling.LANCZOS)
