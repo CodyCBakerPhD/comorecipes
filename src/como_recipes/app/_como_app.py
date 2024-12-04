@@ -2,6 +2,7 @@ import pathlib
 import sys
 import tkinter
 import tkinter.messagebox
+import webbrowser
 
 import como_recipes
 
@@ -20,7 +21,7 @@ class CoMoApp(tkinter.Tk):
         self.title(string="CoMo Meal Selector")
 
         # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
-        base_path = pathlib.Path(getattr(sys, "_MEIPASS", None)) or pathlib.Path(__file__).parent.parent
+        base_path = pathlib.Path(sys._MEIPASS) if hasattr(sys, "_MEIPASS") else pathlib.Path(__file__).parent.parent
 
         # Setup icon
         ico_file_path = base_path / "_assets" / "como_icon.ico"
@@ -29,10 +30,15 @@ class CoMoApp(tkinter.Tk):
         # Setup menus
         self.main_menu = tkinter.Menu(master=self, tearoff=False)
         self.config(menu=self.main_menu)
-        self.session_menu = tkinter.Menu(master=self.main_menu)
+
+        self.session_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label="Session", menu=self.session_menu)
         self.session_menu.add_command(label="Start new")
         self.session_menu.add_command(label="Restore previous")
+
+        self.help_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
+        self.main_menu.add_cascade(label="Help", menu=self.help_menu)
+        self.help_menu.add_command(label="Submit issue", command=self._open_github_issue_page)
 
         # Components do not currently support dynamic resizing, so just freeze window size
         self.resizable(width=False, height=False)
@@ -72,6 +78,10 @@ class CoMoApp(tkinter.Tk):
         self.current_available_meals_frame.grid(row=0, column=0, padx=5, pady=5)
         self.current_recipe_selection_frame.grid(row=1, column=0, padx=5, pady=5)
         self.shopping_list_frame.grid(row=0, column=1, rowspan=2, padx=5, pady=5)
+
+    def _open_github_issue_page(self) -> None:
+        """Open the GitHub issue page for the CoMo project."""
+        webbrowser.open_new("https://github.com/CodyCBakerPhD/como_recipes/issues/new/choose")
 
     def add_selected_meal(self, event: tkinter.Event) -> None:
         """Move a meal from the available list to the selected list."""
