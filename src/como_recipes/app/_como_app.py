@@ -2,9 +2,14 @@ import pathlib
 import sys
 import tkinter
 import tkinter.messagebox
+import tkinter.simpledialog
 import webbrowser
 
-import como_recipes
+from ._available_recipe_selector import AvailableRecipeSelector
+from ._current_recipe_selection import CurrentRecipeSelection
+from ._shopping_list_box import ShoppingListBox
+from ._utils import _generate_new_default_session_id, _get_home_folder
+from .._recipe_registry import default_recipe_registry
 
 
 class CoMoApp(tkinter.Tk):
@@ -18,7 +23,12 @@ class CoMoApp(tkinter.Tk):
         """A relatively simple GUI implementation for the CoMo Meal Selection based on Tkinter."""
         super().__init__()
 
-        self.title(string="CoMo Meal Selector")
+        # Setup local app folders
+        self.home_folder_path = _get_home_folder()
+        self.home_folder_path.mkdir(exist_ok=True)
+
+        self.session_folder_path = self.home_folder_path / _generate_new_default_session_id()
+        self.session_folder_path.mkdir(exist_ok=False)
 
         # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
         base_path = pathlib.Path(sys._MEIPASS) if hasattr(sys, "_MEIPASS") else pathlib.Path(__file__).parent.parent
@@ -27,7 +37,8 @@ class CoMoApp(tkinter.Tk):
         ico_file_path = base_path / "_assets" / "como_icon.ico"
         self.iconbitmap(default=ico_file_path)
 
-        # Setup menus
+        # Setup window and menus
+        self.title(string="CoMo Meal Selector")
         self.main_menu = tkinter.Menu(master=self, tearoff=False)
         self.config(menu=self.main_menu)
 
@@ -44,7 +55,7 @@ class CoMoApp(tkinter.Tk):
         self.resizable(width=False, height=False)
 
         # Initialize all frames or components that comprise the app
-        self.current_available_meals_frame = como_recipes.app.AvailableRecipeSelector(
+        self.current_available_meals_frame = AvailableRecipeSelector(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_available_recipes=minimum_number_of_displayed_available_recipes,
@@ -56,14 +67,14 @@ class CoMoApp(tkinter.Tk):
             func=self.add_selected_meal,
         )
 
-        self.shopping_list_frame = como_recipes.app.ShoppingListBox(
+        self.shopping_list_frame = ShoppingListBox(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
         self.current_measurement_registry = self.shopping_list_frame.current_measurement_registry
 
-        self.current_recipe_selection_frame = como_recipes.app.CurrentRecipeSelection(
+        self.current_recipe_selection_frame = CurrentRecipeSelection(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_selected_recipes=minimum_number_of_displayed_selected_recipes,
@@ -78,6 +89,16 @@ class CoMoApp(tkinter.Tk):
         self.current_available_meals_frame.grid(row=0, column=0, padx=5, pady=5)
         self.current_recipe_selection_frame.grid(row=1, column=0, padx=5, pady=5)
         self.shopping_list_frame.grid(row=0, column=1, rowspan=2, padx=5, pady=5)
+
+    def _create_new_session(self) -> None:
+        """Create a new session."""
+        session_id = tkinter.simpledialog.askstring(
+            title="New Session",
+            prompt="Enter an ID for the new session:",
+            initialvalue=_generate_new_default_session_id(),
+        )
+        self.session_folder_path = self.home_folder_path / session_id
+        self.session_folder_path.mkdir(exist_ok=False)
 
     def _open_github_issue_page(self) -> None:
         """Open the GitHub issue page for the CoMo project."""
@@ -95,7 +116,7 @@ class CoMoApp(tkinter.Tk):
         self.current_available_meals_frame.update_available_meal_display()
 
         self.shopping_list_frame.current_measurement_registry.add_recipe(
-            recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name=selected_meal),
+            recipe=default_recipe_registry.get_recipe(recipe_name=selected_meal),
         )
         self.shopping_list_frame.update_shopping_list()
 
@@ -112,8 +133,3 @@ class CoMoApp(tkinter.Tk):
 
         self.shopping_list_frame.current_measurement_registry.remove_recipe(recipe_name=selected_meal)
         self.shopping_list_frame.update_shopping_list()
-
-
-if __name__ == "__main__":
-    app = CoMoApp()
-    app.mainloop()

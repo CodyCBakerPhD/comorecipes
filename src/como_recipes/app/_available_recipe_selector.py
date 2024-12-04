@@ -3,7 +3,7 @@ import tkinter.messagebox
 
 import natsort
 
-import como_recipes
+from .._recipe_registration import default_recipe_registry
 
 
 class AvailableRecipeSelector(tkinter.Frame):
@@ -27,7 +27,7 @@ class AvailableRecipeSelector(tkinter.Frame):
         self.default_available_index_to_meals: dict[int, str] = {
             index: recipe_name
             for index, recipe_name in enumerate(
-                natsort.natsorted(seq=como_recipes.default_recipe_registry.get_all_recipe_names()),
+                natsort.natsorted(seq=default_recipe_registry.get_all_recipe_names()),
             )
         }
         self.default_available_meals_to_index: dict[str, int] = {
@@ -77,8 +77,8 @@ class AvailableRecipeSelector(tkinter.Frame):
         all_default_tags = natsort.natsorted(
             seq={
                 tag
-                for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
-                for tag in como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
+                for recipe_name in default_recipe_registry.get_all_recipe_names()
+                for tag in default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
             },
         )
 
@@ -116,7 +116,7 @@ class AvailableRecipeSelector(tkinter.Frame):
             filtered_data = [
                 item
                 for item in data
-                if selected_tags.issubset(como_recipes.default_recipe_registry.get_recipe(recipe_name=item).tags)
+                if selected_tags.issubset(default_recipe_registry.get_recipe(recipe_name=item).tags)
             ]
 
         sorted_data = natsort.natsorted(seq=filtered_data)
@@ -125,10 +125,3 @@ class AvailableRecipeSelector(tkinter.Frame):
         # regenerating entire search every time
         self.currently_available_meals_box.delete(first=0, last="end")
         self.currently_available_meals_box.insert("end", *sorted_data)
-
-
-if __name__ == "__main__":
-    app = tkinter.Tk()
-    available_recipe_selector = AvailableRecipeSelector(master=app)
-    available_recipe_selector.pack(padx=5, pady=5)
-    app.mainloop()

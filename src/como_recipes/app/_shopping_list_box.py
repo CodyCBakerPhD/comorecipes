@@ -1,23 +1,32 @@
-import datetime
-import pathlib
 import tkinter
 import tkinter.messagebox
 
 import click
 
-import como_recipes
+from ._utils import _generate_new_default_session_id, _get_home_folder
+from .._measurement_registration import MeasurementRegistry
 
 
 class ShoppingListBox(tkinter.Frame):
     def __init__(
         self,
         master: tkinter.Tk | tkinter.Frame | None = None,
+        session_id: str | None = None,
         minimum_available_recipe_width_in_characters: int = 30,
         minimum_number_of_displayed_measurements: int = 35,
     ) -> None:
         """A modular component for displaying, writing, and externally opening a shopping list."""
         super().__init__(master=master)
 
+        # Setup local app folders
+        self.home_folder_path = _get_home_folder()
+        self.home_folder_path.mkdir(exist_ok=True)
+
+        session_id = session_id or _generate_new_default_session_id()
+        self.session_folder_path = self.home_folder_path / session_id
+        self.session_folder_path.mkdir(exist_ok=False)
+
+        # Setup attributes and subcomponents
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
 
@@ -26,7 +35,7 @@ class ShoppingListBox(tkinter.Frame):
 
     def setup_attributes(self) -> None:
         """Define all mutable attributes used to control underlying states of the application."""
-        self.current_measurement_registry = como_recipes.MeasurementRegistry()
+        self.current_measurement_registry = MeasurementRegistry()
 
     def setup_frame(self) -> None:
         """Initialize and organize all subcomponents of the frame."""
@@ -61,40 +70,8 @@ class ShoppingListBox(tkinter.Frame):
         # shopping_list = self.current_measurement_registry.get_shopping_list()
         shopping_list = str(self.current_measurement_registry)
 
-        home_folder = pathlib.Path.home() / ".como_recipes"
-        home_folder.mkdir(exist_ok=True)
-
-        shopping_list_folder_path = home_folder / "shopping_lists"
-        shopping_list_folder_path.mkdir(exist_ok=True)
-
-        date = datetime.datetime.now().strftime("%Y%m%d")
-        shopping_list_file_path = shopping_list_folder_path / f"shopping_list_{date}.txt"
-
-        counter = 0
-        maximum_iterations = 100
-        while shopping_list_file_path.exists() and counter < maximum_iterations:
-            shopping_list_file_path = home_folder / f"shopping_list_{date}_{counter}.txt"
-            counter += 1
-
-        if counter == maximum_iterations:
-            # TODO: replace with better pop-up
-            tkinter.messagebox.showerror(title="Error", message="Too many shopping lists with the current date!")
-            return
-
+        shopping_list_file_path = self.session_folder_path / "shopping_list.txt"
         with shopping_list_file_path.open(mode="w") as io:
             io.write(shopping_list)
 
         click.edit(filename=str(shopping_list_file_path))
-
-
-if __name__ == "__main__":
-    app = tkinter.Tk()
-    shopping_list_box = ShoppingListBox(master=app)
-    shopping_list_box.pack(padx=5)
-
-    shopping_list_box.current_measurement_registry.add_recipe(
-        recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"),
-    )
-    shopping_list_box.update_shopping_list()
-
-    app.mainloop()

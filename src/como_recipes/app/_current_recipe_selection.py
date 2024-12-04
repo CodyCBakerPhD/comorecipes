@@ -35,13 +35,3 @@ class CurrentRecipeSelection(tkinter.Frame):
 
         self.selected_meals_label.pack(side="top", pady=2.5)
         self.selected_meals_box.pack(side="top", pady=2.5)
-
-
-if __name__ == "__main__":
-    app = tkinter.Tk()
-    current_recipe_selection = CurrentRecipeSelection(master=app)
-    current_recipe_selection.pack(padx=5, pady=2.5)
-
-    current_recipe_selection.selected_meals_box.insert("end", "Aglio E Olio")
-
-    app.mainloop()
