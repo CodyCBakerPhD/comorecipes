@@ -8,7 +8,7 @@ import pytest
 from como_recipes import Measurement, MeasurementRegistry, Recipe
 
 
-def test_measurement_registry(example_measurement: Measurement):
+def test_dynamic_measurement_registry(example_measurement: Measurement):
     example_folder_path = pathlib.Path(__file__).parent / "examples" / "example_1"
 
     example_1_markdown_file_path = example_folder_path / "example_recipe_1.md"
@@ -31,7 +31,19 @@ def test_measurement_registry(example_measurement: Measurement):
         print(new_registry)
     assert captured_output.getvalue() == expected_repr + "\n"
 
-    expected_shopping_list = "Example Ingredient 1\n  56 grams\n"
+    expected_shopping_list = (
+        "Meals\n"
+        "-----\n"
+        "\n"
+        "\n"
+        "\n"
+        "\n"
+        "Ingredients\n"
+        "-----------\n"
+        "\n"
+        "Example Ingredient 1\n"
+        "  56 grams\n"
+    )
     assert new_registry.get_shopping_list() == expected_shopping_list
 
     new_registry.add_recipe(recipe=recipe)
@@ -55,14 +67,48 @@ def test_measurement_registry(example_measurement: Measurement):
 
     new_registry.add_measurement(measurement=example_measurement)
 
-    expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\ningredient 2\n  4 g\n"
+    expected_shopping_list = (
+        "Meals\n"
+        "-----\n"
+        "\n"
+        "☐ Example Recipe 1\n"
+        "\n"
+        "\n"
+        "\n"
+        "Ingredients\n"
+        "-----------\n"
+        "\n"
+        "Example Ingredient 1\n"
+        "  112 grams\n"
+        "ingredient 1\n"
+        "  31/10 tbsp.\n"
+        "ingredient 2\n"
+        "  4 g\n"
+    )
     assert new_registry.get_shopping_list() == expected_shopping_list
 
     new_registry.remove_measurement(
         measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2"),
     )
 
-    expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\ningredient 2\n  2 g\n"
+    expected_shopping_list = (
+        "Meals\n"
+        "-----\n"
+        "\n"
+        "☐ Example Recipe 1\n"
+        "\n"
+        "\n"
+        "\n"
+        "Ingredients\n"
+        "-----------\n"
+        "\n"
+        "Example Ingredient 1\n"
+        "  112 grams\n"
+        "ingredient 1\n"
+        "  31/10 tbsp.\n"
+        "ingredient 2\n"
+        "  2 g\n"
+    )
     assert new_registry.get_shopping_list() == expected_shopping_list
 
     # Recipe should now be removed entirely from printout
@@ -70,7 +116,22 @@ def test_measurement_registry(example_measurement: Measurement):
         measurement=MeasurementRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2"),
     )
 
-    expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\n"
+    expected_shopping_list = (
+        "Meals\n"
+        "-----\n"
+        "\n"
+        "☐ Example Recipe 1\n"
+        "\n"
+        "\n"
+        "\n"
+        "Ingredients\n"
+        "-----------\n"
+        "\n"
+        "Example Ingredient 1\n"
+        "  112 grams\n"
+        "ingredient 1\n"
+        "  31/10 tbsp.\n"
+    )
     assert new_registry.get_shopping_list() == expected_shopping_list
 
     expected_recipe_names = ["Example Recipe 1"]
@@ -78,7 +139,19 @@ def test_measurement_registry(example_measurement: Measurement):
 
     new_registry.remove_recipe(recipe_name="Example Recipe 1")
 
-    expected_shopping_list = "Example Ingredient 1\n  112 grams\n"
+    expected_shopping_list = (
+        "Meals\n"
+        "-----\n"
+        "\n"
+        "\n"
+        "\n"
+        "\n"
+        "Ingredients\n"
+        "-----------\n"
+        "\n"
+        "Example Ingredient 1\n"
+        "  112 grams\n"
+    )
     assert new_registry.get_shopping_list() == expected_shopping_list
 
 
@@ -119,3 +192,22 @@ def test_get_shopping_list_warning():
     expected_message = "Negative amount of 'test_ingredient' found in shopping list; ignoring."
     with pytest.warns(UserWarning, match=expected_message):
         new_registry.get_shopping_list()
+
+
+def test_example_1_shopping_list():
+    new_registry = MeasurementRegistry()
+
+    example_folder_path = pathlib.Path(__file__).parent / "examples" / "example_1"
+
+    example_1_markdown_file_path = example_folder_path / "example_recipe_1.md"
+    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
+
+    new_registry.add_recipe(recipe=recipe)
+
+    test_shopping_list = new_registry.get_shopping_list()
+
+    expected_shopping_list_file_path = example_folder_path / "example_shopping_list_1.txt"
+    with expected_shopping_list_file_path.open(mode="r", encoding="utf-8") as io:
+        expected_shopping_list = io.read()
+
+    assert test_shopping_list == expected_shopping_list

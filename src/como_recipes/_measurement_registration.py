@@ -159,7 +159,11 @@ class MeasurementRegistry(pydantic.BaseModel):
         """Get a shopping list by aggregating all contained recipes and measurements."""
         combined_measurements = self._calculate_combined_measurements()
 
-        shopping_list = ""
+        shopping_list = "Meals\n-----\n\n"
+        for recipe_name in self._recipe_registry.get_all_recipe_names():
+            shopping_list += f"☐ {recipe_name}\n"
+        shopping_list += "\n\n\nIngredients\n-----------\n\n"
+
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
             seq=combined_measurements.items(),
             key=lambda item_tuple: item_tuple[0],
