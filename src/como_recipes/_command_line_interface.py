@@ -14,6 +14,7 @@ import click
 from ._base_recipe import Recipe
 from ._measurement_registration import MeasurementRegistry
 from ._recipe_registration import default_recipe_registry
+from .app import CoMoApp
 from .utils import get_terminal_size
 
 
@@ -97,6 +98,8 @@ def _como_recipes_command_line_interface_main_entrypoint() -> None:
     menu_message += click.style(text=" Refresh (rf) ", fg="black", bg="white")
     menu_message += click.style(text=" ", fg="black", bg="black")
     menu_message += click.style(text=" Launch Interactive Meal Selector (ms) ", fg="black", bg="bright_yellow")
+    menu_message += click.style(text=" ", fg="black", bg="black")
+    menu_message += click.style(text=" Launch Meal Selector App (app) ", fg="black", bg="green")
     menu_message += click.style(text="\n\n", fg="black", bg="black")
     menu_message += click.style(text="What would you like to do?: ", fg="bright_blue", bg="black")
 
@@ -113,6 +116,9 @@ def _como_recipes_command_line_interface_main_entrypoint() -> None:
                 click.clear()
             case "ms":
                 _meal_selector()
+            case "app":
+                app = CoMoApp()
+                app.mainloop()
 
         iteration += 1
 

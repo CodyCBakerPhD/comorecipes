@@ -15,10 +15,11 @@ __all__ = [
     # Global variables
     "default_recipe_registry",
     "default_ingredient_registry",
-    # Public submodule
+    # Public submodules
+    "app",
     "utils",
 ]
 
-# Trigger import of built-in recipes (only need to import one item to trigger the rest)
-from ._recipes._pydantic import AglioEOlio
-from ._ingredients import Garlic
+# Trigger import of hidden submodule elements (only need to import one item to trigger the rest)
+# Used for automatic recipe registration as well as the isolated `app` submodule
+from ._hidden_top_level_imports import _hide
