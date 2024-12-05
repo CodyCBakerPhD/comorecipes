@@ -1,3 +1,4 @@
+import pathlib
 import tkinter
 import tkinter.messagebox
 
@@ -7,26 +8,18 @@ from ._utils import _generate_new_default_session_id, _get_home_folder
 from .._measurement_registration import MeasurementRegistry
 
 
-class ShoppingListBox(tkinter.Frame):
+class ShoppingListFrame(tkinter.Frame):
     def __init__(
         self,
         master: tkinter.Tk | tkinter.Frame | None = None,
-        session_id: str | None = None,
+        session_folder_path: pathlib.Path | None = None,
         minimum_available_recipe_width_in_characters: int = 30,
         minimum_number_of_displayed_measurements: int = 35,
     ) -> None:
         """A modular component for displaying, writing, and externally opening a shopping list."""
         super().__init__(master=master)
 
-        # Setup local app folders
-        self.home_folder_path = _get_home_folder()
-        self.home_folder_path.mkdir(exist_ok=True)
-
-        session_id = session_id or _generate_new_default_session_id()
-        self.session_folder_path = self.home_folder_path / session_id
-        self.session_folder_path.mkdir(exist_ok=False)
-
-        # Setup attributes and subcomponents
+        self.session_folder_path = session_folder_path or _get_home_folder() / _generate_new_default_session_id()
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
 
@@ -70,6 +63,7 @@ class ShoppingListBox(tkinter.Frame):
         # shopping_list = self.current_measurement_registry.get_shopping_list()
         shopping_list = str(self.current_measurement_registry)
 
+        self.session_folder_path.mkdir(exist_ok=True)
         shopping_list_file_path = self.session_folder_path / "shopping_list.txt"
         with shopping_list_file_path.open(mode="w") as io:
             io.write(shopping_list)

@@ -3,10 +3,11 @@ import tkinter.messagebox
 
 import natsort
 
+from ._globals import all_default_tags
 from .._recipe_registration import default_recipe_registry
 
 
-class AvailableRecipeSelector(tkinter.Frame):
+class AvailableRecipesFrame(tkinter.Frame):
     def __init__(
         self,
         master: tkinter.Tk | tkinter.Frame | None = None,
@@ -73,14 +74,6 @@ class AvailableRecipeSelector(tkinter.Frame):
             text="Filter by",
         )
         self.tags_label.grid(row=0, pady=5)
-
-        all_default_tags = natsort.natsorted(
-            seq={
-                tag
-                for recipe_name in default_recipe_registry.get_all_recipe_names()
-                for tag in default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
-            },
-        )
 
         self.tags_to_checkbox_values = {tag: tkinter.IntVar() for tag in all_default_tags}
         self.tags_to_tag_checkboxes = {

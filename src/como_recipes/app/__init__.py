@@ -1,11 +1,13 @@
-from ._available_recipe_selector import AvailableRecipeSelector
-from ._shopping_list_box import ShoppingListBox
-from ._current_recipe_selection import CurrentRecipeSelection
+from ._available_recipes_frame import AvailableRecipesFrame
+from ._shopping_list_frame import ShoppingListFrame
+from ._selected_recipes_frame import SelectedRecipesFrame
 from ._como_app import CoMoApp
+from ._session_manager_frame import SessionManagerFrame
 
 __all__ = [
-    "AvailableRecipeSelector",
+    "AvailableRecipesFrame",
     "CoMoApp",
-    "CurrentRecipeSelection",
-    "ShoppingListBox",
+    "SelectedRecipesFrame",
+    "ShoppingListFrame",
+    "SessionManagerFrame",
 ]

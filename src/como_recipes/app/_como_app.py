@@ -6,32 +6,27 @@ import tkinter.messagebox
 import tkinter.simpledialog
 import webbrowser
 
-from ._available_recipe_selector import AvailableRecipeSelector
-from ._current_recipe_selection import CurrentRecipeSelection
-from ._shopping_list_box import ShoppingListBox
-from ._utils import _generate_new_default_session_id, _get_home_folder
+import yaml
+
+from ._available_recipes_frame import AvailableRecipesFrame
+from ._selected_recipes_frame import SelectedRecipesFrame
+from ._session_manager_frame import SessionManagerFrame
+from ._shopping_list_frame import ShoppingListFrame
+from .._measurement_registration import MeasurementRegistry
 from .._recipe_registration import default_recipe_registry
 
 
 class CoMoApp(tkinter.Tk):
-    def __init__(
-        self,
-        minimum_available_recipe_width_in_characters: int = 30,
-        minimum_number_of_displayed_selected_recipes: int = 15,
-        minimum_number_of_displayed_measurements: int = 35,
-        minimum_number_of_displayed_available_recipes: int = 20,
-    ) -> None:
+    def __init__(self) -> None:
         """A relatively simple GUI implementation for the CoMo Meal Selection based on Tkinter."""
         super().__init__()
 
-        # Setup local app folders
-        self.home_folder_path = _get_home_folder()
-        self.home_folder_path.mkdir(exist_ok=True)
+        self.setup_window()
+        self.setup_frames()
+        self.load_session()
 
-        self.session_id = _generate_new_default_session_id()
-        self.session_folder_path = self.home_folder_path / self.session_id
-        self.session_folder_path.mkdir(exist_ok=False)
-
+    def setup_window(self) -> None:
+        """Initialize the main window and menu bar."""
         # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
         base_path = pathlib.Path(sys._MEIPASS) if hasattr(sys, "_MEIPASS") else pathlib.Path(__file__).parent.parent
 
@@ -44,11 +39,6 @@ class CoMoApp(tkinter.Tk):
         self.main_menu = tkinter.Menu(master=self, tearoff=False)
         self.config(menu=self.main_menu)
 
-        self.session_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
-        self.main_menu.add_cascade(label="Session", menu=self.session_menu)
-        self.session_menu.add_command(label="Start new", command=self._create_new_session)
-        self.session_menu.add_command(label="Restore previous")
-
         self.help_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label="Help", menu=self.help_menu)
         self.help_menu.add_command(label="Submit issue", command=self._open_github_issue_page)
@@ -56,79 +46,121 @@ class CoMoApp(tkinter.Tk):
         # Components do not currently support dynamic resizing, so just freeze window size
         self.resizable(width=False, height=False)
 
-        # Initialize all frames or components that comprise the app
-        self.header_frame = tkinter.Frame(master=self)
+        # Ask for session save on exit
+        self.protocol(name="WM_DELETE_WINDOW", func=self._on_closing)
 
-        version = importlib.metadata.version(distribution_name="como_recipes")
-        self.version_label = tkinter.Label(master=self.header_frame, text=f"App version:  v{version}")
-        self.version_label.grid(row=0, sticky="W")
+    def setup_frames(
+        self,
+        minimum_available_recipe_width_in_characters: int = 30,
+        minimum_number_of_displayed_selected_recipes: int = 15,
+        minimum_number_of_displayed_measurements: int = 35,
+        minimum_number_of_displayed_available_recipes: int = 20,
+    ) -> None:
+        """Initialize all frames or components that comprise the app."""
+        self.session_manager_frame = SessionManagerFrame(master=self)
 
-        self.session_id_label_value = tkinter.StringVar(value=f"Session ID:  {self.session_id}")
-        self.session_id_label = tkinter.Label(master=self.header_frame, textvariable=self.session_id_label_value)
-        self.session_id_label.grid(row=1, sticky="W")
-
-        self.current_available_meals_frame = AvailableRecipeSelector(
+        self.available_meals_frame = AvailableRecipesFrame(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_available_recipes=minimum_number_of_displayed_available_recipes,
         )
         # TODO: ideally all of these outer-level variable pointers wouldn't be necessary
-        self.currently_available_index_to_meals = self.current_available_meals_frame.currently_available_index_to_meals
-        self.current_available_meals_frame.currently_available_meals_box.bind(
-            sequence="<Double-Button-1>",
-            func=self.add_selected_meal,
-        )
+        self.currently_available_index_to_meals = self.available_meals_frame.currently_available_index_to_meals
 
-        self.shopping_list_frame = ShoppingListBox(
+        self.shopping_list_frame = ShoppingListFrame(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
         self.current_measurement_registry = self.shopping_list_frame.current_measurement_registry
 
-        self.current_recipe_selection_frame = CurrentRecipeSelection(
+        self.selected_recipes_frame = SelectedRecipesFrame(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_selected_recipes=minimum_number_of_displayed_selected_recipes,
         )
-        self.selected_meals_box = self.current_recipe_selection_frame.selected_meals_box
-        self.current_recipe_selection_frame.selected_meals_box.bind(
+        self.selected_meals_box = self.selected_recipes_frame.selected_meals_box
+
+        package_version = importlib.metadata.version(distribution_name="como_recipes")
+        self.version_label = tkinter.Label(master=self, text=f"v{package_version}")
+
+        # Organize frames on grid
+        self.session_manager_frame.grid(column=0, rowspan=4, padx=5, pady=5, sticky="NW")
+        self.available_meals_frame.grid(row=1, column=1, padx=5, pady=5)
+        self.selected_recipes_frame.grid(row=2, column=1, padx=5, pady=5)
+        self.shopping_list_frame.grid(row=1, column=2, rowspan=2, padx=5, pady=5)
+        self.version_label.grid(row=3, columnspan=3, sticky="se")
+
+        # Link cross-frame attributes
+        self.session_folder_path = self.session_manager_frame.session_folder_path
+        self.session_manager_frame.selected_index_to_meals = self.selected_recipes_frame.selected_index_to_meals
+
+        # Bind callbacks
+        self.session_manager_frame.session_ids_listbox.unbind(sequence="<Double-Button-1>")
+        self.session_manager_frame.session_ids_listbox.bind(sequence="<Double-Button-1>", func=self.select_session)
+
+        self.available_meals_frame.currently_available_meals_box.bind(
+            sequence="<Double-Button-1>",
+            func=self.add_selected_meal,
+        )
+        self.selected_recipes_frame.selected_meals_box.bind(
             sequence="<Double-Button-1>",
             func=self.remove_selected_meal,
         )
 
-        # Organize frames on grid
-        self.header_frame.grid(row=0, columnspan=2, padx=5, pady=10, sticky="W")
-        self.current_available_meals_frame.grid(row=1, column=0, padx=5, pady=5)
-        self.current_recipe_selection_frame.grid(row=2, column=0, padx=5, pady=5)
-        self.shopping_list_frame.grid(row=1, column=1, rowspan=2, padx=5, pady=5)
+    def select_session(self, event: tkinter.Event | None = None) -> None:
+        """
+        The callback which triggers on double-clicking an element of the session manager listbox.
 
-    def _create_new_session(self) -> None:
-        """Create a new session."""
-        self.session_id = tkinter.simpledialog.askstring(
-            title="New Session",
-            prompt="Enter an ID for the new session:",
-            initialvalue=_generate_new_default_session_id(),
-        )
-        self.session_folder_path = self.home_folder_path / self.session_id
-        self.session_folder_path.mkdir(exist_ok=False)
+        Also has the effect of loading/restoring a previous session if it had saved relevant state data.
+        The 'current' session is determined via the `session_manager_frame` internal attributes.
+        """
+        self.session_manager_frame.select_session(event=event)
 
-        self.session_id_label_value.set(value=f"Session ID: {self.session_id}")
+        selected_value = self.session_ids_listbox.get("active")
 
-    def _open_github_issue_page(self) -> None:
-        """Open the GitHub issue page for the CoMo project."""
-        webbrowser.open_new("https://github.com/CodyCBakerPhD/como_recipes/issues/new/choose")
+        selected_index_to_meals = {}
+        if selected_value != "+ New session":
+            if not self.session_folder_path.exists():
+                return
+
+            selected_index_to_meals_file_path = self.session_folder_path / "selected_index_to_meals.yml"
+            if not selected_index_to_meals_file_path.exists():
+                return
+            if selected_index_to_meals_file_path.stat().st_size == 0:
+                selected_index_to_meals_file_path.unlink()
+                return
+
+            with selected_index_to_meals_file_path.open(mode="r") as io:
+                selected_index_to_meals = yaml.safe_load(stream=io)
+
+        self.load_session(selected_index_to_meals=selected_index_to_meals)
+
+    def load_session(self, selected_index_to_meals: dict[int, str]) -> None:
+        """Restore the app state for the given session."""
+        self.session_manager_frame.load_session()
+
+        self.selected_recipes_frame.selected_index_to_meals = selected_index_to_meals
+        self.selected_recipes_frame.selected_meals_box.delete(first=0, last="end")
+        self.selected_recipes_frame.selected_meals_box.insert("end", *selected_index_to_meals.values())
+
+        self.shopping_list_frame.current_measurement_registry = MeasurementRegistry()
+        for meal in selected_index_to_meals.values():
+            self.shopping_list_frame.current_measurement_registry.add_recipe(
+                recipe=default_recipe_registry.get_recipe(recipe_name=meal),
+            )
+        self.shopping_list_frame.update_shopping_list()
 
     def add_selected_meal(self, event: tkinter.Event) -> None:
         """Move a meal from the available list to the selected list."""
-        selected_meal = self.current_available_meals_frame.currently_available_meals_box.get(first="active")
-        meal_index = self.current_available_meals_frame.default_available_meals_to_index[selected_meal]
+        selected_meal = self.available_meals_frame.currently_available_meals_box.get(first="active")
+        meal_index = self.available_meals_frame.default_available_meals_to_index[selected_meal]
 
-        self.current_recipe_selection_frame.selected_meals_box.insert("end", selected_meal)
+        self.selected_recipes_frame.selected_meals_box.insert("end", selected_meal)
 
-        self.current_recipe_selection_frame.currently_selected_index_to_meals[meal_index] = selected_meal
-        self.current_available_meals_frame.currently_available_index_to_meals.pop(meal_index)
-        self.current_available_meals_frame.update_available_meal_display()
+        self.selected_recipes_frame.selected_index_to_meals[meal_index] = selected_meal
+        self.available_meals_frame.currently_available_index_to_meals.pop(meal_index)
+        self.available_meals_frame.update_available_meal_display()
 
         self.shopping_list_frame.current_measurement_registry.add_recipe(
             recipe=default_recipe_registry.get_recipe(recipe_name=selected_meal),
@@ -137,14 +169,31 @@ class CoMoApp(tkinter.Tk):
 
     def remove_selected_meal(self, event: tkinter.Event) -> None:
         """Move a meal from the selected list back to the available list."""
-        selected_meal = self.current_recipe_selection_frame.selected_meals_box.get(first="active")
-        meal_index = self.current_available_meals_frame.default_available_meals_to_index[selected_meal]
+        selected_meal = self.selected_recipes_frame.selected_meals_box.get(first="active")
+        meal_index = self.available_meals_frame.default_available_meals_to_index[selected_meal]
 
-        self.current_recipe_selection_frame.selected_meals_box.delete(first="active")
+        self.selected_recipes_frame.selected_meals_box.delete(first="active")
 
-        self.current_recipe_selection_frame.currently_selected_index_to_meals.pop(meal_index)
-        self.current_available_meals_frame.currently_available_index_to_meals[meal_index] = selected_meal
-        self.current_available_meals_frame.update_available_meal_display()
+        self.selected_recipes_frame.selected_index_to_meals.pop(meal_index)
+        self.available_meals_frame.currently_available_index_to_meals[meal_index] = selected_meal
+        self.available_meals_frame.update_available_meal_display()
 
         self.shopping_list_frame.current_measurement_registry.remove_recipe(recipe_name=selected_meal)
         self.shopping_list_frame.update_shopping_list()
+
+    def _on_closing(self) -> None:
+        """Ask the user if they want to save the current session before closing the app."""
+        response = tkinter.messagebox.askyesnocancel(
+            title="Quit",
+            message="Would you like to save the current session?",
+        )
+
+        if response is True:
+            self.session_manager_frame.save_session()
+
+        if response is not None:
+            self.destroy()
+
+    def _open_github_issue_page(self) -> None:
+        """Open the GitHub issue page for the CoMo project."""
+        webbrowser.open_new("https://github.com/CodyCBakerPhD/como_recipes/issues/new/choose")

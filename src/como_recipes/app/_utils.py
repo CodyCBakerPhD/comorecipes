@@ -34,6 +34,6 @@ def _generate_new_default_session_id() -> str | None:
             title="Error",
             message=f"Too many session IDs (> {maximum_iterations}) with the current date ({date})!",
         )
-        return ""
+        return None
 
     return session_id

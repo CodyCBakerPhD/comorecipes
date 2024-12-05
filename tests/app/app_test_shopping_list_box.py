@@ -4,7 +4,7 @@ import como_recipes
 
 if __name__ == "__main__":
     app = tkinter.Tk()
-    shopping_list_box = como_recipes.app.ShoppingListBox(master=app)
+    shopping_list_box = como_recipes.app.ShoppingListFrame(master=app)
     shopping_list_box.pack(padx=5)
 
     shopping_list_box.current_measurement_registry.add_recipe(
