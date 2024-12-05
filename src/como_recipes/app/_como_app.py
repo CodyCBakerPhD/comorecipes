@@ -6,13 +6,10 @@ import tkinter.messagebox
 import tkinter.simpledialog
 import webbrowser
 
-import yaml
-
 from ._available_recipes_frame import AvailableRecipesFrame
 from ._selected_recipes_frame import SelectedRecipesFrame
 from ._session_manager_frame import SessionManagerFrame
 from ._shopping_list_frame import ShoppingListFrame
-from .._measurement_registration import MeasurementRegistry
 from .._recipe_registration import default_recipe_registry
 
 
@@ -23,7 +20,7 @@ class CoMoApp(tkinter.Tk):
 
         self.setup_window()
         self.setup_frames()
-        self.load_session()
+        # self.load_session()
 
     def setup_window(self) -> None:
         """Initialize the main window and menu bar."""
@@ -96,9 +93,6 @@ class CoMoApp(tkinter.Tk):
         self.session_manager_frame.selected_index_to_meals = self.selected_recipes_frame.selected_index_to_meals
 
         # Bind callbacks
-        self.session_manager_frame.session_ids_listbox.unbind(sequence="<Double-Button-1>")
-        self.session_manager_frame.session_ids_listbox.bind(sequence="<Double-Button-1>", func=self.select_session)
-
         self.available_meals_frame.currently_available_meals_box.bind(
             sequence="<Double-Button-1>",
             func=self.add_selected_meal,
@@ -108,48 +102,20 @@ class CoMoApp(tkinter.Tk):
             func=self.remove_selected_meal,
         )
 
-    def select_session(self, event: tkinter.Event | None = None) -> None:
-        """
-        The callback which triggers on double-clicking an element of the session manager listbox.
-
-        Also has the effect of loading/restoring a previous session if it had saved relevant state data.
-        The 'current' session is determined via the `session_manager_frame` internal attributes.
-        """
-        self.session_manager_frame.select_session(event=event)
-
-        selected_value = self.session_ids_listbox.get("active")
-
-        selected_index_to_meals = {}
-        if selected_value != "+ New session":
-            if not self.session_folder_path.exists():
-                return
-
-            selected_index_to_meals_file_path = self.session_folder_path / "selected_index_to_meals.yml"
-            if not selected_index_to_meals_file_path.exists():
-                return
-            if selected_index_to_meals_file_path.stat().st_size == 0:
-                selected_index_to_meals_file_path.unlink()
-                return
-
-            with selected_index_to_meals_file_path.open(mode="r") as io:
-                selected_index_to_meals = yaml.safe_load(stream=io)
-
-        self.load_session(selected_index_to_meals=selected_index_to_meals)
-
-    def load_session(self, selected_index_to_meals: dict[int, str]) -> None:
-        """Restore the app state for the given session."""
-        self.session_manager_frame.load_session()
-
-        self.selected_recipes_frame.selected_index_to_meals = selected_index_to_meals
-        self.selected_recipes_frame.selected_meals_box.delete(first=0, last="end")
-        self.selected_recipes_frame.selected_meals_box.insert("end", *selected_index_to_meals.values())
-
-        self.shopping_list_frame.current_measurement_registry = MeasurementRegistry()
-        for meal in selected_index_to_meals.values():
-            self.shopping_list_frame.current_measurement_registry.add_recipe(
-                recipe=default_recipe_registry.get_recipe(recipe_name=meal),
-            )
-        self.shopping_list_frame.update_shopping_list()
+    # def load_session(self, selected_index_to_meals: dict[int, str]) -> None:
+    #     """Restore the app state for the given session."""
+    #     self.session_manager_frame.load_session()
+    #
+    #     self.selected_recipes_frame.selected_index_to_meals = selected_index_to_meals
+    #     self.selected_recipes_frame.selected_meals_box.delete(first=0, last="end")
+    #     self.selected_recipes_frame.selected_meals_box.insert("end", *selected_index_to_meals.values())
+    #
+    #     self.shopping_list_frame.current_measurement_registry = MeasurementRegistry()
+    #     for meal in selected_index_to_meals.values():
+    #         self.shopping_list_frame.current_measurement_registry.add_recipe(
+    #             recipe=default_recipe_registry.get_recipe(recipe_name=meal),
+    #         )
+    #     self.shopping_list_frame.update_shopping_list()
 
     def add_selected_meal(self, event: tkinter.Event) -> None:
         """Move a meal from the available list to the selected list."""
