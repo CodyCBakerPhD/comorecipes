@@ -10,6 +10,7 @@ from ._available_recipes_frame import AvailableRecipesFrame
 from ._selected_recipes_frame import SelectedRecipesFrame
 from ._session_manager_frame import SessionManagerFrame
 from ._shopping_list_frame import ShoppingListFrame
+from .._measurement_registration import MeasurementRegistry
 from .._recipe_registration import default_recipe_registry
 
 
@@ -20,7 +21,6 @@ class CoMoApp(tkinter.Tk):
 
         self.setup_window()
         self.setup_frames()
-        # self.load_session()
 
     def setup_window(self) -> None:
         """Initialize the main window and menu bar."""
@@ -90,9 +90,18 @@ class CoMoApp(tkinter.Tk):
 
         # Link cross-frame attributes
         self.session_folder_path = self.session_manager_frame.session_folder_path
-        self.session_manager_frame.selected_index_to_meals = self.selected_recipes_frame.selected_index_to_meals
+        self.selected_index_to_meals = self.session_manager_frame.selected_index_to_meals
+        self.tags_to_checkbox_values = self.session_manager_frame.tags_to_checkbox_values
+        self.selected_recipes_frame.selected_index_to_meals = self.selected_index_to_meals
+        self.available_meals_frame.tags_to_checkbox_values = self.tags_to_checkbox_values
 
         # Bind callbacks
+        self.session_manager_frame.session_ids_listbox.unbind(sequence="<Double-Button-1>")
+        self.session_manager_frame.session_ids_listbox.bind(
+            sequence="<Double-Button-1>",
+            func=self.select_session,
+        )
+
         self.available_meals_frame.currently_available_meals_box.bind(
             sequence="<Double-Button-1>",
             func=self.add_selected_meal,
@@ -101,6 +110,23 @@ class CoMoApp(tkinter.Tk):
             sequence="<Double-Button-1>",
             func=self.remove_selected_meal,
         )
+
+    def select_session(self, event: tkinter.Event) -> None:
+        """Extend the `SessionManagerFrame.select_session` method to refresh all relevant app components."""
+        self.session_manager_frame.select_session(event=event)
+
+        self.selected_recipes_frame.selected_meals_box.delete(first=0, last="end")
+        self.selected_recipes_frame.selected_meals_box.insert(
+            "end",
+            *self.session_manager_frame.selected_index_to_meals.values(),
+        )
+
+        self.shopping_list_frame.current_measurement_registry = MeasurementRegistry()
+        for meal in self.session_manager_frame.selected_index_to_meals.values():
+            self.shopping_list_frame.current_measurement_registry.add_recipe(
+                recipe=default_recipe_registry.get_recipe(recipe_name=meal),
+            )
+        self.shopping_list_frame.update_shopping_list()
 
     # def load_session(self, selected_index_to_meals: dict[int, str]) -> None:
     #     """Restore the app state for the given session."""

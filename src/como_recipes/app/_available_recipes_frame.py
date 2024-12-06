@@ -66,11 +66,11 @@ class AvailableRecipesFrame(tkinter.Frame):
         self.currently_available_meals_box.grid(row=2, column=0, sticky="n")
 
         # Right subframe - tag filters
-        self.current_available_meals_frame_tags_subframe = tkinter.Frame(master=self)
-        self.current_available_meals_frame_tags_subframe.pack(side="right")
+        self.available_meals_frame_tags_subframe = tkinter.Frame(master=self)
+        self.available_meals_frame_tags_subframe.pack(side="right")
 
         self.tags_label = tkinter.Label(
-            master=self.current_available_meals_frame_tags_subframe,
+            master=self.available_meals_frame_tags_subframe,
             text="Filter by",
         )
         self.tags_label.grid(row=0, pady=5)
@@ -78,7 +78,7 @@ class AvailableRecipesFrame(tkinter.Frame):
         self.tags_to_checkbox_values = {tag: tkinter.IntVar() for tag in all_default_tags}
         self.tags_to_tag_checkboxes = {
             tag: tkinter.Checkbutton(
-                master=self.current_available_meals_frame_tags_subframe,
+                master=self.available_meals_frame_tags_subframe,
                 text=tag,
                 variable=variable,
                 justify="left",

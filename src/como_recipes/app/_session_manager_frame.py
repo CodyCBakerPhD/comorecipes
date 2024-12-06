@@ -39,6 +39,7 @@ class SessionManagerFrame(tkinter.Frame):
         if self.session_folder_path.exists():
             self.load_session()
         else:
+            # TODO: just an idea
             # self.states = {
             #     "selected_index_to_meals": {},
             #     "tags_to_checkbox_values": {tag: tkinter.IntVar() for tag in all_default_tags},
@@ -77,6 +78,7 @@ class SessionManagerFrame(tkinter.Frame):
     def validate_session(self) -> None:
         """Check if the current session folder contents are valid and remove the directory if not."""
 
+    # TODO: can I use ' / ' to avoid need for `event`?
     def select_session(self, event: tkinter.Event | None = None) -> None:
         """The callback which triggers on double-clicking an element of the session manager listbox."""
         # Reset background color of previously selected session
@@ -116,6 +118,8 @@ class SessionManagerFrame(tkinter.Frame):
 
     def save_session(self, event: tkinter.Event | None = None) -> None:
         """Save the current session to a new folder in the app home directory."""
+        # print(self.session_folder_path)
+
         self.session_folder_path.mkdir(exist_ok=True)
         for attribute_name in ["selected_index_to_meals", "shopping_list"]:
             attribute_file_path = self.session_folder_path / f"{attribute_name}.yaml"
