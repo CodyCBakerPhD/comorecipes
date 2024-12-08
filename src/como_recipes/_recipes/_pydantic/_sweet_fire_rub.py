@@ -1,21 +1,21 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class SweetFireRub(Recipe):
     name: str = "Sweet Fire Rub"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="brown sugar"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="white sugar"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="paprika"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="onion powder"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="garlic powder"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="chili powder"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="cayenne pepper"),
-        MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="salt & pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="brown sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="white sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="paprika"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="onion powder"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="garlic powder"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="chili powder"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="cayenne pepper"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", name="salt & pepper"),
     )
     instructions: tuple[str, ...] = ("Mix together and store in pantry.",)
 

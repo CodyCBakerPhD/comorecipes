@@ -1,29 +1,29 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class PotPie(Recipe):
     name: str = "Pot Pie"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="full", name="pie crust"),
-        MeasurementRegistry.get_measurement(amount=1, unit="serving", name="of firm tofu"),
-        MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="butter"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="medium", name="yellow onions, finely chopped"),
-        MeasurementRegistry.get_measurement(amount=2, unit="medium", name="carrots, peeled and finely chopped"),
-        MeasurementRegistry.get_measurement(amount=1, unit="small", name="russet potato, peeled and diced"),
-        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="salt and pepper"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="flour"),
-        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="not-chicken broth"),
-        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="whole milk"),
-        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="green peas"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cups", name="thinly sliced chives"),
-        MeasurementRegistry.get_measurement(amount=1 / 8, unit="cup", name="parsley"),
-        MeasurementRegistry.get_measurement(amount=2, unit="tbsp.", name="white vinegar"),
-        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="water"),
-        MeasurementRegistry.get_measurement(amount=1, unit="large", name="egg yolk"),
+        IngredientRegistry.get_measurement(amount=1, unit="full", name="pie crust"),
+        IngredientRegistry.get_measurement(amount=1, unit="serving", name="of firm tofu"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", name="butter"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="medium", name="yellow onions, finely chopped"),
+        IngredientRegistry.get_measurement(amount=2, unit="medium", name="carrots, peeled and finely chopped"),
+        IngredientRegistry.get_measurement(amount=1, unit="small", name="russet potato, peeled and diced"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="flour"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", name="not-chicken broth"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", name="whole milk"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", name="green peas"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cups", name="thinly sliced chives"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", name="parsley"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", name="white vinegar"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="water"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", name="egg yolk"),
     )
     instructions: tuple[str, ...] = (
         "Make pie crust well ahead of time, make sure it's cold in the fridge.",

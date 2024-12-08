@@ -1,6 +1,15 @@
+import pathlib
+
 import pytest
 
 import como_recipes
+
+
+@pytest.fixture
+def example_1_folder_path() -> pathlib.Path:
+    relative_path = pathlib.Path(__file__).parent / "examples" / "example_1"
+
+    return relative_path
 
 
 @pytest.fixture

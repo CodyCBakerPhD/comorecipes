@@ -1,20 +1,20 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class Ratatouille(Recipe):
     name: str = "Ratatouille"
     tags: tuple[str, ...] = ("French",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="serving", name="of piperade sauce"),
-        MeasurementRegistry.get_measurement(amount=1, unit="small", name="eggplant, trimmed and thinly sliced"),
-        MeasurementRegistry.get_measurement(amount=1, unit="zucchini,", name="trimmed and thinly sliced"),
-        MeasurementRegistry.get_measurement(amount=1, unit="yellow", name="squash, trimmed and thinly sliced"),
-        MeasurementRegistry.get_measurement(amount=2, unit="aloha", name="peppers, trimmed and thinly sliced"),
-        MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="olive oil"),
-        MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="mascarpone cheese"),
+        IngredientRegistry.get_measurement(amount=1, unit="serving", name="of piperade sauce"),
+        IngredientRegistry.get_measurement(amount=1, unit="small", name="eggplant, trimmed and thinly sliced"),
+        IngredientRegistry.get_measurement(amount=1, unit="zucchini,", name="trimmed and thinly sliced"),
+        IngredientRegistry.get_measurement(amount=1, unit="yellow", name="squash, trimmed and thinly sliced"),
+        IngredientRegistry.get_measurement(amount=2, unit="aloha", name="peppers, trimmed and thinly sliced"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", name="olive oil"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", name="mascarpone cheese"),
     )
     instructions: tuple[str, ...] = (
         "Make piperade sauce ahead of time.",

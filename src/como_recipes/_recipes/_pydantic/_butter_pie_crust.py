@@ -1,19 +1,19 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class ButterPieCrust(Recipe):
     name: str = "Butter Pie Crust"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=5 / 2, unit="cup", name="flour"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="cold butter"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="ice water"),
-        MeasurementRegistry.get_measurement(amount=1, unit="egg", name="yolk with a little water"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="sugar"),
+        IngredientRegistry.get_measurement(amount=5 / 2, unit="cup", name="flour"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", name="cold butter"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="ice water"),
+        IngredientRegistry.get_measurement(amount=1, unit="egg", name="yolk with a little water"),
     )
     instructions: tuple[str, ...] = (
         "Pulse flour, sugar and salt in food processor to combine. Add cold butter and pulse until pea-size pieces remain.",

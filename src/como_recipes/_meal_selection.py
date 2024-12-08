@@ -5,20 +5,24 @@ import warnings
 import natsort
 import pydantic
 
-from ._base_ingredient import Ingredient
-from ._base_measurement import Measurement
-from ._base_recipe import Recipe
-from ._ingredient_registration import default_ingredient_registry
-from ._recipe_registration import RecipeRegistry
+from como_recipes._base._base_ingredient import Ingredient
+from como_recipes._base._base_measurement import Measurement
+from como_recipes._base._base_recipe import Recipe
+from como_recipes._registration._ingredient_registry import default_ingredient_registry
+from como_recipes._registration._recipe_registry import RecipeRegistry
 
 
-class MeasurementRegistry(pydantic.BaseModel):
+class MealSelection(pydantic.BaseModel):
     """
-    Registry for storing measurements and recipes.
+    API for selecting meals.
 
-    Initialize an empty registry with `MeasurementRegistry()` then add:
-        - measurements with `add_measurement`
-        - recipes with `add_recipe`
+    Initialize an interactive selection with `MealSelection()` then add:
+        - meals with `add_meal`
+        - individual measurements with `add_measurement`
+
+    or remove:
+        - meals with `remove_meal`
+        - individual measurements with `remove_measurement`
     """
 
     _individual_measurements_to_add: dict[str, list[Measurement]] | None = None
@@ -202,6 +206,9 @@ class MeasurementRegistry(pydantic.BaseModel):
         Generate a measurement of an ingredient from the default global ingredient registry.
 
         Uses a base Ingredient if it is unregistered.
+
+        While this method might intuitively belong to the `IngredientRegistry` class, the interaction with
+        the `default_ingredient_registry` makes this impossible due to circularity.
 
         Parameters
         ----------

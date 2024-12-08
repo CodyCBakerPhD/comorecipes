@@ -1,16 +1,16 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class FriedChicken(Recipe):
     name: str = "Fried Chicken"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="serving", name="of Frying Breading"),
-        MeasurementRegistry.get_measurement(amount=2, unit="large", name="chicken breasts"),
-        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="buttermilk"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="serving", name="of Frying Breading"),
+        IngredientRegistry.get_measurement(amount=2, unit="large", name="chicken breasts"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", name="buttermilk"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil to 325 F. Add some lime juice if feeling fruity.",

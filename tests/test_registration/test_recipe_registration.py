@@ -7,10 +7,8 @@ import pytest
 from como_recipes import Recipe, RecipeRegistry
 
 
-def test_example_recipe_1_add_to_registry():
-    example_folder_path = pathlib.Path(__file__).parent / "examples" / "example_1"
-
-    example_1_markdown_file_path = example_folder_path / "example_recipe_1.md"
+def test_example_recipe_1_add_to_registry(example_1_folder_path: pathlib.Path):
+    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
     recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
 
     new_registry = RecipeRegistry()

@@ -1,21 +1,21 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class Pancakes(Recipe):
     name: str = "Pancakes"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="", name="cup flour"),
-        MeasurementRegistry.get_measurement(amount=2, unit="", name="tbsp. sugar"),
-        MeasurementRegistry.get_measurement(amount=1, unit="", name="tsp. baking powder"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="", name="tsp. baking soda"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="", name="tsp. salt"),
-        MeasurementRegistry.get_measurement(amount=1, unit="", name="egg"),
-        MeasurementRegistry.get_measurement(amount=2, unit="", name="tbsp. butter"),
-        MeasurementRegistry.get_measurement(amount=1, unit="", name="cup buttermilk"),
+        IngredientRegistry.get_measurement(amount=1, unit="", name="cup flour"),
+        IngredientRegistry.get_measurement(amount=2, unit="", name="tbsp. sugar"),
+        IngredientRegistry.get_measurement(amount=1, unit="", name="tsp. baking powder"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", name="tsp. baking soda"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", name="tsp. salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="", name="egg"),
+        IngredientRegistry.get_measurement(amount=2, unit="", name="tbsp. butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="", name="cup buttermilk"),
     )
     instructions: tuple[str, ...] = (
         "Combine dry ingredients.",

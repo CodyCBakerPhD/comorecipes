@@ -1,24 +1,24 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class GreenChili(Recipe):
     name: str = "Green Chili"
     tags: tuple[str, ...] = ("Mexican",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="tbps.", name="butter"),
-        MeasurementRegistry.get_measurement(amount=1, unit="large", name="white onion"),
-        MeasurementRegistry.get_measurement(amount=1, unit="qt.", name="of tomatoes"),
-        MeasurementRegistry.get_measurement(amount=10, unit="Anaheim", name="chilis"),
-        MeasurementRegistry.get_measurement(amount=2, unit="Jalepeno", name="peppers"),
-        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="salt & pepper"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tbsp.", name="powdered mustard"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="dried oregano"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="garlic powder"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="butter"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="flour"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbps.", name="butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", name="white onion"),
+        IngredientRegistry.get_measurement(amount=1, unit="qt.", name="of tomatoes"),
+        IngredientRegistry.get_measurement(amount=10, unit="Anaheim", name="chilis"),
+        IngredientRegistry.get_measurement(amount=2, unit="Jalepeno", name="peppers"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="salt & pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tbsp.", name="powdered mustard"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="dried oregano"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="garlic powder"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="butter"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="flour"),
     )
     instructions: tuple[str, ...] = (
         "Grill the Anaheim peppers ahead of time; when skin is blackened, place into plastic bag and leave to cool.",

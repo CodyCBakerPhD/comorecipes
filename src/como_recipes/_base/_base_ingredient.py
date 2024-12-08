@@ -5,7 +5,7 @@ import pydantic
 
 class Ingredient(pydantic.BaseModel):
     """
-    Automatically validated base data class for all ingredients.
+    An ingredient is a single food item to be shopped for and therefore includes package information as found in stores.
 
     Parameters
     ----------
@@ -13,6 +13,7 @@ class Ingredient(pydantic.BaseModel):
         Name of the ingredient.
     default_package_size_in_grams : int | float | None, optional
         Size of the default package (in grams) as commonly found in stores.
+        If this size is variable (such as garlic heads), then the lower end of the range is estimated.
     default_package_unit : str | None, optional
         Unit of the default package size as commonly found in stores.
 

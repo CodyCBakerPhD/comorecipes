@@ -1,13 +1,14 @@
 import natsort
 import pydantic
 
+from como_recipes._registration._recipe_registry import default_recipe_registry
+
 from ._base_recipe import Recipe
-from ._recipe_registration import default_recipe_registry
 
 
 class Meal(pydantic.BaseModel):
     """
-    Automatically validated base data class for all meals.
+    A meal is a collection of recipes to be prepared and eaten together.
 
     Parameters
     ----------

@@ -1,20 +1,20 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class PumpkinPieFilling(Recipe):
     name: str = "Pumpkin Pie Filling"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=15, unit="oz.", name="fresh pumpkin puree"),
-        MeasurementRegistry.get_measurement(amount=14, unit="oz.", name="condensed milk"),
-        MeasurementRegistry.get_measurement(amount=2, unit="eggs", name=""),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="ginger"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="nutmeg"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="pie", name="crust"),
+        IngredientRegistry.get_measurement(amount=15, unit="oz.", name="fresh pumpkin puree"),
+        IngredientRegistry.get_measurement(amount=14, unit="oz.", name="condensed milk"),
+        IngredientRegistry.get_measurement(amount=2, unit="eggs", name=""),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="ginger"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="nutmeg"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="pie", name="crust"),
     )
     instructions: tuple[str, ...] = ("Mix ingredients well and pour into pie crust. Bake for 15 minutes at 425 F.",)
 

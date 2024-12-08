@@ -1,19 +1,19 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class SimpleCaramel(Recipe):
     name: str = "Simple Caramel"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=14, unit="oz.", name="sweetened condensed milk"),
-        MeasurementRegistry.get_measurement(amount=7, unit="tbsp.", name="butter, cut into pieces"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="brown sugar"),
-        MeasurementRegistry.get_measurement(amount=1 / 6, unit="cup", name="light corn syrup"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="vanilla extract"),
-        MeasurementRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="salt"),
+        IngredientRegistry.get_measurement(amount=14, unit="oz.", name="sweetened condensed milk"),
+        IngredientRegistry.get_measurement(amount=7, unit="tbsp.", name="butter, cut into pieces"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="brown sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", name="light corn syrup"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Combine condensed milk, butter, brown sugar, and corn syrup in medium saucepan over medium heat.",

@@ -1,17 +1,17 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class Brigadeiros(Recipe):
     name: str = "Brigadeiros"
     tags: tuple[str, ...] = ("Brazilian",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="unsweetened cocoa"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="butter"),
-        MeasurementRegistry.get_measurement(amount=14, unit="oz.", name="condensed milk"),
-        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="chocolate sprinkles"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", name="unsweetened cocoa"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="butter"),
+        IngredientRegistry.get_measurement(amount=14, unit="oz.", name="condensed milk"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", name="chocolate sprinkles"),
     )
     instructions: tuple[str, ...] = (
         "Combine cocoa, butter, and condensed milk in a medium saucepan over medium heat.",

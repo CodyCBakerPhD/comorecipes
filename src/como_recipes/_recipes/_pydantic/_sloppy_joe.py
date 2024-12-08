@@ -1,22 +1,22 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class SloppyJoe(Recipe):
     name: str = "Sloppy Joe"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="batch", name="of Kaiser Rolls"),
-        MeasurementRegistry.get_measurement(amount=1, unit="lb", name="ground beef or Boca crumbles"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="red onion"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="garlic powder"),
-        MeasurementRegistry.get_measurement(amount=2, unit="tsp.", name="yellow mustard"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="ketchup"),
-        MeasurementRegistry.get_measurement(amount=3, unit="tsp.", name="brown sugar"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tbsp.", name="molasses"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=1, unit="batch", name="of Kaiser Rolls"),
+        IngredientRegistry.get_measurement(amount=1, unit="lb", name="ground beef or Boca crumbles"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="red onion"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="garlic powder"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="yellow mustard"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="ketchup"),
+        IngredientRegistry.get_measurement(amount=3, unit="tsp.", name="brown sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tbsp.", name="molasses"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="salt and pepper"),
     )
     instructions: tuple[str, ...] = ("Brown meat. Mix spices. Simmer until good consistency.",)
 

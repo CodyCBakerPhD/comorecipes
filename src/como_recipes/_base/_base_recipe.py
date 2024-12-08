@@ -9,7 +9,9 @@ from ._base_measurement import Measurement
 
 class Recipe(pydantic.BaseModel):
     """
-    Automatically validated base data class for all recipes.
+    A recipe is a named and tagged collection of measured ingredients with instructions and notes.
+
+    Notes can be warnings or other common reminders.
 
     Parameters
     ----------
@@ -189,7 +191,7 @@ class Recipe(pydantic.BaseModel):
             Whether to include the instructions in the recipe.
 
         """
-        from ._measurement_registration import MeasurementRegistry
+        from .._registration._ingredient_registry import IngredientRegistry
 
         with file_path.open(mode="r") as io:
             lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
@@ -213,7 +215,7 @@ class Recipe(pydantic.BaseModel):
             amount = fractions.Fraction(ingredient_line[0])
             unit = ingredient_line[1]
             ingredient_name = " ".join(ingredient_line[2:])
-            measurements.append(MeasurementRegistry.get_measurement(amount=amount, unit=unit, name=ingredient_name))
+            measurements.append(IngredientRegistry.get_measurement(amount=amount, unit=unit, name=ingredient_name))
         measurements = tuple(measurements)
 
         # Not necessary for planning tools

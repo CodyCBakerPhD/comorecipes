@@ -1,15 +1,15 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class RoastPumpkin(Recipe):
     name: str = "Roast Pumpkin"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=5 / 2, unit="lb", name="sugar pumpkin"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="coconut oil"),
+        IngredientRegistry.get_measurement(amount=5 / 2, unit="lb", name="sugar pumpkin"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="coconut oil"),
     )
     instructions: tuple[str, ...] = (
         "Cut pumpkin in half length-wise. Scrape out seeds and string.",

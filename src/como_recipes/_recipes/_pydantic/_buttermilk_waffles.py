@@ -1,23 +1,23 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class ButtermilkWaffles(Recipe):
     name: str = "Buttermilk Waffles"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=5 / 2, unit="tbsp.", name="melted and cooled butter"),
-        MeasurementRegistry.get_measurement(amount=1, unit="large", name="egg"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="buttermilk"),
-        MeasurementRegistry.get_measurement(amount=1 / 3, unit="tsp.", name="vanilla extract"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="all-purpose flour"),
-        MeasurementRegistry.get_measurement(amount=2 / 3, unit="tsp.", name="baking powder"),
-        MeasurementRegistry.get_measurement(amount=1 / 3, unit="tsp.", name="baking soda"),
-        MeasurementRegistry.get_measurement(amount=1 / 3, unit="tsp.", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=1 / 6, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="pearl sugar"),
+        IngredientRegistry.get_measurement(amount=5 / 2, unit="tbsp.", name="melted and cooled butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", name="egg"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="buttermilk"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp.", name="vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="all-purpose flour"),
+        IngredientRegistry.get_measurement(amount=2 / 3, unit="tsp.", name="baking powder"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp.", name="baking soda"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp.", name="sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="tsp.", name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="pearl sugar"),
     )
     instructions: tuple[str, ...] = (
         "Waffle will be best if all ingredients are at room temperature",

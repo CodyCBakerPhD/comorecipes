@@ -1,17 +1,17 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class ItalianMeringue(Recipe):
     name: str = "Italian Meringue"
     tags: tuple[str, ...] = ("Italian",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="water"),
-        MeasurementRegistry.get_measurement(amount=4, unit="egg", name="whites, room temperature"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="cream of tartar or lemon juice"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", name="sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="water"),
+        IngredientRegistry.get_measurement(amount=4, unit="egg", name="whites, room temperature"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="cream of tartar or lemon juice"),
     )
     instructions: tuple[str, ...] = (
         "Combine sugar and water in a small saucepan over high heat, brushing down sides of pot as necessary with a pastry brush dipped in water.",

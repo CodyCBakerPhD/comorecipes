@@ -1,18 +1,18 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class PizzaCrust(Recipe):
     name: str = "Pizza Crust"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="water"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="yeast"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="sugar or honey"),
-        MeasurementRegistry.get_measurement(amount=9, unit="oz.", name="flour"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", name="water"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="yeast"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="sugar or honey"),
+        IngredientRegistry.get_measurement(amount=9, unit="oz.", name="flour"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Activate yeast. Mix in flour and salt until good consistency. Knead for 3 minutes. Place in oiled rising container. Set timer for 40 minutes and let rise in warm spot.",

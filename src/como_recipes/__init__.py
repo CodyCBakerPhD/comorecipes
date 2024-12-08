@@ -1,10 +1,10 @@
-from ._base_recipe import Recipe
-from ._base_ingredient import Ingredient
-from ._base_measurement import Measurement
-from ._base_meal import Meal
-from ._recipe_registration import RecipeRegistry, default_recipe_registry
-from ._ingredient_registration import IngredientRegistry, default_ingredient_registry
-from ._measurement_registration import MeasurementRegistry
+from ._base._base_measurement import Measurement
+from ._base._base_recipe import Recipe
+from ._base._base_ingredient import Ingredient
+from ._base._base_meal import Meal
+from ._registration._recipe_registry import RecipeRegistry, default_recipe_registry
+from ._registration._ingredient_registry import IngredientRegistry, default_ingredient_registry
+from ._meal_selection import MealSelection
 
 __all__ = [
     "Recipe",
@@ -13,14 +13,12 @@ __all__ = [
     "Measurement",
     "RecipeRegistry",
     "IngredientRegistry",
-    "MealRegistry",
-    "MeasurementRegistry",
+    "MealSelection",
     # Global variables
     "default_recipe_registry",
     "default_ingredient_registry",
     # Public submodules
     "app",
-    "utils",
 ]
 
 # Trigger import of hidden submodule elements (only need to import one item to trigger the rest)

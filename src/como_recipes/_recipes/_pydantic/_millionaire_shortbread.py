@@ -1,16 +1,16 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class MillionaireShortbread(Recipe):
     name: str = "Millionaire Shortbread"
     tags: tuple[str, ...] = ("British", "Dessert")
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="recipes", name="worth of shortbread"),
-        MeasurementRegistry.get_measurement(amount=1, unit="recipes", name="worth of simple caramel"),
-        MeasurementRegistry.get_measurement(amount=1, unit="recipes", name="worth of chocolate ganache"),
+        IngredientRegistry.get_measurement(amount=1, unit="recipes", name="worth of shortbread"),
+        IngredientRegistry.get_measurement(amount=1, unit="recipes", name="worth of simple caramel"),
+        IngredientRegistry.get_measurement(amount=1, unit="recipes", name="worth of chocolate ganache"),
     )
     instructions: tuple[str, ...] = (
         "Make shortbread, let cool at least 15 minutes.",
