@@ -20,6 +20,7 @@ from ._shortbread import Shortbread
 from ._sauteed_mushrooms import SauteedMushrooms
 from ._roast_turkey import RoastTurkey
 from ._roast_pumpkin import RoastPumpkin
+from ._sauteed_green_beans import SauteedGreenBeans
 from ._rice import Rice
 from ._red_wine_sauce import RedWineSauce
 from ._red_beans import RedBeans
