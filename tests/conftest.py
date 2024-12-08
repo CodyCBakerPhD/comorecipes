@@ -36,11 +36,22 @@ def example_ingredient_no_conversion() -> como_recipes.Ingredient:
 
 
 @pytest.fixture
-def example_meal() -> como_recipes.Meal:
+def example_meal_1() -> como_recipes.Meal:
     example_recipe_names = ["Aglio E Olio", "Sauteed Green Beans"]
     recipes = [
         como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name) for recipe_name in example_recipe_names
     ]
     example_meal = como_recipes.Meal(recipes=recipes)
+
+    return example_meal
+
+
+@pytest.fixture
+def example_meal_2() -> como_recipes.Meal:
+    example_recipe_names = ["Aglio E Olio", "Sauteed Green Beans"]
+    recipes = [
+        como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name) for recipe_name in example_recipe_names
+    ]
+    example_meal = como_recipes.Meal(recipes=recipes, quantity_multiplier=2)
 
     return example_meal
