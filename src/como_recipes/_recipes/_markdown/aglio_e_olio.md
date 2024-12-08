@@ -1,6 +1,6 @@
 # Aglio E Olio
 
-Tags: Italian, Pasta, Vegetarian
+Tags: Italian, Pasta, Vegetarian, Entree
 
 
 

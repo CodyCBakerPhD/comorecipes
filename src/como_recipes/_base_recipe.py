@@ -84,6 +84,9 @@ class Recipe(pydantic.BaseModel):
 
         return printout
 
+    def __hash__(self) -> int:
+        return hash(self.name)
+
     @pydantic.validate_call
     def to_pydantic_file(self, *, file_path: pydantic.NewPath) -> None:
         """
