@@ -35,18 +35,17 @@ class RecipeRegistry(pydantic.BaseModel):
 
         As a style choice, the representation is padded before and after with empty space.
         """
-        number_of_registered_recipes = len(self)
+        if len(self) == 0:
+            return "\ncomo_recipes.RecipeRegistry()\n"
 
-        printout = f"{number_of_registered_recipes} registered recipes\n"
+        representation = "\ncomo_recipes.RecipeRegistry(\n"
+        representation += "\t_recipes={"
+        for recipe_name, _ in natsort.natsorted(seq=self._recipes.items(), key=lambda item: item[0]):
+            representation += f'\n\t\tcomo_recipes.Recipe(name="{recipe_name}", ...),'
+        representation += "\n\t}\n"
+        representation += ")\n"
 
-        if number_of_registered_recipes == 0:
-            return printout
-
-        printout += f"{'-' * (len(printout)-1)}\n\n"
-        for recipe_name in natsort.natsorted(seq=self._recipes.keys()):
-            printout += f"{recipe_name}\n"
-
-        return printout
+        return representation
 
     def __str__(self) -> str:
         """
