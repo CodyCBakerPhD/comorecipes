@@ -14,8 +14,8 @@ def test_example_1_markdown_recipe_load(example_1_folder_path: pathlib.Path):
 
     assert recipe.name == "Example Recipe 1"
     assert recipe.measurements == (
-        IngredientRegistry.get_measurement(amount=31 / 10, unit="tbsp.", name="ingredient 1"),
-        IngredientRegistry.get_measurement(amount=4, unit="g", name="ingredient 2"),
+        IngredientRegistry.get_measurement(amount=31 / 10, unit="tbsp.", ingredient_name="ingredient 1"),
+        IngredientRegistry.get_measurement(amount=4, unit="g", ingredient_name="ingredient 2"),
     )
     assert recipe.instructions == ("This is an example of a recipe.",)
 

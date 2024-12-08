@@ -8,15 +8,15 @@ class EnchiladaSauce(Recipe):
     name: str = "Enchilada Sauce"
     tags: tuple[str, ...] = ("Mexican",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="vegetable oil"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", name="flour"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="dark chili powder"),
-        IngredientRegistry.get_measurement(amount=8, unit="oz.", name="can tomato sauce"),
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="cups", name="water"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="cumin"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="garlic powder"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="onion powder"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="salt"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="vegetable oil"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="dark chili powder"),
+        IngredientRegistry.get_measurement(amount=8, unit="oz.", ingredient_name="can tomato sauce"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="cups", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="cumin"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="garlic powder"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="onion powder"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil over medium-high heat. Stir in flour and chili powder.",

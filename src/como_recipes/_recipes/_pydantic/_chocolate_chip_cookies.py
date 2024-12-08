@@ -8,16 +8,20 @@ class ChocolateChipCookies(Recipe):
     name: str = "Chocolate Chip Cookies"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="room-temperature butter"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="sugar"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="brown sugar"),
-        IngredientRegistry.get_measurement(amount=2, unit="large", name="egg"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="vanilla"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="baking soda"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="hot water"),
-        IngredientRegistry.get_measurement(amount=3, unit="cup", name="flour"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
-        IngredientRegistry.get_measurement(amount=2, unit="cups", name="high-quality semi-sweet chocolate chips"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="room-temperature butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="brown sugar"),
+        IngredientRegistry.get_measurement(amount=2, unit="large", ingredient_name="egg"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="vanilla"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="baking soda"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="hot water"),
+        IngredientRegistry.get_measurement(amount=3, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(
+            amount=2,
+            unit="cups",
+            ingredient_name="high-quality semi-sweet chocolate chips",
+        ),
     )
     instructions: tuple[str, ...] = (
         "Oven temperature is 360 F for caramelization stage.",

@@ -8,12 +8,12 @@ class EnchiladaBeef(Recipe):
     name: str = "Enchilada Beef"
     tags: tuple[str, ...] = ("Mexican",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=24, unit="oz.", name="chuck roast"),
-        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", name="flour"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", name="extra virgin olive oil"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="black pepper"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="water"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="beef concentrate"),
+        IngredientRegistry.get_measurement(amount=24, unit="oz.", ingredient_name="chuck roast"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="extra virgin olive oil"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="black pepper"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="beef concentrate"),
     )
     instructions: tuple[str, ...] = (
         "Dredge meat in flour and pepper. Brown in skillet.",

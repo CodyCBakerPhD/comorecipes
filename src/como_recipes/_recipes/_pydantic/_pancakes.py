@@ -8,14 +8,14 @@ class Pancakes(Recipe):
     name: str = "Pancakes"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="", name="cup flour"),
-        IngredientRegistry.get_measurement(amount=2, unit="", name="tbsp. sugar"),
-        IngredientRegistry.get_measurement(amount=1, unit="", name="tsp. baking powder"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="", name="tsp. baking soda"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="", name="tsp. salt"),
-        IngredientRegistry.get_measurement(amount=1, unit="", name="egg"),
-        IngredientRegistry.get_measurement(amount=2, unit="", name="tbsp. butter"),
-        IngredientRegistry.get_measurement(amount=1, unit="", name="cup buttermilk"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="cup flour"),
+        IngredientRegistry.get_measurement(amount=2, unit="", ingredient_name="tbsp. sugar"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp. baking powder"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="tsp. baking soda"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="tsp. salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="egg"),
+        IngredientRegistry.get_measurement(amount=2, unit="", ingredient_name="tbsp. butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="cup buttermilk"),
     )
     instructions: tuple[str, ...] = (
         "Combine dry ingredients.",

@@ -8,12 +8,12 @@ class KaiserRoll(Recipe):
     name: str = "Kaiser Roll"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="water"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="yeast"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="sugar or honey"),
-        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", name="vegetable oil"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
-        IngredientRegistry.get_measurement(amount=2, unit="cups", name="flour"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="yeast"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="sugar or honey"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="vegetable oil"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="flour"),
     )
     instructions: tuple[str, ...] = (
         "Preheat oven to 400 F. Activate yeast.",

@@ -8,13 +8,13 @@ class SauteedMushrooms(Recipe):
     name: str = "Sauteed Mushrooms"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", name="olive oil"),
-        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", name="butter"),
-        IngredientRegistry.get_measurement(amount=1, unit="lb.", name="button mushrooms"),
-        IngredientRegistry.get_measurement(amount=1, unit="clove", name="garlic"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="red wine"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="garlic salt"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="pepper"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="olive oil"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="lb.", ingredient_name="button mushrooms"),
+        IngredientRegistry.get_measurement(amount=1, unit="clove", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="red wine"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="garlic salt"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="pepper"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil and butter in large saucepan over medium heat.",

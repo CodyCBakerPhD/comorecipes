@@ -8,12 +8,16 @@ class ChocolateFudge(Recipe):
     name: str = "Chocolate Fudge"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="lb.", name="powdered sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="dutch cocoa powder"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="butter"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="chocolate milk"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="vanilla"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="chopped walnuts or pecans, optional"),
+        IngredientRegistry.get_measurement(amount=1, unit="lb.", ingredient_name="powdered sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="dutch cocoa powder"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="chocolate milk"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="vanilla"),
+        IngredientRegistry.get_measurement(
+            amount=1 / 2,
+            unit="cup",
+            ingredient_name="chopped walnuts or pecans, optional",
+        ),
     )
     instructions: tuple[str, ...] = (
         "One of several variations on chocolate fudge.",

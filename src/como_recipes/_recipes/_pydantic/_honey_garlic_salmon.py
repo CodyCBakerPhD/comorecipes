@@ -8,17 +8,17 @@ class HoneyGarlicSalmon(Recipe):
     name: str = "Honey Garlic Salmon"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=4, unit="salmon", name="fillets, 250 g each"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", name="salt"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", name="black pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", name="paprika"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp", name="butter"),
-        IngredientRegistry.get_measurement(amount=4, unit="cloves", name="garlic, finely chopped"),
-        IngredientRegistry.get_measurement(amount=4, unit="tbsp", name="honey"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp", name="water"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp", name="soy sauce"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp", name="fresh lemon juice"),
-        IngredientRegistry.get_measurement(amount=4, unit="lemon", name="wedges to garnish"),
+        IngredientRegistry.get_measurement(amount=4, unit="salmon", ingredient_name="fillets, 250 g each"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="black pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="paprika"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=4, unit="cloves", ingredient_name="garlic, finely chopped"),
+        IngredientRegistry.get_measurement(amount=4, unit="tbsp", ingredient_name="honey"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="soy sauce"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="fresh lemon juice"),
+        IngredientRegistry.get_measurement(amount=4, unit="lemon", ingredient_name="wedges to garnish"),
     )
     instructions: tuple[str, ...] = (
         "Move oven shelf to middle. Preheat to broil/grill settings on medium heat. Season salmon with salt, pepper, paprika. Set aside.",

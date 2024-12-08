@@ -8,15 +8,19 @@ class TacoSeasoning(Recipe):
     name: str = "Taco Seasoning"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", name="tsp. garlic powder"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", name="tsp. onion powder"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", name="tsp. red pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", name="tsp. dried oregano"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="", name="tsp. paprika"),
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="tsp.", name="cumin"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="", name="tsp. salt"),
-        IngredientRegistry.get_measurement(amount=1, unit="", name="tsp. pepper"),
-        IngredientRegistry.get_measurement(amount=1, unit="", name="lb. ground beef or refried beans or Boca"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. garlic powder"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. onion powder"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. red pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. dried oregano"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="tsp. paprika"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="tsp.", ingredient_name="cumin"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="tsp. salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp. pepper"),
+        IngredientRegistry.get_measurement(
+            amount=1,
+            unit="",
+            ingredient_name="lb. ground beef or refried beans or Boca",
+        ),
     )
     instructions: tuple[str, ...] = (
         "Mix spice.",

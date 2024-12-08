@@ -86,19 +86,19 @@ class IngredientRegistry(pydantic.BaseModel):
         return printout
 
     @pydantic.validate_call
-    def get_ingredient(self, *, name: str) -> Ingredient:
+    def get_ingredient(self, *, ingredient_name: str) -> Ingredient:
         """
         Get an ingredient from the registry by name; returns a default base Ingredient if unregistered.
 
         Parameters
         ----------
-        name : str
+        ingredient_name : str
             Name of the ingredient.
 
         """
-        ingredient = self._ingredients.get(name, None)
+        ingredient = self._ingredients.get(ingredient_name, None)
         if ingredient is None:
-            message = f"Ingredient '{name}' not found in the registry."
+            message = f"Ingredient '{ingredient_name}' not found in the registry."
             raise ValueError(message)
         return ingredient
 
@@ -115,9 +115,22 @@ class IngredientRegistry(pydantic.BaseModel):
         """
         self._ingredients[ingredient.name] = ingredient
 
+    @pydantic.validate_call
+    def remove_ingredient(self, *, ingredient_name: str) -> None:
+        """
+        Remove a recipe from the registry.
+
+        Parameters
+        ----------
+        ingredient_name : str
+            Name of the ingredient to remove from the registry.
+
+        """
+        self._ingredients.pop(ingredient_name)
+
     @staticmethod
     @pydantic.validate_call
-    def get_measurement(*, amount: int | float, unit: str, name: str) -> "Measurement":  # noqa: F821
+    def get_measurement(*, amount: int | float, unit: str, ingredient_name: str) -> "Measurement":  # noqa: F821
         """
         Generate a measurement of an ingredient from the default global ingredient registry.
 
@@ -129,20 +142,20 @@ class IngredientRegistry(pydantic.BaseModel):
             Amount of the ingredient.
         unit : str
             Unit of the ingredient amount.
-        name : str
+        ingredient_name : str
             Name of the ingredient.
 
         """
         from como_recipes._base._base_measurement import Measurement
 
-        if name in default_ingredient_registry:
-            ingredient = default_ingredient_registry.get_ingredient(name=name)
+        if ingredient_name in default_ingredient_registry:
+            ingredient = default_ingredient_registry.get_ingredient(ingredient_name=ingredient_name)
         else:
-            ingredient = Ingredient(name=name)
+            ingredient = Ingredient(name=ingredient_name)
 
         return Measurement(amount=amount, unit=unit, ingredient=ingredient)
 
 
-# Initialize the global default recipe registry
+# Initialize the global default ingredient registry
 # Items are explicitly added in their respective ingredient files
 default_ingredient_registry = IngredientRegistry()

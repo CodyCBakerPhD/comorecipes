@@ -8,17 +8,17 @@ class Falafel(Recipe):
     name: str = "Falafel"
     tags: tuple[str, ...] = ("Greek",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="lb.", name="dry chickpeas"),
-        IngredientRegistry.get_measurement(amount=1, unit="small", name="white onion"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="parsley"),
-        IngredientRegistry.get_measurement(amount=5, unit="gloves", name="garlic"),
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="tbsp.", name="flour"),
-        IngredientRegistry.get_measurement(amount=7 / 4, unit="tsp.", name="salt"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="cumin"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="coriander"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="cayenne"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="cardamom"),
+        IngredientRegistry.get_measurement(amount=1, unit="lb.", ingredient_name="dry chickpeas"),
+        IngredientRegistry.get_measurement(amount=1, unit="small", ingredient_name="white onion"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="parsley"),
+        IngredientRegistry.get_measurement(amount=5, unit="gloves", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="tbsp.", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=7 / 4, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="cumin"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="coriander"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="cayenne"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="cardamom"),
     )
     instructions: tuple[str, ...] = (
         "Soak beans overnight.",

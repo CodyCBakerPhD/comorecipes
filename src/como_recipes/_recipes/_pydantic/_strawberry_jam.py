@@ -8,13 +8,13 @@ class StrawberryJam(Recipe):
     name: str = "Strawberry Jam"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="", name="cups of thinly sliced strawberries"),
-        IngredientRegistry.get_measurement(amount=40, unit="", name="g. sugar"),
-        IngredientRegistry.get_measurement(amount=40, unit="", name="g. brown sugar"),
-        IngredientRegistry.get_measurement(amount=20, unit="", name="g. honey"),
-        IngredientRegistry.get_measurement(amount=9 / 4, unit="tbsp.", name="cornstarch"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", name="tsp. vanilla extract"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="lime juice"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="", ingredient_name="cups of thinly sliced strawberries"),
+        IngredientRegistry.get_measurement(amount=40, unit="", ingredient_name="g. sugar"),
+        IngredientRegistry.get_measurement(amount=40, unit="", ingredient_name="g. brown sugar"),
+        IngredientRegistry.get_measurement(amount=20, unit="", ingredient_name="g. honey"),
+        IngredientRegistry.get_measurement(amount=9 / 4, unit="tbsp.", ingredient_name="cornstarch"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="lime juice"),
     )
     instructions: tuple[str, ...] = (
         "Carefully weigh the white and brown sugar into a small bowl.",

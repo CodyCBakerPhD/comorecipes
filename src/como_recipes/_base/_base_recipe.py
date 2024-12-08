@@ -215,7 +215,9 @@ class Recipe(pydantic.BaseModel):
             amount = fractions.Fraction(ingredient_line[0])
             unit = ingredient_line[1]
             ingredient_name = " ".join(ingredient_line[2:])
-            measurements.append(IngredientRegistry.get_measurement(amount=amount, unit=unit, name=ingredient_name))
+            measurements.append(
+                IngredientRegistry.get_measurement(amount=amount, unit=unit, ingredient_name=ingredient_name),
+            )
         measurements = tuple(measurements)
 
         # Not necessary for planning tools

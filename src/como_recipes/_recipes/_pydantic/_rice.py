@@ -8,9 +8,9 @@ class Rice(Recipe):
     name: str = "Rice"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="cups", name="rice"),
-        IngredientRegistry.get_measurement(amount=2, unit="cups", name="water"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="butter"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="cups", ingredient_name="rice"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="butter"),
     )
     instructions: tuple[str, ...] = (
         "Thoroughly rinse and pre-soak rice for 15 minutes.",

@@ -8,11 +8,11 @@ class Applesauce(Recipe):
     name: str = "Applesauce"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=4, unit="large", name="apples"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", name="water"),
-        IngredientRegistry.get_measurement(amount=1 / 16, unit="cup", name="white sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 16, unit="cup", name="brown sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="ground cinnamon"),
+        IngredientRegistry.get_measurement(amount=4, unit="large", ingredient_name="apples"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=1 / 16, unit="cup", ingredient_name="white sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 16, unit="cup", ingredient_name="brown sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="ground cinnamon"),
     )
     instructions: tuple[str, ...] = (
         "Peel and core apples.",

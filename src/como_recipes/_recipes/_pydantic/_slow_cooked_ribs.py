@@ -8,8 +8,12 @@ class SlowCookedRibs(Recipe):
     name: str = "Slow Cooked Ribs"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", name="premade Sweet Fire Rub (see recipe)"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="rack", name="baby back ribs"),
+        IngredientRegistry.get_measurement(
+            amount=1 / 3,
+            unit="cup",
+            ingredient_name="premade Sweet Fire Rub (see recipe)",
+        ),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="rack", ingredient_name="baby back ribs"),
     )
     instructions: tuple[str, ...] = (
         "Thoroughly rub dry mix onto ribs in a separate bowl. Drizzle small amount of water into bottom of pan and cover with foil.",

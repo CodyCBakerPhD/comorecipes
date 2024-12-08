@@ -8,8 +8,8 @@ class RoastPumpkin(Recipe):
     name: str = "Roast Pumpkin"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=5 / 2, unit="lb", name="sugar pumpkin"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="coconut oil"),
+        IngredientRegistry.get_measurement(amount=5 / 2, unit="lb", ingredient_name="sugar pumpkin"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="coconut oil"),
     )
     instructions: tuple[str, ...] = (
         "Cut pumpkin in half length-wise. Scrape out seeds and string.",

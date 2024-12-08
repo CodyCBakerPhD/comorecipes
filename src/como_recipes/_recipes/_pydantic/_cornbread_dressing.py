@@ -8,14 +8,14 @@ class CornbreadDressing(Recipe):
     name: str = "Cornbread Dressing"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=2, unit="portions", name="of cornbread"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp", name="butter"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="chopped celery"),
-        IngredientRegistry.get_measurement(amount=1, unit="small", name="white onion"),
-        IngredientRegistry.get_measurement(amount=2, unit="cups", name="not-chicken stock"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp", name="dried sage"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", name="salt"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", name="pepper"),
+        IngredientRegistry.get_measurement(amount=2, unit="portions", ingredient_name="of cornbread"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="chopped celery"),
+        IngredientRegistry.get_measurement(amount=1, unit="small", ingredient_name="white onion"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="not-chicken stock"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="dried sage"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="pepper"),
     )
     instructions: tuple[str, ...] = (
         "Make cornbread 1-2 days in advance, crumble and leave to dry. Melt butter and saute celery and onion until soft.",

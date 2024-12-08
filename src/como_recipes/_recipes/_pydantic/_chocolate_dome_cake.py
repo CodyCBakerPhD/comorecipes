@@ -8,15 +8,15 @@ class ChocolateDomeCake(Recipe):
     name: str = "Chocolate Dome Cake"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=4, unit="large", name="eggs"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="sugar"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", name="cake flour"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="whipping cream"),
-        IngredientRegistry.get_measurement(amount=5, unit="oz.", name="semi-sweet chocolate"),
-        IngredientRegistry.get_measurement(amount=7, unit="oz.", name="high-quality chocolate for coating"),
-        IngredientRegistry.get_measurement(amount=1, unit="1/2", name="cup raspberries"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="lime juice"),
+        IngredientRegistry.get_measurement(amount=4, unit="large", ingredient_name="eggs"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="cake flour"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="whipping cream"),
+        IngredientRegistry.get_measurement(amount=5, unit="oz.", ingredient_name="semi-sweet chocolate"),
+        IngredientRegistry.get_measurement(amount=7, unit="oz.", ingredient_name="high-quality chocolate for coating"),
+        IngredientRegistry.get_measurement(amount=1, unit="1/2", ingredient_name="cup raspberries"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="lime juice"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 350 F. Whip eggs and sugar until thick and frothy. Fold in flour. Bake in round bowl for 1 hour.",

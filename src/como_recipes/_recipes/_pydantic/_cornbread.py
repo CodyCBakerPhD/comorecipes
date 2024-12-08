@@ -8,14 +8,14 @@ class Cornbread(Recipe):
     name: str = "Cornbread"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="butter"),
-        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", name="sugar"),
-        IngredientRegistry.get_measurement(amount=1, unit="large", name="egg"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="buttermilk"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="baking soda"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="cornmeal"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="flour"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="salt"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="buttermilk"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="baking soda"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="cornmeal"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 375 F. Melt butter. Stir in sugar. Add eggs, beat.",

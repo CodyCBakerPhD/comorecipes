@@ -8,19 +8,19 @@ class Doughnuts(Recipe):
     name: str = "Doughnuts"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="o.z", name="activate dry yeast"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", name="warm water"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", name="lukewarm milk"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
-        IngredientRegistry.get_measurement(amount=1, unit="large", name="egg"),
-        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", name="shortening"),
-        IngredientRegistry.get_measurement(amount=5 / 2, unit="cups", name="all-purpose flour"),
-        IngredientRegistry.get_measurement(amount=1, unit="qt.", name="vegetable oil"),
-        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", name="butter"),
-        IngredientRegistry.get_measurement(amount=1, unit="cups", name="powdered sugar"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="tsp.", name="vanilla"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", name="hot water"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="o.z", ingredient_name="activate dry yeast"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="warm water"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="lukewarm milk"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="shortening"),
+        IngredientRegistry.get_measurement(amount=5 / 2, unit="cups", ingredient_name="all-purpose flour"),
+        IngredientRegistry.get_measurement(amount=1, unit="qt.", ingredient_name="vegetable oil"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="cups", ingredient_name="powdered sugar"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="tsp.", ingredient_name="vanilla"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="hot water"),
     )
     instructions: tuple[str, ...] = (
         "Activate yeast.",

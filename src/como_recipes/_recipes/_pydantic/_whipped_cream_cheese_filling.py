@@ -8,10 +8,10 @@ class WhippedCreamCheeseFilling(Recipe):
     name: str = "Whipped Cream Cheese Filling"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="", name="cup heavy cream"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="", name="cup powdered sugar"),
-        IngredientRegistry.get_measurement(amount=3, unit="", name="oz cream cheese"),
-        IngredientRegistry.get_measurement(amount=1, unit="", name="tsp vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="cup heavy cream"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="cup powdered sugar"),
+        IngredientRegistry.get_measurement(amount=3, unit="", ingredient_name="oz cream cheese"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp vanilla extract"),
     )
     instructions: tuple[str, ...] = (
         "Chill whisk and bowl for stand mixer.",

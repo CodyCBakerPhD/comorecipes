@@ -8,12 +8,12 @@ class MirrorGlaze(Recipe):
     name: str = "Mirror Glaze"
     tags: tuple[str, ...] = ("Vegetarian", "Dessert")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=20, unit="g", name="Agar Agar"),
-        IngredientRegistry.get_measurement(amount=170, unit="mL", name="water"),
-        IngredientRegistry.get_measurement(amount=300, unit="mL", name="corn syrup"),
-        IngredientRegistry.get_measurement(amount=150, unit="g", name="sugar"),
-        IngredientRegistry.get_measurement(amount=200, unit="g", name="condensed milk"),
-        IngredientRegistry.get_measurement(amount=300, unit="g", name="white chocolate"),
+        IngredientRegistry.get_measurement(amount=20, unit="g", ingredient_name="Agar Agar"),
+        IngredientRegistry.get_measurement(amount=170, unit="mL", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=300, unit="mL", ingredient_name="corn syrup"),
+        IngredientRegistry.get_measurement(amount=150, unit="g", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=200, unit="g", ingredient_name="condensed milk"),
+        IngredientRegistry.get_measurement(amount=300, unit="g", ingredient_name="white chocolate"),
     )
     instructions: tuple[str, ...] = (
         "Divide water in two.",

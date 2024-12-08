@@ -8,9 +8,9 @@ class FriedNotChicken(Recipe):
     name: str = "Fried Not Chicken"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="serving", name="of Frying Breading"),
-        IngredientRegistry.get_measurement(amount=4, unit="individual", name="not-chicken tenders"),
-        IngredientRegistry.get_measurement(amount=2, unit="cups", name="buttermilk"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="serving", ingredient_name="of Frying Breading"),
+        IngredientRegistry.get_measurement(amount=4, unit="individual", ingredient_name="not-chicken tenders"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="buttermilk"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil to 325 F. Add some lime juice if feeling fruity.",

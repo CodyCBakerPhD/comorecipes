@@ -8,11 +8,11 @@ class BrownieIcing(Recipe):
     name: str = "Brownie Icing"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="sifted Dutch cocoa"),
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="tbsp.", name="butter"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cups", name="sifted powdered sugar"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="evaporated milk"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="vanilla"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="sifted Dutch cocoa"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="tbsp.", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cups", ingredient_name="sifted powdered sugar"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="evaporated milk"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="vanilla"),
     )
     instructions: tuple[str, ...] = (
         "Do not forget to sift dry ingredients.",

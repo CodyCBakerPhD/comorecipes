@@ -8,11 +8,11 @@ class CherryPieFilling(Recipe):
     name: str = "Cherry Pie Filling"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="pie", name="crust"),
-        IngredientRegistry.get_measurement(amount=4, unit="cups", name="fresh tart cherries or"),
-        IngredientRegistry.get_measurement(amount=6, unit="cups", name="frozen tart cherries"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="cornstarch"),
+        IngredientRegistry.get_measurement(amount=1, unit="pie", ingredient_name="crust"),
+        IngredientRegistry.get_measurement(amount=4, unit="cups", ingredient_name="fresh tart cherries or"),
+        IngredientRegistry.get_measurement(amount=6, unit="cups", ingredient_name="frozen tart cherries"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="cornstarch"),
     )
     instructions: tuple[str, ...] = (
         "Place cherries into a saucepan over medium heat and cover. Heat cherries until they release their juices and simmer 10 to 15 minutes. Stir often.",

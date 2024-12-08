@@ -8,9 +8,9 @@ class KeyLimeFilling(Recipe):
     name: str = "Key Lime Filling"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=28, unit="oz.", name="sweetened condensed milk"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", name="sour cream"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", name="Key lime juice"),
+        IngredientRegistry.get_measurement(amount=28, unit="oz.", ingredient_name="sweetened condensed milk"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="sour cream"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="Key lime juice"),
     )
     instructions: tuple[str, ...] = (
         "Mix.",

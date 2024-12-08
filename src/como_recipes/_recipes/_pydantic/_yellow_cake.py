@@ -8,14 +8,14 @@ class YellowCake(Recipe):
     name: str = "Yellow Cake"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="butter"),
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="cup", name="sugar"),
-        IngredientRegistry.get_measurement(amount=8, unit="egg", name="yolks"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", name="milk"),
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="tsp.", name="vanilla"),
-        IngredientRegistry.get_measurement(amount=2, unit="cups", name="cake flour"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="baking powder"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="cup", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=8, unit="egg", ingredient_name="yolks"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="milk"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="tsp.", ingredient_name="vanilla"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="cake flour"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="baking powder"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 350 F. Grease cake pan or cupcake pan.",

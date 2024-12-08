@@ -8,14 +8,14 @@ class CobblerTopping(Recipe):
     name: str = "Cobbler Topping"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", name="butter"),
-        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", name="white sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", name="brown sugar"),
-        IngredientRegistry.get_measurement(amount=1, unit="large", name="egg"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="vanilla"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="flour"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="baking powder"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="salt"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="white sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="brown sugar"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="vanilla"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="baking powder"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Cream butter and sugar until light and fluffy.",

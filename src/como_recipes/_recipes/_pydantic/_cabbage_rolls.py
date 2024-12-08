@@ -8,19 +8,19 @@ class CabbageRolls(Recipe):
     name: str = "Cabbage Rolls"
     tags: tuple[str, ...] = ("Asian",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=5 / 4, unit="cups", name="white rice"),
-        IngredientRegistry.get_measurement(amount=1, unit="large", name="napa cabbage"),
-        IngredientRegistry.get_measurement(amount=1, unit="white", name="onion"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="tbsp.", name="ginger, minced"),
-        IngredientRegistry.get_measurement(amount=3, unit="cloves", name="garlic, minced"),
-        IngredientRegistry.get_measurement(amount=1, unit="minced", name="carrot"),
-        IngredientRegistry.get_measurement(amount=2, unit="minced", name="peppers"),
-        IngredientRegistry.get_measurement(amount=8, unit="minced", name="shittake mushrooms"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", name="tamari"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="salt"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="onion powder"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="red pepper flakes"),
+        IngredientRegistry.get_measurement(amount=5 / 4, unit="cups", ingredient_name="white rice"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="napa cabbage"),
+        IngredientRegistry.get_measurement(amount=1, unit="white", ingredient_name="onion"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="tbsp.", ingredient_name="ginger, minced"),
+        IngredientRegistry.get_measurement(amount=3, unit="cloves", ingredient_name="garlic, minced"),
+        IngredientRegistry.get_measurement(amount=1, unit="minced", ingredient_name="carrot"),
+        IngredientRegistry.get_measurement(amount=2, unit="minced", ingredient_name="peppers"),
+        IngredientRegistry.get_measurement(amount=8, unit="minced", ingredient_name="shittake mushrooms"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="tamari"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="onion powder"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="red pepper flakes"),
     )
     instructions: tuple[str, ...] = (
         "Soak rice in bowl 60 minutes before cooking. Cook in 5/3 cup water and 1 tbsp. butter; reach boiling before reducing to simmer until all water is gone.",

@@ -8,10 +8,10 @@ class Brigadeiros(Recipe):
     name: str = "Brigadeiros"
     tags: tuple[str, ...] = ("Brazilian",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", name="unsweetened cocoa"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="butter"),
-        IngredientRegistry.get_measurement(amount=14, unit="oz.", name="condensed milk"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="chocolate sprinkles"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="unsweetened cocoa"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=14, unit="oz.", ingredient_name="condensed milk"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="chocolate sprinkles"),
     )
     instructions: tuple[str, ...] = (
         "Combine cocoa, butter, and condensed milk in a medium saucepan over medium heat.",

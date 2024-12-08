@@ -8,18 +8,18 @@ class RedBeans(Recipe):
     name: str = "Red Beans"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="recipes", name="worth of rice"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="olive oil"),
-        IngredientRegistry.get_measurement(amount=4, unit="cloves", name="garlic"),
-        IngredientRegistry.get_measurement(amount=1 / 3, unit="white", name="onion"),
-        IngredientRegistry.get_measurement(amount=1, unit="stalk", name="celery"),
-        IngredientRegistry.get_measurement(amount=2, unit="bay", name="leaves"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="cayenne pepper"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="thyme"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", name="sage"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="parsley"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="Cajun seasoning"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", name="water"),
+        IngredientRegistry.get_measurement(amount=1, unit="recipes", ingredient_name="worth of rice"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="olive oil"),
+        IngredientRegistry.get_measurement(amount=4, unit="cloves", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="white", ingredient_name="onion"),
+        IngredientRegistry.get_measurement(amount=1, unit="stalk", ingredient_name="celery"),
+        IngredientRegistry.get_measurement(amount=2, unit="bay", ingredient_name="leaves"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="cayenne pepper"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="thyme"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="sage"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="parsley"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="Cajun seasoning"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
     )
     instructions: tuple[str, ...] = (
         "Make rice. Mix spices together.",

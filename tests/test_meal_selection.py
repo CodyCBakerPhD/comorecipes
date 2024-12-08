@@ -59,7 +59,7 @@ def test_meal_selection(example_measurement: Measurement):
     assert new_meal_selection.get_shopping_list() == expected_shopping_list
 
     new_meal_selection.remove_measurement(
-        measurement=IngredientRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2"),
+        measurement=IngredientRegistry.get_measurement(amount=2.0, unit="g", ingredient_name="ingredient 2"),
     )
 
     expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\ningredient 2\n  2 g\n"
@@ -67,7 +67,7 @@ def test_meal_selection(example_measurement: Measurement):
 
     # Recipe should now be removed entirely from printout
     new_meal_selection.remove_measurement(
-        measurement=IngredientRegistry.get_measurement(amount=2.0, unit="g", name="ingredient 2"),
+        measurement=IngredientRegistry.get_measurement(amount=2.0, unit="g", ingredient_name="ingredient 2"),
     )
 
     expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\n"
@@ -85,9 +85,9 @@ def test_meal_selection(example_measurement: Measurement):
 def test_get_shopping_list_error():
     meal_selection = MealSelection()
 
-    measurement_1 = IngredientRegistry.get_measurement(amount=1.0, unit="g", name="test_ingredient")
+    measurement_1 = IngredientRegistry.get_measurement(amount=1.0, unit="g", ingredient_name="test_ingredient")
     meal_selection.add_measurement(measurement=measurement_1)
-    measurement_2 = IngredientRegistry.get_measurement(amount=1.0, unit="tsp", name="test_ingredient")
+    measurement_2 = IngredientRegistry.get_measurement(amount=1.0, unit="tsp", ingredient_name="test_ingredient")
     meal_selection.add_measurement(measurement=measurement_2)
 
     expected_message = "\nMultiple units found for ingredient 'test_ingredient':\n\n[\n  1 g\n  1 tsp\n]"
@@ -98,10 +98,10 @@ def test_get_shopping_list_error():
 def test_get_shopping_list_warning():
     meal_selection = MealSelection()
 
-    measurement_1 = IngredientRegistry.get_measurement(amount=1.0, unit="g", name="test_ingredient")
+    measurement_1 = IngredientRegistry.get_measurement(amount=1.0, unit="g", ingredient_name="test_ingredient")
     meal_selection.add_measurement(measurement=measurement_1)
 
-    measurement_2 = IngredientRegistry.get_measurement(amount=2.0, unit="g", name="test_ingredient")
+    measurement_2 = IngredientRegistry.get_measurement(amount=2.0, unit="g", ingredient_name="test_ingredient")
     meal_selection.remove_measurement(measurement=measurement_2)
 
     expected_message = "Negative amount of 'test_ingredient' found in shopping list; ignoring."

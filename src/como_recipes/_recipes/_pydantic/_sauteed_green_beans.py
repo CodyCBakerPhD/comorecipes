@@ -8,9 +8,17 @@ class SauteedGreenBeans(Recipe):
     name: str = "Sauteed Green Beans"
     tags: tuple[str, ...] = ("American", "Side")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="bag", name="fresh green beans"),
-        IngredientRegistry.get_measurement(amount=1, unit="enough", name="olive oil"),  # TODO: relax this constraint
-        IngredientRegistry.get_measurement(amount=1, unit="enough", name="salt & pepper"),  # So it can be "to taste"
+        IngredientRegistry.get_measurement(amount=1, unit="bag", ingredient_name="fresh green beans"),
+        IngredientRegistry.get_measurement(
+            amount=1,
+            unit="enough",
+            ingredient_name="olive oil",
+        ),  # TODO: relax this constraint
+        IngredientRegistry.get_measurement(
+            amount=1,
+            unit="enough",
+            ingredient_name="salt & pepper",
+        ),  # So it can be "to taste"
     )
     instructions: tuple[str, ...] = (
         "Coat the bottom of a cast iron skillet with olive oil. Warm oil at medium heat.",

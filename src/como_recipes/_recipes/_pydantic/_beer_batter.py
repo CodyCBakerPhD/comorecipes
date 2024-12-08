@@ -8,12 +8,12 @@ class BeerBatter(Recipe):
     name: str = "Beer Batter"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=2, unit="cups", name="flour"),
-        IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", name="cornstarch"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", name="salt"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="paprika"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="baking powder"),
-        IngredientRegistry.get_measurement(amount=12, unit="oz.", name="beer"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="cornstarch"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="paprika"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="baking powder"),
+        IngredientRegistry.get_measurement(amount=12, unit="oz.", ingredient_name="beer"),
     )
     instructions: tuple[str, ...] = (
         "Whisk dry ingredients. Add beer and incorporate. Mixture should feel like pancake batter.",

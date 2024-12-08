@@ -8,13 +8,13 @@ class RedWineSauce(Recipe):
     name: str = "Red Wine Sauce"
     tags: tuple[str, ...] = ("Italian",)
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="olive oil"),
-        IngredientRegistry.get_measurement(amount=2, unit="cloves", name="garlic"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", name="red wine"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", name="water"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", name="soy sauce"),
-        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", name="butter"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", name="parsley"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="olive oil"),
+        IngredientRegistry.get_measurement(amount=2, unit="cloves", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="red wine"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="soy sauce"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="parsley"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil over medium-high heat. Cook garlic for ~30 seconds. Add wine and reach a simmer.",

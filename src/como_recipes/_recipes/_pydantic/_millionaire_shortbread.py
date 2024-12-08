@@ -8,9 +8,9 @@ class MillionaireShortbread(Recipe):
     name: str = "Millionaire Shortbread"
     tags: tuple[str, ...] = ("British", "Dessert")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="recipes", name="worth of shortbread"),
-        IngredientRegistry.get_measurement(amount=1, unit="recipes", name="worth of simple caramel"),
-        IngredientRegistry.get_measurement(amount=1, unit="recipes", name="worth of chocolate ganache"),
+        IngredientRegistry.get_measurement(amount=1, unit="recipes", ingredient_name="worth of shortbread"),
+        IngredientRegistry.get_measurement(amount=1, unit="recipes", ingredient_name="worth of simple caramel"),
+        IngredientRegistry.get_measurement(amount=1, unit="recipes", ingredient_name="worth of chocolate ganache"),
     )
     instructions: tuple[str, ...] = (
         "Make shortbread, let cool at least 15 minutes.",
