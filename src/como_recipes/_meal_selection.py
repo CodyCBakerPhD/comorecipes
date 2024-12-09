@@ -5,11 +5,11 @@ import warnings
 import natsort
 import pydantic
 
-from como_recipes._base._base_ingredient import Ingredient
-from como_recipes._base._base_measurement import Measurement
-from como_recipes._base._base_recipe import Recipe
-from como_recipes._registration._ingredient_registry import default_ingredient_registry
-from como_recipes._registration._recipe_registry import RecipeRegistry
+from ._base._base_ingredient import Ingredient
+from ._base._base_meal import Meal
+from ._base._base_measurement import Measurement
+from ._base._base_recipe import Recipe
+from ._registration._ingredient_registry import default_ingredient_registry
 
 
 class MealSelection(pydantic.BaseModel):
@@ -27,7 +27,7 @@ class MealSelection(pydantic.BaseModel):
 
     _individual_measurements_to_add: dict[str, list[Measurement]] | None = None
     _individual_measurements_to_remove: dict[str, list[Measurement]] | None = None
-    _recipe_registry: RecipeRegistry | None = None
+    _meals: list[Meal, ...] | None = None
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:
@@ -41,7 +41,7 @@ class MealSelection(pydantic.BaseModel):
             list,
             self._individual_measurements_to_remove or {},
         )
-        self._recipe_registry = RecipeRegistry()
+        self._meals = self._meals or []
 
     def __len__(self) -> int:
         """
@@ -49,8 +49,9 @@ class MealSelection(pydantic.BaseModel):
 
         Calculates and returns the total number of measured ingredients combined across recipes and manual additions.
         """
-        combined_measurements = self._calculate_combined_measurements()
-        return len(combined_measurements)
+        message = "The MealSelection class has no intuitive notion of length."
+
+        raise NotImplementedError(message)
 
     def __repr__(self) -> str:
         """
@@ -61,10 +62,27 @@ class MealSelection(pydantic.BaseModel):
 
         As a style choice, the representation is padded before and after with empty space.
         """
-        if len(self) == 0:
+        if self.is_empty():
             return "\ncomo_recipes.MealSelection()\n"
 
         representation = "\ncomo_recipes.MealSelection(\n"
+
+        if any(self._meals):
+            representation += "\t_meals=[\n"
+            for meal in self._meals:
+                recipe_names_string = ", ".join(f'"{recipe_name}"' for recipe_name in meal.recipes)
+                representation += f"\t\tcomo_recipes.Meal(_recipes=[{recipe_names_string}]),\n"
+            representation += "\t],\n"
+        if any(self._individual_measurements_to_add):
+            representation += "\t_individual_measurements_to_add={\n"
+            for ingredient_name, measurement in self._individual_measurements_to_add.items():
+                representation += f'\t\t"{ingredient_name}": {measurement!r}\n'
+            representation += "\t},\n"
+        if any(self._individual_measurements_to_remove):
+            representation += "\t_individual_measurements_to_remove={\n"
+            for ingredient_name, measurement in self._individual_measurements_to_remove.items():
+                representation += f'\t\t"{ingredient_name}": {measurement!r}\n'
+            representation += "\t},\n"
 
         return representation
 
@@ -76,9 +94,45 @@ class MealSelection(pydantic.BaseModel):
 
         As a style choice, the printout is padded before and after with empty space.
         """
+        if self.is_empty():
+            return "como_recipes.MealSelection with 0 selected meals or measurements\n"
+
         printout = ""
 
+        if any(self._meals):
+            header = f"{len(self._meals)} selected meals\n"
+            printout += header + "-" * len(header) + "\n\n"
+            for meal in self._meals:
+                recipe_names_string = ", ".join(f'"{recipe_name}"' for recipe_name in meal.recipes)
+                printout += f"{recipe_names_string}\n"
+            printout += "\n"
+        if any(self._individual_measurements_to_add):
+            header = f"{len(self._individual_measurements_to_add)} added measurements\n"
+            printout += header + "-" * len(header) + "\n\n"
+            for measurement in self._individual_measurements_to_add:
+                printout += f"{measurement!s}\n"
+            printout += "\n"
+        if any(self._individual_measurements_to_remove):
+            header = f"{len(self._individual_measurements_to_remove)} removed measurements\n"
+            printout += header + "-" * len(header) + "\n\n"
+            for measurement in self._individual_measurements_to_remove:
+                printout += f"{measurement!s}\n"
+            printout += "\n"
+
         return printout
+
+    def is_empty(self) -> bool:
+        """Check if the meal selection is empty."""
+        is_any_not_empty = any(
+            any(attribute)
+            for attribute in (
+                self._individual_measurements_to_add,
+                self._individual_measurements_to_remove,
+                self._meals,
+            )
+        )
+
+        return not is_any_not_empty
 
     def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
         combined_measurements = collections.defaultdict(list)

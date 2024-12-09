@@ -16,16 +16,16 @@ def test_meal_selection(example_measurement: Measurement):
 
     new_meal_selection = MealSelection()
 
-    assert len(new_meal_selection) == 0
-    assert repr(new_meal_selection) == "0 registered measurements\n"
+    expected_repr = "\ncomo_recipes.MealSelection()\n"
+    expected_str = ""
+    assert repr(new_meal_selection) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(new_meal_selection)
-    assert captured_output.getvalue() == "0 registered measurements\n\n"
+    assert captured_output.getvalue() == expected_str
 
     new_meal_selection.add_measurement(measurement=example_measurement)
 
     expected_repr = "1 registered measurements\n-------------------------\n\nExample Ingredient 1\n  56 grams\n"
-    assert len(new_meal_selection) == 1
     assert repr(new_meal_selection) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(new_meal_selection)
@@ -47,7 +47,6 @@ def test_meal_selection(example_measurement: Measurement):
         "ingredient 2\n"
         "  4 g\n"
     )
-    assert len(new_meal_selection) == 3
     assert repr(new_meal_selection) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(new_meal_selection)
