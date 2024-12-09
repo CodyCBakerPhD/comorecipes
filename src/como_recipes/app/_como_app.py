@@ -6,12 +6,12 @@ import tkinter.messagebox
 import tkinter.simpledialog
 import webbrowser
 
-from ._app_globals import default_recipe_registry
 from ._available_recipes_frame import AvailableRecipesFrame
 from ._selected_recipes_frame import SelectedRecipesFrame
 from ._session_manager_frame import SessionManagerFrame
 from ._shopping_list_frame import ShoppingListFrame
 from .._meal_selection import MealSelection
+from .._registration._recipe_registry import default_recipe_registry
 
 
 class CoMoApp(tkinter.Tk):

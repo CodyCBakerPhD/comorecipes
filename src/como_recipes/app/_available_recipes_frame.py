@@ -3,7 +3,8 @@ import tkinter.messagebox
 
 import natsort
 
-from ._app_globals import all_default_tags, default_recipe_registry
+from ._app_globals import all_default_tags
+from .._registration._recipe_registry import default_recipe_registry
 
 
 class AvailableRecipesFrame(tkinter.Frame):
