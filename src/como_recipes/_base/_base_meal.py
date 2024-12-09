@@ -1,9 +1,9 @@
-import natsort
 import pydantic
 
 from como_recipes._registration._recipe_registry import default_recipe_registry
 
 from ._base_recipe import Recipe
+from ..utils import get_recipe_names_by_type
 
 
 class Meal(pydantic.BaseModel):
@@ -35,7 +35,7 @@ class Meal(pydantic.BaseModel):
 
     def __repr__(self) -> str:
         """Used in programmatic places, such as equality assertions in the tests."""
-        recipe_names = self._get_recipe_names_by_type()
+        recipe_names = get_recipe_names_by_type(recipes=self.recipes)
 
         representation = "como_recipes.Meal(\n\trecipes={\n"
         for recipe_name in recipe_names:
@@ -52,7 +52,7 @@ class Meal(pydantic.BaseModel):
 
     def __str__(self) -> str:
         """Used by calls to `print(...)`."""
-        recipe_names = self._get_recipe_names_by_type()
+        recipe_names = get_recipe_names_by_type(recipes=self.recipes)
 
         printout = "Recipes\n"
         printout += "-------\n"
@@ -64,19 +64,6 @@ class Meal(pydantic.BaseModel):
                 printout += f"{recipe_name} x{self.quantity_multiplier}\n"
 
         return printout
-
-    def _get_recipe_names_by_type(self) -> list[str]:
-        """
-        Common logic used by both `__repr__` and `__str__`.
-
-        Fetch the recipe names in a deterministic order given alphabetically by tags (Entree vs. Side).
-        """
-        entrees = natsort.natsorted(seq=(recipe.name for recipe in self.recipes if "Entree" in recipe.tags))
-        sides = natsort.natsorted(seq=(recipe.name for recipe in self.recipes if "Side" in recipe.tags))
-        others = natsort.natsorted(seq=({recipe.name for recipe in self.recipes} - set(entrees) - set(sides)))
-        recipe_names_by_type = entrees + sides + others
-
-        return recipe_names_by_type
 
     def add_recipe_name(self, recipe_name: str) -> None:
         """Add a default recipe name to the meal."""

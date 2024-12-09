@@ -19,6 +19,7 @@ __all__ = [
     "default_ingredient_registry",
     # Public submodules
     "app",
+    "utils",
 ]
 
 # Trigger import of hidden submodule elements (only need to import one item to trigger the rest)
