@@ -2,8 +2,6 @@ import typing
 
 import pydantic
 
-from como_recipes._registration._recipe_registry import default_recipe_registry
-
 from ._base_recipe import Recipe
 from ..utils import get_recipe_names_by_type
 
@@ -12,18 +10,27 @@ class Meal(pydantic.BaseModel):
     """
     A meal is a collection of recipes to be prepared and eaten together.
 
+    Initialize an empty `Meal()` then call `Meal.add_recipe(recipe=...)` to add recipes to it.
+
     Parameters
     ----------
-    recipes : set[Recipe]
-        List of ingredients.
     quantity_multiplier : int | float | None
         Default recipes tend to be scaled to 2 people, plus or minus leftovers.
         If more people need to be fed, adjust this scale accordingly.
 
     """
 
-    recipes: set[Recipe, ...] | None = None
+    _recipe_name_to_recipe: dict[str, Recipe] | None = None
     quantity_multiplier: int | float | None = None
+    model_config = pydantic.ConfigDict(extra="forbid")
+
+    def __len__(self) -> int:
+        """
+        Logic defining the `len` operator.
+
+        Simply returns the number of registered recipes.
+        """
+        return len(self._recipe_name_to_recipe)
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:
@@ -32,11 +39,11 @@ class Meal(pydantic.BaseModel):
 
         super().__init__(**kwargs)
 
-        self.recipes = self.recipes or set()
+        self._recipe_name_to_recipe = self._recipe_name_to_recipe or {}
 
     def __eq__(self, other: "Meal") -> bool:
         """Primary used by consistency assertions in the tests."""
-        if self.recipes != other.recipes:
+        if self._recipe_name_to_recipe != other._recipe_name_to_recipe:
             return False
         if self.quantity_multiplier is None and other.quantity_multiplier is None:
             return True
@@ -46,11 +53,11 @@ class Meal(pydantic.BaseModel):
 
     def __repr__(self) -> str:
         """Used in programmatic places, such as equality assertions in the tests."""
-        recipe_names = get_recipe_names_by_type(recipes=self.recipes)
+        recipe_names = get_recipe_names_by_type(recipes=list(self._recipe_name_to_recipe.values()))
 
         representation = "como_recipes.Meal(\n\trecipes={\n"
         for recipe_name in recipe_names:
-            representation += f'\t\tcomo_recipes.default_recipe_registry.get_recipe(recipe_name="{recipe_name}"),\n'
+            representation += f'\t\tcomo_recipes.Recipe(name="{recipe_name}", ...),\n'
         representation += "\t}"
         if self.quantity_multiplier is not None:
             representation += ",\n"
@@ -63,7 +70,7 @@ class Meal(pydantic.BaseModel):
 
     def __str__(self) -> str:
         """Used by calls to `print(...)`."""
-        recipe_names = get_recipe_names_by_type(recipes=self.recipes)
+        recipe_names = get_recipe_names_by_type(recipes=list(self._recipe_name_to_recipe.values()))
 
         printout = "Recipes\n"
         printout += "-------\n"
@@ -76,10 +83,16 @@ class Meal(pydantic.BaseModel):
 
         return printout
 
-    def add_default_recipe(self, recipe_name: str) -> None:
-        """Add a default recipe name to the meal."""
-        self.recipes.add(default_recipe_registry.get_recipe(recipe_name=recipe_name))
+    def add_recipe(self, recipe: Recipe) -> None:
+        """Add a recipe to the meal."""
+        self._recipe_name_to_recipe[recipe.name] = recipe
 
-    def remove_default_recipe(self, recipe_name: str) -> None:
-        """Remove a default recipe name from the meal."""
-        self.recipes.remove(default_recipe_registry.get_recipe(recipe_name=recipe_name))
+    def remove_recipe(self, recipe_name: str) -> None:
+        """Remove a recipe from the meal."""
+        self._recipe_name_to_recipe.pop(recipe_name)
+
+    def get_recipes_by_type(self) -> tuple[Recipe]:
+        """Get all the recipes of this meal ordered by type (entree before side, alphabetically)."""
+        recipe_names = get_recipe_names_by_type(recipes=list(self._recipe_name_to_recipe.values()))
+
+        return tuple(self._recipe_name_to_recipe[recipe_name] for recipe_name in recipe_names)

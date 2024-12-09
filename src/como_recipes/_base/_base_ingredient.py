@@ -22,6 +22,7 @@ class Ingredient(pydantic.BaseModel):
     name: str
     default_grams_per_package: int | float | None = None
     default_package_unit: str | None = None
+    model_config = pydantic.ConfigDict(extra="forbid")
 
     def __repr__(self) -> str:
         """Used in programmatic places, such as equality assertions in the tests."""

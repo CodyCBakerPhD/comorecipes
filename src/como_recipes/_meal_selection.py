@@ -7,7 +7,6 @@ import pydantic
 
 from ._base._base_meal import Meal
 from ._base._base_measurement import Measurement
-from .utils import get_recipe_names_by_type
 
 
 class MealSelection(pydantic.BaseModel):
@@ -26,6 +25,7 @@ class MealSelection(pydantic.BaseModel):
     _individual_measurements_to_add: dict[str, list[Measurement]] | None = None
     _individual_measurements_to_remove: dict[str, list[Measurement]] | None = None
     _recipe_names_to_meal: dict[tuple[str, ...], Meal] | None = None
+    model_config = pydantic.ConfigDict(extra="forbid")
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:
@@ -45,7 +45,7 @@ class MealSelection(pydantic.BaseModel):
         """
         Logic defining the `len` operator.
 
-        Calculates and returns the total number of measured ingredients combined across recipes and manual additions.
+        Does not apply to this class as it is multivalued.
         """
         message = "The MealSelection class has no intuitive notion of length."
 
@@ -70,28 +70,28 @@ class MealSelection(pydantic.BaseModel):
             for recipe_names in self._recipe_names_to_meal:
                 representation += f"\t\t{recipe_names}: como_recipes.Meal(...),\n"
             representation += "\t},\n"
-        if any(self._individual_measurements_to_add):
-            representation += "\t_individual_measurements_to_add={\n"
-            for ingredient_name, measurements in self._individual_measurements_to_add.items():
-                representation += f"\t\t{ingredient_name}: [\n"
-                for measurement in measurements:
-                    representation += f"\t\t\t{measurement!r}\n"
-                representation += "\t\t],\n"
-                # TODO: something like this when grams are standardized
-                # total_amount = sum(measurement.amount for measurement in measurements)
-                # measurement_string = (
-                #     f"como_recipes.Measurement(amount={total_amount}, unit={measurements.unit}, "
-                #     f"ingredient={measurement.ingredient!r})"
-                # )
-            representation += "\t},\n"
-        if any(self._individual_measurements_to_remove):
-            representation += "\t_individual_measurements_to_remove={\n"
-            for ingredient_name, measurements in self._individual_measurements_to_remove.items():
-                representation += f"\t\t{ingredient_name}: [\n"
-                for measurement in measurements:
-                    representation += f"\t\t\t{measurement!r}"
-                representation += "\t\t],\n"
-            representation += "\t},\n"
+
+        attribute_name_to_individual_measurements = {
+            "_individual_measurements_to_add": self._individual_measurements_to_add,
+            "_individual_measurements_to_remove": self._individual_measurements_to_remove,
+        }
+        for attribute_name, individual_measurements in attribute_name_to_individual_measurements.items():
+            if any(individual_measurements):
+                representation += f"\t{attribute_name}=" + "{\n"
+                for ingredient_name, measurements in individual_measurements.items():
+                    representation += f'\t\t"{ingredient_name}": [\n'
+                    for measurement in measurements:
+                        representation += f"\t\t\t{measurement!r},\n"
+                    representation += "\t\t],\n"
+
+                    # TODO: something like this when grams are standardized
+                    # total_amount = sum(measurement.amount for measurement in measurements)
+                    # measurement_string = (
+                    #     f"como_recipes.Measurement(amount={total_amount}, unit={measurements.unit}, "
+                    #     f"ingredient={measurement.ingredient!r})"
+                    # )
+
+                representation += "\t},\n"
         representation += ")\n"
 
         return representation
@@ -105,29 +105,36 @@ class MealSelection(pydantic.BaseModel):
         As a style choice, the printout is padded before and after with empty space.
         """
         if self.is_empty():
-            return "como_recipes.MealSelection with 0 selected meals or measurements\n"
+            return "\ncomo_recipes.MealSelection()\n"
 
-        printout = ""
+        printout = "\n"
 
         if any(self._recipe_names_to_meal):
-            header = f"{len(self._recipe_names_to_meal)} selected meals\n"
-            printout += header + "-" * len(header) + "\n\n"
+            meal_string = "meal" if len(self._recipe_names_to_meal) == 1 else "meals"
+
+            header = f"{len(self._recipe_names_to_meal)} selected {meal_string}"
+            printout += header + "\n" + "-" * len(header) + "\n\n"
             for recipe_names in self._recipe_names_to_meal:
                 recipe_names_string = ", ".join(f"{recipe_name}" for recipe_name in recipe_names)
                 printout += f"{recipe_names_string}\n"
-            printout += "\n"
-        if any(self._individual_measurements_to_add):
-            header = f"{len(self._individual_measurements_to_add)} added measurements\n"
-            printout += header + "-" * len(header) + "\n\n"
-            for measurement in self._individual_measurements_to_add:
-                printout += f"{measurement!s}\n"
-            printout += "\n"
-        if any(self._individual_measurements_to_remove):
-            header = f"{len(self._individual_measurements_to_remove)} removed measurements\n"
-            printout += header + "-" * len(header) + "\n\n"
-            for measurement in self._individual_measurements_to_remove:
-                printout += f"{measurement!s}\n"
-            printout += "\n"
+            printout += "\n\n"
+
+        operation_string_to_individual_measurements = {
+            "added": self._individual_measurements_to_add,
+            "removed": self._individual_measurements_to_remove,
+        }
+        for operation_string, individual_measurements in operation_string_to_individual_measurements.items():
+            if any(individual_measurements):
+                plural_string = "measurement" if len(self._individual_measurements_to_add) == 1 else "measurements"
+
+                header = f"{len(individual_measurements)} {operation_string} {plural_string}"
+                printout += header + "\n" + "-" * len(header) + "\n\n"
+                for measurement in individual_measurements:
+                    printout += f"{measurement!s}\n"
+                printout += "\n\n"
+
+        if printout[-3:] == "\n\n\n":
+            printout = printout[:-2]
 
         return printout
 
@@ -136,11 +143,10 @@ class MealSelection(pydantic.BaseModel):
         for measurements in self._individual_measurements_to_add.values():
             for measurement in measurements:
                 combined_measurements[measurement.ingredient.name].append(measurement)
-        # for recipe_names, meal in self._recipe_names_to_meal:
-        #     for recipe_name in meal.recipe_names:
-        #         recipe = meal.get_recipe(recipe_name=recipe_name)
-        #         for measurement in recipe.measurements:
-        #             combined_measurements[measurement.ingredient.name].append(measurement)
+        for meal in self._recipe_names_to_meal.values():
+            for recipe in meal.get_recipes_by_type():
+                for measurement in recipe.measurements:
+                    combined_measurements[measurement.ingredient.name].append(measurement)
 
         return combined_measurements
 
@@ -156,6 +162,33 @@ class MealSelection(pydantic.BaseModel):
         )
 
         return not is_any_not_empty
+
+    @pydantic.validate_call
+    def add_meal(self, *, meal: Meal) -> None:
+        """
+        Add a meal to the meal selector.
+
+        Parameters
+        ----------
+        meal : Recipe
+            Meal to add to the meal selector.
+
+        """
+        recipe_names = tuple(recipe.name for recipe in meal.get_recipes_by_type())
+        self._recipe_names_to_meal[recipe_names] = meal
+
+    @pydantic.validate_call
+    def remove_meal(self, *, recipe_names: tuple[str, ...]) -> None:
+        """
+        Remove a meal (as defined by the ordered recipe names) from the meal selector.
+
+        Parameters
+        ----------
+        recipe_names : tuple of strings
+            Ordered names of the recipes comprising the meal to be removed from the meal selector.
+
+        """
+        self._recipe_names_to_meal.pop(recipe_names)
 
     @pydantic.validate_call
     def add_measurement(self, *, measurement: Measurement) -> None:
@@ -184,40 +217,26 @@ class MealSelection(pydantic.BaseModel):
         self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
 
     @pydantic.validate_call
-    def add_meal(self, *, meal: Meal) -> None:
-        """
-        Add a meal to the meal selector.
-
-        Parameters
-        ----------
-        meal : Recipe
-            Meal to add to the meal selector.
-
-        """
-        recipe_names = tuple(get_recipe_names_by_type(recipes=meal.recipes))
-        self._recipe_names_to_meal[recipe_names] = meal
-
-    @pydantic.validate_call
-    def remove_meal(self, *, recipe_names: tuple[str, ...]) -> None:
-        """
-        Remove a meal (as defined by the ordered recipe names) from the meal selector.
-
-        Parameters
-        ----------
-        recipe_names : tuple of strings
-            Ordered names of the recipes comprising the meal to be removed from the meal selector.
-
-        """
-        self._recipe_names_to_meal.pop(recipe_names)
-
-    @pydantic.validate_call
     def get_raw_measurement_list(self) -> str:
         """Get a raw list of measurements by ingredient, including those to be removed."""
         raise NotImplementedError
 
+    def _printout_nested_ingredients(self, measurements_by_ingredient: list[Measurement]) -> str:
+        """TODO: plan is to deprecate this method once grams are standardized."""
+        printout = ""
+        for measurement in measurements_by_ingredient:
+            printout += f"  {measurement.amount} {measurement.unit}\n"
+
+        return printout
+
     @pydantic.validate_call
     def get_shopping_list(self) -> str:
         """Get a shopping list by aggregating all contained recipes and measurements."""
+        if self.is_empty():
+            message = "No meals or measurements have been added to the meal selection."
+
+            raise ValueError(message)
+
         combined_measurements = self._calculate_combined_measurements()
 
         shopping_list = ""

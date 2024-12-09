@@ -15,6 +15,7 @@ class IngredientRegistry(pydantic.BaseModel):
     """
 
     _ingredients: dict[str, Ingredient] | None = None
+    model_config = pydantic.ConfigDict(extra="forbid")
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:

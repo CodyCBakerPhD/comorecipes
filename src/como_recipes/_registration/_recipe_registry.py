@@ -8,6 +8,7 @@ from .._base._base_recipe import Recipe
 
 class RecipeRegistry(pydantic.BaseModel):
     _recipes: dict[str, Recipe] | None = None
+    model_config = pydantic.ConfigDict(extra="forbid")
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:

@@ -33,6 +33,17 @@ class Recipe(pydantic.BaseModel):
     measurements: tuple[Measurement, ...]
     instructions: tuple[str, ...]
     notes: tuple[str] | None = None
+    model_config = pydantic.ConfigDict(extra="forbid")
+
+    def __len__(self) -> int:
+        """
+        Logic defining the `len` operator.
+
+        Does not apply to this class as it is multivalued.
+        """
+        message = "The Recipe class has no intuitive notion of length."
+
+        raise NotImplementedError(message)
 
     def __eq__(self, other: "Recipe") -> bool:
         """Primary used by consistency assertions in the tests."""

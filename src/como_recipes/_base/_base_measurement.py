@@ -62,6 +62,7 @@ class Measurement(pydantic.BaseModel):
     #     "ripe",
     # ]
     ingredient: Ingredient
+    model_config = pydantic.ConfigDict(extra="forbid")
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> typing.Self:
         if len(args) > 0:
