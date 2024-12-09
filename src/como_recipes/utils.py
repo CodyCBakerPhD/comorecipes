@@ -4,11 +4,13 @@ import ctypes
 import struct
 
 import natsort
+import pydantic
 
 from ._base._base_recipe import Recipe
 
 
-def get_recipe_names_by_type(recipes: list[Recipe] | set[Recipe]) -> list[str]:
+@pydantic.validate_call
+def get_recipe_names_by_type(*, recipes: list[Recipe] | tuple[Recipe]) -> list[str]:
     """
     Common logic used by both `__repr__` and `__str__`.
 
