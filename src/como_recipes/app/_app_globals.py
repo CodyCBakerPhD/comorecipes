@@ -1,6 +1,6 @@
 import natsort
 
-from .._recipe_registration import default_recipe_registry
+from .._registration._recipe_registry import default_recipe_registry
 
 all_default_tags = natsort.natsorted(
     seq={

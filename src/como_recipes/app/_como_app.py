@@ -6,12 +6,12 @@ import tkinter.messagebox
 import tkinter.simpledialog
 import webbrowser
 
+from ._app_globals import default_recipe_registry
 from ._available_recipes_frame import AvailableRecipesFrame
 from ._selected_recipes_frame import SelectedRecipesFrame
 from ._session_manager_frame import SessionManagerFrame
 from ._shopping_list_frame import ShoppingListFrame
-from .._measurement_registration import MeasurementRegistry
-from .._recipe_registration import default_recipe_registry
+from .._meal_selection import MealSelection
 
 
 class CoMoApp(tkinter.Tk):
@@ -121,7 +121,7 @@ class CoMoApp(tkinter.Tk):
             *self.session_manager_frame.selected_index_to_meals.values(),
         )
 
-        self.shopping_list_frame.current_measurement_registry = MeasurementRegistry()
+        self.shopping_list_frame.current_measurement_registry = MealSelection()
         for meal in self.session_manager_frame.selected_index_to_meals.values():
             self.shopping_list_frame.current_measurement_registry.add_recipe(
                 recipe=default_recipe_registry.get_recipe(recipe_name=meal),
@@ -136,7 +136,7 @@ class CoMoApp(tkinter.Tk):
     #     self.selected_recipes_frame.selected_meals_box.delete(first=0, last="end")
     #     self.selected_recipes_frame.selected_meals_box.insert("end", *selected_index_to_meals.values())
     #
-    #     self.shopping_list_frame.current_measurement_registry = MeasurementRegistry()
+    #     self.shopping_list_frame.current_measurement_registry = MealSelection()
     #     for meal in selected_index_to_meals.values():
     #         self.shopping_list_frame.current_measurement_registry.add_recipe(
     #             recipe=default_recipe_registry.get_recipe(recipe_name=meal),

@@ -1,17 +1,17 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class Sourdough(Recipe):
     name: str = "Sourdough"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=260, unit="g.", name="bread flour"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=60, unit="g.", name="yeast start"),
-        MeasurementRegistry.get_measurement(amount=200, unit="g.", name="water"),
+        IngredientRegistry.get_measurement(amount=260, unit="g.", ingredient_name="bread flour"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=60, unit="g.", ingredient_name="yeast start"),
+        IngredientRegistry.get_measurement(amount=200, unit="g.", ingredient_name="water"),
     )
     instructions: tuple[str, ...] = (
         "Begin process the morning of the day before intended dinner.",

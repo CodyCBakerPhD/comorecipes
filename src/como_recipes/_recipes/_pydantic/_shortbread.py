@@ -1,20 +1,20 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class Shortbread(Recipe):
     name: str = "Shortbread"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="butter, room temperature"),
-        MeasurementRegistry.get_measurement(amount=1 / 3, unit="cup", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=1 / 3, unit="cup", name="brown sugar"),
-        MeasurementRegistry.get_measurement(amount=1, unit="large", name="egg yolk"),
-        MeasurementRegistry.get_measurement(amount=3 / 4, unit="tsp.", name="vanilla extract"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=9 / 4, unit="cups", name="flour"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="butter, room temperature"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="brown sugar"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg yolk"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="tsp.", ingredient_name="vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=9 / 4, unit="cups", ingredient_name="flour"),
     )
     instructions: tuple[str, ...] = (
         "Preheat oven to 350 F. Line a 13x9 baking pan with parchment paper.",

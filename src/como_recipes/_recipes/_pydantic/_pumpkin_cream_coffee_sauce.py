@@ -1,18 +1,18 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class PumpkinCreamCoffeeSauce(Recipe):
     name: str = "Pumpkin Cream Coffee Sauce"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="cup", name="heavy whipping cream"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="granulated sugar"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="pumpkin puree"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="pumpkin pie spice"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="heavy whipping cream"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="granulated sugar"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="pumpkin puree"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="pumpkin pie spice"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="vanilla extract"),
     )
     instructions: tuple[str, ...] = (
         "Combine heavy cream, sugar, pumpkin puree and pumpkin spice in a saucepan. Whisk over medium heat until sugar is dissolved and cream mixture begins to steam.",

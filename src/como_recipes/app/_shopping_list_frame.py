@@ -4,8 +4,8 @@ import tkinter.messagebox
 
 import click
 
-from ._utils import _generate_new_default_session_id, _get_home_folder
-from .._measurement_registration import MeasurementRegistry
+from ._app_utils import _generate_new_default_session_id, _get_home_folder
+from .._meal_selection import MealSelection
 
 
 class ShoppingListFrame(tkinter.Frame):
@@ -28,7 +28,7 @@ class ShoppingListFrame(tkinter.Frame):
 
     def setup_attributes(self) -> None:
         """Define all mutable attributes used to control underlying states of the application."""
-        self.current_measurement_registry = MeasurementRegistry()
+        self.current_measurement_registry = MealSelection()
 
     def setup_frame(self) -> None:
         """Initialize and organize all subcomponents of the frame."""

@@ -9,7 +9,9 @@ from ._base_measurement import Measurement
 
 class Recipe(pydantic.BaseModel):
     """
-    Automatically validated base data class for all recipes.
+    A recipe is a named and tagged collection of measured ingredients with instructions and notes.
+
+    Notes can be warnings or other common reminders.
 
     Parameters
     ----------
@@ -31,6 +33,17 @@ class Recipe(pydantic.BaseModel):
     measurements: tuple[Measurement, ...]
     instructions: tuple[str, ...]
     notes: tuple[str] | None = None
+    model_config = pydantic.ConfigDict(extra="forbid")
+
+    def __len__(self) -> int:
+        """
+        Logic defining the `len` operator.
+
+        Does not apply to this class as it is multivalued.
+        """
+        message = "The Recipe class has no intuitive notion of length."
+
+        raise NotImplementedError(message)
 
     def __eq__(self, other: "Recipe") -> bool:
         """Primary used by consistency assertions in the tests."""
@@ -189,7 +202,7 @@ class Recipe(pydantic.BaseModel):
             Whether to include the instructions in the recipe.
 
         """
-        from ._measurement_registration import MeasurementRegistry
+        from .._registration._ingredient_registry import IngredientRegistry
 
         with file_path.open(mode="r") as io:
             lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
@@ -213,7 +226,9 @@ class Recipe(pydantic.BaseModel):
             amount = fractions.Fraction(ingredient_line[0])
             unit = ingredient_line[1]
             ingredient_name = " ".join(ingredient_line[2:])
-            measurements.append(MeasurementRegistry.get_measurement(amount=amount, unit=unit, name=ingredient_name))
+            measurements.append(
+                IngredientRegistry.get_measurement(amount=amount, unit=unit, ingredient_name=ingredient_name),
+            )
         measurements = tuple(measurements)
 
         # Not necessary for planning tools

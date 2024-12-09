@@ -8,7 +8,7 @@ from ._base_ingredient import Ingredient
 
 class Measurement(pydantic.BaseModel):
     """
-    Automatically validated base data class for all measured portions of ingredients.
+    A measurement is a specified amount of an ingredient.
 
     Parameters
     ----------
@@ -62,6 +62,7 @@ class Measurement(pydantic.BaseModel):
     #     "ripe",
     # ]
     ingredient: Ingredient
+    model_config = pydantic.ConfigDict(extra="forbid")
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> typing.Self:
         if len(args) > 0:

@@ -4,8 +4,8 @@ import tkinter
 import natsort
 import yaml
 
-from ._globals import all_default_tags
-from ._utils import _generate_new_default_session_id, _get_home_folder
+from ._app_globals import all_default_tags
+from ._app_utils import _generate_new_default_session_id, _get_home_folder
 
 
 class SessionManagerFrame(tkinter.Frame):

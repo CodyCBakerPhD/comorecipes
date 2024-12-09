@@ -85,6 +85,7 @@ ignore = [
     "ICN001",  # Controversial opinion: I prefer fully explicit naming to avoid any potential confusion
     "PYI041",  # Disagree with
     "SIM103",  # Disagree with; better to write things out explicitly
+    "SIM118",  # Disagree with; better to write things out explicitly
     "TID252",  # The PEP says that explicit relative imports are an acceptable alternative, but check doesn't care...
     "TD",  # TODO: I like in general, but will add back in later
     "FIX",  # Fine with to-do comments
@@ -119,6 +120,7 @@ ignore = [
     "INP001",  # Tests are not a part of the package
     "T20",  # print statements are fine in tests since they can help render debugging info in GitHub Actions logs
     "PLR2004",  # False positive in explicitly written test cases
+    "SLF001",  # Need to test private attributes sometimes
 ]
 
 [tool.ruff.lint.isort]
