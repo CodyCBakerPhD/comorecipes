@@ -1,4 +1,3 @@
-import pathlib
 import tkinter
 import tkinter.messagebox
 
@@ -12,19 +11,20 @@ class ShoppingListFrame(tkinter.Frame):
     def __init__(
         self,
         master: tkinter.Tk | tkinter.Frame | None = None,
-        session_folder_path: pathlib.Path | None = None,
         minimum_available_recipe_width_in_characters: int = 30,
         minimum_number_of_displayed_measurements: int = 35,
     ) -> None:
         """A modular component for displaying, writing, and externally opening a shopping list."""
         super().__init__(master=master)
 
-        self.session_folder_path = session_folder_path or _get_home_folder() / _generate_new_default_session_id()
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
 
+        # Setup initial attributes
+        self.session_folder_path = _get_home_folder() / _generate_new_default_session_id()
         self.meal_selection = MealSelection()
 
+        # Setup initial components
         self.shopping_list_label = tkinter.Label(master=self, text="Shopping list")
         self.shopping_list_box = tkinter.Listbox(
             self,
@@ -38,27 +38,35 @@ class ShoppingListFrame(tkinter.Frame):
             command=self.open_shopping_list,
         )
 
-        self.shopping_list_label.pack(side="top", pady=5)
-        self.shopping_list_box.pack(side="top")
-        self.open_shopping_list_button.pack(side="top", pady=5)
+        self.shopping_list_label.pack(side="top", pady=2.5)
+        self.shopping_list_box.pack(side="top", padx=2.5, pady=2.5)
+        self.open_shopping_list_button.pack(side="top", pady=2.5)
 
     def update_shopping_list(self) -> None:
         """Update the shopping list from the current registry."""
-        # TODO: enable when all units are in grams
-        # shopping_list = self.current_measurement_registry.get_shopping_list().split("\n")
-        shopping_list = str(self.current_measurement_registry).split("\n")
+        try:
+            shopping_list = self.meal_selection.get_shopping_list().split("\n")
+        except Exception:  # noqa: BLE001
+            shopping_list = []
         self.shopping_list_box.delete(first=0, last="end")
         self.shopping_list_box.insert("end", *shopping_list)
 
     def open_shopping_list(self) -> None:
         """Write the shopping list to a file and open default text editor on that file."""
-        # TODO: enable when all units are in grams
-        # shopping_list = self.current_measurement_registry.get_shopping_list()
-        shopping_list = str(self.current_measurement_registry)
+        try:
+            shopping_list_string = "\n".join(self.meal_selection.get_shopping_list().split("\n"))
+        except Exception:  # noqa: BLE001
+            tkinter.messagebox.showerror(
+                title="Error",
+                message="Error generating shopping list.\nPlease use the raw ingredient list instead.",
+            )
+            return None
 
         self.session_folder_path.mkdir(exist_ok=True)
         shopping_list_file_path = self.session_folder_path / "shopping_list.txt"
-        with shopping_list_file_path.open(mode="w") as io:
-            io.write(shopping_list)
+        with shopping_list_file_path.open(mode="w", encoding="utf-8") as io:
+            io.write(shopping_list_string)
 
         click.edit(filename=str(shopping_list_file_path))
+
+        return None

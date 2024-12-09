@@ -90,7 +90,8 @@ ignore = [
     "TD",  # TODO: I like in general, but will add back in later
     "FIX",  # Fine with to-do comments
     "ERA",  # Fine with commented code blocks on occasion
-    "RET504",  # Strongly disagree with
+    "RET501",  # Strongly disagree with; explicit is better than implicit
+    "RET504",  # Strongly disagree with; enhances readability and simplifies debuggers
     "PLR0912",  # Not a proper calculation of complexity; also applies to match/case???
     "PLR0915",  # Not a proper calculation of complexity
 ]

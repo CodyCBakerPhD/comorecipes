@@ -7,6 +7,7 @@ import tkinter.simpledialog
 import webbrowser
 
 from ._available_recipes_frame import AvailableRecipesFrame
+from ._raw_ingredient_frame import RawIngredientFrame
 from ._selected_recipes_frame import SelectedRecipesFrame
 from ._session_manager_frame import SessionManagerFrame
 from ._shopping_list_frame import ShoppingListFrame
@@ -64,6 +65,12 @@ class CoMoApp(tkinter.Tk):
         # TODO: ideally all of these outer-level variable pointers wouldn't be necessary
         self.currently_available_index_to_meals = self.available_meals_frame.currently_available_index_to_meals
 
+        self.raw_ingredient_frame = RawIngredientFrame(
+            master=self,
+            minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
+            minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
+        )
+
         self.shopping_list_frame = ShoppingListFrame(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
@@ -85,8 +92,9 @@ class CoMoApp(tkinter.Tk):
         self.session_manager_frame.grid(column=0, rowspan=4, padx=5, pady=5, sticky="NW")
         self.available_meals_frame.grid(row=1, column=1, padx=5, pady=5)
         self.selected_recipes_frame.grid(row=2, column=1, padx=5, pady=5)
-        self.shopping_list_frame.grid(row=1, column=2, rowspan=2, padx=5, pady=5)
-        self.version_label.grid(row=3, columnspan=3, sticky="se")
+        self.raw_ingredient_frame.grid(row=1, column=2, padx=2.5, pady=2.5)
+        self.shopping_list_frame.grid(row=1, column=3, rowspan=2, padx=2.5, pady=2.5)
+        self.version_label.grid(row=3, columnspan=43, sticky="se")
 
         # Link cross-frame attributes
         self.session_folder_path = self.session_manager_frame.session_folder_path

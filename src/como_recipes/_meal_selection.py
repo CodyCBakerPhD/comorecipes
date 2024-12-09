@@ -235,7 +235,7 @@ class MealSelection(pydantic.BaseModel):
         ):
             raw_measurement_list.append(f"☐  {ingredient_name}")
             raw_measurement_list.extend(
-                [f"\t{measurement.amount} {measurement.unit}" for measurement in measurements_by_ingredient],
+                [f"    {measurement.amount} {measurement.unit}" for measurement in measurements_by_ingredient],
             )
 
         return raw_measurement_list
@@ -258,10 +258,9 @@ class MealSelection(pydantic.BaseModel):
 
         combined_measurements = self._calculate_combined_measurements()
 
-        shopping_list = "Meals\n-----\n\n"
-        for recipe_names in self._recipe_names_to_meal.keys():
-            shopping_list += f"☐ {recipe_names}\n"
-        shopping_list += "\n\n\nIngredients\n-----------\n\n"
+        shopping_list = ["Meals\n-----\n\n"]
+        shopping_list.extend([f"☐ {recipe_names}\n" for recipe_names in self._recipe_names_to_meal.keys()])
+        shopping_list.append("\n\n\nIngredients\n-----------\n\n")
 
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
             seq=combined_measurements.items(),
@@ -293,7 +292,7 @@ class MealSelection(pydantic.BaseModel):
             if total_per_ingredient == 0:
                 continue
 
-            shopping_list += f"{ingredient_name}\n"
-            shopping_list += f"  {total_per_ingredient} {measurement_unit}\n"
+            shopping_list.append(f"☐  {ingredient_name}\n")
+            shopping_list.append(f"    {total_per_ingredient} {measurement_unit}\n")
 
         return shopping_list
