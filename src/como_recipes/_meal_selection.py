@@ -44,25 +44,41 @@ class MealSelection(pydantic.BaseModel):
         self._recipe_registry = RecipeRegistry()
 
     def __len__(self) -> int:
+        """
+        Logic defining the `len` operator.
+
+        Calculates and returns the total number of measured ingredients combined across recipes and manual additions.
+        """
         combined_measurements = self._calculate_combined_measurements()
         return len(combined_measurements)
 
     def __repr__(self) -> str:
-        number_of_registered_measurements = len(self)
+        """
+        Logic defining the `repr` operator, most commonly used by printout of variables in Python/iPython shells.
 
-        printout = f"{number_of_registered_measurements} registered measurements\n"
+        This is intended to be as programmatic (machine-readable) as possible; a user ought to be able to copy and paste
+        the representation and run it as code to generate a new instance of the object.
 
-        if number_of_registered_measurements == 0:
-            return printout
+        As a style choice, the representation is padded before and after with empty space.
+        """
+        if len(self) == 0:
+            return "\ncomo_recipes.MealSelection()\n"
 
-        printout += f"{'-' * (len(printout)-1)}\n\n"
-        printout += self._printout_nested_measurements()
+        representation = "\ncomo_recipes.MealSelection(\n"
 
-        return printout
+        return representation
 
     def __str__(self) -> str:
-        """Used by calls to `print(...)`."""
-        return repr(self)
+        """
+        Logic defining the `str` operator, which occurs either on casting to a string or when `print(...)` is called.
+
+        This is intended to be as human-readable as possible.
+
+        As a style choice, the printout is padded before and after with empty space.
+        """
+        printout = ""
+
+        return printout
 
     def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
         combined_measurements = collections.defaultdict(list)
