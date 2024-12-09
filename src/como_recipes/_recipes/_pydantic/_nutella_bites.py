@@ -1,20 +1,20 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class NutellaBites(Recipe):
     name: str = "Nutella Bites"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=3 / 2, unit="", name="cups oats"),
-        MeasurementRegistry.get_measurement(amount=2 / 3, unit="", name="cup Nutella"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="", name="cu. shredded coconut"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="", name="cup honey"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="", name="cup roasted hazelnuts"),
-        MeasurementRegistry.get_measurement(amount=2, unit="", name="tsp. vanilla extract"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="", name="tsp. salt"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="", ingredient_name="cups oats"),
+        IngredientRegistry.get_measurement(amount=2 / 3, unit="", ingredient_name="cup Nutella"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="cu. shredded coconut"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="cup honey"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="cup roasted hazelnuts"),
+        IngredientRegistry.get_measurement(amount=2, unit="", ingredient_name="tsp. vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. salt"),
     )
     instructions: tuple[str, ...] = (
         "Combine all ingredients in large bowl and mix thoroughly.",

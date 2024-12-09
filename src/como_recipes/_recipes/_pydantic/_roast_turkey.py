@@ -1,18 +1,18 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class RoastTurkey(Recipe):
     name: str = "Roast Turkey"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1, unit="large", name="turkey bag"),
-        MeasurementRegistry.get_measurement(amount=8, unit="quarts", name="water"),
-        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="Kosher salt"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="brown sugar"),
-        MeasurementRegistry.get_measurement(amount=20, unit="lb.", name="whole turkey"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="turkey bag"),
+        IngredientRegistry.get_measurement(amount=8, unit="quarts", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="Kosher salt"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="brown sugar"),
+        IngredientRegistry.get_measurement(amount=20, unit="lb.", ingredient_name="whole turkey"),
     )
     instructions: tuple[str, ...] = (
         "Two days before roasting, bring water and salt to boil in large pot.",

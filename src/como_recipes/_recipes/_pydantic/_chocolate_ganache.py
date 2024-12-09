@@ -1,16 +1,16 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class ChocolateGanache(Recipe):
     name: str = "Chocolate Ganache"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="semi-sweet chocolate"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="cup", name="heavy cream"),
-        MeasurementRegistry.get_measurement(amount=1 / 2, unit="tsp.", name="vanilla extract"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="semi-sweet chocolate"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="heavy cream"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="vanilla extract"),
     )
     instructions: tuple[str, ...] = (
         "Combine chocolate and heavy cream in a small saucepan over medium heat.",

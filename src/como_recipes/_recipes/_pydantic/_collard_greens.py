@@ -1,21 +1,21 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class CollardGreens(Recipe):
     name: str = "Collard Greens"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=3, unit="tbsp.", name="olive oil"),
-        MeasurementRegistry.get_measurement(amount=1, unit="large", name="onion"),
-        MeasurementRegistry.get_measurement(amount=2, unit="cloves", name="garlic"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="salt"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tsp.", name="pepper"),
-        MeasurementRegistry.get_measurement(amount=3, unit="cups", name="chicken flavored vegetable broth"),
-        MeasurementRegistry.get_measurement(amount=1, unit="pinch", name="red pepper flakes"),
-        MeasurementRegistry.get_measurement(amount=1, unit="lb.", name="fresh collard greens"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="olive oil"),
+        IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="onion"),
+        IngredientRegistry.get_measurement(amount=2, unit="cloves", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="pepper"),
+        IngredientRegistry.get_measurement(amount=3, unit="cups", ingredient_name="chicken flavored vegetable broth"),
+        IngredientRegistry.get_measurement(amount=1, unit="pinch", ingredient_name="red pepper flakes"),
+        IngredientRegistry.get_measurement(amount=1, unit="lb.", ingredient_name="fresh collard greens"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil in very large pot over medium heat.",

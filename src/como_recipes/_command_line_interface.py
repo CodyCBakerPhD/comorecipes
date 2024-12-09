@@ -12,9 +12,10 @@ import traceback
 
 import click
 
-from ._base_recipe import Recipe
-from ._measurement_registration import MeasurementRegistry
-from ._recipe_registration import default_recipe_registry
+from como_recipes._base._base_recipe import Recipe
+from como_recipes._registration._recipe_registry import default_recipe_registry
+
+from ._meal_selection import MeasurementRegistry
 from .app import CoMoApp
 from .utils import get_terminal_size
 

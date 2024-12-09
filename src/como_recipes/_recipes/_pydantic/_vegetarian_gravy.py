@@ -1,19 +1,19 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class VegetarianGravy(Recipe):
     name: str = "Vegetarian Gravy"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="butter"),
-        MeasurementRegistry.get_measurement(amount=1 / 4, unit="cup", name="flour"),
-        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="not-chicken stock"),
-        MeasurementRegistry.get_measurement(amount=1 / 3, unit="cup", name="heavy cream"),
-        MeasurementRegistry.get_measurement(amount=5 / 4, unit="tsp.", name="salt and pepper"),
-        MeasurementRegistry.get_measurement(amount=1 / 6, unit="tsp.", name="paprika"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="not-chicken stock"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="heavy cream"),
+        IngredientRegistry.get_measurement(amount=5 / 4, unit="tsp.", ingredient_name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="tsp.", ingredient_name="paprika"),
     )
     instructions: tuple[str, ...] = ("Make roux with butter and flour. Thicken with stock. Season.",)
 

@@ -1,16 +1,16 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class Rice(Recipe):
     name: str = "Rice"
     tags: tuple[str, ...] = ("American",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=3 / 2, unit="cups", name="rice"),
-        MeasurementRegistry.get_measurement(amount=2, unit="cups", name="water"),
-        MeasurementRegistry.get_measurement(amount=1, unit="tbsp.", name="butter"),
+        IngredientRegistry.get_measurement(amount=3 / 2, unit="cups", ingredient_name="rice"),
+        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="butter"),
     )
     instructions: tuple[str, ...] = (
         "Thoroughly rinse and pre-soak rice for 15 minutes.",

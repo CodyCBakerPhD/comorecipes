@@ -1,20 +1,20 @@
-from ..._base_measurement import Measurement
-from ..._base_recipe import Recipe
-from ..._measurement_registration import MeasurementRegistry
-from ..._recipe_registration import default_recipe_registry
+from ..._base._base_measurement import Measurement
+from ..._base._base_recipe import Recipe
+from ..._registration._ingredient_registry import IngredientRegistry
+from ..._registration._recipe_registry import default_recipe_registry
 
 
 class CreamedGenoise(Recipe):
     name: str = "Creamed Genoise"
     tags: tuple[str, ...] = ("British",)
     measurements: tuple[Measurement, ...] = (
-        MeasurementRegistry.get_measurement(amount=375 / 2, unit="g.", name="butter, room temperature"),
-        MeasurementRegistry.get_measurement(amount=375 / 2, unit="g.", name="sugar"),
-        MeasurementRegistry.get_measurement(amount=3, unit="", name="beaten eggs, room temperature"),
-        MeasurementRegistry.get_measurement(amount=375 / 2, unit="g.", name="cake flour"),
-        MeasurementRegistry.get_measurement(amount=1, unit="", name="tsp. baking powder"),
-        MeasurementRegistry.get_measurement(amount=25, unit="ml.", name="milk"),
-        MeasurementRegistry.get_measurement(amount=1, unit="", name="tsp. vanilla extract"),
+        IngredientRegistry.get_measurement(amount=375 / 2, unit="g.", ingredient_name="butter, room temperature"),
+        IngredientRegistry.get_measurement(amount=375 / 2, unit="g.", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=3, unit="", ingredient_name="beaten eggs, room temperature"),
+        IngredientRegistry.get_measurement(amount=375 / 2, unit="g.", ingredient_name="cake flour"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp. baking powder"),
+        IngredientRegistry.get_measurement(amount=25, unit="ml.", ingredient_name="milk"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp. vanilla extract"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 350 F.",

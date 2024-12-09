@@ -118,6 +118,7 @@ ignore = [
     "INP001",  # Tests are not a part of the package
     "T20",  # print statements are fine in tests since they can help render debugging info in GitHub Actions logs
     "PLR2004",  # False positive in explicitly written test cases
+    "SLF001",  # Need to test private attributes sometimes
 ]
 
 [tool.ruff.lint.isort]

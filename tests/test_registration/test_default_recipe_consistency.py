@@ -6,7 +6,7 @@ import como_recipes
 
 
 def test_default_recipe_load_consistency():
-    package_source_folder_path = pathlib.Path(__file__).parent.parent / "src"
+    package_source_folder_path = pathlib.Path(__file__).parent.parent.parent / "src"
     markdown_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes" / "_markdown"
 
     for markdown_recipe_file_path in markdown_recipe_folder_path.iterdir():
@@ -19,7 +19,7 @@ def test_default_recipe_load_consistency():
 
 
 def test_default_recipe_to_markdown_consistency(tmpdir: py.path.local):
-    package_source_folder_path = pathlib.Path(__file__).parent.parent / "src"
+    package_source_folder_path = pathlib.Path(__file__).parent.parent.parent / "src"
     markdown_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes" / "_markdown"
 
     for markdown_recipe_file_path in markdown_recipe_folder_path.iterdir():
@@ -45,7 +45,7 @@ def test_default_recipe_to_markdown_consistency(tmpdir: py.path.local):
 
 
 def test_recipe_counts_consistency():
-    package_source_folder_path = pathlib.Path(__file__).parent.parent / "src"
+    package_source_folder_path = pathlib.Path(__file__).parent.parent.parent / "src"
     markdown_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes" / "_markdown"
     pydantic_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes" / "_pydantic"
 
