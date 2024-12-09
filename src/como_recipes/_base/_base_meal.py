@@ -1,3 +1,5 @@
+import typing
+
 import pydantic
 
 from como_recipes._registration._recipe_registry import default_recipe_registry
@@ -20,8 +22,17 @@ class Meal(pydantic.BaseModel):
 
     """
 
-    recipes: set[Recipe, ...]
+    recipes: set[Recipe, ...] | None = None
     quantity_multiplier: int | float | None = None
+
+    def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
+        if len(args) > 0:
+            message = "No positional arguments are allowed."
+            raise ValueError(message)
+
+        super().__init__(**kwargs)
+
+        self.recipes = self.recipes or set()
 
     def __eq__(self, other: "Meal") -> bool:
         """Primary used by consistency assertions in the tests."""
@@ -65,10 +76,10 @@ class Meal(pydantic.BaseModel):
 
         return printout
 
-    def add_recipe_name(self, recipe_name: str) -> None:
+    def add_default_recipe(self, recipe_name: str) -> None:
         """Add a default recipe name to the meal."""
         self.recipes.add(default_recipe_registry.get_recipe(recipe_name=recipe_name))
 
-    def remove_recipe_name(self, recipe_name: str) -> None:
+    def remove_default_recipe(self, recipe_name: str) -> None:
         """Remove a default recipe name from the meal."""
         self.recipes.remove(default_recipe_registry.get_recipe(recipe_name=recipe_name))

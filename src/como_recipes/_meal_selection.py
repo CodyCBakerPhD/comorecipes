@@ -5,10 +5,8 @@ import warnings
 import natsort
 import pydantic
 
-from ._base._base_ingredient import Ingredient
 from ._base._base_meal import Meal
 from ._base._base_measurement import Measurement
-from ._registration._ingredient_registry import default_ingredient_registry
 from .utils import get_recipe_names_by_type
 
 
@@ -27,7 +25,7 @@ class MealSelection(pydantic.BaseModel):
 
     _individual_measurements_to_add: dict[str, list[Measurement]] | None = None
     _individual_measurements_to_remove: dict[str, list[Measurement]] | None = None
-    _recipe_names_to_meals: dict[tuple[str, ...], Meal] | None = None
+    _recipe_names_to_meal: dict[tuple[str, ...], Meal] | None = None
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:
@@ -41,7 +39,7 @@ class MealSelection(pydantic.BaseModel):
             list,
             self._individual_measurements_to_remove or {},
         )
-        self._recipe_names_to_meals = collections.defaultdict(list, self._recipe_names_to_meals or {})
+        self._recipe_names_to_meal = collections.defaultdict(list, self._recipe_names_to_meal or {})
 
     def __len__(self) -> int:
         """
@@ -67,10 +65,10 @@ class MealSelection(pydantic.BaseModel):
 
         representation = "\ncomo_recipes.MealSelection(\n"
 
-        if any(self._recipe_names_to_meals):
+        if any(self._recipe_names_to_meal):
             representation += "\t_meals={\n"
-            for recipe_names in self._recipe_names_to_meals:
-                representation += f"\t\t{recipe_names}: como_recipes.Meal(...]),\n"
+            for recipe_names in self._recipe_names_to_meal:
+                representation += f"\t\t{recipe_names}: como_recipes.Meal(...),\n"
             representation += "\t},\n"
         if any(self._individual_measurements_to_add):
             representation += "\t_individual_measurements_to_add={\n"
@@ -88,7 +86,7 @@ class MealSelection(pydantic.BaseModel):
             representation += "\t},\n"
         if any(self._individual_measurements_to_remove):
             representation += "\t_individual_measurements_to_remove={\n"
-            for ingredient_name, measurements in self._individual_measurements_to_add.items():
+            for ingredient_name, measurements in self._individual_measurements_to_remove.items():
                 representation += f"\t\t{ingredient_name}: [\n"
                 for measurement in measurements:
                     representation += f"\t\t\t{measurement!r}"
@@ -111,11 +109,11 @@ class MealSelection(pydantic.BaseModel):
 
         printout = ""
 
-        if any(self._recipe_names_to_meals):
-            header = f"{len(self._recipe_names_to_meals)} selected meals\n"
+        if any(self._recipe_names_to_meal):
+            header = f"{len(self._recipe_names_to_meal)} selected meals\n"
             printout += header + "-" * len(header) + "\n\n"
-            for recipe_names in self._recipe_names_to_meals:
-                recipe_names_string = ", ".join(f'"{recipe_name}"' for recipe_name in recipe_names)
+            for recipe_names in self._recipe_names_to_meal:
+                recipe_names_string = ", ".join(f"{recipe_name}" for recipe_name in recipe_names)
                 printout += f"{recipe_names_string}\n"
             printout += "\n"
         if any(self._individual_measurements_to_add):
@@ -133,6 +131,19 @@ class MealSelection(pydantic.BaseModel):
 
         return printout
 
+    def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
+        combined_measurements = collections.defaultdict(list)
+        for measurements in self._individual_measurements_to_add.values():
+            for measurement in measurements:
+                combined_measurements[measurement.ingredient.name].append(measurement)
+        # for recipe_names, meal in self._recipe_names_to_meal:
+        #     for recipe_name in meal.recipe_names:
+        #         recipe = meal.get_recipe(recipe_name=recipe_name)
+        #         for measurement in recipe.measurements:
+        #             combined_measurements[measurement.ingredient.name].append(measurement)
+
+        return combined_measurements
+
     def is_empty(self) -> bool:
         """Check if the meal selection is empty."""
         is_any_not_empty = any(
@@ -140,48 +151,11 @@ class MealSelection(pydantic.BaseModel):
             for attribute in (
                 self._individual_measurements_to_add,
                 self._individual_measurements_to_remove,
-                self._recipe_names_to_meals,
+                self._recipe_names_to_meal,
             )
         )
 
         return not is_any_not_empty
-
-    def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
-        combined_measurements = collections.defaultdict(list)
-        for measurements in self._individual_measurements_to_add.values():
-            for measurement in measurements:
-                combined_measurements[measurement.ingredient.name].append(measurement)
-        for recipe_name in self._recipe_registry.get_all_recipe_names():
-            recipe = self._recipe_registry.get_recipe(recipe_name=recipe_name)
-            for measurement in recipe.measurements:
-                combined_measurements[measurement.ingredient.name].append(measurement)
-
-        return combined_measurements
-
-    def _printout_nested_ingredients(self, measurements_by_ingredient: list[Measurement]) -> str:
-        printout = ""
-        for measurement in measurements_by_ingredient:
-            printout += f"  {measurement.amount} {measurement.unit}\n"
-
-        return printout
-
-    def _printout_nested_measurements(self) -> str:
-        combined_measurements = self._calculate_combined_measurements()
-
-        printout = ""
-        for ingredient_name, measurements_by_ingredient in natsort.natsorted(
-            seq=combined_measurements.items(),
-            key=lambda item_tuple: item_tuple[0],
-        ):
-            printout += f"{ingredient_name}\n"
-            printout += self._printout_nested_ingredients(measurements_by_ingredient=measurements_by_ingredient)
-
-            measurements_to_remove = self._individual_measurements_to_remove.get(ingredient_name, [])
-            if len(measurements_to_remove) > 0:
-                for measurement in measurements_to_remove:
-                    printout += f"  -{measurement.amount} {measurement.unit}\n"
-
-        return printout
 
     @pydantic.validate_call
     def add_measurement(self, *, measurement: Measurement) -> None:
@@ -221,12 +195,12 @@ class MealSelection(pydantic.BaseModel):
 
         """
         recipe_names = tuple(get_recipe_names_by_type(recipes=meal.recipes))
-        self._recipe_names_to_meals[recipe_names] = meal
+        self._recipe_names_to_meal[recipe_names] = meal
 
     @pydantic.validate_call
     def remove_meal(self, *, recipe_names: tuple[str, ...]) -> None:
         """
-        Remove a meal from the meal selector.
+        Remove a meal (as defined by the ordered recipe names) from the meal selector.
 
         Parameters
         ----------
@@ -234,16 +208,12 @@ class MealSelection(pydantic.BaseModel):
             Ordered names of the recipes comprising the meal to be removed from the meal selector.
 
         """
-        self._recipe_names_to_meals.pop(recipe_names)
-
-    # @pydantic.validate_call
-    # def get_all_recipe_names(self) -> list[str]:
-    #     """Get all recipe names from the currently attached registry."""
-    #     return self._recipe_registry.get_all_recipe_names()
+        self._recipe_names_to_meal.pop(recipe_names)
 
     @pydantic.validate_call
     def get_raw_measurement_list(self) -> str:
         """Get a raw list of measurements by ingredient, including those to be removed."""
+        raise NotImplementedError
 
     @pydantic.validate_call
     def get_shopping_list(self) -> str:
@@ -285,31 +255,3 @@ class MealSelection(pydantic.BaseModel):
             shopping_list += f"  {total_per_ingredient} {measurement_unit}\n"
 
         return shopping_list
-
-    @staticmethod
-    @pydantic.validate_call
-    def get_measurement(*, amount: int | float, unit: str, name: str) -> Measurement:
-        """
-        Generate a measurement of an ingredient from the default global ingredient registry.
-
-        Uses a base Ingredient if it is unregistered.
-
-        While this method might intuitively belong to the `IngredientRegistry` class, the interaction with
-        the `default_ingredient_registry` makes this impossible due to circularity.
-
-        Parameters
-        ----------
-        amount : int | float
-            Amount of the ingredient.
-        unit : str
-            Unit of the ingredient amount.
-        name : str
-            Name of the ingredient.
-
-        """
-        if name in default_ingredient_registry:
-            ingredient = default_ingredient_registry.get_ingredient(name=name)
-        else:
-            ingredient = Ingredient(name=name)
-
-        return Measurement(amount=amount, unit=unit, ingredient=ingredient)

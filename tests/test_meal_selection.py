@@ -1,19 +1,16 @@
 import io
-import pathlib
 import re
 import unittest.mock
 
 import pytest
 
-from como_recipes import IngredientRegistry, MealSelection, Measurement, Recipe
+import como_recipes
+from como_recipes import IngredientRegistry, MealSelection, Measurement
 
 
 def test_meal_selection(example_measurement: Measurement):
-    example_folder_path = pathlib.Path(__file__).parent / "examples" / "example_1"
-
-    example_1_markdown_file_path = example_folder_path / "example_recipe_1.md"
-    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
-
+    """A sequence of integration tests for the `MealSelection` class."""
+    # Test an empty MealSelection
     meal_selection = MealSelection()
 
     expected_repr = "\ncomo_recipes.MealSelection()\n"
@@ -23,11 +20,42 @@ def test_meal_selection(example_measurement: Measurement):
         print(meal_selection)
     assert captured_output.getvalue() == expected_str
 
+    # TODO
+    expected_shopping_list = ""
+    assert meal_selection.get_shopping_list() == expected_shopping_list
+
+    # Test adding a meal
+    new_meal = como_recipes.Meal()
+    new_meal.add_default_recipe(recipe_name="Aglio E Olio")
+    new_meal.add_default_recipe(recipe_name="Sauteed Green Beans")
+    meal_selection.add_meal(meal=new_meal)
+
+    expected_repr = (
+        "\n"
+        "como_recipes.MealSelection(\n"
+        "\t_meals={\n"
+        "\t\t('Aglio E Olio', 'Sauteed Green Beans'): como_recipes.Meal(...),\n"
+        "\t},\n"
+        ")\n"
+    )
+    expected_str = "1 selected meals\n-----------------\n\nAglio E Olio, Sauteed Green Beans\n\n\n"
+    assert repr(meal_selection) == expected_repr
+    with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
+        print(meal_selection)
+    assert captured_output.getvalue() == expected_str
+
+    expected_shopping_list = ""
+    assert meal_selection.get_shopping_list() == expected_shopping_list
+
+    # Test adding a measurement
     meal_selection.add_measurement(measurement=example_measurement)
 
     expected_repr = (
         "\n"
         "como_recipes.MealSelection(\n"
+        "\t_meals={\n"
+        "\t\t('Aglio E Olio', 'Sauteed Green Beans'): como_recipes.Meal(...),\n"
+        "\t},\n"
         "\t_individual_measurements_to_add={\n"
         "\t\tExample Ingredient 1: [\n"
         '\t\t\tMeasurement(amount=56, unit="grams", '
@@ -37,64 +65,72 @@ def test_meal_selection(example_measurement: Measurement):
         "\t},\n"
         ")\n"
     )
-    expected_str = "1 added measurements\n---------------------\n\nExample Ingredient 1\n\n\n"
+    expected_str = (
+        "1 selected meals\n"
+        "-----------------\n"
+        "\n"
+        "Aglio E Olio, Sauteed Green Beans\n"
+        "\n"
+        "1 added measurements\n"
+        "---------------------\n"
+        "\n"
+        "Example Ingredient 1\n"
+        "\n"
+        "\n"
+    )
+    assert repr(meal_selection) == expected_repr
+    with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
+        print(meal_selection)
+    assert captured_output.getvalue() == expected_str
+
+    expected_shopping_list = ""
+    assert meal_selection.get_shopping_list() == expected_shopping_list
+
+    # Test removing less of the same measurement
+    meal_selection.remove_measurement(
+        measurement=IngredientRegistry.get_measurement(amount=0.5, unit="g", ingredient_name="Example Ingredient 1"),
+    )
+
+    expected_repr = ""
+    expected_str = ""
     assert repr(meal_selection) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(meal_selection)
     assert captured_output.getvalue() == expected_str
 
     # TODO
-    # expected_shopping_list = "Example Ingredient 1\n  56 grams\n"
-    # assert new_meal_selection.get_shopping_list() == expected_shopping_list
+    # expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\n"
+    # assert meal_selection.get_shopping_list() == expected_shopping_list
 
-    meal_selection.add_recipe(recipe=recipe)
-
-    expected_repr = (
-        "3 registered measurements\n"
-        "-------------------------\n"
-        "\n"
-        "Example Ingredient 1\n"
-        "  56 grams\n"
-        "ingredient 1\n"
-        "  31/10 tbsp.\n"
-        "ingredient 2\n"
-        "  4 g\n"
+    # Test removing all of what remains of that same measurement
+    meal_selection.remove_measurement(
+        measurement=IngredientRegistry.get_measurement(amount=0.5, unit="g", ingredient_name="Example Ingredient 1"),
     )
+
+    expected_repr = ""
+    expected_str = ""
     assert repr(meal_selection) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(meal_selection)
-    assert captured_output.getvalue() == expected_repr + "\n"
-
-    meal_selection.add_measurement(measurement=example_measurement)
-
-    # TODO
-    # expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\ningredient 2\n  4 g\n"
-    # assert new_meal_selection.get_shopping_list() == expected_shopping_list
-
-    meal_selection.remove_measurement(
-        measurement=IngredientRegistry.get_measurement(amount=2.0, unit="g", ingredient_name="ingredient 2"),
-    )
-
-    # TODO
-    # expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\ningredient 2\n  2 g\n"
-    # assert new_meal_selection.get_shopping_list() == expected_shopping_list
-
-    # Recipe should now be removed entirely from printout
-    meal_selection.remove_measurement(
-        measurement=IngredientRegistry.get_measurement(amount=2.0, unit="g", ingredient_name="ingredient 2"),
-    )
+    assert captured_output.getvalue() == expected_str
 
     # TODO
     # expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\n"
-    # assert new_meal_selection.get_shopping_list() == expected_shopping_list
+    # assert meal_selection.get_shopping_list() == expected_shopping_list
 
-    expected_recipe_names = ["Example Recipe 1"]
-    assert expected_recipe_names == meal_selection.get_all_recipe_names()
+    # Test removing a meal
+    meal_selection.remove_meal(recipe_name="Example Recipe 1")
 
-    meal_selection.remove_recipe(recipe_name="Example Recipe 1")
+    expected_repr = ""
+    expected_str = ""
+    assert repr(meal_selection) == expected_repr
+    with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
+        print(meal_selection)
+    assert captured_output.getvalue() == expected_str
 
-    expected_shopping_list = "Example Ingredient 1\n  112 grams\n"
-    assert meal_selection.get_shopping_list() == expected_shopping_list
+    # TODO
+    # expected_shopping_list = "Example Ingredient 1\n  112 grams\n"
+    # assert meal_selection.get_shopping_list() == expected_shopping_list
 
 
 def test_get_shopping_list_error():

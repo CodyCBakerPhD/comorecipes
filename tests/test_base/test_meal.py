@@ -80,7 +80,7 @@ def test_meal_inequality_with_quantity_multipliers():
 
 def test_meal_add_recipe():
     meal = como_recipes.Meal(recipes={como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio")})
-    meal.add_recipe_name(recipe_name="Sauteed Green Beans")
+    meal.add_default_recipe(recipe_name="Sauteed Green Beans")
 
     assert len(meal.recipes) == 2
     assert {"Aglio E Olio", "Sauteed Green Beans"} == {recipe.name for recipe in meal.recipes}
@@ -88,7 +88,7 @@ def test_meal_add_recipe():
 
 def test_meal_remove_recipe():
     meal = como_recipes.Meal(recipes={como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio")})
-    meal.remove_recipe_name(recipe_name="Aglio E Olio")
+    meal.remove_default_recipe(recipe_name="Aglio E Olio")
 
     assert len(meal.recipes) == 0
 
