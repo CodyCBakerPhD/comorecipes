@@ -217,9 +217,28 @@ class MealSelection(pydantic.BaseModel):
         self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
 
     @pydantic.validate_call
-    def get_raw_measurement_list(self) -> str:
+    def get_raw_measurement_list(self) -> list[str]:
         """Get a raw list of measurements by ingredient, including those to be removed."""
-        raise NotImplementedError
+        if self.is_empty():
+            message = "No meals or measurements have been added to the meal selection."
+
+            raise ValueError(message)
+
+        combined_measurements = self._calculate_combined_measurements()
+
+        raw_measurement_list = ["Raw Ingredient List"]
+        raw_measurement_list.append("-" * len(raw_measurement_list[0]))
+
+        for ingredient_name, measurements_by_ingredient in natsort.natsorted(
+            seq=combined_measurements.items(),
+            key=lambda item_tuple: item_tuple[0],
+        ):
+            raw_measurement_list.append(f"☐  {ingredient_name}")
+            raw_measurement_list.extend(
+                [f"\t{measurement.amount} {measurement.unit}" for measurement in measurements_by_ingredient],
+            )
+
+        return raw_measurement_list
 
     def _printout_nested_ingredients(self, measurements_by_ingredient: list[Measurement]) -> str:
         """TODO: plan is to deprecate this method once grams are standardized."""
@@ -230,7 +249,7 @@ class MealSelection(pydantic.BaseModel):
         return printout
 
     @pydantic.validate_call
-    def get_shopping_list(self) -> str:
+    def get_shopping_list(self) -> list[str]:
         """Get a shopping list by aggregating all contained recipes and measurements."""
         if self.is_empty():
             message = "No meals or measurements have been added to the meal selection."

@@ -23,15 +23,8 @@ class ShoppingListFrame(tkinter.Frame):
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
 
-        self.setup_attributes()
-        self.setup_frame()
+        self.meal_selection = MealSelection()
 
-    def setup_attributes(self) -> None:
-        """Define all mutable attributes used to control underlying states of the application."""
-        self.current_measurement_registry = MealSelection()
-
-    def setup_frame(self) -> None:
-        """Initialize and organize all subcomponents of the frame."""
         self.shopping_list_label = tkinter.Label(master=self, text="Shopping list")
         self.shopping_list_box = tkinter.Listbox(
             self,
