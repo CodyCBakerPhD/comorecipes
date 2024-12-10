@@ -1,4 +1,6 @@
 import collections
+import pathlib
+import pickle
 import typing
 import warnings
 
@@ -296,3 +298,18 @@ class MealSelection(pydantic.BaseModel):
             shopping_list.append(f"    {total_per_ingredient} {measurement_unit}\n")
 
         return shopping_list
+
+    @pydantic.validate_call
+    def to_pickle(self, file_path: pydantic.FilePath | pydantic.NewPath) -> None:
+        """Write the meal selection to a pickle file."""
+        with pathlib.Path(file_path).open(mode="wb") as io:
+            pickle.dump(obj=self, file=io)
+
+    @classmethod
+    @pydantic.validate_call
+    def from_pickle(cls, file_path: pydantic.FilePath | pydantic.NewPath) -> typing.Self:
+        """Read a meal selection from a pickle file."""
+        with pathlib.Path(file_path).open(mode="rb") as io:
+            meal_selector = pickle.load(file=io)  # noqa: S301
+
+        return meal_selector

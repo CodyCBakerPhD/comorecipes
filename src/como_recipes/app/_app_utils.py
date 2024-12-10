@@ -10,9 +10,9 @@ def _get_home_folder() -> pathlib.Path:
     return folder_path
 
 
-def _generate_new_default_session_id() -> str | None:
+def _generate_new_default_session_id(home_folder: pathlib.Path | None = None) -> str | None:
     """Generate a new possible session ID, but do not automatically create the session folder."""
-    home_folder = _get_home_folder()
+    home_folder = home_folder or _get_home_folder()
 
     date = datetime.datetime.now().strftime("%Y%m%d")
     default_session_folder_path = home_folder / date

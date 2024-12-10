@@ -54,7 +54,7 @@ class RawIngredientFrame(tkinter.Frame):
             height=self.minimum_number_of_displayed_measurements,
         )
 
-        self.button = tkinter.Button(
+        self.open_button = tkinter.Button(
             master=self,
             text="Open raw ingredient list",
             command=self.open_raw_ingredient_list,
@@ -63,13 +63,13 @@ class RawIngredientFrame(tkinter.Frame):
         self.label.pack(side="top", pady=2.5)
         self.add_and_remove_subframe.pack(side="top", pady=2.5)
         self.list_box.pack(side="top", pady=2.5)
-        self.button.pack(side="top", pady=2.5)
+        self.open_button.pack(side="top", pady=2.5)
 
     def add_measurement(self) -> None:
-        pass
+        tkinter.messagebox.showinfo(title="Add ingredient", message="Apologies, this feature is not yet implemented.")
 
     def remove_measurement(self) -> None:
-        pass
+        tkinter.messagebox.showinfo(title="Add ingredient", message="Apologies, this feature is not yet implemented.")
 
     def update_frame(self) -> None:
         """Update the raw ingredient frame display based on the current meal selection."""

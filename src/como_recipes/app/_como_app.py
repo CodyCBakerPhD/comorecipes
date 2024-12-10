@@ -104,8 +104,8 @@ class CoMoApp(tkinter.Tk):
         self.available_meals_frame.tags_to_checkbox_values = self.tags_to_checkbox_values
 
         # Bind callbacks
-        self.session_manager_frame.session_ids_listbox.unbind(sequence="<Double-Button-1>")
-        self.session_manager_frame.session_ids_listbox.bind(
+        self.session_manager_frame.list_box.unbind(sequence="<Double-Button-1>")
+        self.session_manager_frame.list_box.bind(
             sequence="<Double-Button-1>",
             func=self.select_session,
         )
@@ -189,7 +189,7 @@ class CoMoApp(tkinter.Tk):
         )
 
         if response is True:
-            self.session_manager_frame.save_session()
+            self.session_manager_frame.save_app_state()
 
         if response is not None:
             self.destroy()

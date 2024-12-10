@@ -25,31 +25,31 @@ class ShoppingListFrame(tkinter.Frame):
         self.meal_selection = MealSelection()
 
         # Setup initial components
-        self.shopping_list_label = tkinter.Label(master=self, text="Shopping list")
-        self.shopping_list_box = tkinter.Listbox(
+        self.label = tkinter.Label(master=self, text="Shopping list")
+        self.list_box = tkinter.Listbox(
             self,
             width=self.minimum_available_recipe_width_in_characters,
             height=self.minimum_number_of_displayed_measurements,
         )
 
-        self.open_shopping_list_button = tkinter.Button(
+        self.button = tkinter.Button(
             master=self,
             text="Open shopping list",
             command=self.open_shopping_list,
         )
 
-        self.shopping_list_label.pack(side="top", pady=2.5)
-        self.shopping_list_box.pack(side="top", padx=2.5, pady=2.5)
-        self.open_shopping_list_button.pack(side="top", pady=2.5)
+        self.label.pack(side="top", pady=2.5)
+        self.list_box.pack(side="top", padx=2.5, pady=2.5)
+        self.button.pack(side="top", pady=2.5)
 
-    def update_shopping_list(self) -> None:
+    def update_frame(self) -> None:
         """Update the shopping list from the current registry."""
         try:
             shopping_list = self.meal_selection.get_shopping_list().split("\n")
         except Exception:  # noqa: BLE001
             shopping_list = []
-        self.shopping_list_box.delete(first=0, last="end")
-        self.shopping_list_box.insert("end", *shopping_list)
+        self.list_box.delete(first=0, last="end")
+        self.list_box.insert("end", *shopping_list)
 
     def open_shopping_list(self) -> None:
         """Write the shopping list to a file and open default text editor on that file."""
