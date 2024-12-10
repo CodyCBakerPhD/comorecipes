@@ -4,6 +4,7 @@ import tkinter.messagebox
 import natsort
 
 from ._app_globals import all_default_tags
+from .._meal_selection import MealSelection
 from .._registration._recipe_registry import default_recipe_registry
 
 
@@ -25,17 +26,29 @@ class AvailableRecipesFrame(tkinter.Frame):
 
     def setup_attributes(self) -> None:
         """Define all mutable attributes used to control underlying states of the application."""
-        self.default_available_index_to_meals: dict[int, str] = {
+        self.app_state = {"meal_selection": MealSelection()}
+
+        self.default_available_index_to_recipe_name: dict[int, str] = {
             index: recipe_name
             for index, recipe_name in enumerate(
                 natsort.natsorted(seq=default_recipe_registry.get_all_recipe_names()),
             )
         }
-        self.default_available_meals_to_index: dict[str, int] = {
-            recipe_name: index for index, recipe_name in self.default_available_index_to_meals.items()
+        self.default_available_recipe_name_to_index: dict[str, int] = {
+            recipe_name: index for index, recipe_name in self.default_available_index_to_recipe_name.items()
         }
 
-        self.currently_available_index_to_meals: dict[int, str] = self.default_available_index_to_meals.copy()
+        self.default_entree_to_index: dict[int, str] = {
+            recipe_name: index
+            for index, recipe_name in self.default_available_index_to_recipe_name.items()
+            # TODO: enable when more recipes are tagged properly
+            # if "Entree" in default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
+        }
+        self.currently_available_index_to_recipe_name: dict[int, str] = {
+            index: recipe_name
+            for recipe_name, index in self.default_entree_to_index.items()
+            if recipe_name not in self.app_state["meal_selection"]
+        }
 
     def setup_frame(self) -> None:
         """Initialize and organize all subcomponents of the frame."""
@@ -52,16 +65,16 @@ class AvailableRecipesFrame(tkinter.Frame):
             master=self.current_available_meals_frame_box_subframe,
             width=self.minimum_available_recipe_width_in_characters,
         )
-        self.currently_available_meals_search.bind(sequence="<KeyRelease>", func=self.update_available_meal_display)
+        self.currently_available_meals_search.bind(sequence="<KeyRelease>", func=self.update_frame)
 
         self.currently_available_meals_box = tkinter.Listbox(
             master=self.current_available_meals_frame_box_subframe,
             width=self.minimum_available_recipe_width_in_characters,
             height=self.minimum_number_of_displayed_available_recipes,
         )
-        self.currently_available_meals_box.insert(0, *self.currently_available_index_to_meals.values())
+        self.currently_available_meals_box.insert(0, *self.currently_available_index_to_recipe_name.values())
 
-        self.available_meals_label.grid(row=0, column=0, pady=5)
+        self.available_meals_label.grid(row=0, column=0, pady=2.5)
         self.currently_available_meals_search.grid(row=1, column=0, sticky="n")
         self.currently_available_meals_box.grid(row=2, column=0, sticky="n")
 
@@ -73,7 +86,7 @@ class AvailableRecipesFrame(tkinter.Frame):
             master=self.available_meals_frame_tags_subframe,
             text="Filter by",
         )
-        self.tags_label.grid(row=0, pady=5)
+        self.tags_label.grid(row=0, pady=2.5)
 
         self.tags_to_checkbox_values = {tag: tkinter.IntVar() for tag in all_default_tags}
         self.tags_to_tag_checkboxes = {
@@ -82,24 +95,32 @@ class AvailableRecipesFrame(tkinter.Frame):
                 text=tag,
                 variable=variable,
                 justify="left",
-                command=self.update_available_meal_display,
+                command=self.update_frame,
             )
             for tag, variable in self.tags_to_checkbox_values.items()
         }
         for row, tag_checkbox in enumerate(self.tags_to_tag_checkboxes.values()):
             tag_checkbox.grid(row=1 + row, sticky="W")
 
-    def update_available_meal_display(self, event: tkinter.Event | None = None) -> None:
+    def update_frame(self, event: tkinter.Event | None = None) -> None:
         """
         Update the list of displayed meals based on the search query.
 
         Intended to be as 'smart' as possible.
         """
+        self.currently_available_index_to_recipe_name = {
+            index: recipe_name
+            for index, recipe_name in self.default_available_index_to_recipe_name.items()
+            if recipe_name not in self.app_state["meal_selection"]
+        }
+
         if self.currently_available_meals_search.get() == "":
-            data = self.currently_available_index_to_meals.values()
+            data = self.currently_available_index_to_recipe_name.values()
         else:
             value = self.currently_available_meals_search.get()
-            data = [item for item in self.currently_available_index_to_meals.values() if value.lower() in item.lower()]
+            data = [
+                item for item in self.currently_available_index_to_recipe_name.values() if value.lower() in item.lower()
+            ]
 
         # TODO: improve performance by offloading minimal change differences to internal variables and only
         # updating data/GUI when necessary

@@ -140,6 +140,17 @@ class MealSelection(pydantic.BaseModel):
 
         return printout
 
+    def __contains__(self, recipe_name: str) -> bool:
+        """
+        Logic defining the `in` operator.
+
+        Intended to be used to ask if a recipe name is a part  of any meal in the selection.
+        """
+        # TODO: could make a lookup table for O(1) speed
+        result = any(recipe_name in recipe_names for recipe_names in self._recipe_names_to_meal)
+
+        return result
+
     def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
         combined_measurements = collections.defaultdict(list)
         for measurements in self._individual_measurements_to_add.values():
@@ -191,6 +202,12 @@ class MealSelection(pydantic.BaseModel):
 
         """
         self._recipe_names_to_meal.pop(recipe_names)
+
+    def get_all_recipe_names(self) -> list[tuple[str, ...]]:
+        """Get all meals in the meal selection."""
+        result = list(self._recipe_names_to_meal.keys())
+
+        return result
 
     @pydantic.validate_call
     def add_measurement(self, *, measurement: Measurement) -> None:

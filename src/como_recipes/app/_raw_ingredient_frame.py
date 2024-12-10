@@ -28,8 +28,10 @@ class RawIngredientFrame(tkinter.Frame):
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
 
         # Setup initial attributes
-        self.session_folder_path = _get_home_folder() / _generate_new_default_session_id()
-        self.meal_selection = MealSelection()
+        self.app_state = {"home_folder_path": _get_home_folder()}
+        session_id = _generate_new_default_session_id(home_folder=self.app_state["home_folder_path"])
+        self.app_state["session_folder_path"] = self.app_state["home_folder_path"] / session_id
+        self.app_state["meal_selection"] = MealSelection()
 
         # Setup initial components
         self.label = tkinter.Label(master=self, text="Raw ingredients")
@@ -73,16 +75,16 @@ class RawIngredientFrame(tkinter.Frame):
 
     def update_frame(self) -> None:
         """Update the raw ingredient frame display based on the current meal selection."""
-        raw_ingredient_list = self.meal_selection.get_raw_measurement_list()[2:]
+        raw_ingredient_list = self.app_state["meal_selection"].get_raw_measurement_list()[2:]
         self.list_box.delete(first=0, last="end")
         self.list_box.insert("end", *raw_ingredient_list)
 
     def open_raw_ingredient_list(self) -> None:
         """Write the raw ingredient list to a file and open default text editor on that file."""
-        raw_ingredient_list_string = "\n".join(self.meal_selection.get_raw_measurement_list()[2:])
+        raw_ingredient_list_string = "\n".join(self.app_state["meal_selection"].get_raw_measurement_list()[2:])
 
-        self.session_folder_path.mkdir(exist_ok=True)
-        raw_ingredient_list_file_path = self.session_folder_path / "raw_ingredient_list.txt"
+        self.app_state["session_folder_path"].mkdir(exist_ok=True)
+        raw_ingredient_list_file_path = self.app_state["session_folder_path"] / "raw_ingredient_list.txt"
         with raw_ingredient_list_file_path.open(mode="w", encoding="utf-8") as io:
             io.write(raw_ingredient_list_string)
 

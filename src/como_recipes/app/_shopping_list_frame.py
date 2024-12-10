@@ -21,8 +21,10 @@ class ShoppingListFrame(tkinter.Frame):
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
 
         # Setup initial attributes
-        self.session_folder_path = _get_home_folder() / _generate_new_default_session_id()
-        self.meal_selection = MealSelection()
+        self.app_state = {"home_folder_path": _get_home_folder()}
+        session_id = _generate_new_default_session_id(home_folder=self.app_state["home_folder_path"])
+        self.app_state["session_folder_path"] = self.app_state["home_folder_path"] / session_id
+        self.app_state["meal_selection"] = MealSelection()
 
         # Setup initial components
         self.label = tkinter.Label(master=self, text="Shopping list")
@@ -45,7 +47,7 @@ class ShoppingListFrame(tkinter.Frame):
     def update_frame(self) -> None:
         """Update the shopping list from the current registry."""
         try:
-            shopping_list = self.meal_selection.get_shopping_list().split("\n")
+            shopping_list = self.app_state["meal_selection"].get_shopping_list().split("\n")
         except Exception:  # noqa: BLE001
             shopping_list = []
         self.list_box.delete(first=0, last="end")
@@ -54,7 +56,7 @@ class ShoppingListFrame(tkinter.Frame):
     def open_shopping_list(self) -> None:
         """Write the shopping list to a file and open default text editor on that file."""
         try:
-            shopping_list_string = "\n".join(self.meal_selection.get_shopping_list().split("\n"))
+            shopping_list_string = "\n".join(self.app_state["meal_selection"].get_shopping_list().split("\n"))
         except Exception:  # noqa: BLE001
             tkinter.messagebox.showerror(
                 title="Error",
