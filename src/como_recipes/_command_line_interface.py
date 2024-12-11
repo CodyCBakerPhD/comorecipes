@@ -13,10 +13,10 @@ import traceback
 import click
 
 from ._base._base_recipe import Recipe
+from ._meal_selection import MealSelection
 from ._registration._recipe_registry import default_recipe_registry
 from .app import CoMoApp
 from .utils import get_terminal_size
-from .._meal_selection import MealSelection
 
 
 @click.command(name="write_missing_markdown_recipes")

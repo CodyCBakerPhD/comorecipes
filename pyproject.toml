@@ -125,6 +125,8 @@ ignore = [
     "T20",  # print statements are fine in tests since they can help render debugging info in GitHub Actions logs
     "PLR2004",  # False positive in explicitly written test cases
     "SLF001",  # Need to test private attributes sometimes
+    "S603",  # Subprocess calls are OK in tests
+    "S607",  # Partial subprocess calls are OK in tests
 ]
 
 [tool.ruff.lint.isort]
