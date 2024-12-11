@@ -27,7 +27,7 @@ body:
     validations:
       required: true
 
-  - type: text-area
+  - type: textarea
     id: ingredients
     attributes:
       label: Ingredients
@@ -35,7 +35,7 @@ body:
     validations:
       required: true
 
-  - type: text-area
+  - type: textarea
     id: instructions
     attributes:
       label: Instructions
@@ -43,7 +43,7 @@ body:
     validations:
       required: true
 
-  - type: text-area
+  - type: textarea
     id: notes
     attributes:
       label: Notes
