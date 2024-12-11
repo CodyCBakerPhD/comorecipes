@@ -144,9 +144,13 @@ class SessionManagerFrame(tkinter.Frame):
         self.list_box.selection_set(first=self.selected_session_id_index)
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "lightgrey"})
 
-        self.app_state["selected_index_to_meals"] = {}
-        self.app_state["tags_to_checkbox_values"] = {tag: tkinter.IntVar() for tag in all_default_tags}
-        self.app_state["meal_selection"] = MealSelection()
+        self.app_state.update(
+            {
+                "selected_index_to_meals": {},
+                "tags_to_checkbox_values": {tag: tkinter.IntVar() for tag in all_default_tags},
+                "meal_selection": MealSelection(),
+            },
+        )
 
         if hasattr(self.master, "update_frames"):
             self.master.update_frames()
