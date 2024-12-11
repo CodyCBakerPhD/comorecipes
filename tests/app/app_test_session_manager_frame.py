@@ -18,5 +18,4 @@ if __name__ == "__main__":
     session_manager_frame.update_session_ids()
     session_manager_frame.update_frame()
 
-    session_manager_frame.debug = True
     app.mainloop()

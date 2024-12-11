@@ -1,4 +1,3 @@
-import logging
 import pathlib
 import pickle
 import shutil
@@ -10,9 +9,6 @@ from ._app_globals import all_default_tags
 from ._app_utils import _generate_default_app_state, _generate_new_default_session_id
 from .._meal_selection import MealSelection
 
-logger = logging.getLogger(__name__)
-logger.disabled = True
-
 
 class SessionManagerFrame(tkinter.Frame):
     def __init__(
@@ -21,7 +17,6 @@ class SessionManagerFrame(tkinter.Frame):
         minimum_number_of_displayed_measurements: int = 35,
     ) -> None:
         super().__init__(master=master)
-        logger.info("Initializing session manager frame")
 
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
 
@@ -161,13 +156,6 @@ class SessionManagerFrame(tkinter.Frame):
     # TODO: can I use ' / ' to avoid need for `event`?
     def select_session(self, event: tkinter.Event | None = None) -> None:
         """The callback which triggers on double-clicking an element of the session manager listbox."""
-        logger.info("Selecting a session")
-        if logger.getEffectiveLevel() <= logging.DEBUG:
-            logger.debug(f"{self.app_state=}")
-            logger.debug(f"{self.session_ids=}")
-            logger.debug(f"{self.selected_session_id=}")
-            logger.debug(f"{self.selected_session_id_index=}")
-
         # Reset background color of previously selected session
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "white"})
 
@@ -190,13 +178,6 @@ class SessionManagerFrame(tkinter.Frame):
             self.master.update_frames()
         else:
             self.update_frame()
-
-        logger.info("Session was selected")
-        if logger.getEffectiveLevel() <= logging.DEBUG:
-            logger.debug(f"{self.app_state=}")
-            logger.debug(f"{self.session_ids=}")
-            logger.debug(f"{self.selected_session_id=}")
-            logger.debug(f"{self.selected_session_id_index=}")
 
     def save_app_state(self, event: tkinter.Event | None = None) -> None:
         """Save the current session to a new folder in the app home directory."""
@@ -225,16 +206,7 @@ class SessionManagerFrame(tkinter.Frame):
 
     def delete_session(self, event: tkinter.Event | None = None) -> None:
         """Delete the currently active (via right-click) session ID from the listbox."""
-        if self.debug is True:
-            print(f"{self.app_state=}")
-            print(f"{self.session_ids=}")
-            print(f"{self.selected_session_id=}")
-            print(f"{self.selected_session_id_index=}")
-
         session_id_to_delete = self.list_box.get("active").split(" ")[1]
-
-        if self.debug is True:
-            print(f"\nDeleting {session_id_to_delete=}...")
 
         session_folder_path = self.app_state["home_folder_path"] / session_id_to_delete
         shutil.rmtree(path=session_folder_path, ignore_errors=True)
@@ -259,9 +231,3 @@ class SessionManagerFrame(tkinter.Frame):
         self.selected_session_id_index = 0
         self.list_box.activate(index=self.selected_session_id_index)
         self.list_box.selection_set(first=self.selected_session_id_index)
-
-        if self.debug is True:
-            print(f"{self.app_state=}")
-            print(f"{self.session_ids=}")
-            print(f"{self.selected_session_id=}")
-            print(f"{self.selected_session_id_index=}")

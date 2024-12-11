@@ -1,7 +1,6 @@
 import tkinter
 import tkinter.messagebox
 
-from ._app_globals import default_recipe_name_to_index
 from ._app_utils import _generate_default_app_state
 
 
@@ -15,7 +14,6 @@ class SelectedMealsFrame(tkinter.Frame):
     ) -> None:
         """A modular component for displaying currently selected recipes."""
         super().__init__(master=master)
-        self.debug = False
         self.app_state = getattr(self.master, "app_state", None) or _generate_default_app_state()
 
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
@@ -52,36 +50,16 @@ class SelectedMealsFrame(tkinter.Frame):
         """Move a meal from the selected list back to the available list."""
         selected_meal = self.selected_meals_list_box.get(first="active")
         recipe_names = tuple(recipe_name for recipe_name in selected_meal.split(" + "))
-        meal_index = default_recipe_name_to_index[recipe_names[0]]
-
-        if self.debug is True:
-            print("\nEntering `remove_selected_meal`...")
-            print(f"{self.app_state=}")
-            print(f"{selected_meal=}")
-            print(f"{recipe_names=}")
-            print(f"{meal_index=}")
+        # meal_index = default_recipe_name_to_index[recipe_names[0]]
 
         self.selected_meals_list_box.delete(first="active")
 
         # self.app_state["selected_index_to_meals"].pop(meal_index)  # Why do we need this?
         self.app_state["meal_selection"].remove_meal(
-            recipe_names=tuple(recipe_name for recipe_name in selected_meal.split(" + ")),
+            recipe_names=tuple(recipe_name for recipe_name in recipe_names),
         )
 
         if hasattr(self.master, "update_frames"):
             self.master.update_frames()
         else:
             self.update_frame()
-
-        # self.available_meals_frame.currently_available_index_to_meals[meal_index] = selected_meal
-        # self.available_meals_frame.update_frame()
-
-        # self.shopping_list_frame.current_measurement_registry.remove_recipe(recipe_name=selected_meal)
-        # self.shopping_list_frame.update_shopping_list()
-
-        if self.debug is True:
-            print("\nExiting `remove_selected_meal`...")
-            print(f"{self.app_state=}")
-            print(f"{selected_meal=}")
-            print(f"{recipe_names=}")
-            print(f"{meal_index=}")

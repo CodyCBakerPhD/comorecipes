@@ -13,5 +13,4 @@ if __name__ == "__main__":
     selected_meals_frame.app_state["meal_selection"].add_meal(meal=meal)
     selected_meals_frame.update_frame()
 
-    selected_meals_frame.debug = True
     app.mainloop()

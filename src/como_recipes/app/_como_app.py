@@ -1,5 +1,4 @@
 import importlib.metadata
-import logging
 import pathlib
 import sys
 import tkinter
@@ -13,15 +12,11 @@ from ._selected_meals_frame import SelectedMealsFrame
 from ._session_manager_frame import SessionManagerFrame
 from ._shopping_list_frame import ShoppingListFrame
 
-logger = logging.getLogger(__name__)
-logger.disabled = True
-
 
 class CoMoApp(tkinter.Tk):
     def __init__(self) -> None:
         """A relatively simple GUI implementation for the CoMo Meal Selection based on Tkinter."""
         super().__init__()
-        logger.info("Initializing CoMoApp class")
 
         self.setup_window()
         self.setup_frames()
@@ -100,14 +95,8 @@ class CoMoApp(tkinter.Tk):
 
     def update_frames(self) -> None:
         """Update all frames with the latest state."""
-        logger.info("Updating all app frames")
-        # logger.debug(f"{self.app_state=}")
-
         self.session_manager_frame.update_frame()
         self.available_meals_frame.update_frame()
         self.selected_recipes_frame.update_frame()
         self.raw_ingredient_frame.update_frame()
         self.shopping_list_frame.update_frame()
-
-        logger.info("All frames updated")
-        # logger.debug(f"{self.app_state=}")

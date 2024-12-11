@@ -24,7 +24,6 @@ class AvailableRecipesFrame(tkinter.Frame):
         """A modular component for searching and filtering the default recipes."""
         super().__init__(master=master)
         self.app_state = getattr(self.master, "app_state", None) or _generate_default_app_state()
-        self.debug = False
 
         self.recipe_type = recipe_type
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
@@ -144,21 +143,12 @@ class AvailableRecipesFrame(tkinter.Frame):
         selected_meal = self.available_meals_list_box.get(first="active")
         meal_index = default_recipe_name_to_index[selected_meal]
 
-        if self.debug is True:
-            print("\nEntering `add_selected_meal`...")
-            print(f"{self.app_state=}")
-            print(f"{selected_meal=}")
-            print(f"{meal_index=}")
-            print(f"{self.available_index_to_recipe_name=}")
-
         meal = Meal()
         meal.add_recipe(recipe=default_recipe_registry.get_recipe(recipe_name=selected_meal))
+        # TODO
         # meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
         self.app_state["meal_selection"].add_meal(meal=meal)
         self.app_state["selected_index_to_meals"][meal_index] = selected_meal
-
-        # self.selected_recipes_frame.selected_meals_box.insert("end", selected_meal)
-        # self.selected_recipes_frame.selected_index_to_meals[meal_index] = selected_meal
 
         self._update_available_index_to_recipe_name()
 
@@ -166,15 +156,3 @@ class AvailableRecipesFrame(tkinter.Frame):
             self.master.update_frames()
         else:
             self.update_frame()
-
-        if self.debug is True:
-            print("\nExiting `add_selected_meal`...")
-            print(f"{self.app_state=}")
-            print(f"{selected_meal=}")
-            print(f"{meal_index=}")
-            print(f"{self.available_index_to_recipe_name=}")
-
-        # self.shopping_list_frame.measurement_registry.add_recipe(
-        #     recipe=default_recipe_registry.get_recipe(recipe_name=selected_meal),
-        # )
-        # self.shopping_list_frame.update_shopping_list()
