@@ -111,6 +111,8 @@ class AvailableRecipesFrame(tkinter.Frame):
 
         Intended to be as 'smart' as possible.
         """
+        print(self.app_state["meal_selection"])
+
         self._update_available_index_to_recipe_name()
 
         if self.available_meals_search.get() == "":

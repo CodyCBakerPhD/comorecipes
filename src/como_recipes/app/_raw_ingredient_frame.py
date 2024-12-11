@@ -4,8 +4,7 @@ import typing
 
 import click
 
-from ._app_utils import _generate_default_app_state, _generate_new_default_session_id, _get_home_folder
-from .._meal_selection import MealSelection
+from ._app_utils import _generate_default_app_state
 
 
 class RawIngredientFrame(tkinter.Frame):
@@ -29,12 +28,6 @@ class RawIngredientFrame(tkinter.Frame):
 
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
-
-        # Setup initial attributes
-        self.app_state = {"home_folder_path": _get_home_folder()}
-        session_id = _generate_new_default_session_id(home_folder=self.app_state["home_folder_path"])
-        self.app_state["session_folder_path"] = self.app_state["home_folder_path"] / session_id
-        self.app_state["meal_selection"] = MealSelection()
 
         # Setup initial components
         self.label = tkinter.Label(master=self, text="Raw ingredients")
@@ -78,6 +71,7 @@ class RawIngredientFrame(tkinter.Frame):
 
     def update_frame(self) -> None:
         """Update the raw ingredient frame display based on the current meal selection."""
+        print(self.app_state["meal_selection"])
         raw_ingredient_list = (
             self.app_state["meal_selection"].get_raw_measurement_list()[2:]
             if not self.app_state["meal_selection"].is_empty()
