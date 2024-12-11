@@ -1,7 +1,9 @@
 import io
+import pathlib
 import re
 import unittest.mock
 
+import py
 import pytest
 
 import como_recipes
@@ -26,6 +28,12 @@ def test_meal_selection(example_measurement: Measurement):
     ):
         meal_selection.get_shopping_list()
 
+    with pytest.raises(
+        expected_exception=ValueError,
+        match="No meals or measurements have been added to the meal selection.",
+    ):
+        meal_selection.get_raw_measurement_list()
+
     # Test adding a meal
     new_meal = como_recipes.Meal()
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
@@ -40,11 +48,39 @@ def test_meal_selection(example_measurement: Measurement):
         "\t},\n"
         ")\n"
     )
-    expected_str = "\n1 selected meal\n---------------\n\nAglio E Olio, Sauteed Green Beans\n\n"
     assert repr(meal_selection) == expected_repr
+
+    expected_str = "\n1 selected meal\n---------------\n\nAglio E Olio, Sauteed Green Beans\n\n"
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(meal_selection)
     assert captured_output.getvalue() == expected_str
+
+    expected_raw_ingredient_list = [
+        "Raw Ingredient List",
+        "-------------------",
+        "☐  cloves of garlic",
+        "    8 large",
+        "☐  crushed red pepper",
+        "    2 tsp.",
+        "☐  fresh Parmesan",
+        "    1 cup",
+        "☐  fresh green beans",
+        "    1 bag",
+        "☐  olive oil",
+        "    1/3 cup",
+        "    1 enough",
+        "☐  parsley",
+        "    1/4 cup",
+        "☐  salt",
+        "    1 tbsp.",
+        "☐  salt & pepper",
+        "    1 enough",
+        "☐  thin spaghetti",
+        "    1 lb.",
+        "☐  water",
+        "    2 qt.",
+    ]
+    assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
     # TODO
     # expected_shopping_list = ""
@@ -68,6 +104,8 @@ def test_meal_selection(example_measurement: Measurement):
         "\t},\n"
         ")\n"
     )
+    assert repr(meal_selection) == expected_repr
+
     expected_str = (
         "\n"
         "1 selected meal\n"
@@ -82,10 +120,38 @@ def test_meal_selection(example_measurement: Measurement):
         "Example Ingredient 1\n"
         "\n"
     )
-    assert repr(meal_selection) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(meal_selection)
     assert captured_output.getvalue() == expected_str
+
+    expected_raw_ingredient_list = [
+        "Raw Ingredient List",
+        "-------------------",
+        "☐  Example Ingredient 1",
+        "    56 grams",
+        "☐  cloves of garlic",
+        "    8 large",
+        "☐  crushed red pepper",
+        "    2 tsp.",
+        "☐  fresh Parmesan",
+        "    1 cup",
+        "☐  fresh green beans",
+        "    1 bag",
+        "☐  olive oil",
+        "    1/3 cup",
+        "    1 enough",
+        "☐  parsley",
+        "    1/4 cup",
+        "☐  salt",
+        "    1 tbsp.",
+        "☐  salt & pepper",
+        "    1 enough",
+        "☐  thin spaghetti",
+        "    1 lb.",
+        "☐  water",
+        "    2 qt.",
+    ]
+    assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
     # TODO
     # expected_shopping_list = ""
@@ -117,6 +183,8 @@ def test_meal_selection(example_measurement: Measurement):
         "\t},\n"
         ")\n"
     )
+    assert repr(meal_selection) == expected_repr
+
     expected_str = (
         "\n"
         "1 selected meal\n"
@@ -137,10 +205,38 @@ def test_meal_selection(example_measurement: Measurement):
         "Example Ingredient 1\n"
         "\n"
     )
-    assert repr(meal_selection) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(meal_selection)
     assert captured_output.getvalue() == expected_str
+
+    expected_raw_ingredient_list = [
+        "Raw Ingredient List",
+        "-------------------",
+        "☐  Example Ingredient 1",
+        "    56 grams",
+        "☐  cloves of garlic",
+        "    8 large",
+        "☐  crushed red pepper",
+        "    2 tsp.",
+        "☐  fresh Parmesan",
+        "    1 cup",
+        "☐  fresh green beans",
+        "    1 bag",
+        "☐  olive oil",
+        "    1/3 cup",
+        "    1 enough",
+        "☐  parsley",
+        "    1/4 cup",
+        "☐  salt",
+        "    1 tbsp.",
+        "☐  salt & pepper",
+        "    1 enough",
+        "☐  thin spaghetti",
+        "    1 lb.",
+        "☐  water",
+        "    2 qt.",
+    ]
+    assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
     # TODO
     # expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\n"
@@ -174,6 +270,8 @@ def test_meal_selection(example_measurement: Measurement):
         "\t},\n"
         ")\n"
     )
+    assert repr(meal_selection) == expected_repr
+
     expected_str = (
         "\n"
         "1 selected meal\n"
@@ -194,10 +292,38 @@ def test_meal_selection(example_measurement: Measurement):
         "Example Ingredient 1\n"
         "\n"
     )
-    assert repr(meal_selection) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(meal_selection)
     assert captured_output.getvalue() == expected_str
+
+    expected_raw_ingredient_list = [
+        "Raw Ingredient List",
+        "-------------------",
+        "☐  Example Ingredient 1",
+        "    56 grams",
+        "☐  cloves of garlic",
+        "    8 large",
+        "☐  crushed red pepper",
+        "    2 tsp.",
+        "☐  fresh Parmesan",
+        "    1 cup",
+        "☐  fresh green beans",
+        "    1 bag",
+        "☐  olive oil",
+        "    1/3 cup",
+        "    1 enough",
+        "☐  parsley",
+        "    1/4 cup",
+        "☐  salt",
+        "    1 tbsp.",
+        "☐  salt & pepper",
+        "    1 enough",
+        "☐  thin spaghetti",
+        "    1 lb.",
+        "☐  water",
+        "    2 qt.",
+    ]
+    assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
     # TODO
     # expected_shopping_list = "Example Ingredient 1\n  112 grams\ningredient 1\n  31/10 tbsp.\n"
@@ -226,6 +352,8 @@ def test_meal_selection(example_measurement: Measurement):
         "\t},\n"
         ")\n"
     )
+    assert repr(meal_selection) == expected_repr
+
     expected_str = (
         "\n"
         "1 added measurement\n"
@@ -240,10 +368,17 @@ def test_meal_selection(example_measurement: Measurement):
         "Example Ingredient 1\n"
         "\n"
     )
-    assert repr(meal_selection) == expected_repr
     with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
         print(meal_selection)
     assert captured_output.getvalue() == expected_str
+
+    expected_raw_ingredient_list = [
+        "Raw Ingredient List",
+        "-------------------",
+        "☐  Example Ingredient 1",
+        "    56 grams",
+    ]
+    assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
     # TODO
     # expected_shopping_list = "Example Ingredient 1\n  112 grams\n"
@@ -275,3 +410,28 @@ def test_get_shopping_list_warning():
     expected_message = "Negative amount of 'test_ingredient' found in shopping list; ignoring."
     with pytest.warns(UserWarning, match=expected_message):
         meal_selection.get_shopping_list()
+
+
+def test_meal_selection_pickle_roundtrip(tmpdir: py.path.local):
+    tmpdir = pathlib.Path(tmpdir)
+
+    meal_selection = MealSelection()
+
+    new_meal = como_recipes.Meal()
+    new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
+    new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
+    meal_selection.add_meal(meal=new_meal)
+
+    measurement_1 = IngredientRegistry.get_measurement(amount=1.0, unit="g", ingredient_name="test_ingredient")
+    meal_selection.add_measurement(measurement=measurement_1)
+    measurement_2 = IngredientRegistry.get_measurement(amount=1.0, unit="tsp", ingredient_name="test_ingredient")
+    meal_selection.remove_measurement(measurement=measurement_2)
+
+    meal_selection_file_path = tmpdir / "test_meal_selection_roundtrip.pickle"
+    meal_selection.to_pickle(file_path=meal_selection_file_path)
+
+    assert meal_selection_file_path.exists()
+
+    meal_selection_loaded = MealSelection.from_pickle(file_path=meal_selection_file_path)
+
+    assert meal_selection == meal_selection_loaded

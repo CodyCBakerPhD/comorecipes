@@ -1,109 +1,101 @@
+import importlib.metadata
 import pathlib
 import sys
 import tkinter
 import tkinter.messagebox
+import tkinter.simpledialog
+import webbrowser
 
-import como_recipes
+from ._available_recipes_frame import AvailableRecipesFrame
+from ._raw_ingredient_frame import RawIngredientFrame
+from ._selected_meals_frame import SelectedMealsFrame
+from ._session_manager_frame import SessionManagerFrame
+from ._shopping_list_frame import ShoppingListFrame
 
 
 class CoMoApp(tkinter.Tk):
-    def __init__(
+    def __init__(self) -> None:
+        """A relatively simple GUI implementation for the CoMo Meal Selection based on Tkinter."""
+        super().__init__()
+
+        self.setup_window()
+        self.setup_frames()
+        self.update_frames()
+
+    def _open_github_issue_page(self) -> None:
+        """Open the GitHub issue page for the CoMo project."""
+        webbrowser.open_new("https://github.com/CodyCBakerPhD/como_recipes/issues/new/choose")
+
+    def setup_window(self) -> None:
+        """Initialize the main window and menu bar."""
+        # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
+        base_path = pathlib.Path(sys._MEIPASS) if hasattr(sys, "_MEIPASS") else pathlib.Path(__file__).parent.parent
+
+        # Setup icon
+        ico_file_path = base_path / "_assets" / "como_icon.ico"
+        self.iconbitmap(default=ico_file_path)
+
+        # Setup window and menus
+        self.title(string="CoMo Meal Selector")
+        self.main_menu = tkinter.Menu(master=self, tearoff=False)
+        self.config(menu=self.main_menu)
+
+        self.help_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
+        self.main_menu.add_cascade(label="Help", menu=self.help_menu)
+        self.help_menu.add_command(label="Submit issue", command=self._open_github_issue_page)
+
+        # Components do not currently support dynamic resizing, so just freeze window size
+        self.resizable(width=False, height=False)
+
+    def setup_frames(
         self,
         minimum_available_recipe_width_in_characters: int = 30,
         minimum_number_of_displayed_selected_recipes: int = 15,
         minimum_number_of_displayed_measurements: int = 35,
         minimum_number_of_displayed_available_recipes: int = 20,
     ) -> None:
-        """A relatively simple GUI implementation for the CoMo Meal Selection based on Tkinter."""
-        super().__init__()
+        """Initialize all frames or components that comprise the app."""
+        self.session_manager_frame = SessionManagerFrame(master=self)
 
-        self.title(string="CoMo Meal Selector")
-
-        # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
-        base_path = pathlib.Path(getattr(sys, "_MEIPASS", None)) or pathlib.Path(__file__).parent.parent
-
-        # Setup icon
-        ico_file_path = base_path / "_assets" / "como_icon.ico"
-        self.iconbitmap(default=ico_file_path)
-
-        # Setup menus
-        self.main_menu = tkinter.Menu(master=self, tearoff=False)
-        self.config(menu=self.main_menu)
-        self.session_menu = tkinter.Menu(master=self.main_menu)
-        self.main_menu.add_cascade(label="Session", menu=self.session_menu)
-        self.session_menu.add_command(label="Start new")
-        self.session_menu.add_command(label="Restore previous")
-
-        # Components do not currently support dynamic resizing, so just freeze window size
-        self.resizable(width=False, height=False)
-
-        # Initialize all frames or components that comprise the app
-        self.current_available_meals_frame = como_recipes.app.AvailableRecipeSelector(
+        self.available_meals_frame = AvailableRecipesFrame(
             master=self,
+            app_state=self.session_manager_frame.app_state,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_available_recipes=minimum_number_of_displayed_available_recipes,
         )
-        # TODO: ideally all of these outer-level variable pointers wouldn't be necessary
-        self.currently_available_index_to_meals = self.current_available_meals_frame.currently_available_index_to_meals
-        self.current_available_meals_frame.currently_available_meals_box.bind(
-            sequence="<Double-Button-1>",
-            func=self.add_selected_meal,
-        )
-
-        self.shopping_list_frame = como_recipes.app.ShoppingListBox(
+        self.selected_recipes_frame = SelectedMealsFrame(
             master=self,
+            app_state=self.session_manager_frame.app_state,
+            minimum_available_recipe_width_in_characters=45,  # Wider for meal + side
+            minimum_number_of_displayed_selected_recipes=minimum_number_of_displayed_selected_recipes,
+        )
+        self.raw_ingredient_frame = RawIngredientFrame(
+            master=self,
+            app_state=self.session_manager_frame.app_state,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
-        self.current_measurement_registry = self.shopping_list_frame.current_measurement_registry
-
-        self.current_recipe_selection_frame = como_recipes.app.CurrentRecipeSelection(
+        self.shopping_list_frame = ShoppingListFrame(
             master=self,
+            app_state=self.session_manager_frame.app_state,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
-            minimum_number_of_displayed_selected_recipes=minimum_number_of_displayed_selected_recipes,
+            minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
-        self.selected_meals_box = self.current_recipe_selection_frame.selected_meals_box
-        self.current_recipe_selection_frame.selected_meals_box.bind(
-            sequence="<Double-Button-1>",
-            func=self.remove_selected_meal,
-        )
+        package_version = importlib.metadata.version(distribution_name="como_recipes")
+        self.version_label = tkinter.Label(master=self, text=f"v{package_version}")
 
         # Organize frames on grid
-        self.current_available_meals_frame.grid(row=0, column=0, padx=5, pady=5)
-        self.current_recipe_selection_frame.grid(row=1, column=0, padx=5, pady=5)
-        self.shopping_list_frame.grid(row=0, column=1, rowspan=2, padx=5, pady=5)
+        self.session_manager_frame.grid(column=0, rowspan=4, padx=2.5, pady=2.5, sticky="NW")
+        self.available_meals_frame.grid(row=1, column=1, padx=2.5, pady=2.5)
+        self.selected_recipes_frame.grid(row=2, column=1, padx=2.5, pady=2.5)
+        self.raw_ingredient_frame.grid(row=1, column=2, rowspan=2, padx=2.5, pady=2.5)
+        self.shopping_list_frame.grid(row=1, column=3, rowspan=2, padx=2.5, pady=2.5)
+        self.version_label.grid(row=3, columnspan=4, sticky="se")
 
-    def add_selected_meal(self, event: tkinter.Event) -> None:
-        """Move a meal from the available list to the selected list."""
-        selected_meal = self.current_available_meals_frame.currently_available_meals_box.get(first="active")
-        meal_index = self.current_available_meals_frame.default_available_meals_to_index[selected_meal]
-
-        self.current_recipe_selection_frame.selected_meals_box.insert("end", selected_meal)
-
-        self.current_recipe_selection_frame.currently_selected_index_to_meals[meal_index] = selected_meal
-        self.current_available_meals_frame.currently_available_index_to_meals.pop(meal_index)
-        self.current_available_meals_frame.update_available_meal_display()
-
-        self.shopping_list_frame.current_measurement_registry.add_recipe(
-            recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name=selected_meal),
-        )
-        self.shopping_list_frame.update_shopping_list()
-
-    def remove_selected_meal(self, event: tkinter.Event) -> None:
-        """Move a meal from the selected list back to the available list."""
-        selected_meal = self.current_recipe_selection_frame.selected_meals_box.get(first="active")
-        meal_index = self.current_available_meals_frame.default_available_meals_to_index[selected_meal]
-
-        self.current_recipe_selection_frame.selected_meals_box.delete(first="active")
-
-        self.current_recipe_selection_frame.currently_selected_index_to_meals.pop(meal_index)
-        self.current_available_meals_frame.currently_available_index_to_meals[meal_index] = selected_meal
-        self.current_available_meals_frame.update_available_meal_display()
-
-        self.shopping_list_frame.current_measurement_registry.remove_recipe(recipe_name=selected_meal)
-        self.shopping_list_frame.update_shopping_list()
-
-
-if __name__ == "__main__":
-    app = CoMoApp()
-    app.mainloop()
+    def update_frames(self) -> None:
+        """Update all frames with the latest state."""
+        self.session_manager_frame.update_frame()
+        self.available_meals_frame.update_frame()
+        self.selected_recipes_frame.update_frame()
+        self.raw_ingredient_frame.update_frame()
+        self.shopping_list_frame.update_frame()

@@ -1,4 +1,6 @@
 import collections
+import pathlib
+import pickle
 import typing
 import warnings
 
@@ -138,6 +140,17 @@ class MealSelection(pydantic.BaseModel):
 
         return printout
 
+    def __contains__(self, recipe_name: str) -> bool:
+        """
+        Logic defining the `in` operator.
+
+        Intended to be used to ask if a recipe name is a part  of any meal in the selection.
+        """
+        # TODO: could make a lookup table for O(1) speed
+        result = any(recipe_name in recipe_names for recipe_names in self._recipe_names_to_meal)
+
+        return result
+
     def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
         combined_measurements = collections.defaultdict(list)
         for measurements in self._individual_measurements_to_add.values():
@@ -190,6 +203,12 @@ class MealSelection(pydantic.BaseModel):
         """
         self._recipe_names_to_meal.pop(recipe_names)
 
+    def get_all_recipe_names(self) -> list[tuple[str, ...]]:
+        """Get all meals in the meal selection."""
+        result = list(self._recipe_names_to_meal.keys())
+
+        return result
+
     @pydantic.validate_call
     def add_measurement(self, *, measurement: Measurement) -> None:
         """
@@ -217,9 +236,28 @@ class MealSelection(pydantic.BaseModel):
         self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
 
     @pydantic.validate_call
-    def get_raw_measurement_list(self) -> str:
+    def get_raw_measurement_list(self) -> list[str]:
         """Get a raw list of measurements by ingredient, including those to be removed."""
-        raise NotImplementedError
+        if self.is_empty():
+            message = "No meals or measurements have been added to the meal selection."
+
+            raise ValueError(message)
+
+        combined_measurements = self._calculate_combined_measurements()
+
+        raw_measurement_list = ["Raw Ingredient List"]
+        raw_measurement_list.append("-" * len(raw_measurement_list[0]))
+
+        for ingredient_name, measurements_by_ingredient in natsort.natsorted(
+            seq=combined_measurements.items(),
+            key=lambda item_tuple: item_tuple[0],
+        ):
+            raw_measurement_list.append(f"☐  {ingredient_name}")
+            raw_measurement_list.extend(
+                [f"    {measurement.amount} {measurement.unit}" for measurement in measurements_by_ingredient],
+            )
+
+        return raw_measurement_list
 
     def _printout_nested_ingredients(self, measurements_by_ingredient: list[Measurement]) -> str:
         """TODO: plan is to deprecate this method once grams are standardized."""
@@ -230,7 +268,7 @@ class MealSelection(pydantic.BaseModel):
         return printout
 
     @pydantic.validate_call
-    def get_shopping_list(self) -> str:
+    def get_shopping_list(self) -> list[str]:
         """Get a shopping list by aggregating all contained recipes and measurements."""
         if self.is_empty():
             message = "No meals or measurements have been added to the meal selection."
@@ -239,7 +277,10 @@ class MealSelection(pydantic.BaseModel):
 
         combined_measurements = self._calculate_combined_measurements()
 
-        shopping_list = ""
+        shopping_list = ["Meals\n-----\n\n"]
+        shopping_list.extend([f"☐ {recipe_names}\n" for recipe_names in self._recipe_names_to_meal.keys()])
+        shopping_list.append("\n\n\nIngredients\n-----------\n\n")
+
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
             seq=combined_measurements.items(),
             key=lambda item_tuple: item_tuple[0],
@@ -270,7 +311,22 @@ class MealSelection(pydantic.BaseModel):
             if total_per_ingredient == 0:
                 continue
 
-            shopping_list += f"{ingredient_name}\n"
-            shopping_list += f"  {total_per_ingredient} {measurement_unit}\n"
+            shopping_list.append(f"☐  {ingredient_name}\n")
+            shopping_list.append(f"    {total_per_ingredient} {measurement_unit}\n")
 
         return shopping_list
+
+    @pydantic.validate_call
+    def to_pickle(self, file_path: pydantic.FilePath | pydantic.NewPath) -> None:
+        """Write the meal selection to a pickle file."""
+        with pathlib.Path(file_path).open(mode="wb") as io:
+            pickle.dump(obj=self, file=io)
+
+    @classmethod
+    @pydantic.validate_call
+    def from_pickle(cls, file_path: pydantic.FilePath | pydantic.NewPath) -> typing.Self:
+        """Read a meal selection from a pickle file."""
+        with pathlib.Path(file_path).open(mode="rb") as io:
+            meal_selector = pickle.load(file=io)  # noqa: S301
+
+        return meal_selector
