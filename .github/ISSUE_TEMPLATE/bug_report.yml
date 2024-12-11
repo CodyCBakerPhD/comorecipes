@@ -24,8 +24,8 @@ body:
     id: log
     attributes:
       label: Traceback or log file
-      description: When using the interactive command line tool, a log file should have automatically opened when the error occured.
-      placeholder: "Copy & paste or directly upload the log file of the error traceback here"
+      description: When using the interactive command line tool, a log file should have automatically opened when the error occurred.
+      placeholder: "<--- Copy & paste or directly upload the log file of the error traceback into this window --->"
   - type: dropdown
     id: os
     attributes:
