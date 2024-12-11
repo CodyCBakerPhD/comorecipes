@@ -17,6 +17,9 @@ jobs:
     runs-on: ${{ github.event.inputs.os }}
 
     steps:
+      - name: Checkout repo so local actions can be used
+        uses: actions/checkout@v4
+
       - name: Deploy executable
         uses: ./.github/actions/deploy_executable
         with:
