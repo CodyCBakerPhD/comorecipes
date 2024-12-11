@@ -1,3 +1,4 @@
+import logging
 import pathlib
 import pickle
 import shutil
@@ -6,8 +7,11 @@ import tkinter
 import natsort
 
 from ._app_globals import all_default_tags
-from ._app_utils import _generate_new_default_session_id, _get_home_folder
+from ._app_utils import _generate_default_app_state, _generate_new_default_session_id
 from .._meal_selection import MealSelection
+
+logger = logging.getLogger(__name__)
+logger.disabled = True
 
 
 class SessionManagerFrame(tkinter.Frame):
@@ -17,8 +21,8 @@ class SessionManagerFrame(tkinter.Frame):
         minimum_number_of_displayed_measurements: int = 35,
     ) -> None:
         super().__init__(master=master)
+        logger.info("Initializing session manager frame")
 
-        self.debug = False
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
 
         self.setup_attributes()
@@ -43,23 +47,18 @@ class SessionManagerFrame(tkinter.Frame):
 
     def setup_attributes(self) -> None:
         """Define all mutable attributes used to control underlying states of the application."""
-        home_folder_path = _get_home_folder()
-        self.app_state = {"home_folder_path": home_folder_path}
+        self.app_state = _generate_default_app_state()
 
         self.validate_or_remove_sessions()
         self.update_session_ids()
 
         # There are state-based attributes used by the main app, but relevant to session saving/loading
-        session_folder_path = home_folder_path / self.selected_session_id
-        app_state_file_path = home_folder_path / self.selected_session_id / "app_state.pickle"
-        if app_state_file_path.exists():
-            self.load_session()
-        else:
-            self.app_state["session_folder_path"] = session_folder_path
-            self.app_state["app_state_file_path"] = app_state_file_path
-            self.app_state["selected_index_to_meals"] = {}
-            self.app_state["tags_to_checkbox_values"] = {tag: tkinter.IntVar() for tag in all_default_tags}
-            self.app_state["meal_selection"] = MealSelection()
+        self.app_state["session_folder_path"] = self.app_state["home_folder_path"] / self.selected_session_id
+        self.app_state["app_state_file_path"] = (
+            self.app_state["home_folder_path"] / self.selected_session_id / "app_state.pickle"
+        )
+        if self.app_state["app_state_file_path"].exists():
+            self.load_app_state()
 
     def setup_frame(self) -> None:
         """Initialize and organize all subcomponents of the frame."""
@@ -138,7 +137,6 @@ class SessionManagerFrame(tkinter.Frame):
         self.app_state["session_folder_path"].mkdir(exist_ok=True)
         self.app_state["app_state_file_path"] = self.app_state["session_folder_path"] / "app_state.pickle"
         self.update_session_ids()  # Wasteful, but at least it ensures consistency
-        self.update_frame()
 
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "white"})
         if self.selected_session_id in self.session_ids:
@@ -151,15 +149,24 @@ class SessionManagerFrame(tkinter.Frame):
         self.list_box.selection_set(first=self.selected_session_id_index)
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "lightgrey"})
 
+        self.app_state["selected_index_to_meals"] = {}
+        self.app_state["tags_to_checkbox_values"] = {tag: tkinter.IntVar() for tag in all_default_tags}
+        self.app_state["meal_selection"] = MealSelection()
+
+        if hasattr(self.master, "update_frames"):
+            self.master.update_frames()
+        else:
+            self.update_frame()
+
     # TODO: can I use ' / ' to avoid need for `event`?
     def select_session(self, event: tkinter.Event | None = None) -> None:
         """The callback which triggers on double-clicking an element of the session manager listbox."""
-        if self.debug is True:
-            print("\nEntering `select_session`...")
-            print(f"{self.app_state=}")
-            print(f"{self.session_ids=}")
-            print(f"{self.selected_session_id=}")
-            print(f"{self.selected_session_id_index=}")
+        logger.info("Selecting a session")
+        if logger.getEffectiveLevel() <= logging.DEBUG:
+            logger.debug(f"{self.app_state=}")
+            logger.debug(f"{self.session_ids=}")
+            logger.debug(f"{self.selected_session_id=}")
+            logger.debug(f"{self.selected_session_id_index=}")
 
         # Reset background color of previously selected session
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "white"})
@@ -175,17 +182,21 @@ class SessionManagerFrame(tkinter.Frame):
         self.app_state["app_state_file_path"] = session_folder_path / "app_state.pickle"
         if self.app_state["app_state_file_path"].exists():
             self.load_app_state()
-        self.update_frame()
 
         # Restore highlight
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "lightgrey"})
 
-        if self.debug is True:
-            print("\nExiting `select_session`...")
-            print(f"{self.app_state=}")
-            print(f"{self.session_ids=}")
-            print(f"{self.selected_session_id=}")
-            print(f"{self.selected_session_id_index=}")
+        if hasattr(self.master, "update_frames"):
+            self.master.update_frames()
+        else:
+            self.update_frame()
+
+        logger.info("Session was selected")
+        if logger.getEffectiveLevel() <= logging.DEBUG:
+            logger.debug(f"{self.app_state=}")
+            logger.debug(f"{self.session_ids=}")
+            logger.debug(f"{self.selected_session_id=}")
+            logger.debug(f"{self.selected_session_id_index=}")
 
     def save_app_state(self, event: tkinter.Event | None = None) -> None:
         """Save the current session to a new folder in the app home directory."""
@@ -200,7 +211,7 @@ class SessionManagerFrame(tkinter.Frame):
     def load_app_state(self, event: tkinter.Event | None = None) -> None:
         """Save the current session to a new folder in the app home directory."""
         with self.app_state["app_state_file_path"].open(mode="rb") as io:
-            self.app_state = pickle.load(file=io)  # noqa: S301
+            self.app_state.update(pickle.load(file=io))  # noqa: S301
         self.app_state["tags_to_checkbox_values"] = {
             tag: tkinter.IntVar(value=value) for tag, value in self.app_state["tags_to_checkbox_values"].items()
         }
@@ -215,7 +226,6 @@ class SessionManagerFrame(tkinter.Frame):
     def delete_session(self, event: tkinter.Event | None = None) -> None:
         """Delete the currently active (via right-click) session ID from the listbox."""
         if self.debug is True:
-            print("\nEntering `delete_session`...")
             print(f"{self.app_state=}")
             print(f"{self.session_ids=}")
             print(f"{self.selected_session_id=}")
@@ -251,7 +261,6 @@ class SessionManagerFrame(tkinter.Frame):
         self.list_box.selection_set(first=self.selected_session_id_index)
 
         if self.debug is True:
-            print("\nExiting `delete_session`...")
             print(f"{self.app_state=}")
             print(f"{self.session_ids=}")
             print(f"{self.selected_session_id=}")

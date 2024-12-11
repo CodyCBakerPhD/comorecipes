@@ -14,4 +14,5 @@ if __name__ == "__main__":
     available_recipe_selector.app_state["meal_selection"].add_meal(meal=meal)
     available_recipe_selector.update_frame()
 
+    available_recipe_selector.debug = True
     app.mainloop()

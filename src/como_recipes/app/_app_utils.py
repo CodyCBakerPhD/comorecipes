@@ -1,6 +1,9 @@
 import datetime
 import pathlib
 import tkinter.messagebox
+import typing
+
+from .._meal_selection import MealSelection
 
 
 def _get_home_folder() -> pathlib.Path:
@@ -37,3 +40,20 @@ def _generate_new_default_session_id(home_folder: pathlib.Path | None = None) ->
         return None
 
     return session_id
+
+
+def _generate_default_app_state() -> dict[str, typing.Any]:
+    """Generate the default app state."""
+    home_folder_path = _get_home_folder()
+    session_id = _generate_new_default_session_id(home_folder=home_folder_path)
+
+    default_app_state = {
+        "home_folder_path": home_folder_path,
+        "session_folder_path": home_folder_path / session_id,
+        "app_state_file_path": home_folder_path / session_id / "app_state.pickle",
+        "tags_to_checkbox_values": {},
+        "meal_selection": MealSelection(),
+        "selected_index_to_meals": {},
+    }
+
+    return default_app_state

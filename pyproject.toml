@@ -90,10 +90,10 @@ ignore = [
     "TD",  # TODO: I like in general, but will add back in later
     "FIX",  # Fine with to-do comments
     "ERA",  # Fine with commented code blocks on occasion
-    "RET501",  # Strongly disagree with; explicit is better than implicit
     "RET504",  # Strongly disagree with; enhances readability and simplifies debuggers
     "PLR0912",  # Not a proper calculation of complexity; also applies to match/case???
     "PLR0915",  # Not a proper calculation of complexity
+    "G004",  # Will decide what best approach is for this later
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -116,7 +116,9 @@ ignore = [
 ]
 "tests/*" = [  # Neither docstrings nor annotations are required for tests
     "D100",  # Docstrings are not required for tests
+    "D102",  # Docstrings are not required for tests
     "D103",  # Docstrings are not required for tests
+    "D107",  # Docstrings are not required for tests
     "ANN201",  # Annotations are not required for tests
     "S101",  # Assert statements are the best way to get diffs with pytest
     "INP001",  # Tests are not a part of the package

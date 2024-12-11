@@ -1,4 +1,5 @@
 import importlib.metadata
+import logging
 import pathlib
 import sys
 import tkinter
@@ -11,16 +12,20 @@ from ._raw_ingredient_frame import RawIngredientFrame
 from ._selected_meals_frame import SelectedMealsFrame
 from ._session_manager_frame import SessionManagerFrame
 from ._shopping_list_frame import ShoppingListFrame
-from .._registration._recipe_registry import default_recipe_registry
+
+logger = logging.getLogger(__name__)
+logger.disabled = True
 
 
 class CoMoApp(tkinter.Tk):
     def __init__(self) -> None:
         """A relatively simple GUI implementation for the CoMo Meal Selection based on Tkinter."""
         super().__init__()
+        logger.info("Initializing CoMoApp class")
 
         self.setup_window()
         self.setup_frames()
+        self.update_frames()
 
     def _open_github_issue_page(self) -> None:
         """Open the GitHub issue page for the CoMo project."""
@@ -56,33 +61,34 @@ class CoMoApp(tkinter.Tk):
     ) -> None:
         """Initialize all frames or components that comprise the app."""
         self.session_manager_frame = SessionManagerFrame(master=self)
-
         self.available_meals_frame = AvailableRecipesFrame(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_available_recipes=minimum_number_of_displayed_available_recipes,
         )
-
         self.selected_recipes_frame = SelectedMealsFrame(
             master=self,
             minimum_available_recipe_width_in_characters=45,  # Wider for meal + side
             minimum_number_of_displayed_selected_recipes=minimum_number_of_displayed_selected_recipes,
         )
-
         self.raw_ingredient_frame = RawIngredientFrame(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
-
         self.shopping_list_frame = ShoppingListFrame(
             master=self,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
-
         package_version = importlib.metadata.version(distribution_name="como_recipes")
         self.version_label = tkinter.Label(master=self, text=f"v{package_version}")
+
+        # Set all frames to use the same app state as the session manager frame
+        self.available_meals_frame.app_state = self.session_manager_frame.app_state
+        self.selected_recipes_frame.app_state = self.session_manager_frame.app_state
+        self.raw_ingredient_frame.app_state = self.session_manager_frame.app_state
+        self.shopping_list_frame.app_state = self.session_manager_frame.app_state
 
         # Organize frames on grid
         self.session_manager_frame.grid(column=0, rowspan=4, padx=2.5, pady=2.5, sticky="NW")
@@ -92,50 +98,16 @@ class CoMoApp(tkinter.Tk):
         self.shopping_list_frame.grid(row=1, column=3, rowspan=2, padx=2.5, pady=2.5)
         self.version_label.grid(row=3, columnspan=4, sticky="se")
 
-        # Link cross-frame attributes to rely on session manager frame
-        self.app_state = self.session_manager_frame.app_state
+    def update_frames(self) -> None:
+        """Update all frames with the latest state."""
+        logger.info("Updating all app frames")
+        # logger.debug(f"{self.app_state=}")
 
-        self.available_meals_frame.app_state = self.session_manager_frame.app_state
-        self.selected_recipes_frame.app_state = self.session_manager_frame.app_state
-        self.raw_ingredient_frame.app_state = self.session_manager_frame.app_state
-        self.shopping_list_frame.app_state = self.session_manager_frame.app_state
-
-        # Bind callbacks
-        self.available_meals_frame.currently_available_meals_box.bind(
-            sequence="<Double-Button-1>",
-            func=self.add_selected_meal,
-        )
-        self.selected_recipes_frame.selected_meals_box.bind(
-            sequence="<Double-Button-1>",
-            func=self.remove_selected_meal,
-        )
-
-    def add_selected_meal(self, event: tkinter.Event) -> None:
-        """Move a meal from the available list to the selected list."""
-        selected_meal = self.available_meals_frame.currently_available_meals_box.get(first="active")
-        meal_index = self.available_meals_frame.default_available_meals_to_index[selected_meal]
-
-        self.selected_recipes_frame.selected_meals_box.insert("end", selected_meal)
-
-        self.selected_recipes_frame.selected_index_to_meals[meal_index] = selected_meal
-        self.available_meals_frame.currently_available_index_to_meals.pop(meal_index)
+        self.session_manager_frame.update_frame()
         self.available_meals_frame.update_frame()
+        self.selected_recipes_frame.update_frame()
+        self.raw_ingredient_frame.update_frame()
+        self.shopping_list_frame.update_frame()
 
-        self.shopping_list_frame.current_measurement_registry.add_recipe(
-            recipe=default_recipe_registry.get_recipe(recipe_name=selected_meal),
-        )
-        self.shopping_list_frame.update_shopping_list()
-
-    def remove_selected_meal(self, event: tkinter.Event) -> None:
-        """Move a meal from the selected list back to the available list."""
-        selected_meal = self.selected_recipes_frame.selected_meals_box.get(first="active")
-        meal_index = self.available_meals_frame.default_available_meals_to_index[selected_meal]
-
-        self.selected_recipes_frame.selected_meals_box.delete(first="active")
-
-        self.selected_recipes_frame.selected_index_to_meals.pop(meal_index)
-        self.available_meals_frame.currently_available_index_to_meals[meal_index] = selected_meal
-        self.available_meals_frame.update_frame()
-
-        self.shopping_list_frame.current_measurement_registry.remove_recipe(recipe_name=selected_meal)
-        self.shopping_list_frame.update_shopping_list()
+        logger.info("All frames updated")
+        # logger.debug(f"{self.app_state=}")

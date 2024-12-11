@@ -60,9 +60,12 @@ class ShoppingListFrame(tkinter.Frame):
         except Exception:  # noqa: BLE001
             tkinter.messagebox.showerror(
                 title="Error",
-                message="Error generating shopping list.\nPlease use the raw ingredient list instead.",
+                message=(
+                    "Apologies, an error occurred in generating the shopping list.\n\n"
+                    "Please use the raw ingredient list instead."
+                ),
             )
-            return None
+            return
 
         self.session_folder_path.mkdir(exist_ok=True)
         shopping_list_file_path = self.session_folder_path / "shopping_list.txt"
@@ -71,4 +74,4 @@ class ShoppingListFrame(tkinter.Frame):
 
         click.edit(filename=str(shopping_list_file_path))
 
-        return None
+        return
