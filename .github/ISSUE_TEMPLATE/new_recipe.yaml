@@ -23,7 +23,7 @@ body:
     id: tags
     attributes:
       label: Tags
-      description: Keywords to attribute to this recipe. Common examples include: 'Vegetarian', 'Entree', 'Side', or 'Dessert'.
+      description: "Keywords to attribute to this recipe. Common examples include: 'Vegetarian', 'Entree', 'Side', or 'Dessert'."
     validations:
       required: true
 
