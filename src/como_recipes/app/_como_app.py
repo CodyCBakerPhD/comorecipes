@@ -1,10 +1,11 @@
-import importlib.metadata
 import pathlib
 import sys
 import tkinter
 import tkinter.messagebox
 import tkinter.simpledialog
 import webbrowser
+
+import como_recipes.utils
 
 from ._available_recipes_frame import AvailableRecipesFrame
 from ._raw_ingredient_frame import RawIngredientFrame
@@ -81,8 +82,8 @@ class CoMoApp(tkinter.Tk):
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
-        package_version = importlib.metadata.version(distribution_name="como_recipes")
-        self.version_label = tkinter.Label(master=self, text=f"v{package_version}")
+        package_version = como_recipes.utils.get_package_version()
+        self.version_label = tkinter.Label(master=self, text=package_version)
 
         # Organize frames on grid
         self.session_manager_frame.grid(column=0, rowspan=4, padx=2.5, pady=2.5, sticky="NW")

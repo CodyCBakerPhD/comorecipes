@@ -16,7 +16,7 @@ from ._base._base_recipe import Recipe
 from ._meal_selection import MealSelection
 from ._registration._recipe_registry import default_recipe_registry
 from .app import CoMoApp
-from .utils import get_terminal_size
+from .utils import get_package_version, get_terminal_size
 
 
 @click.command(name="write_missing_markdown_recipes")
@@ -90,7 +90,7 @@ def _write_missing_pydantic_recipes(*, limit: int | None = None) -> None:  # pra
 
 @click.command(name="como_recipes")
 @click.version_option(
-    version=f"v{importlib.metadata.version(distribution_name='como_recipes')}",
+    version=get_package_version(),
     message="%(version)s",
 )
 def _como_recipes_command_line_interface_main_entrypoint() -> None:
