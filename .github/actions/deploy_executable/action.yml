@@ -43,8 +43,7 @@ runs:
           --onefile \
           --name="como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}" \
           --icon="./src/como_recipes/_assets/como_icon.ico" \
-          --add-data="src/como_recipes/_assets/como_icon.ico:./_assets/como_icon.ico" \
-          --add-data="src/como_recipes/_assets/version.txt:./_assets/version.txt" \
+          --add-data="src/como_recipes/_assets:_assets" \
           src/como_recipes/_interactive_console_builder.py
       shell: bash
 
