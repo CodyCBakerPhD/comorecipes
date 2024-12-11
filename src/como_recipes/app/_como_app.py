@@ -56,34 +56,33 @@ class CoMoApp(tkinter.Tk):
     ) -> None:
         """Initialize all frames or components that comprise the app."""
         self.session_manager_frame = SessionManagerFrame(master=self)
+
         self.available_meals_frame = AvailableRecipesFrame(
             master=self,
+            app_state=self.session_manager_frame.app_state,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_available_recipes=minimum_number_of_displayed_available_recipes,
         )
         self.selected_recipes_frame = SelectedMealsFrame(
             master=self,
+            app_state=self.session_manager_frame.app_state,
             minimum_available_recipe_width_in_characters=45,  # Wider for meal + side
             minimum_number_of_displayed_selected_recipes=minimum_number_of_displayed_selected_recipes,
         )
         self.raw_ingredient_frame = RawIngredientFrame(
             master=self,
+            app_state=self.session_manager_frame.app_state,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
         self.shopping_list_frame = ShoppingListFrame(
             master=self,
+            app_state=self.session_manager_frame.app_state,
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
         package_version = importlib.metadata.version(distribution_name="como_recipes")
         self.version_label = tkinter.Label(master=self, text=f"v{package_version}")
-
-        # Set all frames to use the same app state as the session manager frame
-        self.available_meals_frame.app_state = self.session_manager_frame.app_state
-        self.selected_recipes_frame.app_state = self.session_manager_frame.app_state
-        self.raw_ingredient_frame.app_state = self.session_manager_frame.app_state
-        self.shopping_list_frame.app_state = self.session_manager_frame.app_state
 
         # Organize frames on grid
         self.session_manager_frame.grid(column=0, rowspan=4, padx=2.5, pady=2.5, sticky="NW")

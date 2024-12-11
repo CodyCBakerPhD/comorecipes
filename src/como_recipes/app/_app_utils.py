@@ -3,6 +3,7 @@ import pathlib
 import tkinter.messagebox
 import typing
 
+from ._app_globals import all_default_tags
 from .._meal_selection import MealSelection
 
 
@@ -51,7 +52,7 @@ def _generate_default_app_state() -> dict[str, typing.Any]:
         "home_folder_path": home_folder_path,
         "session_folder_path": home_folder_path / session_id,
         "app_state_file_path": home_folder_path / session_id / "app_state.pickle",
-        "tags_to_checkbox_values": {},
+        "tags_to_checkbox_values": {tag: tkinter.IntVar() for tag in all_default_tags},
         "meal_selection": MealSelection(),
         "selected_index_to_meals": {},
     }

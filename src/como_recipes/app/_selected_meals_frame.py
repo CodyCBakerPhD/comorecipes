@@ -1,5 +1,6 @@
 import tkinter
 import tkinter.messagebox
+import typing
 
 from ._app_utils import _generate_default_app_state
 
@@ -9,12 +10,13 @@ class SelectedMealsFrame(tkinter.Frame):
     def __init__(
         self,
         master: tkinter.Tk | tkinter.Frame | None = None,
+        app_state: dict[str, typing.Any] | None = None,
         minimum_available_recipe_width_in_characters: int = 45,
         minimum_number_of_displayed_selected_recipes: int = 15,
     ) -> None:
         """A modular component for displaying currently selected recipes."""
         super().__init__(master=master)
-        self.app_state = getattr(self.master, "app_state", None) or _generate_default_app_state()
+        self.app_state = app_state or _generate_default_app_state()
 
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_selected_recipes = minimum_number_of_displayed_selected_recipes

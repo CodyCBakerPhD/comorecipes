@@ -17,13 +17,14 @@ class AvailableRecipesFrame(tkinter.Frame):
     def __init__(
         self,
         master: tkinter.Tk | tkinter.Frame | None = None,
+        app_state: dict[str, typing.Any] | None = None,
         recipe_type: typing.Literal["Entree", "Side"] | None = None,
         minimum_available_recipe_width_in_characters: int = 30,
         minimum_number_of_displayed_available_recipes: int = 20,
     ) -> None:
         """A modular component for searching and filtering the default recipes."""
         super().__init__(master=master)
-        self.app_state = getattr(self.master, "app_state", None) or _generate_default_app_state()
+        self.app_state = app_state or _generate_default_app_state()
 
         self.recipe_type = recipe_type
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters

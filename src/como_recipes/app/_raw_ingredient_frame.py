@@ -1,9 +1,10 @@
 import tkinter
 import tkinter.messagebox
+import typing
 
 import click
 
-from ._app_utils import _generate_new_default_session_id, _get_home_folder
+from ._app_utils import _generate_default_app_state, _generate_new_default_session_id, _get_home_folder
 from .._meal_selection import MealSelection
 
 
@@ -19,10 +20,12 @@ class RawIngredientFrame(tkinter.Frame):
     def __init__(
         self,
         master: tkinter.Tk | tkinter.Frame | None = None,
+        app_state: dict[str, typing.Any] | None = None,
         minimum_available_recipe_width_in_characters: int = 30,
         minimum_number_of_displayed_measurements: int = 35,
     ) -> None:
         super().__init__(master=master)
+        self.app_state = app_state or _generate_default_app_state()
 
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_measurements = minimum_number_of_displayed_measurements
