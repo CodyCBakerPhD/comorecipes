@@ -12,12 +12,11 @@ import traceback
 
 import click
 
-from como_recipes._base._base_recipe import Recipe
-from como_recipes._registration._recipe_registry import default_recipe_registry
-
-from ._meal_selection import MeasurementRegistry
+from ._base._base_recipe import Recipe
+from ._registration._recipe_registry import default_recipe_registry
 from .app import CoMoApp
 from .utils import get_terminal_size
+from .._meal_selection import MealSelection
 
 
 @click.command(name="write_missing_markdown_recipes")
@@ -167,7 +166,7 @@ def _format_available_recipes(id_to_default_recipe_name_map: dict[int, str]) -> 
 
 
 def _format_recipe_selection(
-    recipe_selection: MeasurementRegistry,
+    recipe_selection: MealSelection,
     default_recipe_name_to_id_map: dict[str, int],
 ) -> str:
     message = "\nCurrently Selected Recipes\n"
@@ -249,7 +248,7 @@ def _meal_selector() -> None:
     os.system("cls" if platform.system() == "Windows" else "clear")
     click.clear()
 
-    recipe_selection = MeasurementRegistry()
+    recipe_selection = MealSelection()
 
     id_to_default_recipe_name_map: dict[int, str] = dict(enumerate(default_recipe_registry.get_all_recipe_names()))
     default_recipe_name_to_id_map: dict[str, int] = {value: key for key, value in id_to_default_recipe_name_map.items()}
@@ -298,7 +297,7 @@ def _meal_selector() -> None:
                     recipe_name = id_to_default_recipe_name_map[int(input_value)]
                     recipe_selection.remove_recipe(recipe_name=recipe_name)
                 case "cl":
-                    recipe_selection = MeasurementRegistry()
+                    recipe_selection = MealSelection()
                 case "gsl" | "get shopping list":
                     shopping_list_file_path = _get_shopping_list_file_path()
 
