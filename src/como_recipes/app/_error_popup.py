@@ -65,12 +65,8 @@
 #
 #
 # def show_popup():
-#     print("Starting popup")
 #     Popup(title="title", message="Message on 1 line", master=root)
-#     print("Ended popup")
-#     print("Starting popup")
 #     Popup(title="title", message="Message\nOn 2 lines", master=root)
-#     print("Ended popup")
 #
 #
 # root = tk.Tk()
