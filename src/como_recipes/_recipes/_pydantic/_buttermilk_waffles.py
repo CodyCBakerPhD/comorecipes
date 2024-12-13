@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class ButtermilkWaffles(Recipe):
     name: str = "Buttermilk Waffles"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Breakfast", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=5 / 2, unit="tbsp.", ingredient_name="melted and cooled butter"),
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg"),

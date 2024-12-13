@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class PumpkinCreamCoffeeSauce(Recipe):
     name: str = "Pumpkin Cream Coffee Sauce"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Breakfast", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="heavy whipping cream"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="granulated sugar"),

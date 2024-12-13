@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class Doughnuts(Recipe):
     name: str = "Doughnuts"
-    tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Dessert", "Breakfast", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1 / 8, unit="o.z", ingredient_name="activate dry yeast"),
         IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="warm water"),
