@@ -1,6 +1,6 @@
 # Buttermilk Waffles
 
-Tags: American
+Tags: American, Breakfast, Vegetarian
 
 
 

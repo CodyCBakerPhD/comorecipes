@@ -1,6 +1,6 @@
 # Broccoli Cheddar Soup
 
-Tags: American
+Tags: American, Vegetarian, Entree, Soup
 
 
 

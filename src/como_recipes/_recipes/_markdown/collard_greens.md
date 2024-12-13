@@ -1,6 +1,6 @@
 # Collard Greens
 
-Tags: American
+Tags: American, Side, Vegetarian, Spicy
 
 
 

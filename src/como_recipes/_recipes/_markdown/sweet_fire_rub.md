@@ -1,6 +1,6 @@
 # Sweet Fire Rub
 
-Tags: American
+Tags: American, Vegetarian, Spicy
 
 
 

@@ -1,6 +1,6 @@
 # Happy Plums
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Fruit
 
 
 

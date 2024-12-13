@@ -1,6 +1,6 @@
 # Shortbread
 
-Tags: American
+Tags: American, Dessert, Vegetarian
 
 
 

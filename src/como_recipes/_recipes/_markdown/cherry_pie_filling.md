@@ -1,6 +1,6 @@
 # Cherry Pie Filling
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Fruit
 
 
 

@@ -1,6 +1,6 @@
 # Chocolate Fudge
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Chocolate
 
 
 

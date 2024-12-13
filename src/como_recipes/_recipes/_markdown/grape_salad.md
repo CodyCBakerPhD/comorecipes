@@ -1,6 +1,6 @@
 # Grape Salad
 
-Tags: American
+Tags: American, Dessert, Side, Vegetarian, Fruit
 
 
 

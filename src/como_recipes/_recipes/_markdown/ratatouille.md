@@ -1,6 +1,6 @@
 # Ratatouille
 
-Tags: French
+Tags: French, Vegetarian, Entree
 
 
 

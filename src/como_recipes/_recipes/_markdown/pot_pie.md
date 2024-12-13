@@ -1,6 +1,6 @@
 # Pot Pie
 
-Tags: American
+Tags: American, Vegetarian, Entree
 
 
 

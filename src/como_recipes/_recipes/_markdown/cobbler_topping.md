@@ -1,6 +1,6 @@
 # Cobbler Topping
 
-Tags: American
+Tags: American, Dessert, Vegetarian
 
 
 

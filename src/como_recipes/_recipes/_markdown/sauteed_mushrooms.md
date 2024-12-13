@@ -1,6 +1,6 @@
 # Sauteed Mushrooms
 
-Tags: American
+Tags: American, Side, Vegetarian
 
 
 

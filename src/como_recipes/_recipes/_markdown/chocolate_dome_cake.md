@@ -1,6 +1,6 @@
 # Chocolate Dome Cake
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Chocolate
 
 
 

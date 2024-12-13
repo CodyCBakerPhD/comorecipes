@@ -1,6 +1,6 @@
 # Carnitas
 
-Tags: Mexican
+Tags: Mexican, Entree
 
 
 

@@ -1,6 +1,6 @@
 # Stir Fry
 
-Tags: Asian
+Tags: Asian, Vegetarian, Entree
 
 
 

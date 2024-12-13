@@ -1,6 +1,6 @@
 # Sauteed Green Beans
 
-Tags: American, Side
+Tags: American, Side, Vegetarian
 
 
 

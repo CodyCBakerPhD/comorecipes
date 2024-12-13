@@ -1,6 +1,6 @@
 # Butter Pie Crust
 
-Tags: American
+Tags: American, Vegetarian
 
 
 

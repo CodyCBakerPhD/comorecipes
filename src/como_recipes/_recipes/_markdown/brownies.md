@@ -1,6 +1,6 @@
 # Brownies
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Chocolate
 
 
 

@@ -1,6 +1,6 @@
 # Chocolate Doughnut Icing
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Chocolate
 
 
 

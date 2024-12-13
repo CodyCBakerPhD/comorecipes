@@ -1,6 +1,6 @@
 # Kaiser Roll
 
-Tags: American
+Tags: American, Side, Vegetarian
 
 
 

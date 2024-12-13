@@ -1,6 +1,6 @@
 # Chocolate Ganache
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Chocolate
 
 
 

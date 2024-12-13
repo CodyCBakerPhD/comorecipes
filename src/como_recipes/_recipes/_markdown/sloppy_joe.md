@@ -1,6 +1,6 @@
 # Sloppy Joe
 
-Tags: American
+Tags: American, Vegetarian, Entree
 
 
 

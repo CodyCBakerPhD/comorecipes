@@ -1,6 +1,6 @@
 # Tamari Sauce
 
-Tags: Asian
+Tags: Asian, Side, Vegetarian
 
 
 

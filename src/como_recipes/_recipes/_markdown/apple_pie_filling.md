@@ -1,6 +1,6 @@
 # Apple Pie Filling
 
-Tags: American
+Tags: American, Dessert, Pie, Vegetarian, Fruit
 
 
 

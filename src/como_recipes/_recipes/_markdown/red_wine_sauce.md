@@ -1,6 +1,6 @@
 # Red Wine Sauce
 
-Tags: Italian
+Tags: Italian, Vegetarian
 
 
 

@@ -1,6 +1,6 @@
 # Honey Garlic Salmon
 
-Tags: American
+Tags: American, Entree
 
 
 

@@ -1,6 +1,6 @@
 # Mochi Donuts
 
-Tags: Dessert, Breakfast
+Tags: Dessert, Dessert, Breakfast, Vegetarian
 
 
 

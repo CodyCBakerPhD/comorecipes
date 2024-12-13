@@ -1,6 +1,6 @@
 # Enchilada Sauce
 
-Tags: Mexican
+Tags: Mexican, Vegetarian, Entree, Spicy
 
 
 

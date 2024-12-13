@@ -1,6 +1,6 @@
 # Creamed Genoise
 
-Tags: British
+Tags: British, Dessert, Vegetarian
 
 
 

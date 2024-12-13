@@ -1,6 +1,6 @@
 # Cornbread Dressing
 
-Tags: American
+Tags: American, Side, Vegetarian
 
 
 

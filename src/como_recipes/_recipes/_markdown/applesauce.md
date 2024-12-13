@@ -1,6 +1,6 @@
 # Applesauce
 
-Tags: American
+Tags: American, Dessert, Side, Vegetarian, Fruit
 
 
 

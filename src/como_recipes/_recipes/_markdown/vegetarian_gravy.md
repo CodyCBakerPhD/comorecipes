@@ -1,6 +1,6 @@
 # Vegetarian Gravy
 
-Tags: American
+Tags: American, Side, Vegetarian
 
 
 

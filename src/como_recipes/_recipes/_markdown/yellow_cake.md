@@ -1,6 +1,6 @@
 # Yellow Cake
 
-Tags: American
+Tags: American, Dessert, Vegetarian
 
 
 

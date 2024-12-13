@@ -1,6 +1,6 @@
 # Italian Meringue
 
-Tags: Italian
+Tags: Italian, Dessert, Vegetarian
 
 
 

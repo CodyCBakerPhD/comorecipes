@@ -1,6 +1,6 @@
 # Enchilada Beef
 
-Tags: Mexican
+Tags: Mexican, Entree
 
 
 

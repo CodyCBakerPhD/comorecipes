@@ -1,6 +1,6 @@
 # Pumpkin Cream Coffee Sauce
 
-Tags: American
+Tags: American, Breakfast, Vegetarian
 
 
 

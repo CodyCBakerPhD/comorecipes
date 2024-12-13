@@ -1,6 +1,6 @@
 # Buffalo Wings
 
-Tags: American
+Tags: American, Entree, Spicy
 
 
 

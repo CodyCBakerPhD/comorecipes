@@ -1,6 +1,6 @@
 # Fried Chicken
 
-Tags: American
+Tags: American, Entree
 
 
 

@@ -1,6 +1,6 @@
 # Simple Caramel
 
-Tags: American
+Tags: American, Dessert, Vegetarian
 
 
 

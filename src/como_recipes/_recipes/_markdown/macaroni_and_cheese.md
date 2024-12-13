@@ -1,6 +1,6 @@
 # Macaroni And Cheese
 
-Tags: American
+Tags: American, Vegetarian, Entree, Pasta
 
 
 

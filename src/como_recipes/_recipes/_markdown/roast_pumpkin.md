@@ -1,6 +1,6 @@
 # Roast Pumpkin
 
-Tags: American
+Tags: American, Vegetarian
 
 
 

@@ -1,6 +1,6 @@
 # Fried Rice
 
-Tags: Asian
+Tags: Asian, Vegetarian, Entree
 
 
 

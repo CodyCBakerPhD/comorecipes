@@ -1,6 +1,6 @@
 # Brownie Icing
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Chocolate
 
 
 
