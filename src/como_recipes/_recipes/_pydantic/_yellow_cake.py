@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class YellowCake(Recipe):
     name: str = "Yellow Cake"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=3 / 2, unit="cup", ingredient_name="sugar"),

@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class PumpkinPieFilling(Recipe):
     name: str = "Pumpkin Pie Filling"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=15, unit="oz.", ingredient_name="fresh pumpkin puree"),
         IngredientRegistry.get_measurement(amount=14, unit="oz.", ingredient_name="condensed milk"),

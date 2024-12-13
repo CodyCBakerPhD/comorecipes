@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class SimpleCaramel(Recipe):
     name: str = "Simple Caramel"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=14, unit="oz.", ingredient_name="sweetened condensed milk"),
         IngredientRegistry.get_measurement(amount=7, unit="tbsp.", ingredient_name="butter, cut into pieces"),
