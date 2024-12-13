@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class MirrorGlaze(Recipe):
     name: str = "Mirror Glaze"
-    tags: tuple[str, ...] = ("Vegetarian", "Dessert", "Vegetarian", "chocolate")
+    tags: tuple[str, ...] = ("Vegetarian", "Dessert", "Vegetarian", "Chocolate")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=20, unit="g", ingredient_name="Agar Agar"),
         IngredientRegistry.get_measurement(amount=170, unit="mL", ingredient_name="water"),

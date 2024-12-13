@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class ChocolateCake(Recipe):
     name: str = "Chocolate Cake"
-    tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian", "chocolate")
+    tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian", "Chocolate")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="sugar"),

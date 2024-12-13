@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class Brigadeiros(Recipe):
     name: str = "Brigadeiros"
-    tags: tuple[str, ...] = ("Brazilian", "Dessert", "Vegetarian", "chocolate")
+    tags: tuple[str, ...] = ("Brazilian", "Dessert", "Vegetarian", "Chocolate")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="unsweetened cocoa"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="butter"),
