@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class ChocolateDoughnutIcing(Recipe):
     name: str = "Chocolate Doughnut Icing"
-    tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian", "chocolate")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="powdered sugar"),
         IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="dutch cocoa powder"),
