@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class ApplePieFilling(Recipe):
     name: str = "Apple Pie Filling"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Dessert", "Pie", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="Pie", ingredient_name="crust"),
         IngredientRegistry.get_measurement(amount=3, unit="lbs.", ingredient_name="(about 5) Granny Smith apples"),
