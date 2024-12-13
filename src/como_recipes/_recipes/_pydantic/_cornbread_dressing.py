@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class CornbreadDressing(Recipe):
     name: str = "Cornbread Dressing"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Side", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=2, unit="portions", ingredient_name="of cornbread"),
         IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="butter"),

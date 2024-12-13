@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class Sourdough(Recipe):
     name: str = "Sourdough"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Vegetarian", "Side")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=260, unit="g.", ingredient_name="bread flour"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="salt"),

@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class JerkRub(Recipe):
     name: str = "Jerk Rub"
-    tags: tuple[str, ...] = ("Jamaican", "Vegetarian")
+    tags: tuple[str, ...] = ("Jamaican", "Vegetarian", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="garlic powder"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="cumin"),

@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class EnchiladaSauce(Recipe):
     name: str = "Enchilada Sauce"
-    tags: tuple[str, ...] = ("Mexican", "Vegetarian")
+    tags: tuple[str, ...] = ("Mexican", "Vegetarian", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="vegetable oil"),
         IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="flour"),

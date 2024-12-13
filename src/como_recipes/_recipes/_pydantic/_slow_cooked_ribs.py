@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class SlowCookedRibs(Recipe):
     name: str = "Slow Cooked Ribs"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(
             amount=1 / 3,

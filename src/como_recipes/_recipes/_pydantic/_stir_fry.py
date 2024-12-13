@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class StirFry(Recipe):
     name: str = "Stir Fry"
-    tags: tuple[str, ...] = ("Asian", "Vegetarian")
+    tags: tuple[str, ...] = ("Asian", "Vegetarian", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="serving", ingredient_name="rice"),
         IngredientRegistry.get_measurement(amount=3, unit="tbsp", ingredient_name="peanut oil"),

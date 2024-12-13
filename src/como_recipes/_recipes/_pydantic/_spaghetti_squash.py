@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class SpaghettiSquash(Recipe):
     name: str = "Spaghetti Squash"
-    tags: tuple[str, ...] = ("Italian", "Vegetarian")
+    tags: tuple[str, ...] = ("Italian", "Vegetarian", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="spaghetti", ingredient_name="squash"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="olive oil"),

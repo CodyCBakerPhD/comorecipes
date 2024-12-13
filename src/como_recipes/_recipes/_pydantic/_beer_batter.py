@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class BeerBatter(Recipe):
     name: str = "Beer Batter"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Vegetarian", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="cornstarch"),
