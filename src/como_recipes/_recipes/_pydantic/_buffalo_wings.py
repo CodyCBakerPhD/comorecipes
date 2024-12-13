@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class BuffaloWings(Recipe):
     name: str = "Buffalo Wings"
-    tags: tuple[str, ...] = ("American", "Entree")
+    tags: tuple[str, ...] = ("American", "Entree", "Spicy")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=8, unit="separated", ingredient_name="chicken wings"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="salt and pepper"),

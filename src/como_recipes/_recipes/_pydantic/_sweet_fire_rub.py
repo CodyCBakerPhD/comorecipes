@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class SweetFireRub(Recipe):
     name: str = "Sweet Fire Rub"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Vegetarian", "Spicy")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="brown sugar"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="white sugar"),
