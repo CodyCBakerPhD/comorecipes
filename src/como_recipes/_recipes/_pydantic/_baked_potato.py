@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class BakedPotato(Recipe):
     name: str = "Baked Potato"
-    tags: tuple[str, ...] = ("American", "Entree", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Entree", "Side", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=4, unit="Good", ingredient_name="big potatoes"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="olive oil"),

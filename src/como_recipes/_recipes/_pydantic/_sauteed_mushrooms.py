@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class SauteedMushrooms(Recipe):
     name: str = "Sauteed Mushrooms"
-    tags: tuple[str, ...] = ("American", "Vegetarian")
+    tags: tuple[str, ...] = ("American", "Side", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="olive oil"),
         IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="butter"),
