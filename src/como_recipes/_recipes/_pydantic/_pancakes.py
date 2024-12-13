@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class Pancakes(Recipe):
     name: str = "Pancakes"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="cup flour"),
         IngredientRegistry.get_measurement(amount=2, unit="", ingredient_name="tbsp. sugar"),

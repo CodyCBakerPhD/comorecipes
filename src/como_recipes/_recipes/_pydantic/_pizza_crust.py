@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class PizzaCrust(Recipe):
     name: str = "Pizza Crust"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="yeast"),

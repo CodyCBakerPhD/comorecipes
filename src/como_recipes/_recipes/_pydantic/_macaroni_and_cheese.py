@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class MacaroniAndCheese(Recipe):
     name: str = "Macaroni And Cheese"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=8, unit="oz.", ingredient_name="elbow pasta"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),

@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class SauteedGreenBeans(Recipe):
     name: str = "Sauteed Green Beans"
-    tags: tuple[str, ...] = ("American", "Side")
+    tags: tuple[str, ...] = ("American", "Side", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="bag", ingredient_name="fresh green beans"),
         IngredientRegistry.get_measurement(

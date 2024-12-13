@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class SloppyJoe(Recipe):
     name: str = "Sloppy Joe"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="batch", ingredient_name="of Kaiser Rolls"),
         IngredientRegistry.get_measurement(amount=1, unit="lb", ingredient_name="ground beef or Boca crumbles"),
