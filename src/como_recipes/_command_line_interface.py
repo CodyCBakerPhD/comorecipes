@@ -6,6 +6,8 @@ import pathlib
 
 import click
 
+from .utils import get_package_version
+
 
 @click.command(name="write_missing_markdown_recipes")
 @click.option("--limit", type=int, default=None, help="Limit the number of recipes to write.")
@@ -48,6 +50,6 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pra
         print("\nNo missing Markdown recipe files were found.\n")
 
 
-@click.command(name="write_missing_markdown_recipes")
-def version() -> None:
-    pass
+@click.command(name="como_recipes_version")
+def _version() -> None:
+    click.echo(message=get_package_version())

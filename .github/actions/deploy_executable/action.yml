@@ -26,7 +26,7 @@ runs:
 
     - name: Get package version
       id: package_version
-      run: echo "value=$(como_recipes --version)" >> $GITHUB_OUTPUT
+      run: echo "value=$(como_recipes_version)" >> $GITHUB_OUTPUT
       shell: bash
 
     - name: Fresh install of package
@@ -44,7 +44,7 @@ runs:
           --name="como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}" \
           --icon="./src/como_recipes/_assets/como_icon.ico" \
           --add-data="src/como_recipes/_assets:_assets" \
-          src/como_recipes/_interactive_console_builder.py
+          src/como_recipes/app/_app_launcher.py
       shell: bash
 
     - name: Upload binaries to release
