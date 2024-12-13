@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class GreenChili(Recipe):
     name: str = "Green Chili"
-    tags: tuple[str, ...] = ("Mexican", "Vegetarian", "Entree")
+    tags: tuple[str, ...] = ("Mexican", "Vegetarian", "Entree", "Soup")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="tbps.", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="white onion"),
