@@ -46,3 +46,8 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pra
 
     if count == 0:
         print("\nNo missing Markdown recipe files were found.\n")
+
+
+@click.command(name="write_missing_markdown_recipes")
+def version() -> None:
+    pass
