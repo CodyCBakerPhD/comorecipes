@@ -6,7 +6,7 @@ import como_recipes
 
 def test_cli_version():
     test_output = subprocess.run(
-        ["como_recipes", "--version"],
+        args=["como_recipes_version"],
         capture_output=True,
         text=True,
         check=False,
