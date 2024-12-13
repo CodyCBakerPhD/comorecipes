@@ -71,7 +71,6 @@ class RawIngredientFrame(tkinter.Frame):
 
     def update_frame(self) -> None:
         """Update the raw ingredient frame display based on the current meal selection."""
-        print(self.app_state["meal_selection"])
         raw_ingredient_list = (
             self.app_state["meal_selection"].get_raw_measurement_list()[2:]
             if not self.app_state["meal_selection"].is_empty()

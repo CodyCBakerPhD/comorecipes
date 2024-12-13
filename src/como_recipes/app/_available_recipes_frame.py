@@ -111,9 +111,11 @@ class AvailableRecipesFrame(tkinter.Frame):
 
         Intended to be as 'smart' as possible.
         """
-        print(self.app_state["meal_selection"])
-
         self._update_available_index_to_recipe_name()
+
+        for tag, checkbox in self.tags_to_checkboxes.items():
+            variable = self.app_state["tags_to_checkbox_values"][tag]
+            checkbox.config(variable=variable)
 
         if self.available_meals_search.get() == "":
             data = self.available_index_to_recipe_name.values()
