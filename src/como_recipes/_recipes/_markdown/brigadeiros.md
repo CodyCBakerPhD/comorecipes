@@ -1,6 +1,6 @@
 # Brigadeiros
 
-Tags: Brazilian
+Tags: Brazilian, Dessert, Vegetarian, Chocolate
 
 
 

@@ -1,6 +1,6 @@
 # Banana Bread
 
-Tags: American
+Tags: American, Vegetarian, Fruit
 
 
 

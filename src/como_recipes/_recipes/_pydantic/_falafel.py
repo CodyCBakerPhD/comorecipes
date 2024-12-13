@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class Falafel(Recipe):
     name: str = "Falafel"
-    tags: tuple[str, ...] = ("Greek",)
+    tags: tuple[str, ...] = ("Greek", "Vegetarian", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="lb.", ingredient_name="dry chickpeas"),
         IngredientRegistry.get_measurement(amount=1, unit="small", ingredient_name="white onion"),

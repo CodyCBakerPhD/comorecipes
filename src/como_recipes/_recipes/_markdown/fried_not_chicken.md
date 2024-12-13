@@ -1,6 +1,6 @@
 # Fried Not Chicken
 
-Tags: American
+Tags: American, Vegetarian, Entree
 
 
 

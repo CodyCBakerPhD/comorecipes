@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class FettuccineAlfredo(Recipe):
     name: str = "Fettuccine Alfredo"
-    tags: tuple[str, ...] = ("Italian",)
+    tags: tuple[str, ...] = ("Italian", "Vegetarian", "Entree", "Pasta")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=3, unit="eggs", ingredient_name="worth of fettuccine noodles"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),

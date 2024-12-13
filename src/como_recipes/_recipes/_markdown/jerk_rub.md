@@ -1,6 +1,6 @@
 # Jerk Rub
 
-Tags: Jamaican
+Tags: Jamaican, Vegetarian, Entree, Spicy
 
 
 

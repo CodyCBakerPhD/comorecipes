@@ -1,6 +1,6 @@
 # Falafel
 
-Tags: Greek
+Tags: Greek, Vegetarian, Entree
 
 
 

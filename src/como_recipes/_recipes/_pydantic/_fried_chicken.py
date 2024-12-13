@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class FriedChicken(Recipe):
     name: str = "Fried Chicken"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1 / 4, unit="serving", ingredient_name="of Frying Breading"),
         IngredientRegistry.get_measurement(amount=2, unit="large", ingredient_name="chicken breasts"),

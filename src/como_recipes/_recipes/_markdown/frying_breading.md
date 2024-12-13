@@ -1,6 +1,6 @@
 # Frying Breading
 
-Tags: American
+Tags: American, Vegetarian, Entree
 
 
 

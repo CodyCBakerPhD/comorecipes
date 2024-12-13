@@ -1,6 +1,6 @@
 # Baked Potato
 
-Tags: American
+Tags: American, Entree, Side, Vegetarian
 
 
 

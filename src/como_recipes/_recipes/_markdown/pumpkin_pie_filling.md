@@ -1,6 +1,6 @@
 # Pumpkin Pie Filling
 
-Tags: American
+Tags: American, Dessert, Vegetarian
 
 
 

@@ -1,6 +1,6 @@
 # Spanish Rice
 
-Tags: Mexican
+Tags: Mexican, Side, Vegetarian
 
 
 

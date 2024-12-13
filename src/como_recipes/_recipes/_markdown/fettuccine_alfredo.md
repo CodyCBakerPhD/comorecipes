@@ -1,6 +1,6 @@
 # Fettuccine Alfredo
 
-Tags: Italian
+Tags: Italian, Vegetarian, Entree, Pasta
 
 
 

@@ -1,6 +1,6 @@
 # Black Bean Chili
 
-Tags: American
+Tags: American, Vegetarian, Entree, Soup, Spicy
 
 
 

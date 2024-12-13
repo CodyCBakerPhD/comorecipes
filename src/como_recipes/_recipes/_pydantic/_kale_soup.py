@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class KaleSoup(Recipe):
     name: str = "Kale Soup"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Vegetarian", "Entree", "Soup")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="olive oil"),
         IngredientRegistry.get_measurement(amount=1, unit="yellow", ingredient_name="onion, chopped"),

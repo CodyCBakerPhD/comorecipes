@@ -1,6 +1,6 @@
 # Pizza Crust
 
-Tags: American
+Tags: American, Vegetarian, Entree
 
 
 

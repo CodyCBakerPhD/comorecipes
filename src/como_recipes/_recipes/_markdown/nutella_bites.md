@@ -1,6 +1,6 @@
 # Nutella Bites
 
-Tags: American
+Tags: American, Dessert, Breakfast, Vegetarian, Chocolate
 
 
 

@@ -1,6 +1,6 @@
 # Green Bean Casserole
 
-Tags: American
+Tags: American, Side, Vegetarian
 
 
 

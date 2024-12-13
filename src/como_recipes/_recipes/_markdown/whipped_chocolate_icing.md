@@ -1,6 +1,6 @@
 # Whipped Chocolate Icing
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Chocolate
 
 
 

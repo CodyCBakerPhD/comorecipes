@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class RedBeans(Recipe):
     name: str = "Red Beans"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Vegetarian", "Entree", "Spicy")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="recipes", ingredient_name="worth of rice"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="olive oil"),

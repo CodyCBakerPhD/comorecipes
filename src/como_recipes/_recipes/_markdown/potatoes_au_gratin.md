@@ -1,6 +1,6 @@
 # Potatoes Au Gratin
 
-Tags: French
+Tags: French, Vegetarian, Entree
 
 
 

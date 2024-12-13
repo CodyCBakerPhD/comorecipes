@@ -1,6 +1,6 @@
 # Cabbage Rolls
 
-Tags: Asian
+Tags: Asian, Vegetarian, Entree
 
 
 

@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class MillionaireShortbread(Recipe):
     name: str = "Millionaire Shortbread"
-    tags: tuple[str, ...] = ("British", "Dessert")
+    tags: tuple[str, ...] = ("British", "Dessert", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="recipes", ingredient_name="worth of shortbread"),
         IngredientRegistry.get_measurement(amount=1, unit="recipes", ingredient_name="worth of simple caramel"),

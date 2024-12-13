@@ -1,6 +1,6 @@
 # Mirror Glaze
 
-Tags: Vegetarian, Dessert
+Tags: Vegetarian, Dessert, Vegetarian, Chocolate
 
 
 

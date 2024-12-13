@@ -1,6 +1,6 @@
 # Rice
 
-Tags: American
+Tags: American, Vegetarian, Entree, Side
 
 
 

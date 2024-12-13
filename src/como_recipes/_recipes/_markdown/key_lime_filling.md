@@ -1,6 +1,6 @@
 # Key Lime Filling
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Fruit
 
 
 

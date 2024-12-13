@@ -1,6 +1,6 @@
 # Sweet Dough
 
-Tags: American
+Tags: American, Dessert, Vegetarian
 
 
 

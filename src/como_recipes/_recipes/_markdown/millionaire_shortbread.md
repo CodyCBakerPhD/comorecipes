@@ -1,6 +1,6 @@
 # Millionaire Shortbread
 
-Tags: British, Dessert
+Tags: British, Dessert, Vegetarian
 
 
 

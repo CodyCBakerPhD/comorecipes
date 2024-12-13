@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class EnchiladaBeef(Recipe):
     name: str = "Enchilada Beef"
-    tags: tuple[str, ...] = ("Mexican",)
+    tags: tuple[str, ...] = ("Mexican", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=24, unit="oz.", ingredient_name="chuck roast"),
         IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="flour"),

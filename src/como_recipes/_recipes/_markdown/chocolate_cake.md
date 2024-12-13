@@ -1,6 +1,6 @@
 # Chocolate Cake
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Chocolate
 
 
 

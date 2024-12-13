@@ -1,6 +1,6 @@
 # Spaghetti Squash
 
-Tags: Italian
+Tags: Italian, Vegetarian, Entree, Pasta
 
 
 

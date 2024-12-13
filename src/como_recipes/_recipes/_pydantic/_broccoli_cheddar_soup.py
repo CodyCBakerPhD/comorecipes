@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class BroccoliCheddarSoup(Recipe):
     name: str = "Broccoli Cheddar Soup"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Vegetarian", "Entree", "Soup")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="large", ingredient_name="onion"),

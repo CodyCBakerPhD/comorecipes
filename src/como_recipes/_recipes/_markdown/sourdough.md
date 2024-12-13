@@ -1,6 +1,6 @@
 # Sourdough
 
-Tags: American
+Tags: American, Vegetarian, Side
 
 
 

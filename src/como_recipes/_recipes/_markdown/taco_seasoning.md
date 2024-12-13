@@ -1,6 +1,6 @@
 # Taco Seasoning
 
-Tags: American
+Tags: American, Vegetarian, Entree, Spicy
 
 
 

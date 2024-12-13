@@ -1,6 +1,6 @@
 # Slow Cooked Ribs
 
-Tags: American
+Tags: American, Entree, Spicy
 
 
 

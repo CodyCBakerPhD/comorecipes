@@ -1,6 +1,6 @@
 # Shortening Pie Crust
 
-Tags: American
+Tags: American, Dessert, Vegetarian
 
 
 

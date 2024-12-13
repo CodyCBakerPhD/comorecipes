@@ -1,6 +1,6 @@
 # Green Chili
 
-Tags: Mexican
+Tags: Mexican, Vegetarian, Entree, Soup, Spicy
 
 
 

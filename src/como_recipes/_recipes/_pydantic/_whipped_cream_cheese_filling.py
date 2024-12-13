@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class WhippedCreamCheeseFilling(Recipe):
     name: str = "Whipped Cream Cheese Filling"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="cup heavy cream"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="cup powdered sugar"),

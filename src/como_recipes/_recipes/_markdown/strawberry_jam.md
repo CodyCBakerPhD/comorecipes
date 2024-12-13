@@ -1,6 +1,6 @@
 # Strawberry Jam
 
-Tags: American
+Tags: American, Dessert, Vegetarian, Fruit
 
 
 

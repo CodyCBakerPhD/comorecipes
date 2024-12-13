@@ -1,6 +1,6 @@
 # Bechamel Sauce
 
-Tags: European
+Tags: European, Vegetarian
 
 
 

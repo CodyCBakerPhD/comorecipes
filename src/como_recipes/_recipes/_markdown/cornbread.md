@@ -1,6 +1,6 @@
 # Cornbread
 
-Tags: American
+Tags: American, Side, Vegetarian
 
 
 

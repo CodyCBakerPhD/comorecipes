@@ -1,6 +1,6 @@
 # Whipped Cream Cheese Filling
 
-Tags: American
+Tags: American, Dessert, Vegetarian
 
 
 

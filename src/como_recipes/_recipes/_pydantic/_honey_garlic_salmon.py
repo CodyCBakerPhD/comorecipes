@@ -6,7 +6,7 @@ from ..._registration._recipe_registry import default_recipe_registry
 
 class HoneyGarlicSalmon(Recipe):
     name: str = "Honey Garlic Salmon"
-    tags: tuple[str, ...] = ("American",)
+    tags: tuple[str, ...] = ("American", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=4, unit="salmon", ingredient_name="fillets, 250 g each"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),

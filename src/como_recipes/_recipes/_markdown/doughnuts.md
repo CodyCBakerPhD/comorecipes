@@ -1,6 +1,6 @@
 # Doughnuts
 
-Tags: American
+Tags: American, Dessert, Breakfast, Vegetarian
 
 
 
