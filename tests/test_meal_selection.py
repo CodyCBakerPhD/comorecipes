@@ -1,9 +1,7 @@
 import io
-import pathlib
 import re
 import unittest.mock
 
-import py
 import pytest
 
 import como_recipes
@@ -412,9 +410,32 @@ def test_get_shopping_list_warning():
         meal_selection.get_shopping_list()
 
 
-def test_meal_selection_pickle_roundtrip(tmpdir: py.path.local):
-    tmpdir = pathlib.Path(tmpdir)
+# def test_meal_selection_pickle_roundtrip(tmpdir: py.path.local):
+#     tmpdir = pathlib.Path(tmpdir)
+#
+#     meal_selection = MealSelection()
+#
+#     new_meal = como_recipes.Meal()
+#     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
+#     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
+#     meal_selection.add_meal(meal=new_meal)
+#
+#     measurement_1 = IngredientRegistry.get_measurement(amount=1.0, unit="g", ingredient_name="test_ingredient")
+#     meal_selection.add_measurement(measurement=measurement_1)
+#     measurement_2 = IngredientRegistry.get_measurement(amount=1.0, unit="tsp", ingredient_name="test_ingredient")
+#     meal_selection.remove_measurement(measurement=measurement_2)
+#
+#     meal_selection_file_path = tmpdir / "test_meal_selection_roundtrip.pickle"
+#     meal_selection.to_pickle(file_path=meal_selection_file_path)
+#
+#     assert meal_selection_file_path.exists()
+#
+#     meal_selection_loaded = MealSelection.from_pickle(file_path=meal_selection_file_path)
+#
+#     assert meal_selection == meal_selection_loaded
 
+
+def test_meal_selection_dict_roundtrip():
     meal_selection = MealSelection()
 
     new_meal = como_recipes.Meal()
@@ -427,11 +448,7 @@ def test_meal_selection_pickle_roundtrip(tmpdir: py.path.local):
     measurement_2 = IngredientRegistry.get_measurement(amount=1.0, unit="tsp", ingredient_name="test_ingredient")
     meal_selection.remove_measurement(measurement=measurement_2)
 
-    meal_selection_file_path = tmpdir / "test_meal_selection_roundtrip.pickle"
-    meal_selection.to_pickle(file_path=meal_selection_file_path)
+    dictionary = meal_selection.to_dict()
+    meal_selection_loaded = MealSelection.from_dict(dictionary=dictionary)
 
-    assert meal_selection_file_path.exists()
-
-    meal_selection_loaded = MealSelection.from_pickle(file_path=meal_selection_file_path)
-
-    assert meal_selection == meal_selection_loaded
+    assert meal_selection_loaded == meal_selection

@@ -2,6 +2,7 @@ import json
 import pathlib
 import shutil
 import tkinter
+import traceback
 
 import jsonschema
 import natsort
@@ -51,7 +52,7 @@ class SessionManagerFrame(tkinter.Frame):
         # There are state-based attributes used by the main app, but relevant to session saving/loading
         self.app_state["session_folder_path"] = self.app_state["home_folder_path"] / self.selected_session_id
         self.app_state["app_state_file_path"] = (
-            self.app_state["home_folder_path"] / self.selected_session_id / "app_state.pickle"
+            self.app_state["home_folder_path"] / self.selected_session_id / "app_state.json"
         )
         if self.app_state["app_state_file_path"].exists():
             self.load_app_state()
@@ -121,12 +122,16 @@ class SessionManagerFrame(tkinter.Frame):
         # Application state file must be valid against one of the supported JSON schemas
         application_state_file_path = session_folder_path / "app_state.json"
         if application_state_file_path.exists() is True:
-            with application_state_file_path.open(mode="r") as io:
-                app_state = json.load(fp=io)
-
             try:
+                with application_state_file_path.open(mode="r") as io:
+                    app_state = json.load(fp=io)
+
                 jsonschema.validate(instance=app_state, schema=app_state_json_schema)
-            except jsonschema.exceptions.ValidationError:
+            except Exception as exception:
+                # TODO: do some kind of error box popup for this
+                print(f"{type(exception).__name__}: {exception}")
+                print(traceback.format_exc())
+
                 return False
 
         return True
@@ -148,7 +153,7 @@ class SessionManagerFrame(tkinter.Frame):
 
         self.app_state["session_folder_path"] = self.app_state["home_folder_path"] / self.selected_session_id
         self.app_state["session_folder_path"].mkdir(exist_ok=True)
-        self.app_state["app_state_file_path"] = self.app_state["session_folder_path"] / "app_state.pickle"
+        self.app_state["app_state_file_path"] = self.app_state["session_folder_path"] / "app_state.json"
         self.update_session_ids()  # Wasteful, but at least it ensures consistency
 
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "white"})
@@ -188,7 +193,7 @@ class SessionManagerFrame(tkinter.Frame):
         # Update
         session_folder_path = self.app_state["home_folder_path"] / self.selected_session_id
         self.app_state["session_folder_path"] = session_folder_path
-        self.app_state["app_state_file_path"] = session_folder_path / "app_state.pickle"
+        self.app_state["app_state_file_path"] = session_folder_path / "app_state.json"
         if self.app_state["app_state_file_path"].exists():
             self.load_app_state()
 
@@ -204,11 +209,17 @@ class SessionManagerFrame(tkinter.Frame):
         """Save the current session to a new folder in the app home directory."""
         self.app_state["session_folder_path"].mkdir(exist_ok=True)
         json_copy = self.app_state.copy()
+
+        # Cast Tkinter variables to integer values
         json_copy["tags_to_checkbox_values"] = {
             tag: var.get() for tag, var in self.app_state["tags_to_checkbox_values"].items()
         }
+
+        # Serialize the MealSelector object
+        json_copy["meal_selection"] = json_copy["meal_selection"].to_dict()
+
         with self.app_state["app_state_file_path"].open(mode="w") as io:
-            json.dump(obj=json_copy, fp=io, cls=_CoMoJSONEncoder)
+            json.dump(obj=json_copy, fp=io, cls=_CoMoJSONEncoder, indent=1)
 
     def load_app_state(self, event: tkinter.Event | None = None) -> None:
         """Save the current session to a new folder in the app home directory."""
@@ -216,10 +227,14 @@ class SessionManagerFrame(tkinter.Frame):
             json_state = json.load(fp=io)
         self.app_state.update(json_state)
 
+        # TODO: figure out how to use a custom JSONDecoder object
         # Recast paths to pathlib.Path objects
         self.app_state["home_folder_path"] = pathlib.Path(self.app_state["home_folder_path"])
         self.app_state["session_folder_path"] = pathlib.Path(self.app_state["session_folder_path"])
         self.app_state["app_state_file_path"] = pathlib.Path(self.app_state["app_state_file_path"])
+
+        # Rehydrate the MealSelector
+        self.app_state["meal_selection"] = MealSelection.from_dict(obj=self.app_state["meal_selection"])
 
         # Recast the checkbox values to actual Tkinter variables
         self.app_state["tags_to_checkbox_values"].update(

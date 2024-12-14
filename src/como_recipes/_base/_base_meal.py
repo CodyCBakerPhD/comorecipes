@@ -96,3 +96,12 @@ class Meal(pydantic.BaseModel):
         recipe_names = get_recipe_names_by_type(recipes=list(self._recipe_name_to_recipe.values()))
 
         return tuple(self._recipe_name_to_recipe[recipe_name] for recipe_name in recipe_names)
+
+    @pydantic.validate_call
+    def to_dict(self) -> dict:
+        raise NotImplementedError
+
+    @classmethod
+    @pydantic.validate_call
+    def from_dict(cls, *, dictionary: dict) -> typing.Self:
+        raise NotImplementedError

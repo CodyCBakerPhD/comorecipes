@@ -82,3 +82,12 @@ class Measurement(pydantic.BaseModel):
     def __str__(self) -> str:
         """Used by calls to `print(...)`."""
         return repr(self)
+
+    @pydantic.validate_call
+    def to_dict(self) -> dict:
+        raise NotImplementedError
+
+    @classmethod
+    @pydantic.validate_call
+    def from_dict(cls, *, dictionary: dict) -> typing.Self:
+        raise NotImplementedError

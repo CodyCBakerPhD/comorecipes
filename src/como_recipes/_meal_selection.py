@@ -1,6 +1,4 @@
 import collections
-import pathlib
-import pickle
 import typing
 import warnings
 
@@ -317,16 +315,20 @@ class MealSelection(pydantic.BaseModel):
         return shopping_list
 
     @pydantic.validate_call
-    def to_pickle(self, file_path: pydantic.FilePath | pydantic.NewPath) -> None:
-        """Write the meal selection to a pickle file."""
-        with pathlib.Path(file_path).open(mode="wb") as io:
-            pickle.dump(obj=self, file=io)
+    def to_dict(self) -> dict:
+        """Convert the meal selection to an in-memory dictionary."""
+        dictionary = {
+            "_individual_measurements_to_add": self._individual_measurements_to_add,
+            "_individual_measurements_to_remove": self._individual_measurements_to_remove,
+            "_recipe_names_to_meal": self._recipe_names_to_meal,
+        }
+
+        return dictionary
 
     @classmethod
     @pydantic.validate_call
-    def from_pickle(cls, file_path: pydantic.FilePath | pydantic.NewPath) -> typing.Self:
-        """Read a meal selection from a pickle file."""
-        with pathlib.Path(file_path).open(mode="rb") as io:
-            meal_selector = pickle.load(file=io)  # noqa: S301
+    def from_dict(cls, *, dictionary: dict) -> typing.Self:
+        """Construct a new meal selection from an in-memory dictionary."""
+        meal_selector = MealSelection(**dictionary)
 
         return meal_selector

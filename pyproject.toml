@@ -112,6 +112,7 @@ ignore = [
     "ARG002",  # Tkinter sometimes requires callbacks to have a specific argument, even if unused
     "SLF001",  # Need to access _MEIPASS for PyInstaller assets
     "T201",  # Fine to use `print` for app debugging
+    "BLE001",  # Error catching is handled by the app
 ]
 "src/como_recipes/_assets/*" = [
     "INP001",  # Not an official part of the package, just a helper script
