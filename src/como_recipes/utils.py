@@ -75,8 +75,17 @@ def get_executable_stem() -> str:
     # Resolve an issue with GitHub Actions builds
     corrected_platform_name = platform_name.removesuffix("Server")
 
+    # Improve readability for users when built by GitHub Actions
+    match corrected_platform_name:
+        case "Windows_2019":
+            improved_platform_name = corrected_platform_name.replace("Windows_2019", "Windows_10")
+        case "Windows_2019":
+            improved_platform_name = corrected_platform_name.replace("Windows_2022", "Windows_11")
+        case _:
+            improved_platform_name = corrected_platform_name
+
     package_version = get_package_version()
-    executable_stem = f"como_recipes_{corrected_platform_name}_{package_version}"
+    executable_stem = f"como_recipes_{improved_platform_name}_{package_version}"
 
     return executable_stem
 
