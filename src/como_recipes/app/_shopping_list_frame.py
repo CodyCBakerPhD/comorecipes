@@ -44,7 +44,7 @@ class ShoppingListFrame(tkinter.Frame):
         """Update the shopping list from the current registry."""
         try:
             shopping_list = self.app_state["meal_selection"].get_shopping_list().split("\n")
-        except Exception:  # noqa: BLE001
+        except Exception:
             shopping_list = []
         self.list_box.delete(first=0, last="end")
         self.list_box.insert("end", *shopping_list)
@@ -53,7 +53,7 @@ class ShoppingListFrame(tkinter.Frame):
         """Write the shopping list to a file and open default text editor on that file."""
         try:
             shopping_list_string = "\n".join(self.app_state["meal_selection"].get_shopping_list().split("\n"))
-        except Exception:  # noqa: BLE001
+        except Exception:
             tkinter.messagebox.showerror(
                 title="Error",
                 message=(
