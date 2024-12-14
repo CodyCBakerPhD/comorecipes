@@ -435,7 +435,7 @@ def test_get_shopping_list_warning():
 #     assert meal_selection == meal_selection_loaded
 
 
-def test_meal_selection_dict_roundtrip():
+def test_meal_selection_in_memory_json_roundtrip():
     meal_selection = MealSelection()
 
     new_meal = como_recipes.Meal()
