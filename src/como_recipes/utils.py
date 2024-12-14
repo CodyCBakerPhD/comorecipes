@@ -73,10 +73,10 @@ def get_executable_stem() -> str:
     platform_name = "_".join(platform.platform().split("-")[:2])
 
     # Resolve an issue with GitHub Actions builds
-    platform_name.removesuffix("Server")
+    corrected_platform_name = platform_name.removesuffix("Server")
 
     package_version = get_package_version()
-    executable_stem = f"como_recipes_{platform_name}_{package_version}"
+    executable_stem = f"como_recipes_{corrected_platform_name}_{package_version}"
 
     return executable_stem
 
