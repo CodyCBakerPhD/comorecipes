@@ -34,7 +34,7 @@ dependencies = [
 [tool.black]
 line-length = 120
 target-version = ['py313']
-include = '\.pyi?$'
+include = '\.pyi?$|\.spec$'
 extend-exclude = '''
 /(
   \.toml

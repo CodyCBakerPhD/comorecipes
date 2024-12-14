@@ -30,10 +30,10 @@ class AvailableRecipesFrame(tkinter.Frame):
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_available_recipes = minimum_number_of_displayed_available_recipes
 
-        self._update_available_index_to_recipe_name()
+        self.update_available_index_to_recipe_name()
         self.setup_frame()
 
-    def _update_available_index_to_recipe_name(self) -> None:
+    def update_available_index_to_recipe_name(self) -> None:
         if self.recipe_type is None:
             self.available_index_to_recipe_name = {
                 index: recipe_name
@@ -111,7 +111,7 @@ class AvailableRecipesFrame(tkinter.Frame):
 
         Intended to be as 'smart' as possible.
         """
-        self._update_available_index_to_recipe_name()
+        self.update_available_index_to_recipe_name()
 
         for tag, checkbox in self.tags_to_checkboxes.items():
             variable = self.app_state["tags_to_checkbox_values"][tag]
@@ -146,7 +146,6 @@ class AvailableRecipesFrame(tkinter.Frame):
     def add_selected_meal(self, event: tkinter.Event) -> None:
         """Move a meal from the available list to the selected list."""
         selected_meal = self.available_meals_list_box.get(first="active")
-        meal_index = default_recipe_name_to_index[selected_meal]
 
         meal = Meal()
         meal.add_recipe(recipe=default_recipe_registry.get_recipe(recipe_name=selected_meal))
@@ -154,7 +153,7 @@ class AvailableRecipesFrame(tkinter.Frame):
         # meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
         self.app_state["meal_selection"].add_meal(meal=meal)
 
-        self._update_available_index_to_recipe_name()
+        self.update_available_index_to_recipe_name()
 
         if hasattr(self.master, "update_frames"):
             self.master.update_frames()

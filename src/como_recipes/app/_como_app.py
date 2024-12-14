@@ -27,6 +27,11 @@ class CoMoApp(tkinter.Tk):
         """Open the GitHub issue page for the CoMo project."""
         webbrowser.open_new("https://github.com/CodyCBakerPhD/como_recipes/issues/new/choose")
 
+    def _open_license_popup(self) -> None:
+        """Open a popup with the license information."""
+        license_text = como_recipes.utils.get_license_text()
+        tkinter.messagebox.showinfo(title="License", message=license_text)
+
     def setup_window(self) -> None:
         """Initialize the main window and menu bar."""
         # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
@@ -44,6 +49,9 @@ class CoMoApp(tkinter.Tk):
         self.help_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label="Help", menu=self.help_menu)
         self.help_menu.add_command(label="Submit issue", command=self._open_github_issue_page)
+
+        self.main_menu.add_cascade(label="About", menu=self.help_menu)
+        self.help_menu.add_command(label="License", command=self._open_license_popup)
 
         # Components do not currently support dynamic resizing, so just freeze window size
         self.resizable(width=False, height=False)

@@ -11,7 +11,7 @@ from ._base._base_recipe import Recipe
 
 
 def is_bundled() -> bool:
-    """Determine if the application is bundled."""
+    """Determine if the application is bundled by PyInstaller."""
     result = hasattr(sys, "_MEIPASS")
 
     return result
@@ -25,9 +25,23 @@ def get_bundle_path() -> pathlib.Path:
 
     return bundle_path
 
+def get_license_text() -> str:
+    """Load the license text file."""
+    if is_bundled() is True:
+        bundle_path = get_bundle_path()
+
+        file_path = bundle_path / "_assets" / "license.txt"  # Is copied to _assets during build
+        with file_path.open(mode="r") as io:
+            license_text = io.read()
+    else:
+        file_path = pathlib.Path(__file__).parent.parent.parent / "license.txt"
+        with file_path.open(mode="r") as io:
+            license_text = io.read()
+
+    return license_text
+
 def get_package_version() -> str:
-    """Load the version hardcopy file."""
-    # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
+    """Load the version directly from the TOML file."""
     if is_bundled() is True:
         bundle_path = get_bundle_path()
 
