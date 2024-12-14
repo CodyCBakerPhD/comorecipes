@@ -16,14 +16,18 @@ def is_bundled() -> bool:
 
     return result
 
+
 def get_bundle_path() -> pathlib.Path:
     """Determine the bundled (temporary PyInstaller) path for the application."""
     if is_bundled() is False:
-        raise RuntimeError("Application is not bundled.")
+        message = "Application is not bundled."
+
+        raise RuntimeError(message)
 
     bundle_path = pathlib.Path(sys._MEIPASS)  # noqa: SLF001
 
     return bundle_path
+
 
 def get_license_text() -> str:
     """Load the license text file."""
@@ -39,6 +43,7 @@ def get_license_text() -> str:
             license_text = io.read()
 
     return license_text
+
 
 def get_package_version() -> str:
     """Load the version directly from the TOML file."""
