@@ -59,6 +59,7 @@ extend-exclude = '''
 [project.scripts]
 write_missing_markdown_recipes = "como_recipes._command_line_interface:_write_missing_markdown_recipes"
 como_recipes_version = "como_recipes._command_line_interface:_version"
+como_recipes_executable_stem = "como_recipes._command_line_interface:_executable_stem"
 
 
 

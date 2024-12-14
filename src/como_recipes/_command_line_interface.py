@@ -3,6 +3,7 @@
 import importlib
 import importlib.metadata
 import pathlib
+import platform
 
 import click
 
@@ -53,3 +54,13 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pra
 @click.command(name="como_recipes_version")
 def _version() -> None:
     click.echo(message=get_package_version())
+
+
+@click.command(name="como_recipes_executable_stem")
+def _executable_stem() -> None:
+    # Only supports Windows for now
+    platform_name = "_".join(platform.platform().split("-")[:2])
+    package_version = get_package_version()
+    app_name = f"como_recipes_{platform_name}_{package_version}"
+
+    click.echo(message=app_name)

@@ -1,5 +1,4 @@
 # -*- mode: python ; coding: utf-8 -*-
-import platform
 import como_recipes
 
 a = Analysis(
@@ -17,10 +16,7 @@ a = Analysis(
 )
 pyz = PYZ(a.pure)
 
-# Only supports Windows for now
-platform_name = "_".join(platform.platform().split("-")[:2])
-package_version = como_recipes.utils.get_package_version()
-app_name = f"como_recipes_{platform_name}_{package_version}"
+executable_stem = como_recipes.utils.get_executable_stem()
 
 exe = EXE(
     pyz,
@@ -28,7 +24,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name=app_name,
+    name=executable_stem,
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
