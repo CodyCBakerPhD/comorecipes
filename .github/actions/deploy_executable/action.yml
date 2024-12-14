@@ -35,7 +35,7 @@ runs:
 
     - name: Build Executable with PyInstaller
       run: |
-         pyinstaller --onefile pyinstaller.spec
+         pyinstaller pyinstaller.spec
 #        pyinstaller \
 #          --onefile \
 #          --name="como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}" \
