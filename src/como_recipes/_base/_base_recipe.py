@@ -1,5 +1,4 @@
 import fractions
-import pathlib
 from typing import Self
 
 import pydantic
@@ -32,7 +31,7 @@ class Recipe(pydantic.BaseModel):
     tags: tuple[str, ...] | None = None
     measurements: tuple[Measurement, ...]
     instructions: tuple[str, ...]
-    notes: tuple[str] | None = None
+    notes: tuple[str, ...] | None = None
     model_config = pydantic.ConfigDict(extra="forbid")
 
     def __len__(self) -> int:
@@ -101,65 +100,6 @@ class Recipe(pydantic.BaseModel):
         return hash(self.name)
 
     @pydantic.validate_call
-    def to_pydantic_file(self, *, file_path: pydantic.NewPath) -> None:
-        """
-        Save recipe to a .py file in Pydantic format.
-
-        Parameters
-        ----------
-        file_path : pydantic.NewPath
-            Path to the Pydantic (.py) file.
-
-        """
-        indent = " " * 4
-
-        camel_case_name = "".join(word.capitalize() for word in self.name.replace("-", " ").split(" "))
-        python_text = "from ..._base_measurement import Measurement\n"
-        python_text += "from ..._base_recipe import Recipe\n"
-        python_text += "from ..._measurement_registration import MeasurementRegistry\n"
-        python_text += "from ..._recipe_registration import default_recipe_registry\n\n\n"
-        python_text += f"class {camel_case_name}(Recipe):\n"
-        python_text += f'{indent}name: str = "{self.name}"\n'
-
-        if self.tags is not None:
-            python_text += f"{indent}tags: tuple[str, ...] = (" + ", ".join(f'"{tag}"' for tag in self.tags)
-            python_text += ",)\n" if len(self.tags) == 1 else ")\n"
-
-        python_text += f"{indent}measurements: tuple[Measurement, ...] = (\n"
-        for measurement in self.measurements:
-            measurement_text = f"{indent}{indent}MeasurementRegistry.get_measurement(amount={measurement.amount}, "
-            measurement_text += f'unit="{measurement.unit}", '
-            measurement_text += f'name="{measurement.ingredient.name}"),\n'
-            python_text += measurement_text
-        python_text += f"{indent})\n"
-
-        python_text += f"{indent}instructions: tuple[str, ...] = (\n"
-        for instruction in self.instructions:
-            python_text += f'{indent}{indent}"{instruction}",\n'
-        python_text += f"{indent})\n"
-
-        python_text += f"\n\ndefault_recipe_registry.add_recipe(recipe={camel_case_name}())\n"
-
-        with file_path.open(mode="w") as io:
-            io.write(python_text)
-
-        # Expose the new recipe class in the 'recipes' submodule __init__.py file so that it can be imported
-        init_file_path = pathlib.Path(file_path).parent / "__init__.py"
-        if not init_file_path.exists():  # For friendly compatibility with tests and non-default recipes
-            return
-
-        with init_file_path.open(mode="r") as io:
-            current_init_file_lines = io.readlines()
-
-        # Insert to the top (after comment) and let pre-commit deal with proper ordering
-        current_init_file_lines.insert(1, f"from .{file_path.stem} import {camel_case_name}\n")
-
-        with init_file_path.open(mode="w") as io:
-            io.writelines(current_init_file_lines)
-
-        return
-
-    @pydantic.validate_call
     def to_markdown_file(self, *, file_path: pydantic.NewPath) -> None:
         """
         Save recipe to a .md file in Markdown format.
@@ -180,6 +120,12 @@ class Recipe(pydantic.BaseModel):
             markdown_text += f"{measurement.amount} {measurement.unit}"
             markdown_text += f" {measurement.ingredient.name}\n\n" if measurement.ingredient.name != "" else "\n\n"
         markdown_text += "\n\n"
+
+        if self.notes is not None:
+            markdown_text += "## Notes\n\n"
+            for note in self.notes:
+                markdown_text += f"{note}\n\n"
+            markdown_text += "\n\n"
 
         markdown_text += "## Instructions\n\n"
         for instruction in self.instructions:
@@ -220,6 +166,13 @@ class Recipe(pydantic.BaseModel):
         ingredient_line_index = lines.index("## Ingredients")
         instruction_line_index = lines.index("## Instructions")
 
+        # TODO: wished there was a lazier way to do this
+        if include_instructions is True and "## Notes" in lines:
+            notes_line_index = lines.index("## Notes")
+            notes = tuple(lines[(notes_line_index + 1) : instruction_line_index])
+        else:
+            notes = None
+
         measurements = []
         for line in lines[(ingredient_line_index + 1) : instruction_line_index]:
             ingredient_line = line.split(" ")
@@ -234,4 +187,4 @@ class Recipe(pydantic.BaseModel):
         # Not necessary for planning tools
         instructions = tuple(lines[instruction_line_index + 1 :]) if include_instructions is True else None
 
-        return Recipe(name=recipe_name, tags=tags, measurements=measurements, instructions=instructions)
+        return Recipe(name=recipe_name, tags=tags, measurements=measurements, instructions=instructions, notes=notes)

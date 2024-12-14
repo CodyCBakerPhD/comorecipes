@@ -20,44 +20,6 @@ def test_example_1_markdown_recipe_load(example_1_folder_path: pathlib.Path):
     assert recipe.instructions == ("This is an example of a recipe.",)
 
 
-def test_example_1_to_pydantic(example_1_folder_path: pathlib.Path, tmpdir: py.path.local):
-    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
-    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
-
-    test_pydantic_model_file_path = pathlib.Path(tmpdir) / "_example_recipe_1.py"
-    recipe.to_pydantic_file(file_path=test_pydantic_model_file_path)
-    with test_pydantic_model_file_path.open(mode="r") as io:
-        test_pydantic_model_file_lines = io.readlines()
-
-    expected_pydantic_model_file_path = example_1_folder_path / "_example_recipe_1.py"
-    with expected_pydantic_model_file_path.open(mode="r") as io:
-        expected_pydantic_model_file_lines = io.readlines()
-
-    # Skip the import styles since expected must be absolute
-    assert test_pydantic_model_file_lines == expected_pydantic_model_file_lines
-
-
-def test_example_1_to_pydantic_with_init_file(example_1_folder_path: pathlib.Path, tmpdir: py.path.local):
-    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
-    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
-
-    test_folder_path = pathlib.Path(tmpdir) / "example_1_with_init"
-    test_folder_path.mkdir()
-    test_pydantic_model_file_path = test_folder_path / "_example_recipe_1.py"
-    test_init_file_path = test_pydantic_model_file_path.parent / "__init__.py"
-    test_init_file_path.touch()
-    recipe.to_pydantic_file(file_path=test_pydantic_model_file_path)
-    with test_pydantic_model_file_path.open(mode="r") as io:
-        test_pydantic_model_file_lines = io.readlines()
-
-    expected_pydantic_model_file_path = example_1_folder_path / "_example_recipe_1.py"
-    with expected_pydantic_model_file_path.open(mode="r") as io:
-        expected_pydantic_model_file_lines = io.readlines()
-
-    # Skip the import styles since expected must be absolute
-    assert test_pydantic_model_file_lines == expected_pydantic_model_file_lines
-
-
 def test_example_1_to_markdown(example_1_folder_path: pathlib.Path, tmpdir: py.path.local):
     example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
     recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
