@@ -44,11 +44,16 @@ def test_example_1_repr(example_1_folder_path: pathlib.Path):
         '\tname="Example Recipe 1",\n'
         "\ttags=('Italian', 'Pasta', 'Entree', 'Vegetarian'),\n"
         "\tmeasurements=(\n"
-        '\t\tMeasurement(amount=31/10, unit="tbsp.", ingredient=Ingredient(name="ingredient 1")),\n'
-        '\t\tMeasurement(amount=4, unit="g", ingredient=Ingredient(name="ingredient 2")),\n'
+        '\t\tMeasurement(amount=31/10, unit="tbsp.", '
+        'ingredient=Ingredient(name="ingredient 1")),\n'
+        '\t\tMeasurement(amount=4, unit="g", ingredient=Ingredient(name="ingredient '
+        '2")),\n'
         "\t),\n"
         "\tinstructions=(\n"
         '\t\t"This is an example of a recipe.",\n'
+        "\t),\n"
+        "\tnotes=(\n"
+        '\t\t"Do not forget about the notes!",\n'
         "\t),\n"
         ")"
     )
@@ -71,6 +76,11 @@ def test_example_1_print(example_1_folder_path: pathlib.Path):
         "-----------\n"
         "31/10 tbsp. ingredient 1\n"
         "4 g ingredient 2\n"
+        "\n"
+        "\n"
+        "Notes\n"
+        "-----\n"
+        "Do not forget about the notes!\n"
         "\n"
         "\n"
         "Instructions\n"

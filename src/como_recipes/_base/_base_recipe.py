@@ -72,7 +72,10 @@ class Recipe(pydantic.BaseModel):
         representation += "\t),\n"
 
         if self.notes is not None:
-            representation += f'\tnotes="{self.notes}",\n'
+            representation += "\tnotes=(\n"
+            for note in self.notes:
+                representation += f'\t\t"{note}",\n'
+            representation += "\t),\n"
 
         representation += ")"
 
@@ -87,6 +90,12 @@ class Recipe(pydantic.BaseModel):
         printout += "-----------\n"
         for measurement in self.measurements:
             printout += f"{measurement.amount} {measurement.unit} {measurement.ingredient.name}\n"
+        printout += "\n\n"
+
+        printout += "Notes\n"
+        printout += "-----\n"
+        for note in self.notes:
+            printout += f"{note}\n"
         printout += "\n\n"
 
         printout += "Instructions\n"
@@ -163,18 +172,19 @@ class Recipe(pydantic.BaseModel):
         recipe_name = lines[0][2:].rstrip(" ")
         tags = tuple(lines[1].split(": ")[1].split(", ")) if "Tags" in lines[1] else None
 
-        ingredient_line_index = lines.index("## Ingredients")
-        instruction_line_index = lines.index("## Instructions")
+        ingredient_start_index = lines.index("## Ingredients")
+        instruction_start_index = lines.index("## Instructions")
 
         # TODO: wished there was a lazier way to do this
         if include_instructions is True and "## Notes" in lines:
-            notes_line_index = lines.index("## Notes")
-            notes = tuple(lines[(notes_line_index + 1) : instruction_line_index])
+            notes_start_index = lines.index("## Notes")
+            notes = tuple(lines[(notes_start_index + 1) : instruction_start_index])
         else:
             notes = None
 
+        measurement_end_index = instruction_start_index if notes is None else notes_start_index
         measurements = []
-        for line in lines[(ingredient_line_index + 1) : instruction_line_index]:
+        for line in lines[(ingredient_start_index + 1) : measurement_end_index]:
             ingredient_line = line.split(" ")
             amount = fractions.Fraction(ingredient_line[0])
             unit = ingredient_line[1]
@@ -185,6 +195,6 @@ class Recipe(pydantic.BaseModel):
         measurements = tuple(measurements)
 
         # Not necessary for planning tools
-        instructions = tuple(lines[instruction_line_index + 1 :]) if include_instructions is True else None
+        instructions = tuple(lines[instruction_start_index + 1 :]) if include_instructions is True else None
 
         return Recipe(name=recipe_name, tags=tags, measurements=measurements, instructions=instructions, notes=notes)
