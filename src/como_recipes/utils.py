@@ -71,6 +71,10 @@ def get_executable_stem() -> str:
     Only supports Windows patterns for the time being.
     """
     platform_name = "_".join(platform.platform().split("-")[:2])
+
+    # Resolve an issue with GitHub Actions builds
+    platform_name.removesuffix("Server")
+
     package_version = get_package_version()
     executable_stem = f"como_recipes_{platform_name}_{package_version}"
 
