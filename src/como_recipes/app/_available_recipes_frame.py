@@ -153,7 +153,6 @@ class AvailableRecipesFrame(tkinter.Frame):
         # TODO
         # meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
         self.app_state["meal_selection"].add_meal(meal=meal)
-        self.app_state["selected_index_to_meals"][meal_index] = selected_meal
 
         self._update_available_index_to_recipe_name()
 

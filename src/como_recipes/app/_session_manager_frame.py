@@ -146,7 +146,6 @@ class SessionManagerFrame(tkinter.Frame):
 
         self.app_state.update(
             {
-                "selected_index_to_meals": {},
                 "tags_to_checkbox_values": {tag: tkinter.IntVar() for tag in all_default_tags},
                 "meal_selection": MealSelection(),
             },

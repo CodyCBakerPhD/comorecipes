@@ -56,7 +56,6 @@ class SelectedMealsFrame(tkinter.Frame):
 
         self.selected_meals_list_box.delete(first="active")
 
-        # self.app_state["selected_index_to_meals"].pop(meal_index)  # Why do we need this?
         self.app_state["meal_selection"].remove_meal(
             recipe_names=tuple(recipe_name for recipe_name in recipe_names),
         )

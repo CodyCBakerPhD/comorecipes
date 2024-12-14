@@ -82,8 +82,9 @@ class CoMoApp(tkinter.Tk):
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
-        package_version = como_recipes.utils.get_package_version()
-        self.version_label = tkinter.Label(master=self, text=package_version)
+        version = como_recipes.utils.get_package_version()
+        version_string = version + ".dev" if como_recipes.utils.is_bundled() is False else version
+        self.version_label = tkinter.Label(master=self, text=version_string)
 
         # Organize frames on grid
         self.session_manager_frame.grid(column=0, rowspan=4, padx=2.5, pady=2.5, sticky="NW")

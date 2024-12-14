@@ -10,14 +10,28 @@ import pydantic
 from ._base._base_recipe import Recipe
 
 
+def is_bundled() -> bool:
+    """Determine if the application is bundled."""
+    result = hasattr(sys, "_MEIPASS")
+
+    return result
+
+def get_bundle_path() -> pathlib.Path:
+    """Determine the bundled (temporary PyInstaller) path for the application."""
+    if is_bundled() is False:
+        raise RuntimeError("Application is not bundled.")
+
+    bundle_path = pathlib.Path(sys._MEIPASS)  # noqa: SLF001
+
+    return bundle_path
+
 def get_package_version() -> str:
     """Load the version hardcopy file."""
     # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
-    is_bundled = hasattr(sys, "_MEIPASS")
-    if is_bundled is True:
-        base_path = pathlib.Path(sys._MEIPASS)  # noqa: SLF001
+    if is_bundled() is True:
+        bundle_path = get_bundle_path()
 
-        file_path = base_path / "_assets" / "pyproject.toml"  # Is copied to _assets during build
+        file_path = bundle_path / "_assets" / "pyproject.toml"  # Is copied to _assets during build
         with file_path.open(mode="r") as io:
             lines = io.readlines()
 
