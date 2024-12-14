@@ -315,7 +315,7 @@ class MealSelection(pydantic.BaseModel):
         return shopping_list
 
     @pydantic.validate_call
-    def to_dict(self) -> dict:
+    def to_json(self) -> dict:
         """Convert the meal selection to an in-memory dictionary."""
         dictionary = {
             "_individual_measurements_to_add": self._individual_measurements_to_add,
@@ -327,7 +327,7 @@ class MealSelection(pydantic.BaseModel):
 
     @classmethod
     @pydantic.validate_call
-    def from_dict(cls, *, dictionary: dict) -> typing.Self:
+    def from_json(cls, *, dictionary: dict) -> typing.Self:
         """Construct a new meal selection from an in-memory dictionary."""
         meal_selector = MealSelection(**dictionary)
 

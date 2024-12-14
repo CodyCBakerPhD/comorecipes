@@ -84,10 +84,10 @@ class Measurement(pydantic.BaseModel):
         return repr(self)
 
     @pydantic.validate_call
-    def to_dict(self) -> dict:
+    def to_json(self) -> dict:
         raise NotImplementedError
 
     @classmethod
     @pydantic.validate_call
-    def from_dict(cls, *, dictionary: dict) -> typing.Self:
+    def from_json(cls, *, dictionary: dict) -> typing.Self:
         raise NotImplementedError
