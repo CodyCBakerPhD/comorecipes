@@ -119,20 +119,26 @@ class SessionManagerFrame(tkinter.Frame):
             if content.is_file() is True and ".pickle" in content.suffixes:
                 return False
 
-        # Application state file must be valid against one of the supported JSON schemas
+        # Application state file must exist and be valid against one of the supported JSON schemas
         application_state_file_path = session_folder_path / "app_state.json"
-        if application_state_file_path.exists() is True:
-            try:
-                with application_state_file_path.open(mode="r") as io:
-                    app_state = json.load(fp=io)
+        if application_state_file_path.exists() is False:
+            return False
 
-                jsonschema.validate(instance=app_state, schema=app_state_json_schema)
-            except Exception as exception:
-                # TODO: do some kind of error box popup for this
-                print(f"{type(exception).__name__}: {exception}")
-                print(traceback.format_exc())
+        try:
+            with application_state_file_path.open(mode="r") as io:
+                app_state = json.load(fp=io)
 
-                return False
+            jsonschema.validate(instance=app_state, schema=app_state_json_schema)
+        except Exception as exception:
+            # TODO: do some kind of error box popup for this
+            print(f"{type(exception).__name__}: {exception}")
+            print(traceback.format_exc())
+
+            return False
+
+        # No point to saving app state with no meals selected
+        if app_state["meal_selection"].is_empty() is True:
+            return False
 
         return True
 
