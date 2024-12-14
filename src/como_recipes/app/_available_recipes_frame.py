@@ -6,7 +6,6 @@ import natsort
 
 from ._app_globals import (
     default_index_to_recipe_name,
-    default_recipe_name_to_index,
 )
 from ._app_utils import _generate_default_app_state
 from .._base._base_meal import Meal
