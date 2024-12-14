@@ -44,7 +44,7 @@ runs:
           --name="como_recipes-${{ inputs.os }}-${{ steps.package_version.outputs.value }}" \
           --icon="./src/como_recipes/_assets/como_icon.ico" \
           --add-data="src/como_recipes/_assets:_assets" \
-          --add-data="pyproject.toml:pyproject.toml" \
+          --add-data="pyproject.toml:_assets" \
           src/como_recipes/app/_app_launcher.py
       shell: bash
 

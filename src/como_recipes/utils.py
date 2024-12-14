@@ -17,7 +17,7 @@ def get_package_version() -> str:
     if is_bundled is True:
         base_path = pathlib.Path(sys._MEIPASS)  # noqa: SLF001
 
-        file_path = base_path / "pyproject.toml"
+        file_path = base_path / "_assets" / "pyproject.toml"  # Is copied to _assets during build
         with file_path.open(mode="r") as io:
             lines = io.readlines()
 
