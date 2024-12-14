@@ -6,7 +6,7 @@ import pathlib
 
 import click
 
-from .utils import get_package_version
+from .utils import get_executable_stem, get_package_version
 
 
 @click.command(name="write_missing_markdown_recipes")
@@ -52,4 +52,13 @@ def _write_missing_markdown_recipes(*, limit: int | None = None) -> None:  # pra
 
 @click.command(name="como_recipes_version")
 def _version() -> None:
-    click.echo(message=get_package_version())
+    message = get_package_version()
+
+    click.echo(message=message)
+
+
+@click.command(name="como_recipes_executable_stem")
+def _executable_stem() -> None:
+    message = get_executable_stem()
+
+    click.echo(message=message)

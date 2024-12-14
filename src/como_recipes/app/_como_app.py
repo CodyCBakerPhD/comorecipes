@@ -27,6 +27,11 @@ class CoMoApp(tkinter.Tk):
         """Open the GitHub issue page for the CoMo project."""
         webbrowser.open_new("https://github.com/CodyCBakerPhD/como_recipes/issues/new/choose")
 
+    def _open_license_popup(self) -> None:
+        """Open a popup with the license information."""
+        license_text = como_recipes.utils.get_license_text()
+        tkinter.messagebox.showinfo(title="License", message=license_text)
+
     def setup_window(self) -> None:
         """Initialize the main window and menu bar."""
         # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
@@ -44,6 +49,10 @@ class CoMoApp(tkinter.Tk):
         self.help_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label="Help", menu=self.help_menu)
         self.help_menu.add_command(label="Submit issue", command=self._open_github_issue_page)
+
+        self.about_menu = tkinter.Menu(master=self.main_menu, tearoff=False)
+        self.main_menu.add_cascade(label="About", menu=self.about_menu)
+        self.about_menu.add_command(label="License", command=self._open_license_popup)
 
         # Components do not currently support dynamic resizing, so just freeze window size
         self.resizable(width=False, height=False)
@@ -82,8 +91,9 @@ class CoMoApp(tkinter.Tk):
             minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
             minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
         )
-        package_version = como_recipes.utils.get_package_version()
-        self.version_label = tkinter.Label(master=self, text=package_version)
+        version = como_recipes.utils.get_package_version()
+        version_string = version + ".dev" if como_recipes.utils.is_bundled() is False else version
+        self.version_label = tkinter.Label(master=self, text=version_string)
 
         # Organize frames on grid
         self.session_manager_frame.grid(column=0, rowspan=4, padx=2.5, pady=2.5, sticky="NW")

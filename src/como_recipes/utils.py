@@ -2,6 +2,7 @@
 
 import importlib.metadata
 import pathlib
+import platform
 import sys
 
 import natsort
@@ -10,14 +11,47 @@ import pydantic
 from ._base._base_recipe import Recipe
 
 
-def get_package_version() -> str:
-    """Load the version hardcopy file."""
-    # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
-    is_bundled = hasattr(sys, "_MEIPASS")
-    if is_bundled is True:
-        base_path = pathlib.Path(sys._MEIPASS)  # noqa: SLF001
+def is_bundled() -> bool:
+    """Determine if the application is bundled by PyInstaller."""
+    result = hasattr(sys, "_MEIPASS")
 
-        file_path = base_path / "_assets" / "pyproject.toml"  # Is copied to _assets during build
+    return result
+
+
+def get_bundle_path() -> pathlib.Path:
+    """Determine the bundled (temporary PyInstaller) path for the application."""
+    if is_bundled() is False:
+        message = "Application is not bundled."
+
+        raise RuntimeError(message)
+
+    bundle_path = pathlib.Path(sys._MEIPASS)  # noqa: SLF001
+
+    return bundle_path
+
+
+def get_license_text() -> str:
+    """Load the license text file."""
+    if is_bundled() is True:
+        bundle_path = get_bundle_path()
+
+        file_path = bundle_path / "_assets" / "license.txt"  # Is copied to _assets during build
+        with file_path.open(mode="r") as io:
+            license_text = io.read()
+    else:
+        file_path = pathlib.Path(__file__).parent.parent.parent / "license.txt"
+        with file_path.open(mode="r") as io:
+            license_text = io.read()
+
+    return license_text
+
+
+def get_package_version() -> str:
+    """Load the version directly from the TOML file."""
+    if is_bundled() is True:
+        bundle_path = get_bundle_path()
+
+        file_path = bundle_path / "_assets" / "pyproject.toml"  # Is copied to _assets during build
         with file_path.open(mode="r") as io:
             lines = io.readlines()
 
@@ -28,6 +62,23 @@ def get_package_version() -> str:
     version_string = f"v{version}"
 
     return version_string
+
+
+def get_executable_stem() -> str:
+    """
+    Determine the executable name for the application.
+
+    Only supports Windows patterns for the time being.
+    """
+    platform_name = "_".join(platform.platform().split("-")[:2])
+
+    # Resolve an issue with GitHub Actions builds
+    corrected_platform_name = platform_name.removesuffix("Server")
+
+    package_version = get_package_version()
+    executable_stem = f"como_recipes_{corrected_platform_name}_{package_version}"
+
+    return executable_stem
 
 
 @pydantic.validate_call
