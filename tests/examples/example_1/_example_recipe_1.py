@@ -14,6 +14,9 @@ class ExampleRecipe1(Recipe):
     instructions: tuple[str, ...] = (
         "This is an example of a recipe.",
     )
+    notes: tuple[str, ...] = (
+        "Do not forget about the notes!",
+    )
 
 
 default_recipe_registry.add_recipe(recipe=ExampleRecipe1())
