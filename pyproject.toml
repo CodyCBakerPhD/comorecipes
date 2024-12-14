@@ -29,6 +29,7 @@ dependencies = [
     "pydantic>=2.10",  # Need >=2.10 for fractions support
     "click",
     "natsort",
+    "jsonschema",
 ]
 
 [tool.black]
