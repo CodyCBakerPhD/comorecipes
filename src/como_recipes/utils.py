@@ -2,6 +2,7 @@
 
 import importlib.metadata
 import pathlib
+import platform
 import sys
 
 import natsort
@@ -61,6 +62,19 @@ def get_package_version() -> str:
     version_string = f"v{version}"
 
     return version_string
+
+
+def get_executable_stem() -> str:
+    """
+    Determine the executable name for the application.
+
+    Only supports Windows patterns for the time being.
+    """
+    platform_name = "_".join(platform.platform().split("-")[:2])
+    package_version = get_package_version()
+    executable_stem = f"como_recipes_{platform_name}_{package_version}"
+
+    return executable_stem
 
 
 @pydantic.validate_call
