@@ -10,20 +10,6 @@ import pydantic
 from ._base._base_recipe import Recipe
 
 
-def save_version_hardcopy() -> None:
-    """
-    When bundling with PyInstaller, there is no longer a local 'package' for `importlib` to use.
-
-    Therefore, write the value to an asset hardcopy file and include it with the PyInstaller bundle.
-    """
-    version = importlib.metadata.version(distribution_name="como_recipes")
-    version_string = f"v{version}"
-
-    version_hardcopy_file_path = pathlib.Path(__file__).parent / "_assets" / "version.txt"
-    with version_hardcopy_file_path.open(mode="w") as io:
-        io.write(version_string)
-
-
 def get_package_version() -> str:
     """Load the version hardcopy file."""
     # Must determine if path to asset is relative (in dev mode) or frozen (in production mode)
@@ -31,14 +17,15 @@ def get_package_version() -> str:
     if is_bundled is True:
         base_path = pathlib.Path(sys._MEIPASS)  # noqa: SLF001
 
-        version_hardcopy_file_path = base_path / "_assets" / "version.txt"
-        with version_hardcopy_file_path.open(mode="r") as io:
-            version_string = io.read().strip()
-    else:
-        save_version_hardcopy()
+        file_path = base_path / "_assets" / "pyproject.toml"  # Is copied to _assets during build
+        with file_path.open(mode="r") as io:
+            lines = io.readlines()
 
+        version_line = next(line for line in lines if "version" in line)
+        version = version_line.split("=")[1].strip().strip('"')
+    else:
         version = importlib.metadata.version(distribution_name="como_recipes")
-        version_string = f"v{version}"
+    version_string = f"v{version}"
 
     return version_string
 
