@@ -1,12 +1,13 @@
+import json
 import pathlib
-import pickle
 import shutil
 import tkinter
 
+import jsonschema
 import natsort
 
-from ._app_globals import all_default_tags
-from ._app_utils import _generate_default_app_state, _generate_new_default_session_id
+from ._app_globals import all_default_tags, app_state_json_schema
+from ._app_utils import _CoMoJSONEncoder, _generate_default_app_state, _generate_new_default_session_id
 from .._meal_selection import MealSelection
 
 
@@ -108,8 +109,25 @@ class SessionManagerFrame(tkinter.Frame):
     @staticmethod
     def _is_valid_session(session_folder_path: pathlib.Path) -> bool:
         """Check if the current session folder contents are valid."""
-        if session_folder_path.exists() and len(list(session_folder_path.iterdir())) == 0:
+        # Session folder, if it exists, must not be empty
+        if session_folder_path.exists() and len(session_folder_contents := list(session_folder_path.iterdir())) == 0:
             return False
+
+        # Old pickle files are forbidden now
+        for content in session_folder_contents:
+            if content.is_file() is True and ".pickle" in content.suffixes:
+                return False
+
+        # Application state file must be valid against one of the supported JSON schemas
+        application_state_file_path = session_folder_path / "app_state.json"
+        if application_state_file_path.exists() is True:
+            with application_state_file_path.open(mode="r") as io:
+                app_state = json.load(fp=io)
+
+            try:
+                jsonschema.validate(instance=app_state, schema=app_state_json_schema)
+            except jsonschema.exceptions.ValidationError:
+                return False
 
         return True
 
@@ -185,20 +203,28 @@ class SessionManagerFrame(tkinter.Frame):
     def save_app_state(self, event: tkinter.Event | None = None) -> None:
         """Save the current session to a new folder in the app home directory."""
         self.app_state["session_folder_path"].mkdir(exist_ok=True)
-        copy_without_intvar = self.app_state.copy()
-        copy_without_intvar["tags_to_checkbox_values"] = {
+        json_copy = self.app_state.copy()
+        json_copy["tags_to_checkbox_values"] = {
             tag: var.get() for tag, var in self.app_state["tags_to_checkbox_values"].items()
         }
-        with self.app_state["app_state_file_path"].open(mode="wb") as io:
-            pickle.dump(obj=copy_without_intvar, file=io)
+        with self.app_state["app_state_file_path"].open(mode="w") as io:
+            json.dump(obj=json_copy, fp=io, cls=_CoMoJSONEncoder)
 
     def load_app_state(self, event: tkinter.Event | None = None) -> None:
         """Save the current session to a new folder in the app home directory."""
-        with self.app_state["app_state_file_path"].open(mode="rb") as io:
-            self.app_state.update(pickle.load(file=io))  # noqa: S301
-        self.app_state["tags_to_checkbox_values"] = {
-            tag: tkinter.IntVar(value=value) for tag, value in self.app_state["tags_to_checkbox_values"].items()
-        }
+        with self.app_state["app_state_file_path"].open(mode="r") as io:
+            json_state = json.load(fp=io)
+        self.app_state.update(json_state)
+
+        # Recast paths to pathlib.Path objects
+        self.app_state["home_folder_path"] = pathlib.Path(self.app_state["home_folder_path"])
+        self.app_state["session_folder_path"] = pathlib.Path(self.app_state["session_folder_path"])
+        self.app_state["app_state_file_path"] = pathlib.Path(self.app_state["app_state_file_path"])
+
+        # Recast the checkbox values to actual Tkinter variables
+        self.app_state["tags_to_checkbox_values"].update(
+            {tag: tkinter.IntVar(value=value) for tag, value in self.app_state["tags_to_checkbox_values"].items()},
+        )
 
     def delete_session_popup(self, event: tkinter.Event | None = None) -> None:
         """Display a popup menu for deleting a session when right-clicking a session ID in the listbox."""

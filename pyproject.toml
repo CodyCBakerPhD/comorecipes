@@ -81,6 +81,7 @@ ignore = [
     "D402",  # False positives with this one
     "ANN101",  # Deprecated and will be removed soon
     "ANN102",  # Deprecated and will be removed soon
+    "ANN401",  # Sometimes you really do need `typing.Any`
     "DTZ005",  # Timezone can't easily be detected to use for timestamping; we also just don't need it for anything
     "ICN001",  # Controversial opinion: I prefer fully explicit naming to avoid any potential confusion
     "PYI041",  # Disagree with

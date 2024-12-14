@@ -1,10 +1,12 @@
 import datetime
+import json
 import pathlib
 import tkinter.messagebox
 import typing
 
-from ._app_globals import all_default_tags
+from ._app_globals import all_default_tags, app_state_json_schema
 from .._meal_selection import MealSelection
+from ..utils import get_package_version
 
 
 def _get_home_folder() -> pathlib.Path:
@@ -49,11 +51,23 @@ def _generate_default_app_state() -> dict[str, typing.Any]:
     session_id = _generate_new_default_session_id(home_folder=home_folder_path)
 
     default_app_state = {
+        "version": app_state_json_schema["version"],
+        "como_version": get_package_version(),
         "home_folder_path": home_folder_path,
         "session_folder_path": home_folder_path / session_id,
-        "app_state_file_path": home_folder_path / session_id / "app_state.pickle",
+        "app_state_file_path": home_folder_path / session_id / "app_state.json",
         "tags_to_checkbox_values": {tag: tkinter.IntVar() for tag in all_default_tags},
         "meal_selection": MealSelection(),
     }
 
     return default_app_state
+
+
+class _CoMoJSONEncoder(json.JSONEncoder):
+    def default(self, obj: typing.Any) -> typing.Any:
+        if isinstance(obj, pathlib.Path):
+            return str(obj)
+        if isinstance(obj, MealSelection):
+            return obj.model_dump_json()
+
+        return super().default(obj)

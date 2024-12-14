@@ -1,3 +1,6 @@
+import json
+import pathlib
+
 import natsort
 
 from .._registration._recipe_registry import default_recipe_registry
@@ -26,3 +29,7 @@ default_entree_to_index: dict[int, str] = {
     # TODO: enable when more recipes are tagged properly
     # if "Entree" in default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
 }
+
+_app_state_json_schema_file_path = pathlib.Path(__file__).parent / "_app_state_json_schema.json"
+with _app_state_json_schema_file_path.open("r") as io:
+    app_state_json_schema = json.load(fp=io)
