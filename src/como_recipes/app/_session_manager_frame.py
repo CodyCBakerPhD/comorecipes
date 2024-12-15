@@ -137,7 +137,17 @@ class SessionManagerFrame(tkinter.Frame):
             return False
 
         # No point to saving app state with no meals selected
-        if app_state["meal_selection"].is_empty() is True:
+        if (
+            all(
+                len(app_state["meal_selection"][attribute_name]) == 0
+                for attribute_name in [
+                    "_individual_measurements_to_add",
+                    "_individual_measurements_to_remove",
+                    "_recipe_names_to_meal",
+                ]
+            )
+            is True
+        ):
             return False
 
         return True
@@ -222,7 +232,7 @@ class SessionManagerFrame(tkinter.Frame):
         }
 
         # Serialize the MealSelector object
-        json_copy["meal_selection"] = json_copy["meal_selection"].to_dict()
+        json_copy["meal_selection"] = json_copy["meal_selection"].to_json_dictionary()
 
         with self.app_state["app_state_file_path"].open(mode="w") as io:
             json.dump(obj=json_copy, fp=io, cls=_CoMoJSONEncoder, indent=1)
@@ -240,7 +250,9 @@ class SessionManagerFrame(tkinter.Frame):
         self.app_state["app_state_file_path"] = pathlib.Path(self.app_state["app_state_file_path"])
 
         # Rehydrate the MealSelector
-        self.app_state["meal_selection"] = MealSelection.from_dict(obj=self.app_state["meal_selection"])
+        self.app_state["meal_selection"] = MealSelection.from_json_dictionary(
+            dictionary=self.app_state["meal_selection"],
+        )
 
         # Recast the checkbox values to actual Tkinter variables
         self.app_state["tags_to_checkbox_values"].update(

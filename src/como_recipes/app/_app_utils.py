@@ -1,4 +1,5 @@
 import datetime
+import fractions
 import json
 import pathlib
 import tkinter.messagebox
@@ -67,6 +68,10 @@ class _CoMoJSONEncoder(json.JSONEncoder):
     def default(self, obj: typing.Any) -> typing.Any:
         if isinstance(obj, pathlib.Path):
             return str(obj)
+        if isinstance(obj, fractions.Fraction) and obj.denominator == 1:
+            return int(obj)
+        if isinstance(obj, fractions.Fraction):
+            return float(obj)
         if isinstance(obj, MealSelection):
             return obj.model_dump_json()
 

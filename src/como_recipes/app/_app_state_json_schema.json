@@ -26,23 +26,26 @@
     "app_state_file_path": {
       "format": "file-path",
       "title": "App State File Path",
-        "description": "The path to the app state file for this session.",
+      "description": "The path to the app state file for this session.",
       "type": "string"
     },
     "tags_to_checkbox_values": {
       "additionalProperties": {
         "type": "integer"
       },
-      "title": "Tags To Checkbox Values",
+      "title": "Tags to Checkbox Values",
+      "description": "The underlying values of the tag filtering checkboxes.",
       "type": "object"
     },
     "meal_selection": {
       "title": "Meal Selection",
+      "description": "The meals and custom ingredients that have been selected.",
       "type": "object"
     }
   },
   "required": [
     "version",
+    "como_version",
     "home_folder_path",
     "session_folder_path",
     "app_state_file_path",

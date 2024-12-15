@@ -349,7 +349,8 @@ class MealSelection(pydantic.BaseModel):
             for ingredient_name, measurements in self._individual_measurements_to_remove.items()
         }
         recipe_names_to_meal = {
-            recipe_names: meal.to_json_dictionary() for recipe_names, meal in self._recipe_names_to_meal.items()
+            ",".join(recipe_names): meal.to_json_dictionary()
+            for recipe_names, meal in self._recipe_names_to_meal.items()
         }
 
         dictionary = {
@@ -395,7 +396,7 @@ class MealSelection(pydantic.BaseModel):
             for ingredient_name, measurements in dictionary["_individual_measurements_to_remove"].items()
         }
         recipe_names_to_meal = {
-            recipe_names: Meal.from_json_dictionary(dictionary=meal)
+            tuple(recipe_names.split(",")): Meal.from_json_dictionary(dictionary=meal)
             for recipe_names, meal in dictionary["_recipe_names_to_meal"].items()
         }
 
