@@ -4,10 +4,12 @@ from ._selected_meals_frame import SelectedMealsFrame
 from ._como_app import CoMoApp
 from ._session_manager_frame import SessionManagerFrame
 from ._raw_ingredient_frame import RawIngredientFrame
+from ._meal_assembler import MealAssembler
 
 __all__ = [
     "AvailableRecipesFrame",
     "CoMoApp",
+    "MealAssembler",
     "RawIngredientFrame",
     "SelectedMealsFrame",
     "ShoppingListFrame",

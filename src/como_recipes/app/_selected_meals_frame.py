@@ -52,7 +52,6 @@ class SelectedMealsFrame(tkinter.Frame):
         """Move a meal from the selected list back to the available list."""
         selected_meal = self.selected_meals_list_box.get(first="active")
         recipe_names = tuple(recipe_name for recipe_name in selected_meal.split(" + "))
-        # meal_index = default_recipe_name_to_index[recipe_names[0]]
 
         self.selected_meals_list_box.delete(first="active")
 

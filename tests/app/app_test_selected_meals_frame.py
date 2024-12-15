@@ -4,6 +4,7 @@ import como_recipes
 
 if __name__ == "__main__":
     app = tkinter.Tk()
+
     selected_meals_frame = como_recipes.app.SelectedMealsFrame(master=app)
     selected_meals_frame.pack(padx=2.5, pady=2.5)
 
