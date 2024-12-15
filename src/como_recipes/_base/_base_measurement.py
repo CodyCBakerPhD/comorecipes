@@ -74,20 +74,39 @@ class Measurement(pydantic.BaseModel):
         self.amount = fractions.Fraction(self.amount).limit_denominator()
 
     def __repr__(self) -> str:
+        """
+        Logic defining the `repr` operator, most commonly used by printout of variables in Python/iPython shells.
+
+        This is intended to be as programmatic (machine-readable) as possible; a user ought to be able to copy and paste
+        the representation and run it as code to generate a new instance of the object.
+
+        As a style choice, the representation is padded before and after with empty space.
+        """
         string_amount = str(self.amount.numerator) if self.amount.denominator == 1 else str(self.amount)
         representation = f'Measurement(amount={string_amount}, unit="{self.unit}", ingredient={self.ingredient!r})'
 
         return representation
 
     def __str__(self) -> str:
-        """Used by calls to `print(...)`."""
+        """
+        Logic defining the `str` operator, which occurs either on casting to a string or when `print(...)` is called.
+
+        This is intended to be as human-readable as possible.
+
+        As a style choice, the printout is padded before and after with empty space.
+        """
         return repr(self)
 
-    @pydantic.validate_call
-    def to_json(self) -> dict:
-        raise NotImplementedError
+    def __eq__(self, other: "Measurement") -> bool:
+        """
+        Logic defining the `==` operator.
 
-    @classmethod
-    @pydantic.validate_call
-    def from_json(cls, *, dictionary: dict) -> typing.Self:
-        raise NotImplementedError
+        Primarily used by consistency assertions in the tests.
+
+        Compares only the contained fields of the object, not including its memory address (two imported instances
+        of the class with the same fields will be considered equal).
+        """
+        fields_to_compare = ["amount", "unit", "ingredient"]
+        result = all(getattr(self, field) == getattr(other, field) for field in fields_to_compare)
+
+        return result

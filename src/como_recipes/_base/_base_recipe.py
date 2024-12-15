@@ -45,7 +45,14 @@ class Recipe(pydantic.BaseModel):
         raise NotImplementedError(message)
 
     def __eq__(self, other: "Recipe") -> bool:
-        """Primary used by consistency assertions in the tests."""
+        """
+        Logic defining the `==` operator.
+
+        Primarily used by consistency assertions in the tests.
+
+        Compares only the contained fields of the object, not including its memory address (two imported instances
+        of the class with the same fields will be considered equal).
+        """
         if not isinstance(other, type(self).mro()[1]):
             return False
 

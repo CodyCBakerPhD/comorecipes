@@ -3,13 +3,13 @@ from unittest.mock import patch
 
 import pytest
 
-from como_recipes import Ingredient, IngredientRegistry
+import como_recipes
 
 
-def test_ingredient_registry(example_ingredient: Ingredient):
+def test_ingredient_registry(example_ingredient: como_recipes.Ingredient):
     """A sequence of integration tests for the `IngredientRegistry` class."""
     # Test empty registry
-    new_registry = IngredientRegistry()
+    new_registry = como_recipes.IngredientRegistry()
 
     expected_repr = "\ncomo_recipes.IngredientRegistry()\n"
     expected_str = "\n0 registered ingredients\n\n"
@@ -21,6 +21,8 @@ def test_ingredient_registry(example_ingredient: Ingredient):
 
     # Test adding an ingredient
     new_registry.add_ingredient(ingredient=example_ingredient)
+
+    test_ingredient = new_registry.get_ingredient(ingredient_name="Example Ingredient 1")
 
     expected_repr = (
         "\n"
@@ -37,10 +39,10 @@ def test_ingredient_registry(example_ingredient: Ingredient):
     with patch("sys.stdout", new=StringIO()) as captured_output:
         print(new_registry)
     assert captured_output.getvalue() == expected_str
-    assert new_registry.get_ingredient(ingredient_name="Example Ingredient 1") == example_ingredient
+    assert test_ingredient == example_ingredient
 
     # Test removing an ingredient
-    ingredient_2 = Ingredient(name="Example Ingredient 2")
+    ingredient_2 = como_recipes.Ingredient(name="Example Ingredient 2")
     new_registry.add_ingredient(ingredient=ingredient_2)
     new_registry.remove_ingredient(ingredient_name="Example Ingredient 1")
 
@@ -62,19 +64,43 @@ def test_ingredient_registry(example_ingredient: Ingredient):
 
 
 def test_get_ingredient_error():
-    new_registry = IngredientRegistry()
+    new_registry = como_recipes.IngredientRegistry()
 
     with pytest.raises(ValueError, match="Ingredient 'Unregistered' not found in the registry."):
         new_registry.get_ingredient(ingredient_name="Unregistered")
 
 
 def test_get_measurement_default():
-    measurement = IngredientRegistry.get_measurement(amount=1.0, unit="grams", ingredient_name="Garlic")
+    measurement = como_recipes.IngredientRegistry.get_measurement(amount=1.0, unit="grams", ingredient_name="Garlic")
     assert str(type(measurement.ingredient)) == "<class 'como_recipes._ingredients._garlic.Garlic'>"
     assert measurement.ingredient.name == "Garlic"
 
 
 def test_get_measurement_non_default():
-    measurement = IngredientRegistry.get_measurement(amount=1.0, unit="grams", ingredient_name="Unregistered")
+    measurement = como_recipes.IngredientRegistry.get_measurement(
+        amount=1.0,
+        unit="grams",
+        ingredient_name="Unregistered",
+    )
     assert str(type(measurement.ingredient)) == "<class 'como_recipes._base._base_ingredient.Ingredient'>"
     assert measurement.ingredient.name == "Unregistered"
+
+
+def test_ingredient_equality_with_different_memory_address():
+    test_ingredient = como_recipes.Ingredient(name="Garlic", default_grams_per_package=1.0, default_package_unit="head")
+    registered_ingredient = como_recipes.default_ingredient_registry.get_ingredient(ingredient_name="Garlic")
+
+    assert test_ingredient == registered_ingredient
+
+
+def test_measurement_equality_with_different_memory_address():
+    test_ingredient = como_recipes.Ingredient(name="Garlic", default_grams_per_package=1.0, default_package_unit="head")
+    test_measurement = como_recipes.Measurement(amount=1.0, unit="grams", ingredient=test_ingredient)
+
+    registered_measurement = como_recipes.IngredientRegistry.get_measurement(
+        amount=1.0,
+        unit="grams",
+        ingredient_name="Garlic",
+    )
+
+    assert test_measurement == registered_measurement
