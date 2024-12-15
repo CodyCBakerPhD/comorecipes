@@ -2,6 +2,8 @@ import typing
 
 import pydantic
 
+from ._base_ingredient import Ingredient
+from ._base_measurement import Measurement
 from ._base_recipe import Recipe
 from ..utils import get_recipe_names_by_type
 
@@ -96,3 +98,66 @@ class Meal(pydantic.BaseModel):
         recipe_names = get_recipe_names_by_type(recipes=list(self._recipe_name_to_recipe.values()))
 
         return tuple(self._recipe_name_to_recipe[recipe_name] for recipe_name in recipe_names)
+
+    @pydantic.validate_call
+    def to_json_dictionary(self) -> dict:
+        """Convert the meal to an in-memory JSON-compatible dictionary."""
+        recipe_name_to_recipe = {
+            recipe_name: {
+                "name": recipe.name,
+                "tags": recipe.tags,
+                "measurements": [
+                    {
+                        "amount": measurement.amount,
+                        "unit": measurement.unit,
+                        "ingredient": {
+                            "name": measurement.ingredient.name,
+                            "default_grams_per_package": measurement.ingredient.default_grams_per_package,
+                            "default_package_unit": measurement.ingredient.default_package_unit,
+                        },
+                    }
+                    for measurement in recipe.measurements
+                ],
+                "instructions": recipe.instructions,
+                "notes": recipe.notes,
+            }
+            for recipe_name, recipe in self._recipe_name_to_recipe.items()
+        }
+
+        dictionary = {
+            "quantity_multiplier": self.quantity_multiplier,
+            "_recipe_name_to_recipe": recipe_name_to_recipe,
+        }
+
+        return dictionary
+
+    @classmethod
+    @pydantic.validate_call
+    def from_json_dictionary(cls, *, dictionary: dict) -> typing.Self:
+        """Construct a meal from an in-memory JSON-compatible dictionary."""
+        recipe_name_to_recipe = {
+            recipe_name: Recipe(
+                name=recipe["name"],
+                tags=recipe["tags"],
+                measurements=[
+                    Measurement(
+                        amount=measurement["amount"],
+                        unit=measurement["unit"],
+                        ingredient=Ingredient(
+                            name=measurement["ingredient"]["name"],
+                            default_grams_per_package=measurement["ingredient"]["default_grams_per_package"],
+                            default_package_unit=measurement["ingredient"]["default_package_unit"],
+                        ),
+                    )
+                    for measurement in recipe["measurements"]
+                ],
+                instructions=recipe["instructions"],
+                notes=recipe["notes"],
+            )
+            for recipe_name, recipe in dictionary["_recipe_name_to_recipe"].items()
+        }
+
+        meal = Meal(quantity_multiplier=dictionary["quantity_multiplier"])
+        meal._recipe_name_to_recipe = recipe_name_to_recipe  # noqa: SLF001
+
+        return meal

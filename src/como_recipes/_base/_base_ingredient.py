@@ -11,7 +11,7 @@ class Ingredient(pydantic.BaseModel):
     ----------
     name : str
         Name of the ingredient.
-    default_package_size_in_grams : int | float | None, optional
+    default_grams_per_package : int | float | None, optional
         Size of the default package (in grams) as commonly found in stores.
         If this size is variable (such as garlic heads), then the lower end of the range is estimated.
     default_package_unit : str | None, optional
@@ -43,3 +43,17 @@ class Ingredient(pydantic.BaseModel):
             raise NotImplementedError(message)
 
         return int(math.ceil(amount_in_grams / self.default_grams_per_package))
+
+    def __eq__(self, other: "Ingredient") -> bool:
+        """
+        Logic defining the `==` operator.
+
+        Primarily used by consistency assertions in the tests.
+
+        Compares only the contained fields of the object, not including its memory address (two imported instances
+        of the class with the same fields will be considered equal).
+        """
+        fields_to_compare = ["name", "default_grams_per_package", "default_package_unit"]
+        result = all(getattr(self, field) == getattr(other, field) for field in fields_to_compare)
+
+        return result

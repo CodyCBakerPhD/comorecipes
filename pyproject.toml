@@ -29,6 +29,7 @@ dependencies = [
     "pydantic>=2.10",  # Need >=2.10 for fractions support
     "click",
     "natsort",
+    "jsonschema",
 ]
 
 [tool.black]
@@ -81,6 +82,7 @@ ignore = [
     "D402",  # False positives with this one
     "ANN101",  # Deprecated and will be removed soon
     "ANN102",  # Deprecated and will be removed soon
+    "ANN401",  # Sometimes you really do need `typing.Any`
     "DTZ005",  # Timezone can't easily be detected to use for timestamping; we also just don't need it for anything
     "ICN001",  # Controversial opinion: I prefer fully explicit naming to avoid any potential confusion
     "PYI041",  # Disagree with
@@ -110,6 +112,7 @@ ignore = [
     "ARG002",  # Tkinter sometimes requires callbacks to have a specific argument, even if unused
     "SLF001",  # Need to access _MEIPASS for PyInstaller assets
     "T201",  # Fine to use `print` for app debugging
+    "BLE001",  # Error catching is handled by the app
 ]
 "src/como_recipes/_assets/*" = [
     "INP001",  # Not an official part of the package, just a helper script

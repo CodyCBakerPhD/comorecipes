@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "como_app_state.json",
+  "title": "AppState",
+  "description": "The underlying data structure for the app state which is saved for a given session.",
+  "type": "object",
+  "version": "0.0.1",
+  "properties": {
+    "como_version": {
+      "title": "CoMo Version",
+      "description": "The version of the CoMo app/package that created this file.",
+      "type": "string"
+    },
+    "home_folder_path": {
+      "format": "directory-path",
+      "title": "Home Folder Path",
+      "description": "The path to the home folder of the CoMo app.",
+      "type": "string"
+    },
+    "session_folder_path": {
+      "format": "directory-path",
+      "title": "Session Folder Path",
+      "description": "The path to the specific folder used by the session being saved.",
+      "type": "string"
+    },
+    "app_state_file_path": {
+      "format": "file-path",
+      "title": "App State File Path",
+      "description": "The path to the app state file for this session.",
+      "type": "string"
+    },
+    "tags_to_checkbox_values": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Tags to Checkbox Values",
+      "description": "The underlying values of the tag filtering checkboxes.",
+      "type": "object"
+    },
+    "meal_selection": {
+      "title": "Meal Selection",
+      "description": "The meals and custom ingredients that have been selected.",
+      "type": "object"
+    }
+  },
+  "required": [
+    "version",
+    "como_version",
+    "home_folder_path",
+    "session_folder_path",
+    "app_state_file_path",
+    "tags_to_checkbox_values",
+    "meal_selection"
+  ]
+}

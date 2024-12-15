@@ -1,12 +1,11 @@
 import collections
-import pathlib
-import pickle
 import typing
 import warnings
 
 import natsort
 import pydantic
 
+from ._base._base_ingredient import Ingredient
 from ._base._base_meal import Meal
 from ._base._base_measurement import Measurement
 
@@ -317,16 +316,93 @@ class MealSelection(pydantic.BaseModel):
         return shopping_list
 
     @pydantic.validate_call
-    def to_pickle(self, file_path: pydantic.FilePath | pydantic.NewPath) -> None:
-        """Write the meal selection to a pickle file."""
-        with pathlib.Path(file_path).open(mode="wb") as io:
-            pickle.dump(obj=self, file=io)
+    def to_json_dictionary(self) -> dict:
+        """Convert the meal selection to an in-memory JSON-compatible dictionary."""
+        individual_measurements_to_add = {
+            ingredient_name: [
+                {
+                    "amount": measurement.amount,
+                    "unit": measurement.unit,
+                    "ingredient": {
+                        "name": measurement.ingredient.name,
+                        "default_grams_per_package": measurement.ingredient.default_grams_per_package,
+                        "default_package_unit": measurement.ingredient.default_package_unit,
+                    },
+                }
+                for measurement in measurements
+            ]
+            for ingredient_name, measurements in self._individual_measurements_to_add.items()
+        }
+        individual_measurements_to_remove = {
+            ingredient_name: [
+                {
+                    "amount": measurement.amount,
+                    "unit": measurement.unit,
+                    "ingredient": {
+                        "name": measurement.ingredient.name,
+                        "default_grams_per_package": measurement.ingredient.default_grams_per_package,
+                        "default_package_unit": measurement.ingredient.default_package_unit,
+                    },
+                }
+                for measurement in measurements
+            ]
+            for ingredient_name, measurements in self._individual_measurements_to_remove.items()
+        }
+        recipe_names_to_meal = {
+            ",".join(recipe_names): meal.to_json_dictionary()
+            for recipe_names, meal in self._recipe_names_to_meal.items()
+        }
+
+        dictionary = {
+            "_individual_measurements_to_add": individual_measurements_to_add,
+            "_individual_measurements_to_remove": individual_measurements_to_remove,
+            "_recipe_names_to_meal": recipe_names_to_meal,
+        }
+
+        return dictionary
 
     @classmethod
     @pydantic.validate_call
-    def from_pickle(cls, file_path: pydantic.FilePath | pydantic.NewPath) -> typing.Self:
-        """Read a meal selection from a pickle file."""
-        with pathlib.Path(file_path).open(mode="rb") as io:
-            meal_selector = pickle.load(file=io)  # noqa: S301
+    def from_json_dictionary(cls, *, dictionary: dict) -> typing.Self:
+        """Construct a new meal selection from an in-memory JSON-compatible dictionary."""
+        individual_measurements_to_add = {
+            ingredient_name: [
+                Measurement(
+                    amount=measurement["amount"],
+                    unit=measurement["unit"],
+                    ingredient=Ingredient(
+                        name=measurement["ingredient"]["name"],
+                        default_grams_per_package=measurement["ingredient"]["default_grams_per_package"],
+                        default_package_unit=measurement["ingredient"]["default_package_unit"],
+                    ),
+                )
+                for measurement in measurements
+            ]
+            for ingredient_name, measurements in dictionary["_individual_measurements_to_add"].items()
+        }
+        individual_measurements_to_remove = {
+            ingredient_name: [
+                Measurement(
+                    amount=measurement["amount"],
+                    unit=measurement["unit"],
+                    ingredient=Ingredient(
+                        name=measurement["ingredient"]["name"],
+                        default_grams_per_package=measurement["ingredient"]["default_grams_per_package"],
+                        default_package_unit=measurement["ingredient"]["default_package_unit"],
+                    ),
+                )
+                for measurement in measurements
+            ]
+            for ingredient_name, measurements in dictionary["_individual_measurements_to_remove"].items()
+        }
+        recipe_names_to_meal = {
+            tuple(recipe_names.split(",")): Meal.from_json_dictionary(dictionary=meal)
+            for recipe_names, meal in dictionary["_recipe_names_to_meal"].items()
+        }
+
+        meal_selector = MealSelection()
+        meal_selector._individual_measurements_to_add = individual_measurements_to_add  # noqa: SLF001
+        meal_selector._individual_measurements_to_remove = individual_measurements_to_remove  # noqa: SLF001
+        meal_selector._recipe_names_to_meal = recipe_names_to_meal  # noqa: SLF001
 
         return meal_selector
