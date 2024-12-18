@@ -6,7 +6,7 @@ import natsort
 from .._registration._recipe_registry import default_recipe_registry
 
 recipe_types = ("Entree", "Side", "Dessert")
-exclusive_recipe_types = ("Entree", "Dessert")
+exclusive_availability_recipe_types = ("Entree", "Dessert")
 
 all_default_tags: tuple[str] = tuple(
     natsort.natsorted(

@@ -4,7 +4,7 @@
   "title": "AppState",
   "description": "The underlying data structure for the app state which is saved for a given session.",
   "type": "object",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "properties": {
     "como_version": {
       "title": "CoMo Version",
@@ -29,14 +29,6 @@
       "description": "The path to the app state file for this session.",
       "type": "string"
     },
-    "tags_to_checkbox_values": {
-      "additionalProperties": {
-        "type": "integer"
-      },
-      "title": "Tags to Checkbox Values",
-      "description": "The underlying values of the tag filtering checkboxes.",
-      "type": "object"
-    },
     "meal_selection": {
       "title": "Meal Selection",
       "description": "The meals and custom ingredients that have been selected.",
@@ -49,7 +41,6 @@
     "home_folder_path",
     "session_folder_path",
     "app_state_file_path",
-    "tags_to_checkbox_values",
     "meal_selection"
   ]
 }

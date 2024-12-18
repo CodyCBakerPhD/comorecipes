@@ -7,7 +7,7 @@ import traceback
 import jsonschema
 import natsort
 
-from ._app_globals import all_default_tags, app_state_json_schema
+from ._app_globals import app_state_json_schema
 from ._app_utils import _CoMoJSONEncoder, _generate_default_app_state, _generate_new_default_session_id
 from .._meal_selection import MealSelection
 
@@ -183,12 +183,7 @@ class SessionManagerFrame(tkinter.Frame):
         self.list_box.selection_set(first=self.selected_session_id_index)
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "lightgrey"})
 
-        self.app_state.update(
-            {
-                "tags_to_checkbox_values": {tag: tkinter.IntVar() for tag in all_default_tags},
-                "meal_selection": MealSelection(),
-            },
-        )
+        self.app_state.update({"meal_selection": MealSelection()})
 
         if hasattr(self.master, "update_frames"):
             self.master.update_frames()
@@ -226,11 +221,6 @@ class SessionManagerFrame(tkinter.Frame):
         self.app_state["session_folder_path"].mkdir(exist_ok=True)
         json_copy = self.app_state.copy()
 
-        # Cast Tkinter variables to integer values
-        json_copy["tags_to_checkbox_values"] = {
-            tag: var.get() for tag, var in self.app_state["tags_to_checkbox_values"].items()
-        }
-
         # Serialize the MealSelector object
         json_copy["meal_selection"] = json_copy["meal_selection"].to_json_dictionary()
 
@@ -252,11 +242,6 @@ class SessionManagerFrame(tkinter.Frame):
         # Rehydrate the MealSelector
         self.app_state["meal_selection"] = MealSelection.from_json_dictionary(
             dictionary=self.app_state["meal_selection"],
-        )
-
-        # Recast the checkbox values to actual Tkinter variables
-        self.app_state["tags_to_checkbox_values"].update(
-            {tag: tkinter.IntVar(value=value) for tag, value in self.app_state["tags_to_checkbox_values"].items()},
         )
 
     def delete_session_popup(self, event: tkinter.Event | None = None) -> None:

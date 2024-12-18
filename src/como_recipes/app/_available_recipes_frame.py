@@ -5,7 +5,9 @@ import typing
 import natsort
 
 from ._app_globals import (
+    all_default_tags,
     default_index_to_recipe_name,
+    recipe_types,
 )
 from ._app_utils import _generate_default_app_state
 from .._base._base_meal import Meal
@@ -31,6 +33,9 @@ class AvailableRecipesFrame(tkinter.Frame):
 
         self.restricted_types = {"Breakfast": True, "Entree": True, "Side": True, "Dessert": True}
         self.label_text = f"Available {recipe_type}s" if recipe_type is not None else "Available meals"
+
+        self.tags = tuple(set(all_default_tags) - set(recipe_types))
+        self.tags_to_checkbox_values = {tag: tkinter.IntVar() for tag in self.tags}
 
         self.update_available_index_to_recipe_name()
         self.setup_frame()
@@ -61,11 +66,11 @@ class AvailableRecipesFrame(tkinter.Frame):
         if self.recipe_type is not None:
             self.restricted_tags_to_checkbox_values = {
                 tag: variable
-                for tag, variable in self.app_state["tags_to_checkbox_values"].items()
+                for tag, variable in self.tags_to_checkbox_values.items()
                 if self.restricted_types.get(tag, False) is False
             }
         else:
-            self.restricted_tags_to_checkbox_values = self.app_state["tags_to_checkbox_values"]
+            self.restricted_tags_to_checkbox_values = self.tags_to_checkbox_values
 
     def setup_frame(self) -> None:
         """Initialize and organize all subcomponents of the frame."""
@@ -136,7 +141,7 @@ class AvailableRecipesFrame(tkinter.Frame):
         self.update_available_index_to_recipe_name()
 
         for tag, checkbox in self.tags_to_checkboxes.items():
-            variable = self.app_state["tags_to_checkbox_values"][tag]
+            variable = self.tags_to_checkbox_values[tag]
             checkbox.config(variable=variable)
 
         if self.available_meals_search.get() == "":
@@ -148,10 +153,8 @@ class AvailableRecipesFrame(tkinter.Frame):
         # TODO: improve performance by offloading minimal change differences to internal variables and only
         # updating data/GUI when necessary
         filtered_data = data
-        if any(self.app_state["tags_to_checkbox_values"].values()):
-            selected_tags = {
-                tag for tag, variable in self.app_state["tags_to_checkbox_values"].items() if variable.get() == 1
-            }
+        if any(self.tags_to_checkbox_values.values()):
+            selected_tags = {tag for tag, variable in self.tags_to_checkbox_values.items() if variable.get() == 1}
             filtered_data = [
                 item
                 for item in data
