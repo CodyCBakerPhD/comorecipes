@@ -51,7 +51,7 @@ runs:
         asset_name: ${{ steps.executable_stem.outputs.value }}.exe
         tag: ${{ steps.package_version.outputs.value }}
         release_name: ${{ steps.package_version.outputs.value }}
-        body: ${{ steps.package_version.outputs.value }} release of the CoMo Recipes App.
+        body: ${{ steps.package_version.outputs.value }} release of the CoMo Recipes app.
         overwrite: false  # Per-asset not per-release - false to prevent accidental overwrite of previous releases
         draft: true  # Only applies to first time this action is run for a given platform
         # (Note that the release must be taken out of draft for subsequent runs on different platforms to combine
