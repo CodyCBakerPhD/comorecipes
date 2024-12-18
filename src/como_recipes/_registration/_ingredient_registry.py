@@ -4,6 +4,7 @@ import natsort
 import pydantic
 
 from .._base._base_ingredient import Ingredient
+from .._base._base_measurement import Measurement
 
 
 class IngredientRegistry(pydantic.BaseModel):
@@ -131,7 +132,7 @@ class IngredientRegistry(pydantic.BaseModel):
 
     @staticmethod
     @pydantic.validate_call
-    def get_measurement(*, amount: int | float, unit: str, ingredient_name: str) -> "Measurement":  # noqa: F821
+    def get_measurement(*, amount: int | float, unit: str, ingredient_name: str) -> Measurement:
         """
         Generate a measurement of an ingredient from the default global ingredient registry.
 
@@ -147,8 +148,6 @@ class IngredientRegistry(pydantic.BaseModel):
             Name of the ingredient.
 
         """
-        from como_recipes._base._base_measurement import Measurement
-
         if ingredient_name in default_ingredient_registry:
             ingredient = default_ingredient_registry.get_ingredient(ingredient_name=ingredient_name)
         else:

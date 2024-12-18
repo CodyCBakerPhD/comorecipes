@@ -10,11 +10,9 @@ class TestAvailableAndSelectedMealsApp(tkinter.Tk):
         super().__init__()
 
         self.available_recipes_frame = como_recipes.app.AvailableRecipesFrame(master=self)
-        self.available_recipes_frame.debug = True
         self.available_recipes_frame.pack(side="top", padx=2.5, pady=2.5)
 
         self.selected_meals_frame = como_recipes.app.SelectedMealsFrame(master=self)
-        self.selected_meals_frame.debug = True
         self.selected_meals_frame.pack(side="bottom", padx=2.5, pady=2.5)
 
         self.app_state = self.available_recipes_frame.app_state
