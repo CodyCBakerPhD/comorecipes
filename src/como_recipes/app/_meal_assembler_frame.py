@@ -1,7 +1,7 @@
 import tkinter
 import typing
 
-from ._app_globals import exclusive_recipe_types, recipe_types
+from ._app_globals import exclusive_availability_recipe_types, recipe_types
 from ._app_utils import _generate_default_app_state
 from ._available_recipes_frame import AvailableRecipesFrame
 from ._selected_meals_frame import SelectedMealsFrame
@@ -68,7 +68,7 @@ class MealAssemblerFrame(tkinter.Frame):
         for recipe_type in recipe_types:
             self.available_recipes_subframe_by_type[recipe_type].available_meals_list_box.selection_clear(0, "end")
 
-        for recipe_type in exclusive_recipe_types:
+        for recipe_type in exclusive_availability_recipe_types:
             self.available_recipes_subframe_by_type[recipe_type].update_available_index_to_recipe_name()
 
         self.update_frames()

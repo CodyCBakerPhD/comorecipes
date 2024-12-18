@@ -5,7 +5,7 @@ import pathlib
 import tkinter.messagebox
 import typing
 
-from ._app_globals import all_default_tags, app_state_json_schema
+from ._app_globals import app_state_json_schema
 from .._meal_selection import MealSelection
 from ..utils import get_package_version
 
@@ -57,7 +57,6 @@ def _generate_default_app_state() -> dict[str, typing.Any]:
         "home_folder_path": home_folder_path,
         "session_folder_path": home_folder_path / session_id,
         "app_state_file_path": home_folder_path / session_id / "app_state.json",
-        "tags_to_checkbox_values": {tag: tkinter.IntVar() for tag in all_default_tags},
         "meal_selection": MealSelection(),
     }
 
