@@ -7,9 +7,8 @@ import webbrowser
 
 import como_recipes.utils
 
-from ._available_recipes_frame import AvailableRecipesFrame
+from ._meal_assembler_frame import MealAssemblerFrame
 from ._raw_ingredient_frame import RawIngredientFrame
-from ._selected_meals_frame import SelectedMealsFrame
 from ._session_manager_frame import SessionManagerFrame
 from ._shopping_list_frame import ShoppingListFrame
 
@@ -67,17 +66,9 @@ class CoMoApp(tkinter.Tk):
         """Initialize all frames or components that comprise the app."""
         self.session_manager_frame = SessionManagerFrame(master=self)
 
-        self.available_meals_frame = AvailableRecipesFrame(
+        self.meal_assembler_frame = MealAssemblerFrame(
             master=self,
             app_state=self.session_manager_frame.app_state,
-            minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
-            minimum_number_of_displayed_available_recipes=minimum_number_of_displayed_available_recipes,
-        )
-        self.selected_recipes_frame = SelectedMealsFrame(
-            master=self,
-            app_state=self.session_manager_frame.app_state,
-            minimum_available_recipe_width_in_characters=45,  # Wider for meal + side
-            minimum_number_of_displayed_selected_recipes=minimum_number_of_displayed_selected_recipes,
         )
         self.raw_ingredient_frame = RawIngredientFrame(
             master=self,
@@ -97,16 +88,14 @@ class CoMoApp(tkinter.Tk):
 
         # Organize frames on grid
         self.session_manager_frame.grid(column=0, rowspan=4, padx=2.5, pady=2.5, sticky="NW")
-        self.available_meals_frame.grid(row=1, column=1, padx=2.5, pady=2.5)
-        self.selected_recipes_frame.grid(row=2, column=1, padx=2.5, pady=2.5)
+        self.meal_assembler_frame.grid(row=1, column=1, padx=2.5, pady=2.5)
         self.raw_ingredient_frame.grid(row=1, column=2, rowspan=2, padx=2.5, pady=2.5)
         self.shopping_list_frame.grid(row=1, column=3, rowspan=2, padx=2.5, pady=2.5)
-        self.version_label.grid(row=3, columnspan=4, sticky="se")
+        self.version_label.grid(row=2, columnspan=4, sticky="se")
 
     def update_frames(self) -> None:
         """Update all frames with the latest state."""
         self.session_manager_frame.update_frame()
-        self.available_meals_frame.update_frame()
-        self.selected_recipes_frame.update_frame()
+        self.meal_assembler_frame.update_frame()
         self.raw_ingredient_frame.update_frame()
         self.shopping_list_frame.update_frame()

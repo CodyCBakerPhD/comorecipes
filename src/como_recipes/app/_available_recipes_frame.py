@@ -29,6 +29,9 @@ class AvailableRecipesFrame(tkinter.Frame):
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_available_recipes = minimum_number_of_displayed_available_recipes
 
+        self.restricted_types = {"Breakfast": True, "Entree": True, "Side": True, "Dessert": True}
+        self.label_text = f"Available {recipe_type}s" if recipe_type is not None else "Available meals"
+
         self.update_available_index_to_recipe_name()
         self.setup_frame()
 
@@ -39,6 +42,13 @@ class AvailableRecipesFrame(tkinter.Frame):
                 for index, recipe_name in default_index_to_recipe_name.items()
                 if recipe_name not in self.app_state["meal_selection"]
             }
+        elif self.recipe_type == "Side":
+            # Sides may be repeated
+            self.available_index_to_recipe_name = {
+                index: recipe_name
+                for index, recipe_name in default_index_to_recipe_name.items()
+                if self.recipe_type in default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
+            }
         else:
             self.available_index_to_recipe_name = {
                 index: recipe_name
@@ -46,6 +56,16 @@ class AvailableRecipesFrame(tkinter.Frame):
                 if recipe_name not in self.app_state["meal_selection"]
                 and self.recipe_type in default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
             }
+
+    def update_restricted_tags_to_checkbox_values(self) -> None:
+        if self.recipe_type is not None:
+            self.restricted_tags_to_checkbox_values = {
+                tag: variable
+                for tag, variable in self.app_state["tags_to_checkbox_values"].items()
+                if self.restricted_types.get(tag, False) is False
+            }
+        else:
+            self.restricted_tags_to_checkbox_values = self.app_state["tags_to_checkbox_values"]
 
     def setup_frame(self) -> None:
         """Initialize and organize all subcomponents of the frame."""
@@ -55,7 +75,7 @@ class AvailableRecipesFrame(tkinter.Frame):
 
         self.available_meals_label = tkinter.Label(
             master=self.available_recipe_names_subframe,
-            text="Available meals",
+            text=self.label_text,
         )
 
         self.available_meals_search = tkinter.Entry(
@@ -68,6 +88,8 @@ class AvailableRecipesFrame(tkinter.Frame):
             master=self.available_recipe_names_subframe,
             width=self.minimum_available_recipe_width_in_characters,
             height=self.minimum_number_of_displayed_available_recipes,
+            exportselection=False,
+            selectmode="multiple",
         )
         self.available_meals_list_box.insert(0, *self.available_index_to_recipe_name.values())
 
@@ -85,6 +107,7 @@ class AvailableRecipesFrame(tkinter.Frame):
         )
         self.tags_label.grid(row=0, pady=2.5)
 
+        self.update_restricted_tags_to_checkbox_values()
         self.tags_to_checkboxes = {
             tag: tkinter.Checkbutton(
                 master=self.available_meals_frame_tags_subframe,
@@ -93,7 +116,7 @@ class AvailableRecipesFrame(tkinter.Frame):
                 justify="left",
                 command=self.update_frame,
             )
-            for tag, variable in self.app_state["tags_to_checkbox_values"].items()
+            for tag, variable in self.restricted_tags_to_checkbox_values.items()
         }
         for row, tag_checkbox in enumerate(self.tags_to_checkboxes.values()):
             tag_checkbox.grid(row=1 + row, sticky="W")
@@ -158,3 +181,7 @@ class AvailableRecipesFrame(tkinter.Frame):
             self.master.update_frames()
         else:
             self.update_frame()
+
+    def disable_list_box_callback(self) -> None:
+        """Disable all widgets in the frame."""
+        self.available_meals_list_box.unbind(sequence="<Double-Button-1>")
