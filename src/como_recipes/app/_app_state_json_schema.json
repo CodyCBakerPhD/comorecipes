@@ -17,6 +17,12 @@
       "description": "The path to the home folder of the CoMo app.",
       "type": "string"
     },
+    "base_sessions_folder": {
+      "format": "directory-path",
+      "title": "Base Folder Sessions",
+      "description": "The base path to all sessions meant to be saved or loaded.",
+      "type": "string"
+    },
     "session_folder_path": {
       "format": "directory-path",
       "title": "Session Folder Path",
@@ -39,6 +45,7 @@
     "version",
     "como_version",
     "home_folder_path",
+    "base_sessions_folder",
     "session_folder_path",
     "app_state_file_path",
     "meal_selection"

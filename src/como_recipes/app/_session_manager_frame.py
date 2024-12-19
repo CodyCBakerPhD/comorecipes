@@ -50,10 +50,8 @@ class SessionManagerFrame(tkinter.Frame):
         self.update_session_ids()
 
         # There are state-based attributes used by the main app, but relevant to session saving/loading
-        self.app_state["session_folder_path"] = self.app_state["home_folder_path"] / self.selected_session_id
-        self.app_state["app_state_file_path"] = (
-            self.app_state["home_folder_path"] / self.selected_session_id / "app_state.json"
-        )
+        self.app_state["session_folder_path"] = self.app_state["base_sessions_folder"] / self.selected_session_id
+        self.app_state["app_state_file_path"] = self.app_state["session_folder_path"] / "app_state.json"
         if self.app_state["app_state_file_path"].exists():
             self.load_app_state()
 
@@ -68,8 +66,10 @@ class SessionManagerFrame(tkinter.Frame):
         )
 
         self.list_box = tkinter.Listbox(master=self, height=self.minimum_number_of_displayed_measurements)
-        elements = [f"├─ {session_id}" for session_id in self.session_ids]
-        self.list_box.insert("end", *elements)
+
+        self.session_id_to_format = {session_id: session_id.replace("_", "/") for session_id in self.session_ids}
+        self.format_to_session_id = {element: session_id for session_id, element in self.session_id_to_format.items()}
+        self.list_box.insert("end", *self.session_id_to_format.values())
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "lightgrey"})
 
         self.delete_session_popup_menu = tkinter.Menu(master=self, tearoff=False)
@@ -88,8 +88,8 @@ class SessionManagerFrame(tkinter.Frame):
         self.list_box.bind(sequence="<Button-3>", func=self.delete_session_popup)
 
     def update_session_ids(self) -> None:
-        existing_session_ids = [path.name for path in self.app_state["home_folder_path"].iterdir()] or [
-            _generate_new_default_session_id(home_folder=self.app_state["home_folder_path"]),
+        existing_session_ids = [path.name for path in self.app_state["base_sessions_folder"].iterdir()] or [
+            _generate_new_default_session_id(base_sessions_folder=self.app_state["base_sessions_folder"]),
         ]
         self.session_ids = natsort.natsorted(seq=existing_session_ids, reverse=True)
 
@@ -102,9 +102,9 @@ class SessionManagerFrame(tkinter.Frame):
         """Update the session manager frame display based on the current app state."""
         self.list_box.delete(first=0, last="end")
 
-        elements = [f"├─ {session_id}" for session_id in self.session_ids]
-        self.list_box.insert("end", *elements)
-
+        self.session_id_to_format = {session_id: session_id.replace("_", "/") for session_id in self.session_ids}
+        self.format_to_session_id = {element: session_id for session_id, element in self.session_id_to_format.items()}
+        self.list_box.insert("end", *self.session_id_to_format.values())
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "lightgrey"})
 
     @staticmethod
@@ -154,20 +154,26 @@ class SessionManagerFrame(tkinter.Frame):
 
     def validate_or_remove_sessions(self) -> None:
         """Validate all current sessions in the home folder and remove them if not."""
-        session_folder_paths = list(self.app_state["home_folder_path"].iterdir())
+        session_folder_paths = list(self.app_state["base_sessions_folder"].iterdir())
         for session_folder_path in session_folder_paths:
-            if self._is_valid_session(session_folder_path) is False:
+            if self._is_valid_session(session_folder_path=session_folder_path) is False:
                 shutil.rmtree(path=session_folder_path, ignore_errors=True)
 
     def create_new_session(self) -> None:
         """Create a new session with a unique ID and update the listbox."""
+        default_session_id = _generate_new_default_session_id(
+            base_sessions_folder=self.app_state["base_sessions_folder"],
+        )
         self.selected_session_id = tkinter.simpledialog.askstring(
             title="New session",
             prompt="Enter an ID for the new session:",
-            initialvalue=_generate_new_default_session_id(home_folder=self.app_state["home_folder_path"]),
+            initialvalue=default_session_id.replace("_", "/"),
+        )
+        self.selected_session_id = (
+            self.selected_session_id.replace("/", "_") if self.selected_session_id is not None else default_session_id
         )
 
-        self.app_state["session_folder_path"] = self.app_state["home_folder_path"] / self.selected_session_id
+        self.app_state["session_folder_path"] = self.app_state["base_sessions_folder"] / self.selected_session_id
         self.app_state["session_folder_path"].mkdir(exist_ok=True)
         self.app_state["app_state_file_path"] = self.app_state["session_folder_path"] / "app_state.json"
         self.update_session_ids()  # Wasteful, but at least it ensures consistency
@@ -197,14 +203,13 @@ class SessionManagerFrame(tkinter.Frame):
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "white"})
 
         # Get selected session ID
-        selected_value = self.list_box.get("active")
-        self.selected_session_id = selected_value.split(" ")[1]
+        selected_value = self.format_to_session_id[self.list_box.get("active")]
+        self.selected_session_id = selected_value
         self.selected_session_id_index = self.list_box.curselection()[0]
 
         # Update
-        session_folder_path = self.app_state["home_folder_path"] / self.selected_session_id
-        self.app_state["session_folder_path"] = session_folder_path
-        self.app_state["app_state_file_path"] = session_folder_path / "app_state.json"
+        self.app_state["session_folder_path"] = self.app_state["base_sessions_folder"] / self.selected_session_id
+        self.app_state["app_state_file_path"] = self.app_state["session_folder_path"] / "app_state.json"
         if self.app_state["app_state_file_path"].exists():
             self.load_app_state()
 
@@ -236,6 +241,7 @@ class SessionManagerFrame(tkinter.Frame):
         # TODO: figure out how to use a custom JSONDecoder object
         # Recast paths to pathlib.Path objects
         self.app_state["home_folder_path"] = pathlib.Path(self.app_state["home_folder_path"])
+        self.app_state["base_sessions_folder"] = pathlib.Path(self.app_state["base_sessions_folder"])
         self.app_state["session_folder_path"] = pathlib.Path(self.app_state["session_folder_path"])
         self.app_state["app_state_file_path"] = pathlib.Path(self.app_state["app_state_file_path"])
 
@@ -253,9 +259,9 @@ class SessionManagerFrame(tkinter.Frame):
 
     def delete_session(self, event: tkinter.Event | None = None) -> None:
         """Delete the currently active (via right-click) session ID from the listbox."""
-        session_id_to_delete = self.list_box.get("active").split(" ")[1]
+        session_id_to_delete = self.format_to_session_id[self.list_box.get("active")]
 
-        session_folder_path = self.app_state["home_folder_path"] / session_id_to_delete
+        session_folder_path = self.app_state["base_sessions_folder"] / session_id_to_delete
         shutil.rmtree(path=session_folder_path, ignore_errors=True)
         session_folder_path.unlink(missing_ok=True)
 

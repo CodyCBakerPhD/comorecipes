@@ -17,12 +17,21 @@ def _get_home_folder() -> pathlib.Path:
     return folder_path
 
 
-def _generate_new_default_session_id(home_folder: pathlib.Path | None = None) -> str | None:
-    """Generate a new possible session ID, but do not automatically create the session folder."""
-    home_folder = home_folder or _get_home_folder()
+def _get_base_sessions_folder() -> pathlib.Path:
+    """Get the home folder (and create if it does not exist) for all app and package operations."""
+    base_path = _get_home_folder()
+    folder_path = base_path / "sessions"
+    folder_path.mkdir(exist_ok=True)
 
-    date = datetime.datetime.now().strftime("%Y%m%d")
-    default_session_folder_path = home_folder / date
+    return folder_path
+
+
+def _generate_new_default_session_id(base_sessions_folder: pathlib.Path | None = None) -> str | None:
+    """Generate a new possible session ID, but do not automatically create the session folder."""
+    base_sessions_folder = base_sessions_folder or _get_base_sessions_folder()
+
+    date = datetime.datetime.now().strftime("%Y_%m_%d")
+    default_session_folder_path = base_sessions_folder / date
 
     if not default_session_folder_path.exists():
         session_id = date
@@ -31,8 +40,8 @@ def _generate_new_default_session_id(home_folder: pathlib.Path | None = None) ->
     counter = 2
     maximum_iterations = 100
     while default_session_folder_path.exists() and counter < maximum_iterations:
-        session_id = f"{date}_{counter}"
-        default_session_folder_path = home_folder / session_id
+        session_id = f"{date} ({counter})"
+        default_session_folder_path = base_sessions_folder / session_id
         counter += 1
 
     if counter == maximum_iterations:
@@ -49,14 +58,16 @@ def _generate_new_default_session_id(home_folder: pathlib.Path | None = None) ->
 def _generate_default_app_state() -> dict[str, typing.Any]:
     """Generate the default app state."""
     home_folder_path = _get_home_folder()
-    session_id = _generate_new_default_session_id(home_folder=home_folder_path)
+    base_sessions_folder = _get_base_sessions_folder()
+    session_id = _generate_new_default_session_id(base_sessions_folder=base_sessions_folder)
 
     default_app_state = {
         "version": app_state_json_schema["version"],
         "como_version": get_package_version(),
         "home_folder_path": home_folder_path,
-        "session_folder_path": home_folder_path / session_id,
-        "app_state_file_path": home_folder_path / session_id / "app_state.json",
+        "base_sessions_folder": base_sessions_folder,
+        "session_folder_path": base_sessions_folder / session_id,
+        "app_state_file_path": base_sessions_folder / session_id / "app_state.json",
         "meal_selection": MealSelection(),
     }
 
