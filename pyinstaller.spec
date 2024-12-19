@@ -5,7 +5,12 @@ a = Analysis(
     ['src\\como_recipes\\app\\_app_launcher.py'],
     pathex=[],
     binaries=[],
-    datas=[('src/como_recipes/_assets', '_assets'), ('pyproject.toml', '_assets'), ('license.txt', '_assets')],
+    datas=[
+        ('src/como_recipes/_assets', '_assets'),
+        ('pyproject.toml', '_assets'),
+        ('license.txt', '_assets'),
+        ('src/como_recipes/app/_app_state_json_schema.json', '_assets'),
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
