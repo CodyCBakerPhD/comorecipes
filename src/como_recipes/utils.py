@@ -78,9 +78,9 @@ def get_executable_stem() -> str:
     # Improve readability for users when built by GitHub Actions
     match corrected_platform_name:
         case "Windows_2019":
-            improved_platform_name = corrected_platform_name.replace("Windows_2019", "Windows_10")
-        case "Windows_2019":
-            improved_platform_name = corrected_platform_name.replace("Windows_2022", "Windows_11")
+            improved_platform_name = "Windows_10"
+        case "Windows_2022":
+            improved_platform_name = "Windows_11"
         case _:
             improved_platform_name = corrected_platform_name
 
