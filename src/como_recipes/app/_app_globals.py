@@ -4,6 +4,7 @@ import pathlib
 import natsort
 
 from .._registration._recipe_registry import default_recipe_registry
+from ..utils import get_bundle_path, is_bundled
 
 recipe_types = ("Entree", "Side", "Dessert")
 exclusive_availability_recipe_types = ("Entree", "Dessert")
@@ -52,6 +53,10 @@ default_recipe_name_to_type: dict[str, tuple[str, ...]] = {
     for recipe_name in default_recipe_registry.get_all_recipe_names()
 }
 
-_app_state_json_schema_file_path = pathlib.Path(__file__).parent / "_app_state_json_schema.json"
+if is_bundled() is True:
+    bundle_path = get_bundle_path()
+    _app_state_json_schema_file_path = bundle_path / "_assets" / "_app_state_json_schema.json"
+else:
+    _app_state_json_schema_file_path = pathlib.Path(__file__).parent / "_app_state_json_schema.json"
 with _app_state_json_schema_file_path.open("r") as io:
     app_state_json_schema = json.load(fp=io)
