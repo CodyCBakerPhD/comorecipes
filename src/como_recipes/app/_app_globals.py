@@ -8,6 +8,19 @@ from .._registration._recipe_registry import default_recipe_registry
 recipe_types = ("Entree", "Side", "Dessert")
 exclusive_availability_recipe_types = ("Entree", "Dessert")
 
+cuisines = (
+    "American",
+    "Asian",
+    "Brazilian",
+    "British",
+    "European",
+    "French",
+    "Greek",
+    "Italian",
+    "Jamaican",
+    "Mexican",
+)
+
 all_default_tags: tuple[str] = tuple(
     natsort.natsorted(
         seq={

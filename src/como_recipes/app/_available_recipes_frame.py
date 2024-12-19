@@ -6,6 +6,7 @@ import natsort
 
 from ._app_globals import (
     all_default_tags,
+    cuisines,
     default_index_to_recipe_name,
     recipe_types,
 )
@@ -31,7 +32,9 @@ class AvailableRecipesFrame(tkinter.Frame):
         self.minimum_available_recipe_width_in_characters = minimum_available_recipe_width_in_characters
         self.minimum_number_of_displayed_available_recipes = minimum_number_of_displayed_available_recipes
 
-        self.restricted_types = {"Breakfast": True, "Entree": True, "Side": True, "Dessert": True}
+        self.restricted_types = {tag: True for tag in cuisines}
+        if self.recipe_type is not None:
+            self.restricted_types.update({tag: True for tag in recipe_types})
         self.label_text = f"Available {recipe_type}s" if recipe_type is not None else "Available meals"
 
         self.tags = tuple(set(all_default_tags) - set(recipe_types))
@@ -62,57 +65,49 @@ class AvailableRecipesFrame(tkinter.Frame):
                 and self.recipe_type in default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
             }
 
-    def update_restricted_tags_to_checkbox_values(self) -> None:
-        if self.recipe_type is not None:
-            self.restricted_tags_to_checkbox_values = {
-                tag: variable
-                for tag, variable in self.tags_to_checkbox_values.items()
-                if self.restricted_types.get(tag, False) is False
-            }
-        else:
-            self.restricted_tags_to_checkbox_values = self.tags_to_checkbox_values
-
     def setup_frame(self) -> None:
         """Initialize and organize all subcomponents of the frame."""
-        # Left subframe - fancy selector
-        self.available_recipe_names_subframe = tkinter.Frame(master=self)
-        self.available_recipe_names_subframe.pack(side="left")
-
         self.available_meals_label = tkinter.Label(
-            master=self.available_recipe_names_subframe,
+            master=self,
             text=self.label_text,
         )
 
-        self.available_meals_search = tkinter.Entry(
-            master=self.available_recipe_names_subframe,
-            width=self.minimum_available_recipe_width_in_characters,
-        )
-        self.available_meals_search.bind(sequence="<KeyRelease>", func=self.update_frame)
-
-        self.available_meals_list_box = tkinter.Listbox(
-            master=self.available_recipe_names_subframe,
-            width=self.minimum_available_recipe_width_in_characters,
-            height=self.minimum_number_of_displayed_available_recipes,
-            exportselection=False,
-            selectmode="multiple",
-        )
-        self.available_meals_list_box.insert(0, *self.available_index_to_recipe_name.values())
-
-        self.available_meals_label.grid(row=0, column=0, pady=2.5)
-        self.available_meals_search.grid(row=1, column=0, sticky="n")
-        self.available_meals_list_box.grid(row=2, column=0, sticky="n")
-
-        # Right subframe - tag filters
+        # Top subframe - tag filters
         self.available_meals_frame_tags_subframe = tkinter.Frame(master=self)
-        self.available_meals_frame_tags_subframe.pack(side="right")
 
-        self.tags_label = tkinter.Label(
-            master=self.available_meals_frame_tags_subframe,
-            text="Filter by",
+        self.cuisine_value = tkinter.StringVar(value="Cuisine: All")
+        self.cuisine_format_to_tag = {"Cuisine: All": None}
+
+        if self.recipe_type is None:
+            self.cuisine_format_to_tag.update({f"Cuisine: {cuisine}": cuisine for cuisine in cuisines})
+        else:
+            self.cuisine_format_to_tag.update(
+                {
+                    f"Cuisine: {cuisine}": cuisine
+                    for cuisine in cuisines
+                    if any(
+                        cuisine in default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
+                        for recipe_name in self.available_index_to_recipe_name.values()
+                    )
+                },
+            )
+
+        self.cuisine_dropdown = tkinter.OptionMenu(
+            self.available_meals_frame_tags_subframe,
+            self.cuisine_value,
+            *self.cuisine_format_to_tag.keys(),
+            command=self.update_frame,
         )
-        self.tags_label.grid(row=0, pady=2.5)
 
-        self.update_restricted_tags_to_checkbox_values()
+        self.restricted_tags_to_checkbox_values = {
+            tag: variable
+            for tag, variable in self.tags_to_checkbox_values.items()
+            if self.restricted_types.get(tag, False) is False
+            and any(
+                tag in default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
+                for recipe_name in self.available_index_to_recipe_name.values()
+            )
+        }
         self.tags_to_checkboxes = {
             tag: tkinter.Checkbutton(
                 master=self.available_meals_frame_tags_subframe,
@@ -123,10 +118,42 @@ class AvailableRecipesFrame(tkinter.Frame):
             )
             for tag, variable in self.restricted_tags_to_checkbox_values.items()
         }
-        for row, tag_checkbox in enumerate(self.tags_to_checkboxes.values()):
-            tag_checkbox.grid(row=1 + row, sticky="W")
+
+        # Bottom subframe - fancy selector
+        self.available_recipe_names_subframe = tkinter.Frame(master=self)
+
+        self.available_meals_search = tkinter.Entry(
+            master=self.available_recipe_names_subframe,
+            width=self.minimum_available_recipe_width_in_characters,
+        )
+
+        self.available_meals_list_box = tkinter.Listbox(
+            master=self.available_recipe_names_subframe,
+            width=self.minimum_available_recipe_width_in_characters,
+            height=self.minimum_number_of_displayed_available_recipes,
+            exportselection=False,
+            selectmode="multiple",
+        )
+        self.available_meals_list_box.insert(0, *self.available_index_to_recipe_name.values())
+
+        # Organize all grids
+
+        # Organize top subframe
+        self.cuisine_dropdown.grid(row=0, columnspan=2)
+        for index, tag_checkbox in enumerate(self.tags_to_checkboxes.values()):
+            tag_checkbox.grid(row=index // 2 + 1, column=(index % 2), sticky="w")
+
+        # Organize bottom subframe
+        self.available_meals_search.grid(row=1, column=0)
+        self.available_meals_list_box.grid(row=2, column=0)
+
+        # Organize entire frame
+        self.available_meals_label.grid(row=0, pady=2.5)
+        self.available_meals_frame_tags_subframe.grid(row=1, padx=2.5, pady=2.5)
+        self.available_recipe_names_subframe.grid(row=2, padx=2.5, pady=2.5)
 
         # Bind callbacks
+        self.available_meals_search.bind(sequence="<KeyRelease>", func=self.update_frame)
         self.available_meals_list_box.bind(
             sequence="<Double-Button-1>",
             func=self.add_selected_meal,
@@ -140,10 +167,12 @@ class AvailableRecipesFrame(tkinter.Frame):
         """
         self.update_available_index_to_recipe_name()
 
+        # TODO: is this needed anymore?
         for tag, checkbox in self.tags_to_checkboxes.items():
             variable = self.tags_to_checkbox_values[tag]
             checkbox.config(variable=variable)
 
+        # Fancy selection
         if self.available_meals_search.get() == "":
             data = self.available_index_to_recipe_name.values()
         else:
@@ -153,8 +182,15 @@ class AvailableRecipesFrame(tkinter.Frame):
         # TODO: improve performance by offloading minimal change differences to internal variables and only
         # updating data/GUI when necessary
         filtered_data = data
-        if any(self.tags_to_checkbox_values.values()):
+        selected_tags = set()
+        if any(self.tags_to_checkbox_values.values()) is True:
             selected_tags = {tag for tag, variable in self.tags_to_checkbox_values.items() if variable.get() == 1}
+
+        selected_cuisine = self.cuisine_format_to_tag[self.cuisine_value.get()]
+        if selected_cuisine is not None:  # 'Cuisine: All'
+            selected_tags.add(selected_cuisine)
+
+        if len(selected_tags) > 0:
             filtered_data = [
                 item
                 for item in data

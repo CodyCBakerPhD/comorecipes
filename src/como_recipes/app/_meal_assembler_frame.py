@@ -20,26 +20,37 @@ class MealAssemblerFrame(tkinter.Frame):
         self.app_state = app_state or _generate_default_app_state()
 
         self.available_recipes_by_type_subframe = tkinter.Frame(master=self)
-        self.available_recipes_by_type_subframe.grid(row=0, column=0, padx=2.5, pady=2.5)
 
         self.available_recipes_subframe_by_type = {}
-        for column_index, recipe_type in enumerate(recipe_types):
+        for recipe_type in recipe_types:
             self.available_recipes_subframe_by_type[recipe_type] = AvailableRecipesFrame(
                 master=self.available_recipes_by_type_subframe,
                 recipe_type=recipe_type,
                 app_state=self.app_state,
             )
-            self.available_recipes_subframe_by_type[recipe_type].grid(row=0, column=column_index, padx=2.5, pady=2.5)
             self.available_recipes_subframe_by_type[recipe_type].disable_list_box_callback()
 
         self.select_meal_button = tkinter.Button(master=self, text="Select meal", command=self.select_meal)
-        self.select_meal_button.grid(row=1, columnspan=3, padx=2.5, pady=2.5)
 
         self.selected_meals_frame = SelectedMealsFrame(
             master=self,
             app_state=self.app_state,
             minimum_available_recipe_width_in_characters=80,
         )
+
+        # Organize grid
+        self.available_recipes_by_type_subframe.grid(row=0, column=0, padx=2.5, pady=2.5)
+
+        for column_index, recipe_type in enumerate(recipe_types):
+            self.available_recipes_subframe_by_type[recipe_type].grid(
+                row=0,
+                column=column_index,
+                padx=2.5,
+                pady=2.5,
+                sticky="s",
+            )
+
+        self.select_meal_button.grid(row=1, columnspan=3, padx=2.5, pady=2.5)
         self.selected_meals_frame.grid(row=2, columnspan=3, padx=2.5, pady=2.5)
 
     def select_meal(self) -> None:
