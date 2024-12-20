@@ -14,7 +14,7 @@ class Brownies(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="vanilla"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp", ingredient_name="baking powder"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="cocoa powder"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=60, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=3, unit="tbsp", ingredient_name="chocolate chips"),
     )

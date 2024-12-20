@@ -19,7 +19,7 @@ class RedBeans(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp", ingredient_name="sage"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="parsley"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="Cajun seasoning"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=240, unit="grams", ingredient_name="water"),
     )
     instructions: tuple[str, ...] = (
         "Make rice. Mix spices together.",

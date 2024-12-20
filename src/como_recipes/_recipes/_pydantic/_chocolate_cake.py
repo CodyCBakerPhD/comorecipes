@@ -13,7 +13,7 @@ class ChocolateCake(Recipe):
         IngredientRegistry.get_measurement(amount=3 / 8, unit="cup", ingredient_name="cocoa powder"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="baking powder"),
         IngredientRegistry.get_measurement(amount=3 / 4, unit="tsp", ingredient_name="baking soda"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="espresso powder"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="milk"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="vegetable oil"),

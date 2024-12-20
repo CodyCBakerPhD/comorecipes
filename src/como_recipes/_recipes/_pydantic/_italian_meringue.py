@@ -9,7 +9,7 @@ class ItalianMeringue(Recipe):
     tags: tuple[str, ...] = ("Italian", "Dessert", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=120, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=4, unit="egg", ingredient_name="whites, room temperature"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="cream of tartar or lemon juice"),
     )

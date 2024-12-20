@@ -17,7 +17,7 @@ class CabbageRolls(Recipe):
         IngredientRegistry.get_measurement(amount=2, unit="minced", ingredient_name="peppers"),
         IngredientRegistry.get_measurement(amount=8, unit="minced", ingredient_name="shittake mushrooms"),
         IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="tamari"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="pepper"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="onion powder"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp", ingredient_name="red pepper flakes"),

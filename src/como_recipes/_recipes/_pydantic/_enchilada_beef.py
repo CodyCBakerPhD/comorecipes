@@ -12,7 +12,7 @@ class EnchiladaBeef(Recipe):
         IngredientRegistry.get_measurement(amount=24, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="extra virgin olive oil"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="black pepper"),
-        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=240, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="beef concentrate"),
     )
     instructions: tuple[str, ...] = (

@@ -8,11 +8,11 @@ class PizzaCrust(Recipe):
     name: str = "Pizza Crust"
     tags: tuple[str, ...] = ("American", "Vegetarian", "Entree")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=240, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="yeast"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="sugar or honey"),
         IngredientRegistry.get_measurement(amount=255, unit="grams", ingredient_name="flour"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=6, unit="grams", ingredient_name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Activate yeast. Mix in flour and salt until good consistency. Knead for 3 minutes. Place in oiled rising container. Set timer for 40 minutes and let rise in warm spot.",

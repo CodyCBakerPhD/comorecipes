@@ -11,7 +11,7 @@ class CollardGreens(Recipe):
         IngredientRegistry.get_measurement(amount=3, unit="tbsp", ingredient_name="olive oil"),
         IngredientRegistry.get_measurement(amount=250, unit="grams", ingredient_name="white onion"),
         IngredientRegistry.get_measurement(amount=10, unit="grams", ingredient_name="garlic"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=6, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="pepper"),
         IngredientRegistry.get_measurement(amount=3, unit="cups", ingredient_name="chicken flavored vegetable broth"),
         IngredientRegistry.get_measurement(amount=1, unit="pinch", ingredient_name="red pepper flakes"),

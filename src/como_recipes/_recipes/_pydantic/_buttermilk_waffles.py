@@ -16,7 +16,7 @@ class ButtermilkWaffles(Recipe):
         IngredientRegistry.get_measurement(amount=2 / 3, unit="tsp", ingredient_name="baking powder"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp", ingredient_name="baking soda"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp", ingredient_name="sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 6, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="pearl sugar"),
     )
     instructions: tuple[str, ...] = (

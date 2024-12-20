@@ -9,7 +9,7 @@ class RoastTurkey(Recipe):
     tags: tuple[str, ...] = ("American", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="turkey bag"),
-        IngredientRegistry.get_measurement(amount=8, unit="quarts", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=7680, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="Kosher salt"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="brown sugar"),
         IngredientRegistry.get_measurement(amount=20, unit="lb.", ingredient_name="whole turkey"),

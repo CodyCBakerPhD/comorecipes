@@ -15,7 +15,7 @@ class ApplePieFilling(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="brown sugar"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="lemon juice"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="cinnamon"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp", ingredient_name="nutmeg"),
         IngredientRegistry.get_measurement(amount=16, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="raw sugar"),

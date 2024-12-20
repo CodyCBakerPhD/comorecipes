@@ -16,7 +16,7 @@ class BroccoliCheddarSoup(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="milk"),
         IngredientRegistry.get_measurement(amount=5, unit="grams", ingredient_name="garlic powder"),
         IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="cornstarch"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=120, unit="grams", ingredient_name="water"),
     )
     instructions: tuple[str, ...] = (
         "In pot, melt butter over medium heat. Cook onion until softened. Stir in broccoli and cover with not-chicken broth. Simmer until tender, 10-15 minutes.",

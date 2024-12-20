@@ -13,7 +13,7 @@ class SweetDough(Recipe):
         IngredientRegistry.get_measurement(amount=7 / 4, unit="tsp", ingredient_name="yeast"),
         IngredientRegistry.get_measurement(amount=2, unit="eggs,", ingredient_name="room temperature"),
         IngredientRegistry.get_measurement(amount=330, unit="grams", ingredient_name="flour"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=6, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="butter, room temperature"),
     )
     instructions: tuple[str, ...] = (

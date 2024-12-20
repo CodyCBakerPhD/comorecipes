@@ -9,13 +9,13 @@ class HoneyGarlicSalmon(Recipe):
     tags: tuple[str, ...] = ("American", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=4, unit="salmon", ingredient_name="fillets, 250 g each"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="black pepper"),
         IngredientRegistry.get_measurement(amount=2, unit="grams", ingredient_name="paprika"),
         IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=4, unit="cloves", ingredient_name="garlic, finely chopped"),
         IngredientRegistry.get_measurement(amount=4, unit="tbsp", ingredient_name="honey"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=15, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="soy sauce"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="fresh lemon juice"),
         IngredientRegistry.get_measurement(amount=4, unit="lemon", ingredient_name="wedges to garnish"),

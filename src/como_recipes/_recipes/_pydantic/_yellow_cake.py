@@ -15,7 +15,7 @@ class YellowCake(Recipe):
         IngredientRegistry.get_measurement(amount=3 / 2, unit="tsp", ingredient_name="vanilla"),
         IngredientRegistry.get_measurement(amount=240, unit="grams", ingredient_name="cake flour"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="baking powder"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 350 F. Grease cake pan or cupcake pan.",

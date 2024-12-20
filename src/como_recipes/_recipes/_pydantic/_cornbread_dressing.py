@@ -14,7 +14,7 @@ class CornbreadDressing(Recipe):
         IngredientRegistry.get_measurement(amount=75, unit="grams", ingredient_name="white onion"),
         IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="not-chicken stock"),
         IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="dried sage"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="pepper"),
     )
     instructions: tuple[str, ...] = (

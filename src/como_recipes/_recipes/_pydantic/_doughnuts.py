@@ -12,7 +12,7 @@ class Doughnuts(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="warm water"),
         IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="lukewarm milk"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg"),
         IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="shortening"),
         IngredientRegistry.get_measurement(amount=300, unit="grams", ingredient_name="flour"),

@@ -16,7 +16,7 @@ class KaleSoup(Recipe):
             unit="bunch",
             ingredient_name="of kale, stems removed and leaves chopped",
         ),
-        IngredientRegistry.get_measurement(amount=8, unit="cups", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=960, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=6, unit="cubes", ingredient_name="of vegetable bouillon"),
         IngredientRegistry.get_measurement(amount=15, unit="oz.", ingredient_name="stewed tomatoes"),
         IngredientRegistry.get_measurement(amount=6, unit="white", ingredient_name="potatoes, cubed"),

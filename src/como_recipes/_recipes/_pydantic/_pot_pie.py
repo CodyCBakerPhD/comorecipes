@@ -30,7 +30,7 @@ class PotPie(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cups", ingredient_name="thinly sliced chives"),
         IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="parsley"),
         IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="white vinegar"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=10, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg yolk"),
     )
     instructions: tuple[str, ...] = (

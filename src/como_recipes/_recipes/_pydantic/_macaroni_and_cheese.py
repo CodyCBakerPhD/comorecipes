@@ -17,7 +17,7 @@ class MacaroniAndCheese(Recipe):
             ingredient_name="of any combination between 2% milk (for thin consistency) and heavy cream (very thick texture)",
         ),
         IngredientRegistry.get_measurement(amount=7, unit="oz.", ingredient_name="English aged cheddar"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=5, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp", ingredient_name="pepper"),
         IngredientRegistry.get_measurement(amount=1, unit="grams", ingredient_name="paprika"),
     )

@@ -10,7 +10,7 @@ class BeerBatter(Recipe):
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=240, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="cornstarch"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=6, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="paprika"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="baking powder"),
         IngredientRegistry.get_measurement(amount=12, unit="oz.", ingredient_name="beer"),

@@ -8,11 +8,11 @@ class KaiserRoll(Recipe):
     name: str = "Kaiser Roll"
     tags: tuple[str, ...] = ("American", "Side", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=240, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="yeast"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="sugar or honey"),
         IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="vegetable oil"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=240, unit="grams", ingredient_name="flour"),
     )
     instructions: tuple[str, ...] = (

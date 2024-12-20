@@ -14,7 +14,7 @@ class TamariSauce(Recipe):
         IngredientRegistry.get_measurement(amount=3 / 2, unit="tbsp", ingredient_name="tamari"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="rice vinegar"),
         IngredientRegistry.get_measurement(amount=3 / 4, unit="tbsp", ingredient_name="maple syrup"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=120, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tbsp", ingredient_name="cornstarch"),
         IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="salt and pepper"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp", ingredient_name="red pepper flakes"),
