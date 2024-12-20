@@ -6,19 +6,19 @@ Tags: American, Side, Vegetarian
 
 ## Ingredients
 
-3 tbsp. olive oil
+3 tbsp olive oil
 
-3 tbsp. butter
+3 tbsp butter
 
 1 lb. button mushrooms
 
-1 clove garlic
+5 grams garlic
 
-1 tbsp. red wine
+1 tbsp red wine
 
-1/4 tsp. garlic salt
+1/4 tsp garlic salt
 
-1/4 tsp. pepper
+1/4 tsp pepper
 
 
 

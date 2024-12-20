@@ -6,15 +6,15 @@ Tags: American, Vegetarian, Entree
 
 ## Ingredients
 
-6 cups all-purpose flour
+720 grams flour
 
-10 tbsp. salt and pepper
+13 grams salt and pepper
 
-2 tbsp. garlic powder
+20 grams garlic powder
 
-1 tbsp. onion powder
+1 tbsp onion powder
 
-4 tsp. cayenne pepper
+4 tsp cayenne pepper
 
 
 

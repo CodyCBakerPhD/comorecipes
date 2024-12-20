@@ -12,11 +12,11 @@ Tags: Asian, Vegetarian, Entree
 
 2 eggs
 
-3 tbsp. butter
+3 tbsp butter
 
-3 cloves garlic
+15 grams garlic
 
-1 small white onion
+75 grams white onion
 
 1 large carrot
 
@@ -24,9 +24,9 @@ Tags: Asian, Vegetarian, Entree
 
 1/2 cup frozen or fresh peas
 
-4 tbsp. soy sauce
+4 tbsp soy sauce
 
-1 tsp. sesame oil
+1 tsp sesame oil
 
 
 

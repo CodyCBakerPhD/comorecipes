@@ -8,10 +8,10 @@ class Sourdough(Recipe):
     name: str = "Sourdough"
     tags: tuple[str, ...] = ("American", "Vegetarian", "Side")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=260, unit="g.", ingredient_name="bread flour"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=260, unit="grams", ingredient_name="bread flour"),
+        IngredientRegistry.get_measurement(amount=6, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=60, unit="g.", ingredient_name="yeast start"),
-        IngredientRegistry.get_measurement(amount=200, unit="g.", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=200, unit="grams", ingredient_name="water"),
     )
     instructions: tuple[str, ...] = (
         "Begin process the morning of the day before intended dinner.",

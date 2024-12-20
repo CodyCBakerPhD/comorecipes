@@ -6,9 +6,9 @@ Tags: Brazilian, Dessert, Vegetarian, Chocolate
 
 ## Ingredients
 
-3 tbsp. unsweetened cocoa
+3 tbsp unsweetened cocoa
 
-1 tbsp. butter
+1 tbsp butter
 
 14 oz. condensed milk
 

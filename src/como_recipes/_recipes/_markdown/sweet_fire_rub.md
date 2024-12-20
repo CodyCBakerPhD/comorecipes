@@ -10,17 +10,17 @@ Tags: American, Vegetarian, Spicy
 
 1/2 cup white sugar
 
-1/4 cup paprika
+38 grams paprika
 
-1 tbsp. onion powder
+1 tbsp onion powder
 
-1 tbsp. garlic powder
+10 grams garlic powder
 
-1 tbsp. chili powder
+8 grams chili powder
 
-1 tbsp. cayenne pepper
+1 tbsp cayenne pepper
 
-2 tbsp. salt & pepper
+2 tbsp salt & pepper
 
 
 

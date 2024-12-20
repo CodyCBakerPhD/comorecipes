@@ -10,17 +10,17 @@ Tags: American, Vegetarian, Entree, Pasta
 
 1/4 cup butter
 
-1/4 cup flour
+30 grams flour
 
 2 cups of any combination between 2% milk (for thin consistency) and heavy cream (very thick texture)
 
 7 oz. English aged cheddar
 
-3/4 tsp. salt
+5 grams salt
 
-1/4 tsp. pepper
+1/4 tsp pepper
 
-1/8 tsp. paprika
+1 grams paprika
 
 
 

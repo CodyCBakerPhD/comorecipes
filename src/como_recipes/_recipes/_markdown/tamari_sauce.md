@@ -6,29 +6,27 @@ Tags: Asian, Side, Vegetarian
 
 ## Ingredients
 
-1 tsp. sesame oil
+1 tsp sesame oil
 
-1/2 tbsp. ginger, minced
+1/2 tbsp ginger, minced
 
-2 cloves garlic, minced
+10 grams garlic
 
-3/2 tbsp. tamari
+3/2 tbsp tamari
 
-1 tbsp. rice vinegar
+1 tbsp rice vinegar
 
-3/4 tbsp. maple syrup
+3/4 tbsp maple syrup
 
-1/2 cup water
+120 grams water
 
-1/2 tbsp. cornstarch
+1/2 tbsp cornstarch
 
-1/4 tsp. salt
+3 grams salt and pepper
 
-1/4 tsp. pepper
+1/4 tsp red pepper flakes
 
-1/4 tsp. red pepper flakes
-
-1/4 tsp. paprika
+1 grams paprika
 
 
 

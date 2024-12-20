@@ -6,21 +6,21 @@ Tags: American, Vegetarian, Entree, Spicy
 
 ## Ingredients
 
-1/4  tsp. garlic powder
+1/4  tsp garlic powder
 
-1/4  tsp. onion powder
+1/4  tsp onion powder
 
-1/4  tsp. red pepper
+1/4  tsp red pepper
 
-1/4  tsp. dried oregano
+1/4  tsp dried oregano
 
-1/2  tsp. paprika
+1/2  tsp paprika
 
-3/2 tsp. cumin
+8 grams cumin
 
-1/2  tsp. salt
+1/2  tsp salt
 
-1  tsp. pepper
+1  tsp pepper
 
 1  lb. ground beef or refried beans or Boca
 

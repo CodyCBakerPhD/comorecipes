@@ -8,19 +8,19 @@ Tags: Mexican, Entree
 
 1 lb. pork shoulder
 
-1 tbsp. oregano
+1 tbsp oregano
 
-2 tsp. cumin
+10 grams cumin
 
-1 tsp. chili powder
+3 grams chili powder
 
-1 tsp. flour
+8 grams flour
 
-1 tsp. salt and pepper
+4 grams salt and pepper
 
 2 oranges, juiced
 
-2 cloves minced garlic
+10 grams garlic
 
 
 

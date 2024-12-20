@@ -12,13 +12,13 @@ Tags: American, Side, Vegetarian
 
 1/2 cup chopped celery
 
-1 small white onion
+75 grams white onion
 
 2 cups not-chicken stock
 
 2 tbsp dried sage
 
-1/2 tsp salt
+3 grams salt
 
 1/2 tsp pepper
 

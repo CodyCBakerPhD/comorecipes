@@ -8,9 +8,9 @@ Tags: Italian, Vegetarian, Entree, Pasta
 
 1 spaghetti squash
 
-1 tbsp. olive oil
+1 tbsp olive oil
 
-1 tsp. salt and pepper
+4 grams salt and pepper
 
 
 

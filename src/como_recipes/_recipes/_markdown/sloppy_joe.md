@@ -12,17 +12,17 @@ Tags: American, Vegetarian, Entree
 
 1/4 cup red onion
 
-1/2 tsp. garlic powder
+2 grams garlic powder
 
-2 tsp. yellow mustard
+2 tsp yellow mustard
 
 1/2 cup ketchup
 
-3 tsp. brown sugar
+3 tsp brown sugar
 
-1/2 tbsp. molasses
+1/2 tbsp molasses
 
-1/4 tsp. salt and pepper
+1 grams salt and pepper
 
 
 

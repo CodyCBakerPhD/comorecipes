@@ -6,11 +6,11 @@ Tags: American, Vegetarian
 
 ## Ingredients
 
-2 tsp. sugar
+2 tsp sugar
 
-5/2 cup flour
+300 grams flour
 
-1/4 tsp. salt
+1 grams salt
 
 1 cup cold butter
 

@@ -6,17 +6,17 @@ Tags: Italian, Pasta, Vegetarian, Entree
 
 ## Ingredients
 
-2 qt. water
+960 grams water
 
-1 tbsp. salt
+17 grams salt
 
-1 lb. thin spaghetti
+1 package thin spaghetti
 
 1/3 cup olive oil
 
 8 large cloves of garlic
 
-2 tsp. crushed red pepper
+2 tsp crushed red pepper
 
 1/4 cup parsley
 

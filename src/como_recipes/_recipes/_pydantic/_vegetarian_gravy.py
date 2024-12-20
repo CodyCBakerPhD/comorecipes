@@ -9,11 +9,11 @@ class VegetarianGravy(Recipe):
     tags: tuple[str, ...] = ("American", "Side", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=30, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="not-chicken stock"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="heavy cream"),
-        IngredientRegistry.get_measurement(amount=5 / 4, unit="tsp.", ingredient_name="salt and pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 6, unit="tsp.", ingredient_name="paprika"),
+        IngredientRegistry.get_measurement(amount=5, unit="grams", ingredient_name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=1, unit="grams", ingredient_name="paprika"),
     )
     instructions: tuple[str, ...] = ("Make roux with butter and flour. Thicken with stock. Season.",)
 

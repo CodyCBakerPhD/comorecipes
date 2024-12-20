@@ -12,11 +12,11 @@ Tags: American, Dessert, Vegetarian
 
 2 eggs
 
-1/2 tsp. ginger
+1/2 tsp ginger
 
-1/2 tsp. nutmeg
+1/2 tsp nutmeg
 
-1/2 tsp. salt
+3 grams salt
 
 1/2 pie crust
 

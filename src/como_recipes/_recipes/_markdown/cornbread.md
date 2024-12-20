@@ -14,13 +14,13 @@ Tags: American, Side, Vegetarian
 
 1/2 cup buttermilk
 
-1/4 tsp. baking soda
+1/4 tsp baking soda
 
 1/2 cup cornmeal
 
-1/2 cup flour
+60 grams flour
 
-1/4 tsp. salt
+1 grams salt
 
 
 

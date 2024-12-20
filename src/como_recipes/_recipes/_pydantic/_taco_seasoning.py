@@ -8,14 +8,14 @@ class TacoSeasoning(Recipe):
     name: str = "Taco Seasoning"
     tags: tuple[str, ...] = ("American", "Vegetarian", "Entree", "Spicy")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. garlic powder"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. onion powder"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. red pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. dried oregano"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="tsp. paprika"),
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="tsp.", ingredient_name="cumin"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="tsp. salt"),
-        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp. pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp garlic powder"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp onion powder"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp red pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp dried oregano"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="tsp paprika"),
+        IngredientRegistry.get_measurement(amount=8, unit="grams", ingredient_name="cumin"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="tsp salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp pepper"),
         IngredientRegistry.get_measurement(
             amount=1,
             unit="",

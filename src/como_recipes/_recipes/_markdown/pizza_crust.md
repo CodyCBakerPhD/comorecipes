@@ -6,15 +6,15 @@ Tags: American, Vegetarian, Entree
 
 ## Ingredients
 
-1 cup water
+240 grams water
 
-1 tbsp. yeast
+1 tbsp yeast
 
-1 tsp. sugar or honey
+1 tsp sugar or honey
 
-9 oz. flour
+255 grams flour
 
-1 tsp. salt
+6 grams salt
 
 
 

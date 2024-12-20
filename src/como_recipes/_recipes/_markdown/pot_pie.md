@@ -10,7 +10,7 @@ Tags: American, Vegetarian, Entree
 
 1 serving of firm tofu
 
-2 tbsp. butter
+2 tbsp butter
 
 1/2 medium yellow onions, finely chopped
 
@@ -18,9 +18,9 @@ Tags: American, Vegetarian, Entree
 
 1 small russet potato, peeled and diced
 
-2 tsp. salt and pepper
+8 grams salt and pepper
 
-1/4 cup flour
+30 grams flour
 
 1 cup not-chicken broth
 
@@ -32,9 +32,9 @@ Tags: American, Vegetarian, Entree
 
 1/8 cup parsley
 
-2 tbsp. white vinegar
+2 tbsp white vinegar
 
-2 tsp. water
+10 grams water
 
 1 large egg yolk
 

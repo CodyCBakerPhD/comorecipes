@@ -8,9 +8,9 @@ Tags: American, Vegetarian, Entree, Side
 
 3/2 cups rice
 
-2 cups water
+480 grams water
 
-1 tbsp. butter
+1 tbsp butter
 
 
 

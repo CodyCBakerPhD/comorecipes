@@ -13,8 +13,8 @@ class NutellaBites(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="cu. shredded coconut"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="cup honey"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="cup roasted hazelnuts"),
-        IngredientRegistry.get_measurement(amount=2, unit="", ingredient_name="tsp. vanilla extract"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp. salt"),
+        IngredientRegistry.get_measurement(amount=2, unit="", ingredient_name="tsp vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="", ingredient_name="tsp salt"),
     )
     instructions: tuple[str, ...] = (
         "Combine all ingredients in large bowl and mix thoroughly.",

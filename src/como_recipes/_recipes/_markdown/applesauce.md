@@ -8,13 +8,13 @@ Tags: American, Dessert, Side, Vegetarian, Fruit
 
 4 large apples
 
-3/4 cup water
+180 grams water
 
 1/16 cup white sugar
 
 1/16 cup brown sugar
 
-1/2 tsp. ground cinnamon
+1/2 tsp ground cinnamon
 
 
 

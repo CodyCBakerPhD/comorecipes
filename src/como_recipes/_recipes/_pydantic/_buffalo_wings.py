@@ -9,9 +9,9 @@ class BuffaloWings(Recipe):
     tags: tuple[str, ...] = ("American", "Entree", "Spicy")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=8, unit="separated", ingredient_name="chicken wings"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="salt and pepper"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="butter"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="white vinegar"),
+        IngredientRegistry.get_measurement(amount=8, unit="grams", ingredient_name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="white vinegar"),
         IngredientRegistry.get_measurement(amount=100, unit="ml", ingredient_name="hot sauce of choice"),
     )
     instructions: tuple[str, ...] = (

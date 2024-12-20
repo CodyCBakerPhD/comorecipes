@@ -14,7 +14,7 @@ Tags: American, Dessert, Vegetarian, Chocolate
 
 1/4 cup chocolate milk
 
-1 tbsp. vanilla
+1 tbsp vanilla
 
 1/2 cup chopped walnuts or pecans, optional
 

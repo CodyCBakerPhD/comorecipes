@@ -14,13 +14,13 @@ Tags: American, Dessert, Vegetarian
 
 1 large egg
 
-1/4 tsp. vanilla
+1/4 tsp vanilla
 
-1/4 cup flour
+30 grams flour
 
-1/8 tsp. baking powder
+1/8 tsp baking powder
 
-1/8 tsp. salt
+1 grams salt
 
 
 

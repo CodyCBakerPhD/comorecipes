@@ -13,7 +13,7 @@ class StirFry(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="serving", ingredient_name="beef, chicken, pork, or shrimp"),
         IngredientRegistry.get_measurement(amount=1, unit="serving", ingredient_name="tofu"),
         IngredientRegistry.get_measurement(amount=1, unit="serving", ingredient_name="shallots"),
-        IngredientRegistry.get_measurement(amount=1, unit="serving", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=10, unit="grams", ingredient_name="garlic"),
         IngredientRegistry.get_measurement(amount=1, unit="serving", ingredient_name="carrots"),
         IngredientRegistry.get_measurement(amount=1, unit="serving", ingredient_name="broccoli"),
         IngredientRegistry.get_measurement(amount=1, unit="serving", ingredient_name="cauliflower"),

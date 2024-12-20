@@ -6,19 +6,19 @@ Tags: American, Breakfast, Vegetarian
 
 ## Ingredients
 
-1  cup flour
+120 grams flour
 
-2  tbsp. sugar
+2  tbsp sugar
 
-1  tsp. baking powder
+1  tsp baking powder
 
-1/2  tsp. baking soda
+1/2  tsp baking soda
 
-1/2  tsp. salt
+1/2  tsp salt
 
 1  egg
 
-2  tbsp. butter
+2  tbsp butter
 
 1  cup buttermilk
 

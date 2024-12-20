@@ -8,7 +8,7 @@ Tags: Mexican, Vegetarian, Entree, Soup, Spicy
 
 1 tbps. butter
 
-1 large white onion
+250 grams white onion
 
 1 qt. of tomatoes
 
@@ -16,17 +16,17 @@ Tags: Mexican, Vegetarian, Entree, Soup, Spicy
 
 2 Jalepeno peppers
 
-2 tsp. salt & pepper
+2 tsp salt & pepper
 
-1/2 tbsp. powdered mustard
+1/2 tbsp powdered mustard
 
-1 tsp. dried oregano
+1 tsp dried oregano
 
-1 tsp. garlic powder
+3 grams garlic powder
 
 1/4 cup butter
 
-1/4 cup flour
+30 grams flour
 
 
 

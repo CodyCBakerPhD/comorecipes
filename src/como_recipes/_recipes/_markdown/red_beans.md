@@ -8,27 +8,27 @@ Tags: American, Vegetarian, Entree, Spicy
 
 1 recipes worth of rice
 
-1 tbsp. olive oil
+1 tbsp olive oil
 
-4 cloves garlic
+20 grams garlic
 
-1/3 white onion
+83 grams white onion
 
 1 stalk celery
 
 2 bay leaves
 
-1/2 tsp. cayenne pepper
+1/2 tsp cayenne pepper
 
-1 tsp. thyme
+1 tsp thyme
 
-1/8 tsp. sage
+1/8 tsp sage
 
-1 tbsp. parsley
+1 tbsp parsley
 
-1 tsp. Cajun seasoning
+1 tsp Cajun seasoning
 
-1 cup water
+240 grams water
 
 
 

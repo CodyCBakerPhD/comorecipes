@@ -9,10 +9,10 @@ class ChocolateDoughnutIcing(Recipe):
     tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian", "Chocolate")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="powdered sugar"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="dutch cocoa powder"),
-        IngredientRegistry.get_measurement(amount=1 / 16, unit="tsp.", ingredient_name="salt"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="milk"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="tsp.", ingredient_name="vanilla"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="dutch cocoa powder"),
+        IngredientRegistry.get_measurement(amount=0.3, unit="grams", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="milk"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="tsp", ingredient_name="vanilla"),
     )
     instructions: tuple[str, ...] = (
         "Do not forget to sift dry ingredients.",

@@ -10,7 +10,7 @@ Tags: American, Dessert, Vegetarian, Chocolate
 
 1 cup sugar
 
-3/4 cup cake flour
+90 grams cake flour
 
 1 cup whipping cream
 
@@ -22,7 +22,7 @@ Tags: American, Dessert, Vegetarian, Chocolate
 
 1/2 cup sugar
 
-1/2 tsp. lime juice
+1/2 tsp lime juice
 
 
 

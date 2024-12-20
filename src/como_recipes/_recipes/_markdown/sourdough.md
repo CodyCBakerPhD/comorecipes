@@ -6,13 +6,13 @@ Tags: American, Vegetarian, Side
 
 ## Ingredients
 
-260 g. bread flour
+260 grams bread flour
 
-1 tsp. salt
+6 grams salt
 
 60 g. yeast start
 
-200 g. water
+200 grams water
 
 
 

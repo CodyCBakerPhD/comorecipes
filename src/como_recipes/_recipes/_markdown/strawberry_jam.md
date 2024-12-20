@@ -14,11 +14,11 @@ Tags: American, Dessert, Vegetarian, Fruit
 
 20  g. honey
 
-9/4 tbsp. cornstarch
+9/4 tbsp cornstarch
 
-1/4  tsp. vanilla extract
+1/4  tsp vanilla extract
 
-1/4 tsp. lime juice
+1/4 tsp lime juice
 
 
 

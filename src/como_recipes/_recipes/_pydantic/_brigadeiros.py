@@ -8,8 +8,8 @@ class Brigadeiros(Recipe):
     name: str = "Brigadeiros"
     tags: tuple[str, ...] = ("Brazilian", "Dessert", "Vegetarian", "Chocolate")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="unsweetened cocoa"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp", ingredient_name="unsweetened cocoa"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=14, unit="oz.", ingredient_name="condensed milk"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="chocolate sprinkles"),
     )

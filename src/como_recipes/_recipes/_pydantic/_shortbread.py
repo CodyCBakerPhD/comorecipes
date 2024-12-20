@@ -12,9 +12,9 @@ class Shortbread(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="sugar"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="brown sugar"),
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg yolk"),
-        IngredientRegistry.get_measurement(amount=3 / 4, unit="tsp.", ingredient_name="vanilla extract"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="salt"),
-        IngredientRegistry.get_measurement(amount=9 / 4, unit="cups", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=3 / 4, unit="tsp", ingredient_name="vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1, unit="grams", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=270, unit="grams", ingredient_name="flour"),
     )
     instructions: tuple[str, ...] = (
         "Preheat oven to 350 F. Line a 13x9 baking pan with parchment paper.",

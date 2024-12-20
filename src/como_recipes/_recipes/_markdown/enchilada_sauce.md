@@ -8,21 +8,21 @@ Tags: Mexican, Vegetarian, Entree, Spicy
 
 1/4 cup vegetable oil
 
-1/8 cup flour
+15 grams flour
 
 1/4 cup dark chili powder
 
 8 oz. can tomato sauce
 
-3/2 cups water
+360 grams water
 
-1/4 tsp. cumin
+1 grams cumin
 
-1/4 tsp. garlic powder
+1 grams garlic powder
 
-1/4 tsp. onion powder
+1/4 tsp onion powder
 
-1/8 tsp. salt
+1 grams salt
 
 
 

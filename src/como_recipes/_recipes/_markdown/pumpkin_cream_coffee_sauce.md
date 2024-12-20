@@ -10,11 +10,11 @@ Tags: American, Breakfast, Vegetarian
 
 1/2 cup granulated sugar
 
-1 tbsp. pumpkin puree
+1 tbsp pumpkin puree
 
-1 tsp. pumpkin pie spice
+1 tsp pumpkin pie spice
 
-1 tsp. vanilla extract
+1 tsp vanilla extract
 
 
 

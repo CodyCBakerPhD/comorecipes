@@ -8,7 +8,7 @@ Tags: American, Vegetarian, Entree, Soup
 
 1/4 cup butter
 
-1/2 large onion
+125 grams white onion
 
 8 oz. broccoli
 
@@ -18,11 +18,11 @@ Tags: American, Vegetarian, Entree, Soup
 
 1 cup milk
 
-1/2 tbsp. garlic powder
+5 grams garlic powder
 
 1/8 cup cornstarch
 
-1/2 cup water
+120 grams water
 
 
 

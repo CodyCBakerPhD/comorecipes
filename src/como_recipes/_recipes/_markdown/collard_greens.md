@@ -6,15 +6,15 @@ Tags: American, Side, Vegetarian, Spicy
 
 ## Ingredients
 
-3 tbsp. olive oil
+3 tbsp olive oil
 
-1 large onion
+250 grams white onion
 
-2 cloves garlic
+10 grams garlic
 
-1 tsp. salt
+6 grams salt
 
-1 tsp. pepper
+1 tsp pepper
 
 3 cups chicken flavored vegetable broth
 

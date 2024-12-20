@@ -8,25 +8,25 @@ Tags: Greek, Vegetarian, Entree
 
 1 lb. dry chickpeas
 
-1 small white onion
+75 grams white onion
 
 1/4 cup parsley
 
-5 gloves garlic
+25 grams garlic
 
-3/2 tbsp. flour
+12 grams flour
 
-7/4 tsp. salt
+10 grams salt
 
-2 tsp. cumin
+10 grams cumin
 
-1 tsp. coriander
+1 tsp coriander
 
-1/4 tsp. pepper
+1/4 tsp pepper
 
-1/4 tsp. cayenne
+1/4 tsp cayenne
 
-1/8 tsp. cardamom
+1/8 tsp cardamom
 
 
 

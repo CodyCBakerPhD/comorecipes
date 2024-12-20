@@ -8,15 +8,15 @@ Tags: Mexican, Entree
 
 24 oz. chuck roast
 
-3 tbsp. flour
+24 grams flour
 
-2 tbsp. extra virgin olive oil
+2 tbsp extra virgin olive oil
 
-1/2 tsp. black pepper
+1/2 tsp black pepper
 
-1 cup water
+240 grams water
 
-1 tbsp. beef concentrate
+1 tbsp beef concentrate
 
 
 

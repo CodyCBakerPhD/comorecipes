@@ -6,21 +6,21 @@ Tags: Mexican, Side, Vegetarian
 
 ## Ingredients
 
-1 tbsp. butter
+1 tbsp butter
 
 1 shallot
 
-2 cloves garlic
+10 grams garlic
 
 1 cup long grain brown rice
 
-1 tsp. salt and pepper
+4 grams salt and pepper
 
 5/2 cups not-chicken broth
 
 2 sprigs of thyme
 
-1 tbsp. parsley
+1 tbsp parsley
 
 
 

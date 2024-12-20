@@ -10,7 +10,7 @@ Tags: American, Dessert, Vegetarian, Chocolate
 
 1/2 cup heavy cream
 
-1/2 tsp. vanilla extract
+1/2 tsp vanilla extract
 
 
 

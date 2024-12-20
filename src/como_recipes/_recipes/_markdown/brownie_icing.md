@@ -6,15 +6,15 @@ Tags: American, Dessert, Vegetarian, Chocolate
 
 ## Ingredients
 
-1 tbsp. sifted Dutch cocoa
+1 tbsp sifted Dutch cocoa
 
-3/2 tbsp. butter
+3/2 tbsp butter
 
 1/4 cups sifted powdered sugar
 
-1 tbsp. evaporated milk
+1 tbsp evaporated milk
 
-1/2 tsp. vanilla
+1/2 tsp vanilla
 
 
 

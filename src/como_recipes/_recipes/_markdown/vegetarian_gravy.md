@@ -8,15 +8,15 @@ Tags: American, Side, Vegetarian
 
 1/4 cup butter
 
-1/4 cup flour
+30 grams flour
 
 2 cups not-chicken stock
 
 1/3 cup heavy cream
 
-5/4 tsp. salt and pepper
+5 grams salt and pepper
 
-1/6 tsp. paprika
+1 grams paprika
 
 
 

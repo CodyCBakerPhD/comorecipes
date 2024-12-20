@@ -6,15 +6,15 @@ Tags: American, Vegetarian, Entree, Soup
 
 ## Ingredients
 
-2 tbsp. olive oil
+2 tbsp olive oil
 
 1 yellow onion, chopped
 
-2 tbsp. garlic, chopped
+2 tbsp garlic, chopped
 
 1 bunch of kale, stems removed and leaves chopped
 
-8 cups water
+960 grams water
 
 6 cubes of vegetable bouillon
 
@@ -24,11 +24,11 @@ Tags: American, Vegetarian, Entree, Soup
 
 30 oz cannellini beans (two 15 oz. cans), drained
 
-1 tbsp. Italian seasoning
+1 tbsp Italian seasoning
 
-2 tbsp. dried parsley
+2 tbsp dried parsley
 
-1 tsp. Salt and pepper
+1 tsp Salt and pepper
 
 
 

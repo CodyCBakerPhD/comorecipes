@@ -12,7 +12,7 @@ Tags: Dessert, Dessert, Breakfast, Vegetarian
 
 1 tsp baking powder
 
-1/4 tsp salt
+1 grams salt
 
 50 grams melted butter
 

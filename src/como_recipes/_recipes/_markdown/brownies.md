@@ -12,17 +12,17 @@ Tags: American, Dessert, Vegetarian, Chocolate
 
 2 large eggs
 
-1 tsp. vanilla
+1 tsp vanilla
 
-1/4 tsp. baking powder
+1/4 tsp baking powder
 
 1/3 cup cocoa powder
 
-1/4 tsp. salt
+1 grams salt
 
-1/2 cup flour
+60 grams flour
 
-3 tbsp. chocolate chips
+3 tbsp chocolate chips
 
 
 

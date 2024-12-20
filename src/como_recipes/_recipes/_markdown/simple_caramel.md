@@ -8,15 +8,15 @@ Tags: American, Dessert, Vegetarian
 
 14 oz. sweetened condensed milk
 
-7 tbsp. butter, cut into pieces
+7 tbsp butter, cut into pieces
 
 1/2 cup brown sugar
 
 1/6 cup light corn syrup
 
-1/2 tsp. vanilla extract
+1/2 tsp vanilla extract
 
-1/8 tsp. salt
+1 grams salt
 
 
 

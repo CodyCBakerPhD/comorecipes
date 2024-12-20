@@ -8,7 +8,7 @@ Tags: Vegetarian, Dessert, Vegetarian, Chocolate
 
 20 g Agar Agar
 
-170 mL water
+170 grams water
 
 300 mL corn syrup
 

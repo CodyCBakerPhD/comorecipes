@@ -6,17 +6,17 @@ Tags: American, Side, Vegetarian
 
 ## Ingredients
 
-1 cup water
+240 grams water
 
-1 tbsp. yeast
+1 tbsp yeast
 
-1 tsp. sugar or honey
+1 tsp sugar or honey
 
 1/6 cup vegetable oil
 
-1/2 tsp. salt
+3 grams salt
 
-2 cups flour
+240 grams flour
 
 
 

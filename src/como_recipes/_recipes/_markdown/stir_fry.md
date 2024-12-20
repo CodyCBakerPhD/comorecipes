@@ -16,7 +16,7 @@ Tags: Asian, Vegetarian, Entree
 
 1 serving shallots
 
-1 serving garlic
+10 grams garlic
 
 1 serving carrots
 

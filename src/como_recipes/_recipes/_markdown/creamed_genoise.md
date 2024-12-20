@@ -12,13 +12,13 @@ Tags: British, Dessert, Vegetarian
 
 3  beaten eggs, room temperature
 
-375/2 g. cake flour
+187 grams cake flour
 
-1  tsp. baking powder
+1  tsp baking powder
 
 25 ml. milk
 
-1  tsp. vanilla extract
+1  tsp vanilla extract
 
 
 

@@ -6,15 +6,15 @@ Tags: American, Vegetarian, Entree
 
 ## Ingredients
 
-2 cups flour
+240 grams flour
 
 1/3 cup cornstarch
 
-2 tsp. salt
+6 grams salt
 
-1 tsp. paprika
+3 grams paprika
 
-1 tbsp. baking powder
+1 tbsp baking powder
 
 12 oz. beer
 

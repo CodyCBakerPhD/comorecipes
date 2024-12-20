@@ -14,13 +14,13 @@ Tags: American, Dessert, Vegetarian
 
 3/4 cup milk
 
-3/2 tsp. vanilla
+3/2 tsp vanilla
 
-2 cups cake flour
+240 grams cake flour
 
-2 tsp. baking powder
+2 tsp baking powder
 
-1/2 tsp. salt
+3 grams salt
 
 
 

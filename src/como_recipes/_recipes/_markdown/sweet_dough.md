@@ -8,15 +8,15 @@ Tags: American, Dessert, Vegetarian
 
 2/3 cup whole milk
 
-5 tbsp. sugar
+5 tbsp sugar
 
-7/4 tsp. yeast
+7/4 tsp yeast
 
 2 eggs, room temperature
 
-11/4 cups flour
+330 grams flour
 
-1 tsp. salt
+6 grams salt
 
 1/2 cup butter, room temperature
 
@@ -26,7 +26,7 @@ Tags: American, Dessert, Vegetarian
 
 Heat milk to 110 F in small saucepan over medium heat.
 
-Stir in 1 tbsp. sugar and yeast.
+Stir in 1 tbsp sugar and yeast.
 
 Let sit for 5 minutes.
 

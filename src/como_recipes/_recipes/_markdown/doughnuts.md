@@ -14,13 +14,13 @@ Tags: American, Dessert, Breakfast, Vegetarian
 
 1/4 cup sugar
 
-1/2 tsp. salt
+3 grams salt
 
 1 large egg
 
 1/6 cup shortening
 
-5/2 cups all-purpose flour
+300 grams flour
 
 1 qt. vegetable oil
 
@@ -28,9 +28,9 @@ Tags: American, Dessert, Breakfast, Vegetarian
 
 1 cups powdered sugar
 
-3/4 tsp. vanilla
+3/4 tsp vanilla
 
-2 tbsp. hot water
+2 tbsp hot water
 
 
 

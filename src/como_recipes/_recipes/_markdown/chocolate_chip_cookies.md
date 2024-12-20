@@ -14,15 +14,15 @@ Tags: American, Dessert, Vegetarian, Chocolate
 
 2 large egg
 
-2 tsp. vanilla
+2 tsp vanilla
 
-1 tsp. baking soda
+1 tsp baking soda
 
-2 tsp. hot water
+2 tsp hot water
 
-3 cup flour
+360 grams flour
 
-1/2 tsp. salt
+3 grams salt
 
 2 cups high-quality semi-sweet chocolate chips
 

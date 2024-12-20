@@ -10,7 +10,7 @@ class PotPie(Recipe):
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="full", ingredient_name="pie crust"),
         IngredientRegistry.get_measurement(amount=1, unit="serving", ingredient_name="of firm tofu"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="butter"),
         IngredientRegistry.get_measurement(
             amount=1 / 2,
             unit="medium",
@@ -22,15 +22,15 @@ class PotPie(Recipe):
             ingredient_name="carrots, peeled and finely chopped",
         ),
         IngredientRegistry.get_measurement(amount=1, unit="small", ingredient_name="russet potato, peeled and diced"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="salt and pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=8, unit="grams", ingredient_name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=30, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="not-chicken broth"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="whole milk"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="green peas"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cups", ingredient_name="thinly sliced chives"),
         IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="parsley"),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="white vinegar"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="water"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="white vinegar"),
+        IngredientRegistry.get_measurement(amount=10, unit="grams", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg yolk"),
     )
     instructions: tuple[str, ...] = (

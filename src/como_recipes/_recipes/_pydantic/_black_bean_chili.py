@@ -8,13 +8,13 @@ class BlackBeanChili(Recipe):
     name: str = "Black Bean Chili"
     tags: tuple[str, ...] = ("American", "Vegetarian", "Entree", "Soup", "Spicy")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=4, unit="cloves", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=20, unit="grams", ingredient_name="garlic"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="white", ingredient_name="onion, minced"),
         IngredientRegistry.get_measurement(amount=1, unit="qt", ingredient_name="jar of canned garden tomatoes"),
-        IngredientRegistry.get_measurement(amount=4, unit="tbsp", ingredient_name="chili powder"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="cumin"),
+        IngredientRegistry.get_measurement(amount=32, unit="grams", ingredient_name="chili powder"),
+        IngredientRegistry.get_measurement(amount=10, unit="grams", ingredient_name="cumin"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="oregano"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=6, unit="grams", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="cayenne pepper"),
         IngredientRegistry.get_measurement(amount=1, unit="can", ingredient_name="black beans"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="peanut oil"),

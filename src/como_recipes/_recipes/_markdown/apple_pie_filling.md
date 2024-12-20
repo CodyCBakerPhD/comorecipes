@@ -10,23 +10,23 @@ Tags: American, Dessert, Pie, Vegetarian, Fruit
 
 3 lbs. (about 5) Granny Smith apples
 
-2 tbsp. butter
+2 tbsp butter
 
 1/4 cup sugar
 
 1/4 cup brown sugar
 
-1 tbsp. lemon juice
+1 tbsp lemon juice
 
-2 tsp. cinnamon
+2 tsp cinnamon
 
-1/2 tsp. salt
+3 grams salt
 
-1/4 tsp. nutmeg
+1/4 tsp nutmeg
 
-2 tbsp. flour
+16 grams flour
 
-2 tbsp. raw sugar
+2 tbsp raw sugar
 
 
 

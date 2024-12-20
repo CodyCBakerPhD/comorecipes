@@ -6,19 +6,19 @@ Tags: American, Vegetarian, Entree, Soup, Spicy
 
 ## Ingredients
 
-4 cloves garlic
+20 grams garlic
 
 1/3 white onion, minced
 
 1 qt jar of canned garden tomatoes
 
-4 tbsp chili powder
+32 grams chili powder
 
-2 tsp cumin
+10 grams cumin
 
 2 tsp oregano
 
-1 tsp salt
+6 grams salt
 
 1/2 tsp cayenne pepper
 

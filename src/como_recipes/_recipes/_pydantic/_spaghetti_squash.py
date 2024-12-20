@@ -9,8 +9,8 @@ class SpaghettiSquash(Recipe):
     tags: tuple[str, ...] = ("Italian", "Vegetarian", "Entree", "Pasta")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="spaghetti", ingredient_name="squash"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="olive oil"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="olive oil"),
+        IngredientRegistry.get_measurement(amount=4, unit="grams", ingredient_name="salt and pepper"),
     )
     instructions: tuple[str, ...] = (
         "Cut and clean inside of squash.",

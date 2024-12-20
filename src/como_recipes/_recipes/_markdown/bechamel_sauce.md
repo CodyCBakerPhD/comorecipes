@@ -6,13 +6,13 @@ Tags: European, Vegetarian
 
 ## Ingredients
 
-2 tbsp. butter
+2 tbsp butter
 
-2 tbsp. flour
+16 grams flour
 
 5/4 cup whole milk
 
-1/2 tsp. salt and pepper
+2 grams. salt and pepper
 
 
 

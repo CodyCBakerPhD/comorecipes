@@ -14,11 +14,11 @@ Tags: American, Dessert, Vegetarian
 
 1 large egg yolk
 
-3/4 tsp. vanilla extract
+3/4 tsp vanilla extract
 
-1/4 tsp. salt
+1 grams salt
 
-9/4 cups flour
+270 grams flour
 
 
 

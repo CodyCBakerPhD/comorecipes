@@ -8,9 +8,9 @@ Tags: American, Entree, Side, Vegetarian
 
 4 Good big potatoes
 
-1 tsp. olive oil
+1 tsp olive oil
 
-1/4 tsp. large-grain salt
+1/4 tsp large-grain salt
 
 
 

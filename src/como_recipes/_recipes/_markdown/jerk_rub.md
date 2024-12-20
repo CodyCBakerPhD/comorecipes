@@ -6,17 +6,17 @@ Tags: Jamaican, Vegetarian, Entree, Spicy
 
 ## Ingredients
 
-1/2 tsp. garlic powder
+2 grams garlic powder
 
-1/2 tsp. cumin
+3 grams cumin
 
-1/4 tsp. coriander
+1/4 tsp coriander
 
-1/4 tsp. paprika
+1 grams paprika
 
-1/4 tsp. salt and pepper
+1 grams salt and pepper
 
-1 tbsp. olive oil
+1 tbsp olive oil
 
 
 

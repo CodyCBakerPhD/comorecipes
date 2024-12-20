@@ -8,11 +8,11 @@ Tags: American, Entree
 
 4 salmon fillets, 250 g each
 
-1/2 tsp salt
+3 grams salt
 
 1/2 tsp black pepper
 
-1/2 tsp paprika
+2 grams paprika
 
 2 tbsp butter
 
@@ -20,7 +20,7 @@ Tags: American, Entree
 
 4 tbsp honey
 
-1 tbsp water
+15 grams water
 
 2 tsp soy sauce
 

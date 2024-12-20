@@ -9,8 +9,8 @@ class BakedPotato(Recipe):
     tags: tuple[str, ...] = ("American", "Entree", "Side", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=4, unit="Good", ingredient_name="big potatoes"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="olive oil"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="large-grain salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="olive oil"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp", ingredient_name="large-grain salt"),
     )
     instructions: tuple[str, ...] = (
         "Use aluminum foil for easy cleanup.",

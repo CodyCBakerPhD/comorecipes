@@ -16,7 +16,7 @@ Tags: Italian, Vegetarian, Entree, Pasta
 
 1 1/2 cups freshly grated Parmesan
 
-1/2 tbsp. fresh parsley
+1/2 tbsp fresh parsley
 
 
 

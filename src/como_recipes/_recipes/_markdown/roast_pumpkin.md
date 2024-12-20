@@ -8,7 +8,7 @@ Tags: American, Vegetarian
 
 5/2 lb sugar pumpkin
 
-1 tbsp. coconut oil
+1 tbsp coconut oil
 
 
 

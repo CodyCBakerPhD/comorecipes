@@ -14,11 +14,11 @@ Tags: American, Vegetarian, Fruit
 
 1 ripe banana
 
-1/8 tsp. of salt
+1/8 tsp of salt
 
-1/2 tsp. baking soda
+1/2 tsp baking soda
 
-1/2 cup flour
+60 grams flour
 
 
 

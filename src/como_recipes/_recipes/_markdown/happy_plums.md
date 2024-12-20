@@ -8,19 +8,19 @@ Tags: American, Dessert, Vegetarian, Fruit
 
 4 plums
 
-2 tbsp. sugar
+2 tbsp sugar
 
-1 tbsp. coconut oil
+1 tbsp coconut oil
 
 1/4 cup basalmic vinegar
 
-1/8 tsp. vanilla extract
+1/8 tsp vanilla extract
 
-1 tsp. chopped fresh rosemary
+1 tsp chopped fresh rosemary
 
-1 tbsp. honey
+1 tbsp honey
 
-1 tbsp. sour cream
+1 tbsp sour cream
 
 
 

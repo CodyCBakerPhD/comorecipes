@@ -16,9 +16,9 @@ Tags: French, Vegetarian, Entree
 
 2 aloha peppers, trimmed and thinly sliced
 
-3 tbsp. olive oil
+3 tbsp olive oil
 
-3 tbsp. mascarpone cheese
+3 tbsp mascarpone cheese
 
 
 

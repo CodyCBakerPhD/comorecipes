@@ -6,11 +6,11 @@ Tags: American, Dessert, Vegetarian
 
 ## Ingredients
 
-2 tsp. sugar
+2 tsp sugar
 
-9/4 cup flour
+270 grams flour
 
-1/2 tsp. salt
+3 grams salt
 
 1 cup cold shortening
 

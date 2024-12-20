@@ -8,13 +8,13 @@ Tags: French, Vegetarian, Entree
 
 4 russet potatoes
 
-1 large onion
+250 grams white onion
 
-1 tsp. salt and pepper
+4 grams salt and pepper
 
-3 tbsp. butter
+3 tbsp butter
 
-3 tbsp. flour
+24 grams flour
 
 2 cups whole milk
 

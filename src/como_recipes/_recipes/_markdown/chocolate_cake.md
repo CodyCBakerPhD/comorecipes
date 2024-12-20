@@ -6,19 +6,19 @@ Tags: American, Dessert, Vegetarian, Chocolate
 
 ## Ingredients
 
-1 cup flour
+8 grams flour
 
 1 cup sugar
 
 3/8 cup cocoa powder
 
-1 tsp. baking powder
+1 tsp baking powder
 
-3/4 tsp. baking soda
+3/4 tsp baking soda
 
-1/2 tsp. salt
+3 grams salt
 
-1/2 tsp. espresso powder
+1/2 tsp espresso powder
 
 1/2 cup milk
 
@@ -26,7 +26,7 @@ Tags: American, Dessert, Vegetarian, Chocolate
 
 1 large egg
 
-1 tsp. vanilla
+1 tsp vanilla
 
 1/2 cup boiling water
 

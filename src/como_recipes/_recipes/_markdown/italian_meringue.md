@@ -8,11 +8,11 @@ Tags: Italian, Dessert, Vegetarian
 
 1 cup sugar
 
-1/2 cup water
+120 grams water
 
 4 egg whites, room temperature
 
-1/2 tsp. cream of tartar or lemon juice
+1/2 tsp cream of tartar or lemon juice
 
 
 

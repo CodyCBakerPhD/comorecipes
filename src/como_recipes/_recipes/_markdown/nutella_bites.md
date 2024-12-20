@@ -16,9 +16,9 @@ Tags: American, Dessert, Breakfast, Vegetarian, Chocolate
 
 1/2  cup roasted hazelnuts
 
-2  tsp. vanilla extract
+2  tsp vanilla extract
 
-1/4  tsp. salt
+1/4  tsp salt
 
 
 

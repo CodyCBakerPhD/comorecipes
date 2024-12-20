@@ -8,7 +8,7 @@ Tags: American, Entree
 
 1 large turkey bag
 
-8 quarts water
+7680 grams water
 
 2 cups Kosher salt
 
