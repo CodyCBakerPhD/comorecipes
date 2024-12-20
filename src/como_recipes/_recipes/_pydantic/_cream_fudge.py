@@ -15,14 +15,14 @@ class CreamFudge(Recipe):
         IngredientRegistry.get_measurement(amount=76, unit="grams", ingredient_name="unsalted butter"),
     )
     instructions: tuple[str, ...] = (
-        'Grease 13" x 9" baking pan.',
-        "Combine sugar and whole milk into large saucepan.",
+        'Butter heat-proof pan.',
+        "Combine sugar and whole milk into a large saucepan.",
         "Add condensed milk, corn syrup, and butter.",
-        "Heat over medium-high heat for approximately 20-30 minutes, stirring constantly.",
+        "Heat over medium-high heat for approximately 21 minutes, stirring constantly.",
         "Target temperature is 240 F, which should be thick and caramelized.",
         "Remove from heat and transfer to a stand mixer bowl.",
         "Contents will be very hot, so be careful.",
-        "Beat with scraper attachment on lowest speed until fudge is no longer shiny, approximately 5-7 minutes.",
+        "Carefully beat with scraper attachment (and shield) on lowest speed until fudge is no longer shiny, approximately 6 minutes.",
         "Pour fudge onto prepared pan and let cool.",
     )
 
