@@ -11,7 +11,7 @@ class SloppyJoe(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="batch", ingredient_name="of Kaiser Rolls"),
         IngredientRegistry.get_measurement(amount=1, unit="lb", ingredient_name="ground beef or Boca crumbles"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="red onion"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="garlic powder"),
+        IngredientRegistry.get_measurement(amount=2, unit="grams", ingredient_name="garlic powder"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="yellow mustard"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="ketchup"),
         IngredientRegistry.get_measurement(amount=3, unit="tsp.", ingredient_name="brown sugar"),

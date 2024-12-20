@@ -16,7 +16,7 @@ class GreenChili(Recipe):
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="salt & pepper"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tbsp.", ingredient_name="powdered mustard"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="dried oregano"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="garlic powder"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="garlic powder"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=30, unit="grams", ingredient_name="flour"),
     )

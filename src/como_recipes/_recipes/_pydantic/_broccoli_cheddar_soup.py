@@ -14,7 +14,7 @@ class BroccoliCheddarSoup(Recipe):
         IngredientRegistry.get_measurement(amount=7, unit="oz.", ingredient_name="not-chicken broth"),
         IngredientRegistry.get_measurement(amount=8, unit="oz.", ingredient_name="cheddar"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="milk"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tbsp.", ingredient_name="garlic powder"),
+        IngredientRegistry.get_measurement(amount=5, unit="grams", ingredient_name="garlic powder"),
         IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="cornstarch"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="water"),
     )

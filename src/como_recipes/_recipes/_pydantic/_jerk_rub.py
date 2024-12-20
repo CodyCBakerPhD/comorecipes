@@ -8,8 +8,8 @@ class JerkRub(Recipe):
     name: str = "Jerk Rub"
     tags: tuple[str, ...] = ("Jamaican", "Vegetarian", "Entree", "Spicy")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="garlic powder"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="cumin"),
+        IngredientRegistry.get_measurement(amount=2, unit="grams", ingredient_name="garlic powder"),
+        IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="cumin"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="coriander"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="paprika"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="salt and pepper"),

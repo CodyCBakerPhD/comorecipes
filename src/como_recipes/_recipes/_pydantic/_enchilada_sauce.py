@@ -13,8 +13,8 @@ class EnchiladaSauce(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="dark chili powder"),
         IngredientRegistry.get_measurement(amount=8, unit="oz.", ingredient_name="can tomato sauce"),
         IngredientRegistry.get_measurement(amount=3 / 2, unit="cups", ingredient_name="water"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="cumin"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="garlic powder"),
+        IngredientRegistry.get_measurement(amount=1, unit="grams", ingredient_name="cumin"),
+        IngredientRegistry.get_measurement(amount=1, unit="grams", ingredient_name="garlic powder"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="onion powder"),
         IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="salt"),
     )
