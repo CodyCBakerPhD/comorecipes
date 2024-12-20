@@ -23,6 +23,7 @@ from ._roast_pumpkin import RoastPumpkin
 from ._sauteed_green_beans import SauteedGreenBeans
 from ._cream_fudge import CreamFudge
 from ._rice import Rice
+from ._gingerbread_cookies import GingerbreadCookies
 from ._red_wine_sauce import RedWineSauce
 from ._red_beans import RedBeans
 from ._ratatouille import Ratatouille
