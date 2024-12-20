@@ -15,7 +15,7 @@ class CreamFudge(Recipe):
         IngredientRegistry.get_measurement(amount=76, unit="grams", ingredient_name="unsalted butter"),
     )
     instructions: tuple[str, ...] = (
-        'Butter heat-proof pan.',
+        "Butter heat-proof pan.",
         "Combine sugar and whole milk into a large saucepan.",
         "Add condensed milk, corn syrup, and butter.",
         "Heat over medium-high heat for approximately 21 minutes, stirring constantly.",
