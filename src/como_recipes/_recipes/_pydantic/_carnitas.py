@@ -12,7 +12,7 @@ class Carnitas(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="oregano"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="cumin"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="chili powder"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=8, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="salt and pepper"),
         IngredientRegistry.get_measurement(amount=2, unit="oranges,", ingredient_name="juiced"),
         IngredientRegistry.get_measurement(amount=2, unit="cloves", ingredient_name="minced garlic"),

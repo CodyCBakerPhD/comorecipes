@@ -23,7 +23,7 @@ class PotPie(Recipe):
         ),
         IngredientRegistry.get_measurement(amount=1, unit="small", ingredient_name="russet potato, peeled and diced"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="salt and pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=30, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="not-chicken broth"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="whole milk"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="green peas"),

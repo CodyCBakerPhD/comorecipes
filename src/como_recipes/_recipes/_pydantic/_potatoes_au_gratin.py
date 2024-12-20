@@ -12,7 +12,7 @@ class PotatoesAuGratin(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="onion"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="salt and pepper"),
         IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="butter"),
-        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=24, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="whole milk"),
         IngredientRegistry.get_measurement(amount=3 / 2, unit="cup", ingredient_name="cheddar"),
     )

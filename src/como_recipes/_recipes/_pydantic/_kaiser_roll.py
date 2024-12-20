@@ -13,7 +13,7 @@ class KaiserRoll(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="sugar or honey"),
         IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="vegetable oil"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt"),
-        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=240, unit="grams", ingredient_name="flour"),
     )
     instructions: tuple[str, ...] = (
         "Preheat oven to 400 F. Activate yeast.",

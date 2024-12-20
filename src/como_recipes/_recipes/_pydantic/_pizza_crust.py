@@ -11,7 +11,7 @@ class PizzaCrust(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="yeast"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="sugar or honey"),
-        IngredientRegistry.get_measurement(amount=9, unit="oz.", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=255, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="salt"),
     )
     instructions: tuple[str, ...] = (

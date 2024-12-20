@@ -9,7 +9,7 @@ class ButterPieCrust(Recipe):
     tags: tuple[str, ...] = ("American", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="sugar"),
-        IngredientRegistry.get_measurement(amount=5 / 2, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=300, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="cold butter"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="ice water"),

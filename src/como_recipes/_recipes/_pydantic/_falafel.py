@@ -12,7 +12,7 @@ class Falafel(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="small", ingredient_name="white onion"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="parsley"),
         IngredientRegistry.get_measurement(amount=5, unit="gloves", ingredient_name="garlic"),
-        IngredientRegistry.get_measurement(amount=3 / 2, unit="tbsp.", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=12, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=7 / 4, unit="tsp.", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="cumin"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="coriander"),

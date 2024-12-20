@@ -12,7 +12,7 @@ class ButtermilkWaffles(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="buttermilk"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp.", ingredient_name="vanilla extract"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="all-purpose flour"),
+        IngredientRegistry.get_measurement(amount=60, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=2 / 3, unit="tsp.", ingredient_name="baking powder"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp.", ingredient_name="baking soda"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp.", ingredient_name="sugar"),

@@ -10,7 +10,7 @@ class MacaroniAndCheese(Recipe):
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=8, unit="oz.", ingredient_name="elbow pasta"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=30, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(
             amount=2,
             unit="cups",

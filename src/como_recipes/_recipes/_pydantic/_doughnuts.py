@@ -15,7 +15,7 @@ class Doughnuts(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg"),
         IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="shortening"),
-        IngredientRegistry.get_measurement(amount=5 / 2, unit="cups", ingredient_name="all-purpose flour"),
+        IngredientRegistry.get_measurement(amount=300, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1, unit="qt.", ingredient_name="vegetable oil"),
         IngredientRegistry.get_measurement(amount=1 / 6, unit="cup", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=1, unit="cups", ingredient_name="powdered sugar"),

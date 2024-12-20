@@ -13,7 +13,7 @@ class YellowCake(Recipe):
         IngredientRegistry.get_measurement(amount=8, unit="egg", ingredient_name="yolks"),
         IngredientRegistry.get_measurement(amount=3 / 4, unit="cup", ingredient_name="milk"),
         IngredientRegistry.get_measurement(amount=3 / 2, unit="tsp.", ingredient_name="vanilla"),
-        IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="cake flour"),
+        IngredientRegistry.get_measurement(amount=240, unit="grams", ingredient_name="cake flour"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="baking powder"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt"),
     )

@@ -8,7 +8,7 @@ class Pancakes(Recipe):
     name: str = "Pancakes"
     tags: tuple[str, ...] = ("American", "Breakfast", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="cup flour"),
+        IngredientRegistry.get_measurement(amount=120, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=2, unit="", ingredient_name="tbsp. sugar"),
         IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp. baking powder"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="", ingredient_name="tsp. baking soda"),

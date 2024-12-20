@@ -15,7 +15,7 @@ class ChocolateChipCookies(Recipe):
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="vanilla"),
         IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="baking soda"),
         IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="hot water"),
-        IngredientRegistry.get_measurement(amount=3, unit="cup", ingredient_name="flour"),
+        IngredientRegistry.get_measurement(amount=360, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt"),
         IngredientRegistry.get_measurement(
             amount=2,
