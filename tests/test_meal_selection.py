@@ -59,7 +59,7 @@ def test_meal_selection(example_measurement: Measurement):
         "☐  cloves of garlic",
         "    8 large",
         "☐  crushed red pepper",
-        "    2 tsp.",
+        "    2 tsp",
         "☐  fresh Parmesan",
         "    1 cup",
         "☐  fresh green beans",
@@ -70,13 +70,13 @@ def test_meal_selection(example_measurement: Measurement):
         "☐  parsley",
         "    1/4 cup",
         "☐  salt",
-        "    1 tbsp.",
+        "    17 grams",
         "☐  salt & pepper",
         "    1 enough",
         "☐  thin spaghetti",
-        "    1 lb.",
+        "    1 package",
         "☐  water",
-        "    2 qt.",
+        "    960 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
@@ -130,7 +130,7 @@ def test_meal_selection(example_measurement: Measurement):
         "☐  cloves of garlic",
         "    8 large",
         "☐  crushed red pepper",
-        "    2 tsp.",
+        "    2 tsp",
         "☐  fresh Parmesan",
         "    1 cup",
         "☐  fresh green beans",
@@ -141,13 +141,13 @@ def test_meal_selection(example_measurement: Measurement):
         "☐  parsley",
         "    1/4 cup",
         "☐  salt",
-        "    1 tbsp.",
+        "    17 grams",
         "☐  salt & pepper",
         "    1 enough",
         "☐  thin spaghetti",
-        "    1 lb.",
+        "    1 package",
         "☐  water",
-        "    2 qt.",
+        "    960 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
@@ -215,7 +215,7 @@ def test_meal_selection(example_measurement: Measurement):
         "☐  cloves of garlic",
         "    8 large",
         "☐  crushed red pepper",
-        "    2 tsp.",
+        "    2 tsp",
         "☐  fresh Parmesan",
         "    1 cup",
         "☐  fresh green beans",
@@ -226,13 +226,13 @@ def test_meal_selection(example_measurement: Measurement):
         "☐  parsley",
         "    1/4 cup",
         "☐  salt",
-        "    1 tbsp.",
+        "    17 grams",
         "☐  salt & pepper",
         "    1 enough",
         "☐  thin spaghetti",
-        "    1 lb.",
+        "    1 package",
         "☐  water",
-        "    2 qt.",
+        "    960 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
@@ -302,7 +302,7 @@ def test_meal_selection(example_measurement: Measurement):
         "☐  cloves of garlic",
         "    8 large",
         "☐  crushed red pepper",
-        "    2 tsp.",
+        "    2 tsp",
         "☐  fresh Parmesan",
         "    1 cup",
         "☐  fresh green beans",
@@ -313,13 +313,13 @@ def test_meal_selection(example_measurement: Measurement):
         "☐  parsley",
         "    1/4 cup",
         "☐  salt",
-        "    1 tbsp.",
+        "    17 grams",
         "☐  salt & pepper",
         "    1 enough",
         "☐  thin spaghetti",
-        "    1 lb.",
+        "    1 package",
         "☐  water",
-        "    2 qt.",
+        "    960 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
