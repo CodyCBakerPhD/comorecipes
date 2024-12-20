@@ -12,9 +12,9 @@ class CreamedGenoise(Recipe):
         IngredientRegistry.get_measurement(amount=375 / 2, unit="g.", ingredient_name="sugar"),
         IngredientRegistry.get_measurement(amount=3, unit="", ingredient_name="beaten eggs, room temperature"),
         IngredientRegistry.get_measurement(amount=187, unit="grams", ingredient_name="cake flour"),
-        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp. baking powder"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp baking powder"),
         IngredientRegistry.get_measurement(amount=25, unit="ml.", ingredient_name="milk"),
-        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp. vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1, unit="", ingredient_name="tsp vanilla extract"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 350 F.",

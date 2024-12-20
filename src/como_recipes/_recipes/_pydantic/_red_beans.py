@@ -9,16 +9,16 @@ class RedBeans(Recipe):
     tags: tuple[str, ...] = ("American", "Vegetarian", "Entree", "Spicy")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="recipes", ingredient_name="worth of rice"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="olive oil"),
-        IngredientRegistry.get_measurement(amount=4, unit="cloves", ingredient_name="garlic"),
-        IngredientRegistry.get_measurement(amount=1 / 3, unit="white", ingredient_name="onion"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="olive oil"),
+        IngredientRegistry.get_measurement(amount=20, unit="grams", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=83, unit="grams", ingredient_name="white onion"),
         IngredientRegistry.get_measurement(amount=1, unit="stalk", ingredient_name="celery"),
         IngredientRegistry.get_measurement(amount=2, unit="bay", ingredient_name="leaves"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="cayenne pepper"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="thyme"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="sage"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="parsley"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="Cajun seasoning"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="cayenne pepper"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="thyme"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp", ingredient_name="sage"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="parsley"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="Cajun seasoning"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="water"),
     )
     instructions: tuple[str, ...] = (

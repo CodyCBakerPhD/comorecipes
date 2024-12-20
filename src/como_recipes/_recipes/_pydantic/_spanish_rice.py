@@ -8,14 +8,14 @@ class SpanishRice(Recipe):
     name: str = "Spanish Rice"
     tags: tuple[str, ...] = ("Mexican", "Side", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=1, unit="shallot", ingredient_name=""),
-        IngredientRegistry.get_measurement(amount=2, unit="cloves", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=10, unit="grams", ingredient_name="garlic"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="long grain brown rice"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=4, unit="grams", ingredient_name="salt and pepper"),
         IngredientRegistry.get_measurement(amount=5 / 2, unit="cups", ingredient_name="not-chicken broth"),
         IngredientRegistry.get_measurement(amount=2, unit="sprigs", ingredient_name="of thyme"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="parsley"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="parsley"),
     )
     instructions: tuple[str, ...] = (
         "Melt butter over medium heat. Add shallot and garlic, saute until tender.",

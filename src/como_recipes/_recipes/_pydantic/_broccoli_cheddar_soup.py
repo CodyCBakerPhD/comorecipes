@@ -9,7 +9,7 @@ class BroccoliCheddarSoup(Recipe):
     tags: tuple[str, ...] = ("American", "Vegetarian", "Entree", "Soup")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="large", ingredient_name="onion"),
+        IngredientRegistry.get_measurement(amount=125, unit="grams", ingredient_name="white onion"),
         IngredientRegistry.get_measurement(amount=8, unit="oz.", ingredient_name="broccoli"),
         IngredientRegistry.get_measurement(amount=7, unit="oz.", ingredient_name="not-chicken broth"),
         IngredientRegistry.get_measurement(amount=8, unit="oz.", ingredient_name="cheddar"),

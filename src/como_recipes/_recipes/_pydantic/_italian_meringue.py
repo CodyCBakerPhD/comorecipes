@@ -11,7 +11,7 @@ class ItalianMeringue(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="sugar"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=4, unit="egg", ingredient_name="whites, room temperature"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="cream of tartar or lemon juice"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="cream of tartar or lemon juice"),
     )
     instructions: tuple[str, ...] = (
         "Combine sugar and water in a small saucepan over high heat, brushing down sides of pot as necessary with a pastry brush dipped in water.",

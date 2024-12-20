@@ -11,7 +11,7 @@ class HoneyGarlicSalmon(Recipe):
         IngredientRegistry.get_measurement(amount=4, unit="salmon", ingredient_name="fillets, 250 g each"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="black pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="paprika"),
+        IngredientRegistry.get_measurement(amount=2, unit="grams", ingredient_name="paprika"),
         IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=4, unit="cloves", ingredient_name="garlic, finely chopped"),
         IngredientRegistry.get_measurement(amount=4, unit="tbsp", ingredient_name="honey"),

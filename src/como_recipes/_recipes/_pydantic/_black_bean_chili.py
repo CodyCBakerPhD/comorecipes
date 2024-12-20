@@ -8,7 +8,7 @@ class BlackBeanChili(Recipe):
     name: str = "Black Bean Chili"
     tags: tuple[str, ...] = ("American", "Vegetarian", "Entree", "Soup", "Spicy")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=4, unit="cloves", ingredient_name="garlic"),
+        IngredientRegistry.get_measurement(amount=20, unit="grams", ingredient_name="garlic"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="white", ingredient_name="onion, minced"),
         IngredientRegistry.get_measurement(amount=1, unit="qt", ingredient_name="jar of canned garden tomatoes"),
         IngredientRegistry.get_measurement(amount=32, unit="grams", ingredient_name="chili powder"),

@@ -9,13 +9,13 @@ class GreenChili(Recipe):
     tags: tuple[str, ...] = ("Mexican", "Vegetarian", "Entree", "Soup", "Spicy")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="tbps.", ingredient_name="butter"),
-        IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="white onion"),
+        IngredientRegistry.get_measurement(amount=250, unit="grams", ingredient_name="white onion"),
         IngredientRegistry.get_measurement(amount=1, unit="qt.", ingredient_name="of tomatoes"),
         IngredientRegistry.get_measurement(amount=10, unit="Anaheim", ingredient_name="chilis"),
         IngredientRegistry.get_measurement(amount=2, unit="Jalepeno", ingredient_name="peppers"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="salt & pepper"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tbsp.", ingredient_name="powdered mustard"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="dried oregano"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="salt & pepper"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tbsp", ingredient_name="powdered mustard"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="dried oregano"),
         IngredientRegistry.get_measurement(amount=3, unit="grams", ingredient_name="garlic powder"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=30, unit="grams", ingredient_name="flour"),

@@ -9,10 +9,10 @@ class FryingBreading(Recipe):
     tags: tuple[str, ...] = ("American", "Vegetarian", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=720, unit="grams", ingredient_name="flour"),
-        IngredientRegistry.get_measurement(amount=10, unit="tbsp.", ingredient_name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=13, unit="grams", ingredient_name="salt and pepper"),
         IngredientRegistry.get_measurement(amount=20, unit="grams", ingredient_name="garlic powder"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="onion powder"),
-        IngredientRegistry.get_measurement(amount=4, unit="tsp.", ingredient_name="cayenne pepper"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="onion powder"),
+        IngredientRegistry.get_measurement(amount=4, unit="tsp", ingredient_name="cayenne pepper"),
     )
     instructions: tuple[str, ...] = ("Mix in large batches and store for later use.",)
 

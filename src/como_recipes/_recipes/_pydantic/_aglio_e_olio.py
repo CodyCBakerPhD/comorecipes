@@ -9,11 +9,11 @@ class AglioEOlio(Recipe):
     tags: tuple[str, ...] = ("Italian", "Pasta", "Vegetarian", "Entree")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=2, unit="qt.", ingredient_name="water"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1, unit="lb.", ingredient_name="thin spaghetti"),
         IngredientRegistry.get_measurement(amount=1 / 3, unit="cup", ingredient_name="olive oil"),
         IngredientRegistry.get_measurement(amount=8, unit="large", ingredient_name="cloves of garlic"),
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="crushed red pepper"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="crushed red pepper"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="parsley"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="fresh Parmesan"),
     )

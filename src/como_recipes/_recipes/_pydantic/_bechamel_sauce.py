@@ -8,10 +8,10 @@ class BechamelSauce(Recipe):
     name: str = "Bechamel Sauce"
     tags: tuple[str, ...] = ("European", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="butter"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=16, unit="grams", ingredient_name="flour"),
         IngredientRegistry.get_measurement(amount=5 / 4, unit="cup", ingredient_name="whole milk"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="salt and pepper"),
+        IngredientRegistry.get_measurement(amount=2, unit="grams.", ingredient_name="salt and pepper"),
     )
     instructions: tuple[str, ...] = ("Make roux with butter and flour. Thicken with milk. Season.",)
 

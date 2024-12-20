@@ -9,13 +9,13 @@ class HappyPlums(Recipe):
     tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian", "Fruit")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=4, unit="plums", ingredient_name=""),
-        IngredientRegistry.get_measurement(amount=2, unit="tbsp.", ingredient_name="sugar"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="coconut oil"),
+        IngredientRegistry.get_measurement(amount=2, unit="tbsp", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="coconut oil"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="basalmic vinegar"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="vanilla extract"),
-        IngredientRegistry.get_measurement(amount=1, unit="tsp.", ingredient_name="chopped fresh rosemary"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="honey"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="sour cream"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp", ingredient_name="vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1, unit="tsp", ingredient_name="chopped fresh rosemary"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="honey"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="sour cream"),
     )
     instructions: tuple[str, ...] = (
         "Preheat oven to 350 F. Cut plums in half and remove the pits. Coat baking pan with oil. Brush plums with oil, then sprinkle a thin layer of sugar on each. Bake for 20 minutes.",

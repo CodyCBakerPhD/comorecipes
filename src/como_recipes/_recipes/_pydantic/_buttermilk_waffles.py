@@ -8,16 +8,16 @@ class ButtermilkWaffles(Recipe):
     name: str = "Buttermilk Waffles"
     tags: tuple[str, ...] = ("American", "Breakfast", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=5 / 2, unit="tbsp.", ingredient_name="melted and cooled butter"),
+        IngredientRegistry.get_measurement(amount=5 / 2, unit="tbsp", ingredient_name="melted and cooled butter"),
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="buttermilk"),
-        IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp.", ingredient_name="vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp", ingredient_name="vanilla extract"),
         IngredientRegistry.get_measurement(amount=60, unit="grams", ingredient_name="flour"),
-        IngredientRegistry.get_measurement(amount=2 / 3, unit="tsp.", ingredient_name="baking powder"),
-        IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp.", ingredient_name="baking soda"),
-        IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp.", ingredient_name="sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 6, unit="tsp.", ingredient_name="salt"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="pearl sugar"),
+        IngredientRegistry.get_measurement(amount=2 / 3, unit="tsp", ingredient_name="baking powder"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp", ingredient_name="baking soda"),
+        IngredientRegistry.get_measurement(amount=1 / 3, unit="tsp", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=1 / 6, unit="tsp", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="pearl sugar"),
     )
     instructions: tuple[str, ...] = (
         "Waffle will be best if all ingredients are at room temperature",

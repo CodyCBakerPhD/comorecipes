@@ -8,9 +8,9 @@ class ButterPieCrust(Recipe):
     name: str = "Butter Pie Crust"
     tags: tuple[str, ...] = ("American", "Vegetarian")
     measurements: tuple[Measurement, ...] = (
-        IngredientRegistry.get_measurement(amount=2, unit="tsp.", ingredient_name="sugar"),
+        IngredientRegistry.get_measurement(amount=2, unit="tsp", ingredient_name="sugar"),
         IngredientRegistry.get_measurement(amount=300, unit="grams", ingredient_name="flour"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp", ingredient_name="salt"),
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="cold butter"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="ice water"),
         IngredientRegistry.get_measurement(amount=1, unit="egg", ingredient_name="yolk with a little water"),

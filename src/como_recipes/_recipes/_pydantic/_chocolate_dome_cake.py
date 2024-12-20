@@ -16,7 +16,7 @@ class ChocolateDomeCake(Recipe):
         IngredientRegistry.get_measurement(amount=7, unit="oz.", ingredient_name="high-quality chocolate for coating"),
         IngredientRegistry.get_measurement(amount=1, unit="1/2", ingredient_name="cup raspberries"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="sugar"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="lime juice"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="lime juice"),
     )
     instructions: tuple[str, ...] = (
         "Preheat to 350 F. Whip eggs and sugar until thick and frothy. Fold in flour. Bake in round bowl for 1 hour.",

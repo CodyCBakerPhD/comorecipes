@@ -15,8 +15,8 @@ class EnchiladaSauce(Recipe):
         IngredientRegistry.get_measurement(amount=3 / 2, unit="cups", ingredient_name="water"),
         IngredientRegistry.get_measurement(amount=1, unit="grams", ingredient_name="cumin"),
         IngredientRegistry.get_measurement(amount=1, unit="grams", ingredient_name="garlic powder"),
-        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp.", ingredient_name="onion powder"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="salt"),
+        IngredientRegistry.get_measurement(amount=1 / 4, unit="tsp", ingredient_name="onion powder"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp", ingredient_name="salt"),
     )
     instructions: tuple[str, ...] = (
         "Heat oil over medium-high heat. Stir in flour and chili powder.",

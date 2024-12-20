@@ -25,8 +25,8 @@ class Ratatouille(Recipe):
             unit="aloha",
             ingredient_name="peppers, trimmed and thinly sliced",
         ),
-        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="olive oil"),
-        IngredientRegistry.get_measurement(amount=3, unit="tbsp.", ingredient_name="mascarpone cheese"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp", ingredient_name="olive oil"),
+        IngredientRegistry.get_measurement(amount=3, unit="tbsp", ingredient_name="mascarpone cheese"),
     )
     instructions: tuple[str, ...] = (
         "Make piperade sauce ahead of time.",

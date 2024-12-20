@@ -13,7 +13,7 @@ class FettuccineAlfredo(Recipe):
         IngredientRegistry.get_measurement(amount=1, unit="cup", ingredient_name="heavy cream"),
         IngredientRegistry.get_measurement(amount=3, unit="cloves", ingredient_name="crushed garlic"),
         IngredientRegistry.get_measurement(amount=1, unit="1/2", ingredient_name="cups freshly grated Parmesan"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tbsp.", ingredient_name="fresh parsley"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tbsp", ingredient_name="fresh parsley"),
     )
     instructions: tuple[str, ...] = (
         "Melt butter in saucepan over medium heat.",

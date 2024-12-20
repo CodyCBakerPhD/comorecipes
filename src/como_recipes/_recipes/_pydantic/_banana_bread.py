@@ -12,8 +12,8 @@ class BananaBread(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 8, unit="cup", ingredient_name="sugar"),
         IngredientRegistry.get_measurement(amount=1, unit="large", ingredient_name="egg"),
         IngredientRegistry.get_measurement(amount=1, unit="ripe", ingredient_name="banana"),
-        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp.", ingredient_name="of salt"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="baking soda"),
+        IngredientRegistry.get_measurement(amount=1 / 8, unit="tsp", ingredient_name="of salt"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="baking soda"),
         IngredientRegistry.get_measurement(amount=60, unit="grams", ingredient_name="flour"),
     )
     instructions: tuple[str, ...] = (

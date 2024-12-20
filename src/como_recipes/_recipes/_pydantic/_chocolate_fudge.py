@@ -12,7 +12,7 @@ class ChocolateFudge(Recipe):
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="dutch cocoa powder"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="butter"),
         IngredientRegistry.get_measurement(amount=1 / 4, unit="cup", ingredient_name="chocolate milk"),
-        IngredientRegistry.get_measurement(amount=1, unit="tbsp.", ingredient_name="vanilla"),
+        IngredientRegistry.get_measurement(amount=1, unit="tbsp", ingredient_name="vanilla"),
         IngredientRegistry.get_measurement(
             amount=1 / 2,
             unit="cup",

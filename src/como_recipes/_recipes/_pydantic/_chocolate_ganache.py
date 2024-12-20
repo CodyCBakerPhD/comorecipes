@@ -10,7 +10,7 @@ class ChocolateGanache(Recipe):
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=2, unit="cups", ingredient_name="semi-sweet chocolate"),
         IngredientRegistry.get_measurement(amount=1 / 2, unit="cup", ingredient_name="heavy cream"),
-        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp.", ingredient_name="vanilla extract"),
+        IngredientRegistry.get_measurement(amount=1 / 2, unit="tsp", ingredient_name="vanilla extract"),
     )
     instructions: tuple[str, ...] = (
         "Combine chocolate and heavy cream in a small saucepan over medium heat.",
