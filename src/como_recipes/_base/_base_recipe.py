@@ -150,6 +150,42 @@ class Recipe(pydantic.BaseModel):
         with file_path.open(mode="w") as io:
             io.write(markdown_text[:-1])
 
+    @pydantic.validate_call
+    def to_html_file(self, *, file_path: pydantic.NewPath) -> None:
+        """
+        Save recipe to a .html file in a markdown-like structure for use in the website.
+
+        Parameters
+        ----------
+        file_path : pydantic.NewPath
+            Path to the HTML (.html) file
+
+        """
+        html_lines = [f"<h1>{self.name}</h1>\n\n"]
+
+        if self.tags is not None:
+            html_lines += [f"<p>Tags: {', '.join(self.tags)}</p>\n\n\n\n"]
+
+        html_lines += ["<br>"]
+        html_lines += ["<h2>Ingredients</h2>\n\n"]
+        for measurement in self.measurements:
+            html_lines += ["<p>"]
+            html_lines += [f"{measurement.amount} {measurement.unit}"]
+            html_lines += [f" {measurement.ingredient.name}</p>\n" if measurement.ingredient.name != "" else "</p>\n"]
+
+        if self.notes is not None:
+            html_lines += ["<br>"]
+            html_lines += ["<h2>Notes</h2>\n\n"]
+            for note in self.notes:
+                html_lines += [f"<p>{note}</p>\n"]
+
+        html_lines += ["<h2>Instructions</h2>\n\n"]
+        for instruction in self.instructions:
+            html_lines += [f"<p>{instruction}</p>\n"]
+
+        with file_path.open(mode="w") as io:
+            io.writelines(lines=html_lines)
+
     @classmethod
     @pydantic.validate_call
     def from_markdown_file(cls, *, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:

@@ -62,3 +62,8 @@ def _executable_stem() -> None:
     message = get_executable_stem()
 
     click.echo(message=message)
+
+
+@click.command(name="generate_html_recipes")
+def _generate_html_recipes() -> None:
+    pass
