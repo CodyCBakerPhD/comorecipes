@@ -45,6 +45,7 @@ from ._jerk_rub import JerkRub
 from ._italian_meringue import ItalianMeringue
 from ._honey_garlic_salmon import HoneyGarlicSalmon
 from ._happy_plums import HappyPlums
+from ._old_fashioned_chocolate_fudge import OldFashionedChocolateFudge
 from ._green_chili import GreenChili
 from ._green_bean_casserole import GreenBeanCasserole
 from ._grape_salad import GrapeSalad

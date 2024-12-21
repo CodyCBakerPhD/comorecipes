@@ -18,6 +18,12 @@ Tags: American, Dessert, Vegetarian, Christmas
 
 
 
+## Notes
+
+Constantly stir to avoid any amount of burning.
+
+
+
 ## Instructions
 
 Butter heat-proof pan.
@@ -30,10 +36,10 @@ Heat over medium-high heat for approximately 21 minutes, stirring constantly.
 
 Target temperature is 240 F, which should be thick and caramelized.
 
-Remove from heat and transfer to a stand mixer bowl.
+Remove from heat and carefully transfer to a stand mixer bowl.
 
 Contents will be very hot, so be careful.
 
-Carefully beat with scraper attachment (and shield) on lowest speed until fudge is no longer shiny, approximately 6 minutes.
+Carefully beat with scraper attachment (and shield) on lowest speed until no longer shiny, about 6 minutes.
 
 Pour fudge onto prepared pan and let cool.
