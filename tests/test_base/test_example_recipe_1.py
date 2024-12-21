@@ -35,6 +35,22 @@ def test_example_1_to_markdown(example_1_folder_path: pathlib.Path, tmpdir: py.p
     assert test_markdown_file_lines == expected_markdown_file_lines
 
 
+def test_example_1_to_html(example_1_folder_path: pathlib.Path, tmpdir: py.path.local):
+    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
+    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
+
+    test_html_file_path = pathlib.Path(tmpdir) / "example_recipe_1.html"
+    recipe.to_html_file(file_path=test_html_file_path)
+    with test_html_file_path.open(mode="r") as io:
+        test_html_file_lines = io.readlines()
+
+    example_1_html_file_path = example_1_folder_path / "example_recipe_1.html"
+    with example_1_html_file_path.open(mode="r") as io:
+        expected_html_file_lines = io.readlines()
+
+    assert test_html_file_lines == expected_html_file_lines
+
+
 def test_example_1_repr(example_1_folder_path: pathlib.Path):
     example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
     recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
