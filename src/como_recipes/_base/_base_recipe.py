@@ -16,6 +16,12 @@ class Recipe(pydantic.BaseModel):
     ----------
     name : str
         Name of the recipe.
+    snake_case_name : str, optional
+        Name of the recipe in 'snake_case'.
+        If unspecified, this is automatically created from the `name` using a heuristic.
+    camel_case_name : str, optional
+        Name of the recipe in 'CamelCase'.
+        If unspecified, this is automatically created from the `name` using a heuristic.
     tags : tuple[str], optional
         List of tags associated with the recipe.
     measurements : tuple[Measurement]
@@ -28,11 +34,38 @@ class Recipe(pydantic.BaseModel):
     """
 
     name: str
-    tags: tuple[str, ...] | None = None
     measurements: tuple[Measurement, ...]
     instructions: tuple[str, ...]
+    # snake_case_name: str | None = None
+    # camel_case_name: str | None = None
+    tags: tuple[str, ...] | None = None
     notes: tuple[str, ...] | None = None
     model_config = pydantic.ConfigDict(extra="forbid")
+
+    # def __init__(
+    #     self,
+    #     name: str,
+    #     measurements: tuple[Measurement, ...],
+    #     instructions: tuple[str, ...],
+    #     snake_case_name: str | None = None,
+    #     camel_case_name: str | None = None,
+    #     tags: tuple[str, ...] | None = None,
+    #     notes: tuple[str, ...] | None = None,
+    # ) -> None:
+    #     super().__init__(
+    #         name=name,
+    #         snake_case_name=snake_case_name,
+    #         camel_case_name=camel_case_name,
+    #         tags=tags,
+    #         measurements=measurements,
+    #         instructions=instructions,
+    #         notes=notes,
+    #     )
+    #
+    #     self.snake_case_name = self.snake_case_name or self.name.lower().replace(" ", "_")
+    #     self.camel_case_name = self.camel_case_name or "".join(
+    #     word.capitalize() for word in self.snake_case_name.split("_")
+    #     )
 
     def __len__(self) -> int:
         """
@@ -151,7 +184,7 @@ class Recipe(pydantic.BaseModel):
             io.write(markdown_text[:-1])
 
     @pydantic.validate_call
-    def to_html_file(self, *, file_path: pydantic.NewPath) -> None:
+    def to_html_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:
         """
         Save recipe to a .html file in a markdown-like structure for use in the website.
 
@@ -161,7 +194,8 @@ class Recipe(pydantic.BaseModel):
             Path to the HTML (.html) file
 
         """
-        html_lines = [f"<h1>{self.name}</h1>\n\n"]
+        html_lines = ['<p><a href="../index.html">Back to Recipe Index</a></p>\n\n']
+        html_lines += [f"<h1>{self.name}</h1>\n\n"]
 
         if self.tags is not None:
             html_lines += [f"<p>Tags: {', '.join(self.tags)}</p>\n\n\n\n"]
