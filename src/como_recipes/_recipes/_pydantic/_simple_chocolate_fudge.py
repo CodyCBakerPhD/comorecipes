@@ -4,8 +4,8 @@ from ..._registration._ingredient_registry import IngredientRegistry
 from ..._registration._recipe_registry import default_recipe_registry
 
 
-class ChocolateFudge(Recipe):
-    name: str = "Chocolate Fudge"
+class SimpleChocolateFudge(Recipe):
+    name: str = "Simple Chocolate Fudge"
     tags: tuple[str, ...] = ("American", "Dessert", "Vegetarian", "Chocolate")
     measurements: tuple[Measurement, ...] = (
         IngredientRegistry.get_measurement(amount=1, unit="lb.", ingredient_name="powdered sugar"),
@@ -31,4 +31,4 @@ class ChocolateFudge(Recipe):
     )
 
 
-default_recipe_registry.add_recipe(recipe=ChocolateFudge())
+default_recipe_registry.add_recipe(recipe=SimpleChocolateFudge())

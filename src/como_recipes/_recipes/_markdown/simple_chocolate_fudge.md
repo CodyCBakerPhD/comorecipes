@@ -1,4 +1,4 @@
-# Chocolate Fudge
+# Simple Chocolate Fudge
 
 Tags: American, Dessert, Vegetarian, Chocolate
 

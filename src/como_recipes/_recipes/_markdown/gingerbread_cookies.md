@@ -60,7 +60,7 @@ Remove one dough sheet from the refrigerator and place on a well floured counter
 
 Lightly flour the top of the dough and the rolling pin and roll out the dough.
 
-Roll until to a half inch thickness.
+Roll to a quarter inch thickness.
 
 Cut gingerbread men and place them on prepared baking sheets.
 

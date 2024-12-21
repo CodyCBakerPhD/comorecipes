@@ -30,7 +30,7 @@ Constantly stir to avoid any amount of burning.
 
 Butter heat-proof pan.
 
-Combine sugar, cocoa, and salt..
+Combine sugar, cocoa, and salt.
 
 Combine with milk.
 
@@ -38,9 +38,11 @@ While stirring constantly, heat over medium heat until strong boil, approximatel
 
 Lower heat to medium-low and cook approximately 30 more minutes.
 
-Target temperature is 234 F.
+Target temperature is 250 F.
 
-Remove from heat and add butter and vanilla.Carefully transfer to a stand mixer bowl.
+Remove from heat and add butter and vanilla.
+
+Carefully transfer to a stand mixer bowl.
 
 Contents will be very hot, so be careful.
 
