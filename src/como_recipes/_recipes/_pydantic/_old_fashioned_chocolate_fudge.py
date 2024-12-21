@@ -22,7 +22,7 @@ class OldFashionedChocolateFudge(Recipe):
         "While stirring constantly, heat over medium heat until strong boil, approximately 15 minutes.",
         "Lower heat to medium-low and cook approximately 30 more minutes.",
         "Target temperature is 250 F.",
-        "Remove from heat and add butter and vanilla. ",
+        "Remove from heat and add butter and vanilla.",
         "Carefully transfer to a stand mixer bowl.",
         "Contents will be very hot, so be careful.",
         "Carefully beat with scraper attachment (and shield) on lowest speed until no longer shiny, about 6 minutes.",
