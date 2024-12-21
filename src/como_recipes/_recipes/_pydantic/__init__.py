@@ -64,7 +64,7 @@ from ._cornbread import Cornbread
 from ._collard_greens import CollardGreens
 from ._cobbler_topping import CobblerTopping
 from ._chocolate_ganache import ChocolateGanache
-from ._chocolate_fudge import ChocolateFudge
+from ._simple_chocolate_fudge import SimpleChocolateFudge
 from ._chocolate_doughnut_icing import ChocolateDoughnutIcing
 from ._chocolate_dome_cake import ChocolateDomeCake
 from ._chocolate_chip_cookies import ChocolateChipCookies

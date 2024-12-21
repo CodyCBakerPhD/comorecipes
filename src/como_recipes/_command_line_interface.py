@@ -3,6 +3,7 @@
 import importlib
 import importlib.metadata
 import pathlib
+import shutil
 
 import click
 import natsort
@@ -74,6 +75,11 @@ def _generate_html_recipes() -> None:
         message = f"\nDirectory does not exist: {docs_base_directory}\n\nAre you sure you are running this in dev mode?"
 
         raise ValueError(message)
+
+    formatted_recipes_directory = docs_base_directory / "formatted_recipes"
+    if formatted_recipes_directory.exists():
+        shutil.rmtree(path=formatted_recipes_directory, ignore_errors=True)
+    formatted_recipes_directory.mkdir(exist_ok=True)
 
     relative_path_to_recipe_name = {}
     for recipe_name in natsort.natsorted(seq=default_recipe_registry.get_all_recipe_names()):
