@@ -31,7 +31,7 @@ class GingerbreadCookies(Recipe):
         "Line 2 baking sheets with parchment paper.",
         "Remove one dough sheet from the refrigerator and place on a well floured counter.",
         "Lightly flour the top of the dough and the rolling pin and roll out the dough.",
-        "Roll to a quarter inch thickness.",
+        "Roll to a 3/8 inch thickness.",
         "Cut gingerbread men and place them on prepared baking sheets.",
         "Refrigerate the gingerbread men for 5 minutes.",
         "Bake for 8 to 11 minutes.",
