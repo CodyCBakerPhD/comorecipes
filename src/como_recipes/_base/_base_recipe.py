@@ -184,7 +184,7 @@ class Recipe(pydantic.BaseModel):
             html_lines += [f"<p>{instruction}</p>\n"]
 
         with file_path.open(mode="w") as io:
-            io.writelines(lines=html_lines)
+            io.writelines(html_lines)
 
     @classmethod
     @pydantic.validate_call
