@@ -1,16 +1,24 @@
 # -*- mode: python ; coding: utf-8 -*-
 import como_recipes
 
+import PyInstaller.utils.hooks
+
+datas = [
+    ("src/como_recipes/_assets", "_assets"),
+    ("pyproject.toml", "_assets"),
+    ("license.txt", "_assets"),
+    ("src/como_recipes/app/_app_state_json_schema.json", "_assets"),
+]
+
+# TODO: could probably do this for assets too
+datas += PyInstaller.utils.hooks.collect_data_files(package="src/como_recipes/_recipes/_yaml", subdir="_recipes")
+
+
 a = Analysis(
     ['src\\como_recipes\\app\\_app_launcher.py'],
     pathex=[],
     binaries=[],
-    datas=[
-        ('src/como_recipes/_assets', '_assets'),
-        ('pyproject.toml', '_assets'),
-        ('license.txt', '_assets'),
-        ('src/como_recipes/app/_app_state_json_schema.json', '_assets'),
-    ],
+    datas=datas,
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
