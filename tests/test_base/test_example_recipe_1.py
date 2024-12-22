@@ -88,6 +88,8 @@ def test_example_1_print(example_1_folder_path: pathlib.Path):
         "Example Recipe 1\n"
         "================\n"
         "\n"
+        "Tags: Italian, Pasta, Entree, Vegetarian\n"
+        "\n"
         "Ingredients\n"
         "-----------\n"
         "31/10 tbsp. ingredient 1\n"
