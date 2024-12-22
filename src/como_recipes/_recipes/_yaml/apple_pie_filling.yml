@@ -1,0 +1,63 @@
+name: Apple Pie Filling
+
+tags:
+- American
+- Dessert
+- Pie
+- Vegetarian
+- Fruit
+
+measurements:
+- amount: '1'
+  unit: Pie
+  ingredient:
+    name: crust
+- amount: '3'
+  unit: lbs.
+  ingredient:
+    name: (about 5) Granny Smith apples
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: butter
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: sugar
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: brown sugar
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: lemon juice
+- amount: '2'
+  unit: tsp
+  ingredient:
+    name: cinnamon
+- amount: '3'
+  unit: grams
+  ingredient:
+    name: salt
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: nutmeg
+- amount: '16'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: raw sugar
+
+instructions:
+- Peel and core apples; slice thinly. Toss apples with all dry ingredients except
+  raw sugar. Cover and refrigerate for at least 4 hours.
+- Drain and reserve liquid in a small saucepan; bring liquid to simmer and reduce
+  by half (stir constantly).
+- Pour over apples and toss to combine. Pour into pie crust and seal. Sprinkle with
+  raw sugar.
+- Bake to pie crust instructions.

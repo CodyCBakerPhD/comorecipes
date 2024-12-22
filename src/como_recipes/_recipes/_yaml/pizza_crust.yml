@@ -1,0 +1,34 @@
+name: Pizza Crust
+
+tags:
+- American
+- Vegetarian
+- Entree
+
+measurements:
+- amount: '240'
+  unit: grams
+  ingredient:
+    name: water
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: yeast
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: sugar or honey
+- amount: '255'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: '6'
+  unit: grams
+  ingredient:
+    name: salt
+
+instructions:
+- Activate yeast. Mix in flour and salt until good consistency. Knead for 3 minutes.
+  Place in oiled rising container. Set timer for 40 minutes and let rise in warm spot.
+- Preheat oven to 400 F. Press into shape and top. Brush sides with truffle oil and
+  seasoning. Bake for around 13 minutes.

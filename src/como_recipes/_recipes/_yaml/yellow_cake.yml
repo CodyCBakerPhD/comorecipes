@@ -1,0 +1,49 @@
+name: Yellow Cake
+
+tags:
+- American
+- Dessert
+- Vegetarian
+
+measurements:
+- amount: '1'
+  unit: cup
+  ingredient:
+    name: butter
+- amount: 3/2
+  unit: cup
+  ingredient:
+    name: sugar
+- amount: '8'
+  unit: egg
+  ingredient:
+    name: yolks
+- amount: 3/4
+  unit: cup
+  ingredient:
+    name: milk
+- amount: 3/2
+  unit: tsp
+  ingredient:
+    name: vanilla
+- amount: '240'
+  unit: grams
+  ingredient:
+    name: cake flour
+- amount: '2'
+  unit: tsp
+  ingredient:
+    name: baking powder
+- amount: '3'
+  unit: grams
+  ingredient:
+    name: salt
+
+instructions:
+- Preheat to 350 F. Grease cake pan or cupcake pan.
+- Sift together flour, baking powder, and salt.
+- In separate bowl, cream butter and sugar until light and fluffy.
+- Beat in egg yolks one at a time, then stir in the vanilla.
+- Beat in the flour mixture alternately with the milk, mixing just until incorporated.
+- Pour batter into pan. Bake for 25-30 minutes.
+- Cool 15 minutes before turning out onto rack or plate.

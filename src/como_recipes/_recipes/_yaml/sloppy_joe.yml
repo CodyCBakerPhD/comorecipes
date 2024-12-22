@@ -1,0 +1,47 @@
+name: Sloppy Joe
+
+tags:
+- American
+- Vegetarian
+- Entree
+
+measurements:
+- amount: '1'
+  unit: batch
+  ingredient:
+    name: of Kaiser Rolls
+- amount: '1'
+  unit: lb
+  ingredient:
+    name: ground beef or Boca crumbles
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: red onion
+- amount: '2'
+  unit: grams
+  ingredient:
+    name: garlic powder
+- amount: '2'
+  unit: tsp
+  ingredient:
+    name: yellow mustard
+- amount: 1/2
+  unit: cup
+  ingredient:
+    name: ketchup
+- amount: '3'
+  unit: tsp
+  ingredient:
+    name: brown sugar
+- amount: 1/2
+  unit: tbsp
+  ingredient:
+    name: molasses
+- amount: '1'
+  unit: grams
+  ingredient:
+    name: salt and pepper
+
+instructions:
+- Brown meat. Mix spices. Simmer until good consistency.

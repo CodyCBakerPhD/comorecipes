@@ -1,0 +1,70 @@
+name: Stir Fry
+
+tags:
+- Asian
+- Vegetarian
+- Entree
+
+measurements:
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: rice
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: peanut oil
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: beef, chicken, pork, or shrimp
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: tofu
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: shallots
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: garlic
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: carrots
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: broccoli
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: cauliflower
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: cabbage
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: green beans
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: pea pods
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: spinach
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: water chestnut
+
+instructions:
+- 'Meat: cut into thin strips and fry in separate pan without onions/garlic'
+- 'Tofu: get extra-firm and deep fry covered in cornstarch'
+- In main woc, fry vegetables in order of cooking time (roughly given in order of
+  ingredients). Add sauce and garnish with meat or tofu.

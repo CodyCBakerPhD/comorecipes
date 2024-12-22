@@ -1,0 +1,52 @@
+name: Broccoli Cheddar Soup
+
+tags:
+- American
+- Vegetarian
+- Entree
+- Soup
+
+measurements:
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: butter
+- amount: '125'
+  unit: grams
+  ingredient:
+    name: white onion
+- amount: '8'
+  unit: oz.
+  ingredient:
+    name: broccoli
+- amount: '7'
+  unit: oz.
+  ingredient:
+    name: not-chicken broth
+- amount: '8'
+  unit: oz.
+  ingredient:
+    name: cheddar
+- amount: '1'
+  unit: cup
+  ingredient:
+    name: milk
+- amount: '5'
+  unit: grams
+  ingredient:
+    name: garlic powder
+- amount: 1/8
+  unit: cup
+  ingredient:
+    name: cornstarch
+- amount: '120'
+  unit: grams
+  ingredient:
+    name: water
+
+instructions:
+- In pot, melt butter over medium heat. Cook onion until softened. Stir in broccoli
+  and cover with not-chicken broth. Simmer until tender, 10-15 minutes.
+- Reduce heat and stir in cheese cubes until melted. Mix in milk and garlic powder.
+  In a small bowl, stir cornstarch into water until dissolved.
+- Stir mixture into soup, cook, stirring frequently, until thick.

@@ -1,0 +1,28 @@
+name: Rice
+
+tags:
+- American
+- Vegetarian
+- Entree
+- Side
+
+measurements:
+- amount: 3/2
+  unit: cups
+  ingredient:
+    name: rice
+- amount: '480'
+  unit: grams
+  ingredient:
+    name: water
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: butter
+
+instructions:
+- Thoroughly rinse and pre-soak rice for 15 minutes.
+- Add everything to a covered pot, bring to boil over medium-high heat (takes around
+  3 minutes).
+- Immediately reduce to second lowest heat level for around 20 minutes.
+- When water is evaporated, check rice to ensure it's not crunchy or soggy.

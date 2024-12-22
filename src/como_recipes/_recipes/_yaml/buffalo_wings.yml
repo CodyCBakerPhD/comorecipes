@@ -1,0 +1,35 @@
+name: Buffalo Wings
+
+tags:
+- American
+- Entree
+- Spicy
+
+measurements:
+- amount: '8'
+  unit: separated
+  ingredient:
+    name: chicken wings
+- amount: '8'
+  unit: grams
+  ingredient:
+    name: salt and pepper
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: butter
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: white vinegar
+- amount: '100'
+  unit: ml
+  ingredient:
+    name: hot sauce of choice
+
+instructions:
+- Heat oil to 375 F.
+- Fry chicken wings for ~10 minutes.
+- Drain and then toss with salt and pepper.
+- In a wok, melt butter then add other wet ingredients.
+- Reduce slightly then toss chicken wings in mixture.

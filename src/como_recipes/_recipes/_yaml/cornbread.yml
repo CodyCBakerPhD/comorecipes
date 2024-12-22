@@ -1,0 +1,46 @@
+name: Cornbread
+
+tags:
+- American
+- Side
+- Vegetarian
+
+measurements:
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: butter
+- amount: 1/6
+  unit: cup
+  ingredient:
+    name: sugar
+- amount: '1'
+  unit: large
+  ingredient:
+    name: egg
+- amount: 1/2
+  unit: cup
+  ingredient:
+    name: buttermilk
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: baking soda
+- amount: 1/2
+  unit: cup
+  ingredient:
+    name: cornmeal
+- amount: '60'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: '1'
+  unit: grams
+  ingredient:
+    name: salt
+
+instructions:
+- Preheat to 375 F. Melt butter. Stir in sugar. Add eggs, beat.
+- Combine buttermilk and soda, stir into mixture.
+- Add remaining ingredients, stir until blended.
+- Bake for about 20 minutes, until slightly brown on top.

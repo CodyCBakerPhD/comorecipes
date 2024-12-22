@@ -1,0 +1,34 @@
+name: Chocolate Doughnut Icing
+
+tags:
+- American
+- Dessert
+- Vegetarian
+- Chocolate
+
+measurements:
+- amount: 3/4
+  unit: cup
+  ingredient:
+    name: powdered sugar
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: dutch cocoa powder
+- amount: 3/10
+  unit: grams
+  ingredient:
+    name: salt
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: milk
+- amount: 3/4
+  unit: tsp
+  ingredient:
+    name: vanilla
+
+instructions:
+- Do not forget to sift dry ingredients.
+- Combine until smooth in stand mixer.
+- Spread on doughtnuts immediately.

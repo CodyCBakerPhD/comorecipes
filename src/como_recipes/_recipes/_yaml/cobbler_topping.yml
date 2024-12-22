@@ -1,0 +1,47 @@
+name: Cobbler Topping
+
+tags:
+- American
+- Dessert
+- Vegetarian
+
+measurements:
+- amount: 1/3
+  unit: cup
+  ingredient:
+    name: butter
+- amount: 1/6
+  unit: cup
+  ingredient:
+    name: white sugar
+- amount: 1/6
+  unit: cup
+  ingredient:
+    name: brown sugar
+- amount: '1'
+  unit: large
+  ingredient:
+    name: egg
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: vanilla
+- amount: '30'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: 1/8
+  unit: tsp
+  ingredient:
+    name: baking powder
+- amount: '1'
+  unit: grams
+  ingredient:
+    name: salt
+
+instructions:
+- Cream butter and sugar until light and fluffy.
+- Mix flour, baking powder, and salt in separate bowl.
+- Slowly incorporate flour mixture into butter mixture, until just combined.
+- Drop spoonfuls onto wet mixture.
+- Bake for 40 min at 375 F.

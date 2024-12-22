@@ -1,0 +1,54 @@
+name: Black Bean Chili
+
+tags:
+- American
+- Vegetarian
+- Entree
+- Soup
+- Spicy
+
+measurements:
+- amount: '20'
+  unit: grams
+  ingredient:
+    name: garlic
+- amount: 1/3
+  unit: white
+  ingredient:
+    name: onion, minced
+- amount: '1'
+  unit: qt
+  ingredient:
+    name: jar of canned garden tomatoes
+- amount: '32'
+  unit: grams
+  ingredient:
+    name: chili powder
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: cumin
+- amount: '2'
+  unit: tsp
+  ingredient:
+    name: oregano
+- amount: '6'
+  unit: grams
+  ingredient:
+    name: salt
+- amount: 1/2
+  unit: tsp
+  ingredient:
+    name: cayenne pepper
+- amount: '1'
+  unit: can
+  ingredient:
+    name: black beans
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: peanut oil
+
+instructions:
+- Carefully caramelize onions and garlic. Add tomatoes. Mix all dry ingredients separately
+  and add to mixture. Add beans and oil. Stir and simmer for at least 15 minutes.

@@ -1,0 +1,37 @@
+name: Cherry Pie Filling
+
+tags:
+- American
+- Dessert
+- Vegetarian
+- Fruit
+
+measurements:
+- amount: '1'
+  unit: pie
+  ingredient:
+    name: crust
+- amount: '4'
+  unit: cups
+  ingredient:
+    name: fresh tart cherries or
+- amount: '6'
+  unit: cups
+  ingredient:
+    name: frozen tart cherries
+- amount: '1'
+  unit: cup
+  ingredient:
+    name: sugar
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: cornstarch
+
+instructions:
+- Place cherries into a saucepan over medium heat and cover. Heat cherries until they
+  release their juices and simmer 10 to 15 minutes. Stir often.
+- In a bowl, whisk sugar with cornstarch until smooth. Pour mixture into cherries
+  and juice and combine. Return to low heat, bring to simmer, and cook until filling
+  has thickened (about 2 minutes).
+- Remove from heat and use as pie filling. Cook to pie crust instructions.

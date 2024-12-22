@@ -1,0 +1,42 @@
+name: Red Wine Sauce
+
+tags:
+- Italian
+- Vegetarian
+
+measurements:
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: olive oil
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: garlic
+- amount: 3/4
+  unit: cup
+  ingredient:
+    name: red wine
+- amount: '60'
+  unit: grams
+  ingredient:
+    name: water
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: soy sauce
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: butter
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: parsley
+
+instructions:
+- Heat oil over medium-high heat. Cook garlic for ~30 seconds. Add wine and reach
+  a simmer.
+- Reduce to half, about 2-3 minutes. Add water and soy sauce. Reduce to half again.
+- Reduce heat to medium-low and whisk in butter, 1 tbsp at a time. Stir in parsley
+  and serve.

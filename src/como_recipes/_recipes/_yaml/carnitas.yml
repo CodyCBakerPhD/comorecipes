@@ -1,0 +1,45 @@
+name: Carnitas
+
+tags:
+- Mexican
+- Entree
+
+measurements:
+- amount: '1'
+  unit: lb.
+  ingredient:
+    name: pork shoulder
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: oregano
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: cumin
+- amount: '3'
+  unit: grams
+  ingredient:
+    name: chili powder
+- amount: '8'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: '4'
+  unit: grams
+  ingredient:
+    name: salt and pepper
+- amount: '2'
+  unit: oranges,
+  ingredient:
+    name: juiced
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: garlic
+
+instructions:
+- Brown pork with dry spices rubbed in. Slow cook in other ingredients for 6-8 hours
+  on low in a small slow-cooker.
+- Remove and shred, reserving strained liquid. Crisp in large skillet with remaining
+  juices until evaporated.

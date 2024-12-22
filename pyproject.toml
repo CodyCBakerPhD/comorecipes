@@ -30,6 +30,7 @@ dependencies = [
     "click",
     "natsort",
     "jsonschema",
+    "PyYAML",
 ]
 
 [project.optional-dependencies]

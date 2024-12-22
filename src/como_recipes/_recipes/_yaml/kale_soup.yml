@@ -1,0 +1,64 @@
+name: Kale Soup
+
+tags:
+- American
+- Vegetarian
+- Entree
+- Soup
+
+measurements:
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: olive oil
+- amount: '1'
+  unit: yellow
+  ingredient:
+    name: onion, chopped
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: garlic, chopped
+- amount: '1'
+  unit: bunch
+  ingredient:
+    name: of kale, stems removed and leaves chopped
+- amount: '960'
+  unit: grams
+  ingredient:
+    name: water
+- amount: '6'
+  unit: cubes
+  ingredient:
+    name: of vegetable bouillon
+- amount: '15'
+  unit: oz.
+  ingredient:
+    name: stewed tomatoes
+- amount: '6'
+  unit: white
+  ingredient:
+    name: potatoes, cubed
+- amount: '30'
+  unit: oz
+  ingredient:
+    name: cannellini beans (two 15 oz. cans), drained
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: Italian seasoning
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: dried parsley
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: Salt and pepper
+
+instructions:
+- Heat olive oil in a large soup pot. Cook the onion and garlic until soft. Stir in
+  the kale and cook until wilted (about 2 minutes).
+- Stir in the water, bouillon, tomatoes, potatoes, beans, Italian seasoning, parsley.
+- Simmer soup on medium heat for 25 minutes, or until potatoes are cooked through.
+  Season with salt and pepper to taste.

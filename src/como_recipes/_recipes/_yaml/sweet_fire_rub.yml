@@ -1,0 +1,43 @@
+name: Sweet Fire Rub
+
+tags:
+- American
+- Vegetarian
+- Spicy
+
+measurements:
+- amount: 1/2
+  unit: cup
+  ingredient:
+    name: brown sugar
+- amount: 1/2
+  unit: cup
+  ingredient:
+    name: white sugar
+- amount: '38'
+  unit: grams
+  ingredient:
+    name: paprika
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: onion powder
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: garlic powder
+- amount: '8'
+  unit: grams
+  ingredient:
+    name: chili powder
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: cayenne pepper
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: salt & pepper
+
+instructions:
+- Mix together and store in pantry.

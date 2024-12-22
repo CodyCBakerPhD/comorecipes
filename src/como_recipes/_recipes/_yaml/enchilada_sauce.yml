@@ -1,0 +1,54 @@
+name: Enchilada Sauce
+
+tags:
+- Mexican
+- Vegetarian
+- Entree
+- Spicy
+
+measurements:
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: vegetable oil
+- amount: '15'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: dark chili powder
+- amount: '8'
+  unit: oz.
+  ingredient:
+    name: can tomato sauce
+- amount: '360'
+  unit: grams
+  ingredient:
+    name: water
+- amount: '1'
+  unit: grams
+  ingredient:
+    name: cumin
+- amount: '1'
+  unit: grams
+  ingredient:
+    name: garlic powder
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: onion powder
+- amount: '1'
+  unit: grams
+  ingredient:
+    name: salt
+
+instructions:
+- Heat oil over medium-high heat. Stir in flour and chili powder.
+- Reduce heat to medium and cook till lightly brown stirring constantly.
+- Reduce heat to medium-low and gradually incorporate other spices.
+- Cook about 10-20 minutes until desired consistency.
+- Makes enough sauce for 2 personal pans (two tortillas each) or 1 large pans (about
+  4-6 tortillas each).
+- DO NOT USE COTIJA CHEESE IN THE ENCHILADAS.

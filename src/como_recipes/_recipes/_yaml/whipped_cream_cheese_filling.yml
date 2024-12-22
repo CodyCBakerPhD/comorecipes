@@ -1,0 +1,28 @@
+name: Whipped Cream Cheese Filling
+
+tags:
+- American
+- Dessert
+- Vegetarian
+
+measurements:
+- amount: '1'
+  unit: ''
+  ingredient:
+    name: cup heavy cream
+- amount: 1/2
+  unit: ''
+  ingredient:
+    name: cup powdered sugar
+- amount: '3'
+  unit: ''
+  ingredient:
+    name: oz cream cheese
+- amount: '1'
+  unit: ''
+  ingredient:
+    name: tsp vanilla extract
+
+instructions:
+- Chill whisk and bowl for stand mixer.
+- Add all ingredients at once and mix on high until stiff peaks form.

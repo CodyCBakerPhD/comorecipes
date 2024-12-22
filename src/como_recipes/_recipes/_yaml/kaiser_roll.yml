@@ -1,0 +1,38 @@
+name: Kaiser Roll
+
+tags:
+- American
+- Side
+- Vegetarian
+
+measurements:
+- amount: '240'
+  unit: grams
+  ingredient:
+    name: water
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: yeast
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: sugar or honey
+- amount: 1/6
+  unit: cup
+  ingredient:
+    name: vegetable oil
+- amount: '3'
+  unit: grams
+  ingredient:
+    name: salt
+- amount: '240'
+  unit: grams
+  ingredient:
+    name: flour
+
+instructions:
+- Preheat oven to 400 F. Activate yeast.
+- Mix in oil and flour and salt until good consistency. Roll out into shape (make
+  sure the rolls are appropriately sized for rising) and let rise for 40 minutes.
+- Top with egg white and water mixture, bake for 15 minutes.

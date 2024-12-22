@@ -1,0 +1,31 @@
+name: Brigadeiros
+
+tags:
+- Brazilian
+- Dessert
+- Vegetarian
+- Chocolate
+
+measurements:
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: unsweetened cocoa
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: butter
+- amount: '14'
+  unit: oz.
+  ingredient:
+    name: condensed milk
+- amount: '1'
+  unit: cup
+  ingredient:
+    name: chocolate sprinkles
+
+instructions:
+- Combine cocoa, butter, and condensed milk in a medium saucepan over medium heat.
+- Cook and stir until thickened, about 10 minutes.
+- Remove from heat and let rest until just cool enough to handle.
+- Form into small balls and coat with sprinkles.

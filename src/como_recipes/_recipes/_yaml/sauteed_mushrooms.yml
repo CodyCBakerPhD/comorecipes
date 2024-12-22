@@ -1,0 +1,41 @@
+name: Sauteed Mushrooms
+
+tags:
+- American
+- Side
+- Vegetarian
+
+measurements:
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: olive oil
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: butter
+- amount: '1'
+  unit: lb.
+  ingredient:
+    name: button mushrooms
+- amount: '5'
+  unit: grams
+  ingredient:
+    name: garlic
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: red wine
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: garlic salt
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: pepper
+
+instructions:
+- Heat oil and butter in large saucepan over medium heat.
+- Cook all ingredients until mushrooms are lightly browned.
+- Reduce heat to low and simmer until mushrooms are tender, about 5-8 more minutes.

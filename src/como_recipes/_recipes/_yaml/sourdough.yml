@@ -1,0 +1,35 @@
+name: Sourdough
+
+tags:
+- American
+- Vegetarian
+- Side
+
+measurements:
+- amount: '260'
+  unit: grams
+  ingredient:
+    name: bread flour
+- amount: '6'
+  unit: grams
+  ingredient:
+    name: salt
+- amount: '60'
+  unit: g.
+  ingredient:
+    name: yeast start
+- amount: '200'
+  unit: grams
+  ingredient:
+    name: water
+
+instructions:
+- Begin process the morning of the day before intended dinner.
+- Mix flour and salt.
+- Mix yeast into water until cloudy.
+- Combine wet and dry mixtures with a fork to start, then wooden spoon.
+- Gently fold 2-3 times every 15 minutes.
+- Let rise at room temperature all day.
+- Refridgerate overnight. Slash scores into the top of dough before baking.
+- Bake in dutch oven covered for 20 minutes 500 F, then uncover for another 10-15
+  minutes.

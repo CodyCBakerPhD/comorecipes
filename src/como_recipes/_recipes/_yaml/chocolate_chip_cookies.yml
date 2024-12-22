@@ -1,0 +1,60 @@
+name: Chocolate Chip Cookies
+
+tags:
+- American
+- Dessert
+- Vegetarian
+- Chocolate
+
+measurements:
+- amount: '1'
+  unit: cup
+  ingredient:
+    name: room-temperature butter
+- amount: '1'
+  unit: cup
+  ingredient:
+    name: sugar
+- amount: '1'
+  unit: cup
+  ingredient:
+    name: brown sugar
+- amount: '2'
+  unit: large
+  ingredient:
+    name: egg
+- amount: '2'
+  unit: tsp
+  ingredient:
+    name: vanilla
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: baking soda
+- amount: '2'
+  unit: tsp
+  ingredient:
+    name: hot water
+- amount: '360'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: '3'
+  unit: grams
+  ingredient:
+    name: salt
+- amount: '2'
+  unit: cups
+  ingredient:
+    name: high-quality semi-sweet chocolate chips
+
+instructions:
+- Oven temperature is 360 F for caramelization stage.
+- Cream together butter and sugars. Mix in one egg at a time. Add vanilla at the end.
+- Dissolve baking soda in water and add to mixture. Mix together flour and salt separately,
+  then add to wet mixture. Do not overwork.
+- The tricky thing is getting the flour right; could be anywhere between 2 1/2 - 4
+  cups depending on how buttery/firm you want the result to be.
+- Dough should be light and fluffy but not sticky.
+- Baking time can also vary around ~12 minutes; watch your first batch carefully and
+  adjust as needed.
