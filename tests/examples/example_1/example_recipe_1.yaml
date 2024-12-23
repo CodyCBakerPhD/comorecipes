@@ -1,0 +1,23 @@
+name: Example Recipe 1
+
+tags:
+- Italian
+- Pasta
+- Entree
+- Vegetarian
+
+measurements:
+- amount: 31/10
+  unit: tbsp.
+  ingredient:
+    name: ingredient 1
+- amount: '4'
+  unit: g
+  ingredient:
+    name: ingredient 2
+
+instructions:
+- This is an example of a recipe.
+
+notes:
+- Do not forget about the notes!

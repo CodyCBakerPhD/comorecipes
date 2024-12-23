@@ -8,8 +8,8 @@ from como_recipes import Recipe, RecipeRegistry
 
 
 def test_recipe_registry(example_1_folder_path: pathlib.Path):
-    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
-    example_recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
+    example_1_yaml_file_path = example_1_folder_path / "example_recipe_1.yaml"
+    example_recipe = Recipe.from_yaml_file(file_path=example_1_yaml_file_path)
 
     # Test empty registry
     new_registry = RecipeRegistry()
