@@ -1,7 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
-import como_recipes
+import pathlib
 
-import PyInstaller.utils.hooks
+import como_recipes
 
 datas = [
     ("src/como_recipes/_assets", "_assets"),
@@ -10,9 +10,10 @@ datas = [
     ("src/como_recipes/app/_app_state_json_schema.json", "_assets"),
 ]
 
-# TODO: could probably do this for assets too
-datas += PyInstaller.utils.hooks.collect_data_files(package="src/como_recipes/_recipes", subdir="_recipes")
-
+top_level_base_directory = pathlib.Path(__file__).parent
+recipe_folder_path = top_level_base_directory / "src"/ "como_recipes" / "_recipes"
+for recipe_file_path in recipe_folder_path.glob(pattern="*.yaml"):
+    datas += [(str(recipe_file_path.relative_to(top_level_base_directory)).replace("\\", "/"), "_recipes")]
 
 a = Analysis(
     ['src\\como_recipes\\app\\_app_launcher.py'],

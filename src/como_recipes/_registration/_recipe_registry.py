@@ -129,6 +129,6 @@ _recipe_directory = (
     if is_bundled() is False
     else get_bundle_path() / "como_recipes" / "_recipes"
 )
-for file_path in _recipe_directory.glob("*.yaml"):
+for file_path in _recipe_directory.glob(pattern="*.yaml"):
     recipe = Recipe.from_yaml_file(file_path=file_path)
     default_recipe_registry.add_recipe(recipe=recipe)
