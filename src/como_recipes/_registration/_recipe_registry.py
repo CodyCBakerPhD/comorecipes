@@ -125,7 +125,9 @@ class RecipeRegistry(pydantic.BaseModel):
 default_recipe_registry = RecipeRegistry()
 
 _recipe_directory = (
-    pathlib.Path(__file__).parent.parent / "_recipes" if is_bundled() is False else get_bundle_path() / "_recipes"
+    pathlib.Path(__file__).parent.parent / "_recipes"
+    if is_bundled() is False
+    else get_bundle_path() / "como_recipes" / "_recipes"
 )
 for file_path in _recipe_directory.glob("*.yaml"):
     recipe = Recipe.from_yaml_file(file_path=file_path)
