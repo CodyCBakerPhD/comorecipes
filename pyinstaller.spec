@@ -11,7 +11,7 @@ datas = [
 ]
 
 # TODO: could probably do this for assets too
-datas += PyInstaller.utils.hooks.collect_data_files(package="src/como_recipes/_recipes/_yaml", subdir="_recipes")
+datas += PyInstaller.utils.hooks.collect_data_files(package="src/como_recipes/_recipes", subdir="_recipes")
 
 
 a = Analysis(
