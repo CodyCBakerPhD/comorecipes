@@ -5,7 +5,7 @@ import natsort
 import pydantic
 
 from .._base._base_recipe import Recipe
-from ..utils import get_bundle_path, is_bundled
+from ..utils import get_bundle_base_path, is_bundled
 
 
 class RecipeRegistry(pydantic.BaseModel):
@@ -127,7 +127,7 @@ default_recipe_registry = RecipeRegistry()
 _recipe_directory = (
     pathlib.Path(__file__).parent.parent / "_recipes"
     if is_bundled() is False
-    else get_bundle_path() / "como_recipes" / "_recipes"
+    else get_bundle_base_path() / "como_recipes" / "_recipes"
 )
 for file_path in _recipe_directory.glob(pattern="*.yaml"):
     recipe = Recipe.from_yaml_file(file_path=file_path)

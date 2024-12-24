@@ -10,7 +10,7 @@ datas = [
     ("src/como_recipes/app/_app_state_json_schema.json", "_assets"),
 ]
 
-top_level_base_directory = pathlib.Path(__file__).parent
+top_level_base_directory = como_recipes.utils.get_dev_base_path()
 recipe_folder_path = top_level_base_directory / "src"/ "como_recipes" / "_recipes"
 for recipe_file_path in recipe_folder_path.glob(pattern="*.yaml"):
     datas += [(str(recipe_file_path.relative_to(top_level_base_directory)).replace("\\", "/"), "_recipes")]

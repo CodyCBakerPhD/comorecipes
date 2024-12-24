@@ -16,7 +16,7 @@ def is_bundled() -> bool:
     return result
 
 
-def get_bundle_path() -> pathlib.Path:
+def get_bundle_base_path() -> pathlib.Path:
     """Determine the bundled (temporary PyInstaller) path for the application."""
     if is_bundled() is False:
         message = "Application is not bundled."
@@ -28,10 +28,22 @@ def get_bundle_path() -> pathlib.Path:
     return bundle_path
 
 
+def get_dev_base_path() -> pathlib.Path:
+    """Determine the development path for the application."""
+    if is_bundled() is True:
+        message = "Application is bundled."
+
+        raise RuntimeError(message)
+
+    dev_path = pathlib.Path(__file__).parent.parent.parent
+
+    return dev_path
+
+
 def get_license_text() -> str:
     """Load the license text file."""
     if is_bundled() is True:
-        bundle_path = get_bundle_path()
+        bundle_path = get_bundle_base_path()
 
         file_path = bundle_path / "_assets" / "license.txt"  # Is copied to _assets during build
         with file_path.open(mode="r") as io:
@@ -47,7 +59,7 @@ def get_license_text() -> str:
 def get_package_version() -> str:
     """Load the version directly from the TOML file."""
     if is_bundled() is True:
-        bundle_path = get_bundle_path()
+        bundle_path = get_bundle_base_path()
 
         file_path = bundle_path / "_assets" / "pyproject.toml"  # Is copied to _assets during build
         with file_path.open(mode="r") as io:
