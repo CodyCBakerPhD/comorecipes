@@ -11,7 +11,7 @@ datas = [
     ("src/como_recipes/app/_app_state_json_schema.json", "_assets"),
 ]
 
-if os.get("COMO_RECIPES_BASE_PATH", None) is None:
+if os.environ.get("COMO_RECIPES_BASE_PATH", None) is None:
     message = (
         "Environment variable `COMO_RECIPES_BASE_PATH` must be set.\n\n"
         "Print it to console by calling `como_recipes_print_base_environment_variable`."
