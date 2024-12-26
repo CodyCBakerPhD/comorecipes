@@ -28,7 +28,7 @@ def get_bundle_base_path() -> pathlib.Path:
     return bundle_path
 
 
-def print_base_environment_variable() -> str:
+def get_base_environment_variable() -> str:
     """Determine the base development path for the package and set it as an environment variable."""
     if is_bundled() is True:
         message = "Application is bundled."
