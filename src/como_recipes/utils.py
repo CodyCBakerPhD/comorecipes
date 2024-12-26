@@ -2,6 +2,7 @@
 
 import fractions
 import importlib.metadata
+import os
 import pathlib
 import platform
 import sys
@@ -28,16 +29,15 @@ def get_bundle_base_path() -> pathlib.Path:
     return bundle_path
 
 
-def get_dev_base_path() -> pathlib.Path:
-    """Determine the development path for the application."""
+def set_base_environment_variable() -> None:
+    """Determine the base development path for the package and set it as an environment variable."""
     if is_bundled() is True:
         message = "Application is bundled."
 
         raise RuntimeError(message)
 
     dev_path = pathlib.Path(__file__).parent.parent.parent
-
-    return dev_path
+    os.environ["COMO_RECIPES_BASE_PATH"] = str(dev_path)
 
 
 def get_license_text() -> str:
