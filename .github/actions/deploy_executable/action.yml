@@ -36,7 +36,7 @@ runs:
 
     - name: Set package base path
       id: base_path
-      run: echo "COMO_RECIPES_BASE_PATH=$(como_recipes_set_base_environment_variable)" >> $GITHUB_ENV
+      run: echo "COMO_RECIPES_BASE_PATH=$(como_recipes_print_base_environment_variable)" >> $GITHUB_ENV
       shell: bash
 
     - name: Check package base path was set correctly

@@ -70,7 +70,7 @@ extend-exclude = '''
 [project.scripts]
 como_recipes_version = "como_recipes._command_line_interface:_version"
 como_recipes_executable_stem = "como_recipes._command_line_interface:_executable_stem"
-como_recipes_set_base_environment_variable = "como_recipes._command_line_interface:_set_base_environment_variable"
+como_recipes_print_base_environment_variable = "como_recipes._command_line_interface:_print_base_environment_variable"
 generate_html_recipes = "como_recipes._command_line_interface:_generate_html_recipes"
 
 
