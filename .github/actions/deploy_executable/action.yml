@@ -36,7 +36,11 @@ runs:
 
     - name: Set package base path
       id: base_path
-      run: como_recipes_set_base_environment_variable
+      run: echo "COMO_RECIPES_BASE_PATH=$(echo $GITHUB_SHA)" >> $GITHUB_ENV
+      shell: bash
+
+    - name: Check package base path was set correctly
+      run: echo COMO_RECIPES_BASE_PATH
       shell: bash
 
     - name: Install PyInstaller

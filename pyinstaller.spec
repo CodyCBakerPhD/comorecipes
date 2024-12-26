@@ -11,6 +11,14 @@ datas = [
     ("src/como_recipes/app/_app_state_json_schema.json", "_assets"),
 ]
 
+if os.get("COMO_RECIPES_BASE_PATH", None) is None:
+    message = (
+        "Environment variable `COMO_RECIPES_BASE_PATH` must be set.\n\n"
+        "Print it to console by calling `como_recipes_print_base_environment_variable`."
+    )
+
+    raise ValueError(message)
+
 top_level_base_directory = pathlib.Path(os.environ["COMO_RECIPES_BASE_PATH"])
 recipe_folder_path = top_level_base_directory / "src"/ "como_recipes" / "_recipes"
 for recipe_file_path in recipe_folder_path.glob(pattern="*.yaml"):
