@@ -1,0 +1,45 @@
+name: Ratatouille
+
+tags:
+- French
+- Vegetarian
+- Entree
+
+measurements:
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: of piperade sauce
+- amount: '1'
+  unit: small
+  ingredient:
+    name: eggplant, trimmed and thinly sliced
+- amount: '1'
+  unit: zucchini,
+  ingredient:
+    name: trimmed and thinly sliced
+- amount: '1'
+  unit: yellow
+  ingredient:
+    name: squash, trimmed and thinly sliced
+- amount: '2'
+  unit: aloha
+  ingredient:
+    name: peppers, trimmed and thinly sliced
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: olive oil
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: mascarpone cheese
+
+instructions:
+- Make piperade sauce ahead of time.
+- Recommend using mandolin for slicing main vegetables. Wear safety gloves!
+- Preheat to 325 F.
+- On top of sauce, assemble sliced vegetables in artistic fashion. Drizzle with olive
+  oil.
+- Bake for ~45 minutes.
+- Remember, anyone can cook!

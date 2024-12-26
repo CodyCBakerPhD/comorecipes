@@ -1,0 +1,57 @@
+name: Falafel
+
+tags:
+- Greek
+- Vegetarian
+- Entree
+
+measurements:
+- amount: '1'
+  unit: lb.
+  ingredient:
+    name: dry chickpeas
+- amount: '75'
+  unit: grams
+  ingredient:
+    name: white onion
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: parsley
+- amount: '25'
+  unit: grams
+  ingredient:
+    name: garlic
+- amount: '12'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: salt
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: cumin
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: coriander
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: pepper
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: cayenne
+- amount: 1/8
+  unit: tsp
+  ingredient:
+    name: cardamom
+
+instructions:
+- Soak beans overnight.
+- Grind entire mixture well in a food processor.
+- Shape and deep fry at 375 F until golden brown.

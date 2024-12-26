@@ -7,10 +7,10 @@ import py
 from como_recipes import IngredientRegistry, Recipe
 
 
-def test_example_1_markdown_recipe_load(example_1_folder_path: pathlib.Path):
-    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
+def test_example_1_yaml_recipe_load(example_1_folder_path: pathlib.Path):
+    example_1_yaml_file_path = example_1_folder_path / "example_recipe_1.yaml"
 
-    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
+    recipe = Recipe.from_yaml_file(file_path=example_1_yaml_file_path)
 
     assert recipe.name == "Example Recipe 1"
     assert recipe.measurements == (
@@ -20,24 +20,26 @@ def test_example_1_markdown_recipe_load(example_1_folder_path: pathlib.Path):
     assert recipe.instructions == ("This is an example of a recipe.",)
 
 
-def test_example_1_to_markdown(example_1_folder_path: pathlib.Path, tmpdir: py.path.local):
-    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
-    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
+def test_example_1_yaml_recipe_roundtrip(example_1_folder_path: pathlib.Path, tmpdir: py.path.local):
+    example_1_yaml_file_path = example_1_folder_path / "example_recipe_1.yaml"
 
-    test_markdown_file_path = pathlib.Path(tmpdir) / "example_recipe_1.md"
-    recipe.to_markdown_file(file_path=test_markdown_file_path)
-    with test_markdown_file_path.open(mode="r") as io:
-        test_markdown_file_lines = io.readlines()
+    recipe = Recipe.from_yaml_file(file_path=example_1_yaml_file_path)
 
-    with example_1_markdown_file_path.open(mode="r") as io:
-        expected_markdown_file_lines = io.readlines()
+    test_yaml_file_path = pathlib.Path(tmpdir) / "test_example_recipe_1.yaml"
+    recipe.to_yaml_file(file_path=test_yaml_file_path)
 
-    assert test_markdown_file_lines == expected_markdown_file_lines
+    recipe_loaded = Recipe.from_yaml_file(file_path=test_yaml_file_path)
+
+    assert recipe_loaded == recipe
+
+    test_raw_lines = test_yaml_file_path.read_text().splitlines()
+    expected_raw_lines = example_1_yaml_file_path.read_text().splitlines()
+    assert test_raw_lines[:-1] == expected_raw_lines
 
 
 def test_example_1_to_html(example_1_folder_path: pathlib.Path, tmpdir: py.path.local):
-    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
-    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
+    example_1_yaml_file_path = example_1_folder_path / "example_recipe_1.yaml"
+    recipe = Recipe.from_yaml_file(file_path=example_1_yaml_file_path)
 
     test_html_file_path = pathlib.Path(tmpdir) / "example_recipe_1.html"
     recipe.to_html_file(file_path=test_html_file_path)
@@ -52,8 +54,8 @@ def test_example_1_to_html(example_1_folder_path: pathlib.Path, tmpdir: py.path.
 
 
 def test_example_1_repr(example_1_folder_path: pathlib.Path):
-    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
-    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
+    example_1_yaml_file_path = example_1_folder_path / "example_recipe_1.yaml"
+    recipe = Recipe.from_yaml_file(file_path=example_1_yaml_file_path)
 
     expected_repr = (
         "Recipe(\n"
@@ -77,8 +79,8 @@ def test_example_1_repr(example_1_folder_path: pathlib.Path):
 
 
 def test_example_1_print(example_1_folder_path: pathlib.Path):
-    example_1_markdown_file_path = example_1_folder_path / "example_recipe_1.md"
-    recipe = Recipe.from_markdown_file(file_path=example_1_markdown_file_path)
+    example_1_yaml_file_path = example_1_folder_path / "example_recipe_1.yaml"
+    recipe = Recipe.from_yaml_file(file_path=example_1_yaml_file_path)
 
     with patch("sys.stdout", new=StringIO()) as captured_output:
         print(recipe)
@@ -87,6 +89,8 @@ def test_example_1_print(example_1_folder_path: pathlib.Path):
         "\n"
         "Example Recipe 1\n"
         "================\n"
+        "\n"
+        "Tags: Italian, Pasta, Entree, Vegetarian\n"
         "\n"
         "Ingredients\n"
         "-----------\n"

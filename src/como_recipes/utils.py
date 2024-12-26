@@ -1,14 +1,13 @@
 """Collection of minor help functions."""
 
+import fractions
 import importlib.metadata
+import os
 import pathlib
 import platform
 import sys
 
-import natsort
 import pydantic
-
-from ._base._base_recipe import Recipe
 
 
 def is_bundled() -> bool:
@@ -18,7 +17,7 @@ def is_bundled() -> bool:
     return result
 
 
-def get_bundle_path() -> pathlib.Path:
+def get_bundle_base_path() -> pathlib.Path:
     """Determine the bundled (temporary PyInstaller) path for the application."""
     if is_bundled() is False:
         message = "Application is not bundled."
@@ -30,10 +29,21 @@ def get_bundle_path() -> pathlib.Path:
     return bundle_path
 
 
+def set_base_environment_variable() -> None:
+    """Determine the base development path for the package and set it as an environment variable."""
+    if is_bundled() is True:
+        message = "Application is bundled."
+
+        raise RuntimeError(message)
+
+    dev_path = pathlib.Path(__file__).parent.parent.parent
+    os.environ["COMO_RECIPES_BASE_PATH"] = str(dev_path)
+
+
 def get_license_text() -> str:
     """Load the license text file."""
     if is_bundled() is True:
-        bundle_path = get_bundle_path()
+        bundle_path = get_bundle_base_path()
 
         file_path = bundle_path / "_assets" / "license.txt"  # Is copied to _assets during build
         with file_path.open(mode="r") as io:
@@ -49,7 +59,7 @@ def get_license_text() -> str:
 def get_package_version() -> str:
     """Load the version directly from the TOML file."""
     if is_bundled() is True:
-        bundle_path = get_bundle_path()
+        bundle_path = get_bundle_base_path()
 
         file_path = bundle_path / "_assets" / "pyproject.toml"  # Is copied to _assets during build
         with file_path.open(mode="r") as io:
@@ -91,15 +101,11 @@ def get_executable_stem() -> str:
 
 
 @pydantic.validate_call
-def get_recipe_names_by_type(*, recipes: list[Recipe] | tuple[Recipe]) -> list[str]:
-    """
-    Common logic used by both `__repr__` and `__str__`.
+def string_to_numeric(*, string: str) -> int | float:
+    """Convert a string to a numeric value."""
+    fraction = fractions.Fraction(string)
 
-    Fetch the recipe names in a deterministic order given alphabetically by tags (Entree vs. Side).
-    """
-    entrees = natsort.natsorted(seq=(recipe.name for recipe in recipes if "Entree" in recipe.tags))
-    sides = natsort.natsorted(seq=(recipe.name for recipe in recipes if "Side" in recipe.tags))
-    others = natsort.natsorted(seq=({recipe.name for recipe in recipes} - set(entrees) - set(sides)))
-    recipe_names_by_type = entrees + sides + others
+    if fraction.denominator == 1:
+        return int(fraction)
 
-    return recipe_names_by_type
+    return float(fraction.limit_denominator())

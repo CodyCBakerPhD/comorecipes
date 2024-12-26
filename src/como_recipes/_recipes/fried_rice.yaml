@@ -1,0 +1,60 @@
+name: Fried Rice
+
+tags:
+- Asian
+- Vegetarian
+- Entree
+
+measurements:
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: of chilled rice
+- amount: '1'
+  unit: serving
+  ingredient:
+    name: fried tofu
+- amount: '2'
+  unit: eggs
+  ingredient:
+    name: ''
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: butter
+- amount: '15'
+  unit: grams
+  ingredient:
+    name: garlic
+- amount: '75'
+  unit: grams
+  ingredient:
+    name: white onion
+- amount: '1'
+  unit: large
+  ingredient:
+    name: carrot
+- amount: '1'
+  unit: package
+  ingredient:
+    name: Shitake mushrooms
+- amount: 1/2
+  unit: cup
+  ingredient:
+    name: frozen or fresh peas
+- amount: '4'
+  unit: tbsp
+  ingredient:
+    name: soy sauce
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: sesame oil
+
+instructions:
+- Make and chill rice a day ahead of time.
+- Fry tofu at same time.
+- Scramble eggs and set aside.
+- Stiry fry onion and garlic.
+- Add other vegetables until cooked.
+- Add rice and seasonings, fry until ready.

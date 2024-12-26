@@ -1,0 +1,45 @@
+name: Grape Salad
+
+tags:
+- American
+- Dessert
+- Side
+- Vegetarian
+- Fruit
+
+measurements:
+- amount: '8'
+  unit: oz.
+  ingredient:
+    name: cream cheese, softened
+- amount: '8'
+  unit: oz.
+  ingredient:
+    name: sour cream
+- amount: '2'
+  unit: tsp
+  ingredient:
+    name: vanilla extract
+- amount: '2'
+  unit: lb
+  ingredient:
+    name: red seedless grapes
+- amount: '2'
+  unit: lbs
+  ingredient:
+    name: green seedless grapes
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: brown sugar
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: chopped pecans
+
+instructions:
+- In a large bowl, beat the cream cheese, sour cream, sugar and vanilla until blended.
+  Add grapes and toss to coat.
+- Transfer to a serving bowl. Cover and refrigerate until serving. Sprinkle with brown
+  sugar and pecans just before serving
+- 'Note: Makes 21-24 servings'

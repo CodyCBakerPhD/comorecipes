@@ -5,7 +5,7 @@ import pydantic
 from ._base_ingredient import Ingredient
 from ._base_measurement import Measurement
 from ._base_recipe import Recipe
-from ..utils import get_recipe_names_by_type
+from .._organization import get_recipe_names_by_type
 
 
 class Meal(pydantic.BaseModel):

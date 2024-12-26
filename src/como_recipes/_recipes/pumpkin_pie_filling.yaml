@@ -1,0 +1,39 @@
+name: Pumpkin Pie Filling
+
+tags:
+- American
+- Dessert
+- Vegetarian
+
+measurements:
+- amount: '15'
+  unit: oz.
+  ingredient:
+    name: fresh pumpkin puree
+- amount: '14'
+  unit: oz.
+  ingredient:
+    name: condensed milk
+- amount: '2'
+  unit: eggs
+  ingredient:
+    name: ''
+- amount: 1/2
+  unit: tsp
+  ingredient:
+    name: ginger
+- amount: 1/2
+  unit: tsp
+  ingredient:
+    name: nutmeg
+- amount: '3'
+  unit: grams
+  ingredient:
+    name: salt
+- amount: 1/2
+  unit: pie
+  ingredient:
+    name: crust
+
+instructions:
+- Mix ingredients well and pour into pie crust. Bake for 15 minutes at 425 F.

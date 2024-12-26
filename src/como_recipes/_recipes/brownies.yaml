@@ -1,0 +1,52 @@
+name: Brownies
+
+tags:
+- American
+- Dessert
+- Vegetarian
+- Chocolate
+
+measurements:
+- amount: 1/2
+  unit: cup
+  ingredient:
+    name: vegetable oil
+- amount: 2/3
+  unit: cup
+  ingredient:
+    name: sugar
+- amount: '2'
+  unit: large
+  ingredient:
+    name: eggs
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: vanilla
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: baking powder
+- amount: 1/3
+  unit: cup
+  ingredient:
+    name: cocoa powder
+- amount: '1'
+  unit: grams
+  ingredient:
+    name: salt
+- amount: '60'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: '3'
+  unit: tbsp
+  ingredient:
+    name: chocolate chips
+
+instructions:
+- Preheat to 350 F, spray pan.
+- Mix oil and sugar well.
+- Add eggs and vanilla, just barely blend in.
+- Mix all dry ingredients separately, stir into oil mixture.
+- Bake around 20 minutes.

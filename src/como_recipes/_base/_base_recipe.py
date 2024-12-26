@@ -1,9 +1,13 @@
 import fractions
-from typing import Self
+import json
+import typing
 
 import pydantic
+import yaml
 
 from ._base_measurement import Measurement
+from .._registration._ingredient_registry import IngredientRegistry
+from ..utils import string_to_numeric
 
 
 class Recipe(pydantic.BaseModel):
@@ -125,6 +129,7 @@ class Recipe(pydantic.BaseModel):
         """Used by calls to `print(...)`."""
         printout = f"\n{self.name}\n"
         printout += f"{'=' * len(self.name)}\n\n"
+        printout += "Tags: " + ", ".join(self.tags) + "\n\n"
 
         printout += "Ingredients\n"
         printout += "-----------\n"
@@ -132,11 +137,12 @@ class Recipe(pydantic.BaseModel):
             printout += f"{measurement.amount} {measurement.unit} {measurement.ingredient.name}\n"
         printout += "\n\n"
 
-        printout += "Notes\n"
-        printout += "-----\n"
-        for note in self.notes:
-            printout += f"{note}\n"
-        printout += "\n\n"
+        if self.notes is not None:
+            printout += "Notes\n"
+            printout += "-----\n"
+            for note in self.notes:
+                printout += f"{note}\n"
+            printout += "\n\n"
 
         printout += "Instructions\n"
         printout += "------------\n"
@@ -184,6 +190,73 @@ class Recipe(pydantic.BaseModel):
             io.write(markdown_text[:-1])
 
     @pydantic.validate_call
+    def to_yaml_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:
+        """
+        Save recipe to a .yaml file.
+
+        Parameters
+        ----------
+        file_path : pydantic.NewPath
+            Path to the .yaml file
+
+        """
+        # Standardize the order of the fields in the YAML file
+        key_order = ["name", "tags", "measurements", "instructions", "notes"]
+        model_dump = json.loads(s=self.model_dump_json())
+        ordered_model_dump = {key: value for key in key_order if (value := model_dump.get(key)) is not None}
+
+        cleaned_measurements = []
+        for measurement in ordered_model_dump["measurements"]:
+            cleaned_ingredient = {"name": measurement["ingredient"]["name"]}  # Remove extraneous (usually null) info
+            cleaned_measurement = {
+                "amount": measurement["amount"],
+                "unit": measurement["unit"],
+                "ingredient": cleaned_ingredient,
+            }
+            cleaned_measurements.append(cleaned_measurement)
+        ordered_model_dump["measurements"] = cleaned_measurements
+
+        # Additional newline padding is applied across each field so YAML file is more readable
+        # Does require some adjustments to dumping however
+        if file_path.exists():
+            file_path.unlink()
+
+        for key, value in ordered_model_dump.items():
+            with file_path.open(mode="a") as io:
+                io.write(yaml.dump(data={key: value}, sort_keys=False))
+                io.write("\n")
+
+    @classmethod
+    @pydantic.validate_call
+    def from_yaml_file(cls, *, file_path: pydantic.FilePath) -> typing.Self:
+        """
+        Load recipe from a .yaml file.
+
+        Parameters
+        ----------
+        file_path : pydantic.FilePath
+            Path to the .yaml file.
+
+        """
+        with file_path.open(mode="r") as io:
+            recipe_info = yaml.safe_load(stream=io)
+        recipe_info["tags"] = tuple(recipe_info["tags"])
+        recipe_info["measurements"] = tuple(
+            IngredientRegistry.get_measurement(
+                amount=string_to_numeric(string=measurement["amount"]),
+                unit=measurement["unit"],
+                ingredient_name=measurement["ingredient"]["name"],
+            )
+            for measurement in recipe_info["measurements"]
+        )
+        recipe_info["instructions"] = tuple(recipe_info["instructions"])
+
+        if "notes" in recipe_info:
+            recipe_info["notes"] = tuple(recipe_info["notes"])
+
+        return Recipe(**recipe_info)
+
+    @pydantic.validate_call
     def to_html_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:
         """
         Save recipe to a .html file in a markdown-like structure for use in the website.
@@ -222,7 +295,7 @@ class Recipe(pydantic.BaseModel):
 
     @classmethod
     @pydantic.validate_call
-    def from_markdown_file(cls, *, file_path: pydantic.FilePath, include_instructions: bool = True) -> Self:
+    def from_markdown_file(cls, *, file_path: pydantic.FilePath, include_instructions: bool = True) -> typing.Self:
         """
         Load recipe from a .md file in Markdown format.
 

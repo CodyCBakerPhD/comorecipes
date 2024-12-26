@@ -1,0 +1,58 @@
+name: Tamari Sauce
+
+tags:
+- Asian
+- Side
+- Vegetarian
+
+measurements:
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: sesame oil
+- amount: 1/2
+  unit: tbsp
+  ingredient:
+    name: ginger, minced
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: garlic
+- amount: 3/2
+  unit: tbsp
+  ingredient:
+    name: tamari
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: rice vinegar
+- amount: 3/4
+  unit: tbsp
+  ingredient:
+    name: maple syrup
+- amount: '120'
+  unit: grams
+  ingredient:
+    name: water
+- amount: 1/2
+  unit: tbsp
+  ingredient:
+    name: cornstarch
+- amount: '3'
+  unit: grams
+  ingredient:
+    name: salt and pepper
+- amount: 1/4
+  unit: tsp
+  ingredient:
+    name: red pepper flakes
+- amount: '1'
+  unit: grams
+  ingredient:
+    name: paprika
+
+instructions:
+- Mix water and cornstarch to make a slurry.
+- Heat oil in saucepan. Add everything except cornstarch mixture, cook for 2 minutes.
+- Add cornstarch mixture to thicken.
+- Season with spices, cook until desired consistency.

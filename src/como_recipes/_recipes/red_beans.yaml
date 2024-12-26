@@ -1,0 +1,64 @@
+name: Red Beans
+
+tags:
+- American
+- Vegetarian
+- Entree
+- Spicy
+
+measurements:
+- amount: '1'
+  unit: recipes
+  ingredient:
+    name: worth of rice
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: olive oil
+- amount: '20'
+  unit: grams
+  ingredient:
+    name: garlic
+- amount: '83'
+  unit: grams
+  ingredient:
+    name: white onion
+- amount: '1'
+  unit: stalk
+  ingredient:
+    name: celery
+- amount: '2'
+  unit: bay
+  ingredient:
+    name: leaves
+- amount: 1/2
+  unit: tsp
+  ingredient:
+    name: cayenne pepper
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: thyme
+- amount: 1/8
+  unit: tsp
+  ingredient:
+    name: sage
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: parsley
+- amount: '1'
+  unit: tsp
+  ingredient:
+    name: Cajun seasoning
+- amount: '240'
+  unit: grams
+  ingredient:
+    name: water
+
+instructions:
+- Make rice. Mix spices together.
+- Carefully caramelize garlic, onion, and celery in oil.
+- Add water to onions and garlic, then mix in spices.
+- Add beans and any other add-ins, simmer for at least 15 minutes.
+- Serve on rice.

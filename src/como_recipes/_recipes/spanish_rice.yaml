@@ -1,0 +1,46 @@
+name: Spanish Rice
+
+tags:
+- Mexican
+- Side
+- Vegetarian
+
+measurements:
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: butter
+- amount: '1'
+  unit: shallot
+  ingredient:
+    name: ''
+- amount: '10'
+  unit: grams
+  ingredient:
+    name: garlic
+- amount: '1'
+  unit: cup
+  ingredient:
+    name: long grain brown rice
+- amount: '4'
+  unit: grams
+  ingredient:
+    name: salt and pepper
+- amount: 5/2
+  unit: cups
+  ingredient:
+    name: not-chicken broth
+- amount: '2'
+  unit: sprigs
+  ingredient:
+    name: of thyme
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: parsley
+
+instructions:
+- Melt butter over medium heat. Add shallot and garlic, saute until tender.
+- Add rice and stir until glossy. Add stock and herbs, bring to boil.
+- Reduce to low or simmer and let cook for 30-40 minutes until all liquid is gone.
+- 'Note: Rinse the rice beforehand to make fluffier'

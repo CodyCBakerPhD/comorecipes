@@ -1,0 +1,43 @@
+name: Banana Bread
+
+tags:
+- American
+- Vegetarian
+- Fruit
+
+measurements:
+- amount: 1/4
+  unit: cup
+  ingredient:
+    name: butter
+- amount: 1/8
+  unit: cup
+  ingredient:
+    name: sugar
+- amount: '1'
+  unit: large
+  ingredient:
+    name: egg
+- amount: '1'
+  unit: ripe
+  ingredient:
+    name: banana
+- amount: 1/8
+  unit: tsp
+  ingredient:
+    name: of salt
+- amount: 1/2
+  unit: tsp
+  ingredient:
+    name: baking soda
+- amount: '60'
+  unit: grams
+  ingredient:
+    name: flour
+
+instructions:
+- Preheat oven to 300 F.
+- Cream butter and sugar.
+- Combine all dry ingredients and mix well.
+- Combine all remaining ingredients and mix well.
+- Bake for 35 minutes.

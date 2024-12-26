@@ -34,6 +34,11 @@ runs:
       run: echo "value=$(como_recipes_executable_stem)" >> $GITHUB_OUTPUT
       shell: bash
 
+    - name: Set package base path
+      id: base_path
+      run: como_recipes_set_base_environment_variable
+      shell: bash
+
     - name: Install PyInstaller
       run: python -m pip install pyinstaller
       shell: bash

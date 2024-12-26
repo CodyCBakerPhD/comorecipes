@@ -1,16 +1,26 @@
 # -*- mode: python ; coding: utf-8 -*-
+import os
+import pathlib
+
 import como_recipes
+
+datas = [
+    ("src/como_recipes/_assets", "_assets"),
+    ("pyproject.toml", "_assets"),
+    ("license.txt", "_assets"),
+    ("src/como_recipes/app/_app_state_json_schema.json", "_assets"),
+]
+
+top_level_base_directory = pathlib.Path(os.environ["COMO_RECIPES_BASE_PATH"])
+recipe_folder_path = top_level_base_directory / "src"/ "como_recipes" / "_recipes"
+for recipe_file_path in recipe_folder_path.glob(pattern="*.yaml"):
+    datas += [(str(recipe_file_path.relative_to(top_level_base_directory)).replace("\\", "/"), "_recipes")]
 
 a = Analysis(
     ['src\\como_recipes\\app\\_app_launcher.py'],
     pathex=[],
     binaries=[],
-    datas=[
-        ('src/como_recipes/_assets', '_assets'),
-        ('pyproject.toml', '_assets'),
-        ('license.txt', '_assets'),
-        ('src/como_recipes/app/_app_state_json_schema.json', '_assets'),
-    ],
+    datas=datas,
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

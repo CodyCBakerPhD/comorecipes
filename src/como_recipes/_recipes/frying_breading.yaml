@@ -1,0 +1,31 @@
+name: Frying Breading
+
+tags:
+- American
+- Vegetarian
+- Entree
+
+measurements:
+- amount: '720'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: '13'
+  unit: grams
+  ingredient:
+    name: salt and pepper
+- amount: '20'
+  unit: grams
+  ingredient:
+    name: garlic powder
+- amount: '1'
+  unit: tbsp
+  ingredient:
+    name: onion powder
+- amount: '4'
+  unit: tsp
+  ingredient:
+    name: cayenne pepper
+
+instructions:
+- Mix in large batches and store for later use.

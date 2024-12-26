@@ -1,0 +1,36 @@
+name: Applesauce
+
+tags:
+- American
+- Dessert
+- Side
+- Vegetarian
+- Fruit
+
+measurements:
+- amount: '4'
+  unit: large
+  ingredient:
+    name: apples
+- amount: '180'
+  unit: grams
+  ingredient:
+    name: water
+- amount: 1/16
+  unit: cup
+  ingredient:
+    name: white sugar
+- amount: 1/16
+  unit: cup
+  ingredient:
+    name: brown sugar
+- amount: 1/2
+  unit: tsp
+  ingredient:
+    name: ground cinnamon
+
+instructions:
+- Peel and core apples.
+- Combine everything and cook over medium heat for 15-20 minutes (until apples are
+  soft).
+- Allow to cool, then mash with fork or potato masher.

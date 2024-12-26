@@ -1,0 +1,47 @@
+name: Cornbread Dressing
+
+tags:
+- American
+- Side
+- Vegetarian
+
+measurements:
+- amount: '2'
+  unit: portions
+  ingredient:
+    name: of cornbread
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: butter
+- amount: 1/2
+  unit: cup
+  ingredient:
+    name: chopped celery
+- amount: '75'
+  unit: grams
+  ingredient:
+    name: white onion
+- amount: '2'
+  unit: cups
+  ingredient:
+    name: not-chicken stock
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: dried sage
+- amount: '3'
+  unit: grams
+  ingredient:
+    name: salt
+- amount: 1/2
+  unit: tsp
+  ingredient:
+    name: pepper
+
+instructions:
+- Make cornbread 1-2 days in advance, crumble and leave to dry. Melt butter and saute
+  celery and onion until soft.
+- Combine with cornbread. If not stuffing into turkey, then incorporate stock and
+  spices. If stuffing, only incorporate the spices.
+- Bake for 30 minutes at 350 F.

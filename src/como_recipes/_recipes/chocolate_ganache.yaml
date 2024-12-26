@@ -1,0 +1,27 @@
+name: Chocolate Ganache
+
+tags:
+- American
+- Dessert
+- Vegetarian
+- Chocolate
+
+measurements:
+- amount: '2'
+  unit: cups
+  ingredient:
+    name: semi-sweet chocolate
+- amount: 1/2
+  unit: cup
+  ingredient:
+    name: heavy cream
+- amount: 1/2
+  unit: tsp
+  ingredient:
+    name: vanilla extract
+
+instructions:
+- Combine chocolate and heavy cream in a small saucepan over medium heat.
+- Stir frequently until chocolate is melted and mixture is smooth.
+- Remove from heat, stir in vanilla extract.
+- Allow chocolate to cool slightly, about 5 minutes.

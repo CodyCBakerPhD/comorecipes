@@ -1,0 +1,26 @@
+name: Bechamel Sauce
+
+tags:
+- European
+- Vegetarian
+
+measurements:
+- amount: '2'
+  unit: tbsp
+  ingredient:
+    name: butter
+- amount: '16'
+  unit: grams
+  ingredient:
+    name: flour
+- amount: 5/4
+  unit: cup
+  ingredient:
+    name: whole milk
+- amount: '2'
+  unit: grams.
+  ingredient:
+    name: salt and pepper
+
+instructions:
+- Make roux with butter and flour. Thicken with milk. Season.

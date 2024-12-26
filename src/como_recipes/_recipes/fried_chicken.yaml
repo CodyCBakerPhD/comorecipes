@@ -1,0 +1,26 @@
+name: Fried Chicken
+
+tags:
+- American
+- Entree
+
+measurements:
+- amount: 1/4
+  unit: serving
+  ingredient:
+    name: of Frying Breading
+- amount: '2'
+  unit: large
+  ingredient:
+    name: chicken breasts
+- amount: '2'
+  unit: cups
+  ingredient:
+    name: buttermilk
+
+instructions:
+- Heat oil to 325 F. Add some lime juice if feeling fruity.
+- Cut each chicken breast in half and soak in buttermilk for a few minutes.
+- Dredge with breading in a plastic bag for maximum cleanliness and adherence.
+- Fry for ~13 minutes until golden brown, crispy, and thickest part of meat is 180
+  F.
