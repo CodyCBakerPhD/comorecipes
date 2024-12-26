@@ -7,7 +7,7 @@ import click
 import natsort
 
 from ._registration._recipe_registry import default_recipe_registry
-from .utils import get_executable_stem, get_package_version, set_base_environment_variable
+from .utils import get_base_environment_variable, get_executable_stem, get_package_version
 
 
 @click.command(name="como_recipes_version")
@@ -25,8 +25,10 @@ def _executable_stem() -> None:
 
 
 @click.command(name="como_recipes_set_base_environment_variable")
-def _set_base_environment_variable() -> None:
-    set_base_environment_variable()
+def _print_base_environment_variable() -> str:
+    base_path = get_base_environment_variable()
+
+    click.echo(message=base_path)
 
 
 @click.command(name="generate_html_recipes")
