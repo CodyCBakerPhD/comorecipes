@@ -18,8 +18,8 @@ measurements:
   unit: grams
   ingredient:
     name: salt and pepper
-- amount: '3'
-  unit: tbsp
+- amount: '42'
+  unit: grams
   ingredient:
     name: butter
 - amount: '24'

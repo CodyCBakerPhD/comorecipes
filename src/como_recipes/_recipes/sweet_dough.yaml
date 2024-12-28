@@ -30,10 +30,10 @@ measurements:
   unit: grams
   ingredient:
     name: salt
-- amount: 1/2
-  unit: cup
+- amount: '113'
+  unit: grams
   ingredient:
-    name: butter, room temperature
+    name: butter
 
 instructions:
 - Heat milk to 110 F in small saucepan over medium heat.
@@ -42,3 +42,6 @@ instructions:
 - Add eggs.
 - Combine remaining dry ingredients then knead into dough.
 - Let prove for 90 minutes.
+
+notes:
+- Butter should be room temperature; take out well in advance.

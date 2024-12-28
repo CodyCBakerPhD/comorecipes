@@ -9,15 +9,15 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: Pie
+  unit: unit
   ingredient:
-    name: crust
-- amount: '3'
-  unit: lbs.
+    name: pie crust
+- amount: '1360'
+  unit: grams
   ingredient:
-    name: (about 5) Granny Smith apples
-- amount: '2'
-  unit: tbsp
+    name: Granny Smith apples (about 5)
+- amount: '28'
+  unit: grams
   ingredient:
     name: butter
 - amount: 1/4

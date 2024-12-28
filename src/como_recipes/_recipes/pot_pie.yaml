@@ -14,8 +14,8 @@ measurements:
   unit: serving
   ingredient:
     name: of firm tofu
-- amount: '2'
-  unit: tbsp
+- amount: '28'
+  unit: grams
   ingredient:
     name: butter
 - amount: 1/2
@@ -54,8 +54,8 @@ measurements:
   unit: cups
   ingredient:
     name: thinly sliced chives
-- amount: 1/8
-  unit: cup
+- amount: 5
+  unit: grams
   ingredient:
     name: parsley
 - amount: '2'

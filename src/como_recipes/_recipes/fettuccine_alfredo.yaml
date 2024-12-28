@@ -11,8 +11,8 @@ measurements:
   unit: eggs
   ingredient:
     name: worth of fettuccine noodles
-- amount: 1/4
-  unit: cup
+- amount: '57'
+  unit: grams
   ingredient:
     name: butter
 - amount: '1'

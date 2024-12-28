@@ -11,8 +11,8 @@ measurements:
   unit: tbsp
   ingredient:
     name: sifted Dutch cocoa
-- amount: 3/2
-  unit: tbsp
+- amount: '38'
+  unit: grams
   ingredient:
     name: butter
 - amount: 1/4

@@ -6,12 +6,12 @@ tags:
 - Vegetarian
 
 measurements:
-- amount: 375/2
-  unit: g.
+- amount: '188'
+  unit: grams
   ingredient:
     name: butter, room temperature
-- amount: 375/2
-  unit: g.
+- amount: '188'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '3'

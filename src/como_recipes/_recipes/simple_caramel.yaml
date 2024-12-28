@@ -10,10 +10,10 @@ measurements:
   unit: oz.
   ingredient:
     name: sweetened condensed milk
-- amount: '7'
-  unit: tbsp
+- amount: '98'
+  unit: grams
   ingredient:
-    name: butter, cut into pieces
+    name: butter
 - amount: 1/2
   unit: cup
   ingredient:

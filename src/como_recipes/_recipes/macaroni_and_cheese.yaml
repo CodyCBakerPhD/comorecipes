@@ -11,8 +11,8 @@ measurements:
   unit: oz.
   ingredient:
     name: elbow pasta
-- amount: 1/4
-  unit: cup
+- amount: '57'
+  unit: grams
   ingredient:
     name: butter
 - amount: '30'

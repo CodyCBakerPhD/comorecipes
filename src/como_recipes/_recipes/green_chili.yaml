@@ -8,8 +8,8 @@ tags:
 - Spicy
 
 measurements:
-- amount: '1'
-  unit: tbps.
+- amount: '14'
+  unit: grams
   ingredient:
     name: butter
 - amount: '250'
@@ -44,8 +44,8 @@ measurements:
   unit: grams
   ingredient:
     name: garlic powder
-- amount: 1/4
-  unit: cup
+- amount: '57'
+  unit: grams
   ingredient:
     name: butter
 - amount: '30'

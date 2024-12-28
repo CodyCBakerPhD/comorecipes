@@ -11,8 +11,8 @@ measurements:
   unit: spaghetti
   ingredient:
     name: squash
-- amount: '1'
-  unit: tbsp
+- amount: '14'
+  unit: grams
   ingredient:
     name: olive oil
 - amount: '4'

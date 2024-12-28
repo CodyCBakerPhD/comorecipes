@@ -5,8 +5,8 @@ tags:
 - Vegetarian
 
 measurements:
-- amount: '1'
-  unit: tbsp
+- amount: '14'
+  unit: grams
   ingredient:
     name: olive oil
 - amount: '10'
@@ -25,14 +25,10 @@ measurements:
   unit: tsp
   ingredient:
     name: soy sauce
-- amount: '3'
-  unit: tbsp
+- amount: '42'
+  unit: grams
   ingredient:
     name: butter
-- amount: '1'
-  unit: tbsp
-  ingredient:
-    name: parsley
 
 instructions:
 - Heat oil over medium-high heat. Cook garlic for ~30 seconds. Add wine and reach

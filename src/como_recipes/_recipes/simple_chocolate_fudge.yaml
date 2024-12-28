@@ -15,8 +15,8 @@ measurements:
   unit: cup
   ingredient:
     name: dutch cocoa powder
-- amount: 1/2
-  unit: cup
+- amount: '113'
+  unit: grams
   ingredient:
     name: butter
 - amount: 1/4

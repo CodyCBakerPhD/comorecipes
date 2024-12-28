@@ -11,8 +11,8 @@ measurements:
   unit: tbsp
   ingredient:
     name: unsweetened cocoa
-- amount: '1'
-  unit: tbsp
+- amount: '14'
+  unit: grams
   ingredient:
     name: butter
 - amount: '14'

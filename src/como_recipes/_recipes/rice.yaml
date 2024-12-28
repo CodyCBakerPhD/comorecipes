@@ -15,8 +15,8 @@ measurements:
   unit: grams
   ingredient:
     name: water
-- amount: '1'
-  unit: tbsp
+- amount: '14'
+  unit: grams
   ingredient:
     name: butter
 

@@ -43,8 +43,8 @@ measurements:
   unit: qt.
   ingredient:
     name: vegetable oil
-- amount: 1/6
-  unit: cup
+- amount: '38'
+  unit: grams
   ingredient:
     name: butter
 - amount: '1'
