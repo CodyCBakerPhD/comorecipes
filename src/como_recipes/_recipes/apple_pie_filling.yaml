@@ -28,28 +28,28 @@ measurements:
   unit: grams
   ingredient:
     name: brown sugar
-- amount: '1'
-  unit: tbsp
+- amount: '15'
+  unit: grams
   ingredient:
     name: lemon juice
-- amount: '2'
-  unit: tsp
+- amount: '5'
+  unit: grams
   ingredient:
     name: cinnamon
 - amount: '3'
   unit: grams
   ingredient:
     name: salt
-- amount: 1/4
-  unit: tsp
+- amount: '0.5'
+  unit: grams
   ingredient:
     name: nutmeg
 - amount: '16'
   unit: grams
   ingredient:
     name: flour
-- amount: '2'
-  unit: tbsp
+- amount: '25'
+  unit: grams
   ingredient:
     name: raw sugar
 
