@@ -11,8 +11,8 @@ measurements:
   unit: grams
   ingredient:
     name: flour
-- amount: '1'
-  unit: cup
+- amount: '200'
+  unit: grams
   ingredient:
     name: sugar
 - amount: 3/8

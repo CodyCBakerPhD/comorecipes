@@ -11,8 +11,8 @@ measurements:
   unit: plums
   ingredient:
     name: ''
-- amount: '2'
-  unit: tbsp
+- amount: '25'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '1'

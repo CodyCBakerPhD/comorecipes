@@ -10,8 +10,8 @@ measurements:
   unit: grams
   ingredient:
     name: butter
-- amount: 1/6
-  unit: cup
+- amount: '33'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '1'

@@ -11,8 +11,8 @@ measurements:
   unit: large
   ingredient:
     name: eggs
-- amount: '1'
-  unit: cup
+- amount: '200'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '90'
@@ -35,8 +35,8 @@ measurements:
   unit: 1/2
   ingredient:
     name: cup raspberries
-- amount: 1/2
-  unit: cup
+- amount: '100'
+  unit: grams
   ingredient:
     name: sugar
 - amount: 1/2

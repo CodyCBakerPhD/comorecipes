@@ -11,8 +11,8 @@ measurements:
   unit: cup
   ingredient:
     name: vegetable oil
-- amount: 2/3
-  unit: cup
+- amount: '133'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '2'

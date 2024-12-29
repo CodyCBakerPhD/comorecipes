@@ -6,8 +6,8 @@ tags:
 - Vegetarian
 
 measurements:
-- amount: '1'
-  unit: cup
+- amount: '200'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '120'

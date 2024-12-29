@@ -10,8 +10,8 @@ measurements:
   unit: grams
   ingredient:
     name: butter, room temperature
-- amount: 1/3
-  unit: cup
+- amount: '66'
+  unit: grams
   ingredient:
     name: sugar
 - amount: 1/3

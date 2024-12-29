@@ -19,8 +19,8 @@ measurements:
   unit: cups
   ingredient:
     name: frozen tart cherries
-- amount: '1'
-  unit: cup
+- amount: '200'
+  unit: grams
   ingredient:
     name: sugar
 - amount: 1/4

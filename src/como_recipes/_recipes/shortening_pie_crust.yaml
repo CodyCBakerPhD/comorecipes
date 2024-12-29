@@ -6,8 +6,8 @@ tags:
 - Vegetarian
 
 measurements:
-- amount: '2'
-  unit: tsp
+- amount: '8'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '270'

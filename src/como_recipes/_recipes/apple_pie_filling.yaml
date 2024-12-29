@@ -20,8 +20,8 @@ measurements:
   unit: grams
   ingredient:
     name: butter
-- amount: 1/4
-  unit: cup
+- amount: '50'
+  unit: grams
   ingredient:
     name: sugar
 - amount: 1/4

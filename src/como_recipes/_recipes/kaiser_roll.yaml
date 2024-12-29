@@ -14,10 +14,10 @@ measurements:
   unit: tbsp
   ingredient:
     name: yeast
-- amount: '1'
-  unit: tsp
+- amount: '4'
+  unit: grams
   ingredient:
-    name: sugar or honey
+    name: sugar
 - amount: 1/6
   unit: cup
   ingredient:
@@ -36,3 +36,6 @@ instructions:
 - Mix in oil and flour and salt until good consistency. Roll out into shape (make
   sure the rolls are appropriately sized for rising) and let rise for 40 minutes.
 - Top with egg white and water mixture, bake for 15 minutes.
+
+notes:
+- Honey may be substituted in place of sugar

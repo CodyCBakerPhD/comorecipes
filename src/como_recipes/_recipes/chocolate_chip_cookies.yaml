@@ -11,8 +11,8 @@ measurements:
   unit: cup
   ingredient:
     name: room-temperature butter
-- amount: '1'
-  unit: cup
+- amount: '200'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '1'

@@ -19,8 +19,8 @@ measurements:
   unit: cup
   ingredient:
     name: lukewarm milk
-- amount: 1/4
-  unit: cup
+- amount: '50'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '3'
