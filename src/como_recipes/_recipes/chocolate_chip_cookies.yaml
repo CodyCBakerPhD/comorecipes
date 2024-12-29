@@ -15,8 +15,8 @@ measurements:
   unit: grams
   ingredient:
     name: sugar
-- amount: '1'
-  unit: cup
+- amount: '218'
+  unit: grams
   ingredient:
     name: brown sugar
 - amount: '2'

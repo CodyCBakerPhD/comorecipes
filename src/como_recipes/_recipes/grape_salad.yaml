@@ -28,8 +28,8 @@ measurements:
   unit: lbs
   ingredient:
     name: green seedless grapes
-- amount: '3'
-  unit: tbsp
+- amount: '33'
+  unit: grams
   ingredient:
     name: brown sugar
 - amount: '3'

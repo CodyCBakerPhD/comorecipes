@@ -30,8 +30,8 @@ measurements:
   unit: cup
   ingredient:
     name: ketchup
-- amount: '3'
-  unit: tsp
+- amount: '4'
+  unit: grams
   ingredient:
     name: brown sugar
 - amount: 1/2

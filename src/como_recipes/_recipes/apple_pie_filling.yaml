@@ -24,8 +24,8 @@ measurements:
   unit: grams
   ingredient:
     name: sugar
-- amount: 1/4
-  unit: cup
+- amount: '54'
+  unit: grams
   ingredient:
     name: brown sugar
 - amount: '1'
