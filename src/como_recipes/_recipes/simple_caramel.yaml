@@ -22,10 +22,10 @@ measurements:
   unit: cup
   ingredient:
     name: light corn syrup
-- amount: 1/2
-  unit: tsp
+- amount: '2'
+  unit: grams
   ingredient:
-    name: vanilla extract
+    name: vanilla
 - amount: '1'
   unit: grams
   ingredient:

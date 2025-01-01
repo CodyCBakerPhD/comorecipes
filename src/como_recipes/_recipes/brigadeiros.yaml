@@ -7,20 +7,19 @@ tags:
 - Chocolate
 
 measurements:
-- amount: '3'
-  unit: tbsp
+- amount: '54'
+  unit: grams
   ingredient:
-    name: unsweetened cocoa
+    name: Dutch cocoa powder
 - amount: '14'
   unit: grams
   ingredient:
     name: butter
-- amount: '14'
-  unit: oz.
-  ingredient:
-    name: condensed milk
 - amount: '1'
-  unit: cup
+  unit: portions
+  ingredient:
+    name: can of condensed milk
+- amount: 'enough'
   ingredient:
     name: chocolate sprinkles
 

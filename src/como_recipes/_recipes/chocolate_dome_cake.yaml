@@ -8,9 +8,9 @@ tags:
 
 measurements:
 - amount: '4'
-  unit: large
+  unit: portions
   ingredient:
-    name: eggs
+    name: egg
 - amount: '200'
   unit: grams
   ingredient:

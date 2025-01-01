@@ -27,7 +27,7 @@ measurements:
   ingredient:
     name: tsp baking powder
 - amount: '25'
-  unit: ml.
+  unit: grams
   ingredient:
     name: milk
 - amount: '1'

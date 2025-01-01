@@ -13,8 +13,8 @@ measurements:
   unit: large
   ingredient:
     name: chicken breasts
-- amount: '2'
-  unit: cups
+- amount: '450'
+  unit: grams
   ingredient:
     name: buttermilk
 

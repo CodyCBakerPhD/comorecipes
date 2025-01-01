@@ -22,10 +22,10 @@ measurements:
   unit: tsp
   ingredient:
     name: pumpkin pie spice
-- amount: '1'
-  unit: tsp
+- amount: '4'
+  unit: grams
   ingredient:
-    name: vanilla extract
+    name: vanilla
 
 instructions:
 - Combine heavy cream, sugar, pumpkin puree and pumpkin spice in a saucepan. Whisk

@@ -9,8 +9,8 @@ measurements:
   unit: lb.
   ingredient:
     name: pork shoulder
-- amount: '1'
-  unit: tbsp
+- amount: '4'
+  unit: grams
   ingredient:
     name: oregano
 - amount: '10'

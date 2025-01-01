@@ -18,8 +18,8 @@ measurements:
   unit: grams
   ingredient:
     name: sugar
-- amount: 1/6
-  unit: cup
+- amount: '36'
+  unit: grams
   ingredient:
     name: vegetable oil
 - amount: '3'

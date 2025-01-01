@@ -7,7 +7,7 @@ tags:
 
 measurements:
 - amount: '8'
-  unit: separated
+  unit: portions
   ingredient:
     name: chicken wings
 - amount: '8'
@@ -18,12 +18,12 @@ measurements:
   unit: grams
   ingredient:
     name: butter
-- amount: '1'
-  unit: tbsp
+- amount: '15'
+  unit: grams
   ingredient:
     name: white vinegar
 - amount: '100'
-  unit: ml
+  unit: grams
   ingredient:
     name: hot sauce of choice
 

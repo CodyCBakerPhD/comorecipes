@@ -31,8 +31,8 @@ measurements:
   unit: bay
   ingredient:
     name: leaves
-- amount: 1/2
-  unit: tsp
+- amount: '1'
+  unit: grams
   ingredient:
     name: cayenne pepper
 - amount: '1'

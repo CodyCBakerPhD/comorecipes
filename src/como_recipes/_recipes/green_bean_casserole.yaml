@@ -18,8 +18,8 @@ measurements:
   unit: can
   ingredient:
     name: French-fried onions
-- amount: 1/2
-  unit: cup
+- amount: '125'
+  unit: grams
   ingredient:
     name: milk
 - amount: 1/8

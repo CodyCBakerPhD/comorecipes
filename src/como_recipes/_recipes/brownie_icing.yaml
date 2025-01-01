@@ -7,26 +7,29 @@ tags:
 - Chocolate
 
 measurements:
-- amount: '1'
-  unit: tbsp
+- amount: '18'
+  unit: grams
   ingredient:
-    name: sifted Dutch cocoa
+    name: Dutch cocoa
 - amount: '38'
   unit: grams
   ingredient:
     name: butter
-- amount: 1/4
-  unit: cups
+- amount: '29'
+  unit: grams
   ingredient:
-    name: sifted powdered sugar
-- amount: '1'
-  unit: tbsp
+    name: powdered sugar
+- amount: '9'
+  unit: grams
   ingredient:
     name: evaporated milk
-- amount: 1/2
-  unit: tsp
+- amount: '2'
+  unit: grams
   ingredient:
     name: vanilla
+
+notes:
+  - DO not forget to sift all dry ingredients.
 
 instructions:
 - Do not forget to sift dry ingredients.

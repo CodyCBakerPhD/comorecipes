@@ -15,12 +15,12 @@ measurements:
   unit: grams
   ingredient:
     name: sugar
-- amount: 3/8
-  unit: cup
+- amount: '31'
+  unit: grams
   ingredient:
-    name: cocoa powder
-- amount: '1'
-  unit: tsp
+    name: Dutch cocoa powder
+- amount: '5'
+  unit: grams
   ingredient:
     name: baking powder
 - amount: '4'
@@ -35,20 +35,20 @@ measurements:
   unit: tsp
   ingredient:
     name: espresso powder
-- amount: 1/2
-  unit: cup
+- amount: '125'
+  unit: grams
   ingredient:
     name: milk
-- amount: 1/4
-  unit: cup
+- amount: '55'
+  unit: grams
   ingredient:
     name: vegetable oil
 - amount: '1'
-  unit: large
+  unit: portions
   ingredient:
     name: egg
-- amount: '1'
-  unit: tsp
+- amount: '4'
+  unit: grams
   ingredient:
     name: vanilla
 - amount: 1/2

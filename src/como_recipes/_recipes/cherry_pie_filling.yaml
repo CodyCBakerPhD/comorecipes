@@ -23,8 +23,8 @@ measurements:
   unit: grams
   ingredient:
     name: sugar
-- amount: 1/4
-  unit: cup
+- amount: '30'
+  unit: grams
   ingredient:
     name: cornstarch
 

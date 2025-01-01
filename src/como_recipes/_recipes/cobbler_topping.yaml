@@ -19,19 +19,19 @@ measurements:
   ingredient:
     name: brown sugar
 - amount: '1'
-  unit: large
+  unit: portions
   ingredient:
     name: egg
-- amount: 1/4
-  unit: tsp
+- amount: '1'
+  unit: grams
   ingredient:
     name: vanilla
 - amount: '30'
   unit: grams
   ingredient:
     name: flour
-- amount: 1/8
-  unit: tsp
+- amount: '0.5'
+  unit: grams
   ingredient:
     name: baking powder
 - amount: '1'

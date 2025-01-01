@@ -16,10 +16,10 @@ measurements:
   unit: oz.
   ingredient:
     name: sour cream
-- amount: '2'
-  unit: tsp
+- amount: '8'
+  unit: grams
   ingredient:
-    name: vanilla extract
+    name: vanilla
 - amount: '2'
   unit: lb
   ingredient:

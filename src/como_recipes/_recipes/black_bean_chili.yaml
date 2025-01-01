@@ -13,13 +13,13 @@ measurements:
   ingredient:
     name: garlic
 - amount: 1/3
-  unit: white
+  unit: portions
   ingredient:
-    name: onion, minced
+    name: white onion
 - amount: '1'
-  unit: qt
+  unit: portions
   ingredient:
-    name: jar of canned garden tomatoes
+    name: fresh or canned (quart) tomatoes
 - amount: '32'
   unit: grams
   ingredient:
@@ -28,24 +28,23 @@ measurements:
   unit: grams
   ingredient:
     name: cumin
-- amount: '2'
-  unit: tsp
+- amount: '4'
+  unit: grams
   ingredient:
     name: oregano
 - amount: '6'
   unit: grams
   ingredient:
     name: salt
-- amount: 1/2
-  unit: tsp
+- amount: '1'
+  unit: grams
   ingredient:
     name: cayenne pepper
 - amount: '1'
-  unit: can
+  unit: portions
   ingredient:
     name: black beans
-- amount: '1'
-  unit: tbsp
+- amount: 'enough'
   ingredient:
     name: peanut oil
 

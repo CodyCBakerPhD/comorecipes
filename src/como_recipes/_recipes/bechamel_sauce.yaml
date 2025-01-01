@@ -13,12 +13,12 @@ measurements:
   unit: grams
   ingredient:
     name: flour
-- amount: 5/4
-  unit: cup
+- amount: '311'
+  unit: grams
   ingredient:
     name: whole milk
 - amount: '2'
-  unit: grams.
+  unit: grams
   ingredient:
     name: salt and pepper
 

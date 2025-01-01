@@ -18,20 +18,20 @@ measurements:
   unit: egg
   ingredient:
     name: yolks
-- amount: 3/4
-  unit: cup
+- amount: '180'
+  unit: grams
   ingredient:
     name: milk
-- amount: 3/2
-  unit: tsp
+- amount: '6'
+  unit: grams
   ingredient:
     name: vanilla
 - amount: '240'
   unit: grams
   ingredient:
     name: cake flour
-- amount: '2'
-  unit: tsp
+- amount: '10'
+  unit: grams
   ingredient:
     name: baking powder
 - amount: '3'

@@ -26,8 +26,8 @@ measurements:
   unit: grams
   ingredient:
     name: flour
-- amount: '2'
-  unit: cups
+- amount: '500'
+  unit: grams
   ingredient:
     name: whole milk
 - amount: 3/2

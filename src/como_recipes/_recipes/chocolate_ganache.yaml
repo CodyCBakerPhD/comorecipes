@@ -15,10 +15,10 @@ measurements:
   unit: cup
   ingredient:
     name: heavy cream
-- amount: 1/2
-  unit: tsp
+- amount: '2'
+  unit: grams
   ingredient:
-    name: vanilla extract
+    name: vanilla
 
 instructions:
 - Combine chocolate and heavy cream in a small saucepan over medium heat.

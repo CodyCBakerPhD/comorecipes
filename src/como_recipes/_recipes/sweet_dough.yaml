@@ -6,8 +6,8 @@ tags:
 - Vegetarian
 
 measurements:
-- amount: 2/3
-  unit: cup
+- amount: '166'
+  unit: grams
   ingredient:
     name: whole milk
 - amount: '65'
