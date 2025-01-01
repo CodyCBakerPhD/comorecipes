@@ -9,13 +9,13 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: unit
+  unit: portion
   ingredient:
     name: pie crust
-- amount: '1360'
-  unit: grams
+- amount: '5'
+  unit: portions
   ingredient:
-    name: Granny Smith apples (about 5)
+    name: Granny Smith apple
 - amount: '28'
   unit: grams
   ingredient:

@@ -23,8 +23,8 @@ measurements:
   unit: tsp
   ingredient:
     name: baking powder
-- amount: 3/4
-  unit: tsp
+- amount: '4'
+  unit: grams
   ingredient:
     name: baking soda
 - amount: '3'

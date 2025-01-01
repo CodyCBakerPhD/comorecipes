@@ -27,8 +27,8 @@ measurements:
   unit: tsp
   ingredient:
     name: vanilla
-- amount: '1'
-  unit: tsp
+- amount: '5.5'
+  unit: grams
   ingredient:
     name: baking soda
 - amount: '2'

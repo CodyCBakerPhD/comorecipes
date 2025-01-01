@@ -12,7 +12,7 @@ class Measurement(pydantic.BaseModel):
 
     Parameters
     ----------
-    amount : int | float
+    amount : int | float | typing.Literal["enough"]
         Amount of the ingredient.
     unit : Literal[
         "cup",
@@ -36,9 +36,9 @@ class Measurement(pydantic.BaseModel):
 
     """
 
-    amount: float | int | fractions.Fraction
+    amount: float | int | fractions.Fraction | typing.Literal["enough"]
     # TODO: limit to grams-base only
-    unit: str
+    unit: str | None
     # unit: Literal[
     #     "cup",
     #     "cups",
@@ -67,6 +67,17 @@ class Measurement(pydantic.BaseModel):
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> typing.Self:
         if len(args) > 0:
             message = "No positional arguments are allowed."
+
+            raise ValueError(message)
+
+        if kwargs.get("unit", None) is None and kwargs.get("amount", "") != "enough":
+            message = 'If `unit` is missing, `amount` must be "enough".'
+
+            raise ValueError(message)
+
+        if kwargs.get("amount", "") == "enough" and kwargs.get("unit", None) is not None:
+            message = 'If `amount` is "enough", `unit` cannot be specified.'
+
             raise ValueError(message)
 
         super().__init__(**kwargs)

@@ -8,17 +8,15 @@ tags:
 
 measurements:
 - amount: '4'
-  unit: Good
+  unit: portions
   ingredient:
-    name: big potatoes
-- amount: '4.5'
-  unit: grams
+    name: potatoes
+- amount: 'enough'
   ingredient:
     name: olive oil
-- amount: 1/4
-  unit: tsp
+- amount: 'enough'
   ingredient:
-    name: large-grain salt
+    name: salt
 
 instructions:
 - Use aluminum foil for easy cleanup.
