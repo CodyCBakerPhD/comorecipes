@@ -6,8 +6,8 @@ tags:
 - Spicy
 
 measurements:
-- amount: 1/2
-  unit: cup
+- amount: '109'
+  unit: grams
   ingredient:
     name: brown sugar
 - amount: 1/2
@@ -30,8 +30,8 @@ measurements:
   unit: grams
   ingredient:
     name: chili powder
-- amount: '1'
-  unit: tbsp
+- amount: '5'
+  unit: grams
   ingredient:
     name: cayenne pepper
 - amount: '2'

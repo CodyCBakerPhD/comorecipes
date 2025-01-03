@@ -11,24 +11,24 @@ measurements:
   unit: cup
   ingredient:
     name: room-temperature butter
-- amount: '1'
-  unit: cup
+- amount: '200'
+  unit: grams
   ingredient:
     name: sugar
-- amount: '1'
-  unit: cup
+- amount: '218'
+  unit: grams
   ingredient:
     name: brown sugar
 - amount: '2'
-  unit: large
+  unit: portions
   ingredient:
     name: egg
-- amount: '2'
-  unit: tsp
+- amount: '8'
+  unit: grams
   ingredient:
     name: vanilla
-- amount: '1'
-  unit: tsp
+- amount: '5.5'
+  unit: grams
   ingredient:
     name: baking soda
 - amount: '2'

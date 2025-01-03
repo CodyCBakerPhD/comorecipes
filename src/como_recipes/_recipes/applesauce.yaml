@@ -9,25 +9,25 @@ tags:
 
 measurements:
 - amount: '4'
-  unit: large
+  unit: portions
   ingredient:
-    name: apples
+    name: red apple
 - amount: '180'
   unit: grams
   ingredient:
     name: water
-- amount: 1/16
-  unit: cup
+- amount: '12'
+  unit: grams
   ingredient:
-    name: white sugar
-- amount: 1/16
-  unit: cup
+    name: sugar
+- amount: '14'
+  unit: grams
   ingredient:
     name: brown sugar
-- amount: 1/2
-  unit: tsp
+- amount: '1'
+  unit: grams
   ingredient:
-    name: ground cinnamon
+    name: cinnamon
 
 instructions:
 - Peel and core apples.

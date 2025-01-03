@@ -14,8 +14,8 @@ measurements:
   unit: individual
   ingredient:
     name: not-chicken tenders
-- amount: '2'
-  unit: cups
+- amount: '450'
+  unit: grams
   ingredient:
     name: buttermilk
 

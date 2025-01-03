@@ -26,8 +26,8 @@ measurements:
   unit: aloha
   ingredient:
     name: peppers, trimmed and thinly sliced
-- amount: '3'
-  unit: tbsp
+- amount: '42'
+  unit: grams
   ingredient:
     name: olive oil
 - amount: '3'

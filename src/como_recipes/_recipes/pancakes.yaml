@@ -27,7 +27,7 @@ measurements:
   ingredient:
     name: tsp salt
 - amount: '1'
-  unit: ''
+  unit: portions
   ingredient:
     name: egg
 - amount: '2'

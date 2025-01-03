@@ -10,22 +10,22 @@ measurements:
   unit: oz.
   ingredient:
     name: sweetened condensed milk
-- amount: '7'
-  unit: tbsp
+- amount: '98'
+  unit: grams
   ingredient:
-    name: butter, cut into pieces
-- amount: 1/2
-  unit: cup
+    name: butter
+- amount: '109'
+  unit: grams
   ingredient:
     name: brown sugar
 - amount: 1/6
   unit: cup
   ingredient:
     name: light corn syrup
-- amount: 1/2
-  unit: tsp
+- amount: '2'
+  unit: grams
   ingredient:
-    name: vanilla extract
+    name: vanilla
 - amount: '1'
   unit: grams
   ingredient:

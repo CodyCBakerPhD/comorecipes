@@ -12,7 +12,7 @@ class Measurement(pydantic.BaseModel):
 
     Parameters
     ----------
-    amount : int | float
+    amount : int | float | typing.Literal["enough"]
         Amount of the ingredient.
     unit : Literal[
         "cup",
@@ -36,9 +36,9 @@ class Measurement(pydantic.BaseModel):
 
     """
 
-    amount: float | int | fractions.Fraction
+    amount: float | int | fractions.Fraction | typing.Literal["enough"]
     # TODO: limit to grams-base only
-    unit: str
+    unit: str | None
     # unit: Literal[
     #     "cup",
     #     "cups",
@@ -67,11 +67,29 @@ class Measurement(pydantic.BaseModel):
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> typing.Self:
         if len(args) > 0:
             message = "No positional arguments are allowed."
+
             raise ValueError(message)
 
-        super().__init__(**kwargs)
+        amount = kwargs.get("amount", None)
+        unit = kwargs.get("unit", None)
 
-        self.amount = fractions.Fraction(self.amount).limit_denominator()
+        if unit is None and amount != "enough":
+            message = 'If `unit` is missing, `amount` must be "enough".'
+
+            raise ValueError(message)
+
+        if amount == "enough" and unit is not None:
+            message = 'If `amount` is "enough", `unit` cannot be specified.'
+
+            raise ValueError(message)
+
+        if amount is not None and amount != "enough":
+            amount = fractions.Fraction(amount).limit_denominator()
+
+        kwargs["amount"] = amount
+        kwargs["unit"] = unit
+
+        super().__init__(**kwargs)
 
     def __repr__(self) -> str:
         """
@@ -82,7 +100,13 @@ class Measurement(pydantic.BaseModel):
 
         As a style choice, the representation is padded before and after with empty space.
         """
-        string_amount = str(self.amount.numerator) if self.amount.denominator == 1 else str(self.amount)
+        if self.amount == "enough":
+            string_amount = "enough"
+        elif isinstance(self.amount, fractions.Fraction):
+            string_amount = str(self.amount.numerator) if self.amount.denominator == 1 else str(self.amount)
+        else:
+            string_amount = str(self.amount)
+
         representation = f'Measurement(amount={string_amount}, unit="{self.unit}", ingredient={self.ingredient!r})'
 
         return representation

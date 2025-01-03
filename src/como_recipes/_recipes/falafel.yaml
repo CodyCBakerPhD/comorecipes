@@ -14,8 +14,8 @@ measurements:
   unit: grams
   ingredient:
     name: white onion
-- amount: 1/4
-  unit: cup
+- amount: '10'
+  unit: grams
   ingredient:
     name: parsley
 - amount: '25'

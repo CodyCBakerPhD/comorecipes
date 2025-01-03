@@ -7,24 +7,24 @@ tags:
 - Chocolate
 
 measurements:
-- amount: 3/4
-  unit: cup
+- amount: '86'
+  unit: grams
   ingredient:
     name: powdered sugar
-- amount: '2'
-  unit: tbsp
+- amount: '36'
+  unit: grams
   ingredient:
-    name: dutch cocoa powder
+    name: Dutch cocoa powder
 - amount: 3/10
   unit: grams
   ingredient:
     name: salt
-- amount: '2'
-  unit: tbsp
+- amount: '30'
+  unit: grams
   ingredient:
     name: milk
-- amount: 3/4
-  unit: tsp
+- amount: '3'
+  unit: grams
   ingredient:
     name: vanilla
 

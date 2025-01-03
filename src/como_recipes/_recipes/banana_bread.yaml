@@ -6,28 +6,28 @@ tags:
 - Fruit
 
 measurements:
-- amount: 1/4
-  unit: cup
+- amount: '57'
+  unit: grams
   ingredient:
     name: butter
-- amount: 1/8
-  unit: cup
+- amount: '25'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '1'
-  unit: large
+  unit: portions
   ingredient:
     name: egg
 - amount: '1'
-  unit: ripe
+  unit: portion
   ingredient:
-    name: banana
-- amount: 1/8
-  unit: tsp
+    name: overripe banana
+- amount: '1'
+  unit: grams
   ingredient:
-    name: of salt
-- amount: 1/2
-  unit: tsp
+    name: salt
+- amount: '3'
+  unit: grams
   ingredient:
     name: baking soda
 - amount: '60'

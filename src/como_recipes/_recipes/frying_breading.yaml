@@ -22,8 +22,8 @@ measurements:
   unit: tbsp
   ingredient:
     name: onion powder
-- amount: '4'
-  unit: tsp
+- amount: '8'
+  unit: grams
   ingredient:
     name: cayenne pepper
 

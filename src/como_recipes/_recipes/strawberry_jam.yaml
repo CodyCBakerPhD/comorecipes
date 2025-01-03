@@ -23,8 +23,8 @@ measurements:
   unit: ''
   ingredient:
     name: g. honey
-- amount: 9/4
-  unit: tbsp
+- amount: '270'
+  unit: grams
   ingredient:
     name: cornstarch
 - amount: 1/4

@@ -7,30 +7,30 @@ tags:
 - Chocolate
 
 measurements:
-- amount: 1/2
-  unit: cup
+- amount: '110'
+  unit: grams
   ingredient:
     name: vegetable oil
-- amount: 2/3
-  unit: cup
+- amount: '133'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '2'
-  unit: large
+  unit: portions
   ingredient:
-    name: eggs
-- amount: '1'
-  unit: tsp
+    name: egg
+- amount: '4'
+  unit: grams
   ingredient:
     name: vanilla
-- amount: 1/4
-  unit: tsp
+- amount: '1'
+  unit: grams
   ingredient:
     name: baking powder
-- amount: 1/3
-  unit: cup
+- amount: '27'
+  unit: grams
   ingredient:
-    name: cocoa powder
+    name: Dutch cocoa powder
 - amount: '1'
   unit: grams
   ingredient:
@@ -39,8 +39,8 @@ measurements:
   unit: grams
   ingredient:
     name: flour
-- amount: '3'
-  unit: tbsp
+- amount: '42'
+  unit: grams
   ingredient:
     name: chocolate chips
 

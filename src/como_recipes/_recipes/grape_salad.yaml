@@ -16,10 +16,10 @@ measurements:
   unit: oz.
   ingredient:
     name: sour cream
-- amount: '2'
-  unit: tsp
+- amount: '8'
+  unit: grams
   ingredient:
-    name: vanilla extract
+    name: vanilla
 - amount: '2'
   unit: lb
   ingredient:
@@ -28,8 +28,8 @@ measurements:
   unit: lbs
   ingredient:
     name: green seedless grapes
-- amount: '3'
-  unit: tbsp
+- amount: '33'
+  unit: grams
   ingredient:
     name: brown sugar
 - amount: '3'

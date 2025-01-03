@@ -7,19 +7,19 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: full
+  unit: portions
   ingredient:
     name: pie crust
 - amount: '1'
-  unit: serving
+  unit: portions
   ingredient:
     name: of firm tofu
-- amount: '2'
-  unit: tbsp
+- amount: '28'
+  unit: grams
   ingredient:
     name: butter
-- amount: 1/2
-  unit: medium
+- amount: '0.5'
+  unit: portions
   ingredient:
     name: yellow onions, finely chopped
 - amount: '2'
@@ -42,8 +42,8 @@ measurements:
   unit: cup
   ingredient:
     name: not-chicken broth
-- amount: '1'
-  unit: cup
+- amount: '250'
+  unit: grams
   ingredient:
     name: whole milk
 - amount: '1'
@@ -54,12 +54,12 @@ measurements:
   unit: cups
   ingredient:
     name: thinly sliced chives
-- amount: 1/8
-  unit: cup
+- amount: '5'
+  unit: grams
   ingredient:
     name: parsley
-- amount: '2'
-  unit: tbsp
+- amount: '30'
+  unit: grams
   ingredient:
     name: white vinegar
 - amount: '10'
@@ -67,7 +67,7 @@ measurements:
   ingredient:
     name: water
 - amount: '1'
-  unit: large
+  unit: portions
   ingredient:
     name: egg yolk
 

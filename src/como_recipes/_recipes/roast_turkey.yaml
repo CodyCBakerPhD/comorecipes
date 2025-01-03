@@ -17,8 +17,8 @@ measurements:
   unit: cups
   ingredient:
     name: Kosher salt
-- amount: 1/2
-  unit: cup
+- amount: '109'
+  unit: grams
   ingredient:
     name: brown sugar
 - amount: '20'

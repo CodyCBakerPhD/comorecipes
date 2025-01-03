@@ -14,7 +14,7 @@ measurements:
 - amount: '57'
   unit: grams
   ingredient:
-    name: dutch cocoa
+    name: Dutch cocoa powder
 - amount: 1/4
   unit: tsp
   ingredient:
@@ -27,8 +27,8 @@ measurements:
   unit: grams
   ingredient:
     name: butter
-- amount: '1'
-  unit: tsp
+- amount: '4'
+  unit: grams
   ingredient:
     name: vanilla
 

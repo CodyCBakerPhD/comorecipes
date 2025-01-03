@@ -11,8 +11,8 @@ measurements:
   unit: plums
   ingredient:
     name: ''
-- amount: '2'
-  unit: tbsp
+- amount: '25'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '1'
@@ -23,10 +23,10 @@ measurements:
   unit: cup
   ingredient:
     name: basalmic vinegar
-- amount: 1/8
-  unit: tsp
+- amount: '0.5'
+  unit: grams
   ingredient:
-    name: vanilla extract
+    name: vanilla
 - amount: '1'
   unit: tsp
   ingredient:

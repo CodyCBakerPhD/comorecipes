@@ -22,8 +22,8 @@ measurements:
   unit: tsp
   ingredient:
     name: ginger
-- amount: 1/2
-  unit: tsp
+- amount: '1'
+  unit: grams
   ingredient:
     name: nutmeg
 - amount: '3'

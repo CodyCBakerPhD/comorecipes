@@ -20,7 +20,7 @@ measurements:
   ingredient:
     name: corn syrup
 - amount: '150'
-  unit: g
+  unit: grams
   ingredient:
     name: sugar
 - amount: '200'

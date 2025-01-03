@@ -7,24 +7,24 @@ tags:
 - Chocolate
 
 measurements:
-- amount: '1'
-  unit: lb.
+- amount: '453'
+  unit: grams
   ingredient:
     name: powdered sugar
-- amount: 1/2
-  unit: cup
+- amount: '92'
+  unit: grams
   ingredient:
-    name: dutch cocoa powder
-- amount: 1/2
-  unit: cup
+    name: Dutch cocoa powder
+- amount: '113'
+  unit: grams
   ingredient:
     name: butter
 - amount: 1/4
   unit: cup
   ingredient:
     name: chocolate milk
-- amount: '1'
-  unit: tbsp
+- amount: '17'
+  unit: grams
   ingredient:
     name: vanilla
 - amount: 1/2

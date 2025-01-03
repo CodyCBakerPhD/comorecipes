@@ -34,8 +34,8 @@ measurements:
   unit: grams
   ingredient:
     name: water
-- amount: 1/2
-  unit: tbsp
+- amount: '60'
+  unit: grams
   ingredient:
     name: cornstarch
 - amount: '3'

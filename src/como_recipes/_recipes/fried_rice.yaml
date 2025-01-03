@@ -18,8 +18,8 @@ measurements:
   unit: eggs
   ingredient:
     name: ''
-- amount: '3'
-  unit: tbsp
+- amount: '42'
+  unit: grams
   ingredient:
     name: butter
 - amount: '15'

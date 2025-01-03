@@ -19,26 +19,22 @@ measurements:
   unit: package
   ingredient:
     name: thin spaghetti
-- amount: 1/3
-  unit: cup
+- amount: '76'
+  unit: grams
   ingredient:
     name: olive oil
 - amount: '8'
-  unit: large
+  unit: cloves
   ingredient:
-    name: cloves of garlic
+    name: garlic
 - amount: '2'
-  unit: tsp
+  unit: grams
   ingredient:
     name: crushed red pepper
-- amount: 1/4
-  unit: cup
+- amount: '80'
+  unit: grams
   ingredient:
-    name: parsley
-- amount: '1'
-  unit: cup
-  ingredient:
-    name: fresh Parmesan
+    name: Parmesan
 
 instructions:
 - Bring water and salt to boil. Cook pasta. Set aside 3/2 cup of pasta water before

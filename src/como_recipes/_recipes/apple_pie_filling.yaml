@@ -9,47 +9,47 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: Pie
+  unit: portion
   ingredient:
-    name: crust
-- amount: '3'
-  unit: lbs.
+    name: pie crust
+- amount: '5'
+  unit: portions
   ingredient:
-    name: (about 5) Granny Smith apples
-- amount: '2'
-  unit: tbsp
+    name: Granny Smith apple
+- amount: '28'
+  unit: grams
   ingredient:
     name: butter
-- amount: 1/4
-  unit: cup
+- amount: '50'
+  unit: grams
   ingredient:
     name: sugar
-- amount: 1/4
-  unit: cup
+- amount: '54'
+  unit: grams
   ingredient:
     name: brown sugar
-- amount: '1'
-  unit: tbsp
+- amount: '15'
+  unit: grams
   ingredient:
     name: lemon juice
-- amount: '2'
-  unit: tsp
+- amount: '5'
+  unit: grams
   ingredient:
     name: cinnamon
 - amount: '3'
   unit: grams
   ingredient:
     name: salt
-- amount: 1/4
-  unit: tsp
+- amount: '0.5'
+  unit: grams
   ingredient:
     name: nutmeg
 - amount: '16'
   unit: grams
   ingredient:
     name: flour
-- amount: '2'
-  unit: tbsp
+- amount: '25'
+  unit: grams
   ingredient:
     name: raw sugar
 

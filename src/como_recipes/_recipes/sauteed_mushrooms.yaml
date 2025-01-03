@@ -6,12 +6,12 @@ tags:
 - Vegetarian
 
 measurements:
-- amount: '3'
-  unit: tbsp
+- amount: '42'
+  unit: grams
   ingredient:
     name: olive oil
-- amount: '3'
-  unit: tbsp
+- amount: '42'
+  unit: grams
   ingredient:
     name: butter
 - amount: '1'

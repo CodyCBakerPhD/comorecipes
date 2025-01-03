@@ -11,8 +11,8 @@ measurements:
   unit: recipes
   ingredient:
     name: worth of rice
-- amount: '1'
-  unit: tbsp
+- amount: '14'
+  unit: grams
   ingredient:
     name: olive oil
 - amount: '20'
@@ -31,8 +31,8 @@ measurements:
   unit: bay
   ingredient:
     name: leaves
-- amount: 1/2
-  unit: tsp
+- amount: '1'
+  unit: grams
   ingredient:
     name: cayenne pepper
 - amount: '1'
@@ -43,8 +43,8 @@ measurements:
   unit: tsp
   ingredient:
     name: sage
-- amount: '1'
-  unit: tbsp
+- amount: '1.5'
+  unit: grams
   ingredient:
     name: parsley
 - amount: '1'

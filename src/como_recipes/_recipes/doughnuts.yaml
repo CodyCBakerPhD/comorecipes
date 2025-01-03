@@ -19,8 +19,8 @@ measurements:
   unit: cup
   ingredient:
     name: lukewarm milk
-- amount: 1/4
-  unit: cup
+- amount: '50'
+  unit: grams
   ingredient:
     name: sugar
 - amount: '3'
@@ -28,7 +28,7 @@ measurements:
   ingredient:
     name: salt
 - amount: '1'
-  unit: large
+  unit: portions
   ingredient:
     name: egg
 - amount: 1/6
@@ -39,20 +39,16 @@ measurements:
   unit: grams
   ingredient:
     name: flour
-- amount: '1'
-  unit: qt.
-  ingredient:
-    name: vegetable oil
-- amount: 1/6
-  unit: cup
+- amount: '38'
+  unit: grams
   ingredient:
     name: butter
-- amount: '1'
-  unit: cups
+- amount: '115'
+  unit: grams
   ingredient:
     name: powdered sugar
-- amount: 3/4
-  unit: tsp
+- amount: '3'
+  unit: grams
   ingredient:
     name: vanilla
 - amount: '2'

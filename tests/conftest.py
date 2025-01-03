@@ -25,11 +25,11 @@ def example_ingredient() -> como_recipes.Ingredient:
 @pytest.fixture
 def example_measurement(example_ingredient: como_recipes.Ingredient) -> como_recipes.Measurement:
     class ExampleMeasurement(como_recipes.Measurement):
-        amount: int | float = 56
-        unit: str = "grams"
-        ingredient: como_recipes.Ingredient = example_ingredient
+        amount: int | float
+        unit: str
+        ingredient: como_recipes.Ingredient
 
-    return ExampleMeasurement()
+    return ExampleMeasurement(amount=45, unit="grams", ingredient=example_ingredient)
 
 
 @pytest.fixture

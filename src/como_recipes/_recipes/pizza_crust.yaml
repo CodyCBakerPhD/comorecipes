@@ -14,8 +14,8 @@ measurements:
   unit: tbsp
   ingredient:
     name: yeast
-- amount: '1'
-  unit: tsp
+- amount: '4'
+  unit: grams
   ingredient:
     name: sugar or honey
 - amount: '255'

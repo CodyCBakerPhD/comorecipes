@@ -7,36 +7,36 @@ tags:
 - Soup
 
 measurements:
-- amount: 1/4
-  unit: cup
+- amount: '57'
+  unit: grams
   ingredient:
     name: butter
 - amount: '125'
   unit: grams
   ingredient:
     name: white onion
-- amount: '8'
-  unit: oz.
+- amount: '1'
+  unit: portions
   ingredient:
     name: broccoli
-- amount: '7'
-  unit: oz.
+- amount: '198'
+  unit: grams
   ingredient:
     name: not-chicken broth
-- amount: '8'
-  unit: oz.
+- amount: '170'
+  unit: grams
   ingredient:
     name: cheddar
-- amount: '1'
-  unit: cup
+- amount: '250'
+  unit: grams
   ingredient:
     name: milk
 - amount: '5'
   unit: grams
   ingredient:
     name: garlic powder
-- amount: 1/8
-  unit: cup
+- amount: '15'
+  unit: grams
   ingredient:
     name: cornstarch
 - amount: '120'
