@@ -7,19 +7,19 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: full
+  unit: portions
   ingredient:
     name: pie crust
 - amount: '1'
-  unit: serving
+  unit: portions
   ingredient:
     name: of firm tofu
 - amount: '28'
   unit: grams
   ingredient:
     name: butter
-- amount: 1/2
-  unit: medium
+- amount: '0.5'
+  unit: portions
   ingredient:
     name: yellow onions, finely chopped
 - amount: '2'
@@ -54,7 +54,7 @@ measurements:
   unit: cups
   ingredient:
     name: thinly sliced chives
-- amount: 5
+- amount: '5'
   unit: grams
   ingredient:
     name: parsley

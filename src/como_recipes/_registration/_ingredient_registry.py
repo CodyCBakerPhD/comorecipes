@@ -132,7 +132,12 @@ class IngredientRegistry(pydantic.BaseModel):
 
     @staticmethod
     @pydantic.validate_call
-    def get_measurement(*, amount: int | float, unit: str, ingredient_name: str) -> Measurement:
+    def get_measurement(
+        *,
+        amount: int | float | typing.Literal["enough"],
+        unit: str | None,
+        ingredient_name: str,
+    ) -> Measurement:
         """
         Generate a measurement of an ingredient from the default global ingredient registry.
 

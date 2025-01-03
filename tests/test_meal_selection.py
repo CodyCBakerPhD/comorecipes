@@ -56,19 +56,17 @@ def test_meal_selection(example_measurement: Measurement):
     expected_raw_ingredient_list = [
         "Raw Ingredient List",
         "-------------------",
-        "☐  cloves of garlic",
-        "    8 large",
+        "☐  Parmesan",
+        "    80 grams",
         "☐  crushed red pepper",
-        "    2 tsp",
-        "☐  fresh Parmesan",
-        "    1 cup",
+        "    2 grams",
         "☐  fresh green beans",
         "    1 bag",
+        "☐  garlic",
+        "    8 cloves",
         "☐  olive oil",
-        "    1/3 cup",
+        "    76 grams",
         "    1 enough",
-        "☐  parsley",
-        "    1/4 cup",
         "☐  salt",
         "    17 grams",
         "☐  salt & pepper",
@@ -95,7 +93,7 @@ def test_meal_selection(example_measurement: Measurement):
         "\t},\n"
         "\t_individual_measurements_to_add={\n"
         '\t\t"Example Ingredient 1": [\n'
-        '\t\t\tMeasurement(amount=56, unit="grams", '
+        '\t\t\tMeasurement(amount=45.0, unit="grams", '
         'ingredient=Ingredient(name="Example Ingredient 1", '
         'default_grams_per_package=12.34, default_package_unit="container")),\n'
         "\t\t],\n"
@@ -126,20 +124,18 @@ def test_meal_selection(example_measurement: Measurement):
         "Raw Ingredient List",
         "-------------------",
         "☐  Example Ingredient 1",
-        "    56 grams",
-        "☐  cloves of garlic",
-        "    8 large",
+        "    45.0 grams",
+        "☐  Parmesan",
+        "    80 grams",
         "☐  crushed red pepper",
-        "    2 tsp",
-        "☐  fresh Parmesan",
-        "    1 cup",
+        "    2 grams",
         "☐  fresh green beans",
         "    1 bag",
+        "☐  garlic",
+        "    8 cloves",
         "☐  olive oil",
-        "    1/3 cup",
+        "    76 grams",
         "    1 enough",
-        "☐  parsley",
-        "    1/4 cup",
         "☐  salt",
         "    17 grams",
         "☐  salt & pepper",
@@ -168,7 +164,7 @@ def test_meal_selection(example_measurement: Measurement):
         "\t},\n"
         "\t_individual_measurements_to_add={\n"
         '\t\t"Example Ingredient 1": [\n'
-        '\t\t\tMeasurement(amount=56, unit="grams", '
+        '\t\t\tMeasurement(amount=45.0, unit="grams", '
         'ingredient=Ingredient(name="Example Ingredient 1", '
         'default_grams_per_package=12.34, default_package_unit="container")),\n'
         "\t\t],\n"
@@ -211,20 +207,18 @@ def test_meal_selection(example_measurement: Measurement):
         "Raw Ingredient List",
         "-------------------",
         "☐  Example Ingredient 1",
-        "    56 grams",
-        "☐  cloves of garlic",
-        "    8 large",
+        "    45.0 grams",
+        "☐  Parmesan",
+        "    80 grams",
         "☐  crushed red pepper",
-        "    2 tsp",
-        "☐  fresh Parmesan",
-        "    1 cup",
+        "    2 grams",
         "☐  fresh green beans",
         "    1 bag",
+        "☐  garlic",
+        "    8 cloves",
         "☐  olive oil",
-        "    1/3 cup",
+        "    76 grams",
         "    1 enough",
-        "☐  parsley",
-        "    1/4 cup",
         "☐  salt",
         "    17 grams",
         "☐  salt & pepper",
@@ -253,7 +247,7 @@ def test_meal_selection(example_measurement: Measurement):
         "\t},\n"
         "\t_individual_measurements_to_add={\n"
         '\t\t"Example Ingredient 1": [\n'
-        '\t\t\tMeasurement(amount=56, unit="grams", '
+        '\t\t\tMeasurement(amount=45.0, unit="grams", '
         'ingredient=Ingredient(name="Example Ingredient 1", '
         'default_grams_per_package=12.34, default_package_unit="container")),\n'
         "\t\t],\n"
@@ -298,20 +292,18 @@ def test_meal_selection(example_measurement: Measurement):
         "Raw Ingredient List",
         "-------------------",
         "☐  Example Ingredient 1",
-        "    56 grams",
-        "☐  cloves of garlic",
-        "    8 large",
+        "    45.0 grams",
+        "☐  Parmesan",
+        "    80 grams",
         "☐  crushed red pepper",
-        "    2 tsp",
-        "☐  fresh Parmesan",
-        "    1 cup",
+        "    2 grams",
         "☐  fresh green beans",
         "    1 bag",
+        "☐  garlic",
+        "    8 cloves",
         "☐  olive oil",
-        "    1/3 cup",
+        "    76 grams",
         "    1 enough",
-        "☐  parsley",
-        "    1/4 cup",
         "☐  salt",
         "    17 grams",
         "☐  salt & pepper",
@@ -335,7 +327,7 @@ def test_meal_selection(example_measurement: Measurement):
         "como_recipes.MealSelection(\n"
         "\t_individual_measurements_to_add={\n"
         '\t\t"Example Ingredient 1": [\n'
-        '\t\t\tMeasurement(amount=56, unit="grams", '
+        '\t\t\tMeasurement(amount=45.0, unit="grams", '
         'ingredient=Ingredient(name="Example Ingredient 1", '
         'default_grams_per_package=12.34, default_package_unit="container")),\n'
         "\t\t],\n"
@@ -374,7 +366,7 @@ def test_meal_selection(example_measurement: Measurement):
         "Raw Ingredient List",
         "-------------------",
         "☐  Example Ingredient 1",
-        "    56 grams",
+        "    45.0 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 

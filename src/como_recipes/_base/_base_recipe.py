@@ -243,8 +243,8 @@ class Recipe(pydantic.BaseModel):
         recipe_info["tags"] = tuple(recipe_info["tags"])
         recipe_info["measurements"] = tuple(
             IngredientRegistry.get_measurement(
-                amount=string_to_numeric(string=measurement["amount"]),
-                unit=measurement["unit"],
+                amount=string_to_numeric(string=amount) if (amount := measurement["amount"]) != "enough" else amount,
+                unit=measurement.get("unit", None),
                 ingredient_name=measurement["ingredient"]["name"],
             )
             for measurement in recipe_info["measurements"]
