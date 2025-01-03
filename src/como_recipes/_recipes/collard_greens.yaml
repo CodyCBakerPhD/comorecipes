@@ -32,7 +32,7 @@ measurements:
   ingredient:
     name: chicken flavored vegetable broth
 - amount: '1'
-  unit: pinch
+  unit: grams
   ingredient:
     name: red pepper flakes
 - amount: '1'

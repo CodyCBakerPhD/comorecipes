@@ -5,8 +5,8 @@ tags:
 - Entree
 
 measurements:
-- amount: '1'
-  unit: lb.
+- amount: '543'
+  unit: grams
   ingredient:
     name: pork shoulder
 - amount: '4'
@@ -30,9 +30,9 @@ measurements:
   ingredient:
     name: salt and pepper
 - amount: '2'
-  unit: oranges,
+  unit: portions
   ingredient:
-    name: juiced
+    name: juiced oranges
 - amount: '10'
   unit: grams
   ingredient:

@@ -22,10 +22,10 @@ measurements:
   unit: grams
   ingredient:
     name: cinnamon
-- amount: 5/2
+- amount: '2.5'
   unit: grams
   ingredient:
-    name: ginger
+    name: ground ginger
 - amount: 1/2
   unit: grams
   ingredient:

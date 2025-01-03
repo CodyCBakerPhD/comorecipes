@@ -19,7 +19,7 @@ measurements:
   ingredient:
     name: egg
 - amount: '1'
-  unit: portion
+  unit: portions
   ingredient:
     name: overripe banana
 - amount: '1'

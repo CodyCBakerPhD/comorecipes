@@ -26,8 +26,8 @@ measurements:
   unit: grams
   ingredient:
     name: baking powder
-- amount: '12'
-  unit: oz.
+- amount: '340'
+  unit: grams
   ingredient:
     name: beer
 
