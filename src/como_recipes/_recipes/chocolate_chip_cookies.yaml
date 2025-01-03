@@ -7,10 +7,10 @@ tags:
 - Chocolate
 
 measurements:
-- amount: '1'
-  unit: cup
+- amount: '226'
+  unit: grams
   ingredient:
-    name: room-temperature butter
+    name: butter
 - amount: '200'
   unit: grams
   ingredient:
@@ -47,6 +47,9 @@ measurements:
   unit: cups
   ingredient:
     name: high-quality semi-sweet chocolate chips
+
+notes:
+- Be sure to leave out butter to reach room temperature before starting.
 
 instructions:
 - Oven temperature is 360 F for caramelization stage.

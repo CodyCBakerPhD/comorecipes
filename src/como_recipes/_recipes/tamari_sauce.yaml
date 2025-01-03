@@ -10,10 +10,10 @@ measurements:
   unit: tsp
   ingredient:
     name: sesame oil
-- amount: 1/2
-  unit: tbsp
+- amount: '3'
+  unit: grams
   ingredient:
-    name: ginger, minced
+    name: ginger
 - amount: '10'
   unit: grams
   ingredient:
@@ -42,8 +42,8 @@ measurements:
   unit: grams
   ingredient:
     name: salt and pepper
-- amount: 1/4
-  unit: tsp
+- amount: '0.5'
+  unit: grams
   ingredient:
     name: red pepper flakes
 - amount: '1'

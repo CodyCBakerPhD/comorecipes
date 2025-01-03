@@ -18,8 +18,8 @@ measurements:
   unit: grams
   ingredient:
     name: garlic powder
-- amount: '1'
-  unit: tbsp
+- amount: '7'
+  unit: grams
   ingredient:
     name: onion powder
 - amount: '8'

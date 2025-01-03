@@ -6,56 +6,52 @@ tags:
 - Entree
 
 measurements:
-- amount: 5/4
-  unit: cups
+- amount: '232'
+  unit: grams
   ingredient:
     name: white rice
 - amount: '1'
-  unit: large
+  unit: portions
   ingredient:
     name: napa cabbage
 - amount: '250'
   unit: grams
   ingredient:
     name: white onion
-- amount: 3/4
-  unit: tbsp
+- amount: '4'
+  unit: grams
   ingredient:
-    name: ginger, minced
+    name: fresh ginger
 - amount: '15'
   unit: grams
   ingredient:
     name: garlic
 - amount: '1'
-  unit: minced
+  unit: portions
   ingredient:
     name: carrot
 - amount: '2'
-  unit: minced
+  unit: portions
   ingredient:
     name: peppers
 - amount: '8'
-  unit: minced
+  unit: portions
   ingredient:
-    name: shittake mushrooms
-- amount: '2'
-  unit: tbsp
+    name: Shiitake mushrooms
+- amount: '36'
+  unit: grams
   ingredient:
-    name: tamari
+    name: Tamari
 - amount: '3'
   unit: grams
   ingredient:
-    name: salt
-- amount: 1/2
-  unit: tsp
-  ingredient:
-    name: pepper
-- amount: 1/2
-  unit: tsp
+    name: salt and pepper
+- amount: '0.5'
+  unit: grams
   ingredient:
     name: onion powder
-- amount: 1/4
-  unit: tsp
+- amount: '0.5'
+  unit: grams
   ingredient:
     name: red pepper flakes
 

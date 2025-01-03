@@ -8,17 +8,13 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: pie
+  unit: portions
   ingredient:
-    name: crust
-- amount: '4'
-  unit: cups
+    name: pie crust
+- amount: '800'
+  unit: grams
   ingredient:
-    name: fresh tart cherries or
-- amount: '6'
-  unit: cups
-  ingredient:
-    name: frozen tart cherries
+    name: tart cherries
 - amount: '200'
   unit: grams
   ingredient:

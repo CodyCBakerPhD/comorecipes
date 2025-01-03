@@ -21,7 +21,7 @@ measurements:
 - amount: 1/2
   unit: tsp
   ingredient:
-    name: ginger
+    name: ground ginger
 - amount: '1'
   unit: grams
   ingredient:

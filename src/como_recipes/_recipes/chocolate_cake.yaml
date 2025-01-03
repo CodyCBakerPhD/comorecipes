@@ -31,8 +31,8 @@ measurements:
   unit: grams
   ingredient:
     name: salt
-- amount: 1/2
-  unit: tsp
+- amount: '1'
+  unit: grams
   ingredient:
     name: espresso powder
 - amount: '125'
@@ -51,8 +51,8 @@ measurements:
   unit: grams
   ingredient:
     name: vanilla
-- amount: 1/2
-  unit: cup
+- amount: '120'
+  unit: grams
   ingredient:
     name: boiling water
 
