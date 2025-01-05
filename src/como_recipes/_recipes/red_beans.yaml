@@ -8,9 +8,13 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: recipes
+  unit: portions
   ingredient:
-    name: worth of rice
+    name: red beans
+- amount: '1'
+  unit: portions
+  ingredient:
+    name: white rice
 - amount: '14'
   unit: grams
   ingredient:
