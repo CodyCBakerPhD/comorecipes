@@ -278,7 +278,14 @@ class Recipe(pydantic.BaseModel):
         for measurement in self.measurements:
             html_lines += ["<p>"]
             html_lines += [f"{measurement.amount} {measurement.unit}"]
+
+            if measurement.prefix is not None:
+                html_lines += [f" {measurement.prefix} "]
+            # TODO: I don't think the ternary here will always be necessary
             html_lines += [f" {measurement.ingredient.name}</p>\n" if measurement.ingredient.name != "" else "</p>\n"]
+
+            if measurement.suffix is not None:
+                html_lines += [f" {measurement.suffix} "]
 
         if self.notes is not None:
             html_lines += ["<br>"]
