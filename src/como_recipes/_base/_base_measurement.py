@@ -62,9 +62,11 @@ class Measurement(pydantic.BaseModel):
     #     "ripe",
     # ]
     ingredient: Ingredient
+    prefix: str | None = None
+    suffix: str | None = None
     model_config = pydantic.ConfigDict(extra="forbid")
 
-    def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> typing.Self:
+    def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
         if len(args) > 0:
             message = "No positional arguments are allowed."
 
@@ -107,7 +109,17 @@ class Measurement(pydantic.BaseModel):
         else:
             string_amount = str(self.amount)
 
-        representation = f'Measurement(amount={string_amount}, unit="{self.unit}", ingredient={self.ingredient!r})'
+        representation = f'Measurement(amount={string_amount}, unit="{self.unit}"'
+
+        if self.prefix is not None:
+            representation += f", prefix={self.prefix})"
+
+        representation += f", ingredient={self.ingredient!r}"
+
+        if self.suffix is not None:
+            representation += f", suffix={self.suffix})"
+
+        representation += ")"
 
         return representation
 
