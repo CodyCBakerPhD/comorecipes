@@ -26,6 +26,7 @@ measurements:
 - amount: '8'
   unit: cloves
   ingredient:
+    prefix: minced
     name: garlic
 - amount: '2'
   unit: grams
@@ -34,6 +35,7 @@ measurements:
 - amount: '80'
   unit: grams
   ingredient:
+    prefix: shredded
     name: Parmesan
 
 instructions:
