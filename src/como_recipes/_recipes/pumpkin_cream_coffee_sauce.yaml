@@ -8,24 +8,19 @@ tags:
 measurements:
 - amount: '1'
   unit: cup
-  ingredient:
-    name: heavy whipping cream
+  ingredient: heavy whipping cream
 - amount: 1/2
   unit: cup
-  ingredient:
-    name: granulated sugar
+  ingredient: granulated sugar
 - amount: '1'
   unit: tbsp
-  ingredient:
-    name: pumpkin puree
+  ingredient: pumpkin puree
 - amount: '1'
   unit: tsp
-  ingredient:
-    name: pumpkin pie spice
+  ingredient: pumpkin pie spice
 - amount: '4'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 
 instructions:
 - Combine heavy cream, sugar, pumpkin puree and pumpkin spice in a saucepan. Whisk

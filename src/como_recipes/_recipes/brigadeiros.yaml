@@ -9,19 +9,15 @@ tags:
 measurements:
 - amount: '54'
   unit: grams
-  ingredient:
-    name: Dutch cocoa powder
+  ingredient: Dutch cocoa powder
 - amount: '14'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '1'
   unit: portions
-  ingredient:
-    name: can of condensed milk
+  ingredient: can of condensed milk
 - amount: 'enough'
-  ingredient:
-    name: chocolate sprinkles
+  ingredient: chocolate sprinkles
 
 instructions:
 - Combine cocoa, butter, and condensed milk in a medium saucepan over medium heat.

@@ -9,56 +9,43 @@ tags:
 measurements:
 - amount: '1'
   unit: portions
-  ingredient:
-    name: red beans
+  ingredient: red beans
 - amount: '1'
   unit: portions
-  ingredient:
-    name: white rice
+  ingredient: white rice
 - amount: '14'
   unit: grams
-  ingredient:
-    name: olive oil
+  ingredient: olive oil
 - amount: '20'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 - amount: '83'
   unit: grams
-  ingredient:
-    name: white onion
+  ingredient: white onion
 - amount: '1'
   unit: stalk
-  ingredient:
-    name: celery
+  ingredient: celery
 - amount: '2'
   unit: bay
-  ingredient:
-    name: leaves
+  ingredient: leaves
 - amount: '1'
   unit: grams
-  ingredient:
-    name: cayenne pepper
+  ingredient: cayenne pepper
 - amount: '1'
   unit: tsp
-  ingredient:
-    name: thyme
+  ingredient: thyme
 - amount: 1/8
   unit: tsp
-  ingredient:
-    name: sage
+  ingredient: sage
 - amount: '1.5'
   unit: grams
-  ingredient:
-    name: parsley
+  ingredient: parsley
 - amount: '1'
   unit: tsp
-  ingredient:
-    name: Cajun seasoning
+  ingredient: Cajun seasoning
 - amount: '240'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 
 instructions:
 - Make rice. Mix spices together.

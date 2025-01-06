@@ -11,17 +11,21 @@ class Ingredient(pydantic.BaseModel):
     ----------
     name : str
         Name of the ingredient.
-    default_grams_per_package : int | float | None, optional
+    default_grams_per_package : numeric, optional
         Size of the default package (in grams) as commonly found in stores.
         If this size is variable (such as garlic heads), then the lower end of the range is estimated.
-    default_package_unit : str | None, optional
+    default_package_unit : string, optional
         Unit of the default package size as commonly found in stores.
+    portions_text : string, optional
+        Special text for the portions of the ingredient.
+        For example, "cloves" for the ingredient named "garlic".
 
     """
 
     name: str
     default_grams_per_package: int | float | None = None
     default_package_unit: str | None = None
+    portions_text: str | None = None
     model_config = pydantic.ConfigDict(extra="forbid")
 
     def __repr__(self) -> str:
@@ -31,6 +35,8 @@ class Ingredient(pydantic.BaseModel):
             representation += f", default_grams_per_package={self.default_grams_per_package}"
         if self.default_package_unit is not None:
             representation += f', default_package_unit="{self.default_package_unit}"'
+        if self.portions_text is not None:
+            representation += f', portions_text="{self.portions_text}"'
         representation += ")"
 
         return representation

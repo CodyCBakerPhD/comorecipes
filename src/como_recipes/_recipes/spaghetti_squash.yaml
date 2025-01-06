@@ -9,16 +9,13 @@ tags:
 measurements:
 - amount: '1'
   unit: spaghetti
-  ingredient:
-    name: squash
+  ingredient: squash
 - amount: '14'
   unit: grams
-  ingredient:
-    name: olive oil
+  ingredient: olive oil
 - amount: '4'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 
 instructions:
 - Cut and clean inside of squash.

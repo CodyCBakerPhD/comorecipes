@@ -9,28 +9,22 @@ tags:
 measurements:
 - amount: '20'
   unit: g
-  ingredient:
-    name: Agar Agar
+  ingredient: Agar Agar
 - amount: '170'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '300'
   unit: mL
-  ingredient:
-    name: corn syrup
+  ingredient: corn syrup
 - amount: '150'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '200'
   unit: g
-  ingredient:
-    name: condensed milk
+  ingredient: condensed milk
 - amount: '300'
   unit: g
-  ingredient:
-    name: white chocolate
+  ingredient: white chocolate
 
 instructions:
 - Divide water in two.

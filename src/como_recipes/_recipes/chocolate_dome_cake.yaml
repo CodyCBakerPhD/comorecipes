@@ -9,40 +9,31 @@ tags:
 measurements:
 - amount: '4'
   unit: portions
-  ingredient:
-    name: egg
+  ingredient: egg
 - amount: '200'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '90'
   unit: grams
-  ingredient:
-    name: cake flour
+  ingredient: cake flour
 - amount: '1'
   unit: cup
-  ingredient:
-    name: whipping cream
+  ingredient: whipping cream
 - amount: '5'
   unit: oz.
-  ingredient:
-    name: semi-sweet chocolate
+  ingredient: semi-sweet chocolate
 - amount: '7'
   unit: oz.
-  ingredient:
-    name: high-quality chocolate for coating
+  ingredient: high-quality chocolate for coating
 - amount: '1'
   unit: 1/2
-  ingredient:
-    name: cup raspberries
+  ingredient: cup raspberries
 - amount: '100'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: 1/2
   unit: tsp
-  ingredient:
-    name: lime juice
+  ingredient: lime juice
 
 instructions:
 - Preheat to 350 F. Whip eggs and sugar until thick and frothy. Fold in flour. Bake

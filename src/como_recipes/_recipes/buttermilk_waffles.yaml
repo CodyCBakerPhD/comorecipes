@@ -8,44 +8,34 @@ tags:
 measurements:
 - amount: '35'
   unit: grams
-  ingredient:
-    name: butter, melted and cooled
+  ingredient: butter, melted and cooled
 - amount: '1'
   unit: portions
-  ingredient:
-    name: egg
+  ingredient: egg
 - amount: '112'
   unit: grams
-  ingredient:
-    name: buttermilk
+  ingredient: buttermilk
 - amount: '1'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: '60'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '3'
   unit: grams
-  ingredient:
-    name: baking powder
+  ingredient: baking powder
 - amount: '2'
   unit: grams
-  ingredient:
-    name: baking soda
+  ingredient: baking soda
 - amount: '2'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '12'
   unit: grams
-  ingredient:
-    name: pearl sugar
+  ingredient: pearl sugar
 
 instructions:
 - Waffle will be best if all ingredients are at room temperature

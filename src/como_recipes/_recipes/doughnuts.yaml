@@ -9,52 +9,40 @@ tags:
 measurements:
 - amount: 1/8
   unit: o.z
-  ingredient:
-    name: activate dry yeast
+  ingredient: activate dry yeast
 - amount: 1/8
   unit: cup
-  ingredient:
-    name: warm water
+  ingredient: warm water
 - amount: 3/4
   unit: cup
-  ingredient:
-    name: lukewarm milk
+  ingredient: lukewarm milk
 - amount: '50'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '3'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '1'
   unit: portions
-  ingredient:
-    name: egg
+  ingredient: egg
 - amount: 1/6
   unit: cup
-  ingredient:
-    name: shortening
+  ingredient: shortening
 - amount: '300'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '38'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '115'
   unit: grams
-  ingredient:
-    name: powdered sugar
+  ingredient: powdered sugar
 - amount: '3'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: '2'
   unit: tbsp
-  ingredient:
-    name: hot water
+  ingredient: hot water
 
 instructions:
 - Activate yeast.

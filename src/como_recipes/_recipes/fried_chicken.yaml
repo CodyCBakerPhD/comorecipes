@@ -7,16 +7,13 @@ tags:
 measurements:
 - amount: 1/4
   unit: serving
-  ingredient:
-    name: of Frying Breading
+  ingredient: of Frying Breading
 - amount: '2'
   unit: large
-  ingredient:
-    name: chicken breasts
+  ingredient: chicken breasts
 - amount: '450'
   unit: grams
-  ingredient:
-    name: buttermilk
+  ingredient: buttermilk
 
 instructions:
 - Heat oil to 325 F. Add some lime juice if feeling fruity.

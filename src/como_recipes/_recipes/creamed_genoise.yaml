@@ -8,32 +8,25 @@ tags:
 measurements:
 - amount: '188'
   unit: grams
-  ingredient:
-    name: butter, room temperature
+  ingredient: butter, room temperature
 - amount: '188'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '3'
   unit: ''
-  ingredient:
-    name: beaten eggs, room temperature
+  ingredient: beaten eggs, room temperature
 - amount: '187'
   unit: grams
-  ingredient:
-    name: cake flour
+  ingredient: cake flour
 - amount: '1'
   unit: ''
-  ingredient:
-    name: tsp baking powder
+  ingredient: tsp baking powder
 - amount: '25'
   unit: grams
-  ingredient:
-    name: milk
+  ingredient: milk
 - amount: '1'
   unit: ''
-  ingredient:
-    name: tsp vanilla extract
+  ingredient: tsp vanilla extract
 
 instructions:
 - Preheat to 350 F.

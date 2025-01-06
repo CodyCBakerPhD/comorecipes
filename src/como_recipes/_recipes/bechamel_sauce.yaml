@@ -7,20 +7,16 @@ tags:
 measurements:
 - amount: '28'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '16'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '311'
   unit: grams
-  ingredient:
-    name: whole milk
+  ingredient: whole milk
 - amount: '2'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 
 instructions:
 - Make roux with butter and flour. Thicken with milk. Season.

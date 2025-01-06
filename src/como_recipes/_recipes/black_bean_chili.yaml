@@ -10,43 +10,33 @@ tags:
 measurements:
 - amount: '20'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 - amount: '0.5'
   unit: portions
-  ingredient:
-    name: white onion
+  ingredient: white onion
 - amount: '1'
   unit: portions
-  ingredient:
-    name: fresh or canned (quart) tomatoes
+  ingredient: fresh or canned (quart) tomatoes
 - amount: '32'
   unit: grams
-  ingredient:
-    name: chili powder
+  ingredient: chili powder
 - amount: '10'
   unit: grams
-  ingredient:
-    name: cumin
+  ingredient: cumin
 - amount: '4'
   unit: grams
-  ingredient:
-    name: oregano
+  ingredient: oregano
 - amount: '6'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '1'
   unit: grams
-  ingredient:
-    name: cayenne pepper
+  ingredient: cayenne pepper
 - amount: '1'
   unit: portions
-  ingredient:
-    name: black beans
+  ingredient: black beans
 - amount: 'enough'
-  ingredient:
-    name: peanut oil
+  ingredient: peanut oil
 
 instructions:
 - Carefully caramelize onions and garlic. Add tomatoes. Mix all dry ingredients separately

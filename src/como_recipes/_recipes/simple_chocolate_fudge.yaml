@@ -9,28 +9,22 @@ tags:
 measurements:
 - amount: '453'
   unit: grams
-  ingredient:
-    name: powdered sugar
+  ingredient: powdered sugar
 - amount: '92'
   unit: grams
-  ingredient:
-    name: Dutch cocoa powder
+  ingredient: Dutch cocoa powder
 - amount: '113'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: 1/4
   unit: cup
-  ingredient:
-    name: chocolate milk
+  ingredient: chocolate milk
 - amount: '17'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: 1/2
   unit: cup
-  ingredient:
-    name: chopped walnuts or pecans, optional
+  ingredient: chopped walnuts or pecans, optional
 
 instructions:
 - One of several variations on chocolate fudge.

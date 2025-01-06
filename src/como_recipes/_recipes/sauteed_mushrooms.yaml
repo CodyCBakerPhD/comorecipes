@@ -8,32 +8,25 @@ tags:
 measurements:
 - amount: '42'
   unit: grams
-  ingredient:
-    name: olive oil
+  ingredient: olive oil
 - amount: '42'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '1'
   unit: lb.
-  ingredient:
-    name: button mushrooms
+  ingredient: button mushrooms
 - amount: '5'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 - amount: '1'
   unit: tbsp
-  ingredient:
-    name: red wine
+  ingredient: red wine
 - amount: 1/4
   unit: tsp
-  ingredient:
-    name: garlic salt
+  ingredient: garlic salt
 - amount: 1/4
   unit: tsp
-  ingredient:
-    name: pepper
+  ingredient: pepper
 
 instructions:
 - Heat oil and butter in large saucepan over medium heat.

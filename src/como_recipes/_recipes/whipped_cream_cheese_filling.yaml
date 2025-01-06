@@ -8,20 +8,16 @@ tags:
 measurements:
 - amount: '1'
   unit: ''
-  ingredient:
-    name: cup heavy cream
+  ingredient: cup heavy cream
 - amount: 1/2
   unit: ''
-  ingredient:
-    name: cup powdered sugar
+  ingredient: cup powdered sugar
 - amount: '3'
   unit: ''
-  ingredient:
-    name: oz cream cheese
+  ingredient: oz cream cheese
 - amount: '1'
   unit: ''
-  ingredient:
-    name: tsp vanilla extract
+  ingredient: tsp vanilla extract
 
 instructions:
 - Chill whisk and bowl for stand mixer.

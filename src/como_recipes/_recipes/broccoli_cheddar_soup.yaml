@@ -9,40 +9,31 @@ tags:
 measurements:
 - amount: '57'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '125'
   unit: grams
-  ingredient:
-    name: white onion
+  ingredient: white onion
 - amount: '1'
   unit: portions
-  ingredient:
-    name: broccoli
+  ingredient: broccoli
 - amount: '198'
   unit: grams
-  ingredient:
-    name: not-chicken broth
+  ingredient: not-chicken broth
 - amount: '170'
   unit: grams
-  ingredient:
-    name: cheddar
+  ingredient: cheddar
 - amount: '250'
   unit: grams
-  ingredient:
-    name: milk
+  ingredient: milk
 - amount: '5'
   unit: grams
-  ingredient:
-    name: garlic powder
+  ingredient: garlic powder
 - amount: '15'
   unit: grams
-  ingredient:
-    name: cornstarch
+  ingredient: cornstarch
 - amount: '120'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 
 instructions:
 - In pot, melt butter over medium heat. Cook onion until softened. Stir in broccoli

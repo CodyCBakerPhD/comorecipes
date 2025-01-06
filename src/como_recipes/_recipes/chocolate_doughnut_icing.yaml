@@ -9,24 +9,19 @@ tags:
 measurements:
 - amount: '86'
   unit: grams
-  ingredient:
-    name: powdered sugar
+  ingredient: powdered sugar
 - amount: '36'
   unit: grams
-  ingredient:
-    name: Dutch cocoa powder
+  ingredient: Dutch cocoa powder
 - amount: 3/10
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '30'
   unit: grams
-  ingredient:
-    name: milk
+  ingredient: milk
 - amount: '3'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 
 instructions:
 - Do not forget to sift dry ingredients.

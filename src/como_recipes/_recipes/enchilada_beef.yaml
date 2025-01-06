@@ -7,28 +7,22 @@ tags:
 measurements:
 - amount: '24'
   unit: oz.
-  ingredient:
-    name: chuck roast
+  ingredient: chuck roast
 - amount: '24'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '2'
   unit: tbsp
-  ingredient:
-    name: extra virgin olive oil
+  ingredient: extra virgin olive oil
 - amount: 1/2
   unit: tsp
-  ingredient:
-    name: black pepper
+  ingredient: black pepper
 - amount: '240'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '1'
   unit: tbsp
-  ingredient:
-    name: beef concentrate
+  ingredient: beef concentrate
 
 instructions:
 - Dredge meat in flour and pepper. Brown in skillet.

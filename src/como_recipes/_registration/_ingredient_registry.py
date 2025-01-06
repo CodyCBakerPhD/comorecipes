@@ -137,6 +137,8 @@ class IngredientRegistry(pydantic.BaseModel):
         amount: int | float | typing.Literal["enough"],
         unit: str | None,
         ingredient_name: str,
+        prefix: str | None = None,
+        suffix: str | None = None,
     ) -> Measurement:
         """
         Generate a measurement of an ingredient from the default global ingredient registry.
@@ -151,6 +153,12 @@ class IngredientRegistry(pydantic.BaseModel):
             Unit of the ingredient amount.
         ingredient_name : str
             Name of the ingredient.
+        prefix : str, optional
+            Prefix to be added to the rendered text of the ingredient in a recipe.
+            For example, "minced" for the ingredient "garlic".
+        suffix : str, optional
+            Suffix to be added to the rendered text of the ingredient in a recipe.
+            For example, ", room-temperature" for the ingredient "butter".
 
         """
         if ingredient_name in default_ingredient_registry:
@@ -158,7 +166,7 @@ class IngredientRegistry(pydantic.BaseModel):
         else:
             ingredient = Ingredient(name=ingredient_name)
 
-        return Measurement(amount=amount, unit=unit, ingredient=ingredient)
+        return Measurement(amount=amount, unit=unit, ingredient=ingredient, prefix=prefix, suffix=suffix)
 
 
 # Initialize the global default ingredient registry

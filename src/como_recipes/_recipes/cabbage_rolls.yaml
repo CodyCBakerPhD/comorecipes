@@ -8,52 +8,40 @@ tags:
 measurements:
 - amount: '232'
   unit: grams
-  ingredient:
-    name: white rice
+  ingredient: white rice
 - amount: '1'
   unit: portions
-  ingredient:
-    name: napa cabbage
+  ingredient: napa cabbage
 - amount: '250'
   unit: grams
-  ingredient:
-    name: white onion
+  ingredient: white onion
 - amount: '4'
   unit: grams
-  ingredient:
-    name: fresh ginger
+  ingredient: fresh ginger
 - amount: '15'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 - amount: '1'
   unit: portions
-  ingredient:
-    name: carrot
+  ingredient: carrot
 - amount: '2'
   unit: portions
-  ingredient:
-    name: peppers
+  ingredient: peppers
 - amount: '8'
   unit: portions
-  ingredient:
-    name: Shiitake mushrooms
+  ingredient: Shiitake mushrooms
 - amount: '36'
   unit: grams
-  ingredient:
-    name: Tamari
+  ingredient: Tamari
 - amount: '3'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 - amount: '0.5'
   unit: grams
-  ingredient:
-    name: onion powder
+  ingredient: onion powder
 - amount: '0.5'
   unit: grams
-  ingredient:
-    name: red pepper flakes
+  ingredient: red pepper flakes
 
 instructions:
 - Soak rice in bowl 60 minutes before cooking. Cook in 5/3 cup water and 1 tbsp butter;

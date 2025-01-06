@@ -8,6 +8,7 @@ import pydantic
 from ._base._base_ingredient import Ingredient
 from ._base._base_meal import Meal
 from ._base._base_measurement import Measurement
+from .utils import get_rendered_units
 
 
 class MealSelection(pydantic.BaseModel):
@@ -253,18 +254,28 @@ class MealSelection(pydantic.BaseModel):
         ):
             raw_measurement_list.append(f"☐  {ingredient_name}")
             raw_measurement_list.extend(
-                [f"    {measurement.amount} {measurement.unit}" for measurement in measurements_by_ingredient],
+                [
+                    f"    {measurement.amount} {get_rendered_units(measurement=measurement)}"
+                    for measurement in measurements_by_ingredient
+                ],
             )
 
         return raw_measurement_list
 
     def _printout_nested_ingredients(self, measurements_by_ingredient: list[Measurement]) -> str:
         """TODO: plan is to deprecate this method once grams are standardized."""
-        printout = ""
+        lines = []
         for measurement in measurements_by_ingredient:
-            printout += f"  {measurement.amount} {measurement.unit}\n"
+            line = f"  {measurement.amount}"
 
-        return printout
+            rendered_units = get_rendered_units(measurement=measurement)
+            if rendered_units != "portions":
+                line += f" {rendered_units}"
+            line += "\n"
+
+            lines.append(line)
+
+        return "".join(lines)
 
     @pydantic.validate_call
     def get_shopping_list(self) -> list[str]:

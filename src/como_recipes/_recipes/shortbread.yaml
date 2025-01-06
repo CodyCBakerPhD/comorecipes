@@ -8,32 +8,25 @@ tags:
 measurements:
 - amount: '227'
   unit: grams
-  ingredient:
-    name: butter, room temperature
+  ingredient: butter, room temperature
 - amount: '66'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '72'
   unit: grams
-  ingredient:
-    name: brown sugar
+  ingredient: brown sugar
 - amount: '1'
   unit: portions
-  ingredient:
-    name: egg yolk
+  ingredient: egg yolk
 - amount: '3'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '270'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 
 instructions:
 - Preheat oven to 350 F. Line a 13x9 baking pan with parchment paper.

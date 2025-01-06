@@ -10,32 +10,25 @@ tags:
 measurements:
 - amount: 3/2
   unit: ''
-  ingredient:
-    name: cups oats
+  ingredient: cups oats
 - amount: 2/3
   unit: ''
-  ingredient:
-    name: cup Nutella
+  ingredient: cup Nutella
 - amount: 1/2
   unit: ''
-  ingredient:
-    name: cu. shredded coconut
+  ingredient: cu. shredded coconut
 - amount: 1/2
   unit: ''
-  ingredient:
-    name: cup honey
+  ingredient: cup honey
 - amount: 1/2
   unit: ''
-  ingredient:
-    name: cup roasted hazelnuts
+  ingredient: cup roasted hazelnuts
 - amount: '2'
   unit: ''
-  ingredient:
-    name: tsp vanilla extract
+  ingredient: tsp vanilla extract
 - amount: 1/4
   unit: ''
-  ingredient:
-    name: tsp salt
+  ingredient: tsp salt
 
 instructions:
 - Combine all ingredients in large bowl and mix thoroughly.

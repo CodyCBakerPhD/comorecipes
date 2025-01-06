@@ -7,36 +7,28 @@ tags:
 measurements:
 - amount: '543'
   unit: grams
-  ingredient:
-    name: pork shoulder
+  ingredient: pork shoulder
 - amount: '4'
   unit: grams
-  ingredient:
-    name: oregano
+  ingredient: oregano
 - amount: '10'
   unit: grams
-  ingredient:
-    name: cumin
+  ingredient: cumin
 - amount: '3'
   unit: grams
-  ingredient:
-    name: chili powder
+  ingredient: chili powder
 - amount: '8'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '4'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 - amount: '2'
   unit: portions
-  ingredient:
-    name: juiced oranges
+  ingredient: juiced oranges
 - amount: '10'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 
 instructions:
 - Brown pork with dry spices rubbed in. Slow cook in other ingredients for 6-8 hours

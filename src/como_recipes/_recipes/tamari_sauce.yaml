@@ -8,48 +8,37 @@ tags:
 measurements:
 - amount: '1'
   unit: tsp
-  ingredient:
-    name: sesame oil
+  ingredient: sesame oil
 - amount: '3'
   unit: grams
-  ingredient:
-    name: ginger
+  ingredient: ginger
 - amount: '10'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 - amount: 3/2
   unit: tbsp
-  ingredient:
-    name: tamari
+  ingredient: tamari
 - amount: '1'
   unit: tbsp
-  ingredient:
-    name: rice vinegar
+  ingredient: rice vinegar
 - amount: 3/4
   unit: tbsp
-  ingredient:
-    name: maple syrup
+  ingredient: maple syrup
 - amount: '120'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '60'
   unit: grams
-  ingredient:
-    name: cornstarch
+  ingredient: cornstarch
 - amount: '3'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 - amount: '0.5'
   unit: grams
-  ingredient:
-    name: red pepper flakes
+  ingredient: red pepper flakes
 - amount: '1'
   unit: grams
-  ingredient:
-    name: paprika
+  ingredient: paprika
 
 instructions:
 - Mix water and cornstarch to make a slurry.

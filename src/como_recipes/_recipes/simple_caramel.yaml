@@ -8,28 +8,22 @@ tags:
 measurements:
 - amount: '14'
   unit: oz.
-  ingredient:
-    name: sweetened condensed milk
+  ingredient: sweetened condensed milk
 - amount: '98'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '109'
   unit: grams
-  ingredient:
-    name: brown sugar
+  ingredient: brown sugar
 - amount: 1/6
   unit: cup
-  ingredient:
-    name: light corn syrup
+  ingredient: light corn syrup
 - amount: '2'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 
 instructions:
 - Combine condensed milk, butter, brown sugar, and corn syrup in medium saucepan over

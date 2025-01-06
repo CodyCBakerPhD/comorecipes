@@ -8,20 +8,16 @@ tags:
 measurements:
 - amount: '200'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '120'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '4'
   unit: egg
-  ingredient:
-    name: whites, room temperature
+  ingredient: whites, room temperature
 - amount: 1/2
   unit: tsp
-  ingredient:
-    name: cream of tartar or lemon juice
+  ingredient: cream of tartar or lemon juice
 
 instructions:
 - Combine sugar and water in a small saucepan over high heat, brushing down sides

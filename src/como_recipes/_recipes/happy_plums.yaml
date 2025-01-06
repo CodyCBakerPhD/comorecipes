@@ -9,36 +9,28 @@ tags:
 measurements:
 - amount: '4'
   unit: plums
-  ingredient:
-    name: ''
+  ingredient: ''
 - amount: '25'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '1'
   unit: tbsp
-  ingredient:
-    name: coconut oil
+  ingredient: coconut oil
 - amount: 1/4
   unit: cup
-  ingredient:
-    name: basalmic vinegar
+  ingredient: basalmic vinegar
 - amount: '0.5'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: '1'
   unit: tsp
-  ingredient:
-    name: chopped fresh rosemary
+  ingredient: chopped fresh rosemary
 - amount: '1'
   unit: tbsp
-  ingredient:
-    name: honey
+  ingredient: honey
 - amount: '1'
   unit: tbsp
-  ingredient:
-    name: sour cream
+  ingredient: sour cream
 
 instructions:
 - Preheat oven to 350 F. Cut plums in half and remove the pits. Coat baking pan with

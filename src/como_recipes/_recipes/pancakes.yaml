@@ -8,36 +8,28 @@ tags:
 measurements:
 - amount: '120'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '2'
   unit: ''
-  ingredient:
-    name: tbsp sugar
+  ingredient: tbsp sugar
 - amount: '1'
   unit: ''
-  ingredient:
-    name: tsp baking powder
+  ingredient: tsp baking powder
 - amount: 1/2
   unit: ''
-  ingredient:
-    name: tsp baking soda
+  ingredient: tsp baking soda
 - amount: 1/2
   unit: ''
-  ingredient:
-    name: tsp salt
+  ingredient: tsp salt
 - amount: '1'
   unit: portions
-  ingredient:
-    name: egg
+  ingredient: egg
 - amount: '2'
   unit: ''
-  ingredient:
-    name: tbsp butter
+  ingredient: tbsp butter
 - amount: '1'
   unit: ''
-  ingredient:
-    name: cup buttermilk
+  ingredient: cup buttermilk
 
 instructions:
 - Combine dry ingredients.

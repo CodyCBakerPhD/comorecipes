@@ -14,53 +14,23 @@ class Measurement(pydantic.BaseModel):
     ----------
     amount : int | float | typing.Literal["enough"]
         Amount of the ingredient.
-    unit : Literal[
-        "cup",
-        "cups",
-        "tbsp",
-        "tsp",
-        "oz",
-        "lb",
-        "g",
-        "kg",
-        "large",
-        "tsp.",
-        "tbsp.",
-        "apples",
-        "qt.",
-        "lb.",
-    ]
+    unit : typing.Literal["portions", "grams"]
         Unit of the ingredient amount.
     ingredient : Ingredient
         Ingredient being measured.
+    prefix : str, optional
+        Prefix to be added to the rendered text of the ingredient in a recipe.
+        For example, "minced" for the ingredient "garlic".
+    suffix : str, optional
+        Suffix to be added to the rendered text of the ingredient in a recipe.
+        For example, ", room-temperature" for the ingredient "butter".
 
     """
 
     amount: float | int | fractions.Fraction | typing.Literal["enough"]
     # TODO: limit to grams-base only
     unit: str | None
-    # unit: Literal[
-    #     "cup",
-    #     "cups",
-    #     "tbsp",
-    #     "tsp",
-    #     "oz",
-    #     "lb",
-    #     "g",
-    #     "grams",
-    #     "kg",
-    #     "large",
-    #     "tsp.",
-    #     "tbsp.",
-    #     "apples",
-    #     "qt.",
-    #     "lb.",
-    #     "Pie",
-    #     "lbs.",
-    #     "Good",
-    #     "egg",
-    #     "ripe",
-    # ]
+    # unit: typing.Literal["portions", "grams"]
     ingredient: Ingredient
     prefix: str | None = None
     suffix: str | None = None

@@ -8,28 +8,22 @@ tags:
 measurements:
 - amount: '240'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '40'
   unit: grams
-  ingredient:
-    name: cornstarch
+  ingredient: cornstarch
 - amount: '6'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '3'
   unit: grams
-  ingredient:
-    name: paprika
+  ingredient: paprika
 - amount: '14'
   unit: grams
-  ingredient:
-    name: baking powder
+  ingredient: baking powder
 - amount: '340'
   unit: grams
-  ingredient:
-    name: beer
+  ingredient: beer
 
 instructions:
 - Whisk dry ingredients. Add beer and incorporate. Mixture should feel like pancake

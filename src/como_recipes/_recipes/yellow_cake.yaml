@@ -8,36 +8,28 @@ tags:
 measurements:
 - amount: '226'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '300'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '8'
   unit: egg
-  ingredient:
-    name: yolks
+  ingredient: yolks
 - amount: '180'
   unit: grams
-  ingredient:
-    name: milk
+  ingredient: milk
 - amount: '6'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: '240'
   unit: grams
-  ingredient:
-    name: cake flour
+  ingredient: cake flour
 - amount: '10'
   unit: grams
-  ingredient:
-    name: baking powder
+  ingredient: baking powder
 - amount: '3'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 
 instructions:
 - Preheat to 350 F. Grease cake pan or cupcake pan.

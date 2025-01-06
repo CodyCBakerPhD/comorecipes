@@ -10,48 +10,37 @@ tags:
 measurements:
 - amount: '14'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '250'
   unit: grams
-  ingredient:
-    name: white onion
+  ingredient: white onion
 - amount: '1'
   unit: qt.
-  ingredient:
-    name: of tomatoes
+  ingredient: of tomatoes
 - amount: '10'
   unit: Anaheim
-  ingredient:
-    name: chilis
+  ingredient: chilis
 - amount: '2'
   unit: Jalepeno
-  ingredient:
-    name: peppers
+  ingredient: peppers
 - amount: '2'
   unit: tsp
-  ingredient:
-    name: salt & pepper
+  ingredient: salt & pepper
 - amount: 1/2
   unit: tbsp
-  ingredient:
-    name: powdered mustard
+  ingredient: powdered mustard
 - amount: '1'
   unit: tsp
-  ingredient:
-    name: dried oregano
+  ingredient: dried oregano
 - amount: '3'
   unit: grams
-  ingredient:
-    name: garlic powder
+  ingredient: garlic powder
 - amount: '57'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '30'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 
 instructions:
 - Grill the Anaheim peppers ahead of time; when skin is blackened, place into plastic

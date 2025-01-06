@@ -9,20 +9,16 @@ tags:
 measurements:
 - amount: '1'
   unit: portions
-  ingredient:
-    name: pie crust
+  ingredient: pie crust
 - amount: '800'
   unit: grams
-  ingredient:
-    name: tart cherries
+  ingredient: tart cherries
 - amount: '200'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '30'
   unit: grams
-  ingredient:
-    name: cornstarch
+  ingredient: cornstarch
 
 instructions:
 - Place cherries into a saucepan over medium heat and cover. Heat cherries until they

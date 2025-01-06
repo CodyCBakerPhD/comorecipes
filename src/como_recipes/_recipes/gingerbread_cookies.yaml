@@ -8,44 +8,34 @@ tags:
 measurements:
 - amount: '180'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '80'
   unit: grams
-  ingredient:
-    name: dark brown sugar
+  ingredient: dark brown sugar
 - amount: '2'
   unit: grams
-  ingredient:
-    name: baking soda
+  ingredient: baking soda
 - amount: '4'
   unit: grams
-  ingredient:
-    name: cinnamon
+  ingredient: cinnamon
 - amount: '2.5'
   unit: grams
-  ingredient:
-    name: ground ginger
+  ingredient: ground ginger
 - amount: 1/2
   unit: grams
-  ingredient:
-    name: cloves
+  ingredient: cloves
 - amount: 3/2
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '85'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '125'
   unit: grams
-  ingredient:
-    name: molasses
+  ingredient: molasses
 - amount: '15'
   unit: grams
-  ingredient:
-    name: whole milk
+  ingredient: whole milk
 
 instructions:
 - '----- Dough -----'

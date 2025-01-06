@@ -10,24 +10,19 @@ tags:
 measurements:
 - amount: '4'
   unit: portions
-  ingredient:
-    name: red apple
+  ingredient: red apple
 - amount: '180'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '12'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '14'
   unit: grams
-  ingredient:
-    name: brown sugar
+  ingredient: brown sugar
 - amount: '1'
   unit: grams
-  ingredient:
-    name: cinnamon
+  ingredient: cinnamon
 
 instructions:
 - Peel and core apples.
