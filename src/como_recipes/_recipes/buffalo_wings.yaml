@@ -8,24 +8,19 @@ tags:
 measurements:
 - amount: '8'
   unit: portions
-  ingredient:
-    name: chicken wings
+  ingredient: chicken wings
 - amount: '8'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 - amount: '28'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '15'
   unit: grams
-  ingredient:
-    name: white vinegar
+  ingredient: white vinegar
 - amount: '100'
   unit: grams
-  ingredient:
-    name: hot sauce of choice
+  ingredient: hot sauce of choice
 
 instructions:
 - Heat oil to 375 F.

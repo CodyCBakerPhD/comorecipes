@@ -9,44 +9,34 @@ tags:
 measurements:
 - amount: '226'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '200'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '218'
   unit: grams
-  ingredient:
-    name: brown sugar
+  ingredient: brown sugar
 - amount: '2'
   unit: portions
-  ingredient:
-    name: egg
+  ingredient: egg
 - amount: '8'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: '5.5'
   unit: grams
-  ingredient:
-    name: baking soda
+  ingredient: baking soda
 - amount: '2'
   unit: tsp
-  ingredient:
-    name: hot water
+  ingredient: hot water
 - amount: '360'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '3'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '2'
   unit: cups
-  ingredient:
-    name: high-quality semi-sweet chocolate chips
+  ingredient: high-quality semi-sweet chocolate chips
 
 notes:
 - Be sure to leave out butter to reach room temperature before starting.

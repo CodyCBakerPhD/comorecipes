@@ -9,16 +9,13 @@ tags:
 measurements:
 - amount: '28'
   unit: oz.
-  ingredient:
-    name: sweetened condensed milk
+  ingredient: sweetened condensed milk
 - amount: 1/2
   unit: cup
-  ingredient:
-    name: sour cream
+  ingredient: sour cream
 - amount: 3/4
   unit: cup
-  ingredient:
-    name: Key lime juice
+  ingredient: Key lime juice
 
 instructions:
 - Mix.

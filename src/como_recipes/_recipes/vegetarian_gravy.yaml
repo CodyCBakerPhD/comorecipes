@@ -8,28 +8,22 @@ tags:
 measurements:
 - amount: '57'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '30'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '2'
   unit: cups
-  ingredient:
-    name: not-chicken stock
+  ingredient: not-chicken stock
 - amount: 1/3
   unit: cup
-  ingredient:
-    name: heavy cream
+  ingredient: heavy cream
 - amount: '5'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 - amount: '1'
   unit: grams
-  ingredient:
-    name: paprika
+  ingredient: paprika
 
 instructions:
 - Make roux with butter and flour. Thicken with stock. Season.

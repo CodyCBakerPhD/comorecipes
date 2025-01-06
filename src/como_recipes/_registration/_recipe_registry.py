@@ -10,6 +10,7 @@ from ..utils import get_bundle_base_path, is_bundled
 
 class RecipeRegistry(pydantic.BaseModel):
     _recipes: dict[str, Recipe] | None = None
+    _default_recipes: dict[str, pathlib.Path] | None = None
     model_config = pydantic.ConfigDict(extra="forbid")
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
@@ -20,6 +21,15 @@ class RecipeRegistry(pydantic.BaseModel):
         super().__init__(**kwargs)
 
         self._recipes = self._recipes or {}
+
+        _recipe_directory = (
+            pathlib.Path(__file__).parent.parent / "_recipes"
+            if is_bundled() is False
+            else get_bundle_base_path() / "_recipes"
+        )
+        self._default_recipes = self._default_recipes or {
+            file_path.open().readline()[6:-1]: file_path for file_path in _recipe_directory.glob(pattern="*.yaml")
+        }
 
     def __len__(self) -> int:
         """
@@ -109,24 +119,21 @@ class RecipeRegistry(pydantic.BaseModel):
 
         """
         recipe = self._recipes.get(recipe_name, None)
-        if recipe is None:
+        file_path = self._default_recipes.get(recipe_name, None)
+
+        if recipe is None and file_path is not None:
+            recipe = Recipe.from_yaml_file(file_path=file_path)
+        elif recipe is None and file_path is None:
             message = f"Recipe '{recipe_name}' not found in the registry."
             raise ValueError(message)
+
         return recipe
 
     @pydantic.validate_call
     def get_all_recipe_names(self) -> list[str]:
         """Get all recipes from the registry."""
-        return list(self._recipes.keys())
+        return list(set(self._recipes.keys()) | set(self._default_recipes.keys()))
 
 
 # Initialize the global default recipe registry
-# Items are explicitly added in their respective recipe files
 default_recipe_registry = RecipeRegistry()
-
-_recipe_directory = (
-    pathlib.Path(__file__).parent.parent / "_recipes" if is_bundled() is False else get_bundle_base_path() / "_recipes"
-)
-for file_path in _recipe_directory.glob(pattern="*.yaml"):
-    recipe = Recipe.from_yaml_file(file_path=file_path)
-    default_recipe_registry.add_recipe(recipe=recipe)

@@ -9,14 +9,11 @@ tags:
 measurements:
 - amount: '4'
   unit: portions
-  ingredient:
-    name: potatoes
+  ingredient: potatoes
 - amount: 'enough'
-  ingredient:
-    name: olive oil
+  ingredient: olive oil
 - amount: 'enough'
-  ingredient:
-    name: salt
+  ingredient: salt
 
 instructions:
 - Use aluminum foil for easy cleanup.

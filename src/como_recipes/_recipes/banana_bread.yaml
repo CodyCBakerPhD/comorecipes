@@ -8,32 +8,25 @@ tags:
 measurements:
 - amount: '57'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '25'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '1'
   unit: portions
-  ingredient:
-    name: egg
+  ingredient: egg
 - amount: '1'
   unit: portions
-  ingredient:
-    name: overripe banana
+  ingredient: overripe banana
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '3'
   unit: grams
-  ingredient:
-    name: baking soda
+  ingredient: baking soda
 - amount: '60'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 
 instructions:
 - Preheat oven to 300 F.

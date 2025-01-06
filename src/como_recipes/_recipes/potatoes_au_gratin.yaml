@@ -8,32 +8,25 @@ tags:
 measurements:
 - amount: '4'
   unit: russet
-  ingredient:
-    name: potatoes
+  ingredient: potatoes
 - amount: '250'
   unit: grams
-  ingredient:
-    name: white onion
+  ingredient: white onion
 - amount: '4'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 - amount: '42'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '24'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '500'
   unit: grams
-  ingredient:
-    name: whole milk
+  ingredient: whole milk
 - amount: 3/2
   unit: cup
-  ingredient:
-    name: cheddar
+  ingredient: cheddar
 
 instructions:
 - Preheat to 400 F. Butter the casserole dish.

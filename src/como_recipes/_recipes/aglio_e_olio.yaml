@@ -9,34 +9,27 @@ tags:
 measurements:
 - amount: '960'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '17'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '1'
-  unit: package
-  ingredient:
-    name: thin spaghetti
+  unit: portions
+  ingredient: thin spaghetti
 - amount: '76'
   unit: grams
-  ingredient:
-    name: olive oil
+  ingredient: olive oil
 - amount: '8'
-  unit: cloves
-  ingredient:
-    prefix: minced
-    name: garlic
+  unit: portions
+  prefix: minced
+  ingredient: garlic
 - amount: '2'
   unit: grams
-  ingredient:
-    name: crushed red pepper
+  ingredient: crushed red pepper
 - amount: '80'
   unit: grams
-  ingredient:
-    prefix: shredded
-    name: Parmesan
+  prefix: shredded
+  ingredient: Parmesan
 
 instructions:
 - Bring water and salt to boil. Cook pasta. Set aside 3/2 cup of pasta water before

@@ -8,32 +8,25 @@ tags:
 measurements:
 - amount: '1'
   unit: serving
-  ingredient:
-    name: of piperade sauce
+  ingredient: of piperade sauce
 - amount: '1'
   unit: small
-  ingredient:
-    name: eggplant, trimmed and thinly sliced
+  ingredient: eggplant, trimmed and thinly sliced
 - amount: '1'
   unit: zucchini,
-  ingredient:
-    name: trimmed and thinly sliced
+  ingredient: trimmed and thinly sliced
 - amount: '1'
   unit: yellow
-  ingredient:
-    name: squash, trimmed and thinly sliced
+  ingredient: squash, trimmed and thinly sliced
 - amount: '2'
   unit: aloha
-  ingredient:
-    name: peppers, trimmed and thinly sliced
+  ingredient: peppers, trimmed and thinly sliced
 - amount: '42'
   unit: grams
-  ingredient:
-    name: olive oil
+  ingredient: olive oil
 - amount: '3'
   unit: tbsp
-  ingredient:
-    name: mascarpone cheese
+  ingredient: mascarpone cheese
 
 instructions:
 - Make piperade sauce ahead of time.

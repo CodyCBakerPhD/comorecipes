@@ -8,24 +8,19 @@ tags:
 measurements:
 - amount: '2'
   unit: cans
-  ingredient:
-    name: French-style green beans
+  ingredient: French-style green beans
 - amount: '1'
   unit: can
-  ingredient:
-    name: cream of mushroom soup
+  ingredient: cream of mushroom soup
 - amount: '1'
   unit: can
-  ingredient:
-    name: French-fried onions
+  ingredient: French-fried onions
 - amount: '125'
   unit: grams
-  ingredient:
-    name: milk
+  ingredient: milk
 - amount: 1/8
   unit: tsp
-  ingredient:
-    name: pepper
+  ingredient: pepper
 
 instructions:
 - Drain green beans. Mix soup, milk, pepper in a bowl. Add beans and mix together.

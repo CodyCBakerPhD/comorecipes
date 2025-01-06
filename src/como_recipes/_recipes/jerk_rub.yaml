@@ -9,28 +9,22 @@ tags:
 measurements:
 - amount: '2'
   unit: grams
-  ingredient:
-    name: garlic powder
+  ingredient: garlic powder
 - amount: '3'
   unit: grams
-  ingredient:
-    name: cumin
+  ingredient: cumin
 - amount: 1/4
   unit: tsp
-  ingredient:
-    name: coriander
+  ingredient: coriander
 - amount: '1'
   unit: grams
-  ingredient:
-    name: paprika
+  ingredient: paprika
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 - amount: '14'
   unit: grams
-  ingredient:
-    name: olive oil
+  ingredient: olive oil
 
 instructions:
 - Mix dry ingredients and use oil to bind. For cooking with chicken, lather all sides

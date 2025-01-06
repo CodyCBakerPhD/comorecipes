@@ -8,36 +8,28 @@ tags:
 measurements:
 - amount: '14'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '1'
   unit: shallot
-  ingredient:
-    name: ''
+  ingredient: ''
 - amount: '10'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 - amount: '1'
   unit: cup
-  ingredient:
-    name: long grain brown rice
+  ingredient: long grain brown rice
 - amount: '4'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 - amount: 5/2
   unit: cups
-  ingredient:
-    name: not-chicken broth
+  ingredient: not-chicken broth
 - amount: '2'
   unit: sprigs
-  ingredient:
-    name: of thyme
+  ingredient: of thyme
 - amount: '1.5'
   unit: grams
-  ingredient:
-    name: parsley
+  ingredient: parsley
 
 instructions:
 - Melt butter over medium heat. Add shallot and garlic, saute until tender.

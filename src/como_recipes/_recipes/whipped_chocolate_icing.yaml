@@ -9,24 +9,19 @@ tags:
 measurements:
 - amount: 11/4
   unit: cups
-  ingredient:
-    name: sifted powdered sugar
+  ingredient: sifted powdered sugar
 - amount: '60'
   unit: grams
-  ingredient:
-    name: Dutch cocoa powder
+  ingredient: Dutch cocoa powder
 - amount: '6'
   unit: tbsp
-  ingredient:
-    name: room-temperature butter
+  ingredient: room-temperature butter
 - amount: '45'
   unit: grams
-  ingredient:
-    name: evaporated milk
+  ingredient: evaporated milk
 - amount: '4'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 
 instructions:
 - Sift the cocoa powder and powdered sugar together.

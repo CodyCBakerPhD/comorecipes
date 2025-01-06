@@ -9,36 +9,28 @@ tags:
 measurements:
 - amount: '13.5'
   unit: grams
-  ingredient:
-    name: olive oil
+  ingredient: olive oil
 - amount: '250'
   unit: grams
-  ingredient:
-    name: white onion
+  ingredient: white onion
 - amount: '10'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 - amount: '6'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '1'
   unit: tsp
-  ingredient:
-    name: pepper
+  ingredient: pepper
 - amount: '3'
   unit: cups
-  ingredient:
-    name: chicken flavored vegetable broth
+  ingredient: chicken flavored vegetable broth
 - amount: '1'
   unit: grams
-  ingredient:
-    name: red pepper flakes
+  ingredient: red pepper flakes
 - amount: '1'
   unit: lb.
-  ingredient:
-    name: fresh collard greens
+  ingredient: fresh collard greens
 
 instructions:
 - Heat oil in very large pot over medium heat.

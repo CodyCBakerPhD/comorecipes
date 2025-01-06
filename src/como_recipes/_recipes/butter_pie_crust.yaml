@@ -7,28 +7,22 @@ tags:
 measurements:
 - amount: '8'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '300'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '227'
   unit: grams
-  ingredient:
-    name: cold butter
+  ingredient: cold butter
 - amount: '118'
   unit: grams
-  ingredient:
-    name: ice water
+  ingredient: ice water
 - amount: '1'
   unit: portions
-  ingredient:
-    name: egg yolk
+  ingredient: egg yolk
 
 instructions:
 - Pulse flour, sugar and salt in food processor to combine. Add cold butter and pulse

@@ -7,24 +7,19 @@ tags:
 measurements:
 - amount: '1'
   unit: large
-  ingredient:
-    name: turkey bag
+  ingredient: turkey bag
 - amount: '7680'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '2'
   unit: cups
-  ingredient:
-    name: Kosher salt
+  ingredient: Kosher salt
 - amount: '109'
   unit: grams
-  ingredient:
-    name: brown sugar
+  ingredient: brown sugar
 - amount: '20'
   unit: lb.
-  ingredient:
-    name: whole turkey
+  ingredient: whole turkey
 
 instructions:
 - Two days before roasting, bring water and salt to boil in large pot.

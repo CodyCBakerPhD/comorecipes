@@ -8,28 +8,22 @@ tags:
 measurements:
 - amount: '240'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '1'
   unit: tbsp
-  ingredient:
-    name: yeast
+  ingredient: yeast
 - amount: '4'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '36'
   unit: grams
-  ingredient:
-    name: vegetable oil
+  ingredient: vegetable oil
 - amount: '3'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '240'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 
 instructions:
 - Preheat oven to 400 F. Activate yeast.

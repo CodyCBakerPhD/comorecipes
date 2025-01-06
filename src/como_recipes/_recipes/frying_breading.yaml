@@ -8,24 +8,19 @@ tags:
 measurements:
 - amount: '720'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '13'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 - amount: '20'
   unit: grams
-  ingredient:
-    name: garlic powder
+  ingredient: garlic powder
 - amount: '7'
   unit: grams
-  ingredient:
-    name: onion powder
+  ingredient: onion powder
 - amount: '8'
   unit: grams
-  ingredient:
-    name: cayenne pepper
+  ingredient: cayenne pepper
 
 instructions:
 - Mix in large batches and store for later use.

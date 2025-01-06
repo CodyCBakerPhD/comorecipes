@@ -8,6 +8,8 @@ import sys
 
 import pydantic
 
+from ._base._base_measurement import Measurement
+
 
 def is_bundled() -> bool:
     """Determine if the application is bundled by PyInstaller."""
@@ -109,3 +111,17 @@ def string_to_numeric(*, string: str) -> int | float:
         return int(fraction)
 
     return float(fraction.limit_denominator())
+
+
+@pydantic.validate_call
+def get_rendered_units(*, measurement: Measurement) -> str:
+    """
+    Fancy rendering of the units for the measurement.
+
+    Makes decisions based on value of portions and presence of other metadata.
+    """
+    if measurement.amount == "enough":
+        return ""
+    if measurement.unit == "portions" and measurement.ingredient.portions_text is not None:
+        return measurement.ingredient.portions_text
+    return measurement.unit

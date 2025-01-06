@@ -8,48 +8,37 @@ tags:
 measurements:
 - amount: '1'
   unit: lb.
-  ingredient:
-    name: dry chickpeas
+  ingredient: dry chickpeas
 - amount: '75'
   unit: grams
-  ingredient:
-    name: white onion
+  ingredient: white onion
 - amount: '10'
   unit: grams
-  ingredient:
-    name: parsley
+  ingredient: parsley
 - amount: '25'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 - amount: '12'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '10'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '10'
   unit: grams
-  ingredient:
-    name: cumin
+  ingredient: cumin
 - amount: '1'
   unit: tsp
-  ingredient:
-    name: coriander
+  ingredient: coriander
 - amount: 1/4
   unit: tsp
-  ingredient:
-    name: pepper
+  ingredient: pepper
 - amount: 1/4
   unit: tsp
-  ingredient:
-    name: cayenne
+  ingredient: cayenne
 - amount: 1/8
   unit: tsp
-  ingredient:
-    name: cardamom
+  ingredient: cardamom
 
 instructions:
 - Soak beans overnight.

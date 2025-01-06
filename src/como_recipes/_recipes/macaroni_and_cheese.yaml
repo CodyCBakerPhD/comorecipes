@@ -9,37 +9,29 @@ tags:
 measurements:
 - amount: '8'
   unit: oz.
-  ingredient:
-    name: elbow pasta
+  ingredient: elbow pasta
 - amount: '57'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '30'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '2'
   unit: cups
-  ingredient:
-    name: of any combination between 2% milk (for thin consistency) and heavy cream
+  ingredient: of any combination between 2% milk (for thin consistency) and heavy cream
       (very thick texture)
 - amount: '7'
   unit: oz.
-  ingredient:
-    name: English aged cheddar
+  ingredient: English aged cheddar
 - amount: '5'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: 1/4
   unit: tsp
-  ingredient:
-    name: pepper
+  ingredient: pepper
 - amount: '1'
   unit: grams
-  ingredient:
-    name: paprika
+  ingredient: paprika
 
 instructions:
 - Cook pasta ahead of time. Cut 75% of cheese into small cubes or shred. Shred remaining

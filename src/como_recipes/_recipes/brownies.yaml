@@ -9,40 +9,31 @@ tags:
 measurements:
 - amount: '110'
   unit: grams
-  ingredient:
-    name: vegetable oil
+  ingredient: vegetable oil
 - amount: '133'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '2'
   unit: portions
-  ingredient:
-    name: egg
+  ingredient: egg
 - amount: '4'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: '1'
   unit: grams
-  ingredient:
-    name: baking powder
+  ingredient: baking powder
 - amount: '27'
   unit: grams
-  ingredient:
-    name: Dutch cocoa powder
+  ingredient: Dutch cocoa powder
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '60'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '42'
   unit: grams
-  ingredient:
-    name: chocolate chips
+  ingredient: chocolate chips
 
 instructions:
 - Preheat to 350 F, spray pan.

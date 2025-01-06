@@ -10,48 +10,37 @@ tags:
 measurements:
 - amount: '1'
   unit: portion
-  ingredient:
-    name: pie crust
+  ingredient: pie crust
 - amount: '5'
   unit: portions
-  ingredient:
-    name: Granny Smith apple
+  ingredient: Granny Smith apple
 - amount: '28'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '50'
   unit: grams
-  ingredient:
-    name: sugar
+  ingredient: sugar
 - amount: '54'
   unit: grams
-  ingredient:
-    name: brown sugar
+  ingredient: brown sugar
 - amount: '15'
   unit: grams
-  ingredient:
-    name: lemon juice
+  ingredient: lemon juice
 - amount: '5'
   unit: grams
-  ingredient:
-    name: cinnamon
+  ingredient: cinnamon
 - amount: '3'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: '0.5'
   unit: grams
-  ingredient:
-    name: nutmeg
+  ingredient: nutmeg
 - amount: '16'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '25'
   unit: grams
-  ingredient:
-    name: raw sugar
+  ingredient: raw sugar
 
 instructions:
 - Peel and core apples; slice thinly. Toss apples with all dry ingredients except

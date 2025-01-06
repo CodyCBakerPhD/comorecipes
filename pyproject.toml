@@ -149,6 +149,8 @@ known-first-party = ["como_recipes"]
 
 
 
+
+
 [tool.codespell]
 skip = '.git*,*.pdf,*.css,*.spec'
 check-hidden = true

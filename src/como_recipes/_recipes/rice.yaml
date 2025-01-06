@@ -9,16 +9,13 @@ tags:
 measurements:
 - amount: 3/2
   unit: cups
-  ingredient:
-    name: rice
+  ingredient: rice
 - amount: '480'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '14'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 
 instructions:
 - Thoroughly rinse and pre-soak rice for 15 minutes.

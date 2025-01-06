@@ -7,28 +7,22 @@ tags:
 measurements:
 - amount: '14'
   unit: grams
-  ingredient:
-    name: olive oil
+  ingredient: olive oil
 - amount: '10'
   unit: grams
-  ingredient:
-    name: garlic
+  ingredient: garlic
 - amount: 3/4
   unit: cup
-  ingredient:
-    name: red wine
+  ingredient: red wine
 - amount: '60'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '1'
   unit: tsp
-  ingredient:
-    name: soy sauce
+  ingredient: soy sauce
 - amount: '42'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 
 instructions:
 - Heat oil over medium-high heat. Cook garlic for ~30 seconds. Add wine and reach

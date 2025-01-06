@@ -8,40 +8,31 @@ tags:
 measurements:
 - amount: '1'
   unit: batch
-  ingredient:
-    name: of Kaiser Rolls
+  ingredient: of Kaiser Rolls
 - amount: '1'
   unit: lb
-  ingredient:
-    name: ground beef or Boca crumbles
+  ingredient: ground beef or Boca crumbles
 - amount: 1/4
   unit: cup
-  ingredient:
-    name: red onion
+  ingredient: red onion
 - amount: '2'
   unit: grams
-  ingredient:
-    name: garlic powder
+  ingredient: garlic powder
 - amount: '2'
   unit: tsp
-  ingredient:
-    name: yellow mustard
+  ingredient: yellow mustard
 - amount: 1/2
   unit: cup
-  ingredient:
-    name: ketchup
+  ingredient: ketchup
 - amount: '4'
   unit: grams
-  ingredient:
-    name: brown sugar
+  ingredient: brown sugar
 - amount: 1/2
   unit: tbsp
-  ingredient:
-    name: molasses
+  ingredient: molasses
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt and pepper
+  ingredient: salt and pepper
 
 instructions:
 - Brown meat. Mix spices. Simmer until good consistency.

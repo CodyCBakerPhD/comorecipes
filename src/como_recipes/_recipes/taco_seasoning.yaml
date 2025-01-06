@@ -9,40 +9,31 @@ tags:
 measurements:
 - amount: 1/4
   unit: ''
-  ingredient:
-    name: tsp garlic powder
+  ingredient: tsp garlic powder
 - amount: 1/4
   unit: ''
-  ingredient:
-    name: tsp onion powder
+  ingredient: tsp onion powder
 - amount: 1/4
   unit: ''
-  ingredient:
-    name: tsp red pepper
+  ingredient: tsp red pepper
 - amount: 1/4
   unit: ''
-  ingredient:
-    name: tsp dried oregano
+  ingredient: tsp dried oregano
 - amount: 1/2
   unit: ''
-  ingredient:
-    name: tsp paprika
+  ingredient: tsp paprika
 - amount: '8'
   unit: grams
-  ingredient:
-    name: cumin
+  ingredient: cumin
 - amount: 1/2
   unit: ''
-  ingredient:
-    name: tsp salt
+  ingredient: tsp salt
 - amount: '1'
   unit: ''
-  ingredient:
-    name: tsp pepper
+  ingredient: tsp pepper
 - amount: '1'
   unit: ''
-  ingredient:
-    name: lb. ground beef or refried beans or Boca
+  ingredient: lb. ground beef or refried beans or Boca
 
 instructions:
 - Mix spice.

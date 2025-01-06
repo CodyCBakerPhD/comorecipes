@@ -7,7 +7,7 @@ import yaml
 
 from ._base_measurement import Measurement
 from .._registration._ingredient_registry import IngredientRegistry
-from ..utils import string_to_numeric
+from ..utils import get_rendered_units, string_to_numeric
 
 
 class Recipe(pydantic.BaseModel):
@@ -205,16 +205,15 @@ class Recipe(pydantic.BaseModel):
         model_dump = json.loads(s=self.model_dump_json())
         ordered_model_dump = {key: value for key in key_order if (value := model_dump.get(key)) is not None}
 
-        cleaned_measurements = []
+        restructured_measurements = []
         for measurement in ordered_model_dump["measurements"]:
-            cleaned_ingredient = {"name": measurement["ingredient"]["name"]}  # Remove extraneous (usually null) info
-            cleaned_measurement = {
+            restructured_measurement = {
                 "amount": measurement["amount"],
                 "unit": measurement["unit"],
-                "ingredient": cleaned_ingredient,
+                "ingredient": measurement["ingredient"]["name"],
             }
-            cleaned_measurements.append(cleaned_measurement)
-        ordered_model_dump["measurements"] = cleaned_measurements
+            restructured_measurements.append(restructured_measurement)
+        ordered_model_dump["measurements"] = restructured_measurements
 
         # Additional newline padding is applied across each field so YAML file is more readable
         # Does require some adjustments to dumping however
@@ -241,11 +240,14 @@ class Recipe(pydantic.BaseModel):
         with file_path.open(mode="r") as io:
             recipe_info = yaml.safe_load(stream=io)
         recipe_info["tags"] = tuple(recipe_info["tags"])
+
         recipe_info["measurements"] = tuple(
             IngredientRegistry.get_measurement(
                 amount=string_to_numeric(string=amount) if (amount := measurement["amount"]) != "enough" else amount,
                 unit=measurement.get("unit", None),
-                ingredient_name=measurement["ingredient"]["name"],
+                ingredient_name=measurement["ingredient"],
+                prefix=measurement.get("prefix", None),
+                suffix=measurement.get("suffix", None),
             )
             for measurement in recipe_info["measurements"]
         )
@@ -275,17 +277,24 @@ class Recipe(pydantic.BaseModel):
 
         html_lines += ["<br>"]
         html_lines += ["<h2>Ingredients</h2>\n\n"]
+        disallowed_units = {"": True, "portions": True}
         for measurement in self.measurements:
             html_lines += ["<p>"]
-            html_lines += [f"{measurement.amount} {measurement.unit}"]
+            html_lines += [f"{measurement.amount}"]
+
+            rendered_units = get_rendered_units(measurement=measurement)
+            if disallowed_units.get(rendered_units, False) is False:
+                html_lines += [f" {rendered_units}"]
 
             if measurement.prefix is not None:
-                html_lines += [f" {measurement.prefix} "]
-            # TODO: I don't think the ternary here will always be necessary
-            html_lines += [f" {measurement.ingredient.name}</p>\n" if measurement.ingredient.name != "" else "</p>\n"]
+                html_lines += [f" {measurement.prefix}"]
+
+            html_lines += [f" {measurement.ingredient.name}"]
 
             if measurement.suffix is not None:
-                html_lines += [f" {measurement.suffix} "]
+                html_lines += [f" {measurement.suffix}"]
+
+            html_lines += ["</p>\n"]
 
         if self.notes is not None:
             html_lines += ["<br>"]

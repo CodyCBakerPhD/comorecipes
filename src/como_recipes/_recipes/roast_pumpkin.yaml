@@ -7,12 +7,10 @@ tags:
 measurements:
 - amount: 5/2
   unit: lb
-  ingredient:
-    name: sugar pumpkin
+  ingredient: sugar pumpkin
 - amount: '1'
   unit: tbsp
-  ingredient:
-    name: coconut oil
+  ingredient: coconut oil
 
 instructions:
 - Cut pumpkin in half length-wise. Scrape out seeds and string.

@@ -9,24 +9,19 @@ tags:
 measurements:
 - amount: '18'
   unit: grams
-  ingredient:
-    name: Dutch cocoa
+  ingredient: Dutch cocoa
 - amount: '38'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: '29'
   unit: grams
-  ingredient:
-    name: powdered sugar
+  ingredient: powdered sugar
 - amount: '9'
   unit: grams
-  ingredient:
-    name: evaporated milk
+  ingredient: evaporated milk
 - amount: '2'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 
 notes:
   - DO not forget to sift all dry ingredients.

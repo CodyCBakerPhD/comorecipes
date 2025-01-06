@@ -9,16 +9,13 @@ tags:
 measurements:
 - amount: '2'
   unit: cups
-  ingredient:
-    name: semi-sweet chocolate
+  ingredient: semi-sweet chocolate
 - amount: 1/2
   unit: cup
-  ingredient:
-    name: heavy cream
+  ingredient: heavy cream
 - amount: '2'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 
 instructions:
 - Combine chocolate and heavy cream in a small saucepan over medium heat.

@@ -9,32 +9,25 @@ tags:
 measurements:
 - amount: 3/2
   unit: ''
-  ingredient:
-    name: cups of thinly sliced strawberries
+  ingredient: cups of thinly sliced strawberries
 - amount: '40'
   unit: ''
-  ingredient:
-    name: g. sugar
+  ingredient: g. sugar
 - amount: '40'
   unit: ''
-  ingredient:
-    name: g. brown sugar
+  ingredient: g. brown sugar
 - amount: '20'
   unit: ''
-  ingredient:
-    name: g. honey
+  ingredient: g. honey
 - amount: '270'
   unit: grams
-  ingredient:
-    name: cornstarch
+  ingredient: cornstarch
 - amount: 1/4
   unit: ''
-  ingredient:
-    name: tsp vanilla extract
+  ingredient: tsp vanilla extract
 - amount: 1/4
   unit: tsp
-  ingredient:
-    name: lime juice
+  ingredient: lime juice
 
 instructions:
 - Carefully weigh the white and brown sugar into a small bowl.

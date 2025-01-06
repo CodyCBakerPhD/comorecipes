@@ -8,32 +8,25 @@ tags:
 measurements:
 - amount: '15'
   unit: oz.
-  ingredient:
-    name: fresh pumpkin puree
+  ingredient: fresh pumpkin puree
 - amount: '14'
   unit: oz.
-  ingredient:
-    name: condensed milk
+  ingredient: condensed milk
 - amount: '2'
   unit: eggs
-  ingredient:
-    name: ''
+  ingredient: ''
 - amount: 1/2
   unit: tsp
-  ingredient:
-    name: ground ginger
+  ingredient: ground ginger
 - amount: '1'
   unit: grams
-  ingredient:
-    name: nutmeg
+  ingredient: nutmeg
 - amount: '3'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 - amount: 1/2
   unit: pie
-  ingredient:
-    name: crust
+  ingredient: crust
 
 instructions:
 - Mix ingredients well and pour into pie crust. Bake for 15 minutes at 425 F.

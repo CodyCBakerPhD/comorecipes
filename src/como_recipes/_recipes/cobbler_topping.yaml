@@ -8,36 +8,28 @@ tags:
 measurements:
 - amount: '76'
   unit: grams
-  ingredient:
-    name: butter
+  ingredient: butter
 - amount: 1/6
   unit: cup
-  ingredient:
-    name: white sugar
+  ingredient: white sugar
 - amount: '36'
   unit: grams
-  ingredient:
-    name: brown sugar
+  ingredient: brown sugar
 - amount: '1'
   unit: portions
-  ingredient:
-    name: egg
+  ingredient: egg
 - amount: '1'
   unit: grams
-  ingredient:
-    name: vanilla
+  ingredient: vanilla
 - amount: '30'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: '0.5'
   unit: grams
-  ingredient:
-    name: baking powder
+  ingredient: baking powder
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 
 instructions:
 - Cream butter and sugar until light and fluffy.

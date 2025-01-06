@@ -9,40 +9,31 @@ tags:
 measurements:
 - amount: '55'
   unit: grams
-  ingredient:
-    name: vegetable oil
+  ingredient: vegetable oil
 - amount: '15'
   unit: grams
-  ingredient:
-    name: flour
+  ingredient: flour
 - amount: 1/4
   unit: cup
-  ingredient:
-    name: dark chili powder
+  ingredient: dark chili powder
 - amount: '8'
   unit: oz.
-  ingredient:
-    name: can tomato sauce
+  ingredient: can tomato sauce
 - amount: '360'
   unit: grams
-  ingredient:
-    name: water
+  ingredient: water
 - amount: '1'
   unit: grams
-  ingredient:
-    name: cumin
+  ingredient: cumin
 - amount: '1'
   unit: grams
-  ingredient:
-    name: garlic powder
+  ingredient: garlic powder
 - amount: '1'
   unit: grams
-  ingredient:
-    name: onion powder
+  ingredient: onion powder
 - amount: '1'
   unit: grams
-  ingredient:
-    name: salt
+  ingredient: salt
 
 instructions:
 - Heat oil over medium-high heat. Stir in flour and chili powder.
