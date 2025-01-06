@@ -277,12 +277,13 @@ class Recipe(pydantic.BaseModel):
 
         html_lines += ["<br>"]
         html_lines += ["<h2>Ingredients</h2>\n\n"]
+        disallowed_units = {"": True, "portions": True}
         for measurement in self.measurements:
             html_lines += ["<p>"]
             html_lines += [f"{measurement.amount}"]
 
             rendered_units = get_rendered_units(measurement=measurement)
-            if rendered_units != "portions":
+            if disallowed_units.get(rendered_units, False) is False:
                 html_lines += [f" {rendered_units}"]
 
             if measurement.prefix is not None:
