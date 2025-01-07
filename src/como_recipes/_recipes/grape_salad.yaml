@@ -8,27 +8,30 @@ tags:
 - Fruit
 
 measurements:
-- amount: '8'
-  unit: oz.
+- amount: '225'
+  unit: grams
   ingredient: cream cheese, softened
-- amount: '8'
-  unit: oz.
+- amount: '225'
+  unit: grams
   ingredient: sour cream
 - amount: '8'
   unit: grams
   ingredient: vanilla
-- amount: '2'
-  unit: lb
+- amount: '1'
+  unit: portions
+  prefix: (2 lb.)
   ingredient: red seedless grapes
-- amount: '2'
-  unit: lbs
+- amount: '1'
+  unit: portions
+  prefix: (2 lb.)
   ingredient: green seedless grapes
 - amount: '33'
   unit: grams
   ingredient: brown sugar
-- amount: '3'
-  unit: tbsp
-  ingredient: chopped pecans
+- amount: '21'
+  unit: grams
+  prefix: chopped
+  ingredient: pecans
 
 instructions:
 - In a large bowl, beat the cream cheese, sour cream, sugar and vanilla until blended.
