@@ -7,8 +7,7 @@ tags:
 - Spicy
 
 measurements:
-- amount: '13.5'
-  unit: grams
+- amount: 'enough'
   ingredient: olive oil
 - amount: '250'
   unit: grams
@@ -16,21 +15,18 @@ measurements:
 - amount: '10'
   unit: grams
   ingredient: garlic
-- amount: '6'
+- amount: '8'
   unit: grams
-  ingredient: salt
-- amount: '1'
-  unit: tsp
-  ingredient: pepper
-- amount: '3'
-  unit: cups
-  ingredient: chicken flavored vegetable broth
+  ingredient: salt and pepper
+- amount: '360'
+  unit: grams
+  ingredient: not-chicken broth
 - amount: '1'
   unit: grams
   ingredient: red pepper flakes
 - amount: '1'
-  unit: lb.
-  ingredient: fresh collard greens
+  unit: portions
+  ingredient: collard greens
 
 instructions:
 - Heat oil in very large pot over medium heat.

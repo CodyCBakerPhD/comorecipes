@@ -13,9 +13,10 @@ measurements:
 - amount: '14'
   unit: grams
   ingredient: butter
-- amount: '1'
-  unit: portions
-  ingredient: can of condensed milk
+- amount: '400'
+  unit: grams
+  prefix: (14 oz)
+  ingredient: condensed milk
 - amount: 'enough'
   ingredient: chocolate sprinkles
 

@@ -29,8 +29,8 @@ measurements:
 - amount: '15'
   unit: grams
   ingredient: water
-- amount: '2'
-  unit: tsp
+- amount: '11'
+  unit: grams
   ingredient: soy sauce
 - amount: '1'
   unit: tbsp

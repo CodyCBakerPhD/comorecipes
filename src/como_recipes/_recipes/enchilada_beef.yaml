@@ -5,23 +5,23 @@ tags:
 - Entree
 
 measurements:
-- amount: '24'
-  unit: oz.
+- amount: '1'
+  unit: portions
+  prefix: (24 oz.)
   ingredient: chuck roast
+- amount: 'enough'
+  ingredient: olive oil
 - amount: '24'
   unit: grams
   ingredient: flour
-- amount: '2'
-  unit: tbsp
-  ingredient: extra virgin olive oil
-- amount: 1/2
-  unit: tsp
-  ingredient: black pepper
+- amount: '4'
+  unit: grams
+  ingredient: salt and pepper
 - amount: '240'
   unit: grams
   ingredient: water
-- amount: '1'
-  unit: tbsp
+- amount: '15'
+  unit: grams
   ingredient: beef concentrate
 
 instructions:

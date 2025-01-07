@@ -30,8 +30,8 @@ measurements:
 - amount: '30'
   unit: grams
   ingredient: flour
-- amount: '1'
-  unit: cup
+- amount: '240'
+  unit: grams
   ingredient: not-chicken broth
 - amount: '250'
   unit: grams

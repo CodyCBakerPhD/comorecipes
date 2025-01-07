@@ -13,8 +13,8 @@ measurements:
 - amount: '57'
   unit: grams
   ingredient: butter
-- amount: '1'
-  unit: cup
+- amount: '240'
+  unit: grams
   ingredient: heavy cream
 - amount: '3'
   unit: cloves
