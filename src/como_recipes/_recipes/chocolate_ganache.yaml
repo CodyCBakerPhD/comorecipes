@@ -7,11 +7,11 @@ tags:
 - Chocolate
 
 measurements:
-- amount: '2'
-  unit: cups
+- amount: '340'
+  unit: grams
   ingredient: semi-sweet chocolate
-- amount: 1/2
-  unit: cup
+- amount: '120'
+  unit: grams
   ingredient: heavy cream
 - amount: '2'
   unit: grams

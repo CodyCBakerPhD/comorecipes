@@ -25,18 +25,19 @@ measurements:
 - amount: '5.5'
   unit: grams
   ingredient: baking soda
-- amount: '2'
-  unit: tsp
-  ingredient: hot water
+- amount: '10'
+  unit: grams
+  prefix: hot
+  ingredient: water
 - amount: '360'
   unit: grams
   ingredient: flour
 - amount: '3'
   unit: grams
   ingredient: salt
-- amount: '2'
-  unit: cups
-  ingredient: high-quality semi-sweet chocolate chips
+- amount: '340'
+  unit: grams
+  ingredient: semi-sweet chocolate chips
 
 notes:
 - Be sure to leave out butter to reach room temperature before starting.

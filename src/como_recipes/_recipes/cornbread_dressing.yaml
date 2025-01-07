@@ -12,24 +12,21 @@ measurements:
 - amount: '28'
   unit: grams
   ingredient: butter
-- amount: 1/2
-  unit: cup
-  ingredient: chopped celery
+- amount: '2'
+  unit: portions
+  ingredient: celery
 - amount: '75'
   unit: grams
   ingredient: white onion
-- amount: '2'
-  unit: cups
-  ingredient: not-chicken stock
-- amount: '2'
-  unit: tbsp
-  ingredient: dried sage
-- amount: '3'
+- amount: '480'
   unit: grams
-  ingredient: salt
-- amount: 1/2
-  unit: tsp
-  ingredient: pepper
+  ingredient: not-chicken broth
+- amount: '4'
+  unit: grams
+  ingredient: sage
+- amount: '5'
+  unit: grams
+  ingredient: salt and pepper
 
 instructions:
 - Make cornbread 1-2 days in advance, crumble and leave to dry. Melt butter and saute

@@ -34,8 +34,8 @@ measurements:
 - amount: '1'
   unit: tsp
   ingredient: thyme
-- amount: 1/8
-  unit: tsp
+- amount: '0.1'
+  unit: grams
   ingredient: sage
 - amount: '1.5'
   unit: grams

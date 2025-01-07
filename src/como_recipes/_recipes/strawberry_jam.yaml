@@ -25,8 +25,8 @@ measurements:
 - amount: 1/4
   unit: ''
   ingredient: tsp vanilla extract
-- amount: 1/4
-  unit: tsp
+- amount: '1'
+  unit: grams
   ingredient: lime juice
 
 instructions:

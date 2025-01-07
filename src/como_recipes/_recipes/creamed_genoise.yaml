@@ -13,20 +13,21 @@ measurements:
   unit: grams
   ingredient: sugar
 - amount: '3'
-  unit: ''
-  ingredient: beaten eggs, room temperature
+  unit: portions
+  ingredient: eggs
+  suffix: ', room temperature'
 - amount: '187'
   unit: grams
   ingredient: cake flour
-- amount: '1'
-  unit: ''
-  ingredient: tsp baking powder
+- amount: '2'
+  unit: grams
+  ingredient: baking powder
 - amount: '25'
   unit: grams
   ingredient: milk
-- amount: '1'
-  unit: ''
-  ingredient: tsp vanilla extract
+- amount: '4'
+  unit: grams
+  ingredient: vanilla
 
 instructions:
 - Preheat to 350 F.

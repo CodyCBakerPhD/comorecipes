@@ -9,9 +9,9 @@ measurements:
 - amount: '76'
   unit: grams
   ingredient: butter
-- amount: 1/6
-  unit: cup
-  ingredient: white sugar
+- amount: '33'
+  unit: grams
+  ingredient: sugar
 - amount: '36'
   unit: grams
   ingredient: brown sugar
