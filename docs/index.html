@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Index</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 5px;
+        }
+        .grid-container h2 {
+            grid-column: span 4;
+        }
+    </style>
 </head>
 <body>
     <h1>Recipe Index</h1>
-    <ul>
+    <ul class="grid-container">
+        <h2>A</h2>
         <li><a href="formatted_recipes/aglio_e_olio.html">Aglio E Olio</a></li>
         <li><a href="formatted_recipes/apple_pie_filling.html">Apple Pie Filling</a></li>
         <li><a href="formatted_recipes/applesauce.html">Applesauce</a></li>
+
+        <h2>B</h2>
         <li><a href="formatted_recipes/baked_potato.html">Baked Potato</a></li>
         <li><a href="formatted_recipes/banana_bread.html">Banana Bread</a></li>
         <li><a href="formatted_recipes/bechamel_sauce.html">Bechamel Sauce</a></li>
@@ -24,6 +37,8 @@
         <li><a href="formatted_recipes/buffalo_wings.html">Buffalo Wings</a></li>
         <li><a href="formatted_recipes/butter_pie_crust.html">Butter Pie Crust</a></li>
         <li><a href="formatted_recipes/buttermilk_waffles.html">Buttermilk Waffles</a></li>
+
+        <h2>C</h2>
         <li><a href="formatted_recipes/cabbage_rolls.html">Cabbage Rolls</a></li>
         <li><a href="formatted_recipes/carnitas.html">Carnitas</a></li>
         <li><a href="formatted_recipes/cherry_pie_filling.html">Cherry Pie Filling</a></li>
@@ -38,38 +53,64 @@
         <li><a href="formatted_recipes/cornbread_dressing.html">Cornbread Dressing</a></li>
         <li><a href="formatted_recipes/cream_fudge.html">Cream Fudge</a></li>
         <li><a href="formatted_recipes/creamed_genoise.html">Creamed Genoise</a></li>
+
+        <h2>D</h2>
         <li><a href="formatted_recipes/doughnuts.html">Doughnuts</a></li>
+
+        <h2>E</h2>
         <li><a href="formatted_recipes/enchilada_beef.html">Enchilada Beef</a></li>
         <li><a href="formatted_recipes/enchilada_sauce.html">Enchilada Sauce</a></li>
+
+        <h2>F</h2>
         <li><a href="formatted_recipes/falafel.html">Falafel</a></li>
         <li><a href="formatted_recipes/fettuccine_alfredo.html">Fettuccine Alfredo</a></li>
         <li><a href="formatted_recipes/fried_chicken.html">Fried Chicken</a></li>
         <li><a href="formatted_recipes/fried_not_chicken.html">Fried Not Chicken</a></li>
         <li><a href="formatted_recipes/fried_rice.html">Fried Rice</a></li>
         <li><a href="formatted_recipes/frying_breading.html">Frying Breading</a></li>
+
+        <h2>G</h2>
         <li><a href="formatted_recipes/gingerbread_cookies.html">Gingerbread Cookies</a></li>
         <li><a href="formatted_recipes/grape_salad.html">Grape Salad</a></li>
         <li><a href="formatted_recipes/green_bean_casserole.html">Green Bean Casserole</a></li>
         <li><a href="formatted_recipes/green_chili.html">Green Chili</a></li>
+
+        <h2>H</h2>
         <li><a href="formatted_recipes/happy_plums.html">Happy Plums</a></li>
         <li><a href="formatted_recipes/honey_garlic_salmon.html">Honey Garlic Salmon</a></li>
+
+        <h2>I</h2>
         <li><a href="formatted_recipes/italian_meringue.html">Italian Meringue</a></li>
+
+        <h2>J</h2>
         <li><a href="formatted_recipes/jerk_rub.html">Jerk Rub</a></li>
+
+        <h2>K</h2>
         <li><a href="formatted_recipes/kaiser_roll.html">Kaiser Roll</a></li>
         <li><a href="formatted_recipes/kale_soup.html">Kale Soup</a></li>
         <li><a href="formatted_recipes/key_lime_filling.html">Key Lime Filling</a></li>
+
+        <h2>M</h2>
         <li><a href="formatted_recipes/macaroni_and_cheese.html">Macaroni And Cheese</a></li>
         <li><a href="formatted_recipes/millionaire_shortbread.html">Millionaire Shortbread</a></li>
         <li><a href="formatted_recipes/mirror_glaze.html">Mirror Glaze</a></li>
         <li><a href="formatted_recipes/mochi_donuts.html">Mochi Donuts</a></li>
+
+        <h2>N</h2>
         <li><a href="formatted_recipes/nutella_bites.html">Nutella Bites</a></li>
+
+        <h2>O</h2>
         <li><a href="formatted_recipes/old_fashioned_chocolate_fudge.html">Old Fashioned Chocolate Fudge</a></li>
+
+        <h2>P</h2>
         <li><a href="formatted_recipes/pancakes.html">Pancakes</a></li>
         <li><a href="formatted_recipes/pizza_crust.html">Pizza Crust</a></li>
         <li><a href="formatted_recipes/pot_pie.html">Pot Pie</a></li>
         <li><a href="formatted_recipes/potatoes_au_gratin.html">Potatoes Au Gratin</a></li>
         <li><a href="formatted_recipes/pumpkin_cream_coffee_sauce.html">Pumpkin Cream Coffee Sauce</a></li>
         <li><a href="formatted_recipes/pumpkin_pie_filling.html">Pumpkin Pie Filling</a></li>
+
+        <h2>R</h2>
         <li><a href="formatted_recipes/ratatouille.html">Ratatouille</a></li>
         <li><a href="formatted_recipes/red_bean_spice.html">Red Bean Spice</a></li>
         <li><a href="formatted_recipes/red_beans.html">Red Beans</a></li>
@@ -77,6 +118,8 @@
         <li><a href="formatted_recipes/rice.html">Rice</a></li>
         <li><a href="formatted_recipes/roast_pumpkin.html">Roast Pumpkin</a></li>
         <li><a href="formatted_recipes/roast_turkey.html">Roast Turkey</a></li>
+
+        <h2>S</h2>
         <li><a href="formatted_recipes/sauteed_green_beans.html">Sauteed Green Beans</a></li>
         <li><a href="formatted_recipes/sauteed_mushrooms.html">Sauteed Mushrooms</a></li>
         <li><a href="formatted_recipes/shortbread.html">Shortbread</a></li>
@@ -92,13 +135,22 @@
         <li><a href="formatted_recipes/strawberry_jam.html">Strawberry Jam</a></li>
         <li><a href="formatted_recipes/sweet_dough.html">Sweet Dough</a></li>
         <li><a href="formatted_recipes/sweet_fire_spice.html">Sweet Fire Spice</a></li>
+
+        <h2>T</h2>
         <li><a href="formatted_recipes/taco_meat.html">Taco Meat</a></li>
         <li><a href="formatted_recipes/taco_seasoning.html">Taco Seasoning</a></li>
         <li><a href="formatted_recipes/tamari_sauce.html">Tamari Sauce</a></li>
+
+        <h2>V</h2>
         <li><a href="formatted_recipes/vegetarian_gravy.html">Vegetarian Gravy</a></li>
+
+        <h2>W</h2>
         <li><a href="formatted_recipes/whipped_chocolate_icing.html">Whipped Chocolate Icing</a></li>
         <li><a href="formatted_recipes/whipped_cream_cheese_filling.html">Whipped Cream Cheese Filling</a></li>
+
+        <h2>Y</h2>
         <li><a href="formatted_recipes/yellow_cake.html">Yellow Cake</a></li>
+
     </ul>
 </body>
 </html>
