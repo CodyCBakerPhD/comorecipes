@@ -7,9 +7,10 @@ tags:
 - Pasta
 
 measurements:
-- amount: '3'
-  unit: eggs
-  ingredient: worth of fettuccine noodles
+- amount: '1'
+  unit: portions
+  ingredient: fettuccine noodles
+  suffix: (3 eggs worth)
 - amount: '57'
   unit: grams
   ingredient: butter
@@ -17,14 +18,12 @@ measurements:
   unit: grams
   ingredient: cream
 - amount: '3'
-  unit: cloves
-  ingredient: crushed garlic
-- amount: '1'
-  unit: 1/2
-  ingredient: cups freshly grated Parmesan
-- amount: 1/2
-  unit: tbsp
-  ingredient: fresh parsley
+  unit: portions
+  prefix: minced
+  ingredient: garlic
+- amount: '50'
+  unit: grams
+  ingredient: Parmesan
 
 instructions:
 - Melt butter in saucepan over medium heat.

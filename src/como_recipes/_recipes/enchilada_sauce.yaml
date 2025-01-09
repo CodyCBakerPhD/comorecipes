@@ -13,12 +13,13 @@ measurements:
 - amount: '15'
   unit: grams
   ingredient: flour
-- amount: 1/4
-  unit: cup
-  ingredient: dark chili powder
-- amount: '8'
-  unit: oz.
-  ingredient: can tomato sauce
+- amount: '36'
+  unit: grams
+  ingredient: chili powder
+- amount: '226'
+  unit: grams
+  ingredient: tomato sauce
+  suffix: (1 8 oz. can)
 - amount: '360'
   unit: grams
   ingredient: water

@@ -55,11 +55,8 @@ def test_meal_selection_add_meal():
         "    8 cloves",
         "☐  olive oil",
         "    76 grams",
-        "    enough ",
         "☐  salt",
         "    17 grams",
-        "☐  salt & pepper",
-        "    enough ",
         "☐  thin spaghetti",
         "    1 portions",
         "☐  water",
@@ -152,11 +149,8 @@ def test_meal_selection_add_measurement_with_recipes(example_measurement: Measur
         "    8 cloves",
         "☐  olive oil",
         "    76 grams",
-        "    enough ",
         "☐  salt",
         "    17 grams",
-        "☐  salt & pepper",
-        "    enough ",
         "☐  thin spaghetti",
         "    1 portions",
         "☐  water",
@@ -250,11 +244,8 @@ def test_meal_selection_remove_measurement_after_adding_with_recipes(example_mea
         "    8 cloves",
         "☐  olive oil",
         "    76 grams",
-        "    enough ",
         "☐  salt",
         "    17 grams",
-        "☐  salt & pepper",
-        "    enough ",
         "☐  thin spaghetti",
         "    1 portions",
         "☐  water",
@@ -348,11 +339,8 @@ def test_meal_selection_remove_all_measurement_after_adding_with_recipes(example
         "    8 cloves",
         "☐  olive oil",
         "    76 grams",
-        "    enough ",
         "☐  salt",
         "    17 grams",
-        "☐  salt & pepper",
-        "    enough ",
         "☐  thin spaghetti",
         "    1 portions",
         "☐  water",
@@ -365,14 +353,17 @@ def test_meal_selection_remove_all_measurement_after_adding_with_recipes(example
     # assert meal_selection.get_shopping_list() == expected_shopping_list
 
 
-def test_get_shopping_list_empty_error():
+def test_get_shopping_list_empty():
     meal_selection = MealSelection()
 
-    with pytest.raises(
-        expected_exception=ValueError,
-        match="No meals or measurements have been added to the meal selection.",
-    ):
-        meal_selection.get_shopping_list()
+    shopping_list = meal_selection.get_shopping_list()
+    assert shopping_list == {}
+
+    shopping_list = meal_selection.get_shopping_list_display()
+    assert shopping_list == []
+
+    shopping_list = meal_selection.get_shopping_list_printout()
+    assert shopping_list == ""
 
 
 def test_get_shopping_list_multiple_units_error():
