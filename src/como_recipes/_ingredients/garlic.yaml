@@ -1,0 +1,4 @@
+name: garlic
+default_grams_per_package: 1.0
+default_package_unit: head
+portions_text: cloves

@@ -22,13 +22,14 @@ class RecipeRegistry(pydantic.BaseModel):
 
         self._recipes = self._recipes or {}
 
-        _recipe_directory = (
+        _default_recipes_directory = (
             pathlib.Path(__file__).parent.parent / "_recipes"
             if is_bundled() is False
             else get_bundle_base_path() / "_recipes"
         )
         self._default_recipes = self._default_recipes or {
-            file_path.open().readline()[6:-1]: file_path for file_path in _recipe_directory.glob(pattern="*.yaml")
+            file_path.open().readline()[6:-1]: file_path
+            for file_path in _default_recipes_directory.glob(pattern="*.yaml")
         }
 
     def __len__(self) -> int:
@@ -119,15 +120,16 @@ class RecipeRegistry(pydantic.BaseModel):
 
         """
         recipe = self._recipes.get(recipe_name, None)
+        if recipe is not None:
+            return recipe
+
         file_path = self._default_recipes.get(recipe_name, None)
-
-        if recipe is None and file_path is not None:
+        if file_path is not None:
             recipe = Recipe.from_yaml_file(file_path=file_path)
-        elif recipe is None and file_path is None:
-            message = f"Recipe '{recipe_name}' not found in the registry."
-            raise ValueError(message)
+            return recipe
 
-        return recipe
+        message = f"Recipe '{recipe_name}' not found in the registry."
+        raise ValueError(message)
 
     @pydantic.validate_call
     def get_all_recipe_names(self) -> list[str]:
