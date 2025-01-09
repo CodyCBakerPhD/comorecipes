@@ -13,11 +13,12 @@ measurements:
   unit: grams
   ingredient: water
 - amount: '4'
-  unit: egg
-  ingredient: whites, room temperature
-- amount: 1/2
-  unit: tsp
-  ingredient: cream of tartar or lemon juice
+  unit: portions
+  ingredient: egg whites
+  suffix: ', room temperature'
+- amount: '1'
+  unit: grams
+  ingredient: cream of tartar
 
 instructions:
 - Combine sugar and water in a small saucepan over high heat, brushing down sides

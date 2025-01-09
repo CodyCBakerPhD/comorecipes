@@ -23,8 +23,8 @@ measurements:
 - amount: '4'
   unit: cloves
   ingredient: garlic, finely chopped
-- amount: '4'
-  unit: tbsp
+- amount: '85'
+  unit: grams
   ingredient: honey
 - amount: '15'
   unit: grams

@@ -27,8 +27,8 @@ measurements:
 - amount: '5'
   unit: grams
   ingredient: cayenne pepper
-- amount: '2'
-  unit: tbsp
+- amount: '40'
+  unit: grams
   ingredient: salt & pepper
 
 instructions:

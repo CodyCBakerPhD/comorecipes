@@ -8,28 +8,28 @@ tags:
 
 measurements:
 - amount: '4'
-  unit: plums
-  ingredient: ''
+  unit: portions
+  ingredient: plums
 - amount: '25'
   unit: grams
   ingredient: sugar
-- amount: '1'
-  unit: tbsp
+- amount: 'enough'
   ingredient: coconut oil
-- amount: 1/4
-  unit: cup
-  ingredient: basalmic vinegar
+- amount: '60'
+  unit: grams
+  ingredient: balsamic vinegar
 - amount: '0.5'
   unit: grams
   ingredient: vanilla
 - amount: '1'
-  unit: tsp
-  ingredient: chopped fresh rosemary
-- amount: '1'
-  unit: tbsp
+  unit: grams
+  prefix: chopped
+  ingredient: fresh rosemary
+- amount: '21'
+  unit: grams
   ingredient: honey
-- amount: '1'
-  unit: tbsp
+- amount: '15'
+  unit: grams
   ingredient: sour cream
 
 instructions:

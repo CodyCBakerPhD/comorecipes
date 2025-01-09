@@ -11,38 +11,41 @@ measurements:
   unit: grams
   ingredient: olive oil
 - amount: '1'
-  unit: yellow
-  ingredient: onion, chopped
-- amount: '2'
-  unit: tbsp
-  ingredient: garlic, chopped
+  unit: portions
+  ingredient: onion
+- amount: '3'
+  unit: portions
+  ingredient: garlic
 - amount: '1'
-  unit: bunch
-  ingredient: of kale, stems removed and leaves chopped
+  unit: portions
+  prefix: chopped
+  ingredient: kale
 - amount: '960'
   unit: grams
   ingredient: water
-- amount: '6'
-  unit: cubes
-  ingredient: of vegetable bouillon
-- amount: '15'
-  unit: oz.
-  ingredient: stewed tomatoes
-- amount: '6'
-  unit: white
-  ingredient: potatoes, cubed
-- amount: '30'
-  unit: oz
-  ingredient: cannellini beans (two 15 oz. cans), drained
+- amount: '20'
+  unit: grams
+  ingredient: no-chicken bouillon
 - amount: '1'
-  unit: tbsp
+  unit: portions
+  ingredient: fresh tomatoes
+- amount: '6'
+  unit: portions
+  prefix: cubed
+  ingredient: potatoes
+- amount: '850'
+  unit: grams
+  ingredient: cannellini beans
+  suffix: (2 cans)
+- amount: '6'
+  unit: grams
   ingredient: Italian seasoning
-- amount: '2'
-  unit: tbsp
-  ingredient: dried parsley
-- amount: '1'
-  unit: tsp
-  ingredient: Salt and pepper
+- amount: '8'
+  unit: grams
+  ingredient: parsley
+- amount: '6'
+  unit: grams
+  ingredient: salt and pepper
 
 instructions:
 - Heat olive oil in a large soup pot. Cook the onion and garlic until soft. Stir in
