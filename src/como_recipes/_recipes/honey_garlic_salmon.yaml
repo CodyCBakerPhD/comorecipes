@@ -6,14 +6,14 @@ tags:
 
 measurements:
 - amount: '4'
-  unit: salmon
-  ingredient: fillets, 250 g each
+  unit: portions
+  ingredient: salmon fillets
 - amount: '3'
   unit: grams
   ingredient: salt
-- amount: 1/2
-  unit: tsp
-  ingredient: black pepper
+- amount: '1'
+  unit: grams
+  ingredient: salt and pepper
 - amount: '2'
   unit: grams
   ingredient: paprika
@@ -21,8 +21,9 @@ measurements:
   unit: grams
   ingredient: butter
 - amount: '4'
-  unit: cloves
-  ingredient: garlic, finely chopped
+  unit: portions
+  ingredient: garlic
+  suffix: ', finely chopped'
 - amount: '85'
   unit: grams
   ingredient: honey
@@ -32,12 +33,14 @@ measurements:
 - amount: '11'
   unit: grams
   ingredient: soy sauce
-- amount: '1'
-  unit: tbsp
-  ingredient: fresh lemon juice
+- amount: '15'
+  unit: grams
+  prefix: fresh
+  ingredient: lemon juice
 - amount: '4'
-  unit: lemon
-  ingredient: wedges to garnish
+  unit: portions
+  ingredient: lemon wedges
+  suffix: for garnish
 
 instructions:
 - Move oven shelf to middle. Preheat to broil/grill settings on medium heat. Season

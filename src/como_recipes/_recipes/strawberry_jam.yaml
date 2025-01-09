@@ -7,24 +7,25 @@ tags:
 - Fruit
 
 measurements:
-- amount: 3/2
-  unit: ''
-  ingredient: cups of thinly sliced strawberries
+- amount: '250'
+  unit: grams
+  ingredient: strawberries
+  suffix: ', thinly sliced'
 - amount: '40'
-  unit: ''
-  ingredient: g. sugar
+  unit: grams
+  ingredient: sugar
 - amount: '40'
-  unit: ''
-  ingredient: g. brown sugar
+  unit: grams
+  ingredient: brown sugar
 - amount: '20'
-  unit: ''
-  ingredient: g. honey
+  unit: grams
+  ingredient: honey
 - amount: '270'
   unit: grams
   ingredient: cornstarch
-- amount: 1/4
-  unit: ''
-  ingredient: tsp vanilla extract
+- amount: '1'
+  unit: grams
+  ingredient: vanilla
 - amount: '1'
   unit: grams
   ingredient: lime juice

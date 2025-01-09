@@ -9,15 +9,11 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: rice
-- amount: '3'
-  unit: tbsp
+- amount: 'enough'
   ingredient: peanut oil
 - amount: '1'
   unit: portions
-  ingredient: beef, chicken, pork, or shrimp
-- amount: '1'
-  unit: portions
-  ingredient: tofu
+  ingredient: tofu, beef, chicken, pork, or shrimp
 - amount: '1'
   unit: portions
   ingredient: shallots

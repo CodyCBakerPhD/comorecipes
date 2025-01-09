@@ -12,9 +12,8 @@ measurements:
   ingredient: red beans
 - amount: '1'
   unit: portions
-  ingredient: white rice
-- amount: '14'
-  unit: grams
+  ingredient: rice
+- amount: 'enough'
   ingredient: olive oil
 - amount: '20'
   unit: grams
@@ -22,33 +21,18 @@ measurements:
 - amount: '83'
   unit: grams
   ingredient: white onion
-- amount: '1'
-  unit: stalk
-  ingredient: celery
 - amount: '2'
-  unit: bay
-  ingredient: leaves
-- amount: '1'
+  unit: portions
+  ingredient: bay leaves
+- amount: '7.6'
   unit: grams
-  ingredient: cayenne pepper
-- amount: '1'
-  unit: tsp
-  ingredient: thyme
-- amount: '0.1'
-  unit: grams
-  ingredient: sage
-- amount: '1.5'
-  unit: grams
-  ingredient: parsley
-- amount: '1'
-  unit: tsp
-  ingredient: Cajun seasoning
+  ingredient: red bean spice  # TODO: link
 - amount: '240'
   unit: grams
   ingredient: water
 
 instructions:
-- Make rice. Mix spices together.
+- Make rice.
 - Carefully caramelize garlic, onion, and celery in oil.
 - Add water to onions and garlic, then mix in spices.
 - Add beans and any other add-ins, simmer for at least 15 minutes.

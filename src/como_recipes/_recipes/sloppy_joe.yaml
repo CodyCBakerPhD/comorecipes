@@ -7,28 +7,28 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: batch
-  ingredient: of Kaiser Rolls
-- amount: '1'
-  unit: lb
+  unit: portions
+  ingredient: Kaiser Rolls
+- amount: '453'
+  unit: grams
   ingredient: ground beef or Boca crumbles
-- amount: 1/4
-  unit: cup
+- amount: '0.25'
+  unit: portions
   ingredient: red onion
 - amount: '2'
   unit: grams
   ingredient: garlic powder
-- amount: '2'
-  unit: tsp
+- amount: '10'
+  unit: grams
   ingredient: yellow mustard
-- amount: 1/2
-  unit: cup
+- amount: '120'
+  unit: grams
   ingredient: ketchup
 - amount: '4'
   unit: grams
   ingredient: brown sugar
-- amount: 1/2
-  unit: tbsp
+- amount: '10'
+  unit: grams
   ingredient: molasses
 - amount: '1'
   unit: grams

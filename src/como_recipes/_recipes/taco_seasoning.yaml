@@ -1,42 +1,33 @@
 name: Taco Seasoning
 
 tags:
-- American
-- Vegetarian
-- Entree
-- Spicy
+- Component
 
 measurements:
-- amount: 1/4
-  unit: ''
-  ingredient: tsp garlic powder
-- amount: 1/4
-  unit: ''
-  ingredient: tsp onion powder
-- amount: 1/4
-  unit: ''
-  ingredient: tsp red pepper
-- amount: 1/4
-  unit: ''
-  ingredient: tsp dried oregano
-- amount: 1/2
-  unit: ''
-  ingredient: tsp paprika
-- amount: '8'
+- amount: '10'
+  unit: grams
+  ingredient: garlic powder
+- amount: '10'
+  unit: grams
+  ingredient: onion powder
+- amount: '10'
+  unit: grams
+  ingredient: red pepper
+- amount: '5'
+  unit: grams
+  ingredient: oregano
+- amount: '30'
+  unit: grams
+  ingredient: paprika
+- amount: '80'
   unit: grams
   ingredient: cumin
-- amount: 1/2
-  unit: ''
-  ingredient: tsp salt
-- amount: '1'
-  unit: ''
-  ingredient: tsp pepper
-- amount: '1'
-  unit: ''
-  ingredient: lb. ground beef or refried beans or Boca
+- amount: '60'
+  unit: grams
+  ingredient: salt and pepper
+
+notes:
+- Makes about enough for 10 portions of taco meat.
 
 instructions:
 - Mix spice.
-- To use spice to make tacos, brown beef or boca.
-- Add mix and some water for incorporation (beef or Boca).
-- Cook off excess water to allow base to absorb spice.

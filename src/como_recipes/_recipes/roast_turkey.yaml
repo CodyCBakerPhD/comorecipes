@@ -6,19 +6,19 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: large
+  unit: portions
   ingredient: turkey bag
 - amount: '7680'
   unit: grams
   ingredient: water
-- amount: '2'
-  unit: cups
-  ingredient: Kosher salt
+- amount: '600'
+  unit: grams
+  ingredient: salt
 - amount: '109'
   unit: grams
   ingredient: brown sugar
-- amount: '20'
-  unit: lb.
+- amount: '9000'
+  unit: grams
   ingredient: whole turkey
 
 instructions:

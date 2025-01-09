@@ -9,8 +9,8 @@ measurements:
 - amount: '240'
   unit: grams
   ingredient: water
-- amount: '1'
-  unit: tbsp
+- amount: '17'
+  unit: grams
   ingredient: yeast
 - amount: '4'
   unit: grams

@@ -15,15 +15,18 @@ measurements:
 - amount: '3'
   unit: grams
   ingredient: salt
+- amount: '190'
+  unit: grams
+  prefix: cold
+  ingredient: shortening
+- amount: '120'
+  unit: grams
+  prefix: ice
+  ingredient: water
 - amount: '1'
-  unit: cup
-  ingredient: cold shortening
-- amount: 1/2
-  unit: cup
-  ingredient: ice water
-- amount: '1'
-  unit: egg
-  ingredient: yolk with a little water
+  unit: portions
+  ingredient: egg yolk
+  suffix: with a little water
 
 instructions:
 - Pulse flour, sugar and salt in food processor to combine. Add cold shortening and

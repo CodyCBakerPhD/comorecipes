@@ -8,27 +8,27 @@ tags:
 - Chocolate
 
 measurements:
-- amount: 3/2
-  unit: ''
-  ingredient: cups oats
-- amount: 2/3
-  unit: ''
-  ingredient: cup Nutella
-- amount: 1/2
-  unit: ''
-  ingredient: cu. shredded coconut
-- amount: 1/2
-  unit: ''
-  ingredient: cup honey
-- amount: 1/2
-  unit: ''
-  ingredient: cup roasted hazelnuts
-- amount: '2'
-  unit: ''
-  ingredient: tsp vanilla extract
-- amount: 1/4
-  unit: ''
-  ingredient: tsp salt
+- amount: '120'
+  unit: grams
+  ingredient: oats
+- amount: '197'
+  unit: grams
+  ingredient: Nutella
+- amount: '40'
+  unit: grams
+  ingredient: shredded coconut
+- amount: '170'
+  unit: grams
+  ingredient: honey
+- amount: '65'
+  unit: grams
+  ingredient: roasted hazelnuts
+- amount: '8'
+  unit: grams
+  ingredient: vanilla
+- amount: '0.5'
+  unit: grams
+  ingredient: salt
 
 instructions:
 - Combine all ingredients in large bowl and mix thoroughly.

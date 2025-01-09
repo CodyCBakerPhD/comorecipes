@@ -13,8 +13,8 @@ measurements:
 - amount: '57'
   unit: grams
   ingredient: Dutch cocoa powder
-- amount: 1/4
-  unit: tsp
+- amount: '0.5'
+  unit: grams
   ingredient: salt
 - amount: '366'
   unit: grams
