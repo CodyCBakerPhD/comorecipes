@@ -8,13 +8,11 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: spaghetti
-  ingredient: squash
-- amount: '14'
-  unit: grams
+  unit: portions
+  ingredient: spaghetti squash
+- amount: 'enough'
   ingredient: olive oil
-- amount: '4'
-  unit: grams
+- amount: 'enough'
   ingredient: salt and pepper
 
 instructions:

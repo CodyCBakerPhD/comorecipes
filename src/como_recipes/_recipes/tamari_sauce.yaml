@@ -15,14 +15,14 @@ measurements:
 - amount: '10'
   unit: grams
   ingredient: garlic
-- amount: 3/2
-  unit: tbsp
+- amount: '27'
+  unit: grams
   ingredient: tamari
-- amount: '1'
-  unit: tbsp
+- amount: '15'
+  unit: grams
   ingredient: rice vinegar
-- amount: 3/4
-  unit: tbsp
+- amount: '8'
+  unit: grams
   ingredient: maple syrup
 - amount: '120'
   unit: grams

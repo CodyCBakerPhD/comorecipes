@@ -5,11 +5,10 @@ tags:
 - Vegetarian
 
 measurements:
-- amount: 5/2
-  unit: lb
-  ingredient: sugar pumpkin
 - amount: '1'
-  unit: tbsp
+  unit: portions
+  ingredient: sugar pumpkin
+- amount: 'enough'
   ingredient: coconut oil
 
 instructions:

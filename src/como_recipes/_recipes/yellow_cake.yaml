@@ -13,8 +13,8 @@ measurements:
   unit: grams
   ingredient: sugar
 - amount: '8'
-  unit: egg
-  ingredient: yolks
+  unit: portions
+  ingredient: egg yolks
 - amount: '180'
   unit: grams
   ingredient: milk

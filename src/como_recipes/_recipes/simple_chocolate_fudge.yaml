@@ -16,15 +16,12 @@ measurements:
 - amount: '113'
   unit: grams
   ingredient: butter
-- amount: 1/4
-  unit: cup
+- amount: '60'
+  unit: grams
   ingredient: chocolate milk
 - amount: '17'
   unit: grams
   ingredient: vanilla
-- amount: 1/2
-  unit: cup
-  ingredient: chopped walnuts or pecans, optional
 
 instructions:
 - One of several variations on chocolate fudge.
@@ -34,6 +31,5 @@ instructions:
 - Place powdered sugar, cocoa powder, butter, and milk into a large bowl, then place
   the bowl on top of the saucepan with simmering water.
 - Cook, whisking regularly, until the butter has melted, and the mixture is smooth.
-- Remove from heat, stir in the vanilla and optional chopped nuts, then pour quickly
-  into prepared pan.
+- Remove from heat, stir in the vanilla, then pour quickly into prepared pan.
 - Chill until solidified.

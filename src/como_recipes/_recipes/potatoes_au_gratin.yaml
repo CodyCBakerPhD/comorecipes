@@ -7,7 +7,7 @@ tags:
 
 measurements:
 - amount: '4'
-  unit: russet
+  unit: portions
   ingredient: potatoes
 - amount: '250'
   unit: grams
@@ -24,8 +24,8 @@ measurements:
 - amount: '500'
   unit: grams
   ingredient: whole milk
-- amount: 3/2
-  unit: cup
+- amount: '180'
+  unit: grams
   ingredient: cheddar
 
 instructions:

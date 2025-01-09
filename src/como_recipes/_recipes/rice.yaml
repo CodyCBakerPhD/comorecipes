@@ -7,9 +7,9 @@ tags:
 - Side
 
 measurements:
-- amount: 3/2
-  unit: cups
-  ingredient: rice
+- amount: '277'
+  unit: grams
+  ingredient: white rice
 - amount: '480'
   unit: grams
   ingredient: water

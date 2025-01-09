@@ -7,14 +7,14 @@ tags:
 - Fruit
 
 measurements:
-- amount: '28'
-  unit: oz.
+- amount: '800'
+  unit: grams
   ingredient: sweetened condensed milk
-- amount: 1/2
-  unit: cup
+- amount: '120'
+  unit: grams
   ingredient: sour cream
-- amount: 3/4
-  unit: cup
+- amount: '188'
+  unit: grams
   ingredient: Key lime juice
 
 instructions:

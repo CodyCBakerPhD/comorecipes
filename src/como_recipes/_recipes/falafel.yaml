@@ -27,8 +27,8 @@ measurements:
 - amount: '10'
   unit: grams
   ingredient: cumin
-- amount: '1'
-  unit: tsp
+- amount: '2'
+  unit: grams
   ingredient: coriander
 - amount: 1/4
   unit: tsp

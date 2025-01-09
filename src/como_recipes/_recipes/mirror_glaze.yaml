@@ -8,22 +8,22 @@ tags:
 
 measurements:
 - amount: '20'
-  unit: g
+  unit: grams
   ingredient: Agar Agar
 - amount: '170'
   unit: grams
   ingredient: water
 - amount: '300'
-  unit: mL
+  unit: grams
   ingredient: corn syrup
 - amount: '150'
   unit: grams
   ingredient: sugar
 - amount: '200'
-  unit: g
+  unit: grams
   ingredient: condensed milk
 - amount: '300'
-  unit: g
+  unit: grams
   ingredient: white chocolate
 
 instructions:

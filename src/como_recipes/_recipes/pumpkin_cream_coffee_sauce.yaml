@@ -6,17 +6,17 @@ tags:
 - Vegetarian
 
 measurements:
-- amount: '1'
-  unit: cup
-  ingredient: heavy whipping cream
-- amount: 1/2
-  unit: cup
-  ingredient: granulated sugar
-- amount: '1'
-  unit: tbsp
+- amount: '230'
+  unit: grams
+  ingredient: cream
+- amount: '100'
+  unit: grams
+  ingredient: sugar
+- amount: '17'
+  unit: grams
   ingredient: pumpkin puree
-- amount: '1'
-  unit: tsp
+- amount: '2'
+  unit: grams
   ingredient: pumpkin pie spice
 - amount: '4'
   unit: grams

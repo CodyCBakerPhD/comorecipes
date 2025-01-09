@@ -17,13 +17,16 @@ measurements:
   ingredient: butter
 - amount: '0.5'
   unit: portions
-  ingredient: yellow onions, finely chopped
+  ingredient: onions
+  suffix: ', finely chopped'
 - amount: '2'
-  unit: medium
-  ingredient: carrots, peeled and finely chopped
+  unit: portions
+  ingredient: carrots
+  suffix: ', peeled and finely chopped'
 - amount: '1'
-  unit: small
-  ingredient: russet potato, peeled and diced
+  unit: portions
+  ingredient: potatoes
+  suffix: ', peeled and diced'
 - amount: '8'
   unit: grams
   ingredient: salt and pepper
@@ -36,11 +39,11 @@ measurements:
 - amount: '250'
   unit: grams
   ingredient: whole milk
-- amount: '1'
-  unit: cup
+- amount: '160'
+  unit: grams
   ingredient: green peas
-- amount: 1/4
-  unit: cups
+- amount: '12'
+  unit: grams
   ingredient: thinly sliced chives
 - amount: '5'
   unit: grams

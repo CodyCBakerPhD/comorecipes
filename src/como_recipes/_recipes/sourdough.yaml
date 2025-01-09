@@ -13,8 +13,8 @@ measurements:
   unit: grams
   ingredient: salt
 - amount: '60'
-  unit: g.
-  ingredient: yeast start
+  unit: grams
+  ingredient: natural yeast
 - amount: '200'
   unit: grams
   ingredient: water

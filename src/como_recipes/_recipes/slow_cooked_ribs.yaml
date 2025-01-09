@@ -6,11 +6,11 @@ tags:
 - Spicy
 
 measurements:
-- amount: 1/3
-  unit: cup
-  ingredient: premade Sweet Fire Rub (see recipe)
-- amount: 1/2
-  unit: rack
+- amount: '66'
+  unit: grams
+  ingredient: Sweet Fire Rub # TODO: link
+- amount: '0.5'
+  unit: portions
   ingredient: baby back ribs
 
 instructions:
