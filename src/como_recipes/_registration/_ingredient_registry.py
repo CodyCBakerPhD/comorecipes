@@ -1,3 +1,5 @@
+import functools
+import pathlib
 import typing
 
 import natsort
@@ -5,6 +7,14 @@ import pydantic
 
 from .._base._base_ingredient import Ingredient
 from .._base._base_measurement import Measurement
+from ..utils import get_bundle_base_path, is_bundled
+
+
+@functools.lru_cache(maxsize=1_000)
+def _cached_load_ingredient(file_path: pathlib.Path) -> Ingredient:
+    """Cached because loading the entire recipe registry will repeat calls to loading ingredients."""
+    ingredient = Ingredient.from_yaml_file(file_path=file_path)
+    return ingredient
 
 
 class IngredientRegistry(pydantic.BaseModel):
@@ -16,6 +26,7 @@ class IngredientRegistry(pydantic.BaseModel):
     """
 
     _ingredients: dict[str, Ingredient] | None = None
+    _default_ingredients: dict[str, pathlib.Path] | None = None
     model_config = pydantic.ConfigDict(extra="forbid")
 
     def __init__(self, *args: list[typing.Any], **kwargs: dict[typing.Any, typing.Any]) -> None:
@@ -26,6 +37,16 @@ class IngredientRegistry(pydantic.BaseModel):
         super().__init__(**kwargs)
 
         self._ingredients = self._ingredients or {}
+
+        _default_ingredients_directory = (
+            pathlib.Path(__file__).parent.parent / "_ingredients"
+            if is_bundled() is False
+            else get_bundle_base_path() / "_recipes"
+        )
+        self._default_ingredients = self._default_ingredients or {
+            file_path.open().readline()[6:-1]: file_path
+            for file_path in _default_ingredients_directory.glob(pattern="*.yaml")
+        }
 
     def __len__(self) -> int:
         """
@@ -43,7 +64,7 @@ class IngredientRegistry(pydantic.BaseModel):
 
         Utilizing O(1) lookup is much faster than traditional iterative search.
         """
-        return self._ingredients.get(item, None) is not None
+        return self._ingredients.get(item, None) is not None or self._default_ingredients.get(item, None) is not None
 
     def __repr__(self) -> str:
         """
@@ -99,10 +120,16 @@ class IngredientRegistry(pydantic.BaseModel):
 
         """
         ingredient = self._ingredients.get(ingredient_name, None)
-        if ingredient is None:
-            message = f"Ingredient '{ingredient_name}' not found in the registry."
-            raise ValueError(message)
-        return ingredient
+        if ingredient is not None:
+            return ingredient
+
+        file_path = self._default_ingredients.get(ingredient_name, None)
+        if file_path is not None:
+            ingredient = _cached_load_ingredient(file_path=file_path)
+            return ingredient
+
+        message = f"Ingredient '{ingredient_name}' not found in the registry."
+        raise ValueError(message)
 
     @pydantic.validate_call
     def add_ingredient(self, *, ingredient: Ingredient) -> None:
@@ -170,5 +197,4 @@ class IngredientRegistry(pydantic.BaseModel):
 
 
 # Initialize the global default ingredient registry
-# Items are explicitly added in their respective ingredient files
 default_ingredient_registry = IngredientRegistry()

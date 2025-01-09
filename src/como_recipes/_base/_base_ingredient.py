@@ -1,6 +1,8 @@
 import math
+import typing
 
 import pydantic
+import yaml
 
 
 class Ingredient(pydantic.BaseModel):
@@ -63,3 +65,40 @@ class Ingredient(pydantic.BaseModel):
             raise NotImplementedError(message)
 
         return int(math.ceil(amount_in_grams / self.default_grams_per_package))
+
+    @pydantic.validate_call
+    def to_yaml_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:
+        """
+        Save ingredient to a .yaml file.
+
+        Parameters
+        ----------
+        file_path : pydantic.NewPath
+            Path to the .yaml file
+
+        """
+        data = {
+            "name": self.name,
+            "default_grams_per_package": self.default_grams_per_package,
+            "default_package_unit": self.default_package_unit,
+            "portions_text": self.portions_text,
+        }
+        with file_path.open(mode="w") as io:
+            yaml.dump(data=data, stream=io)
+
+    @classmethod
+    @pydantic.validate_call
+    def from_yaml_file(cls, *, file_path: pydantic.FilePath) -> typing.Self:
+        """
+        Load ingredient from a .yaml file.
+
+        Parameters
+        ----------
+        file_path : pydantic.FilePath
+            Path to the .yaml file.
+
+        """
+        with file_path.open(mode="r") as io:
+            ingredient_info = yaml.safe_load(stream=io)
+
+        return cls(**ingredient_info)

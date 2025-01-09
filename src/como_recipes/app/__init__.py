@@ -6,8 +6,8 @@ from ._session_manager_frame import SessionManagerFrame
 from ._meal_assembler_frame import MealAssemblerFrame
 
 __all__ = [
-    "AvailableRecipesFrame",
     "CoMoApp",
+    "AvailableRecipesFrame",
     "MealAssemblerFrame",
     "SelectedMealsFrame",
     "ShoppingListFrame",

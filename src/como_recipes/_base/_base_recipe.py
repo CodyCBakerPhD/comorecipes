@@ -193,7 +193,7 @@ class Recipe(pydantic.BaseModel):
         if "notes" in recipe_info:
             recipe_info["notes"] = tuple(recipe_info["notes"])
 
-        return Recipe(**recipe_info)
+        return cls(**recipe_info)
 
     @pydantic.validate_call
     def to_html_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:

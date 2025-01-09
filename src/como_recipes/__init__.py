@@ -7,6 +7,10 @@ from ._registration._ingredient_registry import IngredientRegistry, default_ingr
 from ._meal_selection import MealSelection
 
 __all__ = [
+    # Global variables
+    "default_recipe_registry",
+    "default_ingredient_registry",
+    # Public API classes
     "Recipe",
     "Ingredient",
     "Meal",
@@ -14,9 +18,6 @@ __all__ = [
     "RecipeRegistry",
     "IngredientRegistry",
     "MealSelection",
-    # Global variables
-    "default_recipe_registry",
-    "default_ingredient_registry",
     # Public submodules
     "app",
     "utils",
