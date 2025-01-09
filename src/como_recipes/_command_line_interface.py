@@ -1,5 +1,6 @@
 """Command line interface for como_recipes."""
 
+import collections
 import pathlib
 import shutil
 
@@ -45,14 +46,15 @@ def _generate_html_recipes() -> None:
         shutil.rmtree(path=formatted_recipes_directory, ignore_errors=True)
     formatted_recipes_directory.mkdir(exist_ok=True)
 
-    relative_path_to_recipe_name = {}
-    for recipe_name in natsort.natsorted(seq=default_recipe_registry.get_all_recipe_names()):
+    alphabetized_relative_path_to_recipe_name: dict[str, dict[str]] = collections.defaultdict(dict)
+    recipe_names = default_recipe_registry.get_all_recipe_names()
+    for recipe_name in natsort.natsorted(seq=recipe_names):
+        starting_letter = recipe_name[0].upper()
         recipe = default_recipe_registry.get_recipe(recipe_name=recipe_name)
 
-        # file_stem = recipe.snake_case_name
         file_stem = recipe.name.lower().replace(" ", "_")
         relative_path = f"formatted_recipes/{file_stem}.html"
-        relative_path_to_recipe_name[relative_path] = recipe_name
+        alphabetized_relative_path_to_recipe_name[starting_letter][relative_path] = recipe_name
         recipe_file_path = docs_base_directory / relative_path
 
         recipe.to_html_file(file_path=recipe_file_path)
@@ -64,13 +66,26 @@ def _generate_html_recipes() -> None:
         '    <meta charset="UTF-8">\n',
         '    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n',
         "    <title>Recipe Index</title>\n",
+        "    <style>\n",
+        "        .grid-container {\n",
+        "            display: grid;\n",
+        "            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n",
+        "            gap: 10px;\n",
+        "        }\n",
+        "        .grid-container h2 {\n",
+        "            grid-column: span 3;\n",
+        "        }\n",
+        "    </style>\n",
         "</head>\n",
         "<body>\n",
         "    <h1>Recipe Index</h1>\n",
-        "    <ul>\n",
+        '    <ul class="grid-container">\n',
     ]
-    for relative_path, recipe_name in relative_path_to_recipe_name.items():
-        index_lines.append(f'        <li><a href="{relative_path}">{recipe_name}</a></li>\n')
+    for starting_letter, relative_path_to_recipe_name in alphabetized_relative_path_to_recipe_name.items():
+        index_lines.append(f"        <h2>{starting_letter}</h2>\n")
+        for relative_path, recipe_name in relative_path_to_recipe_name.items():
+            index_lines.append(f'        <li><a href="{relative_path}">{recipe_name}</a></li>\n')
+        index_lines.append("\n")
     index_lines += [
         "    </ul>\n",
         "</body>\n",
