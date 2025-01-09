@@ -281,19 +281,14 @@ class MealSelection(pydantic.BaseModel):
 
         return "".join(lines)
 
-    @pydantic.validate_call
-    def get_shopping_list(self) -> list[str]:
-        """Get a shopping list by aggregating all contained recipes and measurements."""
-        if self.is_empty():
-            message = "No meals or measurements have been added to the meal selection."
+    def get_shopping_list(self) -> dict[str, tuple[int | float, str]]:
+        """Get the shopping list by aggregating all contained recipes and measurements."""
+        shopping_list = {}
 
-            raise ValueError(message)
+        if self.is_empty():
+            return shopping_list
 
         combined_measurements = self._calculate_combined_measurements()
-
-        shopping_list = ["Meals\n-----\n\n"]
-        shopping_list.extend([f"☐ {recipe_names}\n" for recipe_names in self._recipe_names_to_meal.keys()])
-        shopping_list.append("\n\n\nIngredients\n-----------\n\n")
 
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
             seq=combined_measurements.items(),
@@ -325,10 +320,40 @@ class MealSelection(pydantic.BaseModel):
             if total_per_ingredient == 0:
                 continue
 
-            shopping_list.append(f"☐  {ingredient_name}\n")
-            shopping_list.append(f"    {total_per_ingredient} {measurement_unit}\n")
+            shopping_list[ingredient_name] = (total_per_ingredient, measurement_unit)
 
         return shopping_list
+
+    def get_shopping_list_display(self) -> list[str]:
+        """Get the shopping list displayed in the app."""
+        shopping_list_display = []
+
+        if self.is_empty():
+            return shopping_list_display
+
+        shopping_list = self.get_shopping_list()
+        for ingredient_name, (total_per_ingredient, measurement_unit) in shopping_list.items():
+            shopping_list_display.append(f"{ingredient_name}\n")
+            shopping_list_display.append(f"  {total_per_ingredient} {measurement_unit}\n")
+
+        return shopping_list_display
+
+    def get_shopping_list_printout(self) -> str:
+        """Get the final text formatted shopping list printout."""
+        if self.is_empty():
+            return ""
+
+        shopping_list_lines = ["Meals\n-----\n\n"]
+        shopping_list_lines.extend([f"☐ {recipe_names}\n" for recipe_names in self._recipe_names_to_meal.keys()])
+        shopping_list_lines.append("\n\n\nIngredients\n-----------\n\n")
+
+        shopping_list = self.get_shopping_list()
+        for ingredient_name, (total_per_ingredient, measurement_unit) in shopping_list.items():
+            shopping_list_lines.append(f"☐  {ingredient_name}\n")
+            shopping_list_lines.append(f"    {total_per_ingredient} {measurement_unit}\n")
+        shopping_list_printout = "\n".join(shopping_list_lines)
+
+        return shopping_list_printout
 
     @pydantic.validate_call
     def to_json_dictionary(self) -> dict:

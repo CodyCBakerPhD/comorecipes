@@ -42,20 +42,18 @@ class ShoppingListFrame(tkinter.Frame):
 
     def update_frame(self) -> None:
         """Update the shopping list from the current registry."""
-        shopping_list = self.app_state["meal_selection"].get_shopping_list()
-        shopping_list_ingredients_index = shopping_list.index("\n\n\nIngredients\n-----------\n\n")
-        shopping_list_display = shopping_list[shopping_list_ingredients_index + 1 :]
+        shopping_list = self.app_state["meal_selection"].get_shopping_list_display()
 
         self.list_box.delete(first=0, last="end")
-        self.list_box.insert("end", *shopping_list_display)
+        self.list_box.insert("end", *shopping_list)
 
     def open_shopping_list(self) -> None:
         """Write the shopping list to a file and open default text editor on that file."""
-        shopping_list_string = "\n".join(self.app_state["meal_selection"].get_shopping_list())
+        shopping_list_printout = self.app_state["meal_selection"].get_shopping_list_printout()
 
         self.app_state["session_folder_path"].mkdir(exist_ok=True)
         shopping_list_file_path = self.app_state["session_folder_path"] / "shopping_list.txt"
         with shopping_list_file_path.open(mode="w", encoding="utf-8") as io:
-            io.write(shopping_list_string)
+            io.write(shopping_list_printout)
 
         click.edit(filename=str(shopping_list_file_path))
