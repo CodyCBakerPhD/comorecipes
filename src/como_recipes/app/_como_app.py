@@ -69,13 +69,6 @@ class CoMoApp(tkinter.Tk):
             master=self,
             app_state=self.session_manager_frame.app_state,
         )
-        # Disabling raw ingredients for now
-        # self.raw_ingredient_frame = RawIngredientFrame(
-        #     master=self,
-        #     app_state=self.session_manager_frame.app_state,
-        #     minimum_available_recipe_width_in_characters=minimum_available_recipe_width_in_characters,
-        #     minimum_number_of_displayed_measurements=minimum_number_of_displayed_measurements,
-        # )
         self.shopping_list_frame = ShoppingListFrame(
             master=self,
             app_state=self.session_manager_frame.app_state,
@@ -89,7 +82,6 @@ class CoMoApp(tkinter.Tk):
         # Organize frames on grid
         self.session_manager_frame.grid(column=0, rowspan=4, padx=2.5, pady=2.5, sticky="NW")
         self.meal_assembler_frame.grid(row=1, column=1, padx=2.5, pady=2.5)
-        # self.raw_ingredient_frame.grid(row=1, column=2, rowspan=2, padx=2.5, pady=2.5)
         self.shopping_list_frame.grid(row=1, column=3, rowspan=2, padx=2.5, pady=2.5)
         self.version_label.grid(row=2, columnspan=4, sticky="se")
 
@@ -97,5 +89,4 @@ class CoMoApp(tkinter.Tk):
         """Update all frames with the latest state."""
         self.session_manager_frame.update_frame()
         self.meal_assembler_frame.update_frame()
-        # self.raw_ingredient_frame.update_frame()
         self.shopping_list_frame.update_frame()

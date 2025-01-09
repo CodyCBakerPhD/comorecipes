@@ -1,4 +1,3 @@
-import fractions
 import json
 import typing
 
@@ -40,36 +39,9 @@ class Recipe(pydantic.BaseModel):
     name: str
     measurements: tuple[Measurement, ...]
     instructions: tuple[str, ...]
-    # snake_case_name: str | None = None
-    # camel_case_name: str | None = None
     tags: tuple[str, ...] | None = None
     notes: tuple[str, ...] | None = None
     model_config = pydantic.ConfigDict(extra="forbid")
-
-    # def __init__(
-    #     self,
-    #     name: str,
-    #     measurements: tuple[Measurement, ...],
-    #     instructions: tuple[str, ...],
-    #     snake_case_name: str | None = None,
-    #     camel_case_name: str | None = None,
-    #     tags: tuple[str, ...] | None = None,
-    #     notes: tuple[str, ...] | None = None,
-    # ) -> None:
-    #     super().__init__(
-    #         name=name,
-    #         snake_case_name=snake_case_name,
-    #         camel_case_name=camel_case_name,
-    #         tags=tags,
-    #         measurements=measurements,
-    #         instructions=instructions,
-    #         notes=notes,
-    #     )
-    #
-    #     self.snake_case_name = self.snake_case_name or self.name.lower().replace(" ", "_")
-    #     self.camel_case_name = self.camel_case_name or "".join(
-    #     word.capitalize() for word in self.snake_case_name.split("_")
-    #     )
 
     def __len__(self) -> int:
         """
@@ -153,41 +125,6 @@ class Recipe(pydantic.BaseModel):
 
     def __hash__(self) -> int:
         return hash(self.name)
-
-    @pydantic.validate_call
-    def to_markdown_file(self, *, file_path: pydantic.NewPath) -> None:
-        """
-        Save recipe to a .md file in Markdown format.
-
-        Parameters
-        ----------
-        file_path : pydantic.NewPath
-            Path to the Markdown (.md) file
-
-        """
-        markdown_text = f"# {self.name}\n\n"
-
-        if self.tags is not None:
-            markdown_text += f"Tags: {', '.join(self.tags)}\n\n\n\n"
-
-        markdown_text += "## Ingredients\n\n"
-        for measurement in self.measurements:
-            markdown_text += f"{measurement.amount} {measurement.unit}"
-            markdown_text += f" {measurement.ingredient.name}\n\n" if measurement.ingredient.name != "" else "\n\n"
-        markdown_text += "\n\n"
-
-        if self.notes is not None:
-            markdown_text += "## Notes\n\n"
-            for note in self.notes:
-                markdown_text += f"{note}\n\n"
-            markdown_text += "\n\n"
-
-        markdown_text += "## Instructions\n\n"
-        for instruction in self.instructions:
-            markdown_text += f"{instruction}\n\n"
-
-        with file_path.open(mode="w") as io:
-            io.write(markdown_text[:-1])
 
     @pydantic.validate_call
     def to_yaml_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:
@@ -308,59 +245,3 @@ class Recipe(pydantic.BaseModel):
 
         with file_path.open(mode="w") as io:
             io.writelines(html_lines)
-
-    @classmethod
-    @pydantic.validate_call
-    def from_markdown_file(cls, *, file_path: pydantic.FilePath, include_instructions: bool = True) -> typing.Self:
-        """
-        Load recipe from a .md file in Markdown format.
-
-        Parameters
-        ----------
-        file_path : pydantic.FilePath
-            Path to the Markdown (.md) file.
-        include_instructions : bool, optional
-            Whether to include the instructions in the recipe.
-
-        """
-        from .._registration._ingredient_registry import IngredientRegistry
-
-        with file_path.open(mode="r") as io:
-            lines = [parsed_line for line in io.readlines() if (parsed_line := line.rstrip()) != ""]
-
-        if lines[0][:2] != "# ":
-            message = "Markdown recipe does not begin with '# '."
-            raise ValueError(message)
-        if "## Ingredients" not in lines:
-            message = "Markdown recipe does not have a section titled '## Ingredients'."
-            raise ValueError(message)
-
-        recipe_name = lines[0][2:].rstrip(" ")
-        tags = tuple(lines[1].split(": ")[1].split(", ")) if "Tags" in lines[1] else None
-
-        ingredient_start_index = lines.index("## Ingredients")
-        instruction_start_index = lines.index("## Instructions")
-
-        # TODO: wished there was a lazier way to do this
-        if include_instructions is True and "## Notes" in lines:
-            notes_start_index = lines.index("## Notes")
-            notes = tuple(lines[(notes_start_index + 1) : instruction_start_index])
-        else:
-            notes = None
-
-        measurement_end_index = instruction_start_index if notes is None else notes_start_index
-        measurements = []
-        for line in lines[(ingredient_start_index + 1) : measurement_end_index]:
-            ingredient_line = line.split(" ")
-            amount = fractions.Fraction(ingredient_line[0])
-            unit = ingredient_line[1]
-            ingredient_name = " ".join(ingredient_line[2:])
-            measurements.append(
-                IngredientRegistry.get_measurement(amount=amount, unit=unit, ingredient_name=ingredient_name),
-            )
-        measurements = tuple(measurements)
-
-        # Not necessary for planning tools
-        instructions = tuple(lines[instruction_start_index + 1 :]) if include_instructions is True else None
-
-        return Recipe(name=recipe_name, tags=tags, measurements=measurements, instructions=instructions, notes=notes)
