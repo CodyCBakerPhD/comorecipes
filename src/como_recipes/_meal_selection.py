@@ -151,18 +151,6 @@ class MealSelection(pydantic.BaseModel):
 
         return result
 
-    def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
-        combined_measurements = collections.defaultdict(list)
-        for measurements in self._individual_measurements_to_add.values():
-            for measurement in measurements:
-                combined_measurements[measurement.ingredient.name].append(measurement)
-        for meal in self._recipe_names_to_meal.values():
-            for recipe in meal.get_recipes_by_type():
-                for measurement in recipe.measurements:
-                    combined_measurements[measurement.ingredient.name].append(measurement)
-
-        return combined_measurements
-
     def is_empty(self) -> bool:
         """Check if the meal selection is empty."""
         is_any_not_empty = any(
@@ -234,6 +222,22 @@ class MealSelection(pydantic.BaseModel):
 
         """
         self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
+
+    def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
+        combined_measurements = collections.defaultdict(list)
+        for measurements in self._individual_measurements_to_add.values():
+            for measurement in measurements:
+                combined_measurements[measurement.ingredient.name].append(measurement)
+
+        for meal in self._recipe_names_to_meal.values():
+            for recipe in meal.get_recipes_by_type():
+                for measurement in recipe.measurements:
+                    if measurement.amount == "enough":
+                        continue
+
+                    combined_measurements[measurement.ingredient.name].append(measurement)
+
+        return combined_measurements
 
     @pydantic.validate_call
     def get_raw_measurement_list(self) -> list[str]:
@@ -328,7 +332,11 @@ class MealSelection(pydantic.BaseModel):
 
     @pydantic.validate_call
     def to_json_dictionary(self) -> dict:
-        """Convert the meal selection to an in-memory JSON-compatible dictionary."""
+        """
+        Convert the meal selection to an in-memory JSON-compatible dictionary.
+
+        Used by the GUI app to save sessions.
+        """
         individual_measurements_to_add = {
             ingredient_name: [
                 {
@@ -375,7 +383,11 @@ class MealSelection(pydantic.BaseModel):
     @classmethod
     @pydantic.validate_call
     def from_json_dictionary(cls, *, dictionary: dict) -> typing.Self:
-        """Construct a new meal selection from an in-memory JSON-compatible dictionary."""
+        """
+        Construct a new meal selection from an in-memory JSON-compatible dictionary.
+
+        Used by the GUI app to load sessions.
+        """
         individual_measurements_to_add = {
             ingredient_name: [
                 Measurement(

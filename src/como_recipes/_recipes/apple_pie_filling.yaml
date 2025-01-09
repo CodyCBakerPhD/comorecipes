@@ -9,7 +9,7 @@ tags:
 
 measurements:
 - amount: '1'
-  unit: portion
+  unit: portions
   ingredient: pie crust
 - amount: '5'
   unit: portions

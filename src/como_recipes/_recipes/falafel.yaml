@@ -6,8 +6,8 @@ tags:
 - Entree
 
 measurements:
-- amount: '1'
-  unit: lb.
+- amount: '453'
+  unit: grams
   ingredient: dry chickpeas
 - amount: '75'
   unit: grams
@@ -23,21 +23,18 @@ measurements:
   ingredient: flour
 - amount: '10'
   unit: grams
-  ingredient: salt
+  ingredient: salt and pepper
 - amount: '10'
   unit: grams
   ingredient: cumin
 - amount: '2'
   unit: grams
   ingredient: coriander
-- amount: 1/4
-  unit: tsp
-  ingredient: pepper
-- amount: 1/4
-  unit: tsp
+- amount: '0.5'
+  unit: grams
   ingredient: cayenne
-- amount: 1/8
-  unit: tsp
+- amount: '0.25'
+  unit: grams
   ingredient: cardamom
 
 instructions:

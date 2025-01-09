@@ -13,8 +13,8 @@ measurements:
   unit: portions
   ingredient: fried tofu
 - amount: '2'
-  unit: eggs
-  ingredient: ''
+  unit: portions
+  ingredient: eggs
 - amount: '42'
   unit: grams
   ingredient: butter
@@ -30,8 +30,8 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: Shiitake mushrooms
-- amount: 1/2
-  unit: cup
+- amount: '80'
+  unit: grams
   ingredient: frozen or fresh peas
 - amount: '70'
   unit: grams

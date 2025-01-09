@@ -42,32 +42,20 @@ class ShoppingListFrame(tkinter.Frame):
 
     def update_frame(self) -> None:
         """Update the shopping list from the current registry."""
-        try:
-            shopping_list = self.app_state["meal_selection"].get_shopping_list().split("\n")
-        except Exception:
-            shopping_list = []
+        shopping_list = self.app_state["meal_selection"].get_shopping_list()
+        shopping_list_ingredients_index = shopping_list.index("\n\n\nIngredients\n-----------\n\n")
+        shopping_list_display = shopping_list[shopping_list_ingredients_index + 1 :]
+
         self.list_box.delete(first=0, last="end")
-        self.list_box.insert("end", *shopping_list)
+        self.list_box.insert("end", *shopping_list_display)
 
     def open_shopping_list(self) -> None:
         """Write the shopping list to a file and open default text editor on that file."""
-        try:
-            shopping_list_string = "\n".join(self.app_state["meal_selection"].get_shopping_list().split("\n"))
-        except Exception:
-            tkinter.messagebox.showerror(
-                title="Error",
-                message=(
-                    "Apologies, an error occurred in generating the shopping list.\n\n"
-                    "Please use the raw ingredient list instead."
-                ),
-            )
-            return
+        shopping_list_string = "\n".join(self.app_state["meal_selection"].get_shopping_list())
 
-        self.session_folder_path.mkdir(exist_ok=True)
-        shopping_list_file_path = self.session_folder_path / "shopping_list.txt"
+        self.app_state["session_folder_path"].mkdir(exist_ok=True)
+        shopping_list_file_path = self.app_state["session_folder_path"] / "shopping_list.txt"
         with shopping_list_file_path.open(mode="w", encoding="utf-8") as io:
             io.write(shopping_list_string)
 
         click.edit(filename=str(shopping_list_file_path))
-
-        return
