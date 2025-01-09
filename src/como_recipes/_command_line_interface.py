@@ -69,25 +69,28 @@ def _generate_html_recipes() -> None:
         "    <style>\n",
         "        .grid-container {\n",
         "            display: grid;\n",
-        "            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n",
-        "            gap: 10px;\n",
+        "            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));\n",
+        "            gap: 5px;\n",
         "        }\n",
-        "        .grid-container h2 {\n",
-        "            grid-column: span 3;\n",
+        "        .section {\n",
+        "            break-inside: avoid;\n",
         "        }\n",
         "    </style>\n",
         "</head>\n",
         "<body>\n",
         "    <h1>Recipe Index</h1>\n",
-        '    <ul class="grid-container">\n',
+        '    <div class="grid-container">\n',
     ]
     for starting_letter, relative_path_to_recipe_name in alphabetized_relative_path_to_recipe_name.items():
-        index_lines.append(f"        <h2>{starting_letter}</h2>\n")
+        index_lines.append('        <div class="section">\n')
+        index_lines.append(f"            <h2>{starting_letter}</h2>\n")
+        index_lines.append("            <ul>\n")
         for relative_path, recipe_name in relative_path_to_recipe_name.items():
-            index_lines.append(f'        <li><a href="{relative_path}">{recipe_name}</a></li>\n')
-        index_lines.append("\n")
+            index_lines.append(f'            <li><a href="{relative_path}">{recipe_name}</a></li>\n')
+        index_lines.append("            </ul>\n")
+        index_lines.append("        </div>\n\n")
     index_lines += [
-        "    </ul>\n",
+        "    </div>\n",
         "</body>\n",
         "</html>\n",
     ]
