@@ -8,7 +8,7 @@ from como_recipes import MealSelection
 def test_meal_selection_add_meal_repr():
     meal_selection = MealSelection()
 
-    new_meal = como_recipes.Meal()
+    new_meal = como_recipes.Meal(quantity_multiplier=3.5)
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
     meal_selection.add_meal(meal=new_meal)
@@ -17,7 +17,8 @@ def test_meal_selection_add_meal_repr():
         "\n"
         "como_recipes.MealSelection(\n"
         "\t_meals={\n"
-        "\t\t('Aglio E Olio', 'Sauteed Green Beans'): como_recipes.Meal(...),\n"
+        "\t\t('Aglio E Olio', 'Sauteed Green Beans'): "
+        "como_recipes.Meal(quantity_multiplier=3.5, ...),\n"
         "\t},\n"
         ")\n"
     )
@@ -27,7 +28,7 @@ def test_meal_selection_add_meal_repr():
 def test_meal_selection_add_meal_print():
     meal_selection = MealSelection()
 
-    new_meal = como_recipes.Meal()
+    new_meal = como_recipes.Meal(quantity_multiplier=3.5)
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
     meal_selection.add_meal(meal=new_meal)
@@ -41,7 +42,7 @@ def test_meal_selection_add_meal_print():
 def test_meal_selection_add_meal_get_raw_ingredient_list():
     meal_selection = MealSelection()
 
-    new_meal = como_recipes.Meal()
+    new_meal = como_recipes.Meal(quantity_multiplier=3.5)
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
     meal_selection.add_meal(meal=new_meal)
@@ -72,7 +73,7 @@ def test_meal_selection_add_meal_get_raw_ingredient_list():
 def test_meal_selection_add_meal_get_shopping_list():
     meal_selection = MealSelection()
 
-    new_meal = como_recipes.Meal()
+    new_meal = como_recipes.Meal(quantity_multiplier=3.5)
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
     meal_selection.add_meal(meal=new_meal)
@@ -87,22 +88,3 @@ def test_meal_selection_add_meal_get_shopping_list():
         "thin spaghetti": (1, "(16 oz.) packages"),
     }
     assert meal_selection.get_shopping_list() == expected_shopping_list
-
-
-def test_meal_selection_remove_meal():
-    meal_selection = MealSelection()
-
-    new_meal = como_recipes.Meal()
-    new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
-    new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
-    meal_selection.add_meal(meal=new_meal)
-
-    meal_selection.remove_meal(recipe_names=("Aglio E Olio", "Sauteed Green Beans"))
-
-    expected_repr = "\ncomo_recipes.MealSelection()\n"
-    assert repr(meal_selection) == expected_repr
-
-    expected_str = "\ncomo_recipes.MealSelection()\n\n"
-    with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
-        print(meal_selection)
-    assert captured_output.getvalue() == expected_str
