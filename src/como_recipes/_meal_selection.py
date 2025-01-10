@@ -242,6 +242,7 @@ class MealSelection(pydantic.BaseModel):
                     if measurement.amount == "enough":
                         continue
 
+                    measurement.amount *= meal.quantity_multiplier or 1
                     combined_measurements[measurement.ingredient.name].append(measurement)
 
         return combined_measurements

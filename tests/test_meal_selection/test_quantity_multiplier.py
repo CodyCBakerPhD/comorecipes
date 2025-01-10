@@ -51,21 +51,21 @@ def test_meal_selection_add_meal_get_raw_ingredient_list():
         "Raw Ingredient List",
         "-------------------",
         "☐  Parmesan",
-        "    80 grams",
+        "    280.0 grams",
         "☐  crushed red pepper",
-        "    2 grams",
+        "    7.0 grams",
         "☐  fresh green beans",
-        "    1 portions",
+        "    3.5 portions",
         "☐  garlic",
-        "    32 grams",
+        "    112.0 grams",
         "☐  olive oil",
-        "    76 grams",
+        "    266.0 grams",
         "☐  salt",
-        "    17 grams",
+        "    59.5 grams",
         "☐  thin spaghetti",
-        "    1 portions",
+        "    3.5 portions",
         "☐  water",
-        "    960 grams",
+        "    3360.0 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
@@ -79,12 +79,12 @@ def test_meal_selection_add_meal_get_shopping_list():
     meal_selection.add_meal(meal=new_meal)
 
     expected_shopping_list = {
-        "Parmesan": (80, "grams"),
-        "crushed red pepper": (2, "grams"),
-        "fresh green beans": (1, "(2 lb.) packages"),
-        "garlic": (1, "heads"),
-        "olive oil": (76, "grams"),
-        "salt": (17, "grams"),
-        "thin spaghetti": (1, "(16 oz.) packages"),
+        "Parmesan": (280.0, "grams"),
+        "crushed red pepper": (7.0, "grams"),
+        "fresh green beans": (4, "(2 lb.) packages"),
+        "garlic": (3, "heads"),
+        "olive oil": (266.0, "grams"),
+        "salt": (59.5, "grams"),
+        "thin spaghetti": (4, "(16 oz.) packages"),
     }
     assert meal_selection.get_shopping_list() == expected_shopping_list
