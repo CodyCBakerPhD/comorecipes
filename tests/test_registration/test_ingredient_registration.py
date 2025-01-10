@@ -6,6 +6,13 @@ import pytest
 import como_recipes
 
 
+def test_get_ingredient_error():
+    new_registry = como_recipes.IngredientRegistry()
+
+    with pytest.raises(ValueError, match="Ingredient 'Unregistered' not found in the registry."):
+        new_registry.get_ingredient(ingredient_name="Unregistered")
+
+
 def test_ingredient_registry(example_ingredient: como_recipes.Ingredient):
     """A sequence of integration tests for the `IngredientRegistry` class."""
     # Test empty registry
@@ -63,19 +70,6 @@ def test_ingredient_registry(example_ingredient: como_recipes.Ingredient):
     assert new_registry.get_ingredient(ingredient_name="Example Ingredient 2") == ingredient_2
 
 
-def test_get_ingredient_error():
-    new_registry = como_recipes.IngredientRegistry()
-
-    with pytest.raises(ValueError, match="Ingredient 'Unregistered' not found in the registry."):
-        new_registry.get_ingredient(ingredient_name="Unregistered")
-
-
-# def test_get_measurement_default():
-#     measurement = como_recipes.IngredientRegistry.get_measurement(amount=1.0, unit="grams", ingredient_name="Garlic")
-#     assert str(type(measurement.ingredient)) == "<class 'como_recipes._ingredients._garlic.Garlic'>"
-#     assert measurement.ingredient.name == "Garlic"
-
-
 def test_get_measurement_non_default():
     measurement = como_recipes.IngredientRegistry.get_measurement(
         amount=1.0,
@@ -87,14 +81,22 @@ def test_get_measurement_non_default():
 
 
 def test_ingredient_equality_with_different_memory_address():
-    test_ingredient = como_recipes.Ingredient(name="garlic", default_grams_per_package=1.0, default_package_unit="head")
+    test_ingredient = como_recipes.Ingredient(
+        name="garlic",
+        default_grams_per_package=40.0,
+        default_package_unit="head",
+    )
     registered_ingredient = como_recipes.default_ingredient_registry.get_ingredient(ingredient_name="garlic")
 
     assert test_ingredient == registered_ingredient
 
 
 def test_measurement_equality_with_different_memory_address():
-    test_ingredient = como_recipes.Ingredient(name="garlic", default_grams_per_package=1.0, default_package_unit="head")
+    test_ingredient = como_recipes.Ingredient(
+        name="garlic",
+        default_grams_per_package=40.0,
+        default_package_unit="head",
+    )
     test_measurement = como_recipes.Measurement(amount=1.0, unit="grams", ingredient=test_ingredient)
 
     registered_measurement = como_recipes.IngredientRegistry.get_measurement(
