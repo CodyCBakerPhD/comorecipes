@@ -4,22 +4,22 @@ tags:
 - Component
 
 measurements:
-- amount: '10'
+- amount: '100'
   unit: grams
   ingredient: garam masala
-- amount: '3'
+- amount: '30'
   unit: grams
   ingredient: cumin
-- amount: '2'
+- amount: '20'
   unit: grams
   ingredient: coriander
-- amount: '0.5'
+- amount: '5'
   unit: grams
   ingredient: ginger
-- amount: '8'
+- amount: '80'
   unit: grams
   ingredient: salt and pepper
-- amount: '10'
+- amount: '100'
   unit: grams
   ingredient: red pepper flakes
 

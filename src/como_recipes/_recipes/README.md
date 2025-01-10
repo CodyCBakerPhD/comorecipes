@@ -18,6 +18,7 @@ There are several ingredients which are shortened for readability, but are expan
 | milk             | 2% milk                          |
 | brown sugar      | light brown sugar                |
 | vanilla          | vanilla extract                  |
+| cinnamon         | ground cinnamon                  |
 | sage             | dried ground sage                |
 | ginger           | dried ground ginger              |
 | parsley          | dried parsley flakes             |
