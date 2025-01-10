@@ -12,8 +12,8 @@ measurements:
 - amount: '42'
   unit: grams
   ingredient: butter
-- amount: '453'
-  unit: grams
+- amount: '1'
+  unit: portions
   ingredient: mushrooms
 - amount: '5'
   unit: grams

@@ -41,6 +41,8 @@ Onions and garlic will always be chopped.
 
 Fresh tomatoes should be the ripest able to be purchased (usually from Costco), ideally garden grown.
 
+Potatoes are always scrubbed thoroughly or peeled if necessary.
+
 
 
 ### Quality
