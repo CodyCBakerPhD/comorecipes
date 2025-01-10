@@ -5,6 +5,7 @@ import pydantic
 from ._base_ingredient import Ingredient
 from ._base_measurement import Measurement
 from ._base_recipe import Recipe
+from ._sufficient_measurement import SufficientMeasurement
 from .._organization import get_recipe_names_by_type
 
 
@@ -140,14 +141,24 @@ class Meal(pydantic.BaseModel):
                 name=recipe["name"],
                 tags=recipe["tags"],
                 measurements=[
-                    Measurement(
-                        amount=measurement["amount"],
-                        unit=measurement["unit"],
-                        ingredient=Ingredient(
-                            name=measurement["ingredient"]["name"],
-                            default_grams_per_package=measurement["ingredient"]["default_grams_per_package"],
-                            default_package_unit=measurement["ingredient"]["default_package_unit"],
-                        ),
+                    (
+                        Measurement(
+                            amount=measurement["amount"],
+                            unit=measurement["unit"],
+                            ingredient=Ingredient(
+                                name=measurement["ingredient"]["name"],
+                                default_grams_per_package=measurement["ingredient"]["default_grams_per_package"],
+                                default_package_unit=measurement["ingredient"]["default_package_unit"],
+                            ),
+                        )
+                        if measurement["amount"] != "enough"
+                        else SufficientMeasurement(
+                            ingredient=Ingredient(
+                                name=measurement["ingredient"]["name"],
+                                default_grams_per_package=measurement["ingredient"]["default_grams_per_package"],
+                                default_package_unit=measurement["ingredient"]["default_package_unit"],
+                            ),
+                        )
                     )
                     for measurement in recipe["measurements"]
                 ],

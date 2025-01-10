@@ -5,7 +5,7 @@ tags:
 - Entree
 
 measurements:
-- amount: 1/4
+- amount: '0.25'
   unit: portions
   ingredient: of Frying Breading
 - amount: '2'

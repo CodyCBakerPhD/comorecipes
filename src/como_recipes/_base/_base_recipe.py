@@ -6,7 +6,7 @@ import yaml
 
 from ._base_measurement import Measurement
 from .._registration._ingredient_registry import IngredientRegistry
-from ..utils import get_rendered_units, string_to_numeric
+from ..utils import get_rendered_units
 
 
 class Recipe(pydantic.BaseModel):
@@ -180,7 +180,7 @@ class Recipe(pydantic.BaseModel):
 
         recipe_info["measurements"] = tuple(
             IngredientRegistry.get_measurement(
-                amount=string_to_numeric(string=amount) if (amount := measurement["amount"]) != "enough" else amount,
+                amount=amount if (amount := measurement["amount"]) != "enough" else amount,
                 unit=measurement.get("unit", None),
                 ingredient_name=measurement["ingredient"],
                 prefix=measurement.get("prefix", None),

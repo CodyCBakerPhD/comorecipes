@@ -24,7 +24,7 @@ def test_meal_selection_add_measurement_with_recipes(example_measurement: Measur
         "\t},\n"
         "\t_individual_measurements_to_add={\n"
         '\t\t"Example Ingredient 1": [\n'
-        '\t\t\tMeasurement(amount=45.0, unit="grams", '
+        '\t\t\tMeasurement(amount=45, unit="grams", '
         'ingredient=Ingredient(name="Example Ingredient 1", '
         'default_grams_per_package=12.34, default_package_unit="container")),\n'
         "\t\t],\n"
@@ -55,7 +55,7 @@ def test_meal_selection_add_measurement_with_recipes(example_measurement: Measur
         "Raw Ingredient List",
         "-------------------",
         "☐  Example Ingredient 1",
-        "    45.0 grams",
+        "    45 grams",
         "☐  Parmesan",
         "    80 grams",
         "☐  crushed red pepper",
@@ -107,14 +107,14 @@ def test_meal_selection_remove_measurement_after_adding_with_recipes(example_mea
         "\t},\n"
         "\t_individual_measurements_to_add={\n"
         '\t\t"Example Ingredient 1": [\n'
-        '\t\t\tMeasurement(amount=45.0, unit="grams", '
+        '\t\t\tMeasurement(amount=45, unit="grams", '
         'ingredient=Ingredient(name="Example Ingredient 1", '
         'default_grams_per_package=12.34, default_package_unit="container")),\n'
         "\t\t],\n"
         "\t},\n"
         "\t_individual_measurements_to_remove={\n"
         '\t\t"Example Ingredient 1": [\n'
-        '\t\t\tMeasurement(amount=1/2, unit="grams", ingredient=Ingredient(name="Example '
+        '\t\t\tMeasurement(amount=0.5, unit="grams", ingredient=Ingredient(name="Example '
         'Ingredient 1")),\n'
         "\t\t],\n"
         "\t},\n"
@@ -150,7 +150,7 @@ def test_meal_selection_remove_measurement_after_adding_with_recipes(example_mea
         "Raw Ingredient List",
         "-------------------",
         "☐  Example Ingredient 1",
-        "    45.0 grams",
+        "    45 grams",
         "☐  Parmesan",
         "    80 grams",
         "☐  crushed red pepper",
@@ -202,7 +202,7 @@ def test_meal_selection_remove_all_measurement_after_adding_with_recipes(example
         "\t},\n"
         "\t_individual_measurements_to_add={\n"
         '\t\t"Example Ingredient 1": [\n'
-        '\t\t\tMeasurement(amount=45.0, unit="grams", '
+        '\t\t\tMeasurement(amount=45, unit="grams", '
         'ingredient=Ingredient(name="Example Ingredient 1", '
         'default_grams_per_package=12.34, default_package_unit="container")),\n'
         "\t\t],\n"
@@ -245,7 +245,7 @@ def test_meal_selection_remove_all_measurement_after_adding_with_recipes(example
         "Raw Ingredient List",
         "-------------------",
         "☐  Example Ingredient 1",
-        "    45.0 grams",
+        "    45 grams",
         "☐  Parmesan",
         "    80 grams",
         "☐  crushed red pepper",

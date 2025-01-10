@@ -1,4 +1,5 @@
 from ._base._base_measurement import Measurement
+from ._base._sufficient_measurement import SufficientMeasurement
 from ._base._base_recipe import Recipe
 from ._base._base_ingredient import Ingredient
 from ._base._base_meal import Meal
@@ -15,6 +16,7 @@ __all__ = [
     "Ingredient",
     "Meal",
     "Measurement",
+    "SufficientMeasurement",
     "RecipeRegistry",
     "IngredientRegistry",
     "MealSelection",

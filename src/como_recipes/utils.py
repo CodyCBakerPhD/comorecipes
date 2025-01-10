@@ -1,6 +1,5 @@
 """Collection of minor help functions."""
 
-import fractions
 import importlib.metadata
 import pathlib
 import platform
@@ -100,17 +99,6 @@ def get_executable_stem() -> str:
     executable_stem = f"como_recipes_{improved_platform_name}_{package_version}"
 
     return executable_stem
-
-
-@pydantic.validate_call
-def string_to_numeric(*, string: str) -> int | float:
-    """Convert a string to a numeric value."""
-    fraction = fractions.Fraction(string)
-
-    if fraction.denominator == 1:
-        return int(fraction)
-
-    return float(fraction.limit_denominator())
 
 
 @pydantic.validate_call

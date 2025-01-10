@@ -3,17 +3,20 @@ import typing
 import pydantic
 
 from ._base_ingredient import Ingredient
+from ._base_measurement import Measurement
 
 
-class Measurement(pydantic.BaseModel):
+class SufficientMeasurement(Measurement):
     """
-    A measurement is a specified amount of an ingredient.
+    A generic measurement used to indicate small or subjective quantities.
+
+    Examples include salt and pepper for seasoning or oil for greasing a pan.
 
     Parameters
     ----------
-    amount : int | float | typing.Literal["enough"]
+    amount : typing.Literal["enough"]
         Amount of the ingredient.
-    unit : typing.Literal["portions", "grams"]
+    unit : None
         Unit of the ingredient amount.
     ingredient : Ingredient
         Ingredient being measured.
@@ -26,8 +29,8 @@ class Measurement(pydantic.BaseModel):
 
     """
 
-    amount: float | int
-    unit: typing.Literal["portions", "grams"]
+    amount: typing.Literal["enough"] = "enough"
+    unit: None = None
     prefix: str | None = None
     ingredient: Ingredient
     suffix: str | None = None
@@ -42,18 +45,19 @@ class Measurement(pydantic.BaseModel):
 
         As a style choice, the representation is padded before and after with empty space.
         """
-        representation = f'Measurement(amount={self.amount}, unit="{self.unit}"'
+        representation_lines = ['Measurement(amount="enough", unit=None']
 
         if self.prefix is not None:
-            representation += f", prefix={self.prefix})"
+            representation_lines += [f", prefix={self.prefix})"]
 
-        representation += f", ingredient={self.ingredient!r}"
+        representation_lines += [f", ingredient={self.ingredient!r}"]
 
         if self.suffix is not None:
-            representation += f", suffix={self.suffix})"
+            representation_lines += [f", suffix={self.suffix})"]
 
-        representation += ")"
+        representation_lines += [")"]
 
+        representation = "".join(representation_lines)
         return representation
 
     def __str__(self) -> str:
@@ -65,17 +69,3 @@ class Measurement(pydantic.BaseModel):
         As a style choice, the printout is padded before and after with empty space.
         """
         return repr(self)
-
-    def __eq__(self, other: "Measurement") -> bool:
-        """
-        Logic defining the `==` operator.
-
-        Primarily used by consistency assertions in the tests.
-
-        Compares only the contained fields of the object, not including its memory address (two imported instances
-        of the class with the same fields will be considered equal).
-        """
-        fields_to_compare = ["amount", "unit", "ingredient"]
-        result = all(getattr(self, field) == getattr(other, field) for field in fields_to_compare)
-
-        return result

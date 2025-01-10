@@ -21,10 +21,10 @@ measurements:
 - amount: '2.5'
   unit: grams
   ingredient: ginger
-- amount: 1/2
+- amount: 0.5
   unit: grams
   ingredient: cloves
-- amount: 3/2
+- amount: 1.5
   unit: grams
   ingredient: salt
 - amount: '85'

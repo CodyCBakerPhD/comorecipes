@@ -14,8 +14,8 @@ def test_example_1_yaml_recipe_load(example_1_folder_path: pathlib.Path):
 
     assert recipe.name == "Example Recipe 1"
     assert recipe.measurements == (
-        IngredientRegistry.get_measurement(amount=31 / 10, unit="tbsp.", ingredient_name="ingredient 1"),
-        IngredientRegistry.get_measurement(amount=4, unit="g", ingredient_name="ingredient 2"),
+        IngredientRegistry.get_measurement(amount=3.1, unit="grams", ingredient_name="ingredient 1"),
+        IngredientRegistry.get_measurement(amount=4, unit="portions", ingredient_name="ingredient 2"),
     )
     assert recipe.instructions == ("This is an example of a recipe.",)
 
@@ -62,10 +62,10 @@ def test_example_1_repr(example_1_folder_path: pathlib.Path):
         '\tname="Example Recipe 1",\n'
         "\ttags=('Italian', 'Pasta', 'Entree', 'Vegetarian'),\n"
         "\tmeasurements=(\n"
-        '\t\tMeasurement(amount=31/10, unit="tbsp.", '
+        '\t\tMeasurement(amount=3.1, unit="grams", '
         'ingredient=Ingredient(name="ingredient 1")),\n'
-        '\t\tMeasurement(amount=4, unit="g", ingredient=Ingredient(name="ingredient '
-        '2")),\n'
+        '\t\tMeasurement(amount=4, unit="portions", '
+        'ingredient=Ingredient(name="ingredient 2")),\n'
         "\t),\n"
         "\tinstructions=(\n"
         '\t\t"This is an example of a recipe.",\n'
@@ -94,8 +94,8 @@ def test_example_1_print(example_1_folder_path: pathlib.Path):
         "\n"
         "Ingredients\n"
         "-----------\n"
-        "31/10 tbsp. ingredient 1\n"
-        "4 g ingredient 2\n"
+        "3.1 grams ingredient 1\n"
+        "4 portions ingredient 2\n"
         "\n"
         "\n"
         "Notes\n"

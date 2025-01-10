@@ -1,12 +1,14 @@
 import functools
 import pathlib
 import typing
+import warnings
 
 import natsort
 import pydantic
 
 from .._base._base_ingredient import Ingredient
 from .._base._base_measurement import Measurement
+from .._base._sufficient_measurement import SufficientMeasurement
 from ..utils import get_bundle_base_path, is_bundled
 
 
@@ -192,6 +194,16 @@ class IngredientRegistry(pydantic.BaseModel):
             ingredient = default_ingredient_registry.get_ingredient(ingredient_name=ingredient_name)
         else:
             ingredient = Ingredient(name=ingredient_name)
+
+        if amount == "enough" and unit is not None:
+            message = (
+                f'Generated a sufficient measurement for ingredient `"{ingredient_name}"` (amount="enough"), '
+                f'but the units specified were `"{unit}"`, not `None`.'
+            )
+            warnings.warn(message=message, stacklevel=2)
+
+        if amount == "enough":
+            return SufficientMeasurement(ingredient=ingredient, prefix=prefix, suffix=suffix)
 
         return Measurement(amount=amount, unit=unit, ingredient=ingredient, prefix=prefix, suffix=suffix)
 

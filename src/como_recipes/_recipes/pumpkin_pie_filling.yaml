@@ -24,7 +24,7 @@ measurements:
 - amount: '3'
   unit: grams
   ingredient: salt
-- amount: 1/2
+- amount: '0.5'
   unit: portions
   ingredient: pie crust  # TODO: link
 

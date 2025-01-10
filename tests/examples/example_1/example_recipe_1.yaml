@@ -7,11 +7,11 @@ tags:
 - Vegetarian
 
 measurements:
-- amount: 31/10
-  unit: tbsp.
+- amount: 3.1
+  unit: grams
   ingredient: ingredient 1
-- amount: '4'
-  unit: g
+- amount: 4
+  unit: portions
   ingredient: ingredient 2
 
 instructions:
