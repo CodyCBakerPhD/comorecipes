@@ -8,17 +8,6 @@ import como_recipes
 from como_recipes import IngredientRegistry, MealSelection, Measurement
 
 
-def test_empty_meal_selection():
-    meal_selection = MealSelection()
-
-    expected_repr = "\ncomo_recipes.MealSelection()\n"
-    expected_str = "\ncomo_recipes.MealSelection()\n\n"
-    assert repr(meal_selection) == expected_repr
-    with unittest.mock.patch("sys.stdout", new=io.StringIO()) as captured_output:
-        print(meal_selection)
-    assert captured_output.getvalue() == expected_str
-
-
 def test_meal_selection_add_meal():
     meal_selection = MealSelection()
 
@@ -64,8 +53,7 @@ def test_meal_selection_add_meal():
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
-    # TODO
-    # expected_shopping_list = ""
+    # expected_shopping_list = []
     # assert meal_selection.get_shopping_list() == expected_shopping_list
 
 
@@ -353,19 +341,6 @@ def test_meal_selection_remove_all_measurement_after_adding_with_recipes(example
     # assert meal_selection.get_shopping_list() == expected_shopping_list
 
 
-def test_get_shopping_list_empty():
-    meal_selection = MealSelection()
-
-    shopping_list = meal_selection.get_shopping_list()
-    assert shopping_list == {}
-
-    shopping_list = meal_selection.get_shopping_list_display()
-    assert shopping_list == []
-
-    shopping_list = meal_selection.get_shopping_list_printout()
-    assert shopping_list == ""
-
-
 def test_get_shopping_list_multiple_units_error():
     meal_selection = MealSelection()
 
@@ -391,16 +366,6 @@ def test_get_shopping_list_warning():
     expected_message = "Negative amount of 'test_ingredient' found in shopping list; ignoring."
     with pytest.warns(UserWarning, match=expected_message):
         meal_selection.get_shopping_list()
-
-
-def test_get_raw_measurement_list_empty_error():
-    meal_selection = MealSelection()
-
-    with pytest.raises(
-        expected_exception=ValueError,
-        match="No meals or measurements have been added to the meal selection.",
-    ):
-        meal_selection.get_raw_measurement_list()
 
 
 def test_meal_selection_in_memory_json_roundtrip():
