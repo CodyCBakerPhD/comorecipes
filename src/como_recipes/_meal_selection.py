@@ -1,4 +1,5 @@
 import collections
+import math
 import typing
 import warnings
 
@@ -70,8 +71,13 @@ class MealSelection(pydantic.BaseModel):
 
         if any(self._recipe_names_to_meal):
             representation += "\t_meals={\n"
-            for recipe_names in self._recipe_names_to_meal:
-                representation += f"\t\t{recipe_names}: como_recipes.Meal(...),\n"
+            for recipe_names, meal in self._recipe_names_to_meal.items():
+                meal_content = (
+                    "..."
+                    if meal.quantity_multiplier is None
+                    else f"quantity_multiplier={meal.quantity_multiplier}, ..."
+                )
+                representation += f"\t\t{recipe_names}: como_recipes.Meal({meal_content}),\n"
             representation += "\t},\n"
 
         attribute_name_to_individual_measurements = {
@@ -224,7 +230,7 @@ class MealSelection(pydantic.BaseModel):
         """
         self._individual_measurements_to_remove[measurement.ingredient.name].append(measurement)
 
-    def _calculate_combined_measurements(self) -> dict[str, list[Measurement]]:
+    def _get_combined_measurements(self) -> dict[str, list[Measurement]]:
         combined_measurements = collections.defaultdict(list)
         for measurements in self._individual_measurements_to_add.values():
             for measurement in measurements:
@@ -236,6 +242,7 @@ class MealSelection(pydantic.BaseModel):
                     if measurement.amount == "enough":
                         continue
 
+                    measurement.amount *= meal.quantity_multiplier or 1
                     combined_measurements[measurement.ingredient.name].append(measurement)
 
         return combined_measurements
@@ -248,7 +255,7 @@ class MealSelection(pydantic.BaseModel):
 
             raise ValueError(message)
 
-        combined_measurements = self._calculate_combined_measurements()
+        combined_measurements = self._get_combined_measurements()
 
         raw_measurement_list = ["Raw Ingredient List"]
         raw_measurement_list.append("-" * len(raw_measurement_list[0]))
@@ -267,21 +274,6 @@ class MealSelection(pydantic.BaseModel):
 
         return raw_measurement_list
 
-    def _printout_nested_ingredients(self, measurements_by_ingredient: list[Measurement]) -> str:
-        """TODO: plan is to deprecate this method once grams are standardized."""
-        lines = []
-        for measurement in measurements_by_ingredient:
-            line = f"  {measurement.amount}"
-
-            rendered_units = get_rendered_units(measurement=measurement)
-            if rendered_units != "portions":
-                line += f" {rendered_units}"
-            line += "\n"
-
-            lines.append(line)
-
-        return "".join(lines)
-
     def get_shopping_list(self) -> dict[str, tuple[int | float, str]]:
         """Get the shopping list by aggregating all contained recipes and measurements."""
         shopping_list = {}
@@ -289,22 +281,15 @@ class MealSelection(pydantic.BaseModel):
         if self.is_empty():
             return shopping_list
 
-        combined_measurements = self._calculate_combined_measurements()
+        combined_measurements = self._get_combined_measurements()
 
+        exclude_ingredient_names = {"water": True}
         for ingredient_name, measurements_by_ingredient in natsort.natsorted(
             seq=combined_measurements.items(),
             key=lambda item_tuple: item_tuple[0],
         ):
-            # TODO: shouldn't be needed once grams are standardized
-            measurement_units_per_ingredient = {measurement.unit for measurement in measurements_by_ingredient}
-            if len(measurement_units_per_ingredient) > 1:
-                message = (
-                    f"\nMultiple units found for ingredient '{measurements_by_ingredient[0].ingredient.name}':\n\n[\n"
-                    f"{self._printout_nested_ingredients(measurements_by_ingredient=measurements_by_ingredient)}"
-                    "]"
-                )
-                raise ValueError(message)
-            measurement_unit = next(iter(measurement_units_per_ingredient))
+            if exclude_ingredient_names.get(ingredient_name, False) is True:
+                continue
 
             total_per_ingredient_to_add = sum(measurement.amount for measurement in measurements_by_ingredient)
             total_per_ingredient_to_remove = sum(
@@ -321,7 +306,18 @@ class MealSelection(pydantic.BaseModel):
             if total_per_ingredient == 0:
                 continue
 
-            shopping_list[ingredient_name] = (total_per_ingredient, measurement_unit)
+            reference_measurement = measurements_by_ingredient[0]
+            adjusted_total_per_ingredient = total_per_ingredient
+            measurement_unit = reference_measurement.unit
+            if reference_measurement.ingredient.default_package_unit is not None:
+                adjusted_total_per_ingredient = (
+                    math.ceil(total_per_ingredient / reference_measurement.ingredient.default_grams_per_package)
+                    if measurement_unit == "grams"
+                    else math.ceil(total_per_ingredient)
+                )
+                measurement_unit = reference_measurement.ingredient.default_package_unit
+
+            shopping_list[ingredient_name] = (adjusted_total_per_ingredient, measurement_unit)
 
         return shopping_list
 

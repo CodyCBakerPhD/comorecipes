@@ -1,21 +1,6 @@
-import re
-
 import pytest
 
 from como_recipes import IngredientRegistry, MealSelection
-
-
-def test_get_shopping_list_multiple_units_error():
-    meal_selection = MealSelection()
-
-    measurement_1 = IngredientRegistry.get_measurement(amount=1.0, unit="portions", ingredient_name="test_ingredient")
-    meal_selection.add_measurement(measurement=measurement_1)
-    measurement_2 = IngredientRegistry.get_measurement(amount=1.0, unit="grams", ingredient_name="test_ingredient")
-    meal_selection.add_measurement(measurement=measurement_2)
-
-    expected_message = "\nMultiple units found for ingredient 'test_ingredient':\n\n[\n  1.0\n  1.0 grams\n]"
-    with pytest.raises(ValueError, match=re.escape(pattern=expected_message)):
-        meal_selection.get_shopping_list()
 
 
 def test_get_shopping_list_warning():
