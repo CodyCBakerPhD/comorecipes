@@ -17,8 +17,8 @@ measurements:
 - amount: '240'
   unit: grams
   ingredient: cream
-- amount: '3'
-  unit: portions
+- amount: '12'
+  unit: grams
   prefix: minced
   ingredient: garlic
 - amount: '50'

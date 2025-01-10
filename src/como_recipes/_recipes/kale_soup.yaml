@@ -13,8 +13,8 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: onion
-- amount: '3'
-  unit: portions
+- amount: '12'
+  unit: grams
   ingredient: garlic
 - amount: '1'
   unit: portions

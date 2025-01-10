@@ -20,8 +20,8 @@ measurements:
 - amount: '28'
   unit: grams
   ingredient: butter
-- amount: '4'
-  unit: portions
+- amount: '16'
+  unit: grams
   ingredient: garlic
   suffix: ', finely chopped'
 - amount: '85'
