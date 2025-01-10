@@ -77,8 +77,17 @@ def test_meal_selection_add_meal_get_shopping_list():
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
     meal_selection.add_meal(meal=new_meal)
 
-    # expected_shopping_list = {}
-    # assert meal_selection.get_shopping_list() == expected_shopping_list
+    expected_shopping_list = {
+        "Parmesan": (80, "grams"),
+        "crushed red pepper": (2, "grams"),
+        "fresh green beans": (1, "portions"),
+        "garlic": (32, "grams"),
+        "olive oil": (76, "grams"),
+        "salt": (17, "grams"),
+        "thin spaghetti": (1, "portions"),
+        "water": (960, "grams"),
+    }
+    assert meal_selection.get_shopping_list() == expected_shopping_list
 
 
 def test_meal_selection_remove_meal():

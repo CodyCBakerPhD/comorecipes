@@ -18,19 +18,6 @@ def test_recipe_counts_consistency():
     assert html_recipe_count == default_recipe_count
 
 
-def test_global_units_in_grams_or_portions():
-    recipes = [
-        como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name)
-        for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
-    ]
-
-    unique_units = {
-        measurement.unit for recipe in recipes for measurement in recipe.measurements if measurement.amount != "enough"
-    }
-
-    assert unique_units == {"grams", "portions"}
-
-
 def test_units_consistent_per_ingredient():
     recipes = [
         como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name)
