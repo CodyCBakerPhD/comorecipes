@@ -6,6 +6,13 @@ import pytest
 import como_recipes
 
 
+def test_get_ingredient_error():
+    new_registry = como_recipes.IngredientRegistry()
+
+    with pytest.raises(ValueError, match="Ingredient 'Unregistered' not found in the registry."):
+        new_registry.get_ingredient(ingredient_name="Unregistered")
+
+
 def test_ingredient_registry(example_ingredient: como_recipes.Ingredient):
     """A sequence of integration tests for the `IngredientRegistry` class."""
     # Test empty registry
@@ -61,19 +68,6 @@ def test_ingredient_registry(example_ingredient: como_recipes.Ingredient):
         print(new_registry)
     assert captured_output.getvalue() == expected_str
     assert new_registry.get_ingredient(ingredient_name="Example Ingredient 2") == ingredient_2
-
-
-def test_get_ingredient_error():
-    new_registry = como_recipes.IngredientRegistry()
-
-    with pytest.raises(ValueError, match="Ingredient 'Unregistered' not found in the registry."):
-        new_registry.get_ingredient(ingredient_name="Unregistered")
-
-
-# def test_get_measurement_default():
-#     measurement = como_recipes.IngredientRegistry.get_measurement(amount=1.0, unit="grams", ingredient_name="Garlic")
-#     assert str(type(measurement.ingredient)) == "<class 'como_recipes._ingredients._garlic.Garlic'>"
-#     assert measurement.ingredient.name == "Garlic"
 
 
 def test_get_measurement_non_default():
