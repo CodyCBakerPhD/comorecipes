@@ -174,26 +174,30 @@ class Recipe(pydantic.BaseModel):
             Path to the .yaml file.
 
         """
-        with file_path.open(mode="r") as io:
-            recipe_info = yaml.safe_load(stream=io)
-        recipe_info["tags"] = tuple(recipe_info["tags"])
+        try:
+            with file_path.open(mode="r") as io:
+                recipe_info = yaml.safe_load(stream=io)
+            recipe_info["tags"] = tuple(recipe_info["tags"])
 
-        recipe_info["measurements"] = tuple(
-            IngredientRegistry.get_measurement(
-                amount=amount if (amount := measurement["amount"]) != "enough" else amount,
-                unit=measurement.get("unit", None),
-                ingredient_name=measurement["ingredient"],
-                prefix=measurement.get("prefix", None),
-                suffix=measurement.get("suffix", None),
+            recipe_info["measurements"] = tuple(
+                IngredientRegistry.get_measurement(
+                    amount=amount if (amount := measurement["amount"]) != "enough" else amount,
+                    unit=measurement.get("unit", None),
+                    ingredient_name=measurement["ingredient"],
+                    prefix=measurement.get("prefix", None),
+                    suffix=measurement.get("suffix", None),
+                )
+                for measurement in recipe_info["measurements"]
             )
-            for measurement in recipe_info["measurements"]
-        )
-        recipe_info["instructions"] = tuple(recipe_info["instructions"])
+            recipe_info["instructions"] = tuple(recipe_info["instructions"])
 
-        if "notes" in recipe_info:
-            recipe_info["notes"] = tuple(recipe_info["notes"])
+            if "notes" in recipe_info:
+                recipe_info["notes"] = tuple(recipe_info["notes"])
 
-        return cls(**recipe_info)
+            return cls(**recipe_info)
+        except Exception as exception:  # noqa: BLE001
+            message = f"\nUnable to load recipe from {file_path} due to...\n\n{type(exception)}:\n\t{exception}\n\n"
+            raise ValueError(message)
 
     @pydantic.validate_call
     def to_html_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:

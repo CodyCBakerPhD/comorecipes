@@ -15,9 +15,9 @@ measurements:
 - amount: '28'
   unit: grams
   ingredient: butter
-- amount: '0.5'
-  unit: portions
-  ingredient: onions
+- amount: '100'
+  unit: grams
+  ingredient: onion
   suffix: ', finely chopped'
 - amount: '100'
   unit: grams
