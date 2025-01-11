@@ -10,8 +10,8 @@ measurements:
 - amount: '28'
   unit: grams
   ingredient: olive oil
-- amount: '1'
-  unit: portions
+- amount: '200'
+  unit: grams
   ingredient: onion
 - amount: '12'
   unit: grams

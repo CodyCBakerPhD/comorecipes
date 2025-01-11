@@ -20,8 +20,8 @@ measurements:
 - amount: '10'
   unit: grams
   ingredient: garlic
-- amount: '1'
-  unit: portions
+- amount: '100'
+  unit: grams
   ingredient: carrots
 - amount: '1'
   unit: portions

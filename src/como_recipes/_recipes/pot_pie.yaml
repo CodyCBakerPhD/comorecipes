@@ -19,14 +19,14 @@ measurements:
   unit: portions
   ingredient: onions
   suffix: ', finely chopped'
-- amount: '2'
-  unit: portions
+- amount: '100'
+  unit: grams
+  prefix: diced
   ingredient: carrots
-  suffix: ', peeled and finely chopped'
 - amount: '1'
   unit: portions
+  prefix: diced
   ingredient: potatoes
-  suffix: ', peeled and diced'
 - amount: '8'
   unit: grams
   ingredient: salt and pepper

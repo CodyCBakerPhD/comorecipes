@@ -1,0 +1,47 @@
+name: Naan
+
+tags:
+- Indian
+- Vegetarian
+- Side
+
+measurements:
+- amount: '3'
+  unit: grams
+  ingredient: yeast
+- amount: '12'
+  unit: grams
+  ingredient: sugar
+- amount: '120'
+  unit: grams
+  prefix: warm
+  ingredient: water
+- amount: '10'
+  unit: grams
+  ingredient: milk
+- amount: '1'
+  unit: portions
+  ingredient: egg
+- amount: '28'
+  unit: grams
+  ingredient: butter
+- amount: '200'
+  unit: grams
+  ingredient: bread flour
+- amount: '3'
+  unit: grams
+  ingredient: salt
+- amount: 'enough'
+  ingredient: ghee
+
+instructions:
+- Activate yeast.
+- Melt butter and mix with milk.
+- Whisk in egg.
+- Separately combine flour and salt.
+- Combine all wet ingredients with dry ingredients.
+- Mix well and leave to rise for 1 hour.
+- Divide into 8 evenly sized pieces.
+- Proof for 15 minutes.
+- Roll flat and cook in a hot wok or skillet.
+- Brush tops with ghee.

@@ -1,0 +1,30 @@
+name: Tikka Masala Seasoning
+
+tags:
+- Component
+
+measurements:
+- amount: '100'
+  unit: grams
+  ingredient: garam masala
+- amount: '30'
+  unit: grams
+  ingredient: cumin
+- amount: '20'
+  unit: grams
+  ingredient: coriander
+- amount: '5'
+  unit: grams
+  ingredient: ginger
+- amount: '80'
+  unit: grams
+  ingredient: salt and pepper
+- amount: '100'
+  unit: grams
+  ingredient: red pepper flakes
+
+notes:
+- Makes about enough for 10 portions of Tikka Masala.
+
+instructions:
+- Mix and store in airtight container.
