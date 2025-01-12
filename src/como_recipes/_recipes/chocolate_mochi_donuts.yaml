@@ -1,14 +1,18 @@
-name: Mochi Donuts
+name: Chocolate Mochi Donuts
 
 tags:
+- Chocolate
 - Dessert
 - Breakfast
 - Vegetarian
 
 measurements:
-- amount: '150'
+- amount: '120'
   unit: grams
   ingredient: mochiko
+- amount: '30'
+  unit: grams
+  ingredient: cocoa powder
 - amount: '50'
   unit: grams
   ingredient: brown sugar

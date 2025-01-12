@@ -11,11 +11,26 @@ def test_recipe_counts_consistency():
     html_recipe_folder_path = package_source_folder_path.parent / "docs" / "formatted_recipes"
 
     default_recipe_count = len(como_recipes.default_recipe_registry.get_all_recipe_names())
-    markdown_recipe_count = len(list(yaml_recipe_folder_path.glob(pattern="*.yaml")))
+    yaml_recipe_count = len(list(yaml_recipe_folder_path.glob(pattern="*.yaml")))
     html_recipe_count = len(list(html_recipe_folder_path.glob(pattern="*.html")))
 
-    assert markdown_recipe_count == default_recipe_count
+    assert yaml_recipe_count == default_recipe_count
     assert html_recipe_count == default_recipe_count
+
+
+def test_recipe_names_consistency():
+    package_source_folder_path = pathlib.Path(__file__).parent.parent.parent / "src"
+    yaml_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes"
+    yaml_recipe_file_paths = {str(file_path) for file_path in yaml_recipe_folder_path.glob(pattern="*.yaml")}
+
+    default_recipe_file_paths = {
+        str(como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name).file_path)
+        for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
+    }
+
+    difference = yaml_recipe_file_paths.symmetric_difference(default_recipe_file_paths)
+    message = f"\n\nOverlap found: \n{json.dumps(obj=tuple(difference), indent=2)}\n"
+    assert difference == set(), message
 
 
 def test_units_consistent_per_ingredient():
@@ -39,3 +54,16 @@ def test_units_consistent_per_ingredient():
     }
     message = f"\n\nInconsistent units found: \n{json.dumps(obj=inconsistent_ingredients, indent=2)}\n"
     assert not any(inconsistent_ingredients), message
+
+
+def test_no_repeated_tags():
+    tags_per_recipe = {
+        recipe_name: como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
+        for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
+    }
+
+    duplicated_tags = {
+        recipe_name: tags for recipe_name, tags in tags_per_recipe.items() if len(set(tags)) != len(tags)
+    }
+    message = f"\n\nRepeated tags found: \n{json.dumps(obj=duplicated_tags, indent=2)}\n"
+    assert not any(duplicated_tags), message

@@ -41,6 +41,7 @@ class Recipe(pydantic.BaseModel):
     instructions: tuple[str, ...]
     tags: tuple[str, ...] | None = None
     notes: tuple[str, ...] | None = None
+    file_path: pydantic.FilePath | None = None
     model_config = pydantic.ConfigDict(extra="forbid")
 
     def __len__(self) -> int:
@@ -194,6 +195,7 @@ class Recipe(pydantic.BaseModel):
             if "notes" in recipe_info:
                 recipe_info["notes"] = tuple(recipe_info["notes"])
 
+            recipe_info["file_path"] = file_path
             return cls(**recipe_info)
         except Exception as exception:  # noqa: BLE001
             message = f"\nUnable to load recipe from {file_path} due to...\n\n{type(exception)}:\n\t{exception}\n\n"
