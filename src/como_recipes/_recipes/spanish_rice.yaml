@@ -9,8 +9,8 @@ measurements:
 - amount: '14'
   unit: grams
   ingredient: butter
-- amount: '1'
-  unit: portions
+- amount: '30'
+  unit: grams
   ingredient: shallot
 - amount: '10'
   unit: grams

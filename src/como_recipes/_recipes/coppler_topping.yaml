@@ -1,0 +1,40 @@
+name: Cobbler Topping
+
+tags:
+- Component
+
+measurements:
+- amount: '76'
+  unit: grams
+  ingredient: butter
+  suffix: ', room temperature'
+- amount: '33'
+  unit: grams
+  ingredient: sugar
+- amount: '35'
+  unit: grams
+  ingredient: brown sugar
+- amount: '30'
+  unit: grams
+  ingredient: flour
+- amount: '0.5'
+  unit: grams
+  ingredient: baking powder
+- amount: '1'
+  unit: grams
+  ingredient: salt
+- amount: '1'
+  unit: portions
+  ingredient: egg
+- amount: '1'
+  unit: grams
+  ingredient: vanilla
+
+instructions:
+- Preheat oven to 375 F.
+- Cream butter and sugar.
+- Beat in eggs and vanilla.
+- Combine remaining dry ingredients.
+- Gradually add flour mixture.
+- Drop by spoonfuls over filling.
+- Bake for 35 minutes or until golden.

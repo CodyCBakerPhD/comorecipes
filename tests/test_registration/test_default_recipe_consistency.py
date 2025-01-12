@@ -39,3 +39,16 @@ def test_units_consistent_per_ingredient():
     }
     message = f"\n\nInconsistent units found: \n{json.dumps(obj=inconsistent_ingredients, indent=2)}\n"
     assert not any(inconsistent_ingredients), message
+
+
+def test_no_repeated_tags():
+    tags_per_recipe = {
+        recipe_name: como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
+        for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
+    }
+
+    duplicated_tags = {
+        recipe_name: tags for recipe_name, tags in tags_per_recipe.items() if len(set(tags)) != len(tags)
+    }
+    message = f"\n\nRepeated tags found: \n{json.dumps(obj=duplicated_tags, indent=2)}\n"
+    assert not any(duplicated_tags), message
