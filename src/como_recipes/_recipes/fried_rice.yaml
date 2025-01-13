@@ -24,8 +24,8 @@ measurements:
 - amount: '75'
   unit: grams
   ingredient: white onion
-- amount: '1'
-  unit: portions
+- amount: '60'
+  unit: grams
   ingredient: carrot
 - amount: '1'
   unit: portions

@@ -32,6 +32,7 @@ There are several ingredients which are shortened for readability, but are expan
 | mushrooms        | baby bella (button) mushrooms    |
 | chickpeas        | dried chickpeas                  |
 | crushed tomatoes | canned crushed tomatoes (28 oz.) |
+| green beans      | fresh green beans                |
 
 
 

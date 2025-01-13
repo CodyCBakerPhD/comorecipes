@@ -32,14 +32,14 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: cabbage
-- amount: '1'
-  unit: portions
+- amount: '100'
+  unit: grams
   ingredient: green beans
 - amount: '1'
   unit: portions
   ingredient: pea pods
-- amount: '1'
-  unit: portions
+- amount: '30'
+  unit: grams
   ingredient: spinach
 - amount: '1'
   unit: portions
