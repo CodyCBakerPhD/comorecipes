@@ -18,18 +18,18 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: fresh tomatoes
-- amount: '53'
+- amount: '40'
   unit: grams
   ingredient: black bean chili spice # TODO: add linking so recipe app can track component ingredients
-- amount: '1'
-  unit: portions
-  ingredient: black beans
+- amount: '200'
+  unit: grams
+  ingredient: dried black beans
 - amount: 'enough'
   ingredient: peanut oil
 
 instructions:
 - Carefully caramelize onions and garlic.
 - Add tomatoes.
-- Mix all dry ingredients separately and add to mixture.
-- Add beans and oil.
-- Stir and simmer for at least 15 minutes.
+- Mix all dry ingredients separately and add to the mixture.
+- Add beans and some extra oil.
+- Stir and simmer for at least 70 minutes.
