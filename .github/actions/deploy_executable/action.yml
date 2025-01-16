@@ -55,6 +55,7 @@ runs:
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
+        repo_name: CodyCBakerPhD/como_recipes_public
         repo_token: ${{ inputs.GITHUB_TOKEN }}
         file: ./dist/${{ steps.executable_stem.outputs.value }}.exe
         asset_name: ${{ steps.executable_stem.outputs.value }}.exe
