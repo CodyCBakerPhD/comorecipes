@@ -30,7 +30,7 @@ for ingredient_file_path in ingredients_folder_path.glob(pattern="*.yaml"):
     datas += [(str(ingredient_file_path.relative_to(top_level_base_directory)).replace("\\", "/"), "_ingredients")]
 
 entrypoint_file_path = str(pathlib.Path('src/como_recipes/app/_app_launcher.py'))
-a = Analysis(
+analysis = Analysis(
     [entrypoint_file_path],
     pathex=[],
     binaries=[],
@@ -43,16 +43,16 @@ a = Analysis(
     noarchive=False,
     optimize=0,
 )
-pyz = PYZ(a.pure)
+pyz = PYZ(analysis.pure)
 
-executable_stem = como_recipes.utils.get_executable_stem()
+executable_stem = como_recipes.utils.get_executable_name()
 
 ico_file_path = str(pathlib.Path('src/como_recipes/_assets/como_icon.ico'))
 exe = EXE(
     pyz,
-    a.scripts,
-    a.binaries,
-    a.datas,
+    analysis.scripts,
+    analysis.binaries,
+    analysis.datas,
     [],
     name=executable_stem,
     debug=False,
