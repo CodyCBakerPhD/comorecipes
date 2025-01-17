@@ -81,10 +81,10 @@ def get_executable_name() -> str:
 
     Only supports Windows patterns for the time being.
     """
-    platform_name = platform.platform()
+    platform_name = "_".join(platform.platform().split("-")[:2])
 
     # Resolve an issue with GitHub Actions builds
-    corrected_platform_name = platform_name.replace("Server", "")
+    corrected_platform_name = platform_name.removesuffix("Server")
 
     match platform.system():
         case "Windows":
