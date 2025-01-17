@@ -28,7 +28,8 @@ def test_command_line_executable_name():
 
     platform_name = "_".join(platform.platform().split("-")[:2])
     package_version = como_recipes.utils.get_package_version()
-    expected_executable_name = f"como_recipes_{platform_name}_{package_version}"
+    system_suffix = ".exe" if platform.system() == "Windows" else ""
+    expected_executable_name = f"como_recipes_{platform_name}_{package_version}{system_suffix}"
     assert test_executable_name == expected_executable_name
 
     assert "Server" not in test_executable_name
