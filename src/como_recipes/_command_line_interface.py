@@ -8,7 +8,7 @@ import click
 import natsort
 
 from ._registration._recipe_registry import default_recipe_registry
-from .utils import get_base_environment_variable, get_executable_stem, get_package_version
+from .utils import get_base_environment_variable, get_executable_name, get_package_version
 
 
 @click.command(name="como_recipes_version")
@@ -18,9 +18,9 @@ def _version() -> None:
     click.echo(message=message)
 
 
-@click.command(name="como_recipes_executable_stem")
-def _executable_stem() -> None:
-    message = get_executable_stem()
+@click.command(name="como_recipes_executable_name")
+def _get_executable_name() -> None:
+    message = get_executable_name()
 
     click.echo(message=message)
 

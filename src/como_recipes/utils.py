@@ -75,30 +75,19 @@ def get_package_version() -> str:
     return version_string
 
 
-def get_executable_stem() -> str:
-    """
-    Determine the executable name for the application.
-
-    Only supports Windows patterns for the time being.
-    """
+def get_executable_name() -> str:
+    """Determine the executable name for the main CoMo Recipes app."""
     platform_name = "_".join(platform.platform().split("-")[:2])
 
     # Resolve an issue with GitHub Actions builds
-    corrected_platform_name = platform_name.removesuffix("Server")
+    corrected_platform_name = platform_name.replace("Server", "")
 
-    # Improve readability for users when built by GitHub Actions
-    match corrected_platform_name:
-        case "Windows_2019":
-            improved_platform_name = "Windows_10"
-        case "Windows_2022":
-            improved_platform_name = "Windows_11"
-        case _:
-            improved_platform_name = corrected_platform_name
-
+    # Linux doesn't add a suffix; MacOS is not supported
     package_version = get_package_version()
-    executable_stem = f"como_recipes_{improved_platform_name}_{package_version}"
+    platform_suffix = ".exe" if "Windows" in corrected_platform_name else ""
+    executable_name = f"como_recipes_{corrected_platform_name}_{package_version}{platform_suffix}"
 
-    return executable_stem
+    return executable_name
 
 
 @pydantic.validate_call
