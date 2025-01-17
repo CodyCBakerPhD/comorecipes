@@ -9,7 +9,7 @@ tags:
 measurements:
 - amount: '227'
   unit: grams
-  ingredient: elbow pasta
+  ingredient: cavatappi
 - amount: '57'
   unit: grams
   ingredient: butter
@@ -22,13 +22,10 @@ measurements:
 - amount: '200'
   unit: grams
   ingredient: English aged cheddar
-- amount: '5'
-  unit: grams
-  ingredient: salt
-- amount: '2'
+- amount: '3'
   unit: grams
   ingredient: salt and pepper
-- amount: '1'
+- amount: '0.5'
   unit: grams
   ingredient: paprika
 
