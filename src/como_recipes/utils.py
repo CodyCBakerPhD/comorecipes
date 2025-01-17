@@ -75,28 +75,16 @@ def get_package_version() -> str:
     return version_string
 
 
-def get_executable_name() -> str:
-    """
-    Determine the executable name for the application.
-
-    Only supports Windows patterns for the time being.
-    """
-    platform_name = "_".join(platform.platform().split("-")[:3])
+def get_executable_name(package_version: str) -> str:
+    """Determine the executable name for the main CoMo Recipes app."""
+    platform_name = "_".join(platform.platform().split("-")[:2])
 
     # Resolve an issue with GitHub Actions builds
     corrected_platform_name = platform_name.replace("Server", "")
 
-    match platform.system():
-        case "Windows":
-            system_suffix = ".exe"
-        case "Linux":
-            system_suffix = ""
-        case _:
-            message = f"Platform '{platform.system()}' is not supported."
-            raise NotImplementedError(message)
-
-    package_version = get_package_version()
-    executable_name = f"como_recipes_{corrected_platform_name}_{package_version}{system_suffix}"
+    # Linux doesn't add a suffix; MacOS is not supported
+    platform_suffix = ".exe" if "Windows" in corrected_platform_name else ""
+    executable_name = f"como_recipes_{corrected_platform_name}_{package_version}{platform_suffix}"
 
     return executable_name
 
