@@ -8,7 +8,6 @@ on:
         type: choice
         description: Operating system, including version
         options:
-        - windows-2025
         - windows-2022
         - windows-2019
         - ubuntu-24.04
