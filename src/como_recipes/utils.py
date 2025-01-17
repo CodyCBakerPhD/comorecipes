@@ -75,7 +75,7 @@ def get_package_version() -> str:
     return version_string
 
 
-def get_executable_name(package_version: str) -> str:
+def get_executable_name() -> str:
     """Determine the executable name for the main CoMo Recipes app."""
     platform_name = "_".join(platform.platform().split("-")[:2])
 
@@ -83,6 +83,7 @@ def get_executable_name(package_version: str) -> str:
     corrected_platform_name = platform_name.replace("Server", "")
 
     # Linux doesn't add a suffix; MacOS is not supported
+    package_version = get_package_version()
     platform_suffix = ".exe" if "Windows" in corrected_platform_name else ""
     executable_name = f"como_recipes_{corrected_platform_name}_{package_version}{platform_suffix}"
 
