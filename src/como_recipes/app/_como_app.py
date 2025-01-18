@@ -41,12 +41,15 @@ class CoMoApp(tkinter.Tk):
         match system:
             case "Windows":
                 ico_file_path = base_path / "_assets" / "como_icon.ico"
+                self.iconbitmap(ico_file_path)
             case "Linux":
-                ico_file_path = "@" + str((base_path / "_assets" / "como_icon.png").absolute())
-            case "Darwin":
+                pass
+            # Never was able to get this to show on Linux
+            # XBM is the only way it would run without error, but still wouldn't show
+            #     ico_file_path = "@" + str((base_path / "_assets" / "como_icon.xbm").absolute())
+            case _:
                 message = f"Unsupported system: {system}"
                 raise NotImplementedError(message)
-        self.iconbitmap(ico_file_path)
 
         # Setup window and menus
         self.title(string="CoMo Meal Selector")
