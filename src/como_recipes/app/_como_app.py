@@ -40,9 +40,9 @@ class CoMoApp(tkinter.Tk):
         system = platform.system()
         match system:
             case "Windows":
-                ico_file_path = str(base_path / "_assets" / "como_icon.ico")
+                ico_file_path = base_path / "_assets" / "como_icon.ico"
             case "Linux":
-                ico_file_path = "@" + str(base_path / "_assets" / "como_icon.xbm")
+                ico_file_path = "@" + str((base_path / "_assets" / "como_icon.png").absolute())
             case "Darwin":
                 message = f"Unsupported system: {system}"
                 raise NotImplementedError(message)
