@@ -1,4 +1,5 @@
 import pathlib
+import platform
 import sys
 import tkinter
 import tkinter.messagebox
@@ -36,8 +37,19 @@ class CoMoApp(tkinter.Tk):
         base_path = pathlib.Path(sys._MEIPASS) if hasattr(sys, "_MEIPASS") else pathlib.Path(__file__).parent.parent
 
         # Setup icon
-        ico_file_path = base_path / "_assets" / "como_icon.ico"
-        self.iconbitmap(default=ico_file_path)
+        system = platform.system()
+        match system:
+            case "Windows":
+                ico_file_path = base_path / "_assets" / "como_icon.ico"
+                self.iconbitmap(ico_file_path)
+            case "Linux":
+                pass
+            # Never was able to get this to show on Linux
+            # XBM is the only way it would run without error, but still wouldn't show
+            #     ico_file_path = "@" + str((base_path / "_assets" / "como_icon.xbm").absolute())
+            case _:
+                message = f"Unsupported system: {system}"
+                raise NotImplementedError(message)
 
         # Setup window and menus
         self.title(string="CoMo Meal Selector")
