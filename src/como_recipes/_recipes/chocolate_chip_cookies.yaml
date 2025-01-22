@@ -29,7 +29,7 @@ measurements:
   unit: grams
   prefix: hot
   ingredient: water
-- amount: '360'
+- amount: '400'
   unit: grams
   ingredient: flour
 - amount: '3'
@@ -41,6 +41,7 @@ measurements:
 
 notes:
 - Be sure to leave out butter to reach room temperature before starting.
+- It is possible to substitute 50% of the flour for oats; pulse the oats in a food processor first.
 
 instructions:
 - Oven temperature is 360 F for caramelization stage.
