@@ -69,6 +69,7 @@ class SessionManagerFrame(tkinter.Frame):
 
         self.session_id_to_format = {session_id: session_id.replace("_", "/") for session_id in self.session_ids}
         self.format_to_session_id = {element: session_id for session_id, element in self.session_id_to_format.items()}
+
         self.list_box.insert("end", *self.session_id_to_format.values())
         self.list_box.itemconfig(index=self.selected_session_id_index, cnf={"bg": "lightgrey"})
 
