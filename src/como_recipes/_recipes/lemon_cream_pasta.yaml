@@ -7,21 +7,15 @@ tags:
 - Entree
 
 measurements:
-- amount: 'enough'
-  ingredient: olive oil
 - amount: '1'
   unit: portions
   suffix: chopped
   ingredient: cauliflower
-- amount: '960'
+- amount: 'enough'
+  ingredient: olive oil
+- amount: '226'
   unit: grams
-  ingredient: water
-- amount: '17'
-  unit: grams
-  ingredient: salt
-- amount: '1'
-  unit: portions
-  ingredient: penne
+  ingredient: Cavatappi pasta
 - amount: '57'
   unit: grams
   ingredient: butter
@@ -51,5 +45,5 @@ instructions:
 - Roast 25 minutes.
 - Cook pasta ahead of time, reserving some pasta water to add to sauce.
 - Make roux and thin with milk.
-- Whisk in 120 grams of the reserved pasta water with the Parmesan.
+- Whisk in 90 grams of the reserved pasta water with the Parmesan.
 - Stir in lemon juice, almonds, and cauliflower.

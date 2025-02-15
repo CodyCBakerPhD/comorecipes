@@ -19,7 +19,7 @@ measurements:
   unit: grams
   prefix: minced
   ingredient: garlic
-- amount: '12'
+- amount: '2'
   unit: grams
   ingredient: salt and pepper
 - amount: '1'
@@ -55,8 +55,9 @@ measurements:
 
 instructions:
 - Cook pasta separately and set aside.
-- Saute onion, carrots, and garlic in olive oil.
-- Add garlic and spices and cook for 30 seconds.
+- Saute onion and carrots in olive oil.
+- Add garlic and cook for 60 seconds.
+- Add spices and cook for 30 seconds.
 - Add tomato paste and incorporate for 1 minute.
 - Add wine and deglaze pan.
 - Add remaining non-paste ingredients and bring to boil.
