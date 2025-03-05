@@ -119,4 +119,4 @@ def _generate_html_recipes() -> None:
         manifest_hash = hashlib.md5(string=manifest_file_path.read_bytes()).hexdigest()  # noqa: S324
         manifest_hash_file_path = docs_base_directory / f"{database}_manifest_hash.txt"
         with manifest_hash_file_path.open(mode="w") as io:
-            io.write(manifest_hash)
+            io.write(f"{manifest_hash}\n")
