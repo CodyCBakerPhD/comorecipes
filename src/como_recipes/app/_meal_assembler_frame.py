@@ -6,7 +6,7 @@ from ._app_utils import _generate_default_app_state
 from ._available_recipes_frame import AvailableRecipesFrame
 from ._selected_meals_frame import SelectedMealsFrame
 from .._base._base_meal import Meal
-from .._registration._recipe_registry import default_recipe_registry
+from .._registration._default_recipe_registry import default_recipe_registry
 
 
 class MealAssemblerFrame(tkinter.Frame):

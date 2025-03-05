@@ -1,13 +1,15 @@
 """Command line interface for como_recipes."""
 
 import collections
+import hashlib
 import pathlib
 import shutil
 
 import click
 import natsort
+import yaml
 
-from ._registration._recipe_registry import default_recipe_registry
+from ._registration._default_recipe_registry import default_recipe_registry
 from .utils import get_base_environment_variable, get_executable_name, get_package_version
 
 
@@ -41,6 +43,7 @@ def _generate_html_recipes() -> None:
 
         raise ValueError(message)
 
+    # All formatted HTML recipes for GitHub pages
     formatted_recipes_directory = docs_base_directory / "formatted_recipes"
     if formatted_recipes_directory.exists():
         shutil.rmtree(path=formatted_recipes_directory, ignore_errors=True)
@@ -59,6 +62,7 @@ def _generate_html_recipes() -> None:
 
         recipe.to_html_file(file_path=recipe_file_path)
 
+    # Index file for GitHub pages
     index_lines = [
         "<!DOCTYPE html>\n",
         '<html lang="en">\n',
@@ -98,3 +102,21 @@ def _generate_html_recipes() -> None:
     index_file_path = docs_base_directory / "index.html"
     with index_file_path.open(mode="w") as io:
         io.writelines(index_lines)
+
+    # Hidden manifest files
+    databases = ["recipe", "ingredient"]
+    for database in databases:
+        database_directory = docs_base_directory / f"{database}s"
+        manifest = {
+            file_path.stem: hashlib.md5(string=file_path.read_bytes()).hexdigest()  # noqa: S324
+            for file_path in database_directory.glob(pattern="*.yaml")
+        }
+
+        manifest_file_path = docs_base_directory / f"{database}_manifest.yaml"
+        with manifest_file_path.open(mode="w") as io:
+            yaml.dump(data=manifest, stream=io)
+
+        manifest_hash = hashlib.md5(string=manifest_file_path.read_bytes()).hexdigest()  # noqa: S324
+        manifest_hash_file_path = docs_base_directory / f"{database}_manifest_hash.txt"
+        with manifest_hash_file_path.open(mode="w") as io:
+            io.write(f"{manifest_hash}\n")

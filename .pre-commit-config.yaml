@@ -31,7 +31,7 @@ repos:
         name: Generate HTML Recipes
         description: Generate HTML recipes from YAML files
         entry: generate_html_recipes
-        files: ^src/como_recipes/_recipes/
+        files: ^docs/recipes|docs/ingredients
         types: [file]
         language: system
         args: []

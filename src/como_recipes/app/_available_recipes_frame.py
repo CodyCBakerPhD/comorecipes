@@ -12,7 +12,7 @@ from ._app_globals import (
 )
 from ._app_utils import _generate_default_app_state
 from .._base._base_meal import Meal
-from .._registration._recipe_registry import default_recipe_registry
+from .._registration._default_recipe_registry import default_recipe_registry
 
 
 class AvailableRecipesFrame(tkinter.Frame):
