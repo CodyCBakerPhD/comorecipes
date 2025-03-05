@@ -121,8 +121,7 @@ def _generate_html_recipes() -> None:
 
     # TODO: use deterministic hash for ingredients
     ingredient_manifest = {
-        ingredient_name: hex(hash(default_ingredient_registry.get_ingredient(ingredient_name=ingredient_name)))
-        for ingredient_name in default_ingredient_registry.get_all_ingredient_names()
+        ingredient_name: "abc" for ingredient_name in default_ingredient_registry.get_all_ingredient_names()
     }
     ingredient_manifest_file_path = docs_base_directory / "ingredient_manifest.yaml"
     with ingredient_manifest_file_path.open(mode="w") as io:
