@@ -21,6 +21,10 @@ jobs:
         ref: ${{ github.head_ref }}
         persist-credentials: false  # otherwise, the token used is the GITHUB_TOKEN
         fetch-depth: 0  # otherwise, there would be errors pushing refs to the destination repository
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.13
 
     - name: Set cache hash
       run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
