@@ -3,9 +3,9 @@ from ._base._sufficient_measurement import SufficientMeasurement
 from ._base._base_recipe import Recipe
 from ._base._base_ingredient import Ingredient
 from ._base._base_meal import Meal
+from ._registration._ingredient_registry import IngredientRegistry, default_ingredient_registry
 from ._registration._recipe_registry import RecipeRegistry
 from ._registration._default_recipe_registry import default_recipe_registry
-from ._registration._ingredient_registry import IngredientRegistry, default_ingredient_registry
 from ._meal_selection import MealSelection
 
 __all__ = [
@@ -13,8 +13,8 @@ __all__ = [
     "default_recipe_registry",
     "default_ingredient_registry",
     # Public API classes
-    "Recipe",
     "Ingredient",
+    "Recipe",
     "Meal",
     "Measurement",
     "SufficientMeasurement",

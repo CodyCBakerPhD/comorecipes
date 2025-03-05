@@ -108,7 +108,7 @@ class RecipeRegistry(pydantic.BaseModel):
         """
         recipe = self._recipes.get(recipe_name, None)
         if recipe is not None:
-            return recipe
+            return recipe.model_copy(deep=True)
 
         message = f"Recipe '{recipe_name}' not found in the registry."
         raise ValueError(message)

@@ -2,11 +2,10 @@ import io
 import unittest.mock
 
 import como_recipes
-from como_recipes import MealSelection
 
 
 def test_meal_selection_add_meal_repr():
-    meal_selection = MealSelection()
+    meal_selection = como_recipes.MealSelection()
 
     new_meal = como_recipes.Meal(quantity_multiplier=3.5)
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
@@ -26,7 +25,7 @@ def test_meal_selection_add_meal_repr():
 
 
 def test_meal_selection_add_meal_print():
-    meal_selection = MealSelection()
+    meal_selection = como_recipes.MealSelection()
 
     new_meal = como_recipes.Meal(quantity_multiplier=3.5)
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
@@ -40,7 +39,7 @@ def test_meal_selection_add_meal_print():
 
 
 def test_meal_selection_add_meal_get_raw_ingredient_list():
-    meal_selection = MealSelection()
+    meal_selection = como_recipes.MealSelection()
 
     new_meal = como_recipes.Meal(quantity_multiplier=3.5)
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
@@ -71,7 +70,7 @@ def test_meal_selection_add_meal_get_raw_ingredient_list():
 
 
 def test_meal_selection_add_meal_get_shopping_list():
-    meal_selection = MealSelection()
+    meal_selection = como_recipes.MealSelection()
 
     new_meal = como_recipes.Meal(quantity_multiplier=3.5)
     new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
