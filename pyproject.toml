@@ -38,7 +38,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest-cov",
-    "ipython",
+    "ipython<9.0.0",  # coloriaze error in pycharm
     "pre-commit",
 ]
 build = [
