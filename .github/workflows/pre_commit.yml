@@ -40,6 +40,7 @@ jobs:
         python -m pip install -U pip
         python -m pip install pre-commit
         pre-commit install
+        pip install -e .  # Install the package to be able to run the local hook
 
     - name: Run pre-commit
       run: | # Run thrice for error when pre-commit is missing; also because situations have been seen requiring three runs
