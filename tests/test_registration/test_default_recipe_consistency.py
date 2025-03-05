@@ -6,9 +6,9 @@ import como_recipes
 
 
 def test_recipe_counts_consistency():
-    package_source_folder_path = pathlib.Path(__file__).parent.parent.parent / "src"
-    yaml_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes"
-    html_recipe_folder_path = package_source_folder_path.parent / "docs" / "formatted_recipes"
+    docs_folder_path = pathlib.Path(__file__).parent.parent.parent / "docs"
+    yaml_recipe_folder_path = docs_folder_path / "recipes"
+    html_recipe_folder_path = docs_folder_path / "formatted_recipes"
 
     default_recipe_count = len(como_recipes.default_recipe_registry.get_all_recipe_names())
     yaml_recipe_count = len(list(yaml_recipe_folder_path.glob(pattern="*.yaml")))
@@ -19,8 +19,8 @@ def test_recipe_counts_consistency():
 
 
 def test_recipe_names_consistency():
-    package_source_folder_path = pathlib.Path(__file__).parent.parent.parent / "src"
-    yaml_recipe_folder_path = package_source_folder_path / "como_recipes" / "_recipes"
+    docs_folder_path = pathlib.Path(__file__).parent.parent.parent / "docs"
+    yaml_recipe_folder_path = docs_folder_path / "recipes"
     yaml_recipe_file_paths = {str(file_path) for file_path in yaml_recipe_folder_path.glob(pattern="*.yaml")}
 
     default_recipe_file_paths = {
