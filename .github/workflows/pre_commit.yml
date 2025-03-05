@@ -21,6 +21,10 @@ jobs:
         ref: ${{ github.head_ref }}
         persist-credentials: false  # otherwise, the token used is the GITHUB_TOKEN
         fetch-depth: 0  # otherwise, there would be errors pushing refs to the destination repository
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.13
 
     - name: Set cache hash
       run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
@@ -40,6 +44,7 @@ jobs:
         python -m pip install -U pip
         python -m pip install pre-commit
         pre-commit install
+        pip install -e .  # Install the package to be able to run the local hook
 
     - name: Run pre-commit
       run: | # Run thrice for error when pre-commit is missing; also because situations have been seen requiring three runs

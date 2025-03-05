@@ -218,7 +218,7 @@ class Recipe(pydantic.BaseModel):
         if self.tags is not None:
             html_lines += [f"<p>Tags: {', '.join(self.tags)}</p>\n\n\n\n"]
 
-        html_lines += ["<br>"]
+        html_lines += ["<br>\n"]
         html_lines += ["<h2>Ingredients</h2>\n\n"]
         disallowed_units = {"": True, "portions": True}
         for measurement in self.measurements:
@@ -240,12 +240,12 @@ class Recipe(pydantic.BaseModel):
             html_lines += ["</p>\n"]
 
         if self.notes is not None:
-            html_lines += ["<br>"]
+            html_lines += ["\n\n\n<br>\n"]
             html_lines += ["<h2>Notes</h2>\n\n"]
             for note in self.notes:
                 html_lines += [f"<p>{note}</p>\n"]
 
-        html_lines += ["<h2>Instructions</h2>\n\n"]
+        html_lines += ["\n\n\n<h2>Instructions</h2>\n\n"]
         for instruction in self.instructions:
             html_lines += [f"<p>{instruction}</p>\n"]
 
