@@ -21,11 +21,11 @@ datas = [
     ("src/como_recipes/app/_app_state_json_schema.json", "_assets"),
 ]
 
-recipes_folder_path = top_level_base_directory / "src"/ "como_recipes" / "_recipes"
+recipes_folder_path = top_level_base_directory / "docs"/ "recipes"
 for recipe_file_path in recipes_folder_path.glob(pattern="*.yaml"):
     datas += [(str(recipe_file_path.relative_to(top_level_base_directory)).replace("\\", "/"), "_recipes")]
 
-ingredients_folder_path = top_level_base_directory / "src"/ "como_recipes" / "_ingredients"
+ingredients_folder_path = top_level_base_directory / "docs"/ "ingredients"
 for ingredient_file_path in ingredients_folder_path.glob(pattern="*.yaml"):
     datas += [(str(ingredient_file_path.relative_to(top_level_base_directory)).replace("\\", "/"), "_ingredients")]
 
