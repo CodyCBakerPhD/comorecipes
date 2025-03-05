@@ -1,6 +1,7 @@
 """Command line interface for como_recipes."""
 
 import collections
+import hashlib
 import pathlib
 import shutil
 
@@ -105,18 +106,20 @@ def _generate_html_recipes() -> None:
 
     # Hidden manifest files
     recipe_manifest = {
-        recipe.file_path.stem: hex(hash((recipe := default_recipe_registry.get_recipe(recipe_name=recipe_name))))
+        recipe.file_path.stem: hashlib.md5(string=recipe.file_path.read_bytes()).hexdigest()  # noqa: S324
         for recipe_name in recipe_names
+        if (recipe := default_recipe_registry.get_recipe(recipe_name=recipe_name)).file_path is not None
     }
     recipe_manifest_file_path = docs_base_directory / "recipe_manifest.yaml"
     with recipe_manifest_file_path.open(mode="w") as io:
         yaml.dump(data=recipe_manifest, stream=io)
 
-    recipe_manifest_hash = hex(hash(tuple(sorted(recipe_manifest.items()))))
+    recipe_manifest_hash = hashlib.md5(string=recipe_manifest_file_path.read_bytes()).hexdigest()  # noqa: S324
     recipe_manifest_hash_file_path = docs_base_directory / "recipe_manifest_hash.txt"
     with recipe_manifest_hash_file_path.open(mode="w") as io:
         io.write(recipe_manifest_hash)
 
+    # TODO: use deterministic hash for ingredients
     ingredient_manifest = {
         ingredient_name: hex(hash(default_ingredient_registry.get_ingredient(ingredient_name=ingredient_name)))
         for ingredient_name in default_ingredient_registry.get_all_ingredient_names()
@@ -125,7 +128,7 @@ def _generate_html_recipes() -> None:
     with ingredient_manifest_file_path.open(mode="w") as io:
         yaml.dump(data=ingredient_manifest, stream=io)
 
-    ingredient_manifest_hash = hex(hash(tuple(sorted(ingredient_manifest.items()))))
+    ingredient_manifest_hash = hashlib.md5(string=ingredient_manifest_file_path.read_bytes()).hexdigest()  # noqa: S324
     ingredient_manifest_hash_file_path = docs_base_directory / "ingredient_manifest_hash.txt"
     with ingredient_manifest_hash_file_path.open(mode="w") as io:
         io.write(ingredient_manifest_hash)
