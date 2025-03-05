@@ -105,7 +105,7 @@ def _generate_html_recipes() -> None:
 
     # Hidden manifest files
     recipe_manifest = {
-        recipe_name: hex(hash(default_recipe_registry.get_recipe(recipe_name=recipe_name)))
+        recipe.file_path.stem: hex(hash((recipe := default_recipe_registry.get_recipe(recipe_name=recipe_name))))
         for recipe_name in recipe_names
     }
     recipe_manifest_file_path = docs_base_directory / "recipe_manifest.yaml"
