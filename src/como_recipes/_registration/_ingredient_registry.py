@@ -159,6 +159,11 @@ class IngredientRegistry(pydantic.BaseModel):
         """
         self._ingredients.pop(ingredient_name)
 
+    @pydantic.validate_call
+    def get_all_ingredient_names(self) -> list[str]:
+        """Get all ingredient names from the registry."""
+        return list(self._ingredients.keys())
+
     @staticmethod
     @pydantic.validate_call
     def get_measurement(

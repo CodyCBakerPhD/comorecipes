@@ -6,8 +6,10 @@ import shutil
 
 import click
 import natsort
+import yaml
 
-from ._registration._recipe_registry import default_recipe_registry
+from ._registration._default_recipe_registry import default_recipe_registry
+from ._registration._ingredient_registry import default_ingredient_registry
 from .utils import get_base_environment_variable, get_executable_name, get_package_version
 
 
@@ -41,6 +43,7 @@ def _generate_html_recipes() -> None:
 
         raise ValueError(message)
 
+    # All formatted HTML recipes for GitHub pages
     formatted_recipes_directory = docs_base_directory / "formatted_recipes"
     if formatted_recipes_directory.exists():
         shutil.rmtree(path=formatted_recipes_directory, ignore_errors=True)
@@ -59,6 +62,7 @@ def _generate_html_recipes() -> None:
 
         recipe.to_html_file(file_path=recipe_file_path)
 
+    # Index file for GitHub pages
     index_lines = [
         "<!DOCTYPE html>\n",
         '<html lang="en">\n',
@@ -98,3 +102,30 @@ def _generate_html_recipes() -> None:
     index_file_path = docs_base_directory / "index.html"
     with index_file_path.open(mode="w") as io:
         io.writelines(index_lines)
+
+    # Hidden manifest files
+    recipe_manifest = {
+        recipe_name: hex(hash(default_recipe_registry.get_recipe(recipe_name=recipe_name)))
+        for recipe_name in recipe_names
+    }
+    recipe_manifest_file_path = docs_base_directory / "recipe_manifest.yaml"
+    with recipe_manifest_file_path.open(mode="w") as io:
+        yaml.dump(data=recipe_manifest, stream=io)
+
+    recipe_manifest_hash = hex(hash(recipe_manifest))
+    recipe_manifest_hash_file_path = docs_base_directory / "recipe_manifest_hash.txt"
+    with recipe_manifest_hash_file_path.open(mode="w") as io:
+        io.write(recipe_manifest_hash)
+
+    ingredient_manifest = {
+        ingredient_name: hex(hash(default_ingredient_registry.get_ingredient(ingredient_name=ingredient_name)))
+        for ingredient_name in default_ingredient_registry.get_all_ingredient_names()
+    }
+    ingredient_manifest_file_path = docs_base_directory / "ingredient_manifest.yaml"
+    with ingredient_manifest_file_path.open(mode="w") as io:
+        yaml.dump(data=ingredient_manifest, stream=io)
+
+    ingredient_manifest_hash = hex(hash(ingredient_manifest))
+    ingredient_manifest_hash_file_path = docs_base_directory / "ingredient_manifest_hash.txt"
+    with ingredient_manifest_hash_file_path.open(mode="w") as io:
+        io.write(ingredient_manifest_hash)

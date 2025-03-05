@@ -3,7 +3,7 @@ import pathlib
 
 import natsort
 
-from .._registration._recipe_registry import default_recipe_registry
+from .._registration._default_recipe_registry import default_recipe_registry
 from ..utils import get_bundle_base_path, is_bundled
 
 recipe_types = ("Entree", "Side", "Dessert")
