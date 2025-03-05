@@ -10,7 +10,6 @@ import natsort
 import yaml
 
 from ._registration._default_recipe_registry import default_recipe_registry
-from ._registration._ingredient_registry import default_ingredient_registry
 from .utils import get_base_environment_variable, get_executable_name, get_package_version
 
 
@@ -105,29 +104,19 @@ def _generate_html_recipes() -> None:
         io.writelines(index_lines)
 
     # Hidden manifest files
-    recipe_manifest = {
-        recipe.file_path.stem: hashlib.md5(string=recipe.file_path.read_bytes()).hexdigest()  # noqa: S324
-        for recipe_name in recipe_names
-        if (recipe := default_recipe_registry.get_recipe(recipe_name=recipe_name)).file_path is not None
-    }
-    recipe_manifest_file_path = docs_base_directory / "recipe_manifest.yaml"
-    with recipe_manifest_file_path.open(mode="w") as io:
-        yaml.dump(data=recipe_manifest, stream=io)
+    databases = ["recipe", "ingredient"]
+    for database in databases:
+        database_directory = docs_base_directory / f"{database}s"
+        manifest = {
+            file_path.stem: hashlib.md5(string=file_path.read_bytes()).hexdigest()  # noqa: S324
+            for file_path in database_directory.glob(pattern="*.yaml")
+        }
 
-    recipe_manifest_hash = hashlib.md5(string=recipe_manifest_file_path.read_bytes()).hexdigest()  # noqa: S324
-    recipe_manifest_hash_file_path = docs_base_directory / "recipe_manifest_hash.txt"
-    with recipe_manifest_hash_file_path.open(mode="w") as io:
-        io.write(recipe_manifest_hash)
+        manifest_file_path = docs_base_directory / f"{database}_manifest.yaml"
+        with manifest_file_path.open(mode="w") as io:
+            yaml.dump(data=manifest, stream=io)
 
-    # TODO: use deterministic hash for ingredients
-    ingredient_manifest = {
-        ingredient_name: "abc" for ingredient_name in default_ingredient_registry.get_all_ingredient_names()
-    }
-    ingredient_manifest_file_path = docs_base_directory / "ingredient_manifest.yaml"
-    with ingredient_manifest_file_path.open(mode="w") as io:
-        yaml.dump(data=ingredient_manifest, stream=io)
-
-    ingredient_manifest_hash = hashlib.md5(string=ingredient_manifest_file_path.read_bytes()).hexdigest()  # noqa: S324
-    ingredient_manifest_hash_file_path = docs_base_directory / "ingredient_manifest_hash.txt"
-    with ingredient_manifest_hash_file_path.open(mode="w") as io:
-        io.write(ingredient_manifest_hash)
+        manifest_hash = hashlib.md5(string=manifest_file_path.read_bytes()).hexdigest()  # noqa: S324
+        manifest_hash_file_path = docs_base_directory / f"{database}_manifest_hash.txt"
+        with manifest_hash_file_path.open(mode="w") as io:
+            io.write(manifest_hash)
