@@ -23,7 +23,7 @@ class RecipeRegistry(pydantic.BaseModel):
         self._recipes = self._recipes or {}
 
         _default_recipes_directory = (
-            pathlib.Path(__file__).parent.parent / "_recipes"
+            pathlib.Path(__file__).parent.parent.parent.parent / "docs" / "recipes"
             if is_bundled() is False
             else get_bundle_base_path() / "_recipes"
         )
