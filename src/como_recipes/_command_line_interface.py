@@ -10,6 +10,7 @@ import natsort
 import yaml
 
 from ._base._base_recipe import Recipe
+from ._registration._ingredient_registry import IngredientRegistry
 from .utils import get_base_environment_variable, get_executable_name, get_package_version
 
 
@@ -42,6 +43,9 @@ def _generate_html_recipes() -> None:
         message = f"\nDirectory does not exist: {docs_base_directory}\n\nAre you sure you are running this in dev mode?"
 
         raise ValueError(message)
+
+    # Import ingredient registry so recipes load correctly
+    ingredient_registry = IngredientRegistry()  # noqa: F841
 
     # All formatted HTML recipes for GitHub pages
     formatted_recipes_directory = docs_base_directory / "formatted_recipes"
