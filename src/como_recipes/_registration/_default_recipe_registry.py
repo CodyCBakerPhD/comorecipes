@@ -63,7 +63,7 @@ class _DefaultRecipeRegistry(RecipeRegistry):
                 manifest = yaml.safe_load(stream=manifest_content)
 
                 for item_name, item_hash in manifest.items():
-                    item_file_path = self._app_home_directory / f"{manifest_type}s" / f"{item_name}.yaml"
+                    item_file_path = self._app_home_directory / f"{manifest_type}" / f"{item_name}.yaml"
 
                     # TODO: could be more efficient to calculate the difference between local and remote manifest
                     if item_file_path.exists():
