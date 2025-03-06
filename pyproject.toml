@@ -33,6 +33,7 @@ dependencies = [
     "natsort",
     "jsonschema",
     "PyYAML",
+    "requests",
 ]
 
 [project.optional-dependencies]
