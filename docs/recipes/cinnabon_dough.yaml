@@ -1,30 +1,35 @@
 name: Cinnabon Dough
 
 tags:
-- American
-- Dessert
+- Component
 
 measurements:
+- amount: '3.5'
+  unit: grams
+  ingredient: yeast
+- amount: '50'
+  unit: grams
+  ingredient: sugar
+- amount: '125'
+  unit: grams
+  prefix: warm
+  ingredient: milk
 - amount: '1'
   unit: portions
-  ingredient: cinnabon dough
-- amount: '1'
-  unit: portions
-  ingredient: cinnabon filling
-- amount: '1'
-  unit: portions
-  ingredient: cinnabon icing
+  ingredient: egg
+  suffix: ', room temperature'
+- amount: '36'
+  unit: grams
+  ingredient: margarine
+- amount: '270'
+  unit: grams
+  ingredient: bread flour
+- amount: '3'
+  unit: grams
+  ingredient: salt
 
-notes:
-- Reheat for 30 seconds in microwave.
 
 instructions:
-- Make dough.
-- Make filling.
-- When ready, roll very flat to about 15 x 20 inch shape.
-- Coat with filling.
-- Roll and cut into pieces.
-- Proof for 30 minutes.
-- Preheat oven to 400 F.
-- Bake for 15 minutes.
-- Ice when cool.
+- Active yeast in milk with a bit of the sugar.
+- Combine with dry ingredients, egg, and margarine.
+- Let rise for 1 hour.
