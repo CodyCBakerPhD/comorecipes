@@ -9,7 +9,7 @@ import click
 import natsort
 import yaml
 
-from ._registration._default_recipe_registry import default_recipe_registry
+from ._base import Recipe
 from .utils import get_base_environment_variable, get_executable_name, get_package_version
 
 
@@ -50,17 +50,19 @@ def _generate_html_recipes() -> None:
     formatted_recipes_directory.mkdir(exist_ok=True)
 
     alphabetized_relative_path_to_recipe_name: dict[str, dict[str]] = collections.defaultdict(dict)
-    recipe_names = default_recipe_registry.get_all_recipe_names()
-    for recipe_name in natsort.natsorted(seq=recipe_names):
+    recipes_directory = docs_base_directory / "recipes"
+    recipe_file_paths = list(recipes_directory.glob(pattern="*.yaml"))
+    for recipe_file_path in natsort.natsorted(seq=recipe_file_paths):
+        recipe = Recipe.from_yaml_file(file_path=recipe_file_path)
+        recipe_name = recipe.name
         starting_letter = recipe_name[0].upper()
-        recipe = default_recipe_registry.get_recipe(recipe_name=recipe_name)
+        file_stem = recipe_file_path.stem
 
-        file_stem = recipe.name.lower().replace(" ", "_")
-        relative_path = f"formatted_recipes/{file_stem}.html"
-        alphabetized_relative_path_to_recipe_name[starting_letter][relative_path] = recipe_name
-        recipe_file_path = docs_base_directory / relative_path
+        relative_html_path = f"formatted_recipes/{file_stem}.html"
+        alphabetized_relative_path_to_recipe_name[starting_letter][relative_html_path] = recipe_name
+        recipe_html_file_path = docs_base_directory / relative_html_path
 
-        recipe.to_html_file(file_path=recipe_file_path)
+        recipe.to_html_file(file_path=recipe_html_file_path)
 
     # Index file for GitHub pages
     index_lines = [
