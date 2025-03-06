@@ -21,11 +21,11 @@ class _DefaultRecipeRegistry(RecipeRegistry):
         self._manifests_directory = self._app_home_directory / "manifests"
         self._manifests_directory.mkdir(exist_ok=True)
 
-        self._manifest_types = ["ingredient", "recipe"]
+        self._manifest_types = ["ingredients", "recipes"]
         self._current_manifest_hashes = {}
         for manifest_type in self._manifest_types:
-            url = f"https://codycbakerphd.github.io/como_recipes/{manifest_type}_manifest_hash.txt"
-            self._current_manifest_hashes[manifest_type] = request_content(url=url)
+            manifest_hash_url = f"https://codycbakerphd.github.io/como_recipes/manifests/{manifest_type}_hash.txt"
+            self._current_manifest_hashes[manifest_type] = request_content(url=manifest_hash_url)
 
         update = False
         local_manifest_hash_file_paths = list(self._manifests_directory.glob(pattern="*.txt"))
@@ -58,12 +58,12 @@ class _DefaultRecipeRegistry(RecipeRegistry):
 
         if update is True:
             for manifest_type in self._manifest_types:
-                manifest_url = f"https://codycbakerphd.github.io/como_recipes/{manifest_type}_manifest.yaml"
+                manifest_url = f"https://codycbakerphd.github.io/como_recipes/manifests/{manifest_type}.yaml"
                 manifest_content = request_content(url=manifest_url)
                 manifest = yaml.safe_load(stream=manifest_content)
 
                 for item_name, item_hash in manifest.items():
-                    item_file_path = self._app_home_directory / f"{manifest_type}s" / f"{item_name}.yaml"
+                    item_file_path = self._app_home_directory / f"{manifest_type}" / f"{item_name}.yaml"
 
                     # TODO: could be more efficient to calculate the difference between local and remote manifest
                     if item_file_path.exists():
@@ -73,11 +73,11 @@ class _DefaultRecipeRegistry(RecipeRegistry):
                             continue
 
                     # TODO: could also be more efficient to make this step async
-                    item_url = f"https://codycbakerphd.github.io/como_recipes/{manifest_type}s/{item_name}.yaml"
+                    item_url = f"https://codycbakerphd.github.io/como_recipes/{manifest_type}/{item_name}.yaml"
                     item_content = request_content(url=item_url)
                     item_file_path.write_text(data=item_content)
 
-                manifest_file_path = self._manifests_directory / f"{manifest_type}s.yaml"
+                manifest_file_path = self._manifests_directory / f"{manifest_type}.yaml"
                 manifest_file_path.write_text(data=manifest_content)
 
                 manifest_hash_file_path = self._manifests_directory / f"{manifest_type}_hash.txt"

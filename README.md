@@ -10,8 +10,4 @@ Collection of recipes and meal planning software for our household.
 
 ## Installation
 
-To run the app:
-
-1) navigate to the [latest releases page](https://github.com/codycbakerphd/como_recipes/releases/latest/)
-2) download the `.exe` appropriate for your version of Windows
-3) launch the executable file
+To install and run the app, use the [CoMo Launcher](https://github.com/CodyCBakerPhD/como_apps_launcher_public/releases).
