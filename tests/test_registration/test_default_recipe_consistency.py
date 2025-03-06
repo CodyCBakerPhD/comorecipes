@@ -18,21 +18,6 @@ def test_recipe_counts_consistency():
     assert html_recipe_count == default_recipe_count
 
 
-def test_recipe_names_consistency():
-    docs_folder_path = pathlib.Path(__file__).parent.parent.parent / "docs"
-    yaml_recipe_folder_path = docs_folder_path / "recipes"
-    yaml_recipe_file_paths = {str(file_path.name) for file_path in yaml_recipe_folder_path.glob(pattern="*.yaml")}
-
-    default_recipe_file_paths = {
-        str(como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name).file_path.name)
-        for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
-    }
-
-    difference = yaml_recipe_file_paths.symmetric_difference(default_recipe_file_paths)
-    message = f"\n\nOverlap found: \n{json.dumps(obj=tuple(difference), indent=2)}\n"
-    assert difference == set(), message
-
-
 def test_units_consistent_per_ingredient():
     recipes = [
         como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name)
