@@ -9,7 +9,7 @@ import click
 import natsort
 import yaml
 
-from ._base import Recipe
+from ._base._base_recipe import Recipe
 from .utils import get_base_environment_variable, get_executable_name, get_package_version
 
 
