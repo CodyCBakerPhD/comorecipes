@@ -104,19 +104,19 @@ def _generate_html_recipes() -> None:
         io.writelines(index_lines)
 
     # Hidden manifest files
-    databases = ["recipe", "ingredient"]
+    databases = ["recipes", "ingredients"]
     for database in databases:
-        database_directory = docs_base_directory / f"{database}s"
+        database_directory = docs_base_directory / f"{database}"
         manifest = {
             file_path.stem: hashlib.md5(string=file_path.read_bytes()).hexdigest()  # noqa: S324
             for file_path in database_directory.glob(pattern="*.yaml")
         }
 
-        manifest_file_path = docs_base_directory / f"{database}_manifest.yaml"
+        manifest_file_path = docs_base_directory / "manifests" / f"{database}.yaml"
         with manifest_file_path.open(mode="w") as io:
             yaml.dump(data=manifest, stream=io)
 
         manifest_hash = hashlib.md5(string=manifest_file_path.read_bytes()).hexdigest()  # noqa: S324
-        manifest_hash_file_path = docs_base_directory / f"{database}_manifest_hash.txt"
+        manifest_hash_file_path = docs_base_directory / "manifests" / f"{database}_hash.txt"
         with manifest_hash_file_path.open(mode="w") as io:
             io.write(f"{manifest_hash}\n")
