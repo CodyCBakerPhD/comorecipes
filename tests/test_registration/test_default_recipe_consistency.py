@@ -21,10 +21,10 @@ def test_recipe_counts_consistency():
 def test_recipe_names_consistency():
     docs_folder_path = pathlib.Path(__file__).parent.parent.parent / "docs"
     yaml_recipe_folder_path = docs_folder_path / "recipes"
-    yaml_recipe_file_paths = {str(file_path) for file_path in yaml_recipe_folder_path.glob(pattern="*.yaml")}
+    yaml_recipe_file_paths = {str(file_path.name) for file_path in yaml_recipe_folder_path.glob(pattern="*.yaml")}
 
     default_recipe_file_paths = {
-        str(como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name).file_path)
+        str(como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name).file_path.name)
         for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
     }
 

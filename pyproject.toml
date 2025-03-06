@@ -115,6 +115,7 @@ ignore = [
     "G004",  # Will decide what best approach is for this later
     "B904",  # Disagree with; nearly always enhance exist error messages with additional information
     "B035",  # Found some false positives (such as with assignment operator)
+    "C901",  # I guess I don't really care that much...
 ]
 
 [tool.ruff.lint.per-file-ignores]
