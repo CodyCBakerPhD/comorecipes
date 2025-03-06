@@ -6,8 +6,12 @@ import platform
 import sys
 
 import pydantic
+import requests
 
 from ._base._base_measurement import Measurement
+
+TIMEOUT_IN_SECONDS = 60
+GOOD_REQUEST_STATUS_CODE = 200
 
 
 def is_bundled() -> bool:
@@ -102,3 +106,18 @@ def get_rendered_units(*, measurement: Measurement) -> str:
     if measurement.unit == "portions" and measurement.ingredient.portions_text is not None:
         return measurement.ingredient.portions_text
     return measurement.unit
+
+
+@pydantic.validate_call
+def request_content(url: str) -> str:
+    """Make a GET request to a URL and return the content."""
+    response = requests.get(url=url, timeout=TIMEOUT_IN_SECONDS)
+    if response.status_code != GOOD_REQUEST_STATUS_CODE:
+        message = (
+            f"\n\nFailed to download content from '{url}'."
+            f"\nStatus code: {response.status_code}"
+            f"\nResponse: {response.content}\n"
+        )
+        raise RuntimeError(message)
+
+    return response.content.decode("utf-8")

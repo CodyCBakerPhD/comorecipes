@@ -35,7 +35,7 @@ jobs:
         path: |
           ~/pre_commit_environment
           ~/.cache/pre-commit/
-        key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+        key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}|${{ hashFiles('pyproject.toml') }}
     - if: steps.cache-pre-commit.outputs.cache-hit == false
       name: Install a virtual environment with pre-commit
       run: |
