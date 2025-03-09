@@ -7,43 +7,42 @@ tags:
 - Soup
 
 measurements:
-- amount: '28'
-  unit: grams
+- amount: 'enough'
   ingredient: olive oil
-- amount: '200'
+- amount: '100'
   unit: grams
   ingredient: onion
-- amount: '12'
+- amount: '8'
   unit: grams
   ingredient: garlic
 - amount: '1'
   unit: portions
   prefix: chopped
   ingredient: kale
-- amount: '960'
+- amount: '480'
   unit: grams
   ingredient: water
-- amount: '20'
+- amount: '10'
   unit: grams
   ingredient: no-chicken bouillon
-- amount: '1'
+- amount: '0.5'
   unit: portions
   ingredient: fresh tomatoes
-- amount: '6'
+- amount: '3'
   unit: portions
   prefix: cubed
   ingredient: potatoes
-- amount: '850'
+- amount: '100'
   unit: grams
+  prefix: dried
   ingredient: cannellini beans
-  suffix: (2 cans)
-- amount: '6'
+- amount: '3'
   unit: grams
   ingredient: Italian seasoning
-- amount: '8'
+- amount: '4'
   unit: grams
   ingredient: parsley
-- amount: '6'
+- amount: '3'
   unit: grams
   ingredient: salt and pepper
 
