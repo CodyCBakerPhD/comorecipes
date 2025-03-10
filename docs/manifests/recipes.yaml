@@ -9,6 +9,8 @@ black_bean_chili: 2d2537b0b8864cf264a3172b49be8c73
 black_bean_chili_spice: 7372d7fa116725ef5d9db6fe5fd1402e
 blueberry_cobbler_filling: 83eb534b722b04edc66206dd9beb17a9
 bolognese: 56edf982780d423aa648a6c5a66f1ec9
+bratwurst: 5679a113edffd0d2c1a715b99b5afd27
+bread: 77fe3be0a7f4343f81391176c3395fc4
 brigadeiros: bf22c2ace1344d8b0e3802d2eade0c98
 broccoli_cheddar_soup: beffd68ff3ef9d5d906d1370707896c1
 brownie_icing: 846c2f04eeb9ca784726b7fb049a679d
@@ -18,7 +20,7 @@ butter_pie_crust: 7b9f3e7dabdf615a474b45fbe3a1817e
 buttermilk_waffles: 39afd0f134f22f846752c6f1092dc500
 cabbage_rolls: ed66604856f2b3683c422ebfd3d6fc6e
 caramel: 196772e8c07977b8bf42e23cf3f4b7b8
-carnitas: 5bfda4e43f8ba884380513368ef09f17
+carnitas: 4624e3a1aefa5bfe66393fb226e41a7f
 cauliflower_bites: 0a193d631b7e348be852993ad27a1e35
 cherry_pie_filling: 7327ba6c207faedce24439462f057c06
 chocolate_cake: 957d636b3133d0bd977245002b39a68a
@@ -56,6 +58,7 @@ grape_salad: c1073e1527e799c20a988000a9f4e447
 grape_tomato_pasta: 187c9c64cafa721b6be0ce88bf2ca028
 green_bean_casserole: 69f45afebc004021fef91ce271c5345d
 green_chili: 9449ff15afe9a50a7e99c02c255ebe4a
+grilled_vegetables: 00591bc4de7656bbb43e1ca6eacba608
 happy_plums: 51317b32e8386ec81c162d7962620837
 honey_garlic_salmon: ca726210472a8ee96fe06fe96a3ba8ba
 hot_fudge: ffd8982118a3f7f7f53e4e42abf35e19
@@ -66,6 +69,8 @@ kale_soup: 53673e0c8425e6d55fada3069340b4b4
 key_lime_filling: 41b6169b94b07c6aa735b8ce0961c61d
 lemon_cream_pasta: 427590c018756c941aace8422e59dad2
 macaroni_and_cheese: 1bc61b113fb8cc80722b69e5098b77bd
+marinara_sauce: 2cce79a965f74a88eb1a85588eb764a6
+mashed_potatoes: 46cc101e1532f59a41c2e71be8c36561
 meatloaf: 2ed6435e131f199a0d91725c3b5ba415
 meatloaf_glaze: a51d0133072ec900bbdccbcfb72c10fa
 millionaire_shortbread: e0ba05ca9b2ce8eb3aad67e5279b9c45
@@ -73,10 +78,12 @@ minestrone: 9a7032a625cacd75d3edbea780a239ce
 mirror_glaze: 06b1b4d399a798100db23921842b925f
 mochi_donuts: 061c46af7fb32905042ffb28709e35f2
 naan: 37c284085abb4b3a8d72860109e3432d
+nachos: 6e1f705046945c9cf35084d2c7419eb0
 nutella_bites: e34d4466b0f077ee35530ae9ee312707
 old_fashioned_chocolate_fudge: edac425b4afe987d2ee0723c4322cbb3
 pancakes: e497a5703dd8a27c5fa01e773d0d708c
 peach_cobbler_filling: 06a0134ddd4f4adb4ac4d4cbb3c1eca7
+pesto: 4193f1d9f6b58b1e3a6b92dcef383393
 piperade_sauce: 54fca080f0b5aa37202cb5952cae4958
 pizza_crust: a0b14a8d0261d31ee85dd92b565cd852
 port_wine_pears: 40549ee674cc7f833a143225e40dfbd6
@@ -84,7 +91,10 @@ pot_pie: 8f53873d33c1a6744473c4e9ef845244
 potatoes_au_gratin: 821d00d37ba34719bfe8c471ee3ccf50
 pumpkin_cream_coffee_sauce: ac10f9289d2598c801d74eec81412b19
 pumpkin_pie_filling: a144493089f9de0f7c27c0370a24897e
+queso: 89c14c20ab32a16ef4ccdb366f9dd0ce
+ramen: cd6b45ccbe3e2dc7ca7639aab9d074d3
 ratatouille: f027a04519dca01e4d47256237acf053
+ravioli: 0c9365a00c07c596562cf82d6398df71
 red_bean_spice: 560e0ddf5501be2a3db640c9a1c78215
 red_beans: f0b338db3230f986d939e5f9ac01a247
 red_wine_sauce: 347629443bb7f5e4a1df274cb2fb1754
@@ -102,7 +112,8 @@ sloppy_joe: ca53c5a1d06fde1677beb5f9e957605b
 slow_cooked_ribs: cf3df56e07cc83e1b64ead4553ac7bf1
 souffle: 17d2abcdcf55f9ab4f95891f049abbe1
 sourdough: de5d4dc2768a020240c3305d46cb199b
-spaghetti_squash: 81ea3f5f8feb9eb181e7f0cf5ef8ec41
+spaghetti: f7119f0ae31202d5444bb1f30bab7994
+spaghetti_squash: 609d8ae43ed86aa87b51ab7b9e37c6ea
 spanish_rice: d1b630bdd1b5a3cf7462c63cba2ce8a1
 stir_fry: 209919e07a501d55ae7a850c25e7ec58
 strawberry_jam: 542cd1b0c7f6bb8e5e316bf8ffa68621

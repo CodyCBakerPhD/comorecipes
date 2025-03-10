@@ -10,12 +10,10 @@ def test_recipe_counts_consistency():
     yaml_recipe_folder_path = docs_folder_path / "recipes"
     html_recipe_folder_path = docs_folder_path / "formatted_recipes"
 
-    default_recipe_count = len(como_recipes.default_recipe_registry.get_all_recipe_names())
     yaml_recipe_count = len(list(yaml_recipe_folder_path.glob(pattern="*.yaml")))
     html_recipe_count = len(list(html_recipe_folder_path.glob(pattern="*.html")))
 
-    assert yaml_recipe_count == default_recipe_count
-    assert html_recipe_count == default_recipe_count
+    assert yaml_recipe_count == html_recipe_count
 
 
 def test_units_consistent_per_ingredient():

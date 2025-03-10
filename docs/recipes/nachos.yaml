@@ -1,0 +1,40 @@
+name: Nachos
+
+tags:
+- Mexican
+- Vegetarian
+- Entree
+
+measurements:
+- amount: '1'
+  unit: portions
+  ingredient: tortilla chips
+- amount: '1'
+  unit: portions
+  prefix: seasoned
+  ingredient: black beans
+- amount: '1'
+  unit: portions
+  prefix: sauteed
+  ingredient: corn
+- amount: '1'
+  unit: portions
+  prefix: seasoned
+  ingredient: boca
+- amount: '1'
+  unit: portions
+  ingredient: queso
+- amount: '1'
+  unit: portions
+  ingredient: sweet peppers
+- amount: '1'
+  unit: portions
+  ingredient: guacamole
+- amount: '1'
+  unit: portions
+  ingredient: hot sauce
+
+instructions:
+- Cook beans and corn.
+- Make queso.
+- Assemble on plate.
