@@ -7,7 +7,7 @@ tags:
 
 measurements:
 - amount: '3'
-  unit: squares
+  unit: portions
   ingredient: ramen noodles
 - amount: '500'
   unit: grams
