@@ -62,6 +62,7 @@ jobs:
       run: |  # `|| true` below to skip if nothing changed from pre-commit
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
+        git add docs
         git commit -m "pre-commit" -a || true
 
     - name: Push changes
