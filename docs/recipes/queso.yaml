@@ -11,7 +11,7 @@ measurements:
   unit: portions
   ingredient: queso cheese
 - amount: '1'
-  unit: gram
+  unit: grams
   ingredient: salt and pepper
 
 instructions:
