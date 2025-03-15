@@ -14,6 +14,7 @@ measurements:
   ingredient: butter
 - amount: '1'
   unit: portions
+  prefix: whole
   ingredient: mushrooms
 - amount: '5'
   unit: grams
@@ -27,5 +28,5 @@ measurements:
 
 instructions:
 - Heat oil and butter in large saucepan over medium heat.
-- Cook all ingredients until mushrooms are lightly browned.
-- Reduce heat to low and simmer until mushrooms are tender, about 5-8 more minutes.
+- Cook all dry ingredients until mushrooms are lightly browned.
+- Deglaze pan with wine, reduce heat to low, and simmer until mushrooms are tender, ~6 minutes.
