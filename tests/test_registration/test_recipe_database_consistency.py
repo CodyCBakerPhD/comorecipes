@@ -21,7 +21,7 @@ def test_units_consistent_per_ingredient():
     yaml_recipe_folder_path = docs_folder_path / "recipes"
 
     recipes = [
-        como_recipes.Recipe.from_yaml(file_path=file_path)
+        como_recipes.Recipe.from_yaml_file(file_path=file_path)
         for file_path in yaml_recipe_folder_path.glob(pattern="*.yaml")
     ]
 
@@ -47,7 +47,7 @@ def test_no_repeated_tags():
     yaml_recipe_folder_path = docs_folder_path / "recipes"
 
     recipes = [
-        como_recipes.Recipe.from_yaml(file_path=file_path)
+        como_recipes.Recipe.from_yaml_file(file_path=file_path)
         for file_path in yaml_recipe_folder_path.glob(pattern="*.yaml")
     ]
     tags_per_recipe = {recipe.name: recipe.tags for recipe in recipes}
