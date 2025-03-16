@@ -4,19 +4,19 @@ tags:
 - Component
 
 measurements:
-- amount: '320'
+- amount: '160'
   unit: grams
   ingredient: chili powder
-- amount: '100'
+- amount: '50'
   unit: grams
   ingredient: cumin
-- amount: '40'
+- amount: '20'
   unit: grams
   ingredient: oregano
-- amount: '60'
+- amount: '30'
   unit: grams
   ingredient: salt
-- amount: '10'
+- amount: '5'
   unit: grams
   ingredient: cayenne pepper
 
