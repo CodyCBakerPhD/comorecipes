@@ -17,9 +17,12 @@ def test_recipe_counts_consistency():
 
 
 def test_units_consistent_per_ingredient():
+    docs_folder_path = pathlib.Path(__file__).parent.parent.parent / "docs"
+    yaml_recipe_folder_path = docs_folder_path / "recipes"
+
     recipes = [
-        como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name)
-        for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
+        como_recipes.Recipe.from_yaml_file(file_path=file_path)
+        for file_path in yaml_recipe_folder_path.glob(pattern="*.yaml")
     ]
 
     all_ingredient_occurences_to_units = collections.defaultdict(list)
@@ -40,10 +43,14 @@ def test_units_consistent_per_ingredient():
 
 
 def test_no_repeated_tags():
-    tags_per_recipe = {
-        recipe_name: como_recipes.default_recipe_registry.get_recipe(recipe_name=recipe_name).tags
-        for recipe_name in como_recipes.default_recipe_registry.get_all_recipe_names()
-    }
+    docs_folder_path = pathlib.Path(__file__).parent.parent.parent / "docs"
+    yaml_recipe_folder_path = docs_folder_path / "recipes"
+
+    recipes = [
+        como_recipes.Recipe.from_yaml_file(file_path=file_path)
+        for file_path in yaml_recipe_folder_path.glob(pattern="*.yaml")
+    ]
+    tags_per_recipe = {recipe.name: recipe.tags for recipe in recipes}
 
     duplicated_tags = {
         recipe_name: tags for recipe_name, tags in tags_per_recipe.items() if len(set(tags)) != len(tags)
