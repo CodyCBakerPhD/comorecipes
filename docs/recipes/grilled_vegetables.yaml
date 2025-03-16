@@ -21,8 +21,8 @@ measurements:
 - amount: '4'
   unit: portions
   ingredient: corn
-- amount: '2'
-  unit: portions
+- amount: '200'
+  unit: grams
   ingredient: onion
 
 instructions:

@@ -21,8 +21,8 @@ measurements:
 - amount: '14'
   unit: grams
   ingredient: baking powder
-- amount: '340'
-  unit: grams
+- amount: '4'
+  unit: portions
   ingredient: beer
 
 instructions:

@@ -15,8 +15,8 @@ measurements:
 - amount: '200'
   unit: grams
   ingredient: white onion
-- amount: '300'
-  unit: grams
+- amount: '0.5'
+  unit: portions
   ingredient: cabbage
 - amount: '100'
   unit: grams

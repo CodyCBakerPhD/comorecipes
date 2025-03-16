@@ -27,11 +27,9 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: sweet peppers
-- amount: '1'
-  unit: portions
+- amount: 'enough'
   ingredient: guacamole
-- amount: '1'
-  unit: portions
+- amount: 'enough'
   ingredient: hot sauce
 
 instructions:
