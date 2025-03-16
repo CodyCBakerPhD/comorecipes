@@ -32,12 +32,16 @@ measurements:
   ingredient: Arborio rice
 - amount: 'enough'
   ingredient: salt and pepper
-- amount: 'enough'
-  ingredient: no-chicken broth
+- amount: '907'
+  unit: grams
+  ingredient: water
+- amount: '32'
+  unit: grams
+  ingredient: no-chicken bouillon
 - amount: '113'
   unit: grams
   ingredient: bechamel sauce
-- amount: '6'
+- amount: '2'
   unit: grams
   ingredient: salt and pepper
 - amount: '14'

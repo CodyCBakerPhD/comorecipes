@@ -28,8 +28,8 @@ measurements:
 - amount: '2'
   unit: grams
   ingredient: red pepper flakes
-- amount: '170'
-  unit: grams
+- amount: '1'
+  unit: portions
   ingredient: tomato paste
 - amount: '60'
   unit: grams
