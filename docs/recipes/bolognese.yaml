@@ -49,8 +49,8 @@ measurements:
   unit: portions
   prefix: sliced
   ingredient: mushrooms
-- amount: '1'
-  unit: portions
+- amount: '337'
+  unit: grams
   ingredient: Rotini
 
 instructions:
