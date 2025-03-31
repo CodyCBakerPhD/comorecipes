@@ -1,7 +1,7 @@
 import natsort
 import pydantic
 
-from ._base._base_recipe import Recipe
+from .._base._base_recipe import Recipe
 
 
 @pydantic.validate_call

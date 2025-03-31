@@ -5,8 +5,6 @@ import pydantic
 import yaml
 
 from ._base_measurement import Measurement
-from .._registration._ingredient_registry import IngredientRegistry
-from ..utils import get_rendered_units
 
 
 class Recipe(pydantic.BaseModel):
@@ -175,6 +173,8 @@ class Recipe(pydantic.BaseModel):
             Path to the .yaml file.
 
         """
+        from .._registration._ingredient_registry import IngredientRegistry
+
         try:
             with file_path.open(mode="r") as io:
                 recipe_info = yaml.safe_load(stream=io)
@@ -212,6 +212,8 @@ class Recipe(pydantic.BaseModel):
             Path to the HTML (.html) file
 
         """
+        from ..utils import get_rendered_units
+
         html_lines = ['<p><a href="../index.html">Back to Recipe Index</a></p>\n\n']
         html_lines += [f"<h1>{self.name}</h1>\n\n"]
 

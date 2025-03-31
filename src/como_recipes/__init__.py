@@ -6,7 +6,7 @@ from ._base._base_meal import Meal
 from ._registration._ingredient_registry import IngredientRegistry, default_ingredient_registry
 from ._registration._recipe_registry import RecipeRegistry
 from ._registration._default_recipe_registry import default_recipe_registry
-from ._meal_selection import MealSelection
+from ._base._meal_selection import MealSelection
 
 __all__ = [
     # Global variables
