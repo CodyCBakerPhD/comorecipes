@@ -36,17 +36,17 @@ body:
       required: true
 
   - type: textarea
-    id: instructions
-    attributes:
-      label: Instructions
-      description: The instructions of how to combine the ingredients and cook the dish.
-    validations:
-      required: true
-
-  - type: textarea
     id: notes
     attributes:
       label: Notes
       description: Any notes that are distinct from the set of instructions, such as warnings about common mistakes.
+    validations:
+      required: false
+
+  - type: textarea
+    id: instructions
+    attributes:
+      label: Instructions
+      description: The instructions of how to combine the ingredients and cook the dish.
     validations:
       required: true
