@@ -36,6 +36,14 @@ body:
       required: true
 
   - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Any notes that are distinct from the set of instructions, such as warnings about common mistakes.
+    validations:
+      required: false
+
+  - type: textarea
     id: instructions
     attributes:
       label: Instructions
@@ -43,10 +51,3 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: notes
-    attributes:
-      label: Notes
-      description: Any notes that are distinct from the set of instructions, such as warnings about common mistakes.
-    validations:
-      required: true
