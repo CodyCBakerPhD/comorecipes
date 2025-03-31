@@ -10,7 +10,8 @@ tags:
 measurements:
 - amount: '225'
   unit: grams
-  ingredient: cream cheese, softened
+  ingredient: cream cheese
+  suffix: ', softened'
 - amount: '225'
   unit: grams
   ingredient: sour cream

@@ -1,0 +1,20 @@
+name: Celery
+
+tags:
+- Side
+- Vegetarian
+
+measurements:
+- amount: '1'
+  unit: portions
+  ingredient: celery
+- amount: '50'
+  unit: grams
+  ingredient: peanut butter
+- amount: '50'
+  unit: grams
+  ingredient: cream cheese
+
+instructions:
+- Clean and prepare celery.
+- Coat or dip with filling of choice.
