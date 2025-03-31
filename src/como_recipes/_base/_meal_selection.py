@@ -368,7 +368,7 @@ class MealSelection(pydantic.BaseModel):
 
         return shopping_list_display
 
-    def get_shopping_list_printout(self) -> str:
+    def get_shopping_list_printout(self, number_of_columns: int = 3) -> str:
         """Get the final text formatted shopping list printout."""
         if self.is_empty():
             return ""
@@ -379,11 +379,43 @@ class MealSelection(pydantic.BaseModel):
 
         shopping_list_lines.append("\n\n\nIngredients\n-----------\n\n")
         shopping_list = self.get_shopping_list()
-        for ingredient_name, (total_per_ingredient, measurement_unit) in shopping_list.items():
-            shopping_list_lines.append(f"☐  {ingredient_name}\n")
-            shopping_list_lines.append(f"    {total_per_ingredient} {measurement_unit}\n")
-        shopping_list_printout = "\n".join(shopping_list_lines)
+        shopping_list_table = {}
+        for item_index, (ingredient_name, (total_per_ingredient, measurement_unit)) in enumerate(
+            iterable=shopping_list.items(),
+        ):
+            row_index = math.floor(item_index / number_of_columns)
+            column_index = item_index % number_of_columns
+            shopping_list_table[(row_index, column_index)] = (ingredient_name, total_per_ingredient, measurement_unit)
 
+        # TODO: might need to somehow ensure that the length of measurement summations is less than the max width
+        # Or dynamically choose the width to account for it...
+        maximum_number_of_characters_per_line = 80  # From experimentation
+        number_of_rows = math.ceil(len(shopping_list_table) / number_of_columns)
+        column_width = math.floor(maximum_number_of_characters_per_line / number_of_columns)
+        for row_index in range(number_of_rows):
+            ingredient_name_row_list = []
+            ingredient_amounts_row_list = []
+            for column_index in range(number_of_columns):
+                key = (row_index, column_index)
+                entry = shopping_list_table.get(key)
+                if entry is None:
+                    continue
+
+                ingredient_name, total_per_ingredient, measurement_unit = entry
+
+                ingredient_name_row_list_entry = f"☐  {ingredient_name}".ljust(column_width)
+                ingredient_name_row_list.append(ingredient_name_row_list_entry)
+
+                ingredient_amounts_row_list_entry = f"    {total_per_ingredient} {measurement_unit}".ljust(column_width)
+                ingredient_amounts_row_list.append(ingredient_amounts_row_list_entry)
+
+            ingredient_name_row = "".join(ingredient_name_row_list)
+            ingredient_amounts_row = "".join(ingredient_amounts_row_list)
+
+            shopping_list_lines.append(ingredient_name_row)
+            shopping_list_lines.append(ingredient_amounts_row)
+
+        shopping_list_printout = "\n".join(shopping_list_lines)
         return shopping_list_printout
 
     @pydantic.validate_call
