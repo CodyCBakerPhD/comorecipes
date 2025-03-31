@@ -9,7 +9,7 @@ import natsort
 
 from ._app_globals import app_state_json_schema
 from ._app_utils import _CoMoJSONEncoder, _generate_default_app_state, _generate_new_default_session_id
-from .._meal_selection import MealSelection
+from .._base._meal_selection import MealSelection
 
 
 class SessionManagerFrame(tkinter.Frame):

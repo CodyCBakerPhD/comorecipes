@@ -134,6 +134,7 @@ ignore = [
     "SLF001",  # Need to access _MEIPASS for PyInstaller assets
     "T201",  # Fine to use `print` for app debugging
     "BLE001",  # Error catching is handled by the app
+    "TCH001",  # No idea
 ]
 "src/como_recipes/_assets/*" = [
     "INP001",  # Not an official part of the package, just a helper script

@@ -89,6 +89,59 @@ def test_meal_selection_add_meal_get_shopping_list():
     assert meal_selection.get_shopping_list() == expected_shopping_list
 
 
+def test_meal_selection_add_meal_get_shopping_list_printout():
+    meal_selection = MealSelection()
+
+    new_meal = como_recipes.Meal()
+    new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Aglio E Olio"))
+    new_meal.add_recipe(recipe=como_recipes.default_recipe_registry.get_recipe(recipe_name="Sauteed Green Beans"))
+    meal_selection.add_meal(meal=new_meal)
+
+    expected_shopping_list_printout = (
+        "Meals\n"
+        "-----\n"
+        "\n"
+        "\n"
+        "☐ Aglio E Olio with Sauteed Green Beans\n"
+        "\n"
+        "\n"
+        "\n"
+        "\n"
+        "Ingredients\n"
+        "-----------\n"
+        "\n"
+        "\n"
+        "☐  Parmesan\n"
+        "\n"
+        "    80 grams\n"
+        "\n"
+        "☐  crushed red pepper\n"
+        "\n"
+        "    2 grams\n"
+        "\n"
+        "☐  garlic\n"
+        "\n"
+        "    1 heads\n"
+        "\n"
+        "☐  green beans\n"
+        "\n"
+        "    900 grams\n"
+        "\n"
+        "☐  olive oil\n"
+        "\n"
+        "    76 grams\n"
+        "\n"
+        "☐  salt\n"
+        "\n"
+        "    17 grams\n"
+        "\n"
+        "☐  thin spaghetti\n"
+        "\n"
+        "    1 (16 oz.) packages\n"
+    )
+    assert meal_selection.get_shopping_list_printout() == expected_shopping_list_printout
+
+
 def test_meal_selection_remove_meal():
     meal_selection = MealSelection()
 

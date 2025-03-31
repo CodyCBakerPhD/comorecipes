@@ -6,11 +6,11 @@ import warnings
 import natsort
 import pydantic
 
-from ._base._base_ingredient import Ingredient
-from ._base._base_meal import Meal
-from ._base._base_measurement import Measurement
-from ._base._sufficient_measurement import SufficientMeasurement
-from .utils import get_rendered_units
+from ._base_ingredient import Ingredient
+from ._base_meal import Meal
+from ._base_measurement import Measurement
+from ._sufficient_measurement import SufficientMeasurement
+from ..utils import get_recipe_name_hierarchy, get_rendered_units
 
 
 class MealSelection(pydantic.BaseModel):
@@ -274,6 +274,39 @@ class MealSelection(pydantic.BaseModel):
 
         return raw_measurement_list
 
+    def format_selected_meals(self) -> dict[str, str]:
+        """
+        Format the selected meals in the meal selection.
+
+        Returns
+        -------
+        formatted_selected_meals : dict[str, str]
+            The formatted string containing the selected meals.
+
+        """
+        recipe_names_to_hierarchy = {
+            recipe_names: get_recipe_name_hierarchy(recipe_names=recipe_names)
+            for recipe_names in self.get_all_recipe_names()
+        }
+
+        formatted_selected_meals = {}
+        for recipe_names, hierarchy in recipe_names_to_hierarchy.items():
+            formatted_recipe_name = ""
+            for recipe_type, recipe_names_per_hierarchy in hierarchy.items():
+                match recipe_type:
+                    case "Entree":
+                        formatted_recipe_name += ", ".join(recipe_names_per_hierarchy)
+                    case "Side":
+                        formatted_recipe_name += " with "
+                        formatted_recipe_name += ", ".join(recipe_names_per_hierarchy)
+                    case "Dessert":
+                        formatted_recipe_name += " and "
+                        formatted_recipe_name += ", ".join(recipe_names_per_hierarchy)
+
+            formatted_selected_meals.update({recipe_names: formatted_recipe_name})
+
+        return formatted_selected_meals
+
     def get_shopping_list(self) -> dict[str, tuple[int | float, str]]:
         """Get the shopping list by aggregating all contained recipes and measurements."""
         shopping_list = {}
@@ -341,9 +374,10 @@ class MealSelection(pydantic.BaseModel):
             return ""
 
         shopping_list_lines = ["Meals\n-----\n\n"]
-        shopping_list_lines.extend([f"☐ {recipe_names}\n" for recipe_names in self._recipe_names_to_meal.keys()])
-        shopping_list_lines.append("\n\n\nIngredients\n-----------\n\n")
+        formatted_meals = self.format_selected_meals()
+        shopping_list_lines.extend([f"☐ {formatted_meal}\n" for formatted_meal in formatted_meals.values()])
 
+        shopping_list_lines.append("\n\n\nIngredients\n-----------\n\n")
         shopping_list = self.get_shopping_list()
         for ingredient_name, (total_per_ingredient, measurement_unit) in shopping_list.items():
             shopping_list_lines.append(f"☐  {ingredient_name}\n")

@@ -8,7 +8,7 @@ import sys
 import pydantic
 import requests
 
-from ._base._base_measurement import Measurement
+from .._base._base_measurement import Measurement
 
 TIMEOUT_IN_SECONDS = 60
 GOOD_REQUEST_STATUS_CODE = 200

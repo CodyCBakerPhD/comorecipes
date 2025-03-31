@@ -1,9 +1,8 @@
-import collections
 import tkinter
 import tkinter.messagebox
 import typing
 
-from ._app_globals import default_recipe_name_to_type, recipe_types
+from ._app_globals import recipe_types
 from ._app_utils import _generate_default_app_state
 
 
@@ -44,55 +43,10 @@ class SelectedMealsFrame(tkinter.Frame):
             func=self.remove_selected_meal,
         )
 
-    def _create_recipe_name_hierarchy(
-        self,
-        recipe_names: tuple[str, ...],
-    ) -> dict[typing.Literal[recipe_types], tuple[str, ...]]:
-        """Create a recipe name hierarchy string."""
-        hierarchy = {}
-        organized_recipe_names = collections.defaultdict(bool)
-        for recipe_type in recipe_types:
-            values = tuple(
-                recipe_name
-                for recipe_name in recipe_names
-                if recipe_type in default_recipe_name_to_type[recipe_name]  # TODO: would a hash map be better?
-                and organized_recipe_names[recipe_name] is False
-            )
-
-            if any(values) is False:
-                continue
-
-            organized_recipe_names.update({value: True for value in values})
-
-            hierarchy[recipe_type] = values
-
-        return hierarchy
-
     def update_frame(self) -> None:
         """Update the frame with the latest selected meals."""
         self.selected_meals_list_box.delete(first=0, last="end")
-
-        self.recipe_names_to_hierarchy = {
-            recipe_names: self._create_recipe_name_hierarchy(recipe_names=recipe_names)
-            for recipe_names in self.app_state["meal_selection"].get_all_recipe_names()
-        }
-
-        self.recipe_names_to_format = {}
-        for recipe_names, hierarchy in self.recipe_names_to_hierarchy.items():
-            formatted_recipe_name = ""
-            for recipe_type, recipe_names_per_hierarchy in hierarchy.items():
-                match recipe_type:
-                    case "Entree":
-                        formatted_recipe_name += ", ".join(recipe_names_per_hierarchy)
-                    case "Side":
-                        formatted_recipe_name += " with "
-                        formatted_recipe_name += ", ".join(recipe_names_per_hierarchy)
-                    case "Dessert":
-                        formatted_recipe_name += " and "
-                        formatted_recipe_name += ", ".join(recipe_names_per_hierarchy)
-
-            self.recipe_names_to_format.update({recipe_names: formatted_recipe_name})
-
+        self.recipe_names_to_format = self.app_state["meal_selection"].format_selected_meals()
         self.selected_meals_list_box.insert("end", *tuple(self.recipe_names_to_format.values()))
 
     def remove_selected_meal(self, event: tkinter.Event) -> None:

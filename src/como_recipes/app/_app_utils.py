@@ -5,7 +5,7 @@ import tkinter.messagebox
 import typing
 
 from ._app_globals import app_state_json_schema
-from .._meal_selection import MealSelection
+from .._base._meal_selection import MealSelection
 from ..utils import get_package_version
 
 
