@@ -17,7 +17,7 @@ measurements:
   ingredient: celery
 - amount: '75'
   unit: grams
-  ingredient: white onion
+  ingredient: onion
 - amount: '480'
   unit: grams
   ingredient: not-chicken broth
