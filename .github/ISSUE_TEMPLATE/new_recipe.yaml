@@ -50,4 +50,3 @@ body:
       description: The instructions of how to combine the ingredients and cook the dish.
     validations:
       required: true
-
