@@ -33,6 +33,7 @@ There are several ingredients which are shortened for readability, but are expan
 | chickpeas        | dried chickpeas                  |
 | crushed tomatoes | canned crushed tomatoes (28 oz.) |
 | green beans      | fresh green beans                |
+| onion            | white onion                      |
 
 
 

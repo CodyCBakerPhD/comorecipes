@@ -9,7 +9,7 @@ measurements:
   ingredient: olive oil
 - amount: '80'
   unit: grams
-  ingredient: white onion
+  ingredient: onion
 - amount: '8'
   unit: grams
   prefix: minced
