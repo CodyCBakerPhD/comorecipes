@@ -24,7 +24,7 @@ measurements:
   unit: grams
   prefix: halved
   ingredient: grape tomatoes
-- amount: '4'
+- amount: '6'
   unit: portions
   ingredient: egg
 - amount: 'enough'

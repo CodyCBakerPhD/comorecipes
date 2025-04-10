@@ -24,6 +24,9 @@ measurements:
 - amount: '50'
   unit: grams
   ingredient: Parmesan
+- amount: '1'
+  unit: portions
+  ingredient: mushrooms
 
 instructions:
 - Melt butter in saucepan over medium heat.
