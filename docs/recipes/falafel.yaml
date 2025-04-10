@@ -36,6 +36,15 @@ measurements:
 - amount: '0.25'
   unit: grams
   ingredient: cardamom
+- amount: '1'
+  unit: portions
+  ingredient: 'Nandos Peri Peri'
+- amount: '1'
+  unit: portions
+  ingredient: mini cucumber
+- amount: '1'
+  unit: portions
+  ingredient: Tzatziki sauce
 
 instructions:
 - Soak beans overnight.
