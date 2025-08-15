@@ -58,7 +58,7 @@ jobs:
             echo "CHANGES=true" >> $GITHUB_ENV;
         fi
 
-    - name: Commit files
+    - name: Add and commit changes
       run: |  # `|| true` below to skip if nothing changed from pre-commit
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
