@@ -20,7 +20,7 @@ measurements:
   ingredient: carrot
 - amount: '480'
   unit: grams
-  ingredient: no-chicken broth
+  ingredient: not-chicken broth
 - amount: '360'
   unit: grams
   ingredient: water
