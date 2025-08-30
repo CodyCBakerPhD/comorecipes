@@ -36,7 +36,7 @@ measurements:
   ingredient: white wine
 - amount: '240'
   unit: grams
-  ingredient: non-chicken broth
+  ingredient: not-chicken broth
 - amount: '1'
   unit: portions
   ingredient: fresh tomatoes

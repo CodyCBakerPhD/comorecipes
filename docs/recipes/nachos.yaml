@@ -9,10 +9,10 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: tortilla chips
-- amount: '1'
-  unit: portions
+- amount: '200'
+  unit: grams
   prefix: seasoned
-  ingredient: black beans
+  ingredient: dried black beans
 - amount: '1'
   unit: portions
   prefix: sauteed

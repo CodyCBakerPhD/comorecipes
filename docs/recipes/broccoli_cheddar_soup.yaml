@@ -21,7 +21,7 @@ measurements:
   ingredient: not-chicken broth
 - amount: '170'
   unit: grams
-  ingredient: cheddar
+  ingredient: double cheddar
 - amount: '250'
   unit: grams
   ingredient: milk
@@ -38,7 +38,7 @@ measurements:
 instructions:
 - In pot, melt butter over medium heat.
 - Cook onion until softened.
-- Stir in broccoli and cover with not-chicken broth.
+- Stir in broccoli and cover with broth.
 - Simmer until tender, 10-15 minutes.
 - Mix in milk and garlic powder.
 - Reduce heat and stir in cheese cubes until melted.
