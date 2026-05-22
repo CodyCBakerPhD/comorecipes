@@ -7,9 +7,9 @@ tags:
 - Spicy
 
 measurements:
-- amount: '1'
-  unit: portions
-  ingredient: red beans
+- amount: 200
+  unit: grams
+  ingredient: dried red beans
 - amount: '1'
   unit: portions
   ingredient: rice recipe
@@ -24,10 +24,10 @@ measurements:
 - amount: '2'
   unit: portions
   ingredient: bay leaves
-- amount: '7.6'
+- amount: '10'
   unit: grams
-  ingredient: red bean spice  # TODO: link
-- amount: '240'
+  ingredient: red bean spice
+- amount: '360'
   unit: grams
   ingredient: water
 
