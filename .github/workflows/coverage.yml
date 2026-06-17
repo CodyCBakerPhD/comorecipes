@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup Python
@@ -33,7 +33,7 @@ jobs:
         shell: bash
 
       - name: Restore cached virtualenv
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           key: ${{ steps.get_date.outputs.date }}-${{ hashFiles('pyproject.toml') }}
           path: ~/coverage_environment
@@ -48,7 +48,7 @@ jobs:
           echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
 
       - name: Save cached virtualenv
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           key: ${{ steps.get_date.outputs.date }}-${{ hashFiles('pyproject.toml') }}
           path: ~/coverage_environment
@@ -62,7 +62,7 @@ jobs:
           cat ./coverage.xml
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: CodyCBakerPhD/como_recipes
