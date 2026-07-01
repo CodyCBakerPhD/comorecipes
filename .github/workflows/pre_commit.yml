@@ -15,7 +15,7 @@ jobs:
     name: run
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         token: ${{ secrets.API_TOKEN_GITHUB }}  # Requires a custom token to re-trigger from pre-commit
         ref: ${{ github.head_ref }}
