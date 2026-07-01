@@ -71,7 +71,7 @@ def test_meal_selection_add_measurement_with_recipes(example_measurement: Measur
         "☐  thin spaghetti",
         "    1 portions",
         "☐  water",
-        "    960 grams",
+        "    1820 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
@@ -166,7 +166,7 @@ def test_meal_selection_remove_measurement_after_adding_with_recipes(example_mea
         "☐  thin spaghetti",
         "    1 portions",
         "☐  water",
-        "    960 grams",
+        "    1820 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
@@ -261,7 +261,7 @@ def test_meal_selection_remove_all_measurement_after_adding_with_recipes(example
         "☐  thin spaghetti",
         "    1 portions",
         "☐  water",
-        "    960 grams",
+        "    1820 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
