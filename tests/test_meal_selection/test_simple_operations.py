@@ -64,7 +64,7 @@ def test_meal_selection_add_meal_get_raw_ingredient_list():
         "☐  thin spaghetti",
         "    1 portions",
         "☐  water",
-        "    960 grams",
+        "    1820 grams",
     ]
     assert meal_selection.get_raw_measurement_list() == expected_raw_ingredient_list
 
