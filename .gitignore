@@ -133,3 +133,6 @@ dmypy.json
 
 # Mac
 .DS_Store
+
+# Node (TypeScript site build)
+node_modules/
