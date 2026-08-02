@@ -3,296 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Index</title>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 5px;
-        }
-        .section {
-            break-inside: avoid;
-        }
-    </style>
+    <title>CoMo Recipes</title>
+    <link rel="icon" href="assets/como_icon.ico">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-    <h1>Recipe Index</h1>
-    <div class="grid-container">
-        <div class="section">
+<body class="index-page">
+    <header class="site-header">
+        <h1>CoMo Recipes</h1>
+        <p class="tagline">Our household cookbook &middot; 137 recipes</p>
+        <div class="search-bar">
+            <input id="recipe-search" type="search" placeholder="Search recipes" aria-label="Search recipes">
+        </div>
+    </header>
+    <nav class="letter-nav">
+        <a href="#letter-A">A</a>
+        <a href="#letter-B">B</a>
+        <a href="#letter-C">C</a>
+        <a href="#letter-D">D</a>
+        <a href="#letter-E">E</a>
+        <a href="#letter-F">F</a>
+        <a href="#letter-G">G</a>
+        <a href="#letter-H">H</a>
+        <a href="#letter-I">I</a>
+        <a href="#letter-J">J</a>
+        <a href="#letter-K">K</a>
+        <a href="#letter-L">L</a>
+        <a href="#letter-M">M</a>
+        <a href="#letter-N">N</a>
+        <a href="#letter-O">O</a>
+        <a href="#letter-P">P</a>
+        <a href="#letter-Q">Q</a>
+        <a href="#letter-R">R</a>
+        <a href="#letter-S">S</a>
+        <a href="#letter-T">T</a>
+        <a href="#letter-V">V</a>
+        <a href="#letter-W">W</a>
+        <a href="#letter-Y">Y</a>
+    </nav>
+    <main class="index-grid">
+        <section class="letter-section" id="letter-A">
             <h2>A</h2>
             <ul>
-            <li><a href="formatted_recipes/aglio_e_olio.html">Aglio E Olio</a></li>
-            <li><a href="formatted_recipes/apple_pie_filling.html">Apple Pie Filling</a></li>
-            <li><a href="formatted_recipes/applesauce.html">Applesauce</a></li>
+                <li><a href="formatted_recipes/aglio_e_olio.html">Aglio E Olio</a></li>
+                <li><a href="formatted_recipes/apple_pie_filling.html">Apple Pie Filling</a></li>
+                <li><a href="formatted_recipes/applesauce.html">Applesauce</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-B">
             <h2>B</h2>
             <ul>
-            <li><a href="formatted_recipes/baked_potato.html">Baked Potato</a></li>
-            <li><a href="formatted_recipes/banana_bread.html">Banana Bread</a></li>
-            <li><a href="formatted_recipes/bechamel_sauce.html">Bechamel Sauce</a></li>
-            <li><a href="formatted_recipes/beer_batter.html">Beer Batter</a></li>
-            <li><a href="formatted_recipes/biscuits_and_gravy.html">Biscuits and Gravy</a></li>
-            <li><a href="formatted_recipes/black_bean_chili.html">Black Bean Chili</a></li>
-            <li><a href="formatted_recipes/black_bean_chili_spice.html">Black Bean Chili Spice</a></li>
-            <li><a href="formatted_recipes/blueberry_cobbler_filling.html">Blueberry Cobbler Filling</a></li>
-            <li><a href="formatted_recipes/bolognese.html">Bolognese</a></li>
-            <li><a href="formatted_recipes/bratwurst.html">Bratwurst</a></li>
-            <li><a href="formatted_recipes/bread.html">Bread</a></li>
-            <li><a href="formatted_recipes/brigadeiros.html">Brigadeiros</a></li>
-            <li><a href="formatted_recipes/broccoli_cheddar_soup.html">Broccoli Cheddar Soup</a></li>
-            <li><a href="formatted_recipes/brownie_icing.html">Brownie Icing</a></li>
-            <li><a href="formatted_recipes/brownies.html">Brownies</a></li>
-            <li><a href="formatted_recipes/buffalo_wings.html">Buffalo Wings</a></li>
-            <li><a href="formatted_recipes/butter_pie_crust.html">Butter Pie Crust</a></li>
-            <li><a href="formatted_recipes/buttermilk_biscuits.html">Buttermilk Biscuits</a></li>
-            <li><a href="formatted_recipes/buttermilk_waffles.html">Buttermilk Waffles</a></li>
+                <li><a href="formatted_recipes/baked_potato.html">Baked Potato</a></li>
+                <li><a href="formatted_recipes/banana_bread.html">Banana Bread</a></li>
+                <li><a href="formatted_recipes/bechamel_sauce.html">Bechamel Sauce</a></li>
+                <li><a href="formatted_recipes/beer_batter.html">Beer Batter</a></li>
+                <li><a href="formatted_recipes/biscuits_and_gravy.html">Biscuits and Gravy</a></li>
+                <li><a href="formatted_recipes/black_bean_chili.html">Black Bean Chili</a></li>
+                <li><a href="formatted_recipes/black_bean_chili_spice.html">Black Bean Chili Spice</a></li>
+                <li><a href="formatted_recipes/blueberry_cobbler_filling.html">Blueberry Cobbler Filling</a></li>
+                <li><a href="formatted_recipes/bolognese.html">Bolognese</a></li>
+                <li><a href="formatted_recipes/bratwurst.html">Bratwurst</a></li>
+                <li><a href="formatted_recipes/bread.html">Bread</a></li>
+                <li><a href="formatted_recipes/brigadeiros.html">Brigadeiros</a></li>
+                <li><a href="formatted_recipes/broccoli_cheddar_soup.html">Broccoli Cheddar Soup</a></li>
+                <li><a href="formatted_recipes/brownie_icing.html">Brownie Icing</a></li>
+                <li><a href="formatted_recipes/brownies.html">Brownies</a></li>
+                <li><a href="formatted_recipes/buffalo_wings.html">Buffalo Wings</a></li>
+                <li><a href="formatted_recipes/butter_pie_crust.html">Butter Pie Crust</a></li>
+                <li><a href="formatted_recipes/buttermilk_biscuits.html">Buttermilk Biscuits</a></li>
+                <li><a href="formatted_recipes/buttermilk_waffles.html">Buttermilk Waffles</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-C">
             <h2>C</h2>
             <ul>
-            <li><a href="formatted_recipes/cabbage_rolls.html">Cabbage Rolls</a></li>
-            <li><a href="formatted_recipes/caramel.html">Caramel</a></li>
-            <li><a href="formatted_recipes/carnitas.html">Carnitas</a></li>
-            <li><a href="formatted_recipes/cauliflower_bites.html">Cauliflower Bites</a></li>
-            <li><a href="formatted_recipes/celery.html">Celery</a></li>
-            <li><a href="formatted_recipes/cherry_pie_filling.html">Cherry Pie Filling</a></li>
-            <li><a href="formatted_recipes/chocolate_cake.html">Chocolate Cake</a></li>
-            <li><a href="formatted_recipes/chocolate_chip_cookies.html">Chocolate Chip Cookies</a></li>
-            <li><a href="formatted_recipes/chocolate_dome_cake.html">Chocolate Dome Cake</a></li>
-            <li><a href="formatted_recipes/chocolate_doughnut_icing.html">Chocolate Doughnut Icing</a></li>
-            <li><a href="formatted_recipes/chocolate_ganache.html">Chocolate Ganache</a></li>
-            <li><a href="formatted_recipes/chocolate_mochi_donuts.html">Chocolate Mochi Donuts</a></li>
-            <li><a href="formatted_recipes/cinnabon.html">Cinnabon</a></li>
-            <li><a href="formatted_recipes/cinnabon_dough.html">Cinnabon Dough</a></li>
-            <li><a href="formatted_recipes/cinnabon_filling.html">Cinnabon Filling</a></li>
-            <li><a href="formatted_recipes/cinnabon_icing.html">Cinnabon Icing</a></li>
-            <li><a href="formatted_recipes/cobbler_topping.html">Cobbler Topping</a></li>
-            <li><a href="formatted_recipes/coleslaw.html">Coleslaw</a></li>
-            <li><a href="formatted_recipes/collard_greens.html">Collard Greens</a></li>
-            <li><a href="formatted_recipes/cornbread.html">Cornbread</a></li>
-            <li><a href="formatted_recipes/cornbread_dressing.html">Cornbread Dressing</a></li>
-            <li><a href="formatted_recipes/cream_fudge.html">Cream Fudge</a></li>
-            <li><a href="formatted_recipes/creamed_genoise.html">Creamed Genoise</a></li>
+                <li><a href="formatted_recipes/cabbage_rolls.html">Cabbage Rolls</a></li>
+                <li><a href="formatted_recipes/caramel.html">Caramel</a></li>
+                <li><a href="formatted_recipes/carnitas.html">Carnitas</a></li>
+                <li><a href="formatted_recipes/cauliflower_bites.html">Cauliflower Bites</a></li>
+                <li><a href="formatted_recipes/celery.html">Celery</a></li>
+                <li><a href="formatted_recipes/cherry_pie_filling.html">Cherry Pie Filling</a></li>
+                <li><a href="formatted_recipes/chocolate_cake.html">Chocolate Cake</a></li>
+                <li><a href="formatted_recipes/chocolate_chip_cookies.html">Chocolate Chip Cookies</a></li>
+                <li><a href="formatted_recipes/chocolate_dome_cake.html">Chocolate Dome Cake</a></li>
+                <li><a href="formatted_recipes/chocolate_doughnut_icing.html">Chocolate Doughnut Icing</a></li>
+                <li><a href="formatted_recipes/chocolate_ganache.html">Chocolate Ganache</a></li>
+                <li><a href="formatted_recipes/chocolate_mochi_donuts.html">Chocolate Mochi Donuts</a></li>
+                <li><a href="formatted_recipes/cinnabon.html">Cinnabon</a></li>
+                <li><a href="formatted_recipes/cinnabon_dough.html">Cinnabon Dough</a></li>
+                <li><a href="formatted_recipes/cinnabon_filling.html">Cinnabon Filling</a></li>
+                <li><a href="formatted_recipes/cinnabon_icing.html">Cinnabon Icing</a></li>
+                <li><a href="formatted_recipes/cobbler_topping.html">Cobbler Topping</a></li>
+                <li><a href="formatted_recipes/coleslaw.html">Coleslaw</a></li>
+                <li><a href="formatted_recipes/collard_greens.html">Collard Greens</a></li>
+                <li><a href="formatted_recipes/cornbread.html">Cornbread</a></li>
+                <li><a href="formatted_recipes/cornbread_dressing.html">Cornbread Dressing</a></li>
+                <li><a href="formatted_recipes/cream_fudge.html">Cream Fudge</a></li>
+                <li><a href="formatted_recipes/creamed_genoise.html">Creamed Genoise</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-D">
             <h2>D</h2>
             <ul>
-            <li><a href="formatted_recipes/doughnuts.html">Doughnuts</a></li>
+                <li><a href="formatted_recipes/doughnuts.html">Doughnuts</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-E">
             <h2>E</h2>
             <ul>
-            <li><a href="formatted_recipes/eggplant_parmesan.html">Eggplant Parmesan</a></li>
-            <li><a href="formatted_recipes/enchilada_beef.html">Enchilada Beef</a></li>
-            <li><a href="formatted_recipes/enchilada_sauce.html">Enchilada Sauce</a></li>
+                <li><a href="formatted_recipes/eggplant_parmesan.html">Eggplant Parmesan</a></li>
+                <li><a href="formatted_recipes/enchilada_beef.html">Enchilada Beef</a></li>
+                <li><a href="formatted_recipes/enchilada_sauce.html">Enchilada Sauce</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-F">
             <h2>F</h2>
             <ul>
-            <li><a href="formatted_recipes/falafel.html">Falafel</a></li>
-            <li><a href="formatted_recipes/fettuccine_alfredo.html">Fettuccine Alfredo</a></li>
-            <li><a href="formatted_recipes/flan.html">Flan</a></li>
-            <li><a href="formatted_recipes/french_onion_soup.html">French Onion Soup</a></li>
-            <li><a href="formatted_recipes/fried_chicken.html">Fried Chicken</a></li>
-            <li><a href="formatted_recipes/fried_not_chicken.html">Fried Not Chicken</a></li>
-            <li><a href="formatted_recipes/fried_rice.html">Fried Rice</a></li>
-            <li><a href="formatted_recipes/frittata.html">Frittata</a></li>
-            <li><a href="formatted_recipes/frying_breading.html">Frying Breading</a></li>
+                <li><a href="formatted_recipes/falafel.html">Falafel</a></li>
+                <li><a href="formatted_recipes/fettuccine_alfredo.html">Fettuccine Alfredo</a></li>
+                <li><a href="formatted_recipes/flan.html">Flan</a></li>
+                <li><a href="formatted_recipes/french_onion_soup.html">French Onion Soup</a></li>
+                <li><a href="formatted_recipes/fried_chicken.html">Fried Chicken</a></li>
+                <li><a href="formatted_recipes/fried_not_chicken.html">Fried Not Chicken</a></li>
+                <li><a href="formatted_recipes/fried_rice.html">Fried Rice</a></li>
+                <li><a href="formatted_recipes/frittata.html">Frittata</a></li>
+                <li><a href="formatted_recipes/frying_breading.html">Frying Breading</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-G">
             <h2>G</h2>
             <ul>
-            <li><a href="formatted_recipes/gingerbread_cookies.html">Gingerbread Cookies</a></li>
-            <li><a href="formatted_recipes/grape_salad.html">Grape Salad</a></li>
-            <li><a href="formatted_recipes/grape_tomato_pasta.html">Grape Tomato Pasta</a></li>
-            <li><a href="formatted_recipes/green_bean_casserole.html">Green Bean Casserole</a></li>
-            <li><a href="formatted_recipes/green_chili.html">Green Chili</a></li>
-            <li><a href="formatted_recipes/grilled_vegetables.html">Grilled Vegetables</a></li>
+                <li><a href="formatted_recipes/gingerbread_cookies.html">Gingerbread Cookies</a></li>
+                <li><a href="formatted_recipes/grape_salad.html">Grape Salad</a></li>
+                <li><a href="formatted_recipes/grape_tomato_pasta.html">Grape Tomato Pasta</a></li>
+                <li><a href="formatted_recipes/green_bean_casserole.html">Green Bean Casserole</a></li>
+                <li><a href="formatted_recipes/green_chili.html">Green Chili</a></li>
+                <li><a href="formatted_recipes/grilled_vegetables.html">Grilled Vegetables</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-H">
             <h2>H</h2>
             <ul>
-            <li><a href="formatted_recipes/happy_plums.html">Happy Plums</a></li>
-            <li><a href="formatted_recipes/honey_garlic_salmon.html">Honey Garlic Salmon</a></li>
-            <li><a href="formatted_recipes/hot_fudge.html">Hot Fudge</a></li>
+                <li><a href="formatted_recipes/happy_plums.html">Happy Plums</a></li>
+                <li><a href="formatted_recipes/honey_garlic_salmon.html">Honey Garlic Salmon</a></li>
+                <li><a href="formatted_recipes/hot_fudge.html">Hot Fudge</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-I">
             <h2>I</h2>
             <ul>
-            <li><a href="formatted_recipes/italian_meringue.html">Italian Meringue</a></li>
+                <li><a href="formatted_recipes/italian_meringue.html">Italian Meringue</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-J">
             <h2>J</h2>
             <ul>
-            <li><a href="formatted_recipes/jerk_rub.html">Jerk Rub</a></li>
+                <li><a href="formatted_recipes/jerk_rub.html">Jerk Rub</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-K">
             <h2>K</h2>
             <ul>
-            <li><a href="formatted_recipes/kaiser_roll.html">Kaiser Roll</a></li>
-            <li><a href="formatted_recipes/kale_soup.html">Kale Soup</a></li>
-            <li><a href="formatted_recipes/key_lime_filling.html">Key Lime Filling</a></li>
+                <li><a href="formatted_recipes/kaiser_roll.html">Kaiser Roll</a></li>
+                <li><a href="formatted_recipes/kale_soup.html">Kale Soup</a></li>
+                <li><a href="formatted_recipes/key_lime_filling.html">Key Lime Filling</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-L">
             <h2>L</h2>
             <ul>
-            <li><a href="formatted_recipes/lemon_cream_pasta.html">Lemon Cream Pasta</a></li>
+                <li><a href="formatted_recipes/lemon_cream_pasta.html">Lemon Cream Pasta</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-M">
             <h2>M</h2>
             <ul>
-            <li><a href="formatted_recipes/macaroni_and_cheese.html">Macaroni And Cheese</a></li>
-            <li><a href="formatted_recipes/marinara_sauce.html">Marinara Sauce</a></li>
-            <li><a href="formatted_recipes/mashed_potatoes.html">Mashed Potatoes</a></li>
-            <li><a href="formatted_recipes/meatloaf.html">Meatloaf</a></li>
-            <li><a href="formatted_recipes/meatloaf_glaze.html">Meatloaf Glaze</a></li>
-            <li><a href="formatted_recipes/millionaire_shortbread.html">Millionaire Shortbread</a></li>
-            <li><a href="formatted_recipes/minestrone.html">Minestrone</a></li>
-            <li><a href="formatted_recipes/mirror_glaze.html">Mirror Glaze</a></li>
-            <li><a href="formatted_recipes/mochi_donuts.html">Mochi Donuts</a></li>
-            <li><a href="formatted_recipes/monterey_chicken.html">Monterey Chicken</a></li>
+                <li><a href="formatted_recipes/macaroni_and_cheese.html">Macaroni And Cheese</a></li>
+                <li><a href="formatted_recipes/marinara_sauce.html">Marinara Sauce</a></li>
+                <li><a href="formatted_recipes/mashed_potatoes.html">Mashed Potatoes</a></li>
+                <li><a href="formatted_recipes/meatloaf.html">Meatloaf</a></li>
+                <li><a href="formatted_recipes/meatloaf_glaze.html">Meatloaf Glaze</a></li>
+                <li><a href="formatted_recipes/millionaire_shortbread.html">Millionaire Shortbread</a></li>
+                <li><a href="formatted_recipes/minestrone.html">Minestrone</a></li>
+                <li><a href="formatted_recipes/mirror_glaze.html">Mirror Glaze</a></li>
+                <li><a href="formatted_recipes/mochi_donuts.html">Mochi Donuts</a></li>
+                <li><a href="formatted_recipes/monterey_chicken.html">Monterey Chicken</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-N">
             <h2>N</h2>
             <ul>
-            <li><a href="formatted_recipes/naan.html">Naan</a></li>
-            <li><a href="formatted_recipes/nachos.html">Nachos</a></li>
-            <li><a href="formatted_recipes/nutella_bites.html">Nutella Bites</a></li>
+                <li><a href="formatted_recipes/naan.html">Naan</a></li>
+                <li><a href="formatted_recipes/nachos.html">Nachos</a></li>
+                <li><a href="formatted_recipes/nutella_bites.html">Nutella Bites</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-O">
             <h2>O</h2>
             <ul>
-            <li><a href="formatted_recipes/old_fashioned_chocolate_fudge.html">Old Fashioned Chocolate Fudge</a></li>
+                <li><a href="formatted_recipes/old_fashioned_chocolate_fudge.html">Old Fashioned Chocolate Fudge</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-P">
             <h2>P</h2>
             <ul>
-            <li><a href="formatted_recipes/pancakes.html">Pancakes</a></li>
-            <li><a href="formatted_recipes/peach_cobbler_filling.html">Peach Cobbler Filling</a></li>
-            <li><a href="formatted_recipes/pesto.html">Pesto</a></li>
-            <li><a href="formatted_recipes/piperade_sauce.html">Piperade Sauce</a></li>
-            <li><a href="formatted_recipes/pizza_crust.html">Pizza Crust</a></li>
-            <li><a href="formatted_recipes/port_wine_pears.html">Port Wine Pears</a></li>
-            <li><a href="formatted_recipes/pot_pie.html">Pot Pie</a></li>
-            <li><a href="formatted_recipes/potatoes_au_gratin.html">Potatoes Au Gratin</a></li>
-            <li><a href="formatted_recipes/pumpkin_cream_coffee_sauce.html">Pumpkin Cream Coffee Sauce</a></li>
-            <li><a href="formatted_recipes/pumpkin_pie_filling.html">Pumpkin Pie Filling</a></li>
+                <li><a href="formatted_recipes/pancakes.html">Pancakes</a></li>
+                <li><a href="formatted_recipes/peach_cobbler_filling.html">Peach Cobbler Filling</a></li>
+                <li><a href="formatted_recipes/pesto.html">Pesto</a></li>
+                <li><a href="formatted_recipes/piperade_sauce.html">Piperade Sauce</a></li>
+                <li><a href="formatted_recipes/pizza_crust.html">Pizza Crust</a></li>
+                <li><a href="formatted_recipes/port_wine_pears.html">Port Wine Pears</a></li>
+                <li><a href="formatted_recipes/pot_pie.html">Pot Pie</a></li>
+                <li><a href="formatted_recipes/potatoes_au_gratin.html">Potatoes Au Gratin</a></li>
+                <li><a href="formatted_recipes/pumpkin_cream_coffee_sauce.html">Pumpkin Cream Coffee Sauce</a></li>
+                <li><a href="formatted_recipes/pumpkin_pie_filling.html">Pumpkin Pie Filling</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-Q">
             <h2>Q</h2>
             <ul>
-            <li><a href="formatted_recipes/queso.html">Queso</a></li>
+                <li><a href="formatted_recipes/queso.html">Queso</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-R">
             <h2>R</h2>
             <ul>
-            <li><a href="formatted_recipes/ramen.html">Ramen</a></li>
-            <li><a href="formatted_recipes/ratatouille.html">Ratatouille</a></li>
-            <li><a href="formatted_recipes/ravioli.html">Ravioli</a></li>
-            <li><a href="formatted_recipes/red_bean_spice.html">Red Bean Spice</a></li>
-            <li><a href="formatted_recipes/red_beans.html">Red Beans</a></li>
-            <li><a href="formatted_recipes/red_wine_sauce.html">Red Wine Sauce</a></li>
-            <li><a href="formatted_recipes/rice.html">Rice</a></li>
-            <li><a href="formatted_recipes/roast_pumpkin.html">Roast Pumpkin</a></li>
-            <li><a href="formatted_recipes/roast_turkey.html">Roast Turkey</a></li>
-            <li><a href="formatted_recipes/royal_icing.html">Royal Icing</a></li>
+                <li><a href="formatted_recipes/ramen.html">Ramen</a></li>
+                <li><a href="formatted_recipes/ratatouille.html">Ratatouille</a></li>
+                <li><a href="formatted_recipes/ravioli.html">Ravioli</a></li>
+                <li><a href="formatted_recipes/red_bean_spice.html">Red Bean Spice</a></li>
+                <li><a href="formatted_recipes/red_beans.html">Red Beans</a></li>
+                <li><a href="formatted_recipes/red_wine_sauce.html">Red Wine Sauce</a></li>
+                <li><a href="formatted_recipes/rice.html">Rice</a></li>
+                <li><a href="formatted_recipes/roast_pumpkin.html">Roast Pumpkin</a></li>
+                <li><a href="formatted_recipes/roast_turkey.html">Roast Turkey</a></li>
+                <li><a href="formatted_recipes/royal_icing.html">Royal Icing</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-S">
             <h2>S</h2>
             <ul>
-            <li><a href="formatted_recipes/sauteed_green_beans.html">Sauteed Green Beans</a></li>
-            <li><a href="formatted_recipes/sauteed_mushrooms.html">Sauteed Mushrooms</a></li>
-            <li><a href="formatted_recipes/shortbread.html">Shortbread</a></li>
-            <li><a href="formatted_recipes/shortening_pie_crust.html">Shortening Pie Crust</a></li>
-            <li><a href="formatted_recipes/simple_caramel.html">Simple Caramel</a></li>
-            <li><a href="formatted_recipes/simple_chocolate_fudge.html">Simple Chocolate Fudge</a></li>
-            <li><a href="formatted_recipes/sloppy_joe.html">Sloppy Joe</a></li>
-            <li><a href="formatted_recipes/slow_cooked_ribs.html">Slow Cooked Ribs</a></li>
-            <li><a href="formatted_recipes/souffle.html">Souffle</a></li>
-            <li><a href="formatted_recipes/sourdough.html">Sourdough</a></li>
-            <li><a href="formatted_recipes/spaghetti.html">Spaghetti</a></li>
-            <li><a href="formatted_recipes/spaghetti_squash.html">Spaghetti Squash</a></li>
-            <li><a href="formatted_recipes/spanish_rice.html">Spanish Rice</a></li>
-            <li><a href="formatted_recipes/stir_fry.html">Stir Fry</a></li>
-            <li><a href="formatted_recipes/strawberry_jam.html">Strawberry Jam</a></li>
-            <li><a href="formatted_recipes/sun_dried_tomato_risotto.html">Sun Dried Tomato Risotto</a></li>
-            <li><a href="formatted_recipes/sweet_dough.html">Sweet Dough</a></li>
-            <li><a href="formatted_recipes/sweet_fire_spice.html">Sweet Fire Spice</a></li>
+                <li><a href="formatted_recipes/sauteed_green_beans.html">Sauteed Green Beans</a></li>
+                <li><a href="formatted_recipes/sauteed_mushrooms.html">Sauteed Mushrooms</a></li>
+                <li><a href="formatted_recipes/shortbread.html">Shortbread</a></li>
+                <li><a href="formatted_recipes/shortening_pie_crust.html">Shortening Pie Crust</a></li>
+                <li><a href="formatted_recipes/simple_caramel.html">Simple Caramel</a></li>
+                <li><a href="formatted_recipes/simple_chocolate_fudge.html">Simple Chocolate Fudge</a></li>
+                <li><a href="formatted_recipes/sloppy_joe.html">Sloppy Joe</a></li>
+                <li><a href="formatted_recipes/slow_cooked_ribs.html">Slow Cooked Ribs</a></li>
+                <li><a href="formatted_recipes/souffle.html">Souffle</a></li>
+                <li><a href="formatted_recipes/sourdough.html">Sourdough</a></li>
+                <li><a href="formatted_recipes/spaghetti.html">Spaghetti</a></li>
+                <li><a href="formatted_recipes/spaghetti_squash.html">Spaghetti Squash</a></li>
+                <li><a href="formatted_recipes/spanish_rice.html">Spanish Rice</a></li>
+                <li><a href="formatted_recipes/stir_fry.html">Stir Fry</a></li>
+                <li><a href="formatted_recipes/strawberry_jam.html">Strawberry Jam</a></li>
+                <li><a href="formatted_recipes/sun_dried_tomato_risotto.html">Sun Dried Tomato Risotto</a></li>
+                <li><a href="formatted_recipes/sweet_dough.html">Sweet Dough</a></li>
+                <li><a href="formatted_recipes/sweet_fire_spice.html">Sweet Fire Spice</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-T">
             <h2>T</h2>
             <ul>
-            <li><a href="formatted_recipes/taco_meat.html">Taco Meat</a></li>
-            <li><a href="formatted_recipes/taco_seasoning.html">Taco Seasoning</a></li>
-            <li><a href="formatted_recipes/tamari_sauce.html">Tamari Sauce</a></li>
-            <li><a href="formatted_recipes/tikka_masala.html">Tikka Masala</a></li>
-            <li><a href="formatted_recipes/tikka_masala_seasoning.html">Tikka Masala Seasoning</a></li>
-            <li><a href="formatted_recipes/tuscan_seasoning.html">Tuscan Seasoning</a></li>
+                <li><a href="formatted_recipes/taco_meat.html">Taco Meat</a></li>
+                <li><a href="formatted_recipes/taco_seasoning.html">Taco Seasoning</a></li>
+                <li><a href="formatted_recipes/tamari_sauce.html">Tamari Sauce</a></li>
+                <li><a href="formatted_recipes/tikka_masala.html">Tikka Masala</a></li>
+                <li><a href="formatted_recipes/tikka_masala_seasoning.html">Tikka Masala Seasoning</a></li>
+                <li><a href="formatted_recipes/tuscan_seasoning.html">Tuscan Seasoning</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-V">
             <h2>V</h2>
             <ul>
-            <li><a href="formatted_recipes/vanilla_malt.html">Vanilla Malt</a></li>
-            <li><a href="formatted_recipes/vegetarian_gravy.html">Vegetarian Gravy</a></li>
+                <li><a href="formatted_recipes/vanilla_malt.html">Vanilla Malt</a></li>
+                <li><a href="formatted_recipes/vegetarian_gravy.html">Vegetarian Gravy</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-W">
             <h2>W</h2>
             <ul>
-            <li><a href="formatted_recipes/whipped_chocolate_icing.html">Whipped Chocolate Icing</a></li>
-            <li><a href="formatted_recipes/whipped_cream_cheese_filling.html">Whipped Cream Cheese Filling</a></li>
+                <li><a href="formatted_recipes/whipped_chocolate_icing.html">Whipped Chocolate Icing</a></li>
+                <li><a href="formatted_recipes/whipped_cream_cheese_filling.html">Whipped Cream Cheese Filling</a></li>
             </ul>
-        </div>
-
-        <div class="section">
+        </section>
+        <section class="letter-section" id="letter-Y">
             <h2>Y</h2>
             <ul>
-            <li><a href="formatted_recipes/yellow_cake.html">Yellow Cake</a></li>
+                <li><a href="formatted_recipes/yellow_cake.html">Yellow Cake</a></li>
             </ul>
-        </div>
-
-    </div>
+        </section>
+    </main>
+    <p class="no-results" hidden>No recipes match your search.</p>
+    <footer class="site-footer">
+        <p>CoMo Recipes</p>
+    </footer>
+    <script>
+        const searchInput = document.getElementById('recipe-search');
+        const letterNav = document.querySelector('.letter-nav');
+        const noResults = document.querySelector('.no-results');
+        const sections = Array.from(document.querySelectorAll('.letter-section'));
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            let anyMatches = false;
+            for (const section of sections) {
+                let sectionMatches = false;
+                for (const item of section.querySelectorAll('li')) {
+                    const matches = item.textContent.toLowerCase().includes(query);
+                    item.hidden = !matches;
+                    sectionMatches = sectionMatches || matches;
+                }
+                section.hidden = !sectionMatches;
+                anyMatches = anyMatches || sectionMatches;
+            }
+            letterNav.hidden = query !== '';
+            noResults.hidden = anyMatches;
+        });
+    </script>
 </body>
 </html>

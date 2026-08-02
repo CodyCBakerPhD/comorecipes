@@ -1,3 +1,4 @@
+import html
 import json
 import typing
 
@@ -204,7 +205,9 @@ class Recipe(pydantic.BaseModel):
     @pydantic.validate_call
     def to_html_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:
         """
-        Save recipe to a .html file in a markdown-like structure for use in the website.
+        Save recipe to a styled .html page for use in the website.
+
+        The page links to the shared stylesheet and favicon copied into `docs/assets` by `generate_html_recipes`.
 
         Parameters
         ----------
@@ -214,42 +217,103 @@ class Recipe(pydantic.BaseModel):
         """
         from ..utils import get_rendered_units
 
-        html_lines = ['<p><a href="../index.html">Back to Recipe Index</a></p>\n\n']
-        html_lines += [f"<h1>{self.name}</h1>\n\n"]
+        escaped_name = html.escape(self.name)
+        html_lines = [
+            "<!DOCTYPE html>",
+            '<html lang="en">',
+            "<head>",
+            '    <meta charset="UTF-8">',
+            '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+            f"    <title>{escaped_name} · CoMo Recipes</title>",
+            '    <link rel="icon" href="../assets/como_icon.ico">',
+            '    <link rel="stylesheet" href="../assets/style.css">',
+            "</head>",
+            '<body class="recipe-page">',
+            '    <nav class="top-bar">',
+            '        <a class="brand" href="../index.html">CoMo Recipes</a>',
+            '        <a class="back-link" href="../index.html">&larr; Recipe Index</a>',
+            "    </nav>",
+            '    <main class="recipe">',
+            '        <header class="recipe-header">',
+            f"            <h1>{escaped_name}</h1>",
+        ]
 
         if self.tags is not None:
-            html_lines += [f"<p>Tags: {', '.join(self.tags)}</p>\n\n\n\n"]
+            html_lines += ['            <ul class="tag-list">']
+            html_lines += [f'                <li class="tag">{html.escape(tag)}</li>' for tag in self.tags]
+            html_lines += ["            </ul>"]
 
-        html_lines += ["<br>\n"]
-        html_lines += ["<h2>Ingredients</h2>\n\n"]
+        html_lines += [
+            "        </header>",
+            '        <div class="recipe-body">',
+            '            <section class="ingredients">',
+            "                <h2>Ingredients</h2>",
+            '                <ul class="ingredient-list">',
+        ]
+
         disallowed_units = {"": True, "portions": True}
         for measurement in self.measurements:
-            html_lines += ["<p>"]
-            html_lines += [f"{measurement.amount}"]
+            amount_text = f"{measurement.amount}"
 
             rendered_units = get_rendered_units(measurement=measurement)
             if disallowed_units.get(rendered_units, False) is False:
-                html_lines += [f" {rendered_units}"]
+                amount_text += f" {rendered_units}"
 
+            item_words = []
             if measurement.prefix is not None:
-                html_lines += [f" {measurement.prefix}"]
-
-            html_lines += [f" {measurement.ingredient.name}"]
-
+                item_words += [measurement.prefix]
+            item_words += [measurement.ingredient.name]
             if measurement.suffix is not None:
-                html_lines += [f" {measurement.suffix}"]
+                item_words += [measurement.suffix]
+            item_text = " ".join(item_words)
 
-            html_lines += ["</p>\n"]
+            amount_html = f'<span class="amount">{html.escape(amount_text)}</span>'
+            item_html = f'<span class="ingredient-text">{amount_html} {html.escape(item_text)}</span>'
+            html_lines += [
+                '                    <li class="ingredient"><label>',
+                '                        <input type="checkbox">',
+                f"                        {item_html}",
+                "                    </label></li>",
+            ]
+
+        html_lines += [
+            "                </ul>",
+            "            </section>",
+            '            <div class="method">',
+        ]
 
         if self.notes is not None:
-            html_lines += ["\n\n\n<br>\n"]
-            html_lines += ["<h2>Notes</h2>\n\n"]
-            for note in self.notes:
-                html_lines += [f"<p>{note}</p>\n"]
+            html_lines += [
+                '                <section class="notes">',
+                "                    <h2>Notes</h2>",
+                '                    <ul class="note-list">',
+            ]
+            html_lines += [f"                        <li>{html.escape(note)}</li>" for note in self.notes]
+            html_lines += [
+                "                    </ul>",
+                "                </section>",
+            ]
 
-        html_lines += ["\n\n\n<h2>Instructions</h2>\n\n"]
-        for instruction in self.instructions:
-            html_lines += [f"<p>{instruction}</p>\n"]
+        html_lines += [
+            '                <section class="instructions">',
+            "                    <h2>Instructions</h2>",
+            '                    <ol class="step-list">',
+        ]
+        html_lines += [
+            f"                        <li>{html.escape(instruction)}</li>" for instruction in self.instructions
+        ]
+        html_lines += [
+            "                    </ol>",
+            "                </section>",
+            "            </div>",
+            "        </div>",
+            "    </main>",
+            '    <footer class="site-footer">',
+            "        <p>CoMo Recipes</p>",
+            "    </footer>",
+            "</body>",
+            "</html>",
+        ]
 
         with file_path.open(mode="w") as io:
-            io.writelines(html_lines)
+            io.write("\n".join(html_lines) + "\n")
