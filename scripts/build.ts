@@ -4,7 +4,7 @@
 //   2. generates the alphabetized dist/index.html with its live search filter,
 //   3. copies the shared stylesheet and favicon from docs/assets into dist/assets,
 //   4. generates the dist/manifests/ database manifests and their hashes,
-//   5. copies the raw recipe/ingredient databases and CNAME,
+//   5. copies the raw recipe/ingredient databases,
 //   6. adds .nojekyll so GitHub Pages serves the files verbatim (no Jekyll).
 //
 // Run with `npm run build` (requires Node >= 22.18 for native type stripping).
@@ -315,8 +315,6 @@ for (const database of databases) {
 for (const database of databases) {
   cpSync(join(docsDir, database), join(distDir, database), { recursive: true });
 }
-
-cpSync(join(docsDir, "CNAME"), join(distDir, "CNAME"));
 
 // An empty .nojekyll file tells GitHub Pages to skip Jekyll entirely.
 writeFileSync(join(distDir, ".nojekyll"), "");
