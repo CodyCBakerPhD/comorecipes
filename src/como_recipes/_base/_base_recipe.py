@@ -1,10 +1,29 @@
+import html
 import json
 import typing
+import urllib.parse
 
 import pydantic
 import yaml
 
 from ._base_measurement import Measurement
+
+# The GitHub "mark" octicon, inlined so pages have no external image dependencies
+_GITHUB_ICON_PATH = "M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49"
+_GITHUB_ICON_PATH += "-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58"
+_GITHUB_ICON_PATH += " 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59"
+_GITHUB_ICON_PATH += ".82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27"
+_GITHUB_ICON_PATH += " 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65"
+_GITHUB_ICON_PATH += " 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8"
+_GITHUB_ICON_PATH += "c0-4.42-3.58-8-8-8z"
+_GITHUB_ICON_SVG = f'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="{_GITHUB_ICON_PATH}"/></svg>'
+_GITHUB_REPOSITORY_URL = "https://github.com/CodyCBakerPhD/como_recipes"
+
+_GITHUB_LINK_HTML = f'<a class="icon-link" href="{_GITHUB_REPOSITORY_URL}" aria-label="View source on GitHub">'
+_GITHUB_LINK_HTML += f"{_GITHUB_ICON_SVG}</a>"
+
+_THEME_TOGGLE_HTML = '<button class="theme-toggle" type="button" onclick="comoToggleTheme()"'
+_THEME_TOGGLE_HTML += ' aria-label="Toggle color theme"></button>'
 
 
 class Recipe(pydantic.BaseModel):
@@ -202,54 +221,138 @@ class Recipe(pydantic.BaseModel):
             raise ValueError(message)
 
     @pydantic.validate_call
-    def to_html_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:
+    def to_html_file(
+        self,
+        *,
+        file_path: pydantic.NewPath | pydantic.FilePath,
+        tag_to_hue: dict[str, int] | None = None,
+    ) -> None:
         """
-        Save recipe to a .html file in a markdown-like structure for use in the website.
+        Save recipe to a styled .html page for use in the website.
+
+        The page links to the shared stylesheet and favicon copied into `docs/assets` by `generate_html_recipes`.
 
         Parameters
         ----------
         file_path : pydantic.NewPath
             Path to the HTML (.html) file
+        tag_to_hue : dict of str to int, optional
+            Mapping of tag names to the hue (in degrees) used to color their chips, usually spread over
+            every tag in the recipe database by `generate_html_recipes`.
+            If unspecified, hues are spread evenly over this recipe's own tags.
 
         """
         from ..utils import get_rendered_units
 
-        html_lines = ['<p><a href="../index.html">Back to Recipe Index</a></p>\n\n']
-        html_lines += [f"<h1>{self.name}</h1>\n\n"]
+        if tag_to_hue is None and self.tags is not None:
+            sorted_tags = sorted(set(self.tags))
+            tag_to_hue = {tag: index * 360 // len(sorted_tags) for index, tag in enumerate(sorted_tags)}
+
+        escaped_name = html.escape(self.name)
+        html_lines = [
+            "<!DOCTYPE html>",
+            '<html lang="en">',
+            "<head>",
+            '    <meta charset="UTF-8">',
+            '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+            f"    <title>{escaped_name} · CoMo Recipes</title>",
+            '    <link rel="icon" href="../assets/como_icon.ico">',
+            '    <link rel="stylesheet" href="../assets/style.css">',
+            '    <script src="../assets/theme.js"></script>',
+            "</head>",
+            '<body class="recipe-page">',
+            '    <nav class="top-bar">',
+            '        <a class="brand" href="../index.html">',
+            '            <img class="brand-logo" src="../assets/como_logo.jpg" alt="CoMo logo">',
+            "            <span>CoMo Recipes</span>",
+            "        </a>",
+            '        <div class="top-actions">',
+            '            <a class="back-link" href="../index.html">&larr; Recipe Index</a>',
+            f"            {_THEME_TOGGLE_HTML}",
+            f"            {_GITHUB_LINK_HTML}",
+            "        </div>",
+            "    </nav>",
+            '    <main class="recipe">',
+            '        <header class="recipe-header">',
+            f"            <h1>{escaped_name}</h1>",
+        ]
 
         if self.tags is not None:
-            html_lines += [f"<p>Tags: {', '.join(self.tags)}</p>\n\n\n\n"]
+            html_lines += ['            <ul class="tag-list">']
+            for tag in self.tags:
+                tag_hue = tag_to_hue.get(tag, 0)
+                tag_link = f'<a href="../index.html?tag={urllib.parse.quote(tag)}">{html.escape(tag)}</a>'
+                html_lines += [f'                <li class="tag" style="--tag-hue: {tag_hue}">{tag_link}</li>']
+            html_lines += ["            </ul>"]
 
-        html_lines += ["<br>\n"]
-        html_lines += ["<h2>Ingredients</h2>\n\n"]
+        html_lines += [
+            "        </header>",
+            '        <div class="recipe-body">',
+            '            <section class="ingredients">',
+            "                <h2>Ingredients</h2>",
+            '                <ul class="ingredient-list">',
+        ]
+
         disallowed_units = {"": True, "portions": True}
         for measurement in self.measurements:
-            html_lines += ["<p>"]
-            html_lines += [f"{measurement.amount}"]
+            amount_text = f"{measurement.amount}"
 
             rendered_units = get_rendered_units(measurement=measurement)
             if disallowed_units.get(rendered_units, False) is False:
-                html_lines += [f" {rendered_units}"]
+                amount_text += f" {rendered_units}"
 
+            item_words = []
             if measurement.prefix is not None:
-                html_lines += [f" {measurement.prefix}"]
-
-            html_lines += [f" {measurement.ingredient.name}"]
-
+                item_words += [measurement.prefix]
+            item_words += [measurement.ingredient.name]
             if measurement.suffix is not None:
-                html_lines += [f" {measurement.suffix}"]
+                item_words += [measurement.suffix]
+            item_text = " ".join(item_words)
 
-            html_lines += ["</p>\n"]
+            amount_html = f'<span class="amount">{html.escape(amount_text)}</span>'
+            item_html = f'<span class="ingredient-text">{amount_html} {html.escape(item_text)}</span>'
+            html_lines += [
+                '                    <li class="ingredient"><label>',
+                '                        <input type="checkbox">',
+                f"                        {item_html}",
+                "                    </label></li>",
+            ]
+
+        html_lines += [
+            "                </ul>",
+            "            </section>",
+            '            <div class="method">',
+        ]
 
         if self.notes is not None:
-            html_lines += ["\n\n\n<br>\n"]
-            html_lines += ["<h2>Notes</h2>\n\n"]
-            for note in self.notes:
-                html_lines += [f"<p>{note}</p>\n"]
+            html_lines += [
+                '                <section class="notes">',
+                "                    <h2>Notes</h2>",
+                '                    <ul class="note-list">',
+            ]
+            html_lines += [f"                        <li>{html.escape(note)}</li>" for note in self.notes]
+            html_lines += [
+                "                    </ul>",
+                "                </section>",
+            ]
 
-        html_lines += ["\n\n\n<h2>Instructions</h2>\n\n"]
-        for instruction in self.instructions:
-            html_lines += [f"<p>{instruction}</p>\n"]
+        html_lines += [
+            '                <section class="instructions">',
+            "                    <h2>Instructions</h2>",
+            '                    <ol class="step-list">',
+        ]
+        html_lines += [
+            f"                        <li>{html.escape(instruction)}</li>" for instruction in self.instructions
+        ]
+        html_lines += [
+            "                    </ol>",
+            "                </section>",
+            "            </div>",
+            "        </div>",
+            "    </main>",
+            "</body>",
+            "</html>",
+        ]
 
         with file_path.open(mode="w") as io:
-            io.writelines(html_lines)
+            io.write("\n".join(html_lines) + "\n")
