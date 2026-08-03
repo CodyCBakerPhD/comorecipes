@@ -1,12 +1,11 @@
-<p align="center">
-  <a href="https://codecov.io/gh/CodyCBakerPhD/como_recipes"><img src="https://codecov.io/gh/CodyCBakerPhD/como_recipes/graph/badge.svg?token=WU24ZRYA3H" alt="Coverage"></a>
-</p>
-
 # CoMo Recipes
 
-Collection of recipes and meal planning software for our household.
+Static website for our household's recipe collection, built from the recipe/ingredient YAML database with a
+TypeScript site generator (`npm run build`, see `scripts/build.ts`).
 
-
+The Python meal planning app, its tests, and the source-of-truth recipe/ingredient database now live in the
+[`recipes`](https://github.com/CodyCBakerPhD/recipes) repository. This repo keeps a synced copy of the YAML content
+under `docs/recipes` and `docs/ingredients` so the site can keep building from it.
 
 ## Installation
 
