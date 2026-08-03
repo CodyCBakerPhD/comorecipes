@@ -1,7 +1,11 @@
 /* Shared stylesheet for the CoMo Recipes GitHub Pages site. */
 
+/* Theme variables: light is the default; the dark overrides below are applied
+   either by OS preference (when no explicit choice is stored) or by the
+   `data-theme` attribute set by assets/theme.js. Keep the two dark blocks in sync. */
+
 :root {
-    color-scheme: light dark;
+    color-scheme: light;
     --paper: #f6f1e7;
     --surface: #fffcf5;
     --ink: #2c2519;
@@ -12,12 +16,37 @@
     --note-surface: #f9eed3;
     --note-border: #d9a441;
     --shadow: 0 1px 2px rgba(44, 37, 25, 0.06), 0 4px 16px rgba(44, 37, 25, 0.05);
+    --tag-bg-s: 55%;
+    --tag-bg-l: 88%;
+    --tag-fg-s: 60%;
+    --tag-fg-l: 30%;
+    --theme-toggle-icon: "\263E\FE0E";
     --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #211d15;
+    --surface: #2b261c;
+    --ink: #ece4d3;
+    --muted: #a99e86;
+    --accent: #e09861;
+    --accent-soft: #453221;
+    --border: #40382a;
+    --note-surface: #37301f;
+    --note-border: #b98a3a;
+    --shadow: none;
+    --tag-bg-s: 30%;
+    --tag-bg-l: 24%;
+    --tag-fg-s: 45%;
+    --tag-fg-l: 78%;
+    --theme-toggle-icon: "\2600\FE0E";
+}
+
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
         --paper: #211d15;
         --surface: #2b261c;
         --ink: #ece4d3;
@@ -28,6 +57,11 @@
         --note-surface: #37301f;
         --note-border: #b98a3a;
         --shadow: none;
+        --tag-bg-s: 30%;
+        --tag-bg-l: 24%;
+        --tag-fg-s: 45%;
+        --tag-fg-l: 78%;
+        --theme-toggle-icon: "\2600\FE0E";
     }
 }
 
@@ -63,19 +97,26 @@ h2 {
     color: var(--muted);
 }
 
-/* Top bar shared by recipe pages */
+/* Top bar */
 
 .top-bar {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     gap: 1rem;
-    max-width: 60rem;
+    max-width: 80rem;
     margin: 0 auto;
     padding: 1.25rem 1.5rem 0;
 }
 
+.index-page .top-bar {
+    max-width: 93rem;
+}
+
 .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
     font-family: var(--serif);
     font-size: 0.9rem;
     letter-spacing: 0.35em;
@@ -86,6 +127,20 @@ h2 {
 
 .brand:hover {
     color: var(--accent);
+}
+
+.brand-logo {
+    width: 1.9rem;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: auto;
 }
 
 .back-link {
@@ -100,10 +155,66 @@ h2 {
     text-decoration: underline;
 }
 
+@media (max-width: 560px) {
+    .back-link {
+        display: none;
+    }
+}
+
+.icon-link {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    color: var(--muted);
+}
+
+.icon-link svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: currentColor;
+}
+
+.icon-link:hover {
+    color: var(--accent);
+}
+
+.theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.theme-toggle::before {
+    content: var(--theme-toggle-icon);
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.icon-link:focus-visible,
+.theme-toggle:focus-visible,
+.tag-filter .tag:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
 /* Recipe pages */
 
 .recipe {
-    max-width: 60rem;
+    max-width: 80rem;
     margin: 0 auto;
     padding: 1.5rem 1.5rem 3rem;
 }
@@ -131,16 +242,25 @@ h2 {
     list-style: none;
 }
 
+/* Tag chips: each tag carries its own hue via an inline `--tag-hue` custom property */
+
 .tag {
+    --tag-hue: 25;
     padding: 0.25rem 0.8rem;
+    border: 0;
     border-radius: 999px;
-    background: var(--accent-soft);
-    color: var(--accent);
+    background: hsl(var(--tag-hue) var(--tag-bg-s) var(--tag-bg-l));
+    color: hsl(var(--tag-hue) var(--tag-fg-s) var(--tag-fg-l));
     font-family: var(--sans);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+.tag a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .recipe-body {
@@ -151,7 +271,7 @@ h2 {
 
 @media (min-width: 760px) {
     .recipe-body {
-        grid-template-columns: minmax(17rem, 23rem) 1fr;
+        grid-template-columns: minmax(17rem, 25rem) 1fr;
         gap: 3rem;
     }
 
@@ -271,10 +391,18 @@ h2 {
 /* Index page */
 
 .site-header {
-    max-width: 70rem;
+    max-width: 93rem;
     margin: 0 auto;
-    padding: 3.25rem 1.5rem 0.5rem;
+    padding: 2.5rem 1.5rem 0.5rem;
     text-align: center;
+}
+
+.site-logo {
+    width: 76px;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 1.1rem;
 }
 
 .site-header h1 {
@@ -319,6 +447,26 @@ h2 {
     outline-offset: 1px;
 }
 
+/* Tag filter: click chips to narrow the index to recipes carrying every selected tag */
+
+.tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+    max-width: 60rem;
+    margin: 1.25rem auto 0;
+}
+
+.tag-filter .tag {
+    cursor: pointer;
+}
+
+.tag-filter .tag.selected {
+    background: hsl(var(--tag-hue) 55% 34%);
+    color: hsl(var(--tag-hue) 60% 95%);
+}
+
 .letter-nav {
     position: sticky;
     top: 0;
@@ -350,7 +498,7 @@ h2 {
 }
 
 .index-grid {
-    max-width: 70rem;
+    max-width: 93rem;
     margin: 0 auto;
     padding: 1.5rem 1.5rem 3rem;
     columns: 15rem;
@@ -396,29 +544,11 @@ h2 {
 
 .no-results {
     margin: 2rem auto;
-    max-width: 70rem;
+    max-width: 93rem;
     padding: 0 1.5rem;
     text-align: center;
     color: var(--muted);
     font-family: var(--sans);
-}
-
-/* Footer */
-
-.site-footer {
-    max-width: 60rem;
-    margin: 0 auto;
-    padding: 1.75rem 1.5rem 2.5rem;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    color: var(--muted);
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-}
-
-.site-footer p {
-    margin: 0;
 }
 
 /* Print */
@@ -430,8 +560,8 @@ h2 {
     }
 
     .top-bar,
-    .site-footer,
     .search-bar,
+    .tag-filter,
     .letter-nav {
         display: none;
     }

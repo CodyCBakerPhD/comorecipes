@@ -1,8 +1,8 @@
 // Assembles the deployable site into dist/ (TypeScript port of the Python
 // `generate_html_recipes` CLI — byte-for-byte identical output):
 //   1. renders docs/recipes/*.yaml into styled dist/formatted_recipes/*.html,
-//   2. generates the alphabetized dist/index.html with its live search filter,
-//   3. copies the shared stylesheet and favicon from docs/assets into dist/assets,
+//   2. generates the alphabetized dist/index.html with live search and tag filters,
+//   3. copies the shared stylesheet, theme script, favicon, and logo from docs/assets into dist/assets,
 //   4. generates the dist/manifests/ database manifests and their hashes,
 //   5. copies the raw recipe/ingredient databases,
 //   6. adds .nojekyll so GitHub Pages serves the files verbatim (no Jekyll).
@@ -40,6 +40,24 @@ interface RawIngredient {
 const repoRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const docsDir = join(repoRoot, "docs");
 const distDir = join(repoRoot, "dist");
+
+// The GitHub "mark" octicon, inlined so pages have no external image dependencies
+const GITHUB_ICON_PATH =
+  "M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49" +
+  "-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58" +
+  " 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59" +
+  ".82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27" +
+  " 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65" +
+  " 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8" +
+  "c0-4.42-3.58-8-8-8z";
+const GITHUB_ICON_SVG = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="${GITHUB_ICON_PATH}"/></svg>`;
+const GITHUB_REPOSITORY_URL = "https://github.com/CodyCBakerPhD/como_recipes";
+
+const GITHUB_LINK_HTML =
+  `<a class="icon-link" href="${GITHUB_REPOSITORY_URL}" aria-label="View source on GitHub">${GITHUB_ICON_SVG}</a>`;
+
+const THEME_TOGGLE_HTML =
+  '<button class="theme-toggle" type="button" onclick="comoToggleTheme()" aria-label="Toggle color theme"></button>';
 
 function yamlStems(directory: string): string[] {
   return readdirSync(directory)
@@ -84,7 +102,7 @@ function getRenderedUnits(measurement: RawMeasurement): string {
 }
 
 // Styled recipe page structure, mirroring `Recipe.to_html_file`.
-function renderRecipeHtml(recipe: RawRecipe): string {
+function renderRecipeHtml(recipe: RawRecipe, tagToHue: Map<string, number>): string {
   const escapedName = escapeHtml(recipe.name);
   const htmlLines = [
     "<!DOCTYPE html>",
@@ -95,11 +113,19 @@ function renderRecipeHtml(recipe: RawRecipe): string {
     `    <title>${escapedName} · CoMo Recipes</title>`,
     '    <link rel="icon" href="../assets/como_icon.ico">',
     '    <link rel="stylesheet" href="../assets/style.css">',
+    '    <script src="../assets/theme.js"></script>',
     "</head>",
     '<body class="recipe-page">',
     '    <nav class="top-bar">',
-    '        <a class="brand" href="../index.html">CoMo Recipes</a>',
-    '        <a class="back-link" href="../index.html">&larr; Recipe Index</a>',
+    '        <a class="brand" href="../index.html">',
+    '            <img class="brand-logo" src="../assets/como_logo.jpg" alt="CoMo logo">',
+    "            <span>CoMo Recipes</span>",
+    "        </a>",
+    '        <div class="top-actions">',
+    '            <a class="back-link" href="../index.html">&larr; Recipe Index</a>',
+    `            ${GITHUB_LINK_HTML}`,
+    `            ${THEME_TOGGLE_HTML}`,
+    "        </div>",
     "    </nav>",
     '    <main class="recipe">',
     '        <header class="recipe-header">',
@@ -109,7 +135,9 @@ function renderRecipeHtml(recipe: RawRecipe): string {
   if (recipe.tags != null) {
     htmlLines.push('            <ul class="tag-list">');
     for (const tag of recipe.tags) {
-      htmlLines.push(`                <li class="tag">${escapeHtml(tag)}</li>`);
+      const tagHue = tagToHue.get(tag) ?? 0;
+      const tagLink = `<a href="../index.html?tag=${encodeURIComponent(tag)}">${escapeHtml(tag)}</a>`;
+      htmlLines.push(`                <li class="tag" style="--tag-hue: ${tagHue}">${tagLink}</li>`);
     }
     htmlLines.push("            </ul>");
   }
@@ -183,9 +211,6 @@ function renderRecipeHtml(recipe: RawRecipe): string {
     "            </div>",
     "        </div>",
     "    </main>",
-    '    <footer class="site-footer">',
-    "        <p>CoMo Recipes</p>",
-    "    </footer>",
     "</body>",
     "</html>",
   );
@@ -197,31 +222,40 @@ rmSync(distDir, { recursive: true, force: true });
 mkdirSync(join(distDir, "formatted_recipes"), { recursive: true });
 mkdirSync(join(distDir, "manifests"), { recursive: true });
 
-// Shared static assets (stylesheet and favicon) for GitHub pages
+// Shared static assets (stylesheet, theme script, favicon, and logo) for GitHub pages
 cpSync(join(docsDir, "assets"), join(distDir, "assets"), { recursive: true });
 
 // All formatted HTML recipes for GitHub pages
-const alphabetizedRelativePathToRecipeName = new Map<string, Map<string, string>>();
 const recipesDir = join(docsDir, "recipes");
+const fileStemToRecipe = new Map<string, RawRecipe>();
 for (const fileStem of yamlStems(recipesDir)) {
-  const recipe = loadYaml<RawRecipe>(join(recipesDir, `${fileStem}.yaml`));
+  fileStemToRecipe.set(fileStem, loadYaml<RawRecipe>(join(recipesDir, `${fileStem}.yaml`)));
+}
+
+// Hues are spread evenly over the alphabetized tag universe so every tag chip gets a distinct color
+const allTags = [...new Set([...fileStemToRecipe.values()].flatMap((recipe) => recipe.tags ?? []))].sort();
+const totalTagCount = allTags.length;
+const tagToHue = new Map<string, number>(allTags.map((tag, index) => [tag, Math.floor((index * 360) / totalTagCount)]));
+
+const alphabetizedRelativePathToRecipe = new Map<string, Map<string, RawRecipe>>();
+for (const [fileStem, recipe] of fileStemToRecipe) {
   const startingLetter = recipe.name[0].toUpperCase();
 
   const relativeHtmlPath = `formatted_recipes/${fileStem}.html`;
-  let relativePathToRecipeName = alphabetizedRelativePathToRecipeName.get(startingLetter);
-  if (relativePathToRecipeName == null) {
-    relativePathToRecipeName = new Map<string, string>();
-    alphabetizedRelativePathToRecipeName.set(startingLetter, relativePathToRecipeName);
+  let relativePathToRecipe = alphabetizedRelativePathToRecipe.get(startingLetter);
+  if (relativePathToRecipe == null) {
+    relativePathToRecipe = new Map<string, RawRecipe>();
+    alphabetizedRelativePathToRecipe.set(startingLetter, relativePathToRecipe);
   }
-  relativePathToRecipeName.set(relativeHtmlPath, recipe.name);
+  relativePathToRecipe.set(relativeHtmlPath, recipe);
 
-  writeFileSync(join(distDir, relativeHtmlPath), renderRecipeHtml(recipe));
+  writeFileSync(join(distDir, relativeHtmlPath), renderRecipeHtml(recipe, tagToHue));
 }
 
 // Index file for GitHub pages
 let totalRecipeCount = 0;
-for (const relativePathToRecipeName of alphabetizedRelativePathToRecipeName.values()) {
-  totalRecipeCount += relativePathToRecipeName.size;
+for (const relativePathToRecipe of alphabetizedRelativePathToRecipe.values()) {
+  totalRecipeCount += relativePathToRecipe.size;
 }
 const searchInputHtml =
   '<input id="recipe-search" type="search" placeholder="Search recipes" aria-label="Search recipes">';
@@ -235,59 +269,104 @@ const indexLines = [
   "    <title>CoMo Recipes</title>",
   '    <link rel="icon" href="assets/como_icon.ico">',
   '    <link rel="stylesheet" href="assets/style.css">',
+  '    <script src="assets/theme.js"></script>',
   "</head>",
   '<body class="index-page">',
+  '    <nav class="top-bar">',
+  '        <div class="top-actions">',
+  `            ${GITHUB_LINK_HTML}`,
+  `            ${THEME_TOGGLE_HTML}`,
+  "        </div>",
+  "    </nav>",
   '    <header class="site-header">',
+  '        <img class="site-logo" src="assets/como_logo.jpg" alt="CoMo logo">',
   "        <h1>CoMo Recipes</h1>",
   `        <p class="tagline">Our household cookbook &middot; ${totalRecipeCount} recipes</p>`,
   '        <div class="search-bar">',
   `            ${searchInputHtml}`,
   "        </div>",
+  '        <div class="tag-filter">',
+];
+for (const tag of allTags) {
+  const tagHue = tagToHue.get(tag) ?? 0;
+  const escapedTag = escapeHtml(tag);
+  const tagButton = `<button class="tag" type="button" style="--tag-hue: ${tagHue}" data-tag="${escapedTag}">`;
+  indexLines.push(`            ${tagButton}${escapedTag}</button>`);
+}
+indexLines.push(
+  "        </div>",
   "    </header>",
   '    <nav class="letter-nav">',
-];
-for (const startingLetter of alphabetizedRelativePathToRecipeName.keys()) {
+);
+for (const startingLetter of alphabetizedRelativePathToRecipe.keys()) {
   indexLines.push(`        <a href="#letter-${startingLetter}">${startingLetter}</a>`);
 }
 indexLines.push("    </nav>", '    <main class="index-grid">');
-for (const [startingLetter, relativePathToRecipeName] of alphabetizedRelativePathToRecipeName) {
+for (const [startingLetter, relativePathToRecipe] of alphabetizedRelativePathToRecipe) {
   indexLines.push(
     `        <section class="letter-section" id="letter-${startingLetter}">`,
     `            <h2>${startingLetter}</h2>`,
     "            <ul>",
   );
-  for (const [relativePath, recipeName] of relativePathToRecipeName) {
-    indexLines.push(`                <li><a href="${relativePath}">${escapeHtml(recipeName)}</a></li>`);
+  for (const [relativePath, recipe] of relativePathToRecipe) {
+    const escapedTags = escapeHtml((recipe.tags ?? []).join(","));
+    const recipeLink = `<a href="${relativePath}">${escapeHtml(recipe.name)}</a>`;
+    indexLines.push(`                <li data-tags="${escapedTags}">${recipeLink}</li>`);
   }
   indexLines.push("            </ul>", "        </section>");
 }
 indexLines.push(
   "    </main>",
   '    <p class="no-results" hidden>No recipes match your search.</p>',
-  '    <footer class="site-footer">',
-  "        <p>CoMo Recipes</p>",
-  "    </footer>",
   "    <script>",
   "        const searchInput = document.getElementById('recipe-search');",
   "        const letterNav = document.querySelector('.letter-nav');",
   "        const noResults = document.querySelector('.no-results');",
   "        const sections = Array.from(document.querySelectorAll('.letter-section'));",
-  "        searchInput.addEventListener('input', () => {",
+  "        const tagButtons = Array.from(document.querySelectorAll('.tag-filter .tag'));",
+  "        const selectedTags = new Set();",
+  "        const applyFilters = () => {",
   "            const query = searchInput.value.trim().toLowerCase();",
   "            let anyMatches = false;",
   "            for (const section of sections) {",
   "                let sectionMatches = false;",
   "                for (const item of section.querySelectorAll('li')) {",
-  "                    const matches = item.textContent.toLowerCase().includes(query);",
+  "                    const itemTags = (item.dataset.tags || '').split(',');",
+  "                    const matchesQuery = item.textContent.toLowerCase().includes(query);",
+  "                    const matchesTags = [...selectedTags].every((tag) => itemTags.includes(tag));",
+  "                    const matches = matchesQuery && matchesTags;",
   "                    item.hidden = !matches;",
   "                    sectionMatches = sectionMatches || matches;",
   "                }",
   "                section.hidden = !sectionMatches;",
   "                anyMatches = anyMatches || sectionMatches;",
   "            }",
-  "            letterNav.hidden = query !== '';",
+  "            letterNav.hidden = query !== '' || selectedTags.size > 0;",
   "            noResults.hidden = anyMatches;",
-  "        });",
+  "        };",
+  "        searchInput.addEventListener('input', applyFilters);",
+  "        for (const button of tagButtons) {",
+  "            button.addEventListener('click', () => {",
+  "                const tag = button.dataset.tag;",
+  "                if (selectedTags.has(tag)) {",
+  "                    selectedTags.delete(tag);",
+  "                } else {",
+  "                    selectedTags.add(tag);",
+  "                }",
+  "                button.classList.toggle('selected');",
+  "                applyFilters();",
+  "            });",
+  "        }",
+  "        for (const tag of new URLSearchParams(location.search).getAll('tag')) {",
+  "            const button = tagButtons.find((candidate) => candidate.dataset.tag === tag);",
+  "            if (button != null) {",
+  "                selectedTags.add(tag);",
+  "                button.classList.add('selected');",
+  "            }",
+  "        }",
+  "        if (selectedTags.size > 0) {",
+  "            applyFilters();",
+  "        }",
   "    </script>",
   "</body>",
   "</html>",

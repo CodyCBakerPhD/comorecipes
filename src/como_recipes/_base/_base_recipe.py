@@ -1,11 +1,29 @@
 import html
 import json
 import typing
+import urllib.parse
 
 import pydantic
 import yaml
 
 from ._base_measurement import Measurement
+
+# The GitHub "mark" octicon, inlined so pages have no external image dependencies
+_GITHUB_ICON_PATH = "M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49"
+_GITHUB_ICON_PATH += "-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58"
+_GITHUB_ICON_PATH += " 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59"
+_GITHUB_ICON_PATH += ".82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27"
+_GITHUB_ICON_PATH += " 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65"
+_GITHUB_ICON_PATH += " 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8"
+_GITHUB_ICON_PATH += "c0-4.42-3.58-8-8-8z"
+_GITHUB_ICON_SVG = f'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="{_GITHUB_ICON_PATH}"/></svg>'
+_GITHUB_REPOSITORY_URL = "https://github.com/CodyCBakerPhD/como_recipes"
+
+_GITHUB_LINK_HTML = f'<a class="icon-link" href="{_GITHUB_REPOSITORY_URL}" aria-label="View source on GitHub">'
+_GITHUB_LINK_HTML += f"{_GITHUB_ICON_SVG}</a>"
+
+_THEME_TOGGLE_HTML = '<button class="theme-toggle" type="button" onclick="comoToggleTheme()"'
+_THEME_TOGGLE_HTML += ' aria-label="Toggle color theme"></button>'
 
 
 class Recipe(pydantic.BaseModel):
@@ -203,7 +221,12 @@ class Recipe(pydantic.BaseModel):
             raise ValueError(message)
 
     @pydantic.validate_call
-    def to_html_file(self, *, file_path: pydantic.NewPath | pydantic.FilePath) -> None:
+    def to_html_file(
+        self,
+        *,
+        file_path: pydantic.NewPath | pydantic.FilePath,
+        tag_to_hue: dict[str, int] | None = None,
+    ) -> None:
         """
         Save recipe to a styled .html page for use in the website.
 
@@ -213,9 +236,17 @@ class Recipe(pydantic.BaseModel):
         ----------
         file_path : pydantic.NewPath
             Path to the HTML (.html) file
+        tag_to_hue : dict of str to int, optional
+            Mapping of tag names to the hue (in degrees) used to color their chips, usually spread over
+            every tag in the recipe database by `generate_html_recipes`.
+            If unspecified, hues are spread evenly over this recipe's own tags.
 
         """
         from ..utils import get_rendered_units
+
+        if tag_to_hue is None and self.tags is not None:
+            sorted_tags = sorted(set(self.tags))
+            tag_to_hue = {tag: index * 360 // len(sorted_tags) for index, tag in enumerate(sorted_tags)}
 
         escaped_name = html.escape(self.name)
         html_lines = [
@@ -227,11 +258,19 @@ class Recipe(pydantic.BaseModel):
             f"    <title>{escaped_name} · CoMo Recipes</title>",
             '    <link rel="icon" href="../assets/como_icon.ico">',
             '    <link rel="stylesheet" href="../assets/style.css">',
+            '    <script src="../assets/theme.js"></script>',
             "</head>",
             '<body class="recipe-page">',
             '    <nav class="top-bar">',
-            '        <a class="brand" href="../index.html">CoMo Recipes</a>',
-            '        <a class="back-link" href="../index.html">&larr; Recipe Index</a>',
+            '        <a class="brand" href="../index.html">',
+            '            <img class="brand-logo" src="../assets/como_logo.jpg" alt="CoMo logo">',
+            "            <span>CoMo Recipes</span>",
+            "        </a>",
+            '        <div class="top-actions">',
+            '            <a class="back-link" href="../index.html">&larr; Recipe Index</a>',
+            f"            {_GITHUB_LINK_HTML}",
+            f"            {_THEME_TOGGLE_HTML}",
+            "        </div>",
             "    </nav>",
             '    <main class="recipe">',
             '        <header class="recipe-header">',
@@ -240,7 +279,10 @@ class Recipe(pydantic.BaseModel):
 
         if self.tags is not None:
             html_lines += ['            <ul class="tag-list">']
-            html_lines += [f'                <li class="tag">{html.escape(tag)}</li>' for tag in self.tags]
+            for tag in self.tags:
+                tag_hue = tag_to_hue.get(tag, 0)
+                tag_link = f'<a href="../index.html?tag={urllib.parse.quote(tag)}">{html.escape(tag)}</a>'
+                html_lines += [f'                <li class="tag" style="--tag-hue: {tag_hue}">{tag_link}</li>']
             html_lines += ["            </ul>"]
 
         html_lines += [
@@ -308,9 +350,6 @@ class Recipe(pydantic.BaseModel):
             "            </div>",
             "        </div>",
             "    </main>",
-            '    <footer class="site-footer">',
-            "        <p>CoMo Recipes</p>",
-            "    </footer>",
             "</body>",
             "</html>",
         ]
