@@ -582,7 +582,7 @@ h2 {
 .list-mode-toggle:focus-visible,
 .selection-button:focus-visible,
 .remove-recipe:focus-visible,
-.print-button:focus-visible {
+.page-button:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 1px;
 }
@@ -653,13 +653,8 @@ h2 {
     font-size: 0.85rem;
 }
 
-.selection-hint,
 .selection-count {
     margin: 0;
-    color: var(--muted);
-}
-
-.selection-count {
     font-weight: 600;
     color: var(--ink);
 }
@@ -705,12 +700,6 @@ h2 {
     pointer-events: none;
 }
 
-@media (max-width: 560px) {
-    .selection-hint {
-        display: none;
-    }
-}
-
 /* Shopping list page */
 
 .shopping {
@@ -725,6 +714,16 @@ h2 {
     border-bottom: 1px solid var(--border);
 }
 
+/* Title row: the page's own actions sit across from the heading rather than in the top bar */
+
+.shopping-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+}
+
 .shopping-header h1 {
     margin: 0;
     font-size: clamp(2.1rem, 5vw, 3rem);
@@ -734,36 +733,29 @@ h2 {
 }
 
 .shopping-header .tagline {
-    margin: 0.5rem 0 0;
+    margin: 0.75rem 0 0;
 }
 
-/* Unlike a recipe's back link, this is the only way back to the picker, so it stays on narrow screens */
-
-@media (max-width: 560px) {
-    .edit-selection {
-        display: inline;
-        font-size: 0.8rem;
-    }
-
-    /* Keeping the link means the bar needs a second row for the icon buttons */
-    .shopping-page .top-bar {
-        flex-wrap: wrap;
-        row-gap: 0.5rem;
-    }
+.shopping-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
-.print-button {
-    padding: 0.4rem 1rem;
+.page-button {
+    padding: 0.45rem 1.1rem;
     border: 1px solid var(--border);
     border-radius: 999px;
     background: var(--surface);
     color: var(--muted);
     font-family: var(--sans);
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+    text-decoration: none;
+    white-space: nowrap;
     cursor: pointer;
 }
 
-.print-button:hover {
+.page-button:hover {
     color: var(--accent);
     border-color: var(--accent);
 }
@@ -857,13 +849,6 @@ h2 {
     text-decoration-color: var(--muted);
 }
 
-.purchased-hint {
-    margin: 1rem 0 0.5rem;
-    color: var(--muted);
-    font-family: var(--sans);
-    font-size: 0.78rem;
-}
-
 .empty-state {
     margin: 3rem 0;
     text-align: center;
@@ -885,7 +870,7 @@ h2 {
     .letter-nav,
     .selection-bar,
     .remove-recipe,
-    .purchased-hint,
+    .shopping-actions,
     .item-sources {
         display: none;
     }

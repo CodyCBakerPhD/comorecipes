@@ -9,7 +9,6 @@
 
     const selectionCount = selectionBar.querySelector(".selection-count");
     const buildLink = selectionBar.querySelector(".build-list");
-    const selectAllButton = selectionBar.querySelector(".select-all");
     const clearButton = selectionBar.querySelector(".clear-selection");
     const items = Array.from(document.querySelectorAll(".letter-section li"));
 
@@ -94,12 +93,6 @@
 
     modeToggle.addEventListener("click", () => {
         setListMode(!document.body.classList.contains("list-mode"));
-    });
-
-    selectAllButton.addEventListener("click", () => {
-        // "Shown" respects the active search query and tag filters
-        const shown = items.filter((item) => !item.hidden && !item.closest(".letter-section").hidden);
-        setSelectedFileStems(shown.map(fileStemOf));
     });
 
     clearButton.addEventListener("click", () => setSelectedFileStems([]));
