@@ -916,13 +916,13 @@ h2 {
     }
 
     .shopping-header h1 {
-        font-size: 30pt;
+        font-size: 45pt;
     }
 
+    /* The tallies are for the screen; the printed sheet just needs the list */
+
     .shopping-header .tagline {
-        margin: 0.15rem 0 0;
-        font-size: 13pt;
-        color: #444;
+        display: none;
     }
 
     /* Chips become a plain run of recipe names, which costs a line instead of a block */
@@ -938,7 +938,7 @@ h2 {
         border: 0;
         background: transparent;
         font-family: var(--sans);
-        font-size: 45pt;
+        font-size: 36pt;
         line-height: 1.15;
     }
 
