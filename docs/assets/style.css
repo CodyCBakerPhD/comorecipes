@@ -858,6 +858,13 @@ h2 {
 
 /* Print */
 
+/* @page has to stay at the top level: nested inside @media print it is valid CSS, but
+   engines that do not expect it there drop the whole block and print the screen layout. */
+
+@page {
+    margin: 1cm;
+}
+
 @media print {
     body {
         background: #fff;
@@ -892,10 +899,6 @@ h2 {
 
     /* Shopping list: an aisle-ready list across the full sheet — no chrome, no ticked-off
        items, four columns of hand-tickable boxes at arm's-length reading size. */
-
-    @page {
-        margin: 1cm;
-    }
 
     .shopping-page {
         font-size: 15.75pt;
@@ -978,6 +981,9 @@ h2 {
 
     .shopping-item {
         padding-left: 1.15em;
+        /* A long word must wrap rather than overflow: some engines answer an overflowing
+           print layout by shrinking the whole sheet to fit. */
+        overflow-wrap: break-word;
     }
 
     .shopping-item label {
