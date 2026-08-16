@@ -13,7 +13,9 @@
     const items = Array.from(document.querySelectorAll(".letter-section li"));
 
     const RECIPES_PARAMETER = "recipes";
+    // Shared with shopping_list.js, which keeps both up to date as recipes are dropped there
     const SELECTION_STORAGE_KEY = "como-list-selection";
+    const LIST_MODE_STORAGE_KEY = "como-list-mode";
     const RECIPE_PATH_PREFIX = "formatted_recipes/";
     const RECIPE_PATH_SUFFIX = ".html";
 
@@ -80,6 +82,8 @@
         }
     }
 
+    // List mode stays on for the rest of the session, so leaving the index for a shopping
+    // list (or a recipe) and coming back lands you right back in the picker.
     function setListMode(isActive) {
         document.body.classList.toggle("list-mode", isActive);
         modeToggle.setAttribute("aria-pressed", String(isActive));
@@ -88,6 +92,12 @@
         // Recipe links must not steal the keyboard while rows act as checkboxes
         for (const link of document.querySelectorAll(".letter-section li a")) {
             link.tabIndex = isActive ? -1 : 0;
+        }
+
+        try {
+            sessionStorage.setItem(LIST_MODE_STORAGE_KEY, isActive ? "on" : "off");
+        } catch {
+            // Private browsing modes can refuse session storage; list mode just will not persist
         }
     }
 
@@ -111,11 +121,20 @@
         }
     }
 
-    // Arriving from the shopping list's "Edit selection" link reopens list mode with that selection
+    function wasListModeActive() {
+        try {
+            return sessionStorage.getItem(LIST_MODE_STORAGE_KEY) === "on";
+        } catch {
+            return false;
+        }
+    }
+
+    // A ?recipes= link (the shopping list's "Edit selection", or a shared URL) names the
+    // selection outright; otherwise the session's own selection is restored.
     const requestedFileStems = new URLSearchParams(location.search).get(RECIPES_PARAMETER);
     const restoredFileStems =
         requestedFileStems == null ? storedFileStems() : requestedFileStems.split(",").filter(Boolean);
 
-    setListMode(requestedFileStems != null && restoredFileStems.length > 0);
     setSelectedFileStems(restoredFileStems);
+    setListMode(requestedFileStems != null || wasListModeActive());
 })();

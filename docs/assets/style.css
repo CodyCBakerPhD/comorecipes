@@ -890,15 +890,62 @@ h2 {
         break-inside: avoid;
     }
 
-    /* Shopping list: print the aisle-ready list only — no chrome, no ticked-off items */
+    /* Shopping list: an aisle-ready list across the full sheet — no chrome, no ticked-off
+       items, three tight columns of hand-tickable boxes. */
+
+    @page {
+        margin: 1cm;
+    }
+
+    .shopping-page {
+        font-size: 10.5pt;
+        line-height: 1.35;
+    }
 
     .shopping {
+        max-width: none;
         padding: 0;
     }
 
-    .shopping-card {
-        border: 0;
+    .shopping-header {
+        margin: 0 0 0.6rem;
+        padding-bottom: 0.45rem;
+    }
+
+    .shopping-header h1 {
+        font-size: 19pt;
+    }
+
+    .shopping-header .tagline {
+        margin: 0.15rem 0 0;
+        font-size: 8.5pt;
+        color: #444;
+    }
+
+    /* Chips become a plain run of recipe names, which costs a line instead of a block */
+
+    .recipe-chips {
+        gap: 0 0.45rem;
+        margin: 0.3rem 0 0;
+        font-size: 8.5pt;
+    }
+
+    .recipe-chip {
         padding: 0;
+        border: 0;
+        background: transparent;
+        font-family: var(--sans);
+    }
+
+    .recipe-chip + .recipe-chip::before {
+        content: "\00B7";
+        margin-right: 0.45rem;
+        color: #666;
+    }
+
+    .shopping-card {
+        padding: 0;
+        border: 0;
         background: transparent;
     }
 
@@ -907,14 +954,63 @@ h2 {
     }
 
     .shopping .ingredient-list {
-        columns: 2;
+        columns: 3;
+        column-gap: 1.4rem;
+        column-rule: 1px solid #e2e2e2;
     }
 
     .shopping-item.purchased {
         display: none;
     }
 
-    .recipe-chip {
-        padding: 0.2rem 0.6rem;
+    .ingredient + .ingredient {
+        border-top: 1px solid #e8e8e8;
+    }
+
+    /* Native checkboxes print faint and inconsistently, so draw the box instead */
+
+    .shopping-item input {
+        display: none;
+    }
+
+    /* The box hangs in the gutter so text that wraps lines up under the ingredient */
+
+    .shopping-item {
+        padding-left: 1.15em;
+    }
+
+    .shopping-item label {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.4rem;
+        padding: 0.2rem 0;
+    }
+
+    .shopping-item label::before {
+        content: "";
+        flex: none;
+        width: 0.72em;
+        height: 0.72em;
+        margin-left: -1.15em;
+        border: 0.7pt solid #333;
+        border-radius: 1px;
+        transform: translateY(0.08em);
+    }
+
+    /* Qualifiers ride along on the ingredient's own line rather than taking another */
+
+    .item-qualifiers {
+        display: inline;
+        padding-left: 0.3rem;
+        color: #555;
+        font-size: 0.88em;
+    }
+
+    .item-qualifiers::before {
+        content: "(";
+    }
+
+    .item-qualifiers::after {
+        content: ")";
     }
 }

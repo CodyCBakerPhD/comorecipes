@@ -11,6 +11,10 @@
     const editLink = document.querySelector(".edit-selection");
 
     const RECIPES_PARAMETER = "recipes";
+    // Shared with list_mode.js so the index reopens in list mode with whatever is on this list,
+    // however the reader gets back there — the link below, the logo, or the back button.
+    const SELECTION_STORAGE_KEY = "como-list-selection";
+    const LIST_MODE_STORAGE_KEY = "como-list-mode";
     // Units the recipe pages leave unwritten, either because there is none or because
     // the amount already reads naturally without it (e.g. "1 thin spaghetti").
     const UNWRITTEN_UNITS = new Set(["", "portions"]);
@@ -176,6 +180,13 @@
         const query = new URLSearchParams({ [RECIPES_PARAMETER]: selectedFileStems.join(",") });
         editLink.href = `index.html?${query}`;
         history.replaceState(null, "", isEmpty ? location.pathname : `?${query}`);
+
+        try {
+            sessionStorage.setItem(SELECTION_STORAGE_KEY, selectedFileStems.join(","));
+            sessionStorage.setItem(LIST_MODE_STORAGE_KEY, "on");
+        } catch {
+            // Private browsing modes can refuse session storage; the selection just will not persist
+        }
     }
 
     render();
