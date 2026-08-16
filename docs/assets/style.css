@@ -891,15 +891,15 @@ h2 {
     }
 
     /* Shopping list: an aisle-ready list across the full sheet — no chrome, no ticked-off
-       items, three tight columns of hand-tickable boxes. */
+       items, four columns of hand-tickable boxes at arm's-length reading size. */
 
     @page {
         margin: 1cm;
     }
 
     .shopping-page {
-        font-size: 10.5pt;
-        line-height: 1.35;
+        font-size: 15.75pt;
+        line-height: 1.25;
     }
 
     .shopping {
@@ -913,12 +913,12 @@ h2 {
     }
 
     .shopping-header h1 {
-        font-size: 19pt;
+        font-size: 30pt;
     }
 
     .shopping-header .tagline {
         margin: 0.15rem 0 0;
-        font-size: 8.5pt;
+        font-size: 13pt;
         color: #444;
     }
 
@@ -926,8 +926,8 @@ h2 {
 
     .recipe-chips {
         gap: 0 0.45rem;
-        margin: 0.3rem 0 0;
-        font-size: 8.5pt;
+        margin: 0.35rem 0 0;
+        font-size: 14pt;
     }
 
     .recipe-chip {
@@ -935,6 +935,7 @@ h2 {
         border: 0;
         background: transparent;
         font-family: var(--sans);
+        font-size: 15pt;
     }
 
     .recipe-chip + .recipe-chip::before {
@@ -954,8 +955,8 @@ h2 {
     }
 
     .shopping .ingredient-list {
-        columns: 3;
-        column-gap: 1.4rem;
+        columns: 4;
+        column-gap: 0.7rem;
         column-rule: 1px solid #e2e2e2;
     }
 
@@ -982,8 +983,8 @@ h2 {
     .shopping-item label {
         display: inline-flex;
         align-items: baseline;
-        gap: 0.4rem;
-        padding: 0.2rem 0;
+        gap: 0.4em;
+        padding: 0.2em 0;
     }
 
     .shopping-item label::before {
@@ -1001,7 +1002,7 @@ h2 {
 
     .item-qualifiers {
         display: inline;
-        padding-left: 0.3rem;
+        padding-left: 0.3em;
         color: #555;
         font-size: 0.88em;
     }
