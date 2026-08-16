@@ -938,7 +938,8 @@ h2 {
         border: 0;
         background: transparent;
         font-family: var(--sans);
-        font-size: 15pt;
+        font-size: 45pt;
+        line-height: 1.15;
     }
 
     .recipe-chip + .recipe-chip::before {

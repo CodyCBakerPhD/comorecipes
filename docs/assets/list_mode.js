@@ -12,6 +12,9 @@
     const clearButton = selectionBar.querySelector(".clear-selection");
     const items = Array.from(document.querySelectorAll(".letter-section li"));
 
+    // Set while the page restores its state, so that pass leaves the address bar alone
+    let isRestoring = true;
+
     const RECIPES_PARAMETER = "recipes";
     // Shared with shopping_list.js, which keeps both up to date as recipes are dropped there
     const SELECTION_STORAGE_KEY = "como-list-selection";
@@ -80,6 +83,27 @@
         } catch {
             // Private browsing modes can refuse session storage; the selection just will not persist
         }
+
+        rewriteUrl();
+    }
+
+    // The address bar has to track the picker, or a stale ?recipes= would be read back
+    // as the selection on the next refresh — clearing would appear to undo itself.
+    function rewriteUrl() {
+        if (isRestoring) {
+            return;
+        }
+
+        const fileStems = document.body.classList.contains("list-mode") ? selectedFileStems() : [];
+        const parameters = new URLSearchParams(location.search);
+        if (fileStems.length > 0) {
+            parameters.set(RECIPES_PARAMETER, fileStems.join(","));
+        } else {
+            parameters.delete(RECIPES_PARAMETER);
+        }
+
+        const query = parameters.toString();
+        history.replaceState(null, "", query === "" ? location.pathname : `?${query}`);
     }
 
     // List mode stays on for the rest of the session, so leaving the index for a shopping
@@ -99,6 +123,8 @@
         } catch {
             // Private browsing modes can refuse session storage; list mode just will not persist
         }
+
+        rewriteUrl();
     }
 
     modeToggle.addEventListener("click", () => {
@@ -137,4 +163,5 @@
 
     setSelectedFileStems(restoredFileStems);
     setListMode(requestedFileStems != null || wasListModeActive());
+    isRestoring = false;
 })();
