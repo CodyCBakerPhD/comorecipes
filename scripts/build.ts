@@ -1,11 +1,12 @@
 // Assembles the deployable site into dist/ (TypeScript port of the Python
 // `generate_html_recipes` CLI — byte-for-byte identical output):
 //   1. renders docs/recipes/*.yaml into styled dist/formatted_recipes/*.html,
-//   2. generates the alphabetized dist/index.html with live search and tag filters,
-//   3. copies the shared stylesheet, theme script, favicon, and logo from docs/assets into dist/assets,
-//   4. generates the dist/manifests/ database manifests and their hashes,
-//   5. copies the raw recipe/ingredient databases,
-//   6. adds .nojekyll so GitHub Pages serves the files verbatim (no Jekyll).
+//   2. generates the alphabetized dist/index.html with live search, tag filters, and list mode,
+//   3. generates dist/shopping_list.html, which totals the ingredients of the recipes picked in list mode,
+//   4. copies the shared stylesheet, theme script, favicon, and logo from docs/assets into dist/assets,
+//   5. generates the dist/manifests/ database manifests and their hashes,
+//   6. copies the raw recipe/ingredient databases,
+//   7. adds .nojekyll so GitHub Pages serves the files verbatim (no Jekyll).
 //
 // Run with `npm run build` (requires Node >= 22.18 for native type stripping).
 
@@ -218,6 +219,95 @@ function renderRecipeHtml(recipe: RawRecipe, tagToHue: Map<string, number>): str
   return htmlLines.join("\n") + "\n";
 }
 
+// A recipe reduced to what the shopping list needs: an amount per unit, the prep
+// qualifiers worth carrying to the store, and nothing else.
+interface ShoppingItem {
+  amount: number | null; // null for "enough", which has no measurable amount to total
+  unit: string;
+  ingredient: string;
+  qualifier?: string;
+}
+
+interface ShoppingRecipe {
+  name: string;
+  items: ShoppingItem[];
+}
+
+function toShoppingRecipe(recipe: RawRecipe): ShoppingRecipe {
+  const items = recipe.measurements.map((measurement) => {
+    const parsedAmount = Number(measurement.amount);
+    const qualifierWords = [
+      measurement.prefix,
+      // Suffixes are written as continuations of the ingredient, e.g. ", room temperature"
+      measurement.suffix?.replace(/^,\s*/, ""),
+    ].filter((word) => word != null && word !== "");
+
+    const item: ShoppingItem = {
+      amount: Number.isFinite(parsedAmount) ? parsedAmount : null,
+      unit: getRenderedUnits(measurement),
+      ingredient: measurement.ingredient,
+    };
+    if (qualifierWords.length > 0) {
+      item.qualifier = qualifierWords.join(", ");
+    }
+    return item;
+  });
+
+  return { name: recipe.name, items };
+}
+
+// Inlined into a <script type="application/json"> block, so no "<" may survive verbatim.
+function toEmbeddedJson(value: unknown): string {
+  return JSON.stringify(value).replaceAll("<", "\\u003c");
+}
+
+function renderShoppingListHtml(shoppingRecipeByFileStem: Map<string, ShoppingRecipe>): string {
+  const embeddedRecipes = toEmbeddedJson(Object.fromEntries(shoppingRecipeByFileStem));
+
+  return [
+    "<!DOCTYPE html>",
+    '<html lang="en">',
+    "<head>",
+    '    <meta charset="UTF-8">',
+    '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+    "    <title>Shopping List · CoMo Recipes</title>",
+    '    <link rel="icon" href="assets/como_icon.ico">',
+    '    <link rel="stylesheet" href="assets/style.css">',
+    '    <script src="assets/theme.js"></script>',
+    "</head>",
+    '<body class="shopping-page">',
+    '    <nav class="top-bar">',
+    '        <a class="brand" href="index.html">',
+    '            <img class="brand-logo" src="assets/como_logo.jpg" alt="CoMo logo">',
+    "            <span>CoMo Recipes</span>",
+    "        </a>",
+    '        <div class="top-actions">',
+    '            <a class="back-link edit-selection" href="index.html">&larr; Edit selection</a>',
+    '            <button class="print-button" type="button" onclick="window.print()">Print</button>',
+    `            ${THEME_TOGGLE_HTML}`,
+    `            ${GITHUB_LINK_HTML}`,
+    "        </div>",
+    "    </nav>",
+    '    <main class="shopping">',
+    '        <header class="shopping-header">',
+    "            <h1>Shopping List</h1>",
+    '            <p class="tagline" id="list-summary"></p>',
+    '            <ul class="recipe-chips" id="recipe-chips"></ul>',
+    "        </header>",
+    '        <section class="ingredients shopping-card">',
+    "            <h2>Ingredients</h2>",
+    '            <ul class="ingredient-list" id="shopping-items"></ul>',
+    '            <p class="purchased-hint">Tick off what you already have or have picked up &mdash; ticked items are left off the printed list.</p>',
+    "        </section>",
+    '        <p class="empty-state" hidden>No recipes selected yet. Open <a href="index.html">the recipe index</a>, switch on List Mode, and pick a few.</p>',
+    "    </main>",
+    `    <script type="application/json" id="recipe-data">${embeddedRecipes}</script>`,
+    '    <script src="assets/shopping_list.js"></script>',
+    "</body>",
+    "</html>",
+  ].join("\n") + "\n";
+}
+
 rmSync(distDir, { recursive: true, force: true });
 mkdirSync(join(distDir, "formatted_recipes"), { recursive: true });
 mkdirSync(join(distDir, "manifests"), { recursive: true });
@@ -270,9 +360,11 @@ const indexLines = [
   '    <link rel="icon" href="assets/como_icon.ico">',
   '    <link rel="stylesheet" href="assets/style.css">',
   '    <script src="assets/theme.js"></script>',
+  '    <script defer src="assets/list_mode.js"></script>',
   "</head>",
   '<body class="index-page">',
   '    <nav class="top-bar">',
+  '        <button class="list-mode-toggle" id="list-mode-toggle" type="button" aria-pressed="false">List Mode</button>',
   '        <div class="top-actions">',
   `            ${THEME_TOGGLE_HTML}`,
   `            ${GITHUB_LINK_HTML}`,
@@ -318,6 +410,15 @@ for (const [startingLetter, relativePathToRecipe] of alphabetizedRelativePathToR
 indexLines.push(
   "    </main>",
   '    <p class="no-results" hidden>No recipes match your search.</p>',
+  '    <div class="selection-bar" hidden>',
+  '        <p class="selection-hint">Click recipes to add them to your list.</p>',
+  '        <p class="selection-count">0 recipes selected</p>',
+  '        <div class="selection-actions">',
+  '            <button class="selection-button select-all" type="button">Select all shown</button>',
+  '            <button class="selection-button clear-selection" type="button">Clear</button>',
+  '            <a class="selection-button build-list" href="shopping_list.html" aria-disabled="true">Build Shopping List</a>',
+  "        </div>",
+  "    </div>",
   "    <script>",
   "        const searchInput = document.getElementById('recipe-search');",
   "        const letterNav = document.querySelector('.letter-nav');",
@@ -372,6 +473,13 @@ indexLines.push(
   "</html>",
 );
 writeFileSync(join(distDir, "index.html"), indexLines.join("\n") + "\n");
+
+// Shopping list page: list mode on the index links here with the chosen recipes in the query string
+const shoppingRecipeByFileStem = new Map<string, ShoppingRecipe>();
+for (const [fileStem, recipe] of fileStemToRecipe) {
+  shoppingRecipeByFileStem.set(fileStem, toShoppingRecipe(recipe));
+}
+writeFileSync(join(distDir, "shopping_list.html"), renderShoppingListHtml(shoppingRecipeByFileStem));
 
 // Hidden manifest files
 const databases = ["recipes", "ingredients"];

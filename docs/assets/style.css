@@ -275,7 +275,7 @@ h2 {
         gap: 3rem;
     }
 
-    .ingredients {
+    .recipe-body .ingredients {
         position: sticky;
         top: 1.5rem;
     }
@@ -551,6 +551,326 @@ h2 {
     font-family: var(--sans);
 }
 
+/* List mode: tick recipes on the index, then total their ingredients on the shopping list page */
+
+.list-mode-toggle {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.list-mode-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.list-mode-toggle[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--surface);
+}
+
+.list-mode-toggle:focus-visible,
+.selection-button:focus-visible,
+.remove-recipe:focus-visible,
+.print-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.select-recipe {
+    display: none;
+    flex: none;
+    margin: 0;
+    accent-color: var(--accent);
+}
+
+.list-mode .select-recipe {
+    display: inline-block;
+}
+
+.list-mode .letter-section li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 -0.6rem;
+    padding: 0 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.list-mode .letter-section li a {
+    flex: 1;
+    margin: 0;
+    padding-left: 0;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.list-mode .letter-section li:hover {
+    background: var(--surface);
+}
+
+.list-mode .letter-section li.selected {
+    background: var(--accent-soft);
+}
+
+.list-mode .letter-section li.selected a {
+    color: var(--accent);
+}
+
+/* Leaves room for the fixed selection bar at the foot of the index */
+
+.list-mode .index-grid {
+    padding-bottom: 9rem;
+}
+
+.selection-bar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 1.25rem;
+    padding: 0.9rem 1.5rem;
+    border-top: 1px solid var(--border);
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
+    backdrop-filter: blur(8px);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+}
+
+.selection-hint,
+.selection-count {
+    margin: 0;
+    color: var(--muted);
+}
+
+.selection-count {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.selection-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.selection-button {
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.selection-button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.build-list {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--surface);
+    font-weight: 600;
+}
+
+.build-list:hover {
+    color: var(--surface);
+    filter: brightness(1.08);
+}
+
+.build-list[aria-disabled="true"] {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+@media (max-width: 560px) {
+    .selection-hint {
+        display: none;
+    }
+}
+
+/* Shopping list page */
+
+.shopping {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 3rem;
+}
+
+.shopping-header {
+    margin: 1.5rem 0 2.25rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.shopping-header h1 {
+    margin: 0;
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+}
+
+.shopping-header .tagline {
+    margin: 0.5rem 0 0;
+}
+
+/* Unlike a recipe's back link, this is the only way back to the picker, so it stays on narrow screens */
+
+@media (max-width: 560px) {
+    .edit-selection {
+        display: inline;
+        font-size: 0.8rem;
+    }
+
+    /* Keeping the link means the bar needs a second row for the icon buttons */
+    .shopping-page .top-bar {
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
+    }
+}
+
+.print-button {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.print-button:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.recipe-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.recipe-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.5rem 0.3rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+}
+
+.recipe-chip a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.recipe-chip a:hover {
+    color: var(--accent);
+}
+
+.remove-recipe {
+    display: grid;
+    place-items: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.remove-recipe:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+/* Wide screens fit the totals in columns, which also keeps the printout compact */
+
+.shopping .ingredient-list {
+    columns: 19rem;
+    column-gap: 2.5rem;
+}
+
+.shopping-item {
+    break-inside: avoid;
+}
+
+.shopping-item label {
+    align-items: start;
+}
+
+.item-qualifiers,
+.item-sources {
+    display: block;
+    padding-left: 1.6rem;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+.item-qualifiers {
+    font-style: italic;
+}
+
+.shopping-item:last-child .item-sources {
+    padding-bottom: 0.35rem;
+}
+
+.shopping-item.purchased .ingredient-text {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--muted);
+}
+
+.purchased-hint {
+    margin: 1rem 0 0.5rem;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+}
+
+.empty-state {
+    margin: 3rem 0;
+    text-align: center;
+    color: var(--muted);
+    font-family: var(--sans);
+}
+
 /* Print */
 
 @media print {
@@ -562,7 +882,11 @@ h2 {
     .top-bar,
     .search-bar,
     .tag-filter,
-    .letter-nav {
+    .letter-nav,
+    .selection-bar,
+    .remove-recipe,
+    .purchased-hint,
+    .item-sources {
         display: none;
     }
 
@@ -579,5 +903,33 @@ h2 {
     .step-list li,
     .letter-section {
         break-inside: avoid;
+    }
+
+    /* Shopping list: print the aisle-ready list only — no chrome, no ticked-off items */
+
+    .shopping {
+        padding: 0;
+    }
+
+    .shopping-card {
+        border: 0;
+        padding: 0;
+        background: transparent;
+    }
+
+    .shopping-card h2 {
+        display: none;
+    }
+
+    .shopping .ingredient-list {
+        columns: 2;
+    }
+
+    .shopping-item.purchased {
+        display: none;
+    }
+
+    .recipe-chip {
+        padding: 0.2rem 0.6rem;
     }
 }

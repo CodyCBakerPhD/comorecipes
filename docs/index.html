@@ -7,9 +7,11 @@
     <link rel="icon" href="assets/como_icon.ico">
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/theme.js"></script>
+    <script defer src="assets/list_mode.js"></script>
 </head>
 <body class="index-page">
     <nav class="top-bar">
+        <button class="list-mode-toggle" id="list-mode-toggle" type="button" aria-pressed="false">List Mode</button>
         <div class="top-actions">
             <button class="theme-toggle" type="button" onclick="comoToggleTheme()" aria-label="Toggle color theme"></button>
             <a class="icon-link" href="https://github.com/CodyCBakerPhD/como_recipes" aria-label="View source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
@@ -330,6 +332,15 @@
         </section>
     </main>
     <p class="no-results" hidden>No recipes match your search.</p>
+    <div class="selection-bar" hidden>
+        <p class="selection-hint">Click recipes to add them to your list.</p>
+        <p class="selection-count">0 recipes selected</p>
+        <div class="selection-actions">
+            <button class="selection-button select-all" type="button">Select all shown</button>
+            <button class="selection-button clear-selection" type="button">Clear</button>
+            <a class="selection-button build-list" href="shopping_list.html" aria-disabled="true">Build Shopping List</a>
+        </div>
+    </div>
     <script>
         const searchInput = document.getElementById('recipe-search');
         const letterNav = document.querySelector('.letter-nav');
