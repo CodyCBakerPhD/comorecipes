@@ -9,6 +9,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: biscuits
+  recipe: buttermilk_biscuits
 - amount: '60'
   unit: grams
   ingredient: water

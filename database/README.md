@@ -6,6 +6,32 @@ By convention, the ingredients of a recipe are listed in the order they are inco
 
 
 
+### Recipes as ingredients
+
+An ingredient written with the same name as another recipe (such as `marinara sauce` in Spaghetti) is that recipe, and the site links the two pages both ways. A recipe never counts as its own ingredient (Rice measures out `rice`, the grain).
+
+When the ingredient is not written exactly as the recipe's name, add a `recipe` key with the other recipe's file stem:
+
+```yaml
+- amount: '1'
+  unit: portions
+  ingredient: biscuits
+  recipe: buttermilk_biscuits
+```
+
+The site build fails if that stem does not exist.
+
+When an ingredient shares a recipe's name but means the plain ingredient, set the key to `null` so the two are not linked (Cornbread Dressing sautees raw `celery`; it does not call for the Celery snack):
+
+```yaml
+- amount: '2'
+  unit: portions
+  ingredient: celery
+  recipe: null
+```
+
+
+
 ### Default references
 
 There are several ingredients which are shortened for readability, but are expanded here for reference.

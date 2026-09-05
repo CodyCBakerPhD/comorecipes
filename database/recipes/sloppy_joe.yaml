@@ -9,6 +9,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: Kaiser Rolls
+  recipe: kaiser_roll
 - amount: '453'
   unit: grams
   ingredient: ground beef or Boca crumbles

@@ -15,6 +15,7 @@ measurements:
 - amount: '2'
   unit: portions
   ingredient: celery
+  recipe: null
 - amount: '75'
   unit: grams
   ingredient: onion
