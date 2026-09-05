@@ -9,7 +9,7 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "node scripts/build.ts",
+    "build": "node site/build.ts",
     "serve": "npx --yes serve dist"
   },
   "devDependencies": {
