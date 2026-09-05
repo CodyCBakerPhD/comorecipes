@@ -11,7 +11,7 @@ measurements:
   ingredient: pie crust
 - amount: '1'
   unit: portions
-  ingredient: of firm tofu
+  ingredient: firm tofu
 - amount: '28'
   unit: grams
   ingredient: butter
@@ -35,7 +35,7 @@ measurements:
   ingredient: flour
 - amount: '240'
   unit: grams
-  ingredient: not-chicken broth
+  ingredient: no-chicken stock
 - amount: '250'
   unit: grams
   ingredient: whole milk

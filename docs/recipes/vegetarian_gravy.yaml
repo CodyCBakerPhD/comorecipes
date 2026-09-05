@@ -14,7 +14,7 @@ measurements:
   ingredient: flour
 - amount: '480'
   unit: grams
-  ingredient: not-chicken broth
+  ingredient: no-chicken stock
 - amount: '80'
   unit: grams
   ingredient: cream

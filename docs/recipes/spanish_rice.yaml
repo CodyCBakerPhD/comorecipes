@@ -11,7 +11,7 @@ measurements:
   ingredient: butter
 - amount: '30'
   unit: grams
-  ingredient: shallot
+  ingredient: shallots
 - amount: '10'
   unit: grams
   ingredient: garlic
@@ -23,7 +23,7 @@ measurements:
   ingredient: salt and pepper
 - amount: '600'
   unit: grams
-  ingredient: not-chicken broth
+  ingredient: no-chicken stock
 - amount: '2'
   unit: portions
   ingredient: fresh thyme

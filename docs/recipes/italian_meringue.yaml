@@ -14,7 +14,7 @@ measurements:
   ingredient: water
 - amount: '4'
   unit: portions
-  ingredient: egg whites
+  ingredient: egg white
   suffix: ', room temperature'
 - amount: '1'
   unit: grams

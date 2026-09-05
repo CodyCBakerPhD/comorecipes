@@ -17,7 +17,7 @@ measurements:
   ingredient: yeast
 - amount: '2'
   unit: portions
-  ingredient: eggs
+  ingredient: egg
   suffix: ', room temperature'
 - amount: '330'
   unit: grams

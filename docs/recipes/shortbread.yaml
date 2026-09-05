@@ -8,7 +8,8 @@ tags:
 measurements:
 - amount: '227'
   unit: grams
-  ingredient: butter, room temperature
+  prefix: room temperature
+  ingredient: butter
 - amount: '66'
   unit: grams
   ingredient: sugar

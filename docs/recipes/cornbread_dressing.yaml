@@ -8,7 +8,7 @@ tags:
 measurements:
 - amount: '2'
   unit: portions
-  ingredient: of cornbread
+  ingredient: cornbread
 - amount: '28'
   unit: grams
   ingredient: butter
@@ -20,7 +20,7 @@ measurements:
   ingredient: onion
 - amount: '480'
   unit: grams
-  ingredient: not-chicken broth
+  ingredient: no-chicken stock
 - amount: '4'
   unit: grams
   ingredient: sage

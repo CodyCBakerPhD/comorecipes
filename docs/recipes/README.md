@@ -16,6 +16,7 @@ There are several ingredients which are shortened for readability, but are expan
 |       flour        |         all-purpose flour          |
 |       butter       |          unsalted butter           |
 |        milk        |              2% milk               |
+|   condensed milk   |      sweetened condensed milk      |
 |    brown sugar     |         light brown sugar          |
 |      vanilla       |          vanilla extract           |
 |      cinnamon      |          ground cinnamon           |

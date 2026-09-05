@@ -20,7 +20,7 @@ measurements:
 - amount: '1'
   unit: portions
   prefix: seasoned
-  ingredient: boca
+  ingredient: Boca
 - amount: '1'
   unit: portions
   ingredient: queso

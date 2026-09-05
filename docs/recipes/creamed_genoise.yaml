@@ -8,13 +8,14 @@ tags:
 measurements:
 - amount: '188'
   unit: grams
-  ingredient: butter, room temperature
+  prefix: room temperature
+  ingredient: butter
 - amount: '188'
   unit: grams
   ingredient: sugar
 - amount: '3'
   unit: portions
-  ingredient: eggs
+  ingredient: egg
   suffix: ', room temperature'
 - amount: '187'
   unit: grams

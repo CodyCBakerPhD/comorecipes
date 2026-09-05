@@ -20,7 +20,8 @@ measurements:
   ingredient: salt
 - amount: '50'
   unit: grams
-  ingredient: melted butter
+  prefix: melted
+  ingredient: butter
 - amount: '1'
   unit: portions
   ingredient: egg

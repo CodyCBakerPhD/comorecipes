@@ -17,10 +17,10 @@ measurements:
   ingredient: garlic
 - amount: '60'
   unit: grams
-  ingredient: carrot
+  ingredient: carrots
 - amount: '480'
   unit: grams
-  ingredient: not-chicken broth
+  ingredient: no-chicken stock
 - amount: '360'
   unit: grams
   ingredient: water
@@ -29,7 +29,7 @@ measurements:
   ingredient: salt and pepper
 - amount: '2'
   unit: grams
-  ingredient: italian seasoning
+  ingredient: Italian seasoning
 - amount: '1'
   unit: portions
   ingredient: kidney beans

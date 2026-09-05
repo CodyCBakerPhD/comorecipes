@@ -36,7 +36,7 @@ measurements:
   ingredient: white wine
 - amount: '240'
   unit: grams
-  ingredient: not-chicken broth
+  ingredient: no-chicken stock
 - amount: '1'
   unit: portions
   ingredient: fresh tomatoes
@@ -51,7 +51,7 @@ measurements:
   ingredient: mushrooms
 - amount: '337'
   unit: grams
-  ingredient: Rotini
+  ingredient: rotini
 
 instructions:
 - Cook pasta separately and set aside.

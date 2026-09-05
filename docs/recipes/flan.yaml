@@ -10,7 +10,7 @@ measurements:
   ingredient: egg
 - amount: '2'
   unit: portions
-  ingredient: egg yolks
+  ingredient: egg yolk
 - amount: '3'
   unit: grams
   ingredient: salt

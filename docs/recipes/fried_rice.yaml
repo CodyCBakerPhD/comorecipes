@@ -8,13 +8,14 @@ tags:
 measurements:
 - amount: '1'
   unit: portions
-  ingredient: of chilled rice
+  prefix: chilled
+  ingredient: rice
 - amount: '1'
   unit: portions
   ingredient: fried tofu
 - amount: '2'
   unit: portions
-  ingredient: eggs
+  ingredient: egg
 - amount: '42'
   unit: grams
   ingredient: butter
@@ -26,7 +27,7 @@ measurements:
   ingredient: onion
 - amount: '60'
   unit: grams
-  ingredient: carrot
+  ingredient: carrots
 - amount: '1'
   unit: portions
   ingredient: Shiitake mushrooms
