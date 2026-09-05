@@ -8,7 +8,7 @@ tags:
 measurements:
 - amount: '4'
   unit: portions
-  ingredient: not-chicken tenders
+  ingredient: no-chicken tenders
 - amount: 'enough'
   ingredient: frying breading  # TODO: link
 - amount: 'enough'
