@@ -25,7 +25,7 @@ measurements:
   ingredient: garlic
 - amount: '2'
   unit: grams
-  ingredient: crushed red pepper
+  ingredient: red pepper flakes
 - amount: '80'
   unit: grams
   prefix: shredded
@@ -40,4 +40,4 @@ instructions:
 - Add red pepper and cook 30 seconds more.
 - Carefully add reserved pasta water and bring to boil.
 - Lower heat and simmer for 5 minutes, until liquid is reduced by about a third.
-- Incorporate pasta, parsley, and Permesan.
+- Incorporate pasta, parsley, and Parmesan.

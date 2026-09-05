@@ -14,7 +14,7 @@ measurements:
 - amount: '125'
   unit: grams
   prefix: minced
-  ingredient: white onion
+  ingredient: onion
 - amount: '1'
   unit: portions
   ingredient: fresh tomatoes

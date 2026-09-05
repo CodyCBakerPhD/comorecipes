@@ -27,7 +27,7 @@ measurements:
 - amount: '5'
   unit: grams
   prefix: special
-  ingredient: italian seasoning
+  ingredient: Italian seasoning
 - amount: '240'
   unit: grams
   ingredient: water

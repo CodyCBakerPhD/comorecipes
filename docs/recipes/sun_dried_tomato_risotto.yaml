@@ -18,7 +18,7 @@ measurements:
 - amount: '30'
   unit: grams
   prefix: diced
-  ingredient: shallot
+  ingredient: shallots
 - amount: '10'
   unit: grams
   prefix: minced

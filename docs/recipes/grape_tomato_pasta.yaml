@@ -22,7 +22,7 @@ measurements:
   ingredient: salt
 - amount: '2'
   unit: grams
-  ingredient: crushed red pepper
+  ingredient: red pepper flakes
 - amount: '5'
   unit: grams
   prefix: sliced
@@ -38,7 +38,7 @@ instructions:
 - Cook pasta.
 - Heat olive oil in a large skillet over medium heat.
 - Add garlic and cook while stirring for ~1 minute.
-- Add grape tomatoes, salt, and crushed red pepper.
+- Add grape tomatoes, salt, and red pepper flakes.
 - Cook until tomatoes are soft and start to burst, ~6 minutes.
 - Remove from heat and stir in basil and lemon juice.
 - Toss with cooked pasta and serve.

@@ -17,7 +17,7 @@ measurements:
   ingredient: vanilla
 - amount: '3'
   unit: portions
-  ingredient: egg yolks
+  ingredient: egg yolk
 - amount: '45'
   unit: grams
   prefix: warm
@@ -27,7 +27,7 @@ measurements:
   ingredient: sugar
 - amount: '8'
   unit: portions
-  ingredient: egg whites
+  ingredient: egg white
 - amount: '3'
   unit: grams
   ingredient: lemon juice

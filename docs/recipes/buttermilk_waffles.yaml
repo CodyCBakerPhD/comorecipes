@@ -8,7 +8,8 @@ tags:
 measurements:
 - amount: '35'
   unit: grams
-  ingredient: butter, melted and cooled
+  prefix: melted and cooled
+  ingredient: butter
 - amount: '1'
   unit: portions
   ingredient: egg

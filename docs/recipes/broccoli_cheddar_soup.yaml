@@ -18,7 +18,7 @@ measurements:
   ingredient: broccoli
 - amount: '198'
   unit: grams
-  ingredient: not-chicken broth
+  ingredient: no-chicken stock
 - amount: '170'
   unit: grams
   ingredient: double cheddar

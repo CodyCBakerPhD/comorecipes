@@ -16,7 +16,8 @@ measurements:
   ingredient: salt
 - amount: '227'
   unit: grams
-  ingredient: cold butter
+  prefix: cold
+  ingredient: butter
 - amount: '118'
   unit: grams
   ingredient: ice water
