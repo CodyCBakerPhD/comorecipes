@@ -8,27 +8,16 @@ By convention, the ingredients of a recipe are listed in the order they are inco
 
 ### Recipes as ingredients
 
-An ingredient written with the same name as another recipe (such as `marinara sauce` in Spaghetti) is that recipe, and the site links the two pages both ways. A recipe never counts as its own ingredient (Rice measures out `rice`, the grain).
-
-When the ingredient is not written exactly as the recipe's name, add a `recipe` key with the other recipe's file stem:
+When an ingredient is another recipe (such as `marinara sauce` in Spaghetti), give the measurement a `recipe` key with that recipe's file stem. The site links the two pages both ways: the ingredient links to the component recipe, and the component recipe lists the recipes it is used in.
 
 ```yaml
 - amount: '1'
   unit: portions
-  ingredient: biscuits
-  recipe: buttermilk_biscuits
+  ingredient: marinara sauce
+  recipe: marinara_sauce
 ```
 
-The site build fails if that stem does not exist.
-
-When an ingredient shares a recipe's name but means the plain ingredient, set the key to `null` so the two are not linked (Cornbread Dressing sautees raw `celery`; it does not call for the Celery snack):
-
-```yaml
-- amount: '2'
-  unit: portions
-  ingredient: celery
-  recipe: null
-```
+Links are only ever declared this way, never inferred from the ingredient name, so an ingredient that merely shares a recipe's name (the raw `celery` in Cornbread Dressing, the `rice` grain in Rice) stays a plain ingredient. The site build fails if the stem does not exist or names the recipe itself.
 
 
 

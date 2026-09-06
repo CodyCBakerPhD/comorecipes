@@ -12,11 +12,9 @@ export interface Measurement {
   prefix?: string;
   suffix?: string;
   ingredient: string;
-  // File stem of the recipe this ingredient is made from, for when the ingredient is not
-  // written exactly as that recipe's name (e.g. "biscuits" for Buttermilk Biscuits).
-  // Ingredients that share a recipe's name are linked to it without this; null opts one
-  // out, for when it means the plain ingredient (raw celery, not the Celery snack).
-  recipe?: string | null;
+  // File stem of the recipe this ingredient is made from, when it is one ("marinara sauce"
+  // in Spaghetti). Links are always declared here, never inferred from the ingredient name.
+  recipe?: string;
 }
 
 export interface Recipe {
@@ -63,53 +61,35 @@ function loadEntries<Entry>(directory: string): Map<string, Entry> {
   return entries;
 }
 
-// Recipe names and ingredient names are compared loosely on case and spacing, since the
-// database writes "Meatloaf glaze" for the recipe "Meatloaf Glaze"
-function nameKey(name: string): string {
-  return name.trim().toLowerCase().replace(/\s+/g, " ");
-}
-
-// Which recipe, if any, a measurement is made from: the one it names explicitly via `recipe`,
-// otherwise the one whose name its ingredient shares. A recipe never counts as its own
-// component (Rice measures out "rice"; the ingredient, not the dish).
+// The recipe a measurement declares it is made from, checked against the database
 function componentRecipeStem(
   fileStem: string,
   measurement: Measurement,
   recipes: Map<string, Recipe>,
-  recipeStemByName: Map<string, string>,
 ): string | undefined {
-  if (measurement.recipe === null) {
+  if (measurement.recipe == null) {
     return undefined;
   }
-  if (measurement.recipe != null) {
-    if (!recipes.has(measurement.recipe)) {
-      throw new Error(
-        `Recipe "${fileStem}" says its ingredient "${measurement.ingredient}" is made from the recipe ` +
-          `"${measurement.recipe}", but no such recipe exists in the database.`,
-      );
-    }
-    if (measurement.recipe === fileStem) {
-      throw new Error(`Recipe "${fileStem}" says its ingredient "${measurement.ingredient}" is made from itself.`);
-    }
-    return measurement.recipe;
+  if (!recipes.has(measurement.recipe)) {
+    throw new Error(
+      `Recipe "${fileStem}" says its ingredient "${measurement.ingredient}" is made from the recipe ` +
+        `"${measurement.recipe}", but no such recipe exists in the database.`,
+    );
   }
-  const namedStem = recipeStemByName.get(nameKey(measurement.ingredient));
-  return namedStem === fileStem ? undefined : namedStem;
+  if (measurement.recipe === fileStem) {
+    throw new Error(`Recipe "${fileStem}" says its ingredient "${measurement.ingredient}" is made from itself.`);
+  }
+  return measurement.recipe;
 }
 
 // The cross-links between recipes: which measurements are other recipes, and the reverse
 function linkRecipes(recipes: Map<string, Recipe>): Pick<Database, "componentRecipes" | "usedIn"> {
-  const recipeStemByName = new Map<string, string>();
-  for (const [fileStem, recipe] of recipes) {
-    recipeStemByName.set(nameKey(recipe.name), fileStem);
-  }
-
   const componentRecipes = new Map<string, Map<number, string>>();
   const usedIn = new Map<string, string[]>();
   for (const [fileStem, recipe] of recipes) {
     const components = new Map<number, string>();
     recipe.measurements.forEach((measurement, index) => {
-      const componentStem = componentRecipeStem(fileStem, measurement, recipes, recipeStemByName);
+      const componentStem = componentRecipeStem(fileStem, measurement, recipes);
       if (componentStem == null) {
         return;
       }

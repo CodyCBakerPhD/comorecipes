@@ -10,6 +10,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: pie crust
+  recipe: shortening_pie_crust
 - amount: '800'
   unit: grams
   ingredient: tart cherries

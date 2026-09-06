@@ -26,7 +26,8 @@ measurements:
   ingredient: salt
 - amount: '0.5'
   unit: portions
-  ingredient: pie crust  # TODO: link
+  ingredient: pie crust
+  recipe: shortening_pie_crust
 
 instructions:
 - Mix ingredients well and pour into pie crust. Bake for 15 minutes at 425 F.

@@ -17,6 +17,7 @@ measurements:
   ingredient: bread crumbs
 - amount: 'enough'
   ingredient: marinara sauce
+  recipe: marinara_sauce
 - amount: '453'
   unit: grams
   ingredient: mozzarella

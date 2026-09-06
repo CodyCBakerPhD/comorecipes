@@ -9,6 +9,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: marinara sauce
+  recipe: marinara_sauce
 - amount: '4'
   unit: portions
   prefix: grilled

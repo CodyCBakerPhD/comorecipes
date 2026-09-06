@@ -24,6 +24,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: queso
+  recipe: queso
 - amount: '1'
   unit: portions
   ingredient: sweet peppers

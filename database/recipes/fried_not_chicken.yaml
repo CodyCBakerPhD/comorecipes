@@ -10,7 +10,8 @@ measurements:
   unit: portions
   ingredient: no-chicken tenders
 - amount: 'enough'
-  ingredient: frying breading  # TODO: link
+  ingredient: frying breading
+  recipe: frying_breading
 - amount: 'enough'
   ingredient: buttermilk
 

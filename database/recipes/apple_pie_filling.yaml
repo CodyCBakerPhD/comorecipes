@@ -11,6 +11,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: pie crust
+  recipe: shortening_pie_crust
 - amount: '5'
   unit: portions
   ingredient: Granny Smith apple

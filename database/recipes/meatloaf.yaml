@@ -39,6 +39,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: Meatloaf glaze
+  recipe: meatloaf_glaze
 
 notes:
 - Maybe try wrapping around a nice cheese?
