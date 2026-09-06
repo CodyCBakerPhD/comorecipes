@@ -21,4 +21,4 @@ npm run serve   # serves dist/ locally
 
 ## Deploying
 
-Pushes to `main` here, and pushes to `main` of the database repo, rebuild and publish the site to the `gh-pages` branch. Pull requests get a preview deployment. Both workflows check out the database repo's `main` branch, so the site always reflects the latest data.
+Pushes to `main` here rebuild and publish the site to the `gh-pages` branch, and a daily scheduled run does the same to pick up changes to the database. Run the "Deploy site to gh-pages" workflow by hand from the Actions tab to publish a database change sooner. Pull requests get a preview deployment. Every build checks out the database repo's `main` branch, and trusts its records: the database repo validates them against its schemas before they can land there.

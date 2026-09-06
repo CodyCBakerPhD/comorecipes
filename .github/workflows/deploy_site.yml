@@ -3,9 +3,8 @@ on:
   push:
     branches:
       - main
-  repository_dispatch:
-    types:
-      - database-updated  # sent by the database repo when its main branch changes
+  schedule:
+    - cron: "0 9 * * *"  # daily, to pick up changes to the recipe database
   workflow_dispatch:
 
 concurrency:

@@ -5,7 +5,8 @@
 //   4. publishes the raw database with manifests, which the desktop app syncs from,
 //   5. adds .nojekyll so GitHub Pages serves the files verbatim.
 //
-// The database lives in its own repo (https://github.com/CodyCBakerPhD/comorecipes-database).
+// The database lives in its own repo (https://github.com/CodyCBakerPhD/comorecipes-database),
+// which validates every record against its schemas before merging, so the build trusts them.
 // The build reads it from DATABASE_DIR when set, otherwise from a database/ checkout at the
 // root of this repo (gitignored; the workflows check it out there).
 //
