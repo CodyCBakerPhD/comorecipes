@@ -8,11 +8,15 @@ import { escapeHtml, pageHtml, tagHue } from "./layout.ts";
 // amount already reads naturally without it (e.g. "1 thin spaghetti").
 const UNWRITTEN_UNITS = new Set(["", "portions"]);
 
-// Recipe pages sit side by side in formatted_recipes/, so they link to each other by stem
+// Recipe pages sit side by side in formatted_recipes/, so they link to each other by stem.
+// The links open in a new tab so the reader keeps their place (and ticked boxes) in this one.
 function recipeLinkHtml(fileStem: string, text: string, database: Database): string {
   const recipe = database.recipes.get(fileStem);
   const title = recipe == null ? "" : ` title="${escapeHtml(recipe.name)}"`;
-  return `<a class="recipe-link" href="${encodeURIComponent(fileStem)}.html"${title}>${escapeHtml(text)}</a>`;
+  return (
+    `<a class="recipe-link" href="${encodeURIComponent(fileStem)}.html"${title} target="_blank" rel="noopener">` +
+    `${escapeHtml(text)}</a>`
+  );
 }
 
 // An ingredient that is itself a recipe links to that recipe's page; the prefix and suffix
