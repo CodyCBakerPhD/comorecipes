@@ -20,7 +20,8 @@ measurements:
   ingredient: fresh tomatoes
 - amount: '40'
   unit: grams
-  ingredient: black bean chili spice # TODO: add linking so recipe app can track component ingredients
+  ingredient: black bean chili spice
+  recipe: black_bean_chili_spice
 - amount: '200'
   unit: grams
   ingredient: dried black beans

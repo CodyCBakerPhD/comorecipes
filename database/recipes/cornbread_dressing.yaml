@@ -9,6 +9,7 @@ measurements:
 - amount: '2'
   unit: portions
   ingredient: cornbread
+  recipe: cornbread
 - amount: '28'
   unit: grams
   ingredient: butter

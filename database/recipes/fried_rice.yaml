@@ -10,6 +10,7 @@ measurements:
   unit: portions
   prefix: chilled
   ingredient: rice
+  recipe: rice
 - amount: '1'
   unit: portions
   ingredient: fried tofu

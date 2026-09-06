@@ -34,7 +34,7 @@ mkdirSync(join(distDir, "manifests"), { recursive: true });
 
 // Pages
 for (const [fileStem, recipe] of database.recipes) {
-  writeFileSync(join(distDir, "formatted_recipes", `${fileStem}.html`), renderRecipePage(recipe, database));
+  writeFileSync(join(distDir, "formatted_recipes", `${fileStem}.html`), renderRecipePage(fileStem, recipe, database));
 }
 writeFileSync(join(distDir, "index.html"), renderIndexPage(database));
 writeFileSync(join(distDir, "shopping_list.html"), renderShoppingListPage(database));

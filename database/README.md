@@ -6,6 +6,21 @@ By convention, the ingredients of a recipe are listed in the order they are inco
 
 
 
+### Recipes as ingredients
+
+When an ingredient is another recipe (such as `marinara sauce` in Spaghetti), give the measurement a `recipe` key with that recipe's file stem. The site links the two pages both ways: the ingredient links to the component recipe, and the component recipe lists the recipes it is used in.
+
+```yaml
+- amount: '1'
+  unit: portions
+  ingredient: marinara sauce
+  recipe: marinara_sauce
+```
+
+Links are only ever declared this way, never inferred from the ingredient name, so an ingredient that merely shares a recipe's name (the raw `celery` in Cornbread Dressing, the `rice` grain in Rice) stays a plain ingredient. The site build fails if the stem does not exist or names the recipe itself.
+
+
+
 ### Default references
 
 There are several ingredients which are shortened for readability, but are expanded here for reference.

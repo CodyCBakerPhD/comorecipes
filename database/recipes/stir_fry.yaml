@@ -9,6 +9,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: rice
+  recipe: rice
 - amount: 'enough'
   ingredient: peanut oil
 - amount: '1'

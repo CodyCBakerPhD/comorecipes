@@ -13,6 +13,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: marinara sauce
+  recipe: marinara_sauce
 
 instructions:
 - Cook noodles.

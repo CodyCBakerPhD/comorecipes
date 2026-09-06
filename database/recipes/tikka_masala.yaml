@@ -12,6 +12,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: naan
+  recipe: naan
 - amount: 'enough'
   ingredient: peanut oil
 - amount: '250'
@@ -26,7 +27,8 @@ measurements:
   ingredient: onion
 - amount: '33.5'
   unit: grams
-  ingredient: tikka masala seasoning  # TODO: link
+  ingredient: tikka masala seasoning
+  recipe: tikka_masala_seasoning
 - amount: '113'
   unit: grams
   ingredient: chickpeas

@@ -8,12 +8,15 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: cinnabon dough
+  recipe: cinnabon_dough
 - amount: '1'
   unit: portions
   ingredient: cinnabon filling
+  recipe: cinnabon_filling
 - amount: '1'
   unit: portions
   ingredient: cinnabon icing
+  recipe: cinnabon_icing
 
 notes:
 - Reheat for 30 seconds in microwave.

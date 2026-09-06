@@ -1,4 +1,5 @@
-// One recipe: its tags, tickable ingredients, notes, and numbered instructions.
+// One recipe: its tags, tickable ingredients, notes, numbered instructions, and the
+// cross-links to the recipes it is made from and the recipes made from it.
 
 import { displayUnit, type Database, type Measurement, type Recipe } from "../models.ts";
 import { escapeHtml, pageHtml, tagHue } from "./layout.ts";
@@ -7,17 +8,56 @@ import { escapeHtml, pageHtml, tagHue } from "./layout.ts";
 // amount already reads naturally without it (e.g. "1 thin spaghetti").
 const UNWRITTEN_UNITS = new Set(["", "portions"]);
 
-function ingredientHtml(measurement: Measurement, database: Database): string {
+// Recipe pages sit side by side in formatted_recipes/, so they link to each other by stem.
+// The links open in a new tab so the reader keeps their place (and ticked boxes) in this one.
+function recipeLinkHtml(fileStem: string, text: string, database: Database): string {
+  const recipe = database.recipes.get(fileStem);
+  const title = recipe == null ? "" : ` title="${escapeHtml(recipe.name)}"`;
+  return (
+    `<a class="recipe-link" href="${encodeURIComponent(fileStem)}.html"${title} target="_blank" rel="noopener">` +
+    `${escapeHtml(text)}</a>`
+  );
+}
+
+// An ingredient that is itself a recipe links to that recipe's page; the prefix and suffix
+// stay plain text, since they describe this recipe's use of it ("chilled rice").
+function ingredientHtml(measurement: Measurement, componentStem: string | undefined, database: Database): string {
   const unit = displayUnit(measurement, database);
   const amountText = UNWRITTEN_UNITS.has(unit) ? `${measurement.amount}` : `${measurement.amount} ${unit}`;
-  const itemText = [measurement.prefix, measurement.ingredient, measurement.suffix]
-    .filter((word) => word != null)
+  const nameHtml =
+    componentStem == null
+      ? escapeHtml(measurement.ingredient)
+      : recipeLinkHtml(componentStem, measurement.ingredient, database);
+  const itemHtml = [
+    measurement.prefix == null ? null : escapeHtml(measurement.prefix),
+    nameHtml,
+    measurement.suffix == null ? null : escapeHtml(measurement.suffix),
+  ]
+    .filter((part) => part != null)
     .join(" ");
 
   return `<li class="ingredient"><label>
                         <input type="checkbox">
-                        <span class="ingredient-text"><span class="amount">${escapeHtml(amountText)}</span> ${escapeHtml(itemText)}</span>
+                        <span class="ingredient-text"><span class="amount">${escapeHtml(amountText)}</span> ${itemHtml}</span>
                     </label></li>`;
+}
+
+// The reverse links: every recipe that calls for this one as an ingredient
+function usedInHtml(fileStem: string, database: Database): string {
+  const userStems = database.usedIn.get(fileStem);
+  if (userStems == null) {
+    return "";
+  }
+  const userItems = userStems.map(
+    (userStem) => `<li>${recipeLinkHtml(userStem, database.recipes.get(userStem)?.name ?? userStem, database)}</li>`,
+  );
+  return `
+                <section class="used-in">
+                    <h2>Used In</h2>
+                    <ul class="used-in-list">
+                        ${userItems.join("\n                        ")}
+                    </ul>
+                </section>`;
 }
 
 function tagListHtml(recipe: Recipe, database: Database): string {
@@ -49,8 +89,11 @@ function notesHtml(recipe: Recipe): string {
                 `;
 }
 
-export function renderRecipePage(recipe: Recipe, database: Database): string {
-  const ingredientItems = recipe.measurements.map((measurement) => ingredientHtml(measurement, database));
+export function renderRecipePage(fileStem: string, recipe: Recipe, database: Database): string {
+  const componentStems = database.componentRecipes.get(fileStem);
+  const ingredientItems = recipe.measurements.map((measurement, index) =>
+    ingredientHtml(measurement, componentStems?.get(index), database),
+  );
   const instructionItems = recipe.instructions.map((instruction) => `<li>${escapeHtml(instruction)}</li>`);
 
   return pageHtml({
@@ -75,7 +118,7 @@ export function renderRecipePage(recipe: Recipe, database: Database): string {
                     <ol class="step-list">
                         ${instructionItems.join("\n                        ")}
                     </ol>
-                </section>
+                </section>${usedInHtml(fileStem, database)}
             </div>
         </div>
     </main>`,

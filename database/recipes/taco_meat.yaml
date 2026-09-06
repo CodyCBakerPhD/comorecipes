@@ -15,6 +15,7 @@ measurements:
 - amount: '24.5'
   unit: grams
   ingredient: taco seasoning
+  recipe: taco_seasoning
 - amount: 'enough'
   ingredient: water
 

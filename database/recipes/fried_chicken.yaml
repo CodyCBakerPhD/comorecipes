@@ -8,6 +8,7 @@ measurements:
 - amount: '0.25'
   unit: portions
   ingredient: frying breading
+  recipe: frying_breading
 - amount: '2'
   unit: portions
   ingredient: chicken breasts

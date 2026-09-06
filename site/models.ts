@@ -12,6 +12,9 @@ export interface Measurement {
   prefix?: string;
   suffix?: string;
   ingredient: string;
+  // File stem of the recipe this ingredient is made from, when it is one ("marinara sauce"
+  // in Spaghetti). Links are always declared here, never inferred from the ingredient name.
+  recipe?: string;
 }
 
 export interface Recipe {
@@ -36,6 +39,11 @@ export interface Database {
   ingredients: Map<string, Ingredient>;
   // Every tag used by any recipe, alphabetized
   tags: string[];
+  // Recipe stem to the stem of the recipe each of its measurements calls for, by measurement
+  // index; only measurements whose ingredient is itself a recipe have an entry
+  componentRecipes: Map<string, Map<number, string>>;
+  // Recipe stem to the stems of the recipes that use it as an ingredient, in stem order
+  usedIn: Map<string, string[]>;
 }
 
 export function yamlStems(directory: string): string[] {
@@ -53,11 +61,57 @@ function loadEntries<Entry>(directory: string): Map<string, Entry> {
   return entries;
 }
 
+// The recipe a measurement declares it is made from, checked against the database
+function componentRecipeStem(
+  fileStem: string,
+  measurement: Measurement,
+  recipes: Map<string, Recipe>,
+): string | undefined {
+  if (measurement.recipe == null) {
+    return undefined;
+  }
+  if (!recipes.has(measurement.recipe)) {
+    throw new Error(
+      `Recipe "${fileStem}" says its ingredient "${measurement.ingredient}" is made from the recipe ` +
+        `"${measurement.recipe}", but no such recipe exists in the database.`,
+    );
+  }
+  if (measurement.recipe === fileStem) {
+    throw new Error(`Recipe "${fileStem}" says its ingredient "${measurement.ingredient}" is made from itself.`);
+  }
+  return measurement.recipe;
+}
+
+// The cross-links between recipes: which measurements are other recipes, and the reverse
+function linkRecipes(recipes: Map<string, Recipe>): Pick<Database, "componentRecipes" | "usedIn"> {
+  const componentRecipes = new Map<string, Map<number, string>>();
+  const usedIn = new Map<string, string[]>();
+  for (const [fileStem, recipe] of recipes) {
+    const components = new Map<number, string>();
+    recipe.measurements.forEach((measurement, index) => {
+      const componentStem = componentRecipeStem(fileStem, measurement, recipes);
+      if (componentStem == null) {
+        return;
+      }
+      components.set(index, componentStem);
+      const users = usedIn.get(componentStem) ?? [];
+      if (!users.includes(fileStem)) {
+        users.push(fileStem);
+      }
+      usedIn.set(componentStem, users);
+    });
+    if (components.size > 0) {
+      componentRecipes.set(fileStem, components);
+    }
+  }
+  return { componentRecipes, usedIn };
+}
+
 export function loadDatabase(databaseDir: string): Database {
   const recipes = loadEntries<Recipe>(join(databaseDir, "recipes"));
   const ingredients = loadEntries<Ingredient>(join(databaseDir, "ingredients"));
   const tags = [...new Set([...recipes.values()].flatMap((recipe) => recipe.tags ?? []))].sort();
-  return { recipes, ingredients, tags };
+  return { recipes, ingredients, tags, ...linkRecipes(recipes) };
 }
 
 // The unit as it should read on the page: registered ingredients spell out their own

@@ -8,7 +8,8 @@ tags:
 measurements:
 - amount: '66'
   unit: grams
-  ingredient: Sweet Fire Rub # TODO: link
+  ingredient: Sweet Fire Rub
+  recipe: sweet_fire_spice
 - amount: '0.5'
   unit: portions
   ingredient: baby back ribs

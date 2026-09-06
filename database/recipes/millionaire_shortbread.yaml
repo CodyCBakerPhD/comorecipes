@@ -8,13 +8,16 @@ tags:
 measurements:
 - amount: '1'
   unit: portions
-  ingredient: shortbread  # TODO: link all
+  ingredient: shortbread
+  recipe: shortbread
 - amount: '1'
   unit: portions
   ingredient: simple caramel
+  recipe: simple_caramel
 - amount: '1'
   unit: portions
   ingredient: chocolate ganache
+  recipe: chocolate_ganache
 
 instructions:
 - Make shortbread, let cool at least 15 minutes.

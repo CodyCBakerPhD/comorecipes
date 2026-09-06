@@ -13,6 +13,7 @@ measurements:
 - amount: '1'
   unit: portions
   ingredient: rice
+  recipe: rice
 - amount: 'enough'
   ingredient: olive oil
 - amount: '20'
@@ -27,6 +28,7 @@ measurements:
 - amount: '10'
   unit: grams
   ingredient: red bean spice
+  recipe: red_bean_spice
 - amount: '360'
   unit: grams
   ingredient: water
