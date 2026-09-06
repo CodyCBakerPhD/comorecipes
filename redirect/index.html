@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoMo Recipes has moved</title>
+    <link rel="canonical" href="https://codycbakerphd.github.io/comorecipes-app/">
+    <meta http-equiv="refresh" content="0; url=https://codycbakerphd.github.io/comorecipes-app/">
+    <script>
+        // Carry the rest of the path across, so a bookmarked recipe page lands on that recipe.
+        // The deploy workflow publishes this file as both index.html and 404.html.
+        var newRoot = "https://codycbakerphd.github.io/comorecipes-app";
+        var path = location.pathname.replace(/^\/comorecipes(?=\/|$)/, "");
+        location.replace(newRoot + path + location.search + location.hash);
+    </script>
+</head>
+<body>
+    <p>CoMo Recipes has moved to <a href="https://codycbakerphd.github.io/comorecipes-app/">codycbakerphd.github.io/comorecipes-app</a>.</p>
+</body>
+</html>
