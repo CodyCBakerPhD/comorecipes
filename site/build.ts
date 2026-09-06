@@ -57,12 +57,17 @@ writeFileSync(join(distDir, "shopping_list.html"), renderShoppingListPage(databa
 // Shared stylesheet, scripts, favicon, and logo
 cpSync(join(siteDir, "assets"), join(distDir, "assets"), { recursive: true });
 
-// The raw database and its manifests, which the desktop app compares against its local copy
+// The raw database (just the YAML, not the READMEs beside it) and its manifests, which the
+// desktop app compares against its local copy
 for (const databaseName of DATABASE_NAMES) {
   const sourceDir = join(databaseDir, databaseName);
-  cpSync(sourceDir, join(distDir, databaseName), { recursive: true });
+  const stems = yamlStems(sourceDir);
+  mkdirSync(join(distDir, databaseName), { recursive: true });
+  for (const fileStem of stems) {
+    cpSync(join(sourceDir, `${fileStem}.yaml`), join(distDir, databaseName, `${fileStem}.yaml`));
+  }
 
-  const manifest = yamlStems(sourceDir)
+  const manifest = stems
     .map((fileStem) => `${fileStem}: ${md5(readFileSync(join(sourceDir, `${fileStem}.yaml`)))}\n`)
     .join("");
   writeFileSync(join(distDir, "manifests", `${databaseName}.yaml`), manifest);
