@@ -1,15 +1,19 @@
 // Assembles the deployable site into dist/ from the recipe database:
-//   1. loads database/ into typed models (site/models.ts),
+//   1. loads the database checkout into typed models (site/models.ts),
 //   2. renders each recipe page, the index, and the shopping list (site/pages/),
 //   3. copies the shared assets from site/assets,
 //   4. publishes the raw database with manifests, which the desktop app syncs from,
 //   5. adds .nojekyll so GitHub Pages serves the files verbatim.
 //
+// The database lives in its own repo (https://github.com/CodyCBakerPhD/comorecipes-database).
+// The build reads it from DATABASE_DIR when set, otherwise from a database/ checkout at the
+// root of this repo (gitignored; the workflows check it out there).
+//
 // Run with `npm run build` (requires Node >= 22.18 for native type stripping).
 
 import { createHash } from "node:crypto";
-import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { DATABASE_NAMES, loadDatabase, yamlStems } from "./models.ts";
@@ -18,12 +22,22 @@ import { renderRecipePage } from "./pages/recipe.ts";
 import { renderShoppingListPage } from "./pages/shopping_list.ts";
 
 const repoRoot = dirname(dirname(fileURLToPath(import.meta.url)));
-const databaseDir = join(repoRoot, "database");
+const databaseDir = resolve(process.env.DATABASE_DIR || join(repoRoot, "database"));
 const siteDir = join(repoRoot, "site");
 const distDir = join(repoRoot, "dist");
 
 function md5(content: Buffer | string): string {
   return createHash("md5").update(content).digest("hex");
+}
+
+for (const databaseName of DATABASE_NAMES) {
+  if (!existsSync(join(databaseDir, databaseName))) {
+    throw new Error(
+      `No recipe database found at ${databaseDir} (missing ${databaseName}/). Clone ` +
+        "https://github.com/CodyCBakerPhD/comorecipes-database to database/ at the root of " +
+        "this repo, or set DATABASE_DIR to an existing checkout.",
+    );
+  }
 }
 
 const database = loadDatabase(databaseDir);

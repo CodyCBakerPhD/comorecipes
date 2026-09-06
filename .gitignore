@@ -133,3 +133,6 @@ dmypy.json
 
 # Node (TypeScript site build)
 node_modules/
+
+# Local checkout of https://github.com/CodyCBakerPhD/comorecipes-database that the build reads
+/database/
